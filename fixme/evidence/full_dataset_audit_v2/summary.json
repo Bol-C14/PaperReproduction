@@ -1,0 +1,287 @@
+{
+  "upstream_commit": "e875437fbb11590b71775b32d3579726d702cfc6",
+  "task_unit": "one Task per data/subset/level/modality/case directory, official TaskScanner; no per-file expansion",
+  "no_llm_calls": true,
+  "no_eda_execution": true,
+  "loader_provenance": {
+    "file": "src/llm_client.py",
+    "sha256": "38accf175a46ead66f2648d5f7a8ed7a0261551e5238eaf0f27e69d1c55e0447",
+    "exact_function_ast": [
+      {
+        "name": "load_case_files",
+        "start_line": 52,
+        "end_line": 171
+      },
+      {
+        "name": "build_task_messages",
+        "start_line": 174,
+        "end_line": 410
+      }
+    ],
+    "imports_avoided": [
+      "API client/openai"
+    ],
+    "pdf_text_backend": "PyMuPDF structural-audit substitution",
+    "pdf_renderer": "official PDFImageRenderer, max8 pages,144dpi"
+  },
+  "summary": {
+    "SpeCom": {
+      "paper": {
+        "total": 149,
+        "Text": 98,
+        "MultiModal": 51
+      },
+      "directories": 149,
+      "official_scanned_tasks": 149,
+      "payload_loadable": 98,
+      "prompt_constructible": 99,
+      "schema_complete": 98,
+      "adapted_schema_complete": 98,
+      "reference_scorer_executed": 149,
+      "reference_positive_pass": 99,
+      "complete_task_reference_checked": 98,
+      "missing_required": {
+        "question": 51,
+        "answer": 50,
+        "images": 50
+      },
+      "warnings": {
+        "official_loader_omits_available_text_spec": 98,
+        "missing_or_empty_spec": 50
+      },
+      "by_modality": {
+        "Text": {
+          "directories": 98,
+          "schema_complete": 97
+        },
+        "MultiModal": {
+          "directories": 51,
+          "schema_complete": 1
+        }
+      },
+      "paper_directory_deficit": 0,
+      "modality_deficit": {
+        "Text": 0,
+        "MultiModal": 0
+      }
+    },
+    "MGen": {
+      "paper": {
+        "total": 111,
+        "Text": 80,
+        "MultiModal": 31
+      },
+      "directories": 81,
+      "official_scanned_tasks": 81,
+      "payload_loadable": 81,
+      "prompt_constructible": 81,
+      "schema_complete": 55,
+      "adapted_schema_complete": 81,
+      "reference_scorer_executed": 0,
+      "reference_positive_pass": 0,
+      "complete_task_reference_checked": 0,
+      "missing_required": {
+        "spec": 26
+      },
+      "warnings": {
+        "missing_or_empty_spec": 26
+      },
+      "by_modality": {
+        "Text": {
+          "directories": 80,
+          "schema_complete": 54
+        },
+        "MultiModal": {
+          "directories": 1,
+          "schema_complete": 1
+        }
+      },
+      "paper_directory_deficit": 30,
+      "modality_deficit": {
+        "Text": 0,
+        "MultiModal": 30
+      }
+    },
+    "TBGen": {
+      "paper": {
+        "total": 158,
+        "Text": 107,
+        "MultiModal": 51
+      },
+      "directories": 108,
+      "official_scanned_tasks": 108,
+      "payload_loadable": 107,
+      "prompt_constructible": 108,
+      "schema_complete": 107,
+      "adapted_schema_complete": 108,
+      "reference_scorer_executed": 0,
+      "reference_positive_pass": 0,
+      "complete_task_reference_checked": 0,
+      "missing_required": {
+        "rtl": 1
+      },
+      "warnings": {},
+      "by_modality": {
+        "Text": {
+          "directories": 107,
+          "schema_complete": 106
+        },
+        "MultiModal": {
+          "directories": 1,
+          "schema_complete": 1
+        }
+      },
+      "paper_directory_deficit": 50,
+      "modality_deficit": {
+        "Text": 0,
+        "MultiModal": 50
+      }
+    },
+    "SVAGen": {
+      "paper": {
+        "total": 61,
+        "Text": 40,
+        "MultiModal": 21
+      },
+      "directories": 41,
+      "official_scanned_tasks": 41,
+      "payload_loadable": 41,
+      "prompt_constructible": 41,
+      "schema_complete": 41,
+      "adapted_schema_complete": 41,
+      "reference_scorer_executed": 0,
+      "reference_positive_pass": 0,
+      "complete_task_reference_checked": 0,
+      "missing_required": {},
+      "warnings": {},
+      "by_modality": {
+        "Text": {
+          "directories": 40,
+          "schema_complete": 40
+        },
+        "MultiModal": {
+          "directories": 1,
+          "schema_complete": 1
+        }
+      },
+      "paper_directory_deficit": 20,
+      "modality_deficit": {
+        "Text": 0,
+        "MultiModal": 20
+      }
+    },
+    "RTLFix": {
+      "paper": {
+        "total": 268,
+        "Text": 102,
+        "MultiModal": 166
+      },
+      "directories": 103,
+      "official_scanned_tasks": 103,
+      "payload_loadable": 102,
+      "prompt_constructible": 103,
+      "schema_complete": 102,
+      "adapted_schema_complete": 102,
+      "reference_scorer_executed": 102,
+      "reference_positive_pass": 101,
+      "complete_task_reference_checked": 101,
+      "missing_required": {
+        "fix_reference": 1
+      },
+      "warnings": {},
+      "by_modality": {
+        "Text": {
+          "directories": 102,
+          "schema_complete": 101
+        },
+        "MultiModal": {
+          "directories": 1,
+          "schema_complete": 1
+        }
+      },
+      "paper_directory_deficit": 165,
+      "modality_deficit": {
+        "Text": 0,
+        "MultiModal": 165
+      }
+    }
+  },
+  "totals": {
+    "paper": 747,
+    "directories": 482,
+    "scanned": 482,
+    "payload_loadable": 429,
+    "prompt_constructible": 432,
+    "schema_complete": 403,
+    "adapted_schema_complete": 430,
+    "reference_scorer_executed": 251,
+    "reference_positive_pass": 200,
+    "complete_task_reference_checked": 199,
+    "directory_deficit": 265
+  },
+  "history": [
+    {
+      "commit": "e875437fbb11590b71775b32d3579726d702cfc6",
+      "data_tree": "2c4635dfd8bfc956d4e63e05b147687fe0f9f179",
+      "cases": {
+        "MGen": 81,
+        "RTLFix": 103,
+        "SVAGen": 41,
+        "SpeCom": 149,
+        "TBGen": 108
+      }
+    },
+    {
+      "commit": "0b54c449712aaa3f1b6d491f9dc48f07b125c7fe",
+      "data_tree": "2c4635dfd8bfc956d4e63e05b147687fe0f9f179",
+      "cases": {
+        "MGen": 81,
+        "RTLFix": 103,
+        "SVAGen": 41,
+        "SpeCom": 149,
+        "TBGen": 108
+      }
+    },
+    {
+      "commit": "51b94527c4c613ce40e74d098173c56c71c1eba5",
+      "data_tree": "2c4635dfd8bfc956d4e63e05b147687fe0f9f179",
+      "cases": {
+        "MGen": 81,
+        "RTLFix": 103,
+        "SVAGen": 41,
+        "SpeCom": 149,
+        "TBGen": 108
+      }
+    },
+    {
+      "commit": "dbd68b3bb7ee08af8cdd2b1d2d0537096d7ffd02",
+      "data_tree": "2c4635dfd8bfc956d4e63e05b147687fe0f9f179",
+      "cases": {
+        "MGen": 81,
+        "RTLFix": 103,
+        "SVAGen": 41,
+        "SpeCom": 149,
+        "TBGen": 108
+      }
+    },
+    {
+      "commit": "b19526770f101fed029b23e24523680bf5a7acfc",
+      "data_tree": "2c4635dfd8bfc956d4e63e05b147687fe0f9f179",
+      "cases": {
+        "MGen": 81,
+        "RTLFix": 103,
+        "SVAGen": 41,
+        "SpeCom": 149,
+        "TBGen": 108
+      }
+    }
+  ],
+  "git_checks": {
+    "shallow": "false",
+    "remote_refs": "e875437fbb11590b71775b32d3579726d702cfc6\trefs/heads/main",
+    "fsck": "",
+    "submodules": [],
+    "lfs_pointers": [],
+    "archives": []
+  }
+}

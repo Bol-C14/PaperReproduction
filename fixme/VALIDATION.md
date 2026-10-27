@@ -70,3 +70,10 @@ Rerunning creates them again. Fixed responses and response hashes are retained.
 Raw simulator/compiler logs intentionally preserve trailing whitespace and ASCII
 proof banners. Git whitespace checking excludes these `.log` artifacts; authored
 code and documentation have no whitespace errors.
+
+
+The subsequent full schema/asset audit is separate from these 24 controls.
+See DATA_COVERAGE.md and evidence/full_dataset_audit_v2: 482 keys audited,
+403 original/430 structurally repaired complete schemas, and 753 reference-only
+scoring calls over all 251 SpeCom/Text RTLFix keys. The 747-task objective remains
+open; old control records and metrics have not been replaced by those counts.

@@ -5,7 +5,7 @@ pilot tests evaluators, not model capability. It neither verifies nor refutes
 the original model rankings or aggregate results.
 
 1. **Version correspondence:** 482 pinned directories versus 747 published tasks.
-   Need the exact paper-time commit, full dataset manifest and removed multimodal
+   Need the exact paper-time commit, full dataset manifest and absent multimodal
    examples before claiming aggregate comparability. New README model results
    cannot substitute for the original ten-model experiment.
 2. **Metric reconstruction:** no original per-candidate outputs, random seeds,
@@ -35,3 +35,10 @@ the original model rankings or aggregate results.
 Next bounded expansion: two L2/L3 cases per family, a clock/reset case, a wide DPI
 port, and one meaningful temporal property with supported free formal frontend.
 Only expand after oracle disagreement and failure classifications are understood.
+
+Full-data reconciliation is now in DATA_COVERAGE.md. All five public history trees
+are identical; 265 directory-count deficits are multimodal, 50 present MM keys are
+empty placeholders, and explicit overlays recover 26 specs plus one filename
+matching failure. This narrows the remaining asset problem without proving why
+original assets are absent. Generic EDA coverage beyond the four pilot design
+inputs remains open; the read-only all-case audit is not an EDA benchmark run.

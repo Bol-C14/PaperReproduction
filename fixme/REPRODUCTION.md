@@ -6,6 +6,13 @@ Official code: https://github.com/ChatDesignVerification/FIXME at
 `e875437fbb11590b71775b32d3579726d702cfc6` (2026-08-12). Initial release is
 `b19526770f101fed029b23e24523680bf5a7acfc` (2026-08-03); neither is assumed to be the paper's exact dataset.
 
+The full original structural-reproduction objective remains **open**. The current
+EDA pilot used six unique case directories. A subsequent all-case audit now covers
+all 482 public keys and 753 cheap reference-scorer controls; see
+[the exact 747/482 reconciliation and coverage plan](DATA_COVERAGE.md).
+403 original schemas are complete; explicit source-verified overlays bring this
+to 430. These counts are not model or HDL pass rates.
+
 ## Run
 
 On Linux x86_64, with Python 3, git, curl/HTTPS access, dpkg-deb, g++, make,
