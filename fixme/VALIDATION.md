@@ -43,3 +43,7 @@ manifest hashes and per-case input lists prevent unnoticed drift. Retained trace
 record exact command argv, cwd, timeout, exit state, wall duration and raw feedback.
 Build products and upstream-derived staging copies are removed from the delivery;
 rerunning creates them again. Fixed responses and response hashes are retained.
+
+Raw simulator/compiler logs intentionally preserve trailing whitespace and ASCII
+proof banners. Git whitespace checking excludes these `.log` artifacts; authored
+code and documentation have no whitespace errors.
