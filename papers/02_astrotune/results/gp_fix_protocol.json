@@ -1,0 +1,40 @@
+{
+  "version": "v2_physical_gp",
+  "old_commit": "163c5fd432077c244041d0aec2f0f6fe35a91d85",
+  "old_attempts_retained": 2684,
+  "targets": [
+    "multi_pipe_8bit",
+    "div_16bit"
+  ],
+  "seeds": [
+    0,
+    1
+  ],
+  "primary_methods": [
+    "random",
+    "gp_single",
+    "ast_single",
+    "ast_gp_all",
+    "ast_tournament"
+  ],
+  "primary_runs": 20,
+  "primary_real_budget_each": 8,
+  "synth_cap_each_primary": 3,
+  "synth_space": 6,
+  "inclusive_random_runs": 4,
+  "inclusive_random_real_budget_each": 62,
+  "new_true_stage_budget_total": 408,
+  "history_calls_existing_not_rerun": 54,
+  "history_preparation_cost_charged_each_retrieval": 54,
+  "gp_model_sha256": "8b3f4ed61a3a1370bbe0476f0be9bcab635fc655b9bf71d9008e669c54a7cd7f",
+  "regression_tests": {
+    "asymmetric_ei_distinguish": true,
+    "unique_ei_max_required": true,
+    "id_permutations_per_stage": 20,
+    "true_eda_calls": 0
+  },
+  "eda_response_cache_hits": 0,
+  "retrieval_preparation": "one fresh AST ranking per target,then reused; actual preprocessing wall retained per target in summaries",
+  "no_online_llm": true,
+  "seven_stage_untested": true
+}

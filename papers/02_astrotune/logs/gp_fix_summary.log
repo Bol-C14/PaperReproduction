@@ -1,0 +1,48 @@
+mkdir -p failed for path /home/agent/.config/matplotlib: [Errno 30] Read-only file system: '/home/agent/.config/matplotlib'
+Matplotlib created a temporary cache directory at /tmp/matplotlib-i62vbkox because there was an issue with the default path (/home/agent/.config/matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+Fontconfig error: No writable cache directories
+# Corrected GP v2 bounded pilot
+
+V1 is retained but cannot evaluate BO efficacy. Each primary run uses8 real calls and at most3/6 synthesis configs; inclusive random uses62 online calls versus retrieval54+8. Two seeds; no significance/generalization claim.
+
+| Design | Method | n | Mean best QoR | range | true calls/run | synth configs/run |
+|---|---|---:|---:|---|---|---|
+| div_16bit | ast_gp_all | 2 | 104.447526917 | 104.447526917–104.447526917 | 8 | 3–3 |
+| div_16bit | ast_single | 2 | 104.462019769 | 104.455111961–104.468927577 | 8 | 3–3 |
+| div_16bit | ast_tournament | 2 | 104.462019769 | 104.455111961–104.468927577 | 8 | 3–3 |
+| div_16bit | gp_single | 2 | 104.451496631 | 104.447881300–104.455111961 | 8 | 3–3 |
+| div_16bit | random | 2 | 104.479385878 | 104.464037266–104.494734490 | 8 | 3–3 |
+| div_16bit | random_inclusive | 2 | 104.447526917 | 104.447526917–104.447526917 | 62 | 6–6 |
+| multi_pipe_8bit | ast_gp_all | 2 | 0.998983740 | 0.998983740–0.998983740 | 8 | 3–3 |
+| multi_pipe_8bit | ast_single | 2 | 0.998983740 | 0.998983740–0.998983740 | 8 | 3–3 |
+| multi_pipe_8bit | ast_tournament | 2 | 0.998983740 | 0.998983740–0.998983740 | 8 | 3–3 |
+| multi_pipe_8bit | gp_single | 2 | 0.999491870 | 0.998983740–1.000000000 | 8 | 3–3 |
+| multi_pipe_8bit | random | 2 | 0.998983740 | 0.998983740–0.998983740 | 8 | 3–3 |
+| multi_pipe_8bit | random_inclusive | 2 | 0.998983740 | 0.998983740–0.998983740 | 62 | 6–6 |
+
+```json
+{
+  "actual_fresh_retrieval_preparations": 2,
+  "cached_retrieval_ranking_lookups": 12,
+  "actual_retrieval_preparation_wall_s": 7.1214781840003525,
+  "new_true_attempts_including_pending": 408,
+  "new_successes": 408,
+  "new_failures": 0,
+  "unique_full_configs_across_v2": 144,
+  "full_configs_new_to_v1": 3,
+  "completed_runs": 24,
+  "true_eda_attempts": 408,
+  "eda_response_cache_hits": 0,
+  "posthoc_acquisition_replay_queries": 28,
+  "posthoc_replay_true_eda_attempts": 0,
+  "pilot_synth_cap": 3,
+  "synth_space_size": 6,
+  "seeds": [
+    0,
+    1
+  ],
+  "history_cost_per_retrieval_run": 54,
+  "inclusive_random_budget": 62,
+  "note": "No v1/v2 pooling. Replay verifies selections using already recorded observations; it is not a new trial, EDA result, or performance arm."
+}
+```

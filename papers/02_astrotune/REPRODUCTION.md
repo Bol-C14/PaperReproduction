@@ -1,16 +1,31 @@
 # Paper 02 — AstroTune 行为复现
 
+> **GP审计修订 v2（原v1结果未删除）**：旧整配置ID one-hot + 固定各向同性Matérn使所有未见候选的后验均值/方差/EI相同，索引argmax退化；其GP arm是**无信息GP**，不得据此评价BO收益。原单父穷举6/6综合候选，终态也不能检验综合GP选择价值。v1报告/CSV/ledger原文保存在`evidence/v1_163c5fd/`，原2684次记录及git历史保留。修正使用fast二值+标准化log(delay)，放置util+density标准化；非对称EI及各20次ID重排回归通过。新证据在`GP_CORRECTION.md`与`results/gp_fix_summary.md`，只跑非穷举小预算pilot，不与v1合并。无在线LLM、七阶段未测；No-Go边界不变。
+
+
 论文：Runzhi Wang, Jingyu Pan, Yiran Chen, Jiang Hu, ISPD 2026, pp144–152, DOI10.1145/3764386.3779579。官方[全文](https://jpan.me/files/ISPD26_AstroTune.pdf)、[演讲稿](https://ispd.cc/slides/2026/protected/slides_9_1.pdf)、[Duke记录](https://scholars.duke.edu/publication/1817133)。本项目是独立实现，不是作者源码。
 
 **结论：No-Go，不能宣称论文核心收益已复现。** 真实开源EDA行为框架已完成，三个主目标的十种方法在三种子下获得完全相同的最佳QoR（0.98566514、0.99898374、0.99749059）。独立divider压力测试中，BO/随机可达到104.44752692，AST多父方法均值104.45314849，未显示收益；全部divider结果仍有约4.45ns时序违例。无LLM推理，不推断其独立价值。
 
-完成90组主实验、12组压力实验、10组历史成本对齐随机实验及1组剪枝分支探针。实际阶段尝试2,684次，2,680成功，4次为已修复早期pilot失败；全局321种完整配置、42种综合配置，只有20个不同网表字节哈希。累计阶段墙钟1,959.74秒（各调用时间相加，不是任务总耗时或端到端加速指标）。36种初始电路综合配置形式等价通过；divider一个配置30秒超时、其余5种未做形式证明。
+**v1归档统计**：完成90组主实验、12组压力实验、10组历史成本对齐随机实验及1组剪枝分支探针。实际阶段尝试2,684次，2,680成功，4次为已修复早期pilot失败；全局321种完整配置、42种综合配置，只有20个不同网表字节哈希。累计阶段墙钟1,959.74秒（各调用时间相加，不是任务总耗时或端到端加速指标）。36种初始电路综合配置形式等价通过；divider一个配置30秒超时、其余5种未做形式证明。
 
 默认剪枝0次；窄阈值后验探针2次，其被剪父后来均有子配置胜过当时baseline。未观察严格综合→放置QoR排名反转，未观察下游合法域改变。AST检索给divider的warmstart还劣于默认值，见`results/transfer_audit.json`。这些边界与七阶段价值见 `CROSS_STAGE_AUDIT.md`。
 
 最终可重算表写入 `results/comparison.csv`、`results/ledger.json` 和 `results/summary.md`。阅读边界与预先写定的行为契约见 `CONTRACT.md`；来源、访问失败与许可见 `evidence/SOURCE_LEDGER.md`、`evidence/BLOCKERS.md`。
 
-## 重跑
+## GP修订验证（当前推荐）
+
+```bash
+cd /workspace/PaperReproduction/papers/02_astrotune
+/workspace/scratch/astrotune/venv/bin/python tests/test_gp_geometry.py
+/workspace/scratch/astrotune/venv/bin/python src/gp_fix_pilot.py
+/workspace/scratch/astrotune/venv/bin/python src/summarize_gp_fix.py
+/workspace/scratch/astrotune/venv/bin/python src/summarize.py
+```
+
+v2pilot前缀记录独立于原结果；已有summary会跳过。需要完全重跑时仅移走`results/v2pilot_*`和对应`work/v2pilot_*`，保留原v1及冻结donor库。回放GP acquisition只用于验证实际选择，0次EDA；不当成新的搜索试验。原v1精确复演需checkout `163c5fd`；以下旧命令描述其管线，当前源码GP已修正，不能覆盖原数据后声称同版本。
+
+## 原管线重跑
 
 ```bash
 cd /workspace/PaperReproduction/papers/02_astrotune
@@ -45,7 +60,7 @@ python3 -m venv /workspace/scratch/astrotune/venv
 
 TF-IDF词/二元组是明确的非LLM文本控制。fusion_control先按文本取2个donor，再等权融合文本与3个AST分数；不等价于论文的LLM模块摘要、设计摘要、候选筛选或直接语义打分。免费模型下载403，在线/本地LLM推理次数0。
 
-BO：sklearn固定Matérn+白噪声核GP，类别one-hot，EI acquisition；Optuna TPE每线程2个startup trial，固定种子。未采用作者未公开的超参数。单父路径先搜索综合空间，再调一个父网表的放置；多父调度在连续2次保持最佳时传播，继续上游搜索，有限空间终止时补至最多3父。线程顺序执行，未复现并行异步调度。子线程从检索的放置参数开始，首次QoR比当前最佳差5%则剪枝。长停滞 early-stop 未实现；全局18次阶段调用预算与有限空间终止替代。每次放置读取精确父网表并记录SHA256。
+BO v1（已发现无信息退化，结果归档）：sklearn固定Matérn+白噪声核GP，整配置ID one-hot，EI acquisition；v2改为真实参数几何，见GP_CORRECTION.md。Optuna TPE每线程2个startup trial，固定种子。未采用作者未公开的超参数。单父路径先搜索综合空间，再调一个父网表的放置；多父调度在连续2次保持最佳时传播，继续上游搜索，有限空间终止时补至最多3父。线程顺序执行，未复现并行异步调度。子线程从检索的放置参数开始，首次QoR比当前最佳差5%则剪枝。长停滞 early-stop 未实现；全局18次阶段调用预算与有限空间终止替代。每次放置读取精确父网表并记录SHA256。
 
 Eq8–10实现见 `src/qor.py`。本地常数：αA=αP=.5，λ1=.05，λ2=.1，λ3=.1，λ4=1，β=1，κ=100，αW=1。参考值统一取该设计默认完整流程，避免不同warmstart自归一导致不可比；这是公平比较选择，与论文按initial solution归一存在解释差异。最终QoR若slack<0为100+|slack|，否则为面积/功耗归一均值；对所有方法一致。
 
@@ -56,3 +71,5 @@ Eq8–10实现见 `src/qor.py`。本地常数：αA=αP=.5，λ1=.05，λ2=.1，
 ## 审阅包
 
 四份请求报告齐全，另有跨阶段专项审计。`logs/raw_eda_and_validation.tar.gz`含6,907个原始日志/命令/验证输入文件；`artifacts/netlists/`保留全部20个不同映射网表并按SHA寻址，每个placement的输入均已与这些字节核对。另保留一个真实placed DEF/ODB示例。没有PDK、模型权重、编译缓存或大数据库混入仓库。审阅ZIP另包含完整独立分支git bundle、文件哈希清单；原始CSV/JSON可仅用Python标准库重算，无需EDA或网络。
+
+**GP修订完成结果**：新24组408次真实调用全部成功（20×8次且每组≤3/6综合候选，4×62次历史成本匹配随机），0 EDA缓存命中；28条acquisition回放匹配，40次ID重排回归通过。累计3092次尝试/3088成功/4旧失败；v1/v2不混合。divider中部分修正GP arm胜过8次随机，但62次随机达到同样最佳值，n=2不足以归因或推广；multi_pipe8未见稳定优势。完整表及限制见`GP_CORRECTION.md`、`results/gp_fix_summary.md`。

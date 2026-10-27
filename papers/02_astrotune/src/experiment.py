@@ -3,9 +3,6 @@ import json,time,sys,itertools,warnings,math
 from pathlib import Path
 import numpy as np
 import optuna
-from sklearn.gaussian_process import GaussianProcessRegressor
-from sklearn.gaussian_process.kernels import Matern,WhiteKernel
-from scipy.stats import norm
 from eda import ROOT,EDA,SYNTH,PLACE
 from retrieval import retrieve,tokens
 from qor import logic,layout
@@ -15,19 +12,11 @@ MANIFEST=json.loads((ROOT/'benchmarks/manifest.json').read_text())['designs']
 
 def data():return [dict(d,code=(ROOT/d['rtl']).read_text(),spec=(ROOT/d['spec']).read_text()) for d in MANIFEST]
 
-def gp_pick(options,obs,rng):
-    if len(obs)<2:return int(rng.choice(options))
-    # Categorical one-hot; stationary Matérn is an explicit local modeling assumption.
-    size=max(max(options)+1,max(obs)+1); X=np.eye(size)
-    model=GaussianProcessRegressor(kernel=Matern(nu=2.5)+WhiteKernel(1e-6),optimizer=None,normalize_y=True,alpha=1e-6)
-    model.fit(X[list(obs)],list(obs.values()));mu,sd=model.predict(X[options],return_std=True)
-    improvement=min(obs.values())-mu-.001;z=improvement/np.maximum(sd,1e-12)
-    ei=improvement*norm.cdf(z)+sd*norm.pdf(z)
-    return options[int(np.argmax(ei))]
+from gp_model import gp_pick
 
 class Search:
     def __init__(self,design,method,seed,warm,budget=18,runid=None):
-        self.design=design;self.method=method;self.seed=seed;self.warm=warm;self.budget=budget;self.rng=np.random.default_rng(seed);self.prune_ratio=1.05
+        self.design=design;self.method=method;self.seed=seed;self.warm=warm;self.budget=budget;self.rng=np.random.default_rng(seed);self.prune_ratio=1.05;self.max_synth=len(SYNTH)
         self.eda=EDA(runid or f'{design["id"]}_{method}_{seed}');self.syn={};self.obs={};self.placed={};self.events=[];self.studies={};self.start=time.monotonic();self.ref=None
     def event(self,kind,**kw):self.events.append(dict(event=kind,at_calls=len(self.eda.records),**kw))
     def qs(self,r):return logic(r['area'],r['power'],r['slack'],self.ref)
@@ -41,7 +30,7 @@ class Search:
     def choose(self,options,obs,stage,parent=0):
         if self.method=='random':return int(self.rng.choice(options))
         model='tpe' if (stage=='place' and self.method!='ast_gp_all') or self.method=='ast_tpe_all' else 'gp'
-        if model=='gp':return gp_pick(options,obs,self.rng)
+        if model=='gp':return gp_pick(options,obs,self.rng,stage)
         key=(stage,parent)
         if key not in self.studies:
             self.studies[key]=optuna.create_study(sampler=optuna.samplers.TPESampler(seed=self.seed+parent+19,n_startup_trials=2))
@@ -67,11 +56,11 @@ class Search:
         multi='tournament' in self.method
         if self.method=='random':
             while len(self.eda.records)<self.budget:
-                pairs=[(s,p) for s in range(len(SYNTH)) for p in range(len(PLACE)) if (s,p) not in self.placed and (s in self.syn or len(self.eda.records)+2<=self.budget)]
+                pairs=[(s,p) for s in range(len(SYNTH)) for p in range(len(PLACE)) if (s,p) not in self.placed and (s in self.syn or (len(self.syn)<self.max_synth and len(self.eda.records)+2<=self.budget))]
                 if not pairs:break
                 s,p=pairs[int(self.rng.integers(len(pairs)))];self.synth(s);self.place(s,p)
         elif not multi:
-            while len(self.syn)<len(SYNTH) and len(self.eda.records)<self.budget:
+            while len(self.syn)<self.max_synth and len(self.eda.records)<self.budget:
                 s=self.choose([i for i in range(len(SYNTH)) if i not in self.syn],{i:self.qs(v) for i,v in self.syn.items()},'synth');r=self.synth(s);self.feedback(r,'synth')
             s=min(self.syn,key=lambda x:(self.qs(self.syn[x]),x));self.event('single_promote',s=s)
             self.optimize_parent(s,prune=False)
@@ -85,7 +74,7 @@ class Search:
                     promoted.append(best);active.append(best);self.event('stable_promote',s=best,stability=stable)
                     if not self.optimize_parent(best,prune=('no_prune' not in self.method),max_new=2):active.remove(best)
                 available=[i for i in range(len(SYNTH)) if i not in self.syn]
-                if not available:break
+                if not available or len(self.syn)>=self.max_synth:break
                 s=self.choose(available,{i:self.qs(v) for i,v in self.syn.items()},'synth');r=self.synth(s);self.feedback(r,'synth')
             # Finite-space termination: promote at most three observed parents, by QoR, without oracle outcomes.
             for s in sorted(self.syn,key=lambda x:(self.qs(self.syn[x]),x)):
@@ -101,7 +90,7 @@ class Search:
                     before=len(self.eda.records);self.optimize_parent(s,prune=False,max_new=1);progressed|=len(self.eda.records)>before
                 if not progressed:break
         best=min(self.placed.values(),key=lambda r:(self.qp(r),r['s'],r['p']))
-        result={'run':self.eda.runid,'design':self.design['id'],'method':self.method,'seed':self.seed,'warm':list(self.warm),'budget':self.budget,'calls':len(self.eda.records),'unique_synth':len(self.syn),'unique_full':len(self.placed),'best_qor':self.qp(best),'best':best,'reference':self.ref,'wall_s':time.monotonic()-self.start,'eda_wall_s':sum(r['wall_s'] for r in self.eda.records),'events':self.events,'early_stop':'finite space or global budget; long-stability stage stopping not implemented'}
+        result={'run':self.eda.runid,'design':self.design['id'],'method':self.method,'seed':self.seed,'warm':list(self.warm),'budget':self.budget,'calls':len(self.eda.records),'unique_synth':len(self.syn),'unique_full':len(self.placed),'best_qor':self.qp(best),'best':best,'reference':self.ref,'wall_s':time.monotonic()-self.start,'eda_wall_s':sum(r['wall_s'] for r in self.eda.records),'events':self.events,'algorithm_version':'v2_physical_gp','max_synth':self.max_synth,'early_stop':'finite space or global budget; long-stability stage stopping not implemented'}
         (ROOT/'results'/f'{self.eda.runid}.summary.json').write_text(json.dumps(result,indent=2));return result
     def optimize_parent(self,s,prune,max_new=999):
         # First child uses the FULL warmstart vector's downstream parameter.

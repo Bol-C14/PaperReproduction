@@ -1,4 +1,6 @@
-# Recomputed results
+# Recomputed archived v1 results
+
+**GP v1 is uninformative one-hot; these GP arms do not evaluate BO efficacy. Corrected non-exhaustive v2 results are separate in gp_fix_summary.md.**
 
 All QoR values minimize. 3 seeds are stochastic search runs; deterministic repeats are separate. Main cases and prospectively added div16 stress case are separate strata.
 
@@ -48,8 +50,12 @@ All QoR values minimize. 3 seeds are stochastic search runs; deterministic repea
 
 ```json
 {
-  "actual_eda_stage_attempts": 2684,
-  "successful_stage_evaluations": 2680,
+  "gp_fix_runs": 24,
+  "gp_fix_true_attempts": 408,
+  "gp_fix_eda_cache_hits": 0,
+  "v1_archived_attempts": 2684,
+  "actual_eda_stage_attempts": 3092,
+  "successful_stage_evaluations": 3088,
   "failed_stage_evaluations": 4,
   "phase_stage_attempts": {
     "main_search": 1620,
@@ -59,11 +65,13 @@ All QoR values minimize. 3 seeds are stochastic search runs; deterministic repea
     "legacy": 54,
     "pilot_debug": 8,
     "deterministic_repeat": 16,
-    "posthoc_transfer": 32
+    "posthoc_transfer": 32,
+    "gp_fix_search": 160,
+    "gp_fix_inclusive": 248
   },
-  "physical_global_unique_configs": 321,
+  "physical_global_unique_configs": 324,
   "global_unique_synth_configs": 42,
-  "summed_eda_wall_s": 1959.7356702090046,
+  "summed_eda_wall_s": 2517.577638961002,
   "main_search_runs": 90,
   "stress_runs": 12,
   "sum_prunes": 2,

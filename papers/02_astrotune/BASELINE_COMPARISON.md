@@ -1,5 +1,8 @@
 # 基线、机会预算与结果解释
 
+> **GP审计修订 v2（原v1结果未删除）**：旧整配置ID one-hot + 固定各向同性Matérn使所有未见候选的后验均值/方差/EI相同，索引argmax退化；其GP arm是**无信息GP**，不得据此评价BO收益。原单父穷举6/6综合候选，终态也不能检验综合GP选择价值。v1报告/CSV/ledger原文保存在`evidence/v1_163c5fd/`，原2684次记录及git历史保留。修正使用fast二值+标准化log(delay)，放置util+density标准化；非对称EI及各20次ID重排回归通过。新证据在`GP_CORRECTION.md`与`results/gp_fix_summary.md`，只跑非穷举小预算pilot，不与v1合并。无在线LLM、七阶段未测；No-Go边界不变。
+
+
 完整逐run表见 `results/comparison.csv`；离线可重算汇总见 `results/summary.md`，图见 `results/comparison.png`。`results/ledger.json`区分实际执行数、全配置唯一数、网表唯一哈希数、种子搜索和确定性重复。这里的标签是本地对照，不能冒用为作者的CROP/FlowTuner/ORFS-agent实现。
 
 | 本地方法 | 检索与初始化 | 搜索/传播 | 隔离的问题 |
@@ -39,3 +42,5 @@
 事后donor配置迁移审计显示，AST为divider选的multi_pipe4配置QoR104.506767531，劣于默认104.494734490，也劣于adder8 donor的104.464037266。结构相似在此不是配置可迁移性的充分条件。barrel的最佳donor反而是功能不同的adder8，进一步说明功能HR和调参收益应分别测量。原始矩阵、选择规则与regret见`results/transfer_audit.json`。
 
 四个目标各两次独立真实重复中，默认配置area/power/slack及网表哈希完全一致；这8条placement记录与对应8次synthesis属于16次确定性复测，不算8个新随机种子。配置空间72项、部分映射别名及功耗报告精度，也限制了本批小幅收益的解释空间。
+
+**GP修订完成结果**：新24组408次真实调用全部成功（20×8次且每组≤3/6综合候选，4×62次历史成本匹配随机），0 EDA缓存命中；28条acquisition回放匹配，40次ID重排回归通过。累计3092次尝试/3088成功/4旧失败；v1/v2不混合。divider中部分修正GP arm胜过8次随机，但62次随机达到同样最佳值，n=2不足以归因或推广；multi_pipe8未见稳定优势。完整表及限制见`GP_CORRECTION.md`、`results/gp_fix_summary.md`。

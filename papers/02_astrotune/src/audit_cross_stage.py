@@ -4,7 +4,7 @@ Never called by search. Unobserved configurations are never assigned oracle QoR.
 import json,itertools,math,collections
 from eda import ROOT,PLACE
 from qor import logic,layout
-R=ROOT/'results';summaries=[json.loads(p.read_text()) for p in R.glob('*.summary.json')];records=[json.loads(l) for p in R.glob('*.jsonl') for l in p.read_text().splitlines()];output={}
+R=ROOT/'results';summaries=[json.loads(p.read_text()) for p in R.glob('*.summary.json') if not p.name.startswith('v2pilot_')];records=[json.loads(l) for p in R.glob('*.jsonl') if not p.name.startswith('v2pilot_') for l in p.read_text().splitlines()];output={}
 for design in ('adder_32bit','multi_pipe_8bit','barrel_shifter','div_16bit'):
  ss=[s for s in summaries if s['design']==design and 'probe' not in s['run']];ref=ss[0]['reference'];rr=[r for r in records if r['design']==design and r['status']=='ok' and not r['run'].startswith('pilot')]
  parents=[]

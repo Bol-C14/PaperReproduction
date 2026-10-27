@@ -1,0 +1,15 @@
+"""Package tracked repository snapshot plus complete branch bundle; no network."""
+import subprocess,zipfile,json,hashlib,sys
+from pathlib import Path
+REPO=Path(__file__).resolve().parents[3];OUT=Path(sys.argv[1] if len(sys.argv)>1 else '/workspace/AstroTune_Paper02_review.zip');BUNDLE=OUT.parent/'scratch/astrotune/AstroTune_review.bundle';BUNDLE.parent.mkdir(parents=True,exist_ok=True)
+head=subprocess.check_output(['git','-C',str(REPO),'rev-parse','HEAD'],text=True).strip();branch='reproduction/astrotune-ispd2026'
+subprocess.run(['git','-C',str(REPO),'bundle','create',str(BUNDLE),branch],check=True);subprocess.run(['git','-C',str(REPO),'bundle','verify',str(BUNDLE)],check=True,capture_output=True)
+files=subprocess.check_output(['git','-C',str(REPO),'ls-files','-z']).decode().split('\0');entries={p:(REPO/p).read_bytes() for p in files if p};entries['AstroTune_review.bundle']=BUNDLE.read_bytes()
+entries['README_REVIEW.txt']=(f'''AstroTune review package — GP correction v2\nRepository Bol-C14/PaperReproduction;branch {branch};commit {head}\nV1 commit163c5fd is preserved in complete git history and evidence/v1_163c5fd.\nV1 GP one-hot is uninformative; do not interpret it as BO efficacy evidence.\nStart at papers/02_astrotune/GP_CORRECTION.md and REPRODUCTION.md.\nFour requested reports plus CROSS_STAGE_AUDIT.md included.\nOffline: cd papers/02_astrotune && python3 src/summarize.py && python3 src/summarize_gp_fix.py\nStandard library recalculates metrics; sklearn enables optional acquisition replay;matplotlib optional.\nV2 experiments: two targets,two seeds,20x8 real calls at <=3/6 synthesis configs,4x62-call history-inclusive random controls.408 new real calls,0 EDA cache hits.\nOriginal2684 calls retained; v1/v2 not pooled.0 online LLM;seven stages untested.\nRaw logs/scripts/netlists included;no tool/PDK/model/cache binaries.\nGit restore: git clone -b {branch} AstroTune_review.bundle PaperReproduction\nNo push,PR,paid resources,or publication.\n''').encode()
+manifest={'repository':'Bol-C14/PaperReproduction','branch':branch,'commit':head,'files':[{'path':p,'bytes':len(b),'sha256':hashlib.sha256(b).hexdigest()} for p,b in sorted(entries.items())]};entries['REVIEW_MANIFEST.json']=json.dumps(manifest,indent=2).encode();entries['SHA256SUMS']=('\n'.join(hashlib.sha256(b).hexdigest()+'  '+p for p,b in sorted(entries.items()))+'\n').encode()
+with zipfile.ZipFile(OUT,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=9) as z:
+ for p,b in sorted(entries.items()):z.writestr(p,b)
+with zipfile.ZipFile(OUT) as z:
+ assert z.testzip() is None
+ for r in manifest['files']:assert hashlib.sha256(z.read(r['path'])).hexdigest()==r['sha256']
+result={'path':str(OUT),'bytes':OUT.stat().st_size,'sha256':hashlib.sha256(OUT.read_bytes()).hexdigest(),'commit':head,'bundle_sha256':hashlib.sha256(BUNDLE.read_bytes()).hexdigest(),'zip_crc':'passed','manifest_entries_verified':len(manifest['files'])};(BUNDLE.parent/'review_validation_v2.json').write_text(json.dumps(result,indent=2));print(json.dumps(result,indent=2))

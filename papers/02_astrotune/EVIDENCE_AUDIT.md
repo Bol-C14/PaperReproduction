@@ -1,5 +1,8 @@
 # 证据审计与批判审评
 
+> **GP审计修订 v2（原v1结果未删除）**：旧整配置ID one-hot + 固定各向同性Matérn使所有未见候选的后验均值/方差/EI相同，索引argmax退化；其GP arm是**无信息GP**，不得据此评价BO收益。原单父穷举6/6综合候选，终态也不能检验综合GP选择价值。v1报告/CSV/ledger原文保存在`evidence/v1_163c5fd/`，原2684次记录及git历史保留。修正使用fast二值+标准化log(delay)，放置util+density标准化；非对称EI及各20次ID重排回归通过。新证据在`GP_CORRECTION.md`与`results/gp_fix_summary.md`，只跑非穷举小预算pilot，不与v1合并。无在线LLM、七阶段未测；No-Go边界不变。
+
+
 **判定基准是行为契约，不是输出相似的表格。** 已读事实、独立实现选择、工具替换和缺失证据分别记录。官方九页全文没有附录；另读官方26页演讲稿。作者源码、可下载实验artifact及源码许可未找到；ACM页面403，因此不能宣称彻底排除那里存在补充资料。详细来源见 `evidence/SOURCE_LEDGER.md`。
 
 | 主张/模块 | 本次判定 | 独立证据及限制 |
@@ -9,7 +12,7 @@
 | 改名/移除注释的结构稳定性 | Partially Replicated | `retrieval_audit.json`，精确AST同一的alpha-renaming；不是原文多LLM重新生成的功能等价RTL |
 | LLM分层模块/设计摘要、候选筛选、直接语义分数 | Not Replicated | 免费模型与后端403，0次推理。TF-IDF及fusion_control只作非LLM控制 |
 | 历史参数warmstart | Partially Replicated | 三个独立donor经真实搜索后冻结；所有目标运行接收其完整(s,p)向量，无目标结果进入检索接口；原数据库未知 |
-| GP综合/TPE物理阶段与真实反馈 | Partially Replicated | 真实GP/EI、OptunaTPE和阶段PPA反馈；核、类别编码、startup、预算为替代实现 |
+| GP综合/TPE物理阶段与真实反馈 | v1 GP Not Replicated；v2 Partially Replicated | v1 GP后验对未见配置无区分力，撤回其BO效用解释。v2真实参数几何及非穷举pilot验证选择机制；OptunaTPE/真实PPA反馈保留。不是论文模型配置重演 |
 | 跨阶段信息流正确 | Replicated（本地流程） | 每个placement有parent_run/id/s和网表SHA；`summarize.py`逐条核验；物理工具接收真实父网表，无离线目标oracle |
 | 多候选传播/动态baseline/首次子线程剪枝 | Partially Replicated | 真实scheduler事件、baseline、prune日志；顺序事件执行，最多三父；稳定2轮及5%为本地假设；长停滞early-stop未实现 |
 | 七阶段商业流程的协同与签核 | Not Replicated | 只有综合→放置，无CTS/布线/签核，不映射成七阶段成功 |
@@ -43,3 +46,5 @@ RTL→AST输入不经过LLM；结构排名输出带分项分数，检索接口�
 **No-Go：** 将当前证据当作AstroTune完整算法、独立LLM效用、七阶段收益或原论文14%/2×结论已复现。
 
 **Go：** 将本分支作为可审查的真实EDA行为实验框架与零收益/压力结果，进一步做家族隔离的迁移研究。是否存在可推广增益，应由更大设计、可访问免费模型、严格总成本匹配和预先确定的策略再验证。当前没有需要用户批准才能完成的剩余写入动作；所有未做能力已按Not/Partially标记。
+
+**GP修订完成结果**：新24组408次真实调用全部成功（20×8次且每组≤3/6综合候选，4×62次历史成本匹配随机），0 EDA缓存命中；28条acquisition回放匹配，40次ID重排回归通过。累计3092次尝试/3088成功/4旧失败；v1/v2不混合。divider中部分修正GP arm胜过8次随机，但62次随机达到同样最佳值，n=2不足以归因或推广；multi_pipe8未见稳定优势。完整表及限制见`GP_CORRECTION.md`、`results/gp_fix_summary.md`。
