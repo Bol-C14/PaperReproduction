@@ -1,0 +1,4 @@
+module top(input [15:0] x, output [15:0] y0, output [15:0] y1);
+assign y0 = (((16'd2 * x) << 1) + x);
+assign y1 = ((((((((((x << 1) << 1) - x) << 1) << 1) << 1) - x) << 1) << 1) + x);
+endmodule

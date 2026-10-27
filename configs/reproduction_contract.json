@@ -1,0 +1,66 @@
+{
+  "paper": "ASPEN MLCAD2025",
+  "branch": "reproduction/aspen-mlcad2025",
+  "constraints": {
+    "paid_api": false,
+    "cloud_spend": false,
+    "push": false,
+    "pr": false,
+    "unknown_scripts": false
+  },
+  "claims": [
+    {
+      "id": "table_ii_arithmetic",
+      "status": "Replicated",
+      "evidence": "results/table_ii_arithmetic.json",
+      "decision": "Go"
+    },
+    {
+      "id": "table_ii_ppa",
+      "status": "Not Replicated",
+      "evidence": null,
+      "decision": "No-Go"
+    },
+    {
+      "id": "figure_6_ablations",
+      "status": "Not Replicated",
+      "evidence": "EVIDENCE_AUDIT.md",
+      "decision": "No-Go"
+    },
+    {
+      "id": "figure_7_official_pareto",
+      "status": "Not Replicated",
+      "evidence": null,
+      "decision": "No-Go"
+    },
+    {
+      "id": "rule_semantics_subset",
+      "status": "Partially Replicated",
+      "evidence": "results/rule_audit.json",
+      "decision": "Go"
+    },
+    {
+      "id": "substitute_rtl_equivalence",
+      "status": "Replicated",
+      "evidence": "results/rtl_equivalence.json",
+      "decision": "Go"
+    },
+    {
+      "id": "llm_advantage",
+      "status": "Not Replicated",
+      "evidence": null,
+      "decision": "No-Go"
+    }
+  ],
+  "official_missing": [
+    "source commit/license",
+    "benchmark RTL hashes/widths/signedness",
+    "commercial tool version/scripts and PDK libraries",
+    "prompts/seeds/temperature",
+    "iteration/time/node budgets",
+    "delta cost steps/clamps",
+    "partition algorithm/K",
+    "raw per-point RTL/paired metrics",
+    "EDA call and token accounting"
+  ]
+}

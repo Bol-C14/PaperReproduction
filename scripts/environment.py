@@ -1,0 +1,4 @@
+import json,os,platform,shutil,subprocess
+from pathlib import Path
+r={'date_utc':subprocess.check_output(['date','-u','+%FT%TZ'],text=True).strip(),'python':platform.python_version(),'platform':platform.platform(),'logical_cpus_affinity':len(os.sched_getaffinity(0)),'meminfo':Path('/proc/meminfo').read_text().splitlines()[:3],'disk':dict(zip(['total','used','free'],shutil.disk_usage('.'))),'tools':{k:shutil.which(k) for k in ['yosys','verilator','iverilog','cargo','rustc','z3','nvidia-smi','dc_shell','genus','lec']},'gpu_devices':[str(p) for p in Path('/dev').glob('nvidia*')],'agents_files':[str(p) for p in Path('/workspace').rglob('AGENTS.md')],'local_skills':list(map(str,Path('/workspace/.agents').rglob('*')))}
+Path('logs/environment.json').write_text(json.dumps(r,indent=2));print(json.dumps(r,indent=2))
