@@ -1,0 +1,169 @@
+{
+  "plan_only": true,
+  "live_enabled": false,
+  "budget_approved": false,
+  "base_url": "https://models.northern-relay.com/v1",
+  "model": "Qwen/Qwen3.5-397B-A17B-FP8",
+  "remote_path": "/chat/completions",
+  "expires_utc": "2026-11-03T23:38:17+00:00",
+  "task_count": 1,
+  "concurrency": 4,
+  "limits_proposed_not_allocated": {
+    "tokens": 100000,
+    "requests": 40,
+    "rpm": 60,
+    "tpm": 500000,
+    "concurrency": 4,
+    "max_attempts": 2,
+    "max_retry_wait_seconds": 30,
+    "request_timeout_seconds": 30,
+    "wall_seconds": 900,
+    "safety_margin_seconds": 60
+  },
+  "schedule": [
+    {
+      "step": 1,
+      "task": "cvdp_agentic_heavy_schoolMIPS_0012",
+      "arm": "fixed",
+      "generation": 1,
+      "individual": 0,
+      "repeat": 0,
+      "max_model_turns": 4,
+      "runtime_feedback": false,
+      "final_verifier": "pinned official CVDP harness; must be provisioned and smoke-validated first",
+      "status": "PLANNED_NOT_EXECUTED"
+    },
+    {
+      "step": 2,
+      "task": "cvdp_agentic_heavy_schoolMIPS_0012",
+      "arm": "fixed",
+      "generation": 1,
+      "individual": 1,
+      "repeat": 0,
+      "max_model_turns": 4,
+      "runtime_feedback": false,
+      "final_verifier": "pinned official CVDP harness; must be provisioned and smoke-validated first",
+      "status": "PLANNED_NOT_EXECUTED"
+    },
+    {
+      "step": 3,
+      "task": "cvdp_agentic_heavy_schoolMIPS_0012",
+      "arm": "evolution",
+      "generation": 1,
+      "individual": 0,
+      "repeat": 0,
+      "max_model_turns": 4,
+      "runtime_feedback": false,
+      "final_verifier": "pinned official CVDP harness; must be provisioned and smoke-validated first",
+      "status": "PLANNED_NOT_EXECUTED"
+    },
+    {
+      "step": 4,
+      "task": "cvdp_agentic_heavy_schoolMIPS_0012",
+      "arm": "evolution",
+      "generation": 1,
+      "individual": 1,
+      "repeat": 0,
+      "max_model_turns": 4,
+      "runtime_feedback": false,
+      "final_verifier": "pinned official CVDP harness; must be provisioned and smoke-validated first",
+      "status": "PLANNED_NOT_EXECUTED"
+    },
+    {
+      "step": 5,
+      "task": "cvdp_agentic_heavy_schoolMIPS_0012",
+      "arm": "fixed",
+      "generation": 2,
+      "individual": 0,
+      "repeat": 0,
+      "max_model_turns": 4,
+      "runtime_feedback": false,
+      "final_verifier": "pinned official CVDP harness; must be provisioned and smoke-validated first",
+      "status": "PLANNED_NOT_EXECUTED"
+    },
+    {
+      "step": 6,
+      "task": "cvdp_agentic_heavy_schoolMIPS_0012",
+      "arm": "fixed",
+      "generation": 2,
+      "individual": 1,
+      "repeat": 0,
+      "max_model_turns": 4,
+      "runtime_feedback": false,
+      "final_verifier": "pinned official CVDP harness; must be provisioned and smoke-validated first",
+      "status": "PLANNED_NOT_EXECUTED"
+    },
+    {
+      "step": 7,
+      "task": "cvdp_agentic_heavy_schoolMIPS_0012",
+      "arm": "evolution",
+      "generation": 2,
+      "individual": 0,
+      "repeat": 0,
+      "max_model_turns": 4,
+      "runtime_feedback": false,
+      "final_verifier": "pinned official CVDP harness; must be provisioned and smoke-validated first",
+      "status": "PLANNED_NOT_EXECUTED"
+    },
+    {
+      "step": 8,
+      "task": "cvdp_agentic_heavy_schoolMIPS_0012",
+      "arm": "evolution",
+      "generation": 2,
+      "individual": 1,
+      "repeat": 0,
+      "max_model_turns": 4,
+      "runtime_feedback": false,
+      "final_verifier": "pinned official CVDP harness; must be provisioned and smoke-validated first",
+      "status": "PLANNED_NOT_EXECUTED"
+    }
+  ],
+  "evolution_updates": [
+    {
+      "stage": "before generation1",
+      "action": "one initial child mutation; preserve parent",
+      "max_requests": 1
+    },
+    {
+      "stage": "after generation1",
+      "action": "reflect on both candidates including failures; select evaluated survivor; propose one child",
+      "max_requests": 2
+    },
+    {
+      "stage": "any mutation health failure",
+      "action": "at most one repair attempt per proposal then parent fallback",
+      "max_requests_total": 2
+    }
+  ],
+  "rollout_request_max": 32,
+  "adaptation_request_max": 5,
+  "total_nominal_request_max": 37,
+  "actual_attempt_ceiling_including_retries": 40,
+  "counterfactual_limits": "fixed and evolution share generation/turn limits; per-arm input/output/verifier ledgers required; reflection/mutation overhead charged to evolution; this small canary is not a matched-total-token efficacy comparison",
+  "stop_conditions": [
+    "authorization not enabled",
+    "secret not securely provisioned",
+    "expired or less than90s before expiry",
+    "verified token counter missing",
+    "task/harness/hash/image validation missing",
+    "40 attempts,100000 reservations,900s wall,60RPM or500000TPM exhausted",
+    "401/403 authentication/authorization failure",
+    "uncertain transport outcome",
+    "missing/invalid usage or usage greater than reservation",
+    "429 Retry-After above30s or crossing expiry margin",
+    "any requested non-allowlisted tool/command"
+  ],
+  "not_implemented": [
+    "real HTTP transport",
+    "runtime server facade wired to NeMo Gym",
+    "full actual verifier/tool worker launch",
+    "trusted production Qwen tokenizer/template counter"
+  ],
+  "outputs_future": [
+    "per-request allowlisted usage/timing/status ledger",
+    "per-tool exit/time/verifier-pass ledger",
+    "per-arm total reserved and reported tokens including failures/retries",
+    "skill hashes and generation ancestry",
+    "fresh terminal-verifier outcome; never mock pass as live"
+  ]
+}

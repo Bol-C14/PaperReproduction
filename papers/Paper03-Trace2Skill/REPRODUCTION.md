@@ -56,6 +56,10 @@ C4 1,130 次反馈请求 = 1,052 执行 + 66 超预算拒绝 + 12 edit/compile g
 
 Python 3.12.14；已有 yaml/numpy/matplotlib/pydantic；缺 openai/ray/pytest、Icarus 与本地 ollama；Docker server 28.4.0 可用，但无本地镜像。未发现已配置的免费本地模型运行器；没有为寻找额度访问付费 endpoint 或检查凭证。live pilot 的先决条件未满足，因此没有下载 CVDP、安装依赖、拉镜像或调用模型。
 
+## 第二轮无凭证准备补充
+
+已收到免费服务非秘密配置，完成Chat-only离线适配/预算/隔离44项测试；未读secret、未发真实请求。当前阻碍与最小canary计划以 [PILOT_PREPARATION.md](PILOT_PREPARATION.md) 为准。初轮“无已确认免费服务”的环境观察不再作为第二轮结论。
+
 ## Go / NoGo
 
 - **Go：**公开缓存数字审计；原 helper 的确定性机制；成本和 novelty 的可证伪研究设计。

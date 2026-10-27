@@ -1,0 +1,14 @@
+#!/usr/bin/env python3
+"""Generate a bounded plan; executes neither models nor verifiers."""
+import json
+from pathlib import Path
+from chat_adapter import BASE_URL,MODEL,EXPIRES,Limits
+P=Path(__file__).resolve().parents[1]
+steps=[]
+for g in [1,2]:
+    for arm in ['fixed','evolution']:
+        for individual in [0,1]:
+            steps.append(dict(step=len(steps)+1,task='cvdp_agentic_heavy_schoolMIPS_0012',arm=arm,generation=g,individual=individual,repeat=0,max_model_turns=4,runtime_feedback=False,final_verifier='pinned official CVDP harness; must be provisioned and smoke-validated first',status='PLANNED_NOT_EXECUTED'))
+plan={'plan_only':True,'live_enabled':False,'budget_approved':False,'base_url':BASE_URL,'model':MODEL,'remote_path':'/chat/completions','expires_utc':EXPIRES.isoformat(),'task_count':1,'concurrency':4,'limits_proposed_not_allocated':Limits().__dict__,'schedule':steps,'evolution_updates':[{'stage':'before generation1','action':'one initial child mutation; preserve parent','max_requests':1},{'stage':'after generation1','action':'reflect on both candidates including failures; select evaluated survivor; propose one child','max_requests':2},{'stage':'any mutation health failure','action':'at most one repair attempt per proposal then parent fallback','max_requests_total':2}],'rollout_request_max':32,'adaptation_request_max':5,'total_nominal_request_max':37,'actual_attempt_ceiling_including_retries':40,'counterfactual_limits':'fixed and evolution share generation/turn limits; per-arm input/output/verifier ledgers required; reflection/mutation overhead charged to evolution; this small canary is not a matched-total-token efficacy comparison','stop_conditions':['authorization not enabled','secret not securely provisioned','expired or less than90s before expiry','verified token counter missing','task/harness/hash/image validation missing','40 attempts,100000 reservations,900s wall,60RPM or500000TPM exhausted','401/403 authentication/authorization failure','uncertain transport outcome','missing/invalid usage or usage greater than reservation','429 Retry-After above30s or crossing expiry margin','any requested non-allowlisted tool/command'],'not_implemented':['real HTTP transport','runtime server facade wired to NeMo Gym','full actual verifier/tool worker launch','trusted production Qwen tokenizer/template counter'],'outputs_future':['per-request allowlisted usage/timing/status ledger','per-tool exit/time/verifier-pass ledger','per-arm total reserved and reported tokens including failures/retries','skill hashes and generation ancestry','fresh terminal-verifier outcome; never mock pass as live']}
+(P/'metrics/pilot_plan.json').write_text(json.dumps(plan,indent=2)+'\n')
+print(json.dumps({'status':'PLAN_ONLY_NOT_STARTED','planned_rollouts':len(steps),'nominal_model_requests_max':37,'total_attempt_ceiling':40,'new_model_requests':0,'output':'metrics/pilot_plan.json'},indent=2))
