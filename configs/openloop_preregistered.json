@@ -1,0 +1,23 @@
+{
+  "question": "Does real response information improve this cost policy beyond open-loop structural perturbation?",
+  "status": "fixed before new EDA execution",
+  "source_control_commit": "1824545f9fe03958cb7e911adc52b7464971b721",
+  "policy": "static full rule selection; same structural selected-node selector as feedback; always +3; no response/history input and no rollback; reset cost=1 each outer loop",
+  "conditions_in_order": [
+    {"name":"appendix_mcm71931","pool":"expanded"},
+    {"name":"fir_style_12_41_21","pool":"initial"},
+    {"name":"paper_fig4_mul11","pool":"initial"}
+  ],
+  "width": 8,
+  "outer": 2,
+  "inner": 3,
+  "synthesis_budget_per_session": 7,
+  "rtl_sat_budget_per_session": 7,
+  "reference_in_budget": true,
+  "cache": false,
+  "reuse_feedback_control": "factorial_<name>_<pool>_static_feedback_s0; no control rerun",
+  "algorithm_output": "last extracted candidate; openloop never uses response to choose emitted RTL",
+  "external_evaluation": "same post-session best-so-far over all seven paired query records, including reference; explicitly distinct from algorithm output",
+  "report": ["actual gate/depth trajectory","last candidate","external best gates and point IDs","unique emitted-RTL hashes","duplicate query rate (calls-unique)/calls","cost-map divergence","rollback timing"],
+  "scope": "software behavior; no online LLM/partition attribution/cost decrease or netlist equivalence claim"
+}

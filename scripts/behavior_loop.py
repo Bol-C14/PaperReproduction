@@ -49,11 +49,8 @@ def select_rules(mode,history,baseline,seed):
  # Deterministic history-conditioned heuristic, no learned/LLM policy.
  if min(v['gates'] for v in history)<baseline:return 'full'
  return 'constants_only'
-def update_costs(graph,costs,ex,metric,best,previous_snapshot=None):
- before=copy.deepcopy(costs);costs=copy.deepcopy(costs);rollback=previous_snapshot is not None and metric>best
- if rollback:costs=copy.deepcopy(previous_snapshot)
+def structural_node(graph,ex):
  ns=graph['nodes'];mul=[i for i in ex['used_nodes'] if ns[i]['op']=='Mul'];others=[i for i in ex['used_nodes'] if ns[i]['op']=='Add']
- # Local selected e-node update; prioritization reads structure only.
  def coefficient(i):
   values=[]
   for ch in ns[i]['children']:
@@ -63,25 +60,41 @@ def update_costs(graph,costs,ex,metric,best,previous_snapshot=None):
      try:values.append(int(ns[p]['op']))
      except ValueError:pass
   return max(values or [0])
- eligible=mul or others;chosen=max(eligible,key=lambda i:(coefficient(i),i)) if eligible else None
+ eligible=mul or others
+ return max(eligible,key=lambda i:(coefficient(i),i)) if eligible else None
+
+def update_costs_openloop(graph,costs,ex):
+ # Pre-fixed policy: graph/selected-structure only. No metric/history argument.
+ before=copy.deepcopy(costs);costs=copy.deepcopy(costs);chosen=structural_node(graph,ex)
+ if chosen:costs[chosen]+=3
+ return costs,dict(before=digest(before),after=digest(costs),selected_node=chosen,delta=3 if chosen else 0,rollback=False,response_read=False)
+
+def update_costs(graph,costs,ex,metric,best,previous_snapshot=None):
+ before=copy.deepcopy(costs);costs=copy.deepcopy(costs);rollback=previous_snapshot is not None and metric>best
+ if rollback:costs=copy.deepcopy(previous_snapshot)
+ chosen=structural_node(graph,ex)
  delta=CFG['cost_delta']*(2 if metric>best else 1)
  if chosen:costs[chosen]+=delta
  return costs,dict(before=digest(before),after=digest(costs),selected_node=chosen,delta=delta if chosen else 0,rollback=rollback,metric=metric,best_before=best,snapshot_before_update=before)
 def session(name,pool,selection,costmode,seed,tag):
  runid=f'{tag}_{name}_{pool}_{selection}_{costmode}_s{seed}';tall=time.perf_counter();refs,_=reference(name,CFG['width']);base=evaluate(refs,name,runid+'_reference');records=[];history=[]
  for outer in range(CFG['outer_iterations']):
-  st=time.perf_counter();subset=select_rules(selection,history,base['gates'],seed);selection_seconds=time.perf_counter()-st
+  st=time.perf_counter();subset='full' if selection=='static' else select_rules(selection,history,base['gates'],seed);selection_seconds=time.perf_counter()-st
   graph,info=build(name,pool,subset,CFG['graph_rounds'],CFG['graph_node_limit']);dump(OUT/'graphs'/f'{runid}_o{outer}.json',graph);dump(OUT/'graphs'/f'{runid}_o{outer}_build.json',info);costs=initial_costs(graph);best=base['gates'];snapshot=None
   for inner in range(CFG['inner_iterations']):
    terms,ex=extract(graph,costs,CFG['chosen_extractor']);shadow,shadowex=extract(graph,costs,'greedy_dag')
    rid=f'{runid}_o{outer}_i{inner}';metric=evaluate(terms,name,rid);st=time.perf_counter();action=None
-   if costmode=='feedback':
+   if costmode=='openloop':
+    assert selection=='static'
+    costs,action=update_costs_openloop(graph,costs,ex)
+   elif costmode=='feedback':
     costs,action=update_costs(graph,costs,ex,metric['gates'],best,snapshot);snapshot=action['snapshot_before_update']
    control_seconds=time.perf_counter()-st
    r=dict(id=rid,outer=outer,inner=inner,subset=subset,terms=terms,rendered=[emit(v,CFG['width']) for v in terms],extraction=ex,greedy_shadow=dict(rendered=[emit(v,CFG['width']) for v in shadow],**shadowex),metrics=metric,action=action,rule_selection_seconds=selection_seconds if inner==0 else 0,graph_seconds=info['seconds'] if inner==0 else 0,controller_seconds=control_seconds,graph_nodes=len(graph['nodes']),costs_after=costs)
    records.append(r);history.append(metric);best=min(best,metric['gates']);dump(OUT/'runs'/f'{rid}.json',r)
  assert len(records)+1==CFG['true_synthesis_budget_per_session']
  s=dict(id=runid,name=name,pool=pool,selection=selection,cost=costmode,seed=seed,baseline=base,records=[r['id'] for r in records],budget=7,true_synthesis_calls=7,rtl_sat_calls=7,best_gates=min([base['gates']]+[r['metrics']['gates'] for r in records]),best_depth=min([base['depth']]+[r['metrics']['depth'] for r in records]),unique_rtl=len({base['rtl_sha256']}|{r['metrics']['rtl_sha256'] for r in records}),seconds=time.perf_counter()-tall,initial_graph_hashes=[json.loads(gzip.decompress((OUT/'graphs'/f'{runid}_o{o}_build.json.gz').read_bytes()))['initial_graph_sha256'] for o in range(2)])
+ s['last_candidate']=dict(id=records[-1]['id'],gates=records[-1]['metrics']['gates'],depth=records[-1]['metrics']['depth'],rtl_sha256=records[-1]['metrics']['rtl_sha256']);s['incumbent_evaluation']='best_gates/best_depth are external post-session summaries of all 7 queries, not returned policy RTL; the policy emits last_candidate'
  dump(OUT/'sessions'/f'{runid}.json',s);print(json.dumps({k:v for k,v in s.items() if k not in ['records','initial_graph_hashes','baseline']}),flush=True);return s
 
 def figure4():
@@ -102,7 +115,7 @@ def figure4():
  dump(OUT/'feedback_dependency.json',dict(cost_response_sensitivity=True,rule_response_sensitivity=True,kind='controlled response intervention; not a performance measurement',cost_delta_good=ai['delta'],cost_delta_bad=bi['delta']))
 
 if __name__=='__main__':
- p=argparse.ArgumentParser();p.add_argument('--pilot',action='store_true');p.add_argument('--full',action='store_true');a=p.parse_args()
+ p=argparse.ArgumentParser();p.add_argument('--pilot',action='store_true');p.add_argument('--full',action='store_true');p.add_argument('--openloop',action='store_true');a=p.parse_args()
  if a.pilot:
   assert not list((OUT/'sessions').glob('pilot*.json')), 'Choose a new ASPEN_BEHAVIOR_RUN_ROOT; recorded pilot exists'
   session('paper_fig4_mul11','expanded','feedback','feedback',0,'pilot')
@@ -112,3 +125,7 @@ if __name__=='__main__':
   dump(OUT/'proposal_validation.json',validate())
   for name,seed,pool,selection,cost in itertools.product(CFG['benchmarks'],CFG['seeds'],['initial','expanded'],['static','feedback'],['static','feedback']):session(name,pool,selection,cost,seed,'factorial')
   figure4()
+
+ if a.openloop:
+  assert not list((OUT/'sessions').glob('openloop*.json')), 'Openloop records already exist; choose new run root'
+  for name,pool in [('appendix_mcm71931','expanded'),('fir_style_12_41_21','initial'),('paper_fig4_mul11','initial')]:session(name,pool,'static','openloop',0,'openloop')
