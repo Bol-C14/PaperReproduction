@@ -10,7 +10,7 @@ Table II 的四个均值由显示的绝对数重算为 24.2244%、12.4261%、16.
 
 ## 已验证的公式反例，受语义限定
 
-`scripts/rule_audit.py`它由独立固定公式产生 mismatch query，并仅把 unsat 视为该有限位宽模型的通过。未执行论文或 LLM 提供的“证明脚本”。W=1,2,4,8,16,32；15 个 case（包括同公式不同前提），共 90 个 query。69 unsat、21 sat、0 unknown。这不是随机测试，也不是任意位宽的归纳证明。
+`scripts/rule_audit.py` 由独立固定公式产生 mismatch query。它仅把 unsat 视为该有限位宽模型的通过。未执行论文或 LLM 提供的“证明脚本”。W=1,2,4,8,16,32；15 个 case（包括同公式不同前提），共 90 个 query。69 unsat、21 sat、0 unknown。这不是随机测试，也不是任意位宽的归纳证明。
 
 * shift 合并：若两个 shift counts 都是 W 位、相加会截断，则不普遍等价。8 位反例 x=127,c=1,k=255，左值 0、右值 127。若 counts 是无界非负整数或加法先扩位，该反例不适用。
 * bitwise AND/OR 转 scalar MUX：vector mask 与 scalar selector 语义不同。8 位 a=254,b=0,s=1 时 `(a & ~s)|(b & s)` 为 254，但 scalar MUX 为 0。仅限制 s∈{0,1} 仍不够；s∈{0,255} 的 full-mask 前提在本次位宽均通过。

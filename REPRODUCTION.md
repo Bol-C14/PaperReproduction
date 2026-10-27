@@ -26,7 +26,7 @@
 
 ## 算法和配置核对
 
-官方材料：[Cornell PDF（含附录 A/B）](https://www.csl.cornell.edu/~zhiruz/pdfs/aspen-mlcad2025.pdf)、[NVIDIA publication](https://research.nvidia.com/labs/electronic-design-automation/publication/deng2025aspen/)。完整审计见 EVIDENCE_AUDIT.md。
+官方材料：[Cornell PDF（含附录 A/B）](https://www.csl.cornell.edu/~zhiruz/pdfs/aspen-mlcad2025.pdf)、[NVIDIA publication](https://research.nvidia.com/labs/electronic-design-automation/publication/deng2025aspen/)。完整审计见 EVIDENCE_AUDIT.md；报告配置与未报告字段见 `configs/paper_reported.json`。
 
 论文流程为：一次性提议规则并验证；外循环选择规则子集，egglog 饱和；每次外循环初始化 e-node costs=1；内循环抽取、RTL 转译、综合、netlist 分区、反馈增减局部成本，可按历史回退；最终 Pareto RTL 另行等价检查。论文报告 egglog 0.4.0、extraction-gym greedy/bottom-up、o3-20250416 提议与 gpt-4.1-20250414 选择/反馈；综合 effort=high。缺少外/内循环次数、步长、seed、温度、prompt、分区配置、具体 EDA 版本及完整约束，不能自行补齐并称忠实复现。
 

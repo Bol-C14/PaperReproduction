@@ -1,0 +1,92 @@
+{
+  "source": "https://www.csl.cornell.edu/~zhiruz/pdfs/aspen-mlcad2025.pdf",
+  "kind": "paper-reported-not-executed",
+  "rule_proposal": {
+    "model": "o3-20250416",
+    "frequency": "once before search",
+    "validation": "Z3 proof programs; trusted-target binding details unavailable",
+    "initial_pool": "Table I",
+    "proposed_pool": "Appendix A/Table IV"
+  },
+  "rule_selection": {
+    "model": "gpt-4.1-20250414",
+    "inputs": [
+      "input RTL",
+      "expanded rule pool",
+      "past subsets and best PPA"
+    ],
+    "outer_iterations": null
+  },
+  "egraph": {
+    "engine": "egglog",
+    "reported_version": "0.4.0",
+    "saturation_timeout": null,
+    "node_limit": null,
+    "extractors": [
+      "extraction-gym fast greedy",
+      "extraction-gym fast bottom-up"
+    ],
+    "initial_enode_cost": 1,
+    "cost_reset": "each rule-selection iteration per Algorithm 1"
+  },
+  "ppa_feedback": {
+    "model": "gpt-4.1-20250414",
+    "inputs": [
+      "extracted Verilog",
+      "serialized netlist partition",
+      "PPA report",
+      "cost update history"
+    ],
+    "partition": "K-way; algorithm/K unspecified",
+    "inner_iterations": null,
+    "delta_inc": null,
+    "delta_dec": null,
+    "cost_clamp": null,
+    "backtracking": "history prompted"
+  },
+  "synthesis": {
+    "tool": "unnamed commercial",
+    "version": null,
+    "effort": {
+      "area": "high",
+      "power": "high",
+      "delay": "high"
+    },
+    "pdk": "ASAP7 explicitly in motivating example; full evaluation exact library/config unverified",
+    "frequency_sweep_MHz": [
+      250,
+      5000
+    ],
+    "target_MHz": {
+      "FIR": 1000,
+      "DCT": 1000,
+      "Polynomial": 400,
+      "Watermark": 2000,
+      "MCM_3_7_21": 2000,
+      "MCM_7_19_31": 2000,
+      "MCM_5_93": 2000
+    }
+  },
+  "verification": {
+    "rule": "Z3",
+    "final_rtl": "unnamed commercial checker on final Pareto points",
+    "version": null
+  },
+  "reporting": {
+    "area_units": "um^2",
+    "delay_units": "ps",
+    "table_ii": "independent minima from frontier; not necessarily same implementation",
+    "rover_baseline": "authors reproduction: Table I rules plus fixed costs"
+  },
+  "unreported": {
+    "prompts": null,
+    "temperature": null,
+    "seeds": null,
+    "model_tokens": null,
+    "llm_cost": null,
+    "eda_calls": null,
+    "total_runtime": null,
+    "benchmark_widths": null,
+    "rtl_commit": null
+  }
+}
