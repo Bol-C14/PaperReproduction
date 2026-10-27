@@ -1,5 +1,5 @@
 """Trusted schema-specific checks for deterministic Appendix-A replay.
-Finite widths/count instances; not a universal theorem for all RTL types.
+Manually encoded semantic instances, not parsed from .egg. Finite widths/counts; not a proof of every executable rewrite or all RTL types.
 """
 import json,time,os
 from pathlib import Path
@@ -15,4 +15,4 @@ def validate():
    s=Solver();s.set(timeout=5000);s.add(l!=r);t=time.perf_counter();result=str(s.check());assert result=='unsat',(name,w,result);rows.append(dict(rule=name,width=w,result=result,seconds=time.perf_counter()-t))
  return rows
 if __name__=='__main__':
- p=Path(__file__).resolve().parents[1]/Path(os.environ.get('ASPEN_BEHAVIOR_RUN_ROOT','.'))/'results/behavior/proposal_validation.json';r=validate();p.write_text(json.dumps(r,indent=2));print(f'{len(r)} finite obligations UNSAT; deterministic source rules accepted under recorded uniform-width semantics.')
+ p=Path(__file__).resolve().parents[1]/Path(os.environ.get('ASPEN_BEHAVIOR_RUN_ROOT','.'))/'results/behavior/proposal_validation.json';r=validate();p.write_text(json.dumps(r,indent=2));print(f'{len(r)} finite obligations UNSAT; manually encoded formula instances checked; executable .egg rules are not automatically proved.')

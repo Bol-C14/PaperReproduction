@@ -1,12 +1,24 @@
 # 行为复现契约（当前主要成功标准）
 
+## 最新因果审计：开放环对照未显示response增益
+
+预注册提交297cfc80f338e4d79ebecf40889fbab3a68da22f固定“相同结构节点选择、静态规则、永远+3、不读response、不rollback”的开放环，再新增3会话×7次真实综合及7次RTL SAT，复用既有feedback controls。MCM-expanded两者轨迹均146,146,146,130,146,146,130；FIR-initial均162,162,162,158,162,162,158；x×11均59,59,59,61,59,59,61。最后输出分别为(130,11)、(158,18)、(61,10)；统一外部best-gates为130、158、59（对应depth11、18、11），开放环不使用这些response选择输出。三个条件的逐步RTL hashes亦相同。
+
+因此先前的动态cost-arm收益只支持结构cost扰动有效，不能隔离真实response信息价值。x×11 rollback发生在query4/7之后，下一外循环cost重置或运行结束，本预算未使用分歧cost生成不同候选。详见RESPONSE_VALUE_AUDIT.md、openloop_comparison.json和预注册配置。
+
+原346次综合仅14份byte-level unique RTL，16/48会话仅1份；加入21个新调用后367次仍14份unique，重复率96.19%。预算匹配是实际EDA调用数，不是独立候选数或相同有效搜索机会。累计367 synthesis+367 RTL SAT，734条新阶段ledger；加第一阶段207条合计941。
+
+已纳入14份原始代表网表JSON及调用映射，可用标准库scripts/verify_unique_netlists.py独立重算gate/depth/hash。SAT只证明生成RTL对reference RTL，**没有综合后网表等价证明**。51个proposal义务是手写语义实例，**不是自动证明全部.egg规则**。Algorithm1分区归因、显式cost下降和在线LLM未实现，保持行为partial。
+
+## 先前阶段记录（下列346次等计数为开放环补充前口径）
+
 **结论：核心行为部分复现 / Go。** 已跑通真实 egglog→抽取→Yosys→反馈→再次抽取→RTL SAT；在线 LLM 能力与 netlist 分区/归因没有复现。原论文数值是次级对照，缺商业工具不再是停止行为复现的理由。上一阶段68候选枚举/180回放保留为独立 pilot，不改称 ASPEN。
 
 机器配置：`configs/behavior.json`；逐模块机器契约：`configs/behavior_contract.json`。来源修正在四份报告中一致记录。
 
 | 模块 | 输入→输出 / 状态 | 可观察行为与不变量 | 本次判定 / 替代假设 |
 |---|---|---|---|
-| Rule Proposal | 初始规则+fixture→扩展规则池；一次性阶段 | 固定 Appendix A replay；51个有限宽度/shift实例的独立Z3义务 UNSAT，最终表达式仍另验证 | Partially Replicated；没有在线LLM提议/修复，不能主张发现能力 |
+| Rule Proposal | 初始规则+fixture→扩展规则池；一次性阶段 | 固定 Appendix A replay；51个手写公式/实例义务 UNSAT，未证明全部.egg规则，最终表达式仍另验证 | Partially Replicated；没有在线LLM提议/修复，不能主张发现能力 |
 | Rule Selection | 设计+历史真实门数→full/constants_only | 初次full；未改善reference时下一外循环选择constants_only；同池、同起始AST；干预响应可改变选择 | Partially Replicated；确定性两选项启发式，非LLM |
 | E-Graph Rewriting | AST+已选规则→真实native egglog e-classes/e-nodes | 3轮有界重写，保留原根等价类、congruence；每次输出完整图快照和原始RunReport | Replicated（所列算术域）；并非全RTL/全TableI或完全饱和 |
 | Extraction | e-graph+局部cost→无环表达式/DAG选择 | 正operator cost，leaves=0；bottom-up与greedy-DAG Python适配；12个固定cost场景与native Rust tree extractor成本一致 | Replicated（成本驱动抽取行为）；非原Rust实现速度/全局DAG最优 |

@@ -7,7 +7,7 @@
       "input": "initial rules + design",
       "output": "expanded checked rule pool",
       "state": "once; published Appendix-A replay",
-      "observable_invariant": "51 finite checks UNSAT; per-output final Z3+SAT",
+      "observable_invariant": "51 hand-written finite formula obligations UNSAT; no automatic .egg binding/proof; candidate RTL checks separate",
       "status": "Partially Replicated",
       "substitution": "no fresh/online LLM; published rules privileged source knowledge"
     },
@@ -61,7 +61,7 @@
       "input": "AST and emitted RTL + trusted references",
       "output": "UNSAT / RTL SAT success",
       "state": "unknown/timeout fail closed",
-      "observable_invariant": "346 actual RTL checks pass",
+      "observable_invariant": "367 generated RTL-to-reference checks, not post-synthesis netlist equivalence",
       "status": "Replicated for recorded fixtures",
       "substitution": "8-bit unsigned modular, no X/Z/sequential/mixed widths"
     },
@@ -77,5 +77,15 @@
   ],
   "evidence": "results/behavior/validation.json",
   "budget": "48 factorial sessions x7 true synthesis; includes reference; equal real synthesis, feature/controller timing reported; one-time install/proposal checks separate",
-  "model_status": "no verified free runtime/API; deterministic non-online-LLM substitutes"
+  "model_status": "no verified free runtime/API; deterministic non-online-LLM substitutes",
+  "causal_revision": "Preregistered structural openloop matches feedback on all3 conditions; no isolated response value demonstrated",
+  "evidence_openloop": "results/behavior/openloop_comparison.json",
+  "candidate_diversity": "367 true synthesis invocations, 14 byte-level unique RTL; budgets do not match informative opportunities",
+  "proof_scope": "generated RTL-to-reference only, not synthesized netlists; 51 hand-written obligations do not prove all egg rules",
+  "unimplemented": [
+    "online LLM",
+    "Algorithm1 K-way partition and e-node attribution",
+    "explicit cost-decrease branch",
+    "post-synthesis netlist equivalence"
+  ]
 }
