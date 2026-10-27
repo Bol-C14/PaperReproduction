@@ -74,3 +74,8 @@ Evolution gen1包括seed和一个初始化mutant；基于两候选实测结果�
 在用户报告完成Personal vault设置之后，本任务实际只检查环境变量名存在性，得到 **NR_API_KEY_present=false**。目标 `models.northern-relay.com` 的逐域名授权状态为 **unknown**：本环境只显示general network enabled，没有域名清单或可用的vault/network授权元数据工具；未用请求/health probe“验证”。环境工作正常，不新建替代线程、不切换Mac、不改权限。需平台将secret与目标域名授权实际投递到本任务；用户已设置的证据不等于此旧任务已收到。
 
 共享并发新增四项mock测试：所有role/arm client引用同一个ExperimentController/Budget；4个lease允许、第5个拒绝；4个真实Python线程持有共享lease（没有API）并释放；429重试只释放自己的一份lease而不影响其他正在运行的请求。实现是**单broker进程内**共享，不是跨进程分布式limiter；未来不能每个worker独立建立controller。
+
+
+### Vault 类型修正阻碍（父线程的只读元数据报告）
+
+父线程随后报告：用户当前把NR_API_KEY存为普通Environment variable且范围All environment configurations，尚非仅PaperReproduction的Network secret。此处仅引用父线程的元数据观察；本线程未读vault值。用户需先改类型与scope，平台实际注入后再做存在性布尔及域名元数据核验；不能据用户说完成就声称接通。修正前不运行可能继承此变量的生成代码/外部工具。最后离线测试的顶层Python进程也由env白名单启动，测试子进程继续使用独立allowlist；不记录全环境。
