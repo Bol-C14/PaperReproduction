@@ -144,6 +144,6 @@ for row in records:
   row['eda_state']='bounded_prior_fixed_response_pilot_executed'
 import csv
 with (out/'coverage.csv').open('w') as f:
- writer=csv.DictWriter(f,fieldnames=['id','subset','level','modality','schema_complete','adapted_schema_complete','missing_required','adapted_missing_required','evaluation_state','eda_state','eda_support','prior_pilot_input']);writer.writeheader()
+ writer=csv.DictWriter(f,fieldnames=['id','subset','level','modality','schema_complete','adapted_schema_complete','missing_required','adapted_missing_required','evaluation_state','eda_state','eda_support','prior_pilot_input'],lineterminator='\n');writer.writeheader()
  for row in records:writer.writerow({k:row[k] for k in writer.fieldnames})
 (out/'audit.json').write_text(json.dumps(report,indent=2));(out/'summary.json').write_text(json.dumps({k:v for k,v in report.items() if k not in ['cases','test_tree']},indent=2));print(json.dumps({'summary':summary,'totals':report['totals'],'test_cases':len(testcases),'test_new_keys':test_unique},indent=2))
