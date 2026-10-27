@@ -1,0 +1,42 @@
+{
+  "id": "MGen/L1/Text/ALU",
+  "subset": "MGen",
+  "input_files": [
+    {
+      "name": "alu.v",
+      "bytes": 1071,
+      "sha256": "b391de8a9a58cfaf52bd047b6a34748a06f8282c7a3e1f2b24e4da02bc165846"
+    },
+    {
+      "name": "alu_tb.v",
+      "bytes": 1622,
+      "sha256": "68450b785b5d7671e91b30b746a6ebf81bfd06cef39bc9e3515cda39ffa7800e"
+    }
+  ],
+  "overlays": [
+    {
+      "field": "spec_text",
+      "source": "data/SpeCom/L1/Text/ALU/alu_spec.txt",
+      "sha256": "fcd546bb632d7a8b641cff92f5dc1743c77d0f465032faf55ddeb677143a7142",
+      "reason": "same case name and byte-identical RTL in SpeCom; explicit cross-subset reuse",
+      "fidelity": "structural-input-overlay",
+      "matched_rtl_sha256": "b391de8a9a58cfaf52bd047b6a34748a06f8282c7a3e1f2b24e4da02bc165846"
+    }
+  ],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": null,
+  "negative_control_detected": null,
+  "commands": 4,
+  "status": "unknown",
+  "wrapper_mode": "dut_replacement",
+  "reference_source": "alu.v",
+  "reference_source_sha256": "b391de8a9a58cfaf52bd047b6a34748a06f8282c7a3e1f2b24e4da02bc165846",
+  "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+  "resolved_tb_parameters": {},
+  "observed_checks": 0,
+  "reference_status": "unknown",
+  "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
+  "seconds": 12.107
+}

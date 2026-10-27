@@ -1,0 +1,699 @@
+<?xml version="1.0" ?>
+<!-- DESCRIPTION: Verilator output: XML representation of netlist -->
+<verilator_xml>
+  <files>
+    <file id="d" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std.sv" language="1800-2023"/>
+    <file id="c" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std_waiver.vlt" language="1800-2023"/>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_c3055311d0b2/spi_master.v" language="1800-2023"/>
+    <file id="a" filename="&lt;built-in&gt;" language="1800-2023"/>
+    <file id="b" filename="&lt;command-line&gt;" language="1800-2023"/>
+  </files>
+  <module_files>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_c3055311d0b2/spi_master.v" language="1800-2023"/>
+  </module_files>
+  <cells>
+    <cell loc="e,3,8,3,18" name="spi_master" submodname="spi_master" hier="spi_master"/>
+  </cells>
+  <netlist>
+    <module loc="e,3,8,3,18" name="spi_master" origName="spi_master" topModule="1">
+      <var loc="e,23,7,23,10" name="clk" dtype_id="1" dir="input" pinIndex="1" vartype="logic" origName="clk"/>
+      <var loc="e,24,7,24,10" name="rst" dtype_id="1" dir="input" pinIndex="2" vartype="logic" origName="rst"/>
+      <var loc="e,25,23,25,27" name="data" dtype_id="2" dir="inout" pinIndex="3" vartype="logic" origName="data"/>
+      <var loc="e,26,7,26,9" name="wr" dtype_id="1" dir="input" pinIndex="4" vartype="logic" origName="wr"/>
+      <var loc="e,27,7,27,9" name="rd" dtype_id="1" dir="input" pinIndex="5" vartype="logic" origName="rd"/>
+      <var loc="e,28,8,28,17" name="buffempty" dtype_id="1" dir="output" pinIndex="6" vartype="logic" origName="buffempty"/>
+      <var loc="e,29,12,29,22" name="prescaller" dtype_id="3" dir="input" pinIndex="7" vartype="logic" origName="prescaller"/>
+      <var loc="e,30,8,30,11" name="sck" dtype_id="1" dir="output" pinIndex="8" vartype="logic" origName="sck"/>
+      <var loc="e,31,8,31,12" name="mosi" dtype_id="1" dir="output" pinIndex="9" vartype="logic" origName="mosi"/>
+      <var loc="e,33,7,33,11" name="miso" dtype_id="1" dir="input" pinIndex="10" vartype="logic" origName="miso"/>
+      <var loc="e,34,12,34,14" name="ss" dtype_id="1" dir="output" pinIndex="11" vartype="logic" origName="ss"/>
+      <var loc="e,35,7,35,15" name="lsbfirst" dtype_id="1" dir="input" pinIndex="12" vartype="logic" origName="lsbfirst"/>
+      <var loc="e,36,12,36,16" name="mode" dtype_id="4" dir="input" pinIndex="13" vartype="logic" origName="mode"/>
+      <var loc="e,37,12,37,19" name="senderr" dtype_id="1" dir="output" pinIndex="14" vartype="logic" origName="senderr"/>
+      <var loc="e,38,7,38,18" name="res_senderr" dtype_id="1" dir="input" pinIndex="15" vartype="logic" origName="res_senderr"/>
+      <var loc="e,39,8,39,20" name="charreceived" dtype_id="1" dir="output" pinIndex="16" vartype="logic" origName="charreceived"/>
+      <var loc="e,21,11,21,19" name="WORD_LEN" dtype_id="5" vartype="logic" origName="WORD_LEN" param="true">
+        <const loc="e,21,22,21,23" name="32&apos;sh8" dtype_id="5"/>
+      </var>
+      <var loc="e,22,11,22,26" name="PRESCALLER_SIZE" dtype_id="5" vartype="logic" origName="PRESCALLER_SIZE" param="true">
+        <const loc="e,22,29,22,30" name="32&apos;sh8" dtype_id="5"/>
+      </var>
+      <var loc="e,32,5,32,10" name="_mosi" dtype_id="1" vartype="logic" origName="_mosi"/>
+      <var loc="e,40,5,40,18" name="charreceivedp" dtype_id="1" vartype="logic" origName="charreceivedp"/>
+      <var loc="e,41,5,41,18" name="charreceivedn" dtype_id="1" vartype="logic" origName="charreceivedn"/>
+      <var loc="e,42,5,42,16" name="inbufffullp" dtype_id="1" vartype="logic" origName="inbufffullp"/>
+      <initialstatic loc="e,42,19,42,23">
+        <assign loc="e,42,19,42,23" dtype_id="1">
+          <const loc="e,42,19,42,23" name="1&apos;h0" dtype_id="1"/>
+          <varref loc="e,42,19,42,23" name="inbufffullp" dtype_id="1"/>
+        </assign>
+      </initialstatic>
+      <var loc="e,43,5,43,16" name="inbufffulln" dtype_id="1" vartype="logic" origName="inbufffulln"/>
+      <initialstatic loc="e,43,19,43,23">
+        <assign loc="e,43,19,43,23" dtype_id="1">
+          <const loc="e,43,19,43,23" name="1&apos;h0" dtype_id="1"/>
+          <varref loc="e,43,19,43,23" name="inbufffulln" dtype_id="1"/>
+        </assign>
+      </initialstatic>
+      <var loc="e,44,21,44,33" name="input_buffer" dtype_id="2" vartype="logic" origName="input_buffer"/>
+      <var loc="e,45,21,45,34" name="output_buffer" dtype_id="2" vartype="logic" origName="output_buffer"/>
+      <var loc="e,47,10,47,24" name="prescallerbuff" dtype_id="3" vartype="logic" origName="prescallerbuff"/>
+      <always loc="e,51,1,51,7">
+        <sentree loc="e,51,8,51,9">
+          <senitem loc="e,51,11,51,18" edgeType="POS">
+            <varref loc="e,51,19,51,21" name="wr" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,53,1,53,6">
+          <if loc="e,54,5,54,7">
+            <and loc="e,54,41,54,43" dtype_id="1">
+              <and loc="e,54,11,54,13" dtype_id="1">
+                <varref loc="e,54,8,54,10" name="wr" dtype_id="1"/>
+                <eq loc="e,54,26,54,28" dtype_id="1">
+                  <varref loc="e,54,14,54,25" name="inbufffullp" dtype_id="1"/>
+                  <varref loc="e,54,29,54,40" name="inbufffulln" dtype_id="1"/>
+                </eq>
+              </and>
+              <varref loc="e,54,44,54,53" name="buffempty" dtype_id="1"/>
+            </and>
+            <begin>
+              <begin loc="e,55,5,55,10">
+                <assigndly loc="e,56,26,56,28" dtype_id="2">
+                  <varref loc="e,56,29,56,33" name="data" dtype_id="2"/>
+                  <varref loc="e,56,13,56,25" name="input_buffer" dtype_id="2"/>
+                </assigndly>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <always loc="e,62,1,62,7">
+        <sentree loc="e,62,8,62,9">
+          <senitem loc="e,62,25,62,32" edgeType="POS">
+            <varref loc="e,62,33,62,44" name="res_senderr" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,62,48,62,55" edgeType="POS">
+            <varref loc="e,62,56,62,59" name="rst" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,62,11,62,18" edgeType="POS">
+            <varref loc="e,62,19,62,21" name="wr" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,64,1,64,6">
+          <if loc="e,65,5,65,7">
+            <varref loc="e,65,8,65,11" name="rst" dtype_id="1"/>
+            <begin>
+              <begin loc="e,66,5,66,10">
+                <assigndly loc="e,67,21,67,23" dtype_id="1">
+                  <const loc="e,67,24,67,28" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,67,9,67,20" name="inbufffullp" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,68,17,68,19" dtype_id="1">
+                  <const loc="e,68,20,68,24" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,68,9,68,16" name="senderr" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,69,24,69,26" dtype_id="3">
+                  <const loc="e,69,27,69,33" name="3&apos;h0" dtype_id="3"/>
+                  <varref loc="e,69,9,69,23" name="prescallerbuff" dtype_id="3"/>
+                </assigndly>
+              </begin>
+            </begin>
+            <begin>
+              <if loc="e,72,5,72,7">
+                <varref loc="e,72,8,72,19" name="res_senderr" dtype_id="1"/>
+                <begin>
+                  <assigndly loc="e,73,17,73,19" dtype_id="1">
+                    <const loc="e,73,20,73,24" name="1&apos;h0" dtype_id="1"/>
+                    <varref loc="e,73,9,73,16" name="senderr" dtype_id="1"/>
+                  </assigndly>
+                </begin>
+                <begin>
+                  <if loc="e,75,5,75,7">
+                    <and loc="e,75,41,75,43" dtype_id="1">
+                      <and loc="e,75,11,75,13" dtype_id="1">
+                        <varref loc="e,75,8,75,10" name="wr" dtype_id="1"/>
+                        <eq loc="e,75,26,75,28" dtype_id="1">
+                          <varref loc="e,75,14,75,25" name="inbufffullp" dtype_id="1"/>
+                          <varref loc="e,75,29,75,40" name="inbufffulln" dtype_id="1"/>
+                        </eq>
+                      </and>
+                      <varref loc="e,75,44,75,53" name="buffempty" dtype_id="1"/>
+                    </and>
+                    <begin>
+                      <begin loc="e,76,5,76,10">
+                        <assigndly loc="e,77,25,77,27" dtype_id="1">
+                          <not loc="e,77,28,77,29" dtype_id="1">
+                            <varref loc="e,77,29,77,40" name="inbufffullp" dtype_id="1"/>
+                          </not>
+                          <varref loc="e,77,13,77,24" name="inbufffullp" dtype_id="1"/>
+                        </assigndly>
+                        <assign loc="e,78,28,78,29" dtype_id="3">
+                          <varref loc="e,78,30,78,40" name="prescaller" dtype_id="3"/>
+                          <varref loc="e,78,13,78,27" name="prescallerbuff" dtype_id="3"/>
+                        </assign>
+                      </begin>
+                    </begin>
+                    <begin>
+                      <if loc="e,81,5,81,7">
+                        <not loc="e,81,8,81,9" dtype_id="1">
+                          <varref loc="e,81,9,81,18" name="buffempty" dtype_id="1"/>
+                        </not>
+                        <begin>
+                          <assigndly loc="e,82,17,82,19" dtype_id="1">
+                            <const loc="e,82,20,82,24" name="1&apos;h1" dtype_id="1"/>
+                            <varref loc="e,82,9,82,16" name="senderr" dtype_id="1"/>
+                          </assigndly>
+                        </begin>
+                      </if>
+                    </begin>
+                  </if>
+                </begin>
+              </if>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <var loc="e,84,11,84,21" name="state_idle" dtype_id="6" vartype="logic" origName="state_idle" param="true">
+        <const loc="e,84,24,84,28" name="1&apos;h0" dtype_id="1"/>
+      </var>
+      <var loc="e,85,11,85,21" name="state_busy" dtype_id="6" vartype="logic" origName="state_busy" param="true">
+        <const loc="e,85,24,85,28" name="1&apos;h1" dtype_id="1"/>
+      </var>
+      <var loc="e,86,5,86,10" name="state" dtype_id="1" vartype="logic" origName="state"/>
+      <var loc="e,87,28,87,42" name="prescaller_cnt" dtype_id="2" vartype="logic" origName="prescaller_cnt"/>
+      <var loc="e,88,21,88,34" name="shift_reg_out" dtype_id="2" vartype="logic" origName="shift_reg_out"/>
+      <var loc="e,89,21,89,33" name="shift_reg_in" dtype_id="2" vartype="logic" origName="shift_reg_in"/>
+      <var loc="e,90,10,90,16" name="sckint" dtype_id="7" vartype="logic" origName="sckint"/>
+      <var loc="e,91,10,91,23" name="prescallerint" dtype_id="3" vartype="logic" origName="prescallerint"/>
+      <var loc="e,92,10,92,20" name="prescdemux" dtype_id="2" vartype="logic" origName="prescdemux"/>
+      <always loc="e,93,1,93,7">
+        <begin loc="e,94,1,94,6">
+          <begin loc="e,96,5,96,10">
+            <case loc="e,97,9,97,13">
+              <varref loc="e,97,14,97,27" name="prescallerint" dtype_id="3"/>
+              <caseitem loc="e,98,15,98,16">
+                <const loc="e,98,9,98,15" name="3&apos;h0" dtype_id="3"/>
+                <assigndly loc="e,98,28,98,30" dtype_id="2">
+                  <const loc="e,98,31,98,42" name="8&apos;h1" dtype_id="2"/>
+                  <varref loc="e,98,17,98,27" name="prescdemux" dtype_id="2"/>
+                </assigndly>
+              </caseitem>
+              <caseitem loc="e,99,15,99,16">
+                <const loc="e,99,9,99,15" name="3&apos;h1" dtype_id="3"/>
+                <assigndly loc="e,99,28,99,30" dtype_id="2">
+                  <const loc="e,99,31,99,42" name="8&apos;h3" dtype_id="2"/>
+                  <varref loc="e,99,17,99,27" name="prescdemux" dtype_id="2"/>
+                </assigndly>
+              </caseitem>
+              <caseitem loc="e,100,15,100,16">
+                <const loc="e,100,9,100,15" name="3&apos;h2" dtype_id="3"/>
+                <assigndly loc="e,100,28,100,30" dtype_id="2">
+                  <const loc="e,100,31,100,42" name="8&apos;h7" dtype_id="2"/>
+                  <varref loc="e,100,17,100,27" name="prescdemux" dtype_id="2"/>
+                </assigndly>
+              </caseitem>
+              <caseitem loc="e,101,15,101,16">
+                <const loc="e,101,9,101,15" name="3&apos;h3" dtype_id="3"/>
+                <assigndly loc="e,101,28,101,30" dtype_id="2">
+                  <const loc="e,101,31,101,42" name="8&apos;hf" dtype_id="2"/>
+                  <varref loc="e,101,17,101,27" name="prescdemux" dtype_id="2"/>
+                </assigndly>
+              </caseitem>
+              <caseitem loc="e,102,15,102,16">
+                <const loc="e,102,9,102,15" name="3&apos;h4" dtype_id="3"/>
+                <assigndly loc="e,102,28,102,30" dtype_id="2">
+                  <const loc="e,102,31,102,42" name="8&apos;h1f" dtype_id="2"/>
+                  <varref loc="e,102,17,102,27" name="prescdemux" dtype_id="2"/>
+                </assigndly>
+              </caseitem>
+              <caseitem loc="e,103,15,103,16">
+                <const loc="e,103,9,103,15" name="3&apos;h5" dtype_id="3"/>
+                <assigndly loc="e,103,28,103,30" dtype_id="2">
+                  <const loc="e,103,31,103,42" name="8&apos;h3f" dtype_id="2"/>
+                  <varref loc="e,103,17,103,27" name="prescdemux" dtype_id="2"/>
+                </assigndly>
+              </caseitem>
+              <caseitem loc="e,104,15,104,16">
+                <const loc="e,104,9,104,15" name="3&apos;h6" dtype_id="3"/>
+                <assigndly loc="e,104,28,104,30" dtype_id="2">
+                  <const loc="e,104,31,104,42" name="8&apos;h7f" dtype_id="2"/>
+                  <varref loc="e,104,17,104,27" name="prescdemux" dtype_id="2"/>
+                </assigndly>
+              </caseitem>
+              <caseitem loc="e,105,15,105,16">
+                <const loc="e,105,9,105,15" name="3&apos;h7" dtype_id="3"/>
+                <assigndly loc="e,105,28,105,30" dtype_id="2">
+                  <const loc="e,105,31,105,42" name="8&apos;hff" dtype_id="2"/>
+                  <varref loc="e,105,17,105,27" name="prescdemux" dtype_id="2"/>
+                </assigndly>
+              </caseitem>
+            </case>
+          </begin>
+        </begin>
+      </always>
+      <var loc="e,111,5,111,16" name="lsbfirstint" dtype_id="1" vartype="logic" origName="lsbfirstint"/>
+      <var loc="e,112,10,112,17" name="modeint" dtype_id="4" vartype="logic" origName="modeint"/>
+      <always loc="e,113,1,113,7">
+        <sentree loc="e,113,8,113,9">
+          <senitem loc="e,113,11,113,18" edgeType="POS">
+            <varref loc="e,113,19,113,22" name="clk" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,113,26,113,33" edgeType="POS">
+            <varref loc="e,113,34,113,37" name="rst" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,114,1,114,6">
+          <if loc="e,115,5,115,7">
+            <varref loc="e,115,8,115,11" name="rst" dtype_id="1"/>
+            <begin>
+              <begin loc="e,116,5,116,10">
+                <assigndly loc="e,117,21,117,23" dtype_id="1">
+                  <const loc="e,117,24,117,28" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,117,9,117,20" name="inbufffulln" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,118,12,118,14" dtype_id="1">
+                  <const loc="e,118,15,118,19" name="1&apos;h1" dtype_id="1"/>
+                  <varref loc="e,118,9,118,11" name="ss" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,119,15,119,17" dtype_id="1">
+                  <const loc="e,119,18,119,28" name="1&apos;h0" dtype_id="6"/>
+                  <varref loc="e,119,9,119,14" name="state" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,120,24,120,26" dtype_id="2">
+                  <const loc="e,120,43,120,44" name="8&apos;h0" dtype_id="2"/>
+                  <varref loc="e,120,9,120,23" name="prescaller_cnt" dtype_id="2"/>
+                </assigndly>
+                <assigndly loc="e,121,23,121,25" dtype_id="3">
+                  <const loc="e,121,42,121,43" name="3&apos;h0" dtype_id="3"/>
+                  <varref loc="e,121,9,121,22" name="prescallerint" dtype_id="3"/>
+                </assigndly>
+                <assigndly loc="e,122,23,122,25" dtype_id="2">
+                  <const loc="e,122,35,122,36" name="8&apos;h0" dtype_id="2"/>
+                  <varref loc="e,122,9,122,22" name="shift_reg_out" dtype_id="2"/>
+                </assigndly>
+                <assigndly loc="e,123,22,123,24" dtype_id="2">
+                  <const loc="e,123,34,123,35" name="8&apos;h0" dtype_id="2"/>
+                  <varref loc="e,123,9,123,21" name="shift_reg_in" dtype_id="2"/>
+                </assigndly>
+                <assigndly loc="e,124,16,124,18" dtype_id="7">
+                  <const loc="e,124,22,124,23" name="5&apos;h0" dtype_id="7"/>
+                  <varref loc="e,124,9,124,15" name="sckint" dtype_id="7"/>
+                </assigndly>
+                <assigndly loc="e,125,15,125,17" dtype_id="1">
+                  <const loc="e,125,18,125,22" name="1&apos;h1" dtype_id="1"/>
+                  <varref loc="e,125,9,125,14" name="_mosi" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,126,23,126,25" dtype_id="2">
+                  <const loc="e,126,35,126,36" name="8&apos;h0" dtype_id="2"/>
+                  <varref loc="e,126,9,126,22" name="output_buffer" dtype_id="2"/>
+                </assigndly>
+                <assigndly loc="e,127,23,127,25" dtype_id="1">
+                  <const loc="e,127,26,127,30" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,127,9,127,22" name="charreceivedp" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,128,21,128,23" dtype_id="1">
+                  <const loc="e,128,24,128,28" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,128,9,128,20" name="lsbfirstint" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,129,17,129,19" dtype_id="4">
+                  <const loc="e,129,20,129,25" name="2&apos;h0" dtype_id="4"/>
+                  <varref loc="e,129,9,129,16" name="modeint" dtype_id="4"/>
+                </assigndly>
+              </begin>
+            </begin>
+            <begin>
+              <begin loc="e,132,5,132,10">
+                <case loc="e,133,9,133,13">
+                  <varref loc="e,133,14,133,19" name="state" dtype_id="1"/>
+                  <caseitem loc="e,134,19,134,20">
+                    <const loc="e,134,9,134,19" name="1&apos;h0" dtype_id="6"/>
+                    <begin loc="e,135,13,135,18">
+                      <if loc="e,136,17,136,19">
+                        <neq loc="e,136,32,136,34" dtype_id="1">
+                          <varref loc="e,136,20,136,31" name="inbufffullp" dtype_id="1"/>
+                          <varref loc="e,136,35,136,46" name="inbufffulln" dtype_id="1"/>
+                        </neq>
+                        <begin>
+                          <begin loc="e,137,17,137,22">
+                            <assigndly loc="e,138,33,138,35" dtype_id="1">
+                              <not loc="e,138,36,138,37" dtype_id="1">
+                                <varref loc="e,138,37,138,48" name="inbufffulln" dtype_id="1"/>
+                              </not>
+                              <varref loc="e,138,21,138,32" name="inbufffulln" dtype_id="1"/>
+                            </assigndly>
+                            <assigndly loc="e,139,24,139,26" dtype_id="1">
+                              <const loc="e,139,27,139,31" name="1&apos;h0" dtype_id="1"/>
+                              <varref loc="e,139,21,139,23" name="ss" dtype_id="1"/>
+                            </assigndly>
+                            <assigndly loc="e,140,36,140,38" dtype_id="2">
+                              <const loc="e,140,55,140,56" name="8&apos;h0" dtype_id="2"/>
+                              <varref loc="e,140,21,140,35" name="prescaller_cnt" dtype_id="2"/>
+                            </assigndly>
+                            <assigndly loc="e,141,35,141,37" dtype_id="3">
+                              <varref loc="e,141,38,141,52" name="prescallerbuff" dtype_id="3"/>
+                              <varref loc="e,141,21,141,34" name="prescallerint" dtype_id="3"/>
+                            </assigndly>
+                            <assigndly loc="e,142,33,142,35" dtype_id="1">
+                              <varref loc="e,142,36,142,44" name="lsbfirst" dtype_id="1"/>
+                              <varref loc="e,142,21,142,32" name="lsbfirstint" dtype_id="1"/>
+                            </assigndly>
+                            <assigndly loc="e,143,29,143,31" dtype_id="4">
+                              <varref loc="e,143,32,143,36" name="mode" dtype_id="4"/>
+                              <varref loc="e,143,21,143,28" name="modeint" dtype_id="4"/>
+                            </assigndly>
+                            <assigndly loc="e,144,35,144,37" dtype_id="2">
+                              <varref loc="e,144,38,144,50" name="input_buffer" dtype_id="2"/>
+                              <varref loc="e,144,21,144,34" name="shift_reg_out" dtype_id="2"/>
+                            </assigndly>
+                            <assigndly loc="e,145,27,145,29" dtype_id="1">
+                              <const loc="e,145,30,145,40" name="1&apos;h1" dtype_id="6"/>
+                              <varref loc="e,145,21,145,26" name="state" dtype_id="1"/>
+                            </assigndly>
+                            <if loc="e,146,21,146,23">
+                              <not loc="e,146,24,146,25" dtype_id="1">
+                                <sel loc="e,146,29,146,30" dtype_id="1">
+                                  <varref loc="e,146,25,146,29" name="mode" dtype_id="4"/>
+                                  <const loc="e,146,30,146,31" name="1&apos;h0" dtype_id="8"/>
+                                  <const loc="e,146,29,146,30" name="32&apos;h1" dtype_id="9"/>
+                                </sel>
+                              </not>
+                              <begin>
+                                <begin loc="e,147,21,147,26">
+                                  <assigndly loc="e,151,35,151,37" dtype_id="1">
+                                    <cond loc="e,151,50,151,51" dtype_id="1">
+                                      <varref loc="e,148,29,148,37" name="lsbfirst" dtype_id="1"/>
+                                      <sel loc="e,151,50,151,51" dtype_id="1">
+                                        <varref loc="e,151,38,151,50" name="input_buffer" dtype_id="2"/>
+                                        <const loc="e,151,51,151,52" name="3&apos;h0" dtype_id="10"/>
+                                        <const loc="e,151,50,151,51" name="32&apos;h1" dtype_id="9"/>
+                                      </sel>
+                                      <sel loc="e,149,50,149,51" dtype_id="1">
+                                        <varref loc="e,149,38,149,50" name="input_buffer" dtype_id="2"/>
+                                        <const loc="e,149,60,149,61" name="3&apos;h7" dtype_id="10"/>
+                                        <const loc="e,149,50,149,51" name="32&apos;h1" dtype_id="9"/>
+                                      </sel>
+                                    </cond>
+                                    <varref loc="e,151,29,151,34" name="_mosi" dtype_id="1"/>
+                                  </assigndly>
+                                </begin>
+                              </begin>
+                            </if>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </caseitem>
+                  <caseitem loc="e,155,19,155,20">
+                    <const loc="e,155,9,155,19" name="1&apos;h1" dtype_id="6"/>
+                    <begin loc="e,156,13,156,18">
+                      <if loc="e,157,17,157,19">
+                        <neq loc="e,157,35,157,37" dtype_id="1">
+                          <varref loc="e,157,20,157,34" name="prescaller_cnt" dtype_id="2"/>
+                          <varref loc="e,157,38,157,48" name="prescdemux" dtype_id="2"/>
+                        </neq>
+                        <begin>
+                          <begin loc="e,158,17,158,22">
+                            <assigndly loc="e,159,36,159,38" dtype_id="2">
+                              <add loc="e,159,54,159,55" dtype_id="2">
+                                <const loc="e,159,54,159,55" name="8&apos;h1" dtype_id="2"/>
+                                <varref loc="e,159,39,159,53" name="prescaller_cnt" dtype_id="2"/>
+                              </add>
+                              <varref loc="e,159,21,159,35" name="prescaller_cnt" dtype_id="2"/>
+                            </assigndly>
+                          </begin>
+                        </begin>
+                        <begin>
+                          <begin loc="e,162,17,162,22">
+                            <assigndly loc="e,163,36,163,38" dtype_id="2">
+                              <const loc="e,163,55,163,56" name="8&apos;h0" dtype_id="2"/>
+                              <varref loc="e,163,21,163,35" name="prescaller_cnt" dtype_id="2"/>
+                            </assigndly>
+                            <assigndly loc="e,164,28,164,30" dtype_id="7">
+                              <add loc="e,164,38,164,39" dtype_id="7">
+                                <const loc="e,164,38,164,39" name="5&apos;h1" dtype_id="7"/>
+                                <varref loc="e,164,31,164,37" name="sckint" dtype_id="7"/>
+                              </add>
+                              <varref loc="e,164,21,164,27" name="sckint" dtype_id="7"/>
+                            </assigndly>
+                            <if loc="e,165,21,165,23">
+                              <eq loc="e,165,34,165,36" dtype_id="1">
+                                <sel loc="e,165,30,165,31" dtype_id="1">
+                                  <varref loc="e,165,24,165,30" name="sckint" dtype_id="7"/>
+                                  <const loc="e,165,31,165,32" name="3&apos;h0" dtype_id="10"/>
+                                  <const loc="e,165,30,165,31" name="32&apos;h1" dtype_id="9"/>
+                                </sel>
+                                <sel loc="e,165,44,165,45" dtype_id="1">
+                                  <varref loc="e,165,37,165,44" name="modeint" dtype_id="4"/>
+                                  <const loc="e,165,45,165,46" name="1&apos;h0" dtype_id="8"/>
+                                  <const loc="e,165,44,165,45" name="32&apos;h1" dtype_id="9"/>
+                                </sel>
+                              </eq>
+                              <begin>
+                                <begin loc="e,166,21,166,26">
+                                  <if loc="e,167,25,167,27">
+                                    <varref loc="e,167,29,167,40" name="lsbfirstint" dtype_id="1"/>
+                                    <begin>
+                                      <begin loc="e,173,25,173,30">
+                                        <assigndly loc="e,174,42,174,44" dtype_id="2">
+                                          <concat loc="e,174,63,174,64" dtype_id="2">
+                                            <sel loc="e,174,58,174,59" dtype_id="11">
+                                              <varref loc="e,174,46,174,58" name="shift_reg_in" dtype_id="2"/>
+                                              <const loc="e,174,61,174,62" name="3&apos;h0" dtype_id="10"/>
+                                              <const loc="e,174,59,174,60" name="32&apos;h7" dtype_id="9"/>
+                                            </sel>
+                                            <varref loc="e,174,65,174,69" name="miso" dtype_id="1"/>
+                                          </concat>
+                                          <varref loc="e,174,29,174,41" name="shift_reg_in" dtype_id="2"/>
+                                        </assigndly>
+                                        <assigndly loc="e,175,43,175,45" dtype_id="2">
+                                          <concat loc="e,175,51,175,52" dtype_id="2">
+                                            <const loc="e,175,47,175,51" name="1&apos;h1" dtype_id="1"/>
+                                            <sel loc="e,175,66,175,67" dtype_id="11">
+                                              <varref loc="e,175,53,175,66" name="shift_reg_out" dtype_id="2"/>
+                                              <const loc="e,175,69,175,70" name="3&apos;h1" dtype_id="10"/>
+                                              <const loc="e,175,67,175,68" name="32&apos;h7" dtype_id="9"/>
+                                            </sel>
+                                          </concat>
+                                          <varref loc="e,175,29,175,42" name="shift_reg_out" dtype_id="2"/>
+                                        </assigndly>
+                                      </begin>
+                                    </begin>
+                                    <begin>
+                                      <begin loc="e,168,25,168,30">
+                                        <assigndly loc="e,169,42,169,44" dtype_id="2">
+                                          <concat loc="e,169,50,169,51" dtype_id="2">
+                                            <varref loc="e,169,46,169,50" name="miso" dtype_id="1"/>
+                                            <sel loc="e,169,64,169,65" dtype_id="11">
+                                              <varref loc="e,169,52,169,64" name="shift_reg_in" dtype_id="2"/>
+                                              <const loc="e,169,67,169,68" name="3&apos;h1" dtype_id="10"/>
+                                              <const loc="e,169,65,169,66" name="32&apos;h7" dtype_id="9"/>
+                                            </sel>
+                                          </concat>
+                                          <varref loc="e,169,29,169,41" name="shift_reg_in" dtype_id="2"/>
+                                        </assigndly>
+                                        <assigndly loc="e,170,43,170,45" dtype_id="2">
+                                          <concat loc="e,170,65,170,66" dtype_id="2">
+                                            <sel loc="e,170,60,170,61" dtype_id="11">
+                                              <varref loc="e,170,47,170,60" name="shift_reg_out" dtype_id="2"/>
+                                              <const loc="e,170,63,170,64" name="3&apos;h0" dtype_id="10"/>
+                                              <const loc="e,170,61,170,62" name="32&apos;h7" dtype_id="9"/>
+                                            </sel>
+                                            <const loc="e,170,67,170,71" name="1&apos;h1" dtype_id="1"/>
+                                          </concat>
+                                          <varref loc="e,170,29,170,42" name="shift_reg_out" dtype_id="2"/>
+                                        </assigndly>
+                                      </begin>
+                                    </begin>
+                                  </if>
+                                </begin>
+                              </begin>
+                              <begin>
+                                <begin loc="e,179,21,179,26">
+                                  <assigndly loc="e,183,35,183,37" dtype_id="1">
+                                    <cond loc="e,183,51,183,52" dtype_id="1">
+                                      <varref loc="e,180,29,180,40" name="lsbfirstint" dtype_id="1"/>
+                                      <sel loc="e,183,51,183,52" dtype_id="1">
+                                        <varref loc="e,183,38,183,51" name="shift_reg_out" dtype_id="2"/>
+                                        <const loc="e,183,52,183,53" name="3&apos;h0" dtype_id="10"/>
+                                        <const loc="e,183,51,183,52" name="32&apos;h1" dtype_id="9"/>
+                                      </sel>
+                                      <sel loc="e,181,51,181,52" dtype_id="1">
+                                        <varref loc="e,181,38,181,51" name="shift_reg_out" dtype_id="2"/>
+                                        <const loc="e,181,61,181,62" name="3&apos;h7" dtype_id="10"/>
+                                        <const loc="e,181,51,181,52" name="32&apos;h1" dtype_id="9"/>
+                                      </sel>
+                                    </cond>
+                                    <varref loc="e,183,29,183,34" name="_mosi" dtype_id="1"/>
+                                  </assigndly>
+                                  <if loc="e,184,25,184,27">
+                                    <eq loc="e,184,40,184,42" dtype_id="1">
+                                      <const loc="e,184,43,184,51" name="4&apos;h8" dtype_id="12"/>
+                                      <sel loc="e,184,34,184,35" dtype_id="12">
+                                        <varref loc="e,184,28,184,34" name="sckint" dtype_id="7"/>
+                                        <const loc="e,184,37,184,38" name="3&apos;h1" dtype_id="10"/>
+                                        <const loc="e,184,35,184,36" name="32&apos;h4" dtype_id="9"/>
+                                      </sel>
+                                    </eq>
+                                    <begin>
+                                      <begin loc="e,185,25,185,30">
+                                        <assigndly loc="e,186,36,186,38" dtype_id="7">
+                                          <const loc="e,186,41,186,42" name="5&apos;h0" dtype_id="7"/>
+                                          <varref loc="e,186,29,186,35" name="sckint" dtype_id="7"/>
+                                        </assigndly>
+                                        <if loc="e,187,29,187,31">
+                                          <eq loc="e,187,44,187,46" dtype_id="1">
+                                            <varref loc="e,187,32,187,43" name="inbufffullp" dtype_id="1"/>
+                                            <varref loc="e,187,47,187,58" name="inbufffulln" dtype_id="1"/>
+                                          </eq>
+                                          <begin>
+                                            <begin loc="e,188,29,188,34">
+                                              <assigndly loc="e,189,36,189,38" dtype_id="1">
+                                                <const loc="e,189,39,189,43" name="1&apos;h1" dtype_id="1"/>
+                                                <varref loc="e,189,33,189,35" name="ss" dtype_id="1"/>
+                                              </assigndly>
+                                            </begin>
+                                          </begin>
+                                        </if>
+                                        <assigndly loc="e,191,43,191,45" dtype_id="2">
+                                          <varref loc="e,191,46,191,58" name="shift_reg_in" dtype_id="2"/>
+                                          <varref loc="e,191,29,191,42" name="output_buffer" dtype_id="2"/>
+                                        </assigndly>
+                                        <if loc="e,192,29,192,31">
+                                          <eq loc="e,192,46,192,48" dtype_id="1">
+                                            <varref loc="e,192,32,192,45" name="charreceivedp" dtype_id="1"/>
+                                            <varref loc="e,192,49,192,62" name="charreceivedn" dtype_id="1"/>
+                                          </eq>
+                                          <begin>
+                                            <assigndly loc="e,193,47,193,49" dtype_id="1">
+                                              <not loc="e,193,50,193,51" dtype_id="1">
+                                                <varref loc="e,193,51,193,64" name="charreceivedp" dtype_id="1"/>
+                                              </not>
+                                              <varref loc="e,193,33,193,46" name="charreceivedp" dtype_id="1"/>
+                                            </assigndly>
+                                          </begin>
+                                        </if>
+                                        <assigndly loc="e,194,35,194,37" dtype_id="1">
+                                          <const loc="e,194,38,194,48" name="1&apos;h0" dtype_id="6"/>
+                                          <varref loc="e,194,29,194,34" name="state" dtype_id="1"/>
+                                        </assigndly>
+                                      </begin>
+                                    </begin>
+                                  </if>
+                                </begin>
+                              </begin>
+                            </if>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </caseitem>
+                </case>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <always loc="e,205,1,205,7">
+        <sentree loc="e,205,8,205,9">
+          <senitem loc="e,205,11,205,18" edgeType="POS">
+            <varref loc="e,205,19,205,21" name="rd" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,205,25,205,32" edgeType="POS">
+            <varref loc="e,205,33,205,36" name="rst" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,207,1,207,6">
+          <if loc="e,208,5,208,7">
+            <varref loc="e,208,8,208,11" name="rst" dtype_id="1"/>
+            <begin>
+              <assigndly loc="e,209,23,209,25" dtype_id="1">
+                <const loc="e,209,26,209,30" name="1&apos;h0" dtype_id="1"/>
+                <varref loc="e,209,9,209,22" name="charreceivedn" dtype_id="1"/>
+              </assigndly>
+            </begin>
+            <begin>
+              <if loc="e,211,5,211,7">
+                <neq loc="e,211,22,211,24" dtype_id="1">
+                  <varref loc="e,211,8,211,21" name="charreceivedp" dtype_id="1"/>
+                  <varref loc="e,211,25,211,38" name="charreceivedn" dtype_id="1"/>
+                </neq>
+                <begin>
+                  <assigndly loc="e,212,23,212,25" dtype_id="1">
+                    <not loc="e,212,26,212,27" dtype_id="1">
+                      <varref loc="e,212,27,212,40" name="charreceivedn" dtype_id="1"/>
+                    </not>
+                    <varref loc="e,212,9,212,22" name="charreceivedn" dtype_id="1"/>
+                  </assigndly>
+                </begin>
+              </if>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <contassign loc="e,214,13,214,14" dtype_id="2">
+        <cond loc="e,214,20,214,21" dtype_id="2">
+          <varref loc="e,27,7,27,9" name="rd" dtype_id="1"/>
+          <varref loc="e,45,21,45,34" name="output_buffer" dtype_id="2"/>
+          <const loc="e,214,47,214,48" name="8&apos;bzzzzzzzz" dtype_id="2"/>
+        </cond>
+        <varref loc="e,214,13,214,14" name="data" dtype_id="2"/>
+      </contassign>
+      <contassign loc="e,46,18,46,19" dtype_id="1">
+        <not loc="e,46,20,46,21" dtype_id="1">
+          <xor loc="e,46,34,46,35" dtype_id="1">
+            <varref loc="e,43,5,43,16" name="inbufffulln" dtype_id="1"/>
+            <varref loc="e,42,5,42,16" name="inbufffullp" dtype_id="1"/>
+          </xor>
+        </not>
+        <varref loc="e,46,18,46,19" name="buffempty" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,215,12,215,13" dtype_id="1">
+        <sel loc="e,215,26,215,27" dtype_id="1">
+          <cond loc="e,215,26,215,27" dtype_id="7">
+            <sel loc="e,215,22,215,23" dtype_id="1">
+              <varref loc="e,112,10,112,17" name="modeint" dtype_id="4"/>
+              <const loc="e,215,22,215,23" name="32&apos;h1" dtype_id="9"/>
+              <const loc="e,215,22,215,23" name="32&apos;h1" dtype_id="9"/>
+            </sel>
+            <not loc="e,215,28,215,29" dtype_id="7">
+              <varref loc="e,90,10,90,16" name="sckint" dtype_id="7"/>
+            </not>
+            <varref loc="e,90,10,90,16" name="sckint" dtype_id="7"/>
+          </cond>
+          <const loc="e,215,26,215,27" name="32&apos;h0" dtype_id="9"/>
+          <const loc="e,215,26,215,27" name="32&apos;h1" dtype_id="9"/>
+        </sel>
+        <varref loc="e,215,12,215,13" name="sck" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,216,13,216,14" dtype_id="1">
+        <or loc="e,216,20,216,21" dtype_id="1">
+          <varref loc="e,32,5,32,10" name="_mosi" dtype_id="1"/>
+          <varref loc="e,34,12,34,14" name="ss" dtype_id="1"/>
+        </or>
+        <varref loc="e,216,13,216,14" name="mosi" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,217,21,217,22" dtype_id="1">
+        <xor loc="e,217,38,217,39" dtype_id="1">
+          <varref loc="e,41,5,41,18" name="charreceivedn" dtype_id="1"/>
+          <varref loc="e,40,5,40,18" name="charreceivedp" dtype_id="1"/>
+        </xor>
+        <varref loc="e,217,21,217,22" name="charreceived" dtype_id="1"/>
+      </contassign>
+    </module>
+    <typetable loc="a,0,0,0,0">
+      <basicdtype loc="d,46,25,46,27" id="1" name="logic"/>
+      <voiddtype loc="d,48,18,48,27" id="13"/>
+      <basicdtype loc="e,84,11,84,21" id="6" name="logic" left="0" right="0"/>
+      <basicdtype loc="e,25,7,25,8" id="2" name="logic" left="7" right="0"/>
+      <basicdtype loc="e,29,7,29,8" id="3" name="logic" left="2" right="0"/>
+      <basicdtype loc="e,36,7,36,8" id="4" name="logic" left="1" right="0"/>
+      <basicdtype loc="e,90,1,90,4" id="7" name="logic" left="4" right="0"/>
+      <basicdtype loc="e,95,22,95,23" id="9" name="logic" left="31" right="0"/>
+      <basicdtype loc="e,149,50,149,51" id="10" name="logic" left="2" right="0" signed="true"/>
+      <basicdtype loc="e,146,29,146,30" id="8" name="logic" signed="true"/>
+      <basicdtype loc="e,169,64,169,65" id="11" name="logic" left="6" right="0"/>
+      <basicdtype loc="e,184,34,184,35" id="12" name="logic" left="3" right="0"/>
+      <basicdtype loc="e,21,22,21,23" id="5" name="logic" left="31" right="0" signed="true"/>
+    </typetable>
+  </netlist>
+</verilator_xml>

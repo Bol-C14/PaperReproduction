@@ -1,0 +1,803 @@
+<?xml version="1.0" ?>
+<!-- DESCRIPTION: Verilator output: XML representation of netlist -->
+<verilator_xml>
+  <files>
+    <file id="d" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std.sv" language="1800-2023"/>
+    <file id="c" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std_waiver.vlt" language="1800-2023"/>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_57178497fb2a/i2c_slave_model.v" language="1800-2023"/>
+    <file id="a" filename="&lt;built-in&gt;" language="1800-2023"/>
+    <file id="b" filename="&lt;command-line&gt;" language="1800-2023"/>
+  </files>
+  <module_files>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_57178497fb2a/i2c_slave_model.v" language="1800-2023"/>
+  </module_files>
+  <cells>
+    <cell loc="e,3,8,3,23" name="i2c_slave_model" submodname="i2c_slave_model" hier="i2c_slave_model"/>
+  </cells>
+  <netlist>
+    <module loc="e,3,8,3,23" name="i2c_slave_model" origName="i2c_slave_model" topModule="1">
+      <var loc="e,5,8,5,11" name="scl" dtype_id="1" dir="input" pinIndex="1" vartype="logic" origName="scl"/>
+      <var loc="e,6,8,6,11" name="sda" dtype_id="1" dir="inout" pinIndex="2" vartype="logic" origName="sda"/>
+      <var loc="e,4,12,4,19" name="I2C_ADR" dtype_id="2" vartype="logic" origName="I2C_ADR" param="true">
+        <const loc="e,4,22,4,33" name="7&apos;h10" dtype_id="2"/>
+      </var>
+      <var loc="e,7,7,7,12" name="debug" dtype_id="1" vartype="logic" origName="debug">
+        <const loc="e,7,15,7,19" name="1&apos;h1" dtype_id="1"/>
+      </var>
+      <var loc="e,8,12,8,15" name="mem" dtype_id="3" vartype="" origName="mem"/>
+      <var loc="e,9,12,9,19" name="mem_adr" dtype_id="4" vartype="logic" origName="mem_adr"/>
+      <var loc="e,10,12,10,18" name="mem_do" dtype_id="4" vartype="logic" origName="mem_do"/>
+      <var loc="e,11,6,11,9" name="sta" dtype_id="1" vartype="logic" origName="sta"/>
+      <var loc="e,11,11,11,16" name="d_sta" dtype_id="1" vartype="logic" origName="d_sta"/>
+      <var loc="e,12,6,12,9" name="sto" dtype_id="1" vartype="logic" origName="sto"/>
+      <var loc="e,12,11,12,16" name="d_sto" dtype_id="1" vartype="logic" origName="d_sto"/>
+      <var loc="e,13,12,13,14" name="sr" dtype_id="4" vartype="logic" origName="sr"/>
+      <var loc="e,14,12,14,14" name="rw" dtype_id="1" vartype="logic" origName="rw"/>
+      <var loc="e,15,12,15,18" name="my_adr" dtype_id="1" vartype="logic" origName="my_adr"/>
+      <var loc="e,17,12,17,19" name="bit_cnt" dtype_id="5" vartype="logic" origName="bit_cnt"/>
+      <var loc="e,18,12,18,20" name="acc_done" dtype_id="1" vartype="logic" origName="acc_done"/>
+      <var loc="e,19,12,19,14" name="ld" dtype_id="1" vartype="logic" origName="ld"/>
+      <var loc="e,20,12,20,17" name="sda_o" dtype_id="1" vartype="logic" origName="sda_o"/>
+      <var loc="e,21,12,21,19" name="sda_dly" dtype_id="1" vartype="logic" origName="sda_dly"/>
+      <var loc="e,22,12,22,16" name="idle" dtype_id="5" vartype="logic" origName="idle" param="true">
+        <const loc="e,22,26,22,32" name="3&apos;h0" dtype_id="5"/>
+      </var>
+      <var loc="e,23,12,23,21" name="slave_ack" dtype_id="5" vartype="logic" origName="slave_ack" param="true">
+        <const loc="e,23,26,23,32" name="3&apos;h1" dtype_id="5"/>
+      </var>
+      <var loc="e,24,12,24,23" name="get_mem_adr" dtype_id="5" vartype="logic" origName="get_mem_adr" param="true">
+        <const loc="e,24,26,24,32" name="3&apos;h2" dtype_id="5"/>
+      </var>
+      <var loc="e,25,12,25,19" name="gma_ack" dtype_id="5" vartype="logic" origName="gma_ack" param="true">
+        <const loc="e,25,26,25,32" name="3&apos;h3" dtype_id="5"/>
+      </var>
+      <var loc="e,26,12,26,16" name="data" dtype_id="5" vartype="logic" origName="data" param="true">
+        <const loc="e,26,26,26,32" name="3&apos;h4" dtype_id="5"/>
+      </var>
+      <var loc="e,27,12,27,20" name="data_ack" dtype_id="5" vartype="logic" origName="data_ack" param="true">
+        <const loc="e,27,26,27,32" name="3&apos;h5" dtype_id="5"/>
+      </var>
+      <var loc="e,28,12,28,17" name="state" dtype_id="5" vartype="logic" origName="state"/>
+      <initial loc="e,29,2,29,9">
+        <begin loc="e,30,2,30,7">
+          <assign loc="e,31,11,31,12" dtype_id="1">
+            <const loc="e,31,13,31,17" name="1&apos;h1" dtype_id="1"/>
+            <varref loc="e,31,5,31,10" name="sda_o" dtype_id="1"/>
+          </assign>
+          <assign loc="e,32,11,32,12" dtype_id="5">
+            <const loc="e,32,13,32,17" name="3&apos;h0" dtype_id="5"/>
+            <varref loc="e,32,5,32,10" name="state" dtype_id="5"/>
+          </assign>
+        </begin>
+      </initial>
+      <always loc="e,34,2,34,8">
+        <sentree loc="e,34,9,34,10">
+          <senitem loc="e,34,11,34,18" edgeType="POS">
+            <varref loc="e,34,19,34,22" name="scl" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <assigndly loc="e,35,7,35,9" dtype_id="4">
+          <concat loc="e,35,21,35,22" dtype_id="4">
+            <sel loc="e,35,16,35,17" dtype_id="2">
+              <varref loc="e,35,14,35,16" name="sr" dtype_id="4"/>
+              <const loc="e,35,19,35,20" name="3&apos;h0" dtype_id="6"/>
+              <const loc="e,35,17,35,18" name="32&apos;h7" dtype_id="7"/>
+            </sel>
+            <varref loc="e,35,22,35,25" name="sda" dtype_id="1"/>
+          </concat>
+          <varref loc="e,35,4,35,6" name="sr" dtype_id="4"/>
+          <delay loc="e,35,10,35,11">
+            <const loc="e,35,11,35,12" name="64&apos;h1" dtype_id="8"/>
+          </delay>
+        </assigndly>
+      </always>
+      <always loc="e,37,2,37,8">
+        <sentree loc="e,37,9,37,10">
+          <senitem loc="e,37,11,37,18" edgeType="POS">
+            <varref loc="e,37,19,37,22" name="scl" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <assigndly loc="e,39,14,39,16" dtype_id="5">
+          <cond loc="e,39,20,39,26" dtype_id="5">
+            <varref loc="e,38,7,38,9" name="ld" dtype_id="1"/>
+            <const loc="e,39,20,39,26" name="3&apos;h7" dtype_id="5"/>
+            <sub loc="e,41,28,41,29" dtype_id="5">
+              <varref loc="e,41,20,41,27" name="bit_cnt" dtype_id="5"/>
+              <const loc="e,41,30,41,34" name="3&apos;h1" dtype_id="5"/>
+            </sub>
+          </cond>
+          <varref loc="e,39,6,39,13" name="bit_cnt" dtype_id="5"/>
+          <delay loc="e,39,17,39,18">
+            <const loc="e,39,18,39,19" name="64&apos;h1" dtype_id="8"/>
+          </delay>
+        </assigndly>
+      </always>
+      <contassign loc="e,43,20,43,21" dtype_id="1">
+        <varref loc="e,43,22,43,25" name="sda" dtype_id="1"/>
+        <varref loc="e,43,12,43,19" name="sda_dly" dtype_id="1"/>
+        <delay loc="e,43,9,43,10">
+          <const loc="e,43,10,43,11" name="64&apos;h1" dtype_id="8"/>
+        </delay>
+      </contassign>
+      <always loc="e,44,2,44,8">
+        <sentree loc="e,44,9,44,10">
+          <senitem loc="e,44,11,44,18" edgeType="NEG">
+            <varref loc="e,44,19,44,22" name="sda" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <if loc="e,45,4,45,6">
+          <varref loc="e,45,7,45,10" name="scl" dtype_id="1"/>
+          <begin>
+            <begin loc="e,46,6,46,11">
+              <assigndly loc="e,47,16,47,18" dtype_id="1">
+                <const loc="e,47,22,47,26" name="1&apos;h1" dtype_id="1"/>
+                <varref loc="e,47,10,47,13" name="sta" dtype_id="1"/>
+                <delay loc="e,47,19,47,20">
+                  <const loc="e,47,20,47,21" name="64&apos;h1" dtype_id="8"/>
+                </delay>
+              </assigndly>
+              <assigndly loc="e,48,9,48,11" dtype_id="1">
+                <const loc="e,48,15,48,19" name="1&apos;h0" dtype_id="1"/>
+                <varref loc="e,48,3,48,8" name="d_sta" dtype_id="1"/>
+                <delay loc="e,48,12,48,13">
+                  <const loc="e,48,13,48,14" name="64&apos;h1" dtype_id="8"/>
+                </delay>
+              </assigndly>
+              <assigndly loc="e,49,9,49,11" dtype_id="1">
+                <const loc="e,49,15,49,19" name="1&apos;h0" dtype_id="1"/>
+                <varref loc="e,49,3,49,6" name="sto" dtype_id="1"/>
+                <delay loc="e,49,12,49,13">
+                  <const loc="e,49,13,49,14" name="64&apos;h1" dtype_id="8"/>
+                </delay>
+              </assigndly>
+              <display loc="e,51,12,51,20" displaytype="$display">
+                <sformatf loc="e,51,12,51,20" name="DEBUG i2c_slave; start condition detected at %t" dtype_id="9">
+                  <time loc="e,51,72,51,77" dtype_id="10"/>
+                </sformatf>
+              </display>
+            </begin>
+          </begin>
+          <begin>
+            <assigndly loc="e,54,10,54,12" dtype_id="1">
+              <const loc="e,54,16,54,20" name="1&apos;h0" dtype_id="1"/>
+              <varref loc="e,54,6,54,9" name="sta" dtype_id="1"/>
+              <delay loc="e,54,13,54,14">
+                <const loc="e,54,14,54,15" name="64&apos;h1" dtype_id="8"/>
+              </delay>
+            </assigndly>
+          </begin>
+        </if>
+      </always>
+      <always loc="e,55,2,55,8">
+        <sentree loc="e,55,9,55,10">
+          <senitem loc="e,55,11,55,18" edgeType="POS">
+            <varref loc="e,55,19,55,22" name="scl" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <assigndly loc="e,56,10,56,12" dtype_id="1">
+          <varref loc="e,56,16,56,19" name="sta" dtype_id="1"/>
+          <varref loc="e,56,4,56,9" name="d_sta" dtype_id="1"/>
+          <delay loc="e,56,13,56,14">
+            <const loc="e,56,14,56,15" name="64&apos;h1" dtype_id="8"/>
+          </delay>
+        </assigndly>
+      </always>
+      <always loc="e,57,2,57,8">
+        <sentree loc="e,57,9,57,10">
+          <senitem loc="e,57,11,57,18" edgeType="POS">
+            <varref loc="e,57,19,57,22" name="sda" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <if loc="e,58,4,58,6">
+          <varref loc="e,58,7,58,10" name="scl" dtype_id="1"/>
+          <begin>
+            <begin loc="e,59,6,59,11">
+              <assigndly loc="e,60,13,60,15" dtype_id="1">
+                <const loc="e,60,19,60,23" name="1&apos;h0" dtype_id="1"/>
+                <varref loc="e,60,9,60,12" name="sta" dtype_id="1"/>
+                <delay loc="e,60,16,60,17">
+                  <const loc="e,60,17,60,18" name="64&apos;h1" dtype_id="8"/>
+                </delay>
+              </assigndly>
+              <assigndly loc="e,61,13,61,15" dtype_id="1">
+                <const loc="e,61,19,61,23" name="1&apos;h1" dtype_id="1"/>
+                <varref loc="e,61,9,61,12" name="sto" dtype_id="1"/>
+                <delay loc="e,61,16,61,17">
+                  <const loc="e,61,17,61,18" name="64&apos;h1" dtype_id="8"/>
+                </delay>
+              </assigndly>
+              <display loc="e,63,11,63,19" displaytype="$display">
+                <sformatf loc="e,63,11,63,19" name="DEBUG i2c_slave; stop condition detected at %t" dtype_id="9">
+                  <time loc="e,63,70,63,75" dtype_id="10"/>
+                </sformatf>
+              </display>
+            </begin>
+          </begin>
+          <begin>
+            <assigndly loc="e,66,10,66,12" dtype_id="1">
+              <const loc="e,66,16,66,20" name="1&apos;h0" dtype_id="1"/>
+              <varref loc="e,66,6,66,9" name="sto" dtype_id="1"/>
+              <delay loc="e,66,13,66,14">
+                <const loc="e,66,14,66,15" name="64&apos;h1" dtype_id="8"/>
+              </delay>
+            </assigndly>
+          </begin>
+        </if>
+      </always>
+      <always loc="e,68,2,68,8">
+        <sentree loc="e,68,9,68,10">
+          <senitem loc="e,68,11,68,18" edgeType="NEG">
+            <varref loc="e,68,19,68,22" name="scl" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,68,26,68,33" edgeType="POS">
+            <varref loc="e,68,34,68,37" name="sto" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <if loc="e,69,4,69,6">
+          <or loc="e,69,12,69,14" dtype_id="1">
+            <varref loc="e,69,8,69,11" name="sto" dtype_id="1"/>
+            <and loc="e,69,20,69,22" dtype_id="1">
+              <varref loc="e,69,16,69,19" name="sta" dtype_id="1"/>
+              <not loc="e,69,23,69,24" dtype_id="1">
+                <varref loc="e,69,24,69,29" name="d_sta" dtype_id="1"/>
+              </not>
+            </and>
+          </or>
+          <begin>
+            <begin loc="e,70,6,70,11">
+              <assigndly loc="e,71,16,71,18" dtype_id="5">
+                <const loc="e,71,22,71,26" name="3&apos;h0" dtype_id="5"/>
+                <varref loc="e,71,10,71,15" name="state" dtype_id="5"/>
+                <delay loc="e,71,19,71,20">
+                  <const loc="e,71,20,71,21" name="64&apos;h1" dtype_id="8"/>
+                </delay>
+              </assigndly>
+              <assigndly loc="e,72,16,72,18" dtype_id="1">
+                <const loc="e,72,22,72,26" name="1&apos;h1" dtype_id="1"/>
+                <varref loc="e,72,10,72,15" name="sda_o" dtype_id="1"/>
+                <delay loc="e,72,19,72,20">
+                  <const loc="e,72,20,72,21" name="64&apos;h1" dtype_id="8"/>
+                </delay>
+              </assigndly>
+              <assigndly loc="e,73,16,73,18" dtype_id="1">
+                <const loc="e,73,22,73,26" name="1&apos;h1" dtype_id="1"/>
+                <varref loc="e,73,10,73,12" name="ld" dtype_id="1"/>
+                <delay loc="e,73,19,73,20">
+                  <const loc="e,73,20,73,21" name="64&apos;h1" dtype_id="8"/>
+                </delay>
+              </assigndly>
+            </begin>
+          </begin>
+          <begin>
+            <begin loc="e,76,6,76,11">
+              <assigndly loc="e,77,16,77,18" dtype_id="1">
+                <const loc="e,77,22,77,26" name="1&apos;h1" dtype_id="1"/>
+                <varref loc="e,77,10,77,15" name="sda_o" dtype_id="1"/>
+                <delay loc="e,77,19,77,20">
+                  <const loc="e,77,20,77,21" name="64&apos;h1" dtype_id="8"/>
+                </delay>
+              </assigndly>
+              <assigndly loc="e,78,16,78,18" dtype_id="1">
+                <const loc="e,78,22,78,26" name="1&apos;h0" dtype_id="1"/>
+                <varref loc="e,78,10,78,12" name="ld" dtype_id="1"/>
+                <delay loc="e,78,19,78,20">
+                  <const loc="e,78,20,78,21" name="64&apos;h1" dtype_id="8"/>
+                </delay>
+              </assigndly>
+              <case loc="e,79,10,79,14">
+                <varref loc="e,79,15,79,20" name="state" dtype_id="5"/>
+                <caseitem loc="e,80,18,80,19">
+                  <const loc="e,80,14,80,18" name="3&apos;h0" dtype_id="5"/>
+                  <if loc="e,81,16,81,18">
+                    <and loc="e,81,29,81,31" dtype_id="1">
+                      <varref loc="e,81,20,81,28" name="acc_done" dtype_id="1"/>
+                      <varref loc="e,81,32,81,38" name="my_adr" dtype_id="1"/>
+                    </and>
+                    <begin>
+                      <begin loc="e,82,18,82,23">
+                        <assigndly loc="e,83,28,83,30" dtype_id="5">
+                          <const loc="e,83,34,83,43" name="3&apos;h1" dtype_id="5"/>
+                          <varref loc="e,83,22,83,27" name="state" dtype_id="5"/>
+                          <delay loc="e,83,31,83,32">
+                            <const loc="e,83,32,83,33" name="64&apos;h1" dtype_id="8"/>
+                          </delay>
+                        </assigndly>
+                        <assigndly loc="e,84,25,84,27" dtype_id="1">
+                          <sel loc="e,84,33,84,34" dtype_id="1">
+                            <varref loc="e,84,31,84,33" name="sr" dtype_id="4"/>
+                            <const loc="e,84,34,84,35" name="3&apos;h0" dtype_id="6"/>
+                            <const loc="e,84,33,84,34" name="32&apos;h1" dtype_id="7"/>
+                          </sel>
+                          <varref loc="e,84,22,84,24" name="rw" dtype_id="1"/>
+                          <delay loc="e,84,28,84,29">
+                            <const loc="e,84,29,84,30" name="64&apos;h1" dtype_id="8"/>
+                          </delay>
+                        </assigndly>
+                        <assigndly loc="e,85,28,85,30" dtype_id="1">
+                          <const loc="e,85,34,85,38" name="1&apos;h0" dtype_id="1"/>
+                          <varref loc="e,85,22,85,27" name="sda_o" dtype_id="1"/>
+                          <delay loc="e,85,31,85,32">
+                            <const loc="e,85,32,85,33" name="64&apos;h1" dtype_id="8"/>
+                          </delay>
+                        </assigndly>
+                        <delay loc="e,86,22,86,23">
+                          <const loc="e,86,23,86,24" name="64&apos;h2" dtype_id="8"/>
+                        </delay>
+                        <if loc="e,87,22,87,24">
+                          <varref loc="e,87,34,87,36" name="rw" dtype_id="1"/>
+                          <begin>
+                            <display loc="e,88,24,88,32" displaytype="$display">
+                              <sformatf loc="e,88,24,88,32" name="DEBUG i2c_slave; command byte received (read) at %t" dtype_id="9">
+                                <time loc="e,88,88,88,93" dtype_id="10"/>
+                              </sformatf>
+                            </display>
+                          </begin>
+                        </if>
+                        <if loc="e,89,22,89,24">
+                          <not loc="e,89,34,89,35" dtype_id="1">
+                            <varref loc="e,89,35,89,37" name="rw" dtype_id="1"/>
+                          </not>
+                          <begin>
+                            <display loc="e,90,24,90,32" displaytype="$display">
+                              <sformatf loc="e,90,24,90,32" name="DEBUG i2c_slave; command byte received (write) at %t" dtype_id="9">
+                                <time loc="e,90,89,90,94" dtype_id="10"/>
+                              </sformatf>
+                            </display>
+                          </begin>
+                        </if>
+                        <if loc="e,91,22,91,24">
+                          <varref loc="e,91,25,91,27" name="rw" dtype_id="1"/>
+                          <begin>
+                            <begin loc="e,92,24,92,29">
+                              <assigndly loc="e,93,35,93,37" dtype_id="4">
+                                <arraysel loc="e,93,44,93,45" dtype_id="4">
+                                  <varref loc="e,93,41,93,44" name="mem" dtype_id="3"/>
+                                  <sel loc="e,93,45,93,52" dtype_id="11">
+                                    <varref loc="e,93,45,93,52" name="mem_adr" dtype_id="4"/>
+                                    <const loc="e,93,45,93,52" name="32&apos;h0" dtype_id="7"/>
+                                    <const loc="e,93,45,93,52" name="32&apos;h2" dtype_id="7"/>
+                                  </sel>
+                                </arraysel>
+                                <varref loc="e,93,28,93,34" name="mem_do" dtype_id="4"/>
+                                <delay loc="e,93,38,93,39">
+                                  <const loc="e,93,39,93,40" name="64&apos;h1" dtype_id="8"/>
+                                </delay>
+                              </assigndly>
+                              <begin loc="e,95,30,95,35">
+                                <delay loc="e,96,34,96,35">
+                                  <const loc="e,96,35,96,36" name="64&apos;h2" dtype_id="8"/>
+                                  <display loc="e,96,37,96,45" displaytype="$display">
+                                    <sformatf loc="e,96,37,96,45" name="DEBUG i2c_slave; data block read %x from address %x (1)" dtype_id="9">
+                                      <varref loc="e,96,105,96,111" name="mem_do" dtype_id="4"/>
+                                      <varref loc="e,96,113,96,120" name="mem_adr" dtype_id="4"/>
+                                    </sformatf>
+                                  </display>
+                                </delay>
+                                <delay loc="e,97,34,97,35">
+                                  <const loc="e,97,35,97,36" name="64&apos;h2" dtype_id="8"/>
+                                  <display loc="e,97,37,97,45" displaytype="$display">
+                                    <sformatf loc="e,97,37,97,45" name="DEBUG i2c_slave; memcheck [0]=%x, [1]=%x, [2]=%x" dtype_id="9">
+                                      <arraysel loc="e,97,101,97,102" dtype_id="4">
+                                        <varref loc="e,97,98,97,101" name="mem" dtype_id="3"/>
+                                        <const loc="e,97,102,97,106" name="2&apos;h0" dtype_id="11"/>
+                                      </arraysel>
+                                      <arraysel loc="e,97,112,97,113" dtype_id="4">
+                                        <varref loc="e,97,109,97,112" name="mem" dtype_id="3"/>
+                                        <const loc="e,97,113,97,117" name="2&apos;h1" dtype_id="11"/>
+                                      </arraysel>
+                                      <arraysel loc="e,97,123,97,124" dtype_id="4">
+                                        <varref loc="e,97,120,97,123" name="mem" dtype_id="3"/>
+                                        <const loc="e,97,124,97,128" name="2&apos;h2" dtype_id="11"/>
+                                      </arraysel>
+                                    </sformatf>
+                                  </display>
+                                </delay>
+                              </begin>
+                            </begin>
+                          </begin>
+                        </if>
+                      </begin>
+                    </begin>
+                  </if>
+                </caseitem>
+                <caseitem loc="e,101,23,101,24">
+                  <const loc="e,101,14,101,23" name="3&apos;h1" dtype_id="5"/>
+                  <begin loc="e,102,16,102,21">
+                    <if loc="e,103,20,103,22">
+                      <varref loc="e,103,23,103,25" name="rw" dtype_id="1"/>
+                      <begin>
+                        <begin loc="e,104,22,104,27">
+                          <assigndly loc="e,105,32,105,34" dtype_id="5">
+                            <const loc="e,105,38,105,42" name="3&apos;h4" dtype_id="5"/>
+                            <varref loc="e,105,26,105,31" name="state" dtype_id="5"/>
+                            <delay loc="e,105,35,105,36">
+                              <const loc="e,105,36,105,37" name="64&apos;h1" dtype_id="8"/>
+                            </delay>
+                          </assigndly>
+                          <assigndly loc="e,106,32,106,34" dtype_id="1">
+                            <sel loc="e,106,44,106,45" dtype_id="1">
+                              <varref loc="e,106,38,106,44" name="mem_do" dtype_id="4"/>
+                              <const loc="e,106,45,106,46" name="3&apos;h7" dtype_id="6"/>
+                              <const loc="e,106,44,106,45" name="32&apos;h1" dtype_id="7"/>
+                            </sel>
+                            <varref loc="e,106,26,106,31" name="sda_o" dtype_id="1"/>
+                            <delay loc="e,106,35,106,36">
+                              <const loc="e,106,36,106,37" name="64&apos;h1" dtype_id="8"/>
+                            </delay>
+                          </assigndly>
+                        </begin>
+                      </begin>
+                      <begin>
+                        <assigndly loc="e,109,28,109,30" dtype_id="5">
+                          <const loc="e,109,34,109,45" name="3&apos;h2" dtype_id="5"/>
+                          <varref loc="e,109,22,109,27" name="state" dtype_id="5"/>
+                          <delay loc="e,109,31,109,32">
+                            <const loc="e,109,32,109,33" name="64&apos;h1" dtype_id="8"/>
+                          </delay>
+                        </assigndly>
+                      </begin>
+                    </if>
+                    <assigndly loc="e,110,26,110,28" dtype_id="1">
+                      <const loc="e,110,32,110,36" name="1&apos;h1" dtype_id="1"/>
+                      <varref loc="e,110,20,110,22" name="ld" dtype_id="1"/>
+                      <delay loc="e,110,29,110,30">
+                        <const loc="e,110,30,110,31" name="64&apos;h1" dtype_id="8"/>
+                      </delay>
+                    </assigndly>
+                  </begin>
+                </caseitem>
+                <caseitem loc="e,112,25,112,26">
+                  <const loc="e,112,14,112,25" name="3&apos;h2" dtype_id="5"/>
+                  <if loc="e,113,16,113,18">
+                    <varref loc="e,113,19,113,27" name="acc_done" dtype_id="1"/>
+                    <begin>
+                      <begin loc="e,114,18,114,23">
+                        <assigndly loc="e,115,28,115,30" dtype_id="5">
+                          <const loc="e,115,34,115,41" name="3&apos;h3" dtype_id="5"/>
+                          <varref loc="e,115,22,115,27" name="state" dtype_id="5"/>
+                          <delay loc="e,115,31,115,32">
+                            <const loc="e,115,32,115,33" name="64&apos;h1" dtype_id="8"/>
+                          </delay>
+                        </assigndly>
+                        <assigndly loc="e,116,30,116,32" dtype_id="4">
+                          <varref loc="e,116,36,116,38" name="sr" dtype_id="4"/>
+                          <varref loc="e,116,22,116,29" name="mem_adr" dtype_id="4"/>
+                          <delay loc="e,116,33,116,34">
+                            <const loc="e,116,34,116,35" name="64&apos;h1" dtype_id="8"/>
+                          </delay>
+                        </assigndly>
+                        <assigndly loc="e,117,28,117,30" dtype_id="1">
+                          <lt loc="e,117,34,117,35" dtype_id="1">
+                            <const loc="e,117,42,117,44" name="8&apos;hf" dtype_id="4"/>
+                            <varref loc="e,117,36,117,38" name="sr" dtype_id="4"/>
+                          </lt>
+                          <varref loc="e,117,22,117,27" name="sda_o" dtype_id="1"/>
+                          <delay loc="e,117,31,117,32">
+                            <const loc="e,117,32,117,33" name="64&apos;h1" dtype_id="8"/>
+                          </delay>
+                        </assigndly>
+                        <delay loc="e,119,24,119,25">
+                          <const loc="e,119,25,119,26" name="64&apos;h1" dtype_id="8"/>
+                          <display loc="e,119,27,119,35" displaytype="$display">
+                            <sformatf loc="e,119,27,119,35" name="DEBUG i2c_slave; address received. adr=%x, ack=%b" dtype_id="9">
+                              <varref loc="e,119,89,119,91" name="sr" dtype_id="4"/>
+                              <varref loc="e,119,93,119,98" name="sda_o" dtype_id="1"/>
+                            </sformatf>
+                          </display>
+                        </delay>
+                      </begin>
+                    </begin>
+                  </if>
+                </caseitem>
+                <caseitem loc="e,121,21,121,22">
+                  <const loc="e,121,14,121,21" name="3&apos;h3" dtype_id="5"/>
+                  <begin loc="e,122,16,122,21">
+                    <assigndly loc="e,123,26,123,28" dtype_id="5">
+                      <const loc="e,123,32,123,36" name="3&apos;h4" dtype_id="5"/>
+                      <varref loc="e,123,20,123,25" name="state" dtype_id="5"/>
+                      <delay loc="e,123,29,123,30">
+                        <const loc="e,123,30,123,31" name="64&apos;h1" dtype_id="8"/>
+                      </delay>
+                    </assigndly>
+                    <assigndly loc="e,124,26,124,28" dtype_id="1">
+                      <const loc="e,124,32,124,36" name="1&apos;h1" dtype_id="1"/>
+                      <varref loc="e,124,20,124,22" name="ld" dtype_id="1"/>
+                      <delay loc="e,124,29,124,30">
+                        <const loc="e,124,30,124,31" name="64&apos;h1" dtype_id="8"/>
+                      </delay>
+                    </assigndly>
+                  </begin>
+                </caseitem>
+                <caseitem loc="e,126,18,126,19">
+                  <const loc="e,126,14,126,18" name="3&apos;h4" dtype_id="5"/>
+                  <begin loc="e,127,16,127,21">
+                    <if loc="e,128,20,128,22">
+                      <varref loc="e,128,23,128,25" name="rw" dtype_id="1"/>
+                      <begin>
+                        <assigndly loc="e,129,28,129,30" dtype_id="1">
+                          <sel loc="e,129,40,129,41" dtype_id="1">
+                            <varref loc="e,129,34,129,40" name="mem_do" dtype_id="4"/>
+                            <const loc="e,129,41,129,42" name="3&apos;h7" dtype_id="6"/>
+                            <const loc="e,129,40,129,41" name="32&apos;h1" dtype_id="7"/>
+                          </sel>
+                          <varref loc="e,129,22,129,27" name="sda_o" dtype_id="1"/>
+                          <delay loc="e,129,31,129,32">
+                            <const loc="e,129,32,129,33" name="64&apos;h1" dtype_id="8"/>
+                          </delay>
+                        </assigndly>
+                      </begin>
+                    </if>
+                    <if loc="e,130,20,130,22">
+                      <varref loc="e,130,23,130,31" name="acc_done" dtype_id="1"/>
+                      <begin>
+                        <begin loc="e,131,22,131,27">
+                          <assigndly loc="e,132,32,132,34" dtype_id="5">
+                            <const loc="e,132,38,132,46" name="3&apos;h5" dtype_id="5"/>
+                            <varref loc="e,132,26,132,31" name="state" dtype_id="5"/>
+                            <delay loc="e,132,35,132,36">
+                              <const loc="e,132,36,132,37" name="64&apos;h1" dtype_id="8"/>
+                            </delay>
+                          </assigndly>
+                          <assigndly loc="e,133,34,133,36" dtype_id="4">
+                            <add loc="e,133,48,133,49" dtype_id="4">
+                              <const loc="e,133,50,133,54" name="8&apos;h1" dtype_id="4"/>
+                              <varref loc="e,133,40,133,47" name="mem_adr" dtype_id="4"/>
+                            </add>
+                            <varref loc="e,133,26,133,33" name="mem_adr" dtype_id="4"/>
+                            <delay loc="e,133,37,133,38">
+                              <const loc="e,133,38,133,39" name="64&apos;h2" dtype_id="8"/>
+                            </delay>
+                          </assigndly>
+                          <assigndly loc="e,134,32,134,34" dtype_id="1">
+                            <and loc="e,134,42,134,44" dtype_id="1">
+                              <varref loc="e,134,39,134,41" name="rw" dtype_id="1"/>
+                              <gte loc="e,134,54,134,56" dtype_id="1">
+                                <const loc="e,134,57,134,59" name="8&apos;hf" dtype_id="4"/>
+                                <varref loc="e,134,46,134,53" name="mem_adr" dtype_id="4"/>
+                              </gte>
+                            </and>
+                            <varref loc="e,134,26,134,31" name="sda_o" dtype_id="1"/>
+                            <delay loc="e,134,35,134,36">
+                              <const loc="e,134,36,134,37" name="64&apos;h1" dtype_id="8"/>
+                            </delay>
+                          </assigndly>
+                          <if loc="e,135,26,135,28">
+                            <varref loc="e,135,29,135,31" name="rw" dtype_id="1"/>
+                            <begin>
+                              <begin loc="e,136,28,136,33">
+                                <delay loc="e,137,32,137,33">
+                                  <const loc="e,137,33,137,34" name="64&apos;h3" dtype_id="8"/>
+                                  <assigndly loc="e,137,42,137,44" dtype_id="4">
+                                    <arraysel loc="e,137,48,137,49" dtype_id="4">
+                                      <varref loc="e,137,45,137,48" name="mem" dtype_id="3"/>
+                                      <sel loc="e,137,49,137,56" dtype_id="11">
+                                        <varref loc="e,137,49,137,56" name="mem_adr" dtype_id="4"/>
+                                        <const loc="e,137,49,137,56" name="32&apos;h0" dtype_id="7"/>
+                                        <const loc="e,137,49,137,56" name="32&apos;h2" dtype_id="7"/>
+                                      </sel>
+                                    </arraysel>
+                                    <varref loc="e,137,35,137,41" name="mem_do" dtype_id="4"/>
+                                  </assigndly>
+                                </delay>
+                                <delay loc="e,139,34,139,35">
+                                  <const loc="e,139,35,139,36" name="64&apos;h5" dtype_id="8"/>
+                                  <display loc="e,139,37,139,45" displaytype="$display">
+                                    <sformatf loc="e,139,37,139,45" name="DEBUG i2c_slave; data block read %x from address %x (2)" dtype_id="9">
+                                      <varref loc="e,139,105,139,111" name="mem_do" dtype_id="4"/>
+                                      <varref loc="e,139,113,139,120" name="mem_adr" dtype_id="4"/>
+                                    </sformatf>
+                                  </display>
+                                </delay>
+                              </begin>
+                            </begin>
+                          </if>
+                          <if loc="e,141,26,141,28">
+                            <not loc="e,141,29,141,30" dtype_id="1">
+                              <varref loc="e,141,30,141,32" name="rw" dtype_id="1"/>
+                            </not>
+                            <begin>
+                              <begin loc="e,142,28,142,33">
+                                <assigndly loc="e,143,52,143,54" dtype_id="4">
+                                  <varref loc="e,143,58,143,60" name="sr" dtype_id="4"/>
+                                  <arraysel loc="e,143,35,143,36" dtype_id="4">
+                                    <varref loc="e,143,32,143,35" name="mem" dtype_id="3"/>
+                                    <sel loc="e,143,44,143,45" dtype_id="11">
+                                      <varref loc="e,143,37,143,44" name="mem_adr" dtype_id="4"/>
+                                      <const loc="e,143,44,143,45" name="32&apos;h0" dtype_id="7"/>
+                                      <const loc="e,143,44,143,45" name="32&apos;h2" dtype_id="7"/>
+                                    </sel>
+                                  </arraysel>
+                                  <delay loc="e,143,55,143,56">
+                                    <const loc="e,143,56,143,57" name="64&apos;h1" dtype_id="8"/>
+                                  </delay>
+                                </assigndly>
+                                <delay loc="e,145,34,145,35">
+                                  <const loc="e,145,35,145,36" name="64&apos;h2" dtype_id="8"/>
+                                  <display loc="e,145,37,145,45" displaytype="$display">
+                                    <sformatf loc="e,145,37,145,45" name="DEBUG i2c_slave; data block write %x to address %x" dtype_id="9">
+                                      <varref loc="e,145,100,145,102" name="sr" dtype_id="4"/>
+                                      <varref loc="e,145,104,145,111" name="mem_adr" dtype_id="4"/>
+                                    </sformatf>
+                                  </display>
+                                </delay>
+                              </begin>
+                            </begin>
+                          </if>
+                        </begin>
+                      </begin>
+                    </if>
+                  </begin>
+                </caseitem>
+                <caseitem loc="e,149,22,149,23">
+                  <const loc="e,149,14,149,22" name="3&apos;h5" dtype_id="5"/>
+                  <begin loc="e,150,16,150,21">
+                    <assigndly loc="e,151,23,151,25" dtype_id="1">
+                      <const loc="e,151,29,151,33" name="1&apos;h1" dtype_id="1"/>
+                      <varref loc="e,151,20,151,22" name="ld" dtype_id="1"/>
+                      <delay loc="e,151,26,151,27">
+                        <const loc="e,151,27,151,28" name="64&apos;h1" dtype_id="8"/>
+                      </delay>
+                    </assigndly>
+                    <if loc="e,152,20,152,22">
+                      <varref loc="e,152,23,152,25" name="rw" dtype_id="1"/>
+                      <begin>
+                        <if loc="e,153,22,153,24">
+                          <sel loc="e,153,27,153,28" dtype_id="1">
+                            <varref loc="e,153,25,153,27" name="sr" dtype_id="4"/>
+                            <const loc="e,153,28,153,29" name="3&apos;h0" dtype_id="6"/>
+                            <const loc="e,153,27,153,28" name="32&apos;h1" dtype_id="7"/>
+                          </sel>
+                          <begin>
+                            <begin loc="e,154,24,154,29">
+                              <assigndly loc="e,155,34,155,36" dtype_id="5">
+                                <const loc="e,155,40,155,44" name="3&apos;h0" dtype_id="5"/>
+                                <varref loc="e,155,28,155,33" name="state" dtype_id="5"/>
+                                <delay loc="e,155,37,155,38">
+                                  <const loc="e,155,38,155,39" name="64&apos;h1" dtype_id="8"/>
+                                </delay>
+                              </assigndly>
+                              <assigndly loc="e,156,34,156,36" dtype_id="1">
+                                <const loc="e,156,40,156,44" name="1&apos;h1" dtype_id="1"/>
+                                <varref loc="e,156,28,156,33" name="sda_o" dtype_id="1"/>
+                                <delay loc="e,156,37,156,38">
+                                  <const loc="e,156,38,156,39" name="64&apos;h1" dtype_id="8"/>
+                                </delay>
+                              </assigndly>
+                            </begin>
+                          </begin>
+                          <begin>
+                            <begin loc="e,159,24,159,29">
+                              <assigndly loc="e,160,34,160,36" dtype_id="5">
+                                <const loc="e,160,40,160,44" name="3&apos;h4" dtype_id="5"/>
+                                <varref loc="e,160,28,160,33" name="state" dtype_id="5"/>
+                                <delay loc="e,160,37,160,38">
+                                  <const loc="e,160,38,160,39" name="64&apos;h1" dtype_id="8"/>
+                                </delay>
+                              </assigndly>
+                              <assigndly loc="e,161,34,161,36" dtype_id="1">
+                                <sel loc="e,161,46,161,47" dtype_id="1">
+                                  <varref loc="e,161,40,161,46" name="mem_do" dtype_id="4"/>
+                                  <const loc="e,161,47,161,48" name="3&apos;h7" dtype_id="6"/>
+                                  <const loc="e,161,46,161,47" name="32&apos;h1" dtype_id="7"/>
+                                </sel>
+                                <varref loc="e,161,28,161,33" name="sda_o" dtype_id="1"/>
+                                <delay loc="e,161,37,161,38">
+                                  <const loc="e,161,38,161,39" name="64&apos;h1" dtype_id="8"/>
+                                </delay>
+                              </assigndly>
+                            </begin>
+                          </begin>
+                        </if>
+                      </begin>
+                      <begin>
+                        <begin loc="e,164,22,164,27">
+                          <assigndly loc="e,165,32,165,34" dtype_id="5">
+                            <const loc="e,165,38,165,42" name="3&apos;h4" dtype_id="5"/>
+                            <varref loc="e,165,26,165,31" name="state" dtype_id="5"/>
+                            <delay loc="e,165,35,165,36">
+                              <const loc="e,165,36,165,37" name="64&apos;h1" dtype_id="8"/>
+                            </delay>
+                          </assigndly>
+                          <assigndly loc="e,166,32,166,34" dtype_id="1">
+                            <const loc="e,166,38,166,42" name="1&apos;h1" dtype_id="1"/>
+                            <varref loc="e,166,26,166,31" name="sda_o" dtype_id="1"/>
+                            <delay loc="e,166,35,166,36">
+                              <const loc="e,166,36,166,37" name="64&apos;h1" dtype_id="8"/>
+                            </delay>
+                          </assigndly>
+                        </begin>
+                      </begin>
+                    </if>
+                  </begin>
+                </caseitem>
+              </case>
+            </begin>
+          </begin>
+        </if>
+      </always>
+      <always loc="e,171,2,171,8">
+        <sentree loc="e,171,9,171,10">
+          <senitem loc="e,171,11,171,18" edgeType="POS">
+            <varref loc="e,171,19,171,22" name="scl" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <if loc="e,172,4,172,6">
+          <and loc="e,172,17,172,19" dtype_id="1">
+            <not loc="e,172,7,172,8" dtype_id="1">
+              <varref loc="e,172,8,172,16" name="acc_done" dtype_id="1"/>
+            </not>
+            <varref loc="e,172,20,172,22" name="rw" dtype_id="1"/>
+          </and>
+          <begin>
+            <assigndly loc="e,173,13,173,15" dtype_id="4">
+              <concat loc="e,173,31,173,32" dtype_id="4">
+                <sel loc="e,173,26,173,27" dtype_id="2">
+                  <varref loc="e,173,20,173,26" name="mem_do" dtype_id="4"/>
+                  <const loc="e,173,29,173,30" name="3&apos;h0" dtype_id="6"/>
+                  <const loc="e,173,27,173,28" name="32&apos;h7" dtype_id="7"/>
+                </sel>
+                <const loc="e,173,33,173,37" name="1&apos;h1" dtype_id="1"/>
+              </concat>
+              <varref loc="e,173,6,173,12" name="mem_do" dtype_id="4"/>
+              <delay loc="e,173,16,173,17">
+                <const loc="e,173,17,173,18" name="64&apos;h1" dtype_id="8"/>
+              </delay>
+            </assigndly>
+          </begin>
+        </if>
+      </always>
+      <initial loc="e,7,13,7,14">
+        <assign loc="e,7,13,7,14" dtype_id="1">
+          <const loc="e,7,15,7,19" name="1&apos;h1" dtype_id="1"/>
+          <varref loc="e,7,7,7,12" name="debug" dtype_id="1"/>
+        </assign>
+      </initial>
+      <contassign loc="e,174,13,174,14" dtype_id="1">
+        <and loc="e,174,21,174,22" dtype_id="1">
+          <const loc="e,174,23,174,27" name="1&apos;bz" dtype_id="1"/>
+          <varref loc="e,20,12,20,17" name="sda_o" dtype_id="1"/>
+        </and>
+        <varref loc="e,174,13,174,14" name="sda" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,36,16,36,17" dtype_id="1">
+        <eq loc="e,36,27,36,29" dtype_id="1">
+          <const loc="e,36,30,36,37" name="7&apos;h10" dtype_id="2"/>
+          <sel loc="e,36,21,36,22" dtype_id="2">
+            <varref loc="e,13,12,13,14" name="sr" dtype_id="4"/>
+            <const loc="e,36,21,36,22" name="32&apos;h1" dtype_id="7"/>
+            <const loc="e,36,21,36,22" name="32&apos;h7" dtype_id="7"/>
+          </sel>
+        </eq>
+        <varref loc="e,36,16,36,17" name="my_adr" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,42,18,42,19" dtype_id="1">
+        <not loc="e,42,20,42,21" dtype_id="1">
+          <redor loc="e,42,22,42,23" dtype_id="1">
+            <varref loc="e,17,12,17,19" name="bit_cnt" dtype_id="5"/>
+          </redor>
+        </not>
+        <varref loc="e,42,18,42,19" name="acc_done" dtype_id="1"/>
+      </contassign>
+    </module>
+    <typetable loc="a,0,0,0,0">
+      <basicdtype loc="d,46,25,46,27" id="1" name="logic"/>
+      <voiddtype loc="d,48,18,48,27" id="12"/>
+      <basicdtype loc="d,165,10,165,16" id="9" name="string"/>
+      <basicdtype loc="e,4,22,4,33" id="2" name="logic" left="6" right="0"/>
+      <basicdtype loc="e,51,72,51,77" id="10" name="QData" left="63" right="0"/>
+      <basicdtype loc="e,8,2,8,5" id="4" name="logic" left="7" right="0"/>
+      <unpackarraydtype loc="e,8,16,8,17" id="3" sub_dtype_id="4">
+        <range loc="e,8,16,8,17">
+          <const loc="e,8,17,8,18" name="32&apos;sh3" dtype_id="13"/>
+          <const loc="e,8,19,8,20" name="32&apos;sh0" dtype_id="13"/>
+        </range>
+      </unpackarraydtype>
+      <basicdtype loc="e,17,2,17,5" id="5" name="logic" left="2" right="0"/>
+      <basicdtype loc="e,35,16,35,17" id="6" name="logic" left="2" right="0" signed="true"/>
+      <basicdtype loc="e,35,10,35,11" id="8" name="logic" left="63" right="0"/>
+      <basicdtype loc="e,93,44,93,45" id="11" name="logic" left="1" right="0"/>
+      <basicdtype loc="e,8,17,8,18" id="13" name="logic" left="31" right="0" signed="true"/>
+      <basicdtype loc="e,35,17,35,18" id="7" name="logic" left="31" right="0"/>
+    </typetable>
+  </netlist>
+</verilator_xml>

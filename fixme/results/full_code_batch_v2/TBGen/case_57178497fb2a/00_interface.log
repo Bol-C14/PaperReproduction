@@ -1,0 +1,29 @@
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_57178497fb2a/i2c_slave_model.v:93:44: Bit extraction of array[3:0] requires 2 bit index, not 8 bits.
+                                                                                                                                  : ... note: In instance 'i2c_slave_model'
+   93 |                            mem_do <= #1 mem[mem_adr];
+      |                                            ^
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.032
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_57178497fb2a/i2c_slave_model.v:97:101: Bit extraction of array[3:0] requires 2 bit index, not 4 bits.
+                                                                                                                                   : ... note: In instance 'i2c_slave_model'
+   97 |                                  #2 $display("DEBUG i2c_slave; memcheck [0]=%x, [1]=%x, [2]=%x", mem[4'h0], mem[4'h1], mem[4'h2]);
+      |                                                                                                     ^
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_57178497fb2a/i2c_slave_model.v:97:112: Bit extraction of array[3:0] requires 2 bit index, not 4 bits.
+                                                                                                                                   : ... note: In instance 'i2c_slave_model'
+   97 |                                  #2 $display("DEBUG i2c_slave; memcheck [0]=%x, [1]=%x, [2]=%x", mem[4'h0], mem[4'h1], mem[4'h2]);
+      |                                                                                                                ^
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_57178497fb2a/i2c_slave_model.v:97:123: Bit extraction of array[3:0] requires 2 bit index, not 4 bits.
+                                                                                                                                   : ... note: In instance 'i2c_slave_model'
+   97 |                                  #2 $display("DEBUG i2c_slave; memcheck [0]=%x, [1]=%x, [2]=%x", mem[4'h0], mem[4'h1], mem[4'h2]);
+      |                                                                                                                           ^
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_57178497fb2a/i2c_slave_model.v:137:48: Bit extraction of array[3:0] requires 2 bit index, not 8 bits.
+                                                                                                                                   : ... note: In instance 'i2c_slave_model'
+  137 |                                #3 mem_do <= mem[mem_adr];
+      |                                                ^
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_57178497fb2a/i2c_slave_model.v:143:35: Bit extraction of array[3:0] requires 2 bit index, not 4 bits.
+                                                                                                                                   : ... note: In instance 'i2c_slave_model'
+  143 |                                mem[ mem_adr[3:0] ] <= #1 sr; 
+      |                                   ^
+- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev (Debian 5.032-1+b2)
+- Verilator: Built from 0.033 MB sources in 2 modules, into 0.000 MB in 0 C++ files needing 0.000 MB
+- Verilator: Walltime 0.006 s (elab=0.001, cvt=0.000, bld=0.000); cpu 0.004 s on 1 threads; alloced 9.008 MB

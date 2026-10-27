@@ -1,0 +1,1311 @@
+<?xml version="1.0" ?>
+<!-- DESCRIPTION: Verilator output: XML representation of netlist -->
+<verilator_xml>
+  <files>
+    <file id="d" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std.sv" language="1800-2023"/>
+    <file id="c" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std_waiver.vlt" language="1800-2023"/>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ec9e254e1589/fpu_exceptions.v" language="1800-2023"/>
+    <file id="a" filename="&lt;built-in&gt;" language="1800-2023"/>
+    <file id="b" filename="&lt;command-line&gt;" language="1800-2023"/>
+  </files>
+  <module_files>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ec9e254e1589/fpu_exceptions.v" language="1800-2023"/>
+  </module_files>
+  <cells>
+    <cell loc="e,3,8,3,22" name="fpu_exceptions" submodname="fpu_exceptions" hier="fpu_exceptions"/>
+  </cells>
+  <netlist>
+    <module loc="e,3,8,3,22" name="fpu_exceptions" origName="fpu_exceptions" topModule="1">
+      <var loc="e,6,8,6,11" name="clk" dtype_id="1" dir="input" pinIndex="1" vartype="logic" origName="clk"/>
+      <var loc="e,7,8,7,11" name="rst" dtype_id="1" dir="input" pinIndex="2" vartype="logic" origName="rst"/>
+      <var loc="e,8,8,8,14" name="enable" dtype_id="1" dir="input" pinIndex="3" vartype="logic" origName="enable"/>
+      <var loc="e,9,13,9,18" name="rmode" dtype_id="2" dir="input" pinIndex="4" vartype="logic" origName="rmode"/>
+      <var loc="e,10,14,10,17" name="opa" dtype_id="3" dir="input" pinIndex="5" vartype="logic" origName="opa"/>
+      <var loc="e,11,14,11,17" name="opb" dtype_id="3" dir="input" pinIndex="6" vartype="logic" origName="opb"/>
+      <var loc="e,12,14,12,23" name="in_except" dtype_id="3" dir="input" pinIndex="7" vartype="logic" origName="in_except"/>
+      <var loc="e,13,14,13,25" name="exponent_in" dtype_id="4" dir="input" pinIndex="8" vartype="logic" origName="exponent_in"/>
+      <var loc="e,14,13,14,24" name="mantissa_in" dtype_id="2" dir="input" pinIndex="9" vartype="logic" origName="mantissa_in"/>
+      <var loc="e,15,13,15,19" name="fpu_op" dtype_id="5" dir="input" pinIndex="10" vartype="logic" origName="fpu_op"/>
+      <var loc="e,16,15,16,18" name="out" dtype_id="3" dir="output" pinIndex="11" vartype="logic" origName="out"/>
+      <var loc="e,17,9,17,18" name="ex_enable" dtype_id="1" dir="output" pinIndex="12" vartype="logic" origName="ex_enable"/>
+      <var loc="e,18,9,18,18" name="underflow" dtype_id="1" dir="output" pinIndex="13" vartype="logic" origName="underflow"/>
+      <var loc="e,19,9,19,17" name="overflow" dtype_id="1" dir="output" pinIndex="14" vartype="logic" origName="overflow"/>
+      <var loc="e,20,9,20,16" name="inexact" dtype_id="1" dir="output" pinIndex="15" vartype="logic" origName="inexact"/>
+      <var loc="e,21,9,21,18" name="exception" dtype_id="1" dir="output" pinIndex="16" vartype="logic" origName="exception"/>
+      <var loc="e,22,9,22,16" name="invalid" dtype_id="1" dir="output" pinIndex="17" vartype="logic" origName="invalid"/>
+      <var loc="e,30,6,30,16" name="in_et_zero" dtype_id="1" vartype="logic" origName="in_et_zero"/>
+      <var loc="e,31,6,31,17" name="opa_et_zero" dtype_id="1" vartype="logic" origName="opa_et_zero"/>
+      <var loc="e,32,6,32,17" name="opb_et_zero" dtype_id="1" vartype="logic" origName="opb_et_zero"/>
+      <var loc="e,33,6,33,19" name="input_et_zero" dtype_id="1" vartype="logic" origName="input_et_zero"/>
+      <var loc="e,34,6,34,9" name="add" dtype_id="1" vartype="logic" origName="add"/>
+      <var loc="e,35,6,35,14" name="subtract" dtype_id="1" vartype="logic" origName="subtract"/>
+      <var loc="e,36,6,36,14" name="multiply" dtype_id="1" vartype="logic" origName="multiply"/>
+      <var loc="e,37,6,37,12" name="divide" dtype_id="1" vartype="logic" origName="divide"/>
+      <var loc="e,38,6,38,14" name="opa_QNaN" dtype_id="1" vartype="logic" origName="opa_QNaN"/>
+      <var loc="e,39,6,39,14" name="opb_QNaN" dtype_id="1" vartype="logic" origName="opb_QNaN"/>
+      <var loc="e,40,6,40,14" name="opa_SNaN" dtype_id="1" vartype="logic" origName="opa_SNaN"/>
+      <var loc="e,41,6,41,14" name="opb_SNaN" dtype_id="1" vartype="logic" origName="opb_SNaN"/>
+      <var loc="e,42,6,42,17" name="opa_pos_inf" dtype_id="1" vartype="logic" origName="opa_pos_inf"/>
+      <var loc="e,43,6,43,17" name="opb_pos_inf" dtype_id="1" vartype="logic" origName="opb_pos_inf"/>
+      <var loc="e,44,6,44,17" name="opa_neg_inf" dtype_id="1" vartype="logic" origName="opa_neg_inf"/>
+      <var loc="e,45,6,45,17" name="opb_neg_inf" dtype_id="1" vartype="logic" origName="opb_neg_inf"/>
+      <var loc="e,46,6,46,13" name="opa_inf" dtype_id="1" vartype="logic" origName="opa_inf"/>
+      <var loc="e,47,6,47,13" name="opb_inf" dtype_id="1" vartype="logic" origName="opb_inf"/>
+      <var loc="e,48,6,48,15" name="NaN_input" dtype_id="1" vartype="logic" origName="NaN_input"/>
+      <var loc="e,49,6,49,16" name="SNaN_input" dtype_id="1" vartype="logic" origName="SNaN_input"/>
+      <var loc="e,50,6,50,11" name="a_NaN" dtype_id="1" vartype="logic" origName="a_NaN"/>
+      <var loc="e,51,6,51,14" name="div_by_0" dtype_id="1" vartype="logic" origName="div_by_0"/>
+      <var loc="e,52,6,52,16" name="div_0_by_0" dtype_id="1" vartype="logic" origName="div_0_by_0"/>
+      <var loc="e,53,6,53,20" name="div_inf_by_inf" dtype_id="1" vartype="logic" origName="div_inf_by_inf"/>
+      <var loc="e,54,6,54,16" name="div_by_inf" dtype_id="1" vartype="logic" origName="div_by_inf"/>
+      <var loc="e,55,6,55,18" name="mul_0_by_inf" dtype_id="1" vartype="logic" origName="mul_0_by_inf"/>
+      <var loc="e,56,6,56,13" name="mul_inf" dtype_id="1" vartype="logic" origName="mul_inf"/>
+      <var loc="e,57,6,57,13" name="div_inf" dtype_id="1" vartype="logic" origName="div_inf"/>
+      <var loc="e,58,6,58,13" name="add_inf" dtype_id="1" vartype="logic" origName="add_inf"/>
+      <var loc="e,59,6,59,13" name="sub_inf" dtype_id="1" vartype="logic" origName="sub_inf"/>
+      <var loc="e,60,6,60,24" name="addsub_inf_invalid" dtype_id="1" vartype="logic" origName="addsub_inf_invalid"/>
+      <var loc="e,61,6,61,16" name="addsub_inf" dtype_id="1" vartype="logic" origName="addsub_inf"/>
+      <var loc="e,62,6,62,21" name="out_inf_trigger" dtype_id="1" vartype="logic" origName="out_inf_trigger"/>
+      <var loc="e,63,6,63,17" name="out_pos_inf" dtype_id="1" vartype="logic" origName="out_pos_inf"/>
+      <var loc="e,64,6,64,17" name="out_neg_inf" dtype_id="1" vartype="logic" origName="out_neg_inf"/>
+      <var loc="e,65,6,65,19" name="round_nearest" dtype_id="1" vartype="logic" origName="round_nearest"/>
+      <var loc="e,66,6,66,19" name="round_to_zero" dtype_id="1" vartype="logic" origName="round_to_zero"/>
+      <var loc="e,67,6,67,22" name="round_to_pos_inf" dtype_id="1" vartype="logic" origName="round_to_pos_inf"/>
+      <var loc="e,68,6,68,22" name="round_to_neg_inf" dtype_id="1" vartype="logic" origName="round_to_neg_inf"/>
+      <var loc="e,69,6,69,28" name="inf_round_down_trigger" dtype_id="1" vartype="logic" origName="inf_round_down_trigger"/>
+      <var loc="e,70,6,70,12" name="mul_uf" dtype_id="1" vartype="logic" origName="mul_uf"/>
+      <var loc="e,71,6,71,12" name="div_uf" dtype_id="1" vartype="logic" origName="div_uf"/>
+      <var loc="e,72,6,72,23" name="underflow_trigger" dtype_id="1" vartype="logic" origName="underflow_trigger"/>
+      <var loc="e,73,6,73,21" name="invalid_trigger" dtype_id="1" vartype="logic" origName="invalid_trigger"/>
+      <var loc="e,74,6,74,22" name="overflow_trigger" dtype_id="1" vartype="logic" origName="overflow_trigger"/>
+      <var loc="e,75,6,75,21" name="inexact_trigger" dtype_id="1" vartype="logic" origName="inexact_trigger"/>
+      <var loc="e,76,7,76,21" name="except_trigger" dtype_id="1" vartype="logic" origName="except_trigger"/>
+      <var loc="e,77,6,77,20" name="enable_trigger" dtype_id="1" vartype="logic" origName="enable_trigger"/>
+      <var loc="e,78,6,78,21" name="NaN_out_trigger" dtype_id="1" vartype="logic" origName="NaN_out_trigger"/>
+      <var loc="e,79,6,79,18" name="SNaN_trigger" dtype_id="1" vartype="logic" origName="SNaN_trigger"/>
+      <var loc="e,80,14,80,22" name="exp_2047" dtype_id="6" vartype="logic" origName="exp_2047">
+        <const loc="e,80,25,80,40" name="11&apos;h7ff" dtype_id="6"/>
+      </var>
+      <var loc="e,81,14,81,22" name="exp_2046" dtype_id="6" vartype="logic" origName="exp_2046">
+        <const loc="e,81,25,81,40" name="11&apos;h7fe" dtype_id="6"/>
+      </var>
+      <var loc="e,82,13,82,25" name="NaN_output_0" dtype_id="7" vartype="logic" origName="NaN_output_0"/>
+      <var loc="e,83,13,83,23" name="NaN_output" dtype_id="7" vartype="logic" origName="NaN_output"/>
+      <var loc="e,84,14,84,26" name="mantissa_max" dtype_id="8" vartype="logic" origName="mantissa_max">
+        <const loc="e,84,29,84,85" name="52&apos;hfffffffffffff" dtype_id="8"/>
+      </var>
+      <var loc="e,85,13,85,27" name="inf_round_down" dtype_id="7" vartype="logic" origName="inf_round_down"/>
+      <var loc="e,86,13,86,20" name="out_inf" dtype_id="7" vartype="logic" origName="out_inf"/>
+      <var loc="e,87,13,87,18" name="out_0" dtype_id="3" vartype="logic" origName="out_0"/>
+      <var loc="e,88,13,88,18" name="out_1" dtype_id="3" vartype="logic" origName="out_1"/>
+      <var loc="e,89,13,89,18" name="out_2" dtype_id="3" vartype="logic" origName="out_2"/>
+      <always loc="e,90,1,90,7">
+        <sentree loc="e,90,8,90,9">
+          <senitem loc="e,90,10,90,17" edgeType="POS">
+            <varref loc="e,90,18,90,21" name="clk" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,91,1,91,6">
+          <if loc="e,92,2,92,4">
+            <varref loc="e,92,6,92,9" name="rst" dtype_id="1"/>
+            <begin>
+              <begin loc="e,92,11,92,16">
+                <assigndly loc="e,93,14,93,16" dtype_id="1">
+                  <const loc="e,93,20,93,21" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,93,3,93,13" name="in_et_zero" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,94,15,94,17" dtype_id="1">
+                  <const loc="e,94,20,94,21" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,94,3,94,14" name="opa_et_zero" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,95,15,95,17" dtype_id="1">
+                  <const loc="e,95,20,95,21" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,95,3,95,14" name="opb_et_zero" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,96,17,96,19" dtype_id="1">
+                  <const loc="e,96,20,96,21" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,96,3,96,16" name="input_et_zero" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,97,8,97,10" dtype_id="1">
+                  <const loc="e,97,12,97,13" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,97,3,97,6" name="add" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,98,12,98,14" dtype_id="1">
+                  <const loc="e,98,15,98,16" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,98,3,98,11" name="subtract" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,99,12,99,14" dtype_id="1">
+                  <const loc="e,99,15,99,16" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,99,3,99,11" name="multiply" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,100,11,100,13" dtype_id="1">
+                  <const loc="e,100,15,100,16" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,100,3,100,9" name="divide" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,101,12,101,14" dtype_id="1">
+                  <const loc="e,101,15,101,16" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,101,3,101,11" name="opa_QNaN" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,102,12,102,14" dtype_id="1">
+                  <const loc="e,102,15,102,16" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,102,3,102,11" name="opb_QNaN" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,103,12,103,14" dtype_id="1">
+                  <const loc="e,103,15,103,16" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,103,3,103,11" name="opa_SNaN" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,104,12,104,14" dtype_id="1">
+                  <const loc="e,104,15,104,16" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,104,3,104,11" name="opb_SNaN" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,105,15,105,17" dtype_id="1">
+                  <const loc="e,105,18,105,19" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,105,3,105,14" name="opa_pos_inf" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,106,15,106,17" dtype_id="1">
+                  <const loc="e,106,18,106,19" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,106,3,106,14" name="opb_pos_inf" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,107,15,107,17" dtype_id="1">
+                  <const loc="e,107,18,107,19" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,107,3,107,14" name="opa_neg_inf" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,108,15,108,17" dtype_id="1">
+                  <const loc="e,108,18,108,19" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,108,3,108,14" name="opb_neg_inf" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,109,11,109,13" dtype_id="1">
+                  <const loc="e,109,14,109,15" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,109,3,109,10" name="opa_inf" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,110,11,110,13" dtype_id="1">
+                  <const loc="e,110,14,110,15" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,110,3,110,10" name="opb_inf" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,111,13,111,15" dtype_id="1">
+                  <const loc="e,111,16,111,17" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,111,3,111,12" name="NaN_input" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,112,14,112,16" dtype_id="1">
+                  <const loc="e,112,17,112,18" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,112,3,112,13" name="SNaN_input" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,113,9,113,11" dtype_id="1">
+                  <const loc="e,113,12,113,13" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,113,3,113,8" name="a_NaN" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,114,12,114,14" dtype_id="1">
+                  <const loc="e,114,15,114,16" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,114,3,114,11" name="div_by_0" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,115,14,115,16" dtype_id="1">
+                  <const loc="e,115,17,115,18" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,115,3,115,13" name="div_0_by_0" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,116,18,116,20" dtype_id="1">
+                  <const loc="e,116,21,116,22" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,116,3,116,17" name="div_inf_by_inf" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,117,14,117,16" dtype_id="1">
+                  <const loc="e,117,17,117,18" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,117,3,117,13" name="div_by_inf" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,118,16,118,18" dtype_id="1">
+                  <const loc="e,118,19,118,20" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,118,3,118,15" name="mul_0_by_inf" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,119,11,119,13" dtype_id="1">
+                  <const loc="e,119,14,119,15" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,119,3,119,10" name="mul_inf" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,120,11,120,13" dtype_id="1">
+                  <const loc="e,120,14,120,15" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,120,3,120,10" name="div_inf" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,121,11,121,13" dtype_id="1">
+                  <const loc="e,121,14,121,15" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,121,3,121,10" name="add_inf" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,122,11,122,13" dtype_id="1">
+                  <const loc="e,122,14,122,15" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,122,3,122,10" name="sub_inf" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,123,22,123,24" dtype_id="1">
+                  <const loc="e,123,25,123,26" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,123,3,123,21" name="addsub_inf_invalid" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,124,14,124,16" dtype_id="1">
+                  <const loc="e,124,17,124,18" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,124,3,124,13" name="addsub_inf" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,125,19,125,21" dtype_id="1">
+                  <const loc="e,125,22,125,23" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,125,3,125,18" name="out_inf_trigger" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,126,15,126,17" dtype_id="1">
+                  <const loc="e,126,18,126,19" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,126,3,126,14" name="out_pos_inf" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,127,15,127,17" dtype_id="1">
+                  <const loc="e,127,18,127,19" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,127,3,127,14" name="out_neg_inf" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,128,17,128,19" dtype_id="1">
+                  <const loc="e,128,20,128,21" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,128,3,128,16" name="round_nearest" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,129,17,129,19" dtype_id="1">
+                  <const loc="e,129,20,129,21" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,129,3,129,16" name="round_to_zero" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,130,20,130,22" dtype_id="1">
+                  <const loc="e,130,23,130,24" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,130,3,130,19" name="round_to_pos_inf" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,131,20,131,22" dtype_id="1">
+                  <const loc="e,131,23,131,24" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,131,3,131,19" name="round_to_neg_inf" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,132,26,132,28" dtype_id="1">
+                  <const loc="e,132,29,132,30" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,132,3,132,25" name="inf_round_down_trigger" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,133,10,133,12" dtype_id="1">
+                  <const loc="e,133,13,133,14" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,133,3,133,9" name="mul_uf" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,134,10,134,12" dtype_id="1">
+                  <const loc="e,134,13,134,14" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,134,3,134,9" name="div_uf" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,135,21,135,23" dtype_id="1">
+                  <const loc="e,135,24,135,25" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,135,3,135,20" name="underflow_trigger" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,136,19,136,21" dtype_id="1">
+                  <const loc="e,136,22,136,23" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,136,3,136,18" name="invalid_trigger" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,137,20,137,22" dtype_id="1">
+                  <const loc="e,137,23,137,24" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,137,3,137,19" name="overflow_trigger" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,138,19,138,21" dtype_id="1">
+                  <const loc="e,138,22,138,23" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,138,3,138,18" name="inexact_trigger" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,139,18,139,20" dtype_id="1">
+                  <const loc="e,139,21,139,22" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,139,3,139,17" name="except_trigger" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,140,18,140,20" dtype_id="1">
+                  <const loc="e,140,21,140,22" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,140,3,140,17" name="enable_trigger" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,141,19,141,21" dtype_id="1">
+                  <const loc="e,141,22,141,23" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,141,3,141,18" name="NaN_out_trigger" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,142,16,142,18" dtype_id="1">
+                  <const loc="e,142,19,142,20" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,142,3,142,15" name="SNaN_trigger" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,143,16,143,18" dtype_id="7">
+                  <const loc="e,143,19,143,20" name="63&apos;h0" dtype_id="7"/>
+                  <varref loc="e,143,3,143,15" name="NaN_output_0" dtype_id="7"/>
+                </assigndly>
+                <assigndly loc="e,144,14,144,16" dtype_id="7">
+                  <const loc="e,144,17,144,18" name="63&apos;h0" dtype_id="7"/>
+                  <varref loc="e,144,3,144,13" name="NaN_output" dtype_id="7"/>
+                </assigndly>
+                <assigndly loc="e,145,18,145,20" dtype_id="7">
+                  <const loc="e,145,21,145,22" name="63&apos;h0" dtype_id="7"/>
+                  <varref loc="e,145,3,145,17" name="inf_round_down" dtype_id="7"/>
+                </assigndly>
+                <assigndly loc="e,146,11,146,13" dtype_id="7">
+                  <const loc="e,146,14,146,15" name="63&apos;h0" dtype_id="7"/>
+                  <varref loc="e,146,3,146,10" name="out_inf" dtype_id="7"/>
+                </assigndly>
+                <assigndly loc="e,147,9,147,11" dtype_id="3">
+                  <const loc="e,147,12,147,13" name="64&apos;h0" dtype_id="3"/>
+                  <varref loc="e,147,3,147,8" name="out_0" dtype_id="3"/>
+                </assigndly>
+                <assigndly loc="e,148,9,148,11" dtype_id="3">
+                  <const loc="e,148,12,148,13" name="64&apos;h0" dtype_id="3"/>
+                  <varref loc="e,148,3,148,8" name="out_1" dtype_id="3"/>
+                </assigndly>
+                <assigndly loc="e,149,9,149,11" dtype_id="3">
+                  <const loc="e,149,12,149,13" name="64&apos;h0" dtype_id="3"/>
+                  <varref loc="e,149,3,149,8" name="out_2" dtype_id="3"/>
+                </assigndly>
+              </begin>
+            </begin>
+            <begin>
+              <if loc="e,151,7,151,9">
+                <varref loc="e,151,11,151,17" name="enable" dtype_id="1"/>
+                <begin>
+                  <begin loc="e,151,19,151,24">
+                    <assigndly loc="e,152,14,152,16" dtype_id="1">
+                      <not loc="e,152,17,152,18" dtype_id="1">
+                        <redor loc="e,152,19,152,20" dtype_id="1">
+                          <sel loc="e,152,29,152,30" dtype_id="7">
+                            <varref loc="e,152,20,152,29" name="in_except" dtype_id="3"/>
+                            <const loc="e,152,33,152,34" name="6&apos;h0" dtype_id="9"/>
+                            <const loc="e,152,30,152,32" name="32&apos;h3f" dtype_id="10"/>
+                          </sel>
+                        </redor>
+                      </not>
+                      <varref loc="e,152,3,152,13" name="in_et_zero" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,153,15,153,17" dtype_id="1">
+                      <not loc="e,153,18,153,19" dtype_id="1">
+                        <redor loc="e,153,20,153,21" dtype_id="1">
+                          <sel loc="e,153,24,153,25" dtype_id="7">
+                            <varref loc="e,153,21,153,24" name="opa" dtype_id="3"/>
+                            <const loc="e,153,28,153,29" name="6&apos;h0" dtype_id="9"/>
+                            <const loc="e,153,25,153,27" name="32&apos;h3f" dtype_id="10"/>
+                          </sel>
+                        </redor>
+                      </not>
+                      <varref loc="e,153,3,153,14" name="opa_et_zero" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,154,15,154,17" dtype_id="1">
+                      <not loc="e,154,18,154,19" dtype_id="1">
+                        <redor loc="e,154,20,154,21" dtype_id="1">
+                          <sel loc="e,154,24,154,25" dtype_id="7">
+                            <varref loc="e,154,21,154,24" name="opb" dtype_id="3"/>
+                            <const loc="e,154,28,154,29" name="6&apos;h0" dtype_id="9"/>
+                            <const loc="e,154,25,154,27" name="32&apos;h3f" dtype_id="10"/>
+                          </sel>
+                        </redor>
+                      </not>
+                      <varref loc="e,154,3,154,14" name="opb_et_zero" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,155,17,155,19" dtype_id="1">
+                      <not loc="e,155,20,155,21" dtype_id="1">
+                        <redor loc="e,155,22,155,23" dtype_id="1">
+                          <sel loc="e,155,32,155,33" dtype_id="7">
+                            <varref loc="e,155,23,155,32" name="in_except" dtype_id="3"/>
+                            <const loc="e,155,36,155,37" name="6&apos;h0" dtype_id="9"/>
+                            <const loc="e,155,33,155,35" name="32&apos;h3f" dtype_id="10"/>
+                          </sel>
+                        </redor>
+                      </not>
+                      <varref loc="e,155,3,155,16" name="input_et_zero" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,156,8,156,10" dtype_id="1">
+                      <eq loc="e,156,19,156,21" dtype_id="1">
+                        <const loc="e,156,22,156,28" name="3&apos;h0" dtype_id="5"/>
+                        <varref loc="e,156,12,156,18" name="fpu_op" dtype_id="5"/>
+                      </eq>
+                      <varref loc="e,156,3,156,6" name="add" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,157,12,157,14" dtype_id="1">
+                      <eq loc="e,157,23,157,25" dtype_id="1">
+                        <const loc="e,157,26,157,32" name="3&apos;h1" dtype_id="5"/>
+                        <varref loc="e,157,16,157,22" name="fpu_op" dtype_id="5"/>
+                      </eq>
+                      <varref loc="e,157,3,157,11" name="subtract" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,158,12,158,14" dtype_id="1">
+                      <eq loc="e,158,23,158,25" dtype_id="1">
+                        <const loc="e,158,26,158,32" name="3&apos;h2" dtype_id="5"/>
+                        <varref loc="e,158,16,158,22" name="fpu_op" dtype_id="5"/>
+                      </eq>
+                      <varref loc="e,158,3,158,11" name="multiply" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,159,11,159,13" dtype_id="1">
+                      <eq loc="e,159,22,159,24" dtype_id="1">
+                        <const loc="e,159,25,159,31" name="3&apos;h3" dtype_id="5"/>
+                        <varref loc="e,159,15,159,21" name="fpu_op" dtype_id="5"/>
+                      </eq>
+                      <varref loc="e,159,3,159,9" name="divide" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,160,12,160,14" dtype_id="1">
+                      <and loc="e,160,49,160,50" dtype_id="1">
+                        <and loc="e,160,36,160,37" dtype_id="1">
+                          <eq loc="e,160,27,160,29" dtype_id="1">
+                            <const loc="e,160,30,160,34" name="11&apos;h7ff" dtype_id="6"/>
+                            <sel loc="e,160,19,160,20" dtype_id="6">
+                              <varref loc="e,160,16,160,19" name="opa" dtype_id="3"/>
+                              <const loc="e,160,23,160,25" name="6&apos;h34" dtype_id="9"/>
+                              <const loc="e,160,20,160,22" name="32&apos;hb" dtype_id="10"/>
+                            </sel>
+                          </eq>
+                          <redor loc="e,160,38,160,39" dtype_id="1">
+                            <sel loc="e,160,42,160,43" dtype_id="8">
+                              <varref loc="e,160,39,160,42" name="opa" dtype_id="3"/>
+                              <const loc="e,160,46,160,47" name="6&apos;h0" dtype_id="9"/>
+                              <const loc="e,160,43,160,45" name="32&apos;h34" dtype_id="10"/>
+                            </sel>
+                          </redor>
+                        </and>
+                        <sel loc="e,160,54,160,55" dtype_id="1">
+                          <varref loc="e,160,51,160,54" name="opa" dtype_id="3"/>
+                          <const loc="e,160,55,160,57" name="6&apos;h33" dtype_id="9"/>
+                          <const loc="e,160,54,160,55" name="32&apos;h1" dtype_id="10"/>
+                        </sel>
+                      </and>
+                      <varref loc="e,160,3,160,11" name="opa_QNaN" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,161,12,161,14" dtype_id="1">
+                      <and loc="e,161,49,161,50" dtype_id="1">
+                        <and loc="e,161,36,161,37" dtype_id="1">
+                          <eq loc="e,161,27,161,29" dtype_id="1">
+                            <const loc="e,161,30,161,34" name="11&apos;h7ff" dtype_id="6"/>
+                            <sel loc="e,161,19,161,20" dtype_id="6">
+                              <varref loc="e,161,16,161,19" name="opb" dtype_id="3"/>
+                              <const loc="e,161,23,161,25" name="6&apos;h34" dtype_id="9"/>
+                              <const loc="e,161,20,161,22" name="32&apos;hb" dtype_id="10"/>
+                            </sel>
+                          </eq>
+                          <redor loc="e,161,38,161,39" dtype_id="1">
+                            <sel loc="e,161,42,161,43" dtype_id="8">
+                              <varref loc="e,161,39,161,42" name="opb" dtype_id="3"/>
+                              <const loc="e,161,46,161,47" name="6&apos;h0" dtype_id="9"/>
+                              <const loc="e,161,43,161,45" name="32&apos;h34" dtype_id="10"/>
+                            </sel>
+                          </redor>
+                        </and>
+                        <sel loc="e,161,54,161,55" dtype_id="1">
+                          <varref loc="e,161,51,161,54" name="opb" dtype_id="3"/>
+                          <const loc="e,161,55,161,57" name="6&apos;h33" dtype_id="9"/>
+                          <const loc="e,161,54,161,55" name="32&apos;h1" dtype_id="10"/>
+                        </sel>
+                      </and>
+                      <varref loc="e,161,3,161,11" name="opb_QNaN" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,162,12,162,14" dtype_id="1">
+                      <and loc="e,162,49,162,50" dtype_id="1">
+                        <and loc="e,162,36,162,37" dtype_id="1">
+                          <eq loc="e,162,27,162,29" dtype_id="1">
+                            <const loc="e,162,30,162,34" name="11&apos;h7ff" dtype_id="6"/>
+                            <sel loc="e,162,19,162,20" dtype_id="6">
+                              <varref loc="e,162,16,162,19" name="opa" dtype_id="3"/>
+                              <const loc="e,162,23,162,25" name="6&apos;h34" dtype_id="9"/>
+                              <const loc="e,162,20,162,22" name="32&apos;hb" dtype_id="10"/>
+                            </sel>
+                          </eq>
+                          <redor loc="e,162,38,162,39" dtype_id="1">
+                            <sel loc="e,162,42,162,43" dtype_id="8">
+                              <varref loc="e,162,39,162,42" name="opa" dtype_id="3"/>
+                              <const loc="e,162,46,162,47" name="6&apos;h0" dtype_id="9"/>
+                              <const loc="e,162,43,162,45" name="32&apos;h34" dtype_id="10"/>
+                            </sel>
+                          </redor>
+                        </and>
+                        <not loc="e,162,51,162,52" dtype_id="1">
+                          <sel loc="e,162,55,162,56" dtype_id="1">
+                            <varref loc="e,162,52,162,55" name="opa" dtype_id="3"/>
+                            <const loc="e,162,56,162,58" name="6&apos;h33" dtype_id="9"/>
+                            <const loc="e,162,55,162,56" name="32&apos;h1" dtype_id="10"/>
+                          </sel>
+                        </not>
+                      </and>
+                      <varref loc="e,162,3,162,11" name="opa_SNaN" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,163,12,163,14" dtype_id="1">
+                      <and loc="e,163,49,163,50" dtype_id="1">
+                        <and loc="e,163,36,163,37" dtype_id="1">
+                          <eq loc="e,163,27,163,29" dtype_id="1">
+                            <const loc="e,163,30,163,34" name="11&apos;h7ff" dtype_id="6"/>
+                            <sel loc="e,163,19,163,20" dtype_id="6">
+                              <varref loc="e,163,16,163,19" name="opb" dtype_id="3"/>
+                              <const loc="e,163,23,163,25" name="6&apos;h34" dtype_id="9"/>
+                              <const loc="e,163,20,163,22" name="32&apos;hb" dtype_id="10"/>
+                            </sel>
+                          </eq>
+                          <redor loc="e,163,38,163,39" dtype_id="1">
+                            <sel loc="e,163,42,163,43" dtype_id="8">
+                              <varref loc="e,163,39,163,42" name="opb" dtype_id="3"/>
+                              <const loc="e,163,46,163,47" name="6&apos;h0" dtype_id="9"/>
+                              <const loc="e,163,43,163,45" name="32&apos;h34" dtype_id="10"/>
+                            </sel>
+                          </redor>
+                        </and>
+                        <not loc="e,163,51,163,52" dtype_id="1">
+                          <sel loc="e,163,55,163,56" dtype_id="1">
+                            <varref loc="e,163,52,163,55" name="opb" dtype_id="3"/>
+                            <const loc="e,163,56,163,58" name="6&apos;h33" dtype_id="9"/>
+                            <const loc="e,163,55,163,56" name="32&apos;h1" dtype_id="10"/>
+                          </sel>
+                        </not>
+                      </and>
+                      <varref loc="e,163,3,163,11" name="opb_SNaN" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,164,15,164,17" dtype_id="1">
+                      <and loc="e,164,50,164,51" dtype_id="1">
+                        <and loc="e,164,27,164,28" dtype_id="1">
+                          <not loc="e,164,18,164,19" dtype_id="1">
+                            <sel loc="e,164,22,164,23" dtype_id="1">
+                              <varref loc="e,164,19,164,22" name="opa" dtype_id="3"/>
+                              <const loc="e,164,23,164,25" name="6&apos;h3f" dtype_id="9"/>
+                              <const loc="e,164,22,164,23" name="32&apos;h1" dtype_id="10"/>
+                            </sel>
+                          </not>
+                          <eq loc="e,164,41,164,43" dtype_id="1">
+                            <const loc="e,164,44,164,48" name="11&apos;h7ff" dtype_id="6"/>
+                            <sel loc="e,164,33,164,34" dtype_id="6">
+                              <varref loc="e,164,30,164,33" name="opa" dtype_id="3"/>
+                              <const loc="e,164,37,164,39" name="6&apos;h34" dtype_id="9"/>
+                              <const loc="e,164,34,164,36" name="32&apos;hb" dtype_id="10"/>
+                            </sel>
+                          </eq>
+                        </and>
+                        <not loc="e,164,52,164,53" dtype_id="1">
+                          <redor loc="e,164,54,164,55" dtype_id="1">
+                            <sel loc="e,164,58,164,59" dtype_id="8">
+                              <varref loc="e,164,55,164,58" name="opa" dtype_id="3"/>
+                              <const loc="e,164,62,164,63" name="6&apos;h0" dtype_id="9"/>
+                              <const loc="e,164,59,164,61" name="32&apos;h34" dtype_id="10"/>
+                            </sel>
+                          </redor>
+                        </not>
+                      </and>
+                      <varref loc="e,164,3,164,14" name="opa_pos_inf" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,165,15,165,17" dtype_id="1">
+                      <and loc="e,165,50,165,51" dtype_id="1">
+                        <and loc="e,165,27,165,28" dtype_id="1">
+                          <not loc="e,165,18,165,19" dtype_id="1">
+                            <sel loc="e,165,22,165,23" dtype_id="1">
+                              <varref loc="e,165,19,165,22" name="opb" dtype_id="3"/>
+                              <const loc="e,165,23,165,25" name="6&apos;h3f" dtype_id="9"/>
+                              <const loc="e,165,22,165,23" name="32&apos;h1" dtype_id="10"/>
+                            </sel>
+                          </not>
+                          <eq loc="e,165,41,165,43" dtype_id="1">
+                            <const loc="e,165,44,165,48" name="11&apos;h7ff" dtype_id="6"/>
+                            <sel loc="e,165,33,165,34" dtype_id="6">
+                              <varref loc="e,165,30,165,33" name="opb" dtype_id="3"/>
+                              <const loc="e,165,37,165,39" name="6&apos;h34" dtype_id="9"/>
+                              <const loc="e,165,34,165,36" name="32&apos;hb" dtype_id="10"/>
+                            </sel>
+                          </eq>
+                        </and>
+                        <not loc="e,165,52,165,53" dtype_id="1">
+                          <redor loc="e,165,54,165,55" dtype_id="1">
+                            <sel loc="e,165,58,165,59" dtype_id="8">
+                              <varref loc="e,165,55,165,58" name="opb" dtype_id="3"/>
+                              <const loc="e,165,62,165,63" name="6&apos;h0" dtype_id="9"/>
+                              <const loc="e,165,59,165,61" name="32&apos;h34" dtype_id="10"/>
+                            </sel>
+                          </redor>
+                        </not>
+                      </and>
+                      <varref loc="e,165,3,165,14" name="opb_pos_inf" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,166,15,166,17" dtype_id="1">
+                      <and loc="e,166,49,166,50" dtype_id="1">
+                        <and loc="e,166,26,166,27" dtype_id="1">
+                          <sel loc="e,166,21,166,22" dtype_id="1">
+                            <varref loc="e,166,18,166,21" name="opa" dtype_id="3"/>
+                            <const loc="e,166,22,166,24" name="6&apos;h3f" dtype_id="9"/>
+                            <const loc="e,166,21,166,22" name="32&apos;h1" dtype_id="10"/>
+                          </sel>
+                          <eq loc="e,166,40,166,42" dtype_id="1">
+                            <const loc="e,166,43,166,47" name="11&apos;h7ff" dtype_id="6"/>
+                            <sel loc="e,166,32,166,33" dtype_id="6">
+                              <varref loc="e,166,29,166,32" name="opa" dtype_id="3"/>
+                              <const loc="e,166,36,166,38" name="6&apos;h34" dtype_id="9"/>
+                              <const loc="e,166,33,166,35" name="32&apos;hb" dtype_id="10"/>
+                            </sel>
+                          </eq>
+                        </and>
+                        <not loc="e,166,51,166,52" dtype_id="1">
+                          <redor loc="e,166,53,166,54" dtype_id="1">
+                            <sel loc="e,166,57,166,58" dtype_id="8">
+                              <varref loc="e,166,54,166,57" name="opa" dtype_id="3"/>
+                              <const loc="e,166,61,166,62" name="6&apos;h0" dtype_id="9"/>
+                              <const loc="e,166,58,166,60" name="32&apos;h34" dtype_id="10"/>
+                            </sel>
+                          </redor>
+                        </not>
+                      </and>
+                      <varref loc="e,166,3,166,14" name="opa_neg_inf" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,167,15,167,17" dtype_id="1">
+                      <and loc="e,167,49,167,50" dtype_id="1">
+                        <and loc="e,167,26,167,27" dtype_id="1">
+                          <sel loc="e,167,21,167,22" dtype_id="1">
+                            <varref loc="e,167,18,167,21" name="opb" dtype_id="3"/>
+                            <const loc="e,167,22,167,24" name="6&apos;h3f" dtype_id="9"/>
+                            <const loc="e,167,21,167,22" name="32&apos;h1" dtype_id="10"/>
+                          </sel>
+                          <eq loc="e,167,40,167,42" dtype_id="1">
+                            <const loc="e,167,43,167,47" name="11&apos;h7ff" dtype_id="6"/>
+                            <sel loc="e,167,32,167,33" dtype_id="6">
+                              <varref loc="e,167,29,167,32" name="opb" dtype_id="3"/>
+                              <const loc="e,167,36,167,38" name="6&apos;h34" dtype_id="9"/>
+                              <const loc="e,167,33,167,35" name="32&apos;hb" dtype_id="10"/>
+                            </sel>
+                          </eq>
+                        </and>
+                        <not loc="e,167,51,167,52" dtype_id="1">
+                          <redor loc="e,167,53,167,54" dtype_id="1">
+                            <sel loc="e,167,57,167,58" dtype_id="8">
+                              <varref loc="e,167,54,167,57" name="opb" dtype_id="3"/>
+                              <const loc="e,167,61,167,62" name="6&apos;h0" dtype_id="9"/>
+                              <const loc="e,167,58,167,60" name="32&apos;h34" dtype_id="10"/>
+                            </sel>
+                          </redor>
+                        </not>
+                      </and>
+                      <varref loc="e,167,3,167,14" name="opb_neg_inf" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,168,11,168,13" dtype_id="1">
+                      <and loc="e,168,35,168,36" dtype_id="1">
+                        <eq loc="e,168,26,168,28" dtype_id="1">
+                          <const loc="e,168,29,168,33" name="11&apos;h7ff" dtype_id="6"/>
+                          <sel loc="e,168,18,168,19" dtype_id="6">
+                            <varref loc="e,168,15,168,18" name="opa" dtype_id="3"/>
+                            <const loc="e,168,22,168,24" name="6&apos;h34" dtype_id="9"/>
+                            <const loc="e,168,19,168,21" name="32&apos;hb" dtype_id="10"/>
+                          </sel>
+                        </eq>
+                        <not loc="e,168,37,168,38" dtype_id="1">
+                          <redor loc="e,168,39,168,40" dtype_id="1">
+                            <sel loc="e,168,43,168,44" dtype_id="8">
+                              <varref loc="e,168,40,168,43" name="opa" dtype_id="3"/>
+                              <const loc="e,168,47,168,48" name="6&apos;h0" dtype_id="9"/>
+                              <const loc="e,168,44,168,46" name="32&apos;h34" dtype_id="10"/>
+                            </sel>
+                          </redor>
+                        </not>
+                      </and>
+                      <varref loc="e,168,3,168,10" name="opa_inf" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,169,11,169,13" dtype_id="1">
+                      <and loc="e,169,35,169,36" dtype_id="1">
+                        <eq loc="e,169,26,169,28" dtype_id="1">
+                          <const loc="e,169,29,169,33" name="11&apos;h7ff" dtype_id="6"/>
+                          <sel loc="e,169,18,169,19" dtype_id="6">
+                            <varref loc="e,169,15,169,18" name="opb" dtype_id="3"/>
+                            <const loc="e,169,22,169,24" name="6&apos;h34" dtype_id="9"/>
+                            <const loc="e,169,19,169,21" name="32&apos;hb" dtype_id="10"/>
+                          </sel>
+                        </eq>
+                        <not loc="e,169,37,169,38" dtype_id="1">
+                          <redor loc="e,169,39,169,40" dtype_id="1">
+                            <sel loc="e,169,43,169,44" dtype_id="8">
+                              <varref loc="e,169,40,169,43" name="opb" dtype_id="3"/>
+                              <const loc="e,169,47,169,48" name="6&apos;h0" dtype_id="9"/>
+                              <const loc="e,169,44,169,46" name="32&apos;h34" dtype_id="10"/>
+                            </sel>
+                          </redor>
+                        </not>
+                      </and>
+                      <varref loc="e,169,3,169,10" name="opb_inf" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,170,13,170,15" dtype_id="1">
+                      <or loc="e,170,47,170,48" dtype_id="1">
+                        <or loc="e,170,36,170,37" dtype_id="1">
+                          <or loc="e,170,25,170,26" dtype_id="1">
+                            <varref loc="e,170,16,170,24" name="opa_QNaN" dtype_id="1"/>
+                            <varref loc="e,170,27,170,35" name="opb_QNaN" dtype_id="1"/>
+                          </or>
+                          <varref loc="e,170,38,170,46" name="opa_SNaN" dtype_id="1"/>
+                        </or>
+                        <varref loc="e,170,49,170,57" name="opb_SNaN" dtype_id="1"/>
+                      </or>
+                      <varref loc="e,170,3,170,12" name="NaN_input" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,171,14,171,16" dtype_id="1">
+                      <or loc="e,171,26,171,27" dtype_id="1">
+                        <varref loc="e,171,17,171,25" name="opa_SNaN" dtype_id="1"/>
+                        <varref loc="e,171,28,171,36" name="opb_SNaN" dtype_id="1"/>
+                      </or>
+                      <varref loc="e,171,3,171,13" name="SNaN_input" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,172,9,172,11" dtype_id="1">
+                      <or loc="e,172,21,172,22" dtype_id="1">
+                        <varref loc="e,172,12,172,20" name="opa_QNaN" dtype_id="1"/>
+                        <varref loc="e,172,23,172,31" name="opa_SNaN" dtype_id="1"/>
+                      </or>
+                      <varref loc="e,172,3,172,8" name="a_NaN" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,173,12,173,14" dtype_id="1">
+                      <and loc="e,173,36,173,37" dtype_id="1">
+                        <and loc="e,173,22,173,23" dtype_id="1">
+                          <varref loc="e,173,15,173,21" name="divide" dtype_id="1"/>
+                          <varref loc="e,173,24,173,35" name="opb_et_zero" dtype_id="1"/>
+                        </and>
+                        <not loc="e,173,38,173,39" dtype_id="1">
+                          <varref loc="e,173,39,173,50" name="opa_et_zero" dtype_id="1"/>
+                        </not>
+                      </and>
+                      <varref loc="e,173,3,173,11" name="div_by_0" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,174,14,174,16" dtype_id="1">
+                      <and loc="e,174,38,174,39" dtype_id="1">
+                        <and loc="e,174,24,174,25" dtype_id="1">
+                          <varref loc="e,174,17,174,23" name="divide" dtype_id="1"/>
+                          <varref loc="e,174,26,174,37" name="opb_et_zero" dtype_id="1"/>
+                        </and>
+                        <varref loc="e,174,40,174,51" name="opa_et_zero" dtype_id="1"/>
+                      </and>
+                      <varref loc="e,174,3,174,13" name="div_0_by_0" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,175,18,175,20" dtype_id="1">
+                      <and loc="e,175,38,175,39" dtype_id="1">
+                        <and loc="e,175,28,175,29" dtype_id="1">
+                          <varref loc="e,175,21,175,27" name="divide" dtype_id="1"/>
+                          <varref loc="e,175,30,175,37" name="opa_inf" dtype_id="1"/>
+                        </and>
+                        <varref loc="e,175,40,175,47" name="opb_inf" dtype_id="1"/>
+                      </and>
+                      <varref loc="e,175,3,175,17" name="div_inf_by_inf" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,176,14,176,16" dtype_id="1">
+                      <and loc="e,176,35,176,36" dtype_id="1">
+                        <and loc="e,176,24,176,25" dtype_id="1">
+                          <varref loc="e,176,17,176,23" name="divide" dtype_id="1"/>
+                          <not loc="e,176,26,176,27" dtype_id="1">
+                            <varref loc="e,176,27,176,34" name="opa_inf" dtype_id="1"/>
+                          </not>
+                        </and>
+                        <varref loc="e,176,37,176,44" name="opb_inf" dtype_id="1"/>
+                      </and>
+                      <varref loc="e,176,3,176,13" name="div_by_inf" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,177,16,177,18" dtype_id="1">
+                      <and loc="e,177,28,177,29" dtype_id="1">
+                        <varref loc="e,177,19,177,27" name="multiply" dtype_id="1"/>
+                        <or loc="e,177,55,177,56" dtype_id="1">
+                          <and loc="e,177,40,177,41" dtype_id="1">
+                            <varref loc="e,177,32,177,39" name="opa_inf" dtype_id="1"/>
+                            <varref loc="e,177,42,177,53" name="opb_et_zero" dtype_id="1"/>
+                          </and>
+                          <and loc="e,177,70,177,71" dtype_id="1">
+                            <varref loc="e,177,58,177,69" name="opa_et_zero" dtype_id="1"/>
+                            <varref loc="e,177,72,177,79" name="opb_inf" dtype_id="1"/>
+                          </and>
+                        </or>
+                      </and>
+                      <varref loc="e,177,3,177,15" name="mul_0_by_inf" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,178,11,178,13" dtype_id="1">
+                      <and loc="e,178,45,178,46" dtype_id="1">
+                        <and loc="e,178,23,178,24" dtype_id="1">
+                          <varref loc="e,178,14,178,22" name="multiply" dtype_id="1"/>
+                          <or loc="e,178,34,178,35" dtype_id="1">
+                            <varref loc="e,178,26,178,33" name="opa_inf" dtype_id="1"/>
+                            <varref loc="e,178,36,178,43" name="opb_inf" dtype_id="1"/>
+                          </or>
+                        </and>
+                        <not loc="e,178,47,178,48" dtype_id="1">
+                          <varref loc="e,178,48,178,60" name="mul_0_by_inf" dtype_id="1"/>
+                        </not>
+                      </and>
+                      <varref loc="e,178,3,178,10" name="mul_inf" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,179,11,179,13" dtype_id="1">
+                      <and loc="e,179,31,179,32" dtype_id="1">
+                        <and loc="e,179,21,179,22" dtype_id="1">
+                          <varref loc="e,179,14,179,20" name="divide" dtype_id="1"/>
+                          <varref loc="e,179,23,179,30" name="opa_inf" dtype_id="1"/>
+                        </and>
+                        <not loc="e,179,33,179,34" dtype_id="1">
+                          <varref loc="e,179,34,179,41" name="opb_inf" dtype_id="1"/>
+                        </not>
+                      </and>
+                      <varref loc="e,179,3,179,10" name="div_inf" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,180,11,180,13" dtype_id="1">
+                      <and loc="e,180,19,180,20" dtype_id="1">
+                        <varref loc="e,180,15,180,18" name="add" dtype_id="1"/>
+                        <or loc="e,180,30,180,31" dtype_id="1">
+                          <varref loc="e,180,22,180,29" name="opa_inf" dtype_id="1"/>
+                          <varref loc="e,180,32,180,39" name="opb_inf" dtype_id="1"/>
+                        </or>
+                      </and>
+                      <varref loc="e,180,3,180,10" name="add_inf" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,181,11,181,13" dtype_id="1">
+                      <and loc="e,181,24,181,25" dtype_id="1">
+                        <varref loc="e,181,15,181,23" name="subtract" dtype_id="1"/>
+                        <or loc="e,181,35,181,36" dtype_id="1">
+                          <varref loc="e,181,27,181,34" name="opa_inf" dtype_id="1"/>
+                          <varref loc="e,181,37,181,44" name="opb_inf" dtype_id="1"/>
+                        </or>
+                      </and>
+                      <varref loc="e,181,3,181,10" name="sub_inf" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,182,22,182,24" dtype_id="1">
+                      <or loc="e,183,45,183,46" dtype_id="1">
+                        <or loc="e,182,95,182,96" dtype_id="1">
+                          <or loc="e,182,59,182,60" dtype_id="1">
+                            <and loc="e,182,44,182,45" dtype_id="1">
+                              <and loc="e,182,30,182,31" dtype_id="1">
+                                <varref loc="e,182,26,182,29" name="add" dtype_id="1"/>
+                                <varref loc="e,182,32,182,43" name="opa_pos_inf" dtype_id="1"/>
+                              </and>
+                              <varref loc="e,182,46,182,57" name="opb_neg_inf" dtype_id="1"/>
+                            </and>
+                            <and loc="e,182,80,182,81" dtype_id="1">
+                              <and loc="e,182,66,182,67" dtype_id="1">
+                                <varref loc="e,182,62,182,65" name="add" dtype_id="1"/>
+                                <varref loc="e,182,68,182,79" name="opa_neg_inf" dtype_id="1"/>
+                              </and>
+                              <varref loc="e,182,82,182,93" name="opb_pos_inf" dtype_id="1"/>
+                            </and>
+                          </or>
+                          <and loc="e,183,30,183,31" dtype_id="1">
+                            <and loc="e,183,16,183,17" dtype_id="1">
+                              <varref loc="e,183,7,183,15" name="subtract" dtype_id="1"/>
+                              <varref loc="e,183,18,183,29" name="opa_pos_inf" dtype_id="1"/>
+                            </and>
+                            <varref loc="e,183,32,183,43" name="opb_pos_inf" dtype_id="1"/>
+                          </and>
+                        </or>
+                        <and loc="e,183,71,183,72" dtype_id="1">
+                          <and loc="e,183,57,183,58" dtype_id="1">
+                            <varref loc="e,183,48,183,56" name="subtract" dtype_id="1"/>
+                            <varref loc="e,183,59,183,70" name="opa_neg_inf" dtype_id="1"/>
+                          </and>
+                          <varref loc="e,183,73,183,84" name="opb_neg_inf" dtype_id="1"/>
+                        </and>
+                      </or>
+                      <varref loc="e,182,3,182,21" name="addsub_inf_invalid" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,184,14,184,16" dtype_id="1">
+                      <and loc="e,184,37,184,38" dtype_id="1">
+                        <or loc="e,184,26,184,27" dtype_id="1">
+                          <varref loc="e,184,18,184,25" name="add_inf" dtype_id="1"/>
+                          <varref loc="e,184,28,184,35" name="sub_inf" dtype_id="1"/>
+                        </or>
+                        <not loc="e,184,39,184,40" dtype_id="1">
+                          <varref loc="e,184,40,184,58" name="addsub_inf_invalid" dtype_id="1"/>
+                        </not>
+                      </and>
+                      <varref loc="e,184,3,184,13" name="addsub_inf" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,185,19,185,21" dtype_id="1">
+                      <or loc="e,185,64,185,65" dtype_id="1">
+                        <or loc="e,185,53,185,54" dtype_id="1">
+                          <or loc="e,185,43,185,44" dtype_id="1">
+                            <or loc="e,185,33,185,34" dtype_id="1">
+                              <varref loc="e,185,22,185,32" name="addsub_inf" dtype_id="1"/>
+                              <varref loc="e,185,35,185,42" name="mul_inf" dtype_id="1"/>
+                            </or>
+                            <varref loc="e,185,45,185,52" name="div_inf" dtype_id="1"/>
+                          </or>
+                          <varref loc="e,185,55,185,63" name="div_by_0" dtype_id="1"/>
+                        </or>
+                        <lt loc="e,185,79,185,80" dtype_id="1">
+                          <const loc="e,185,81,185,85" name="12&apos;h7fe" dtype_id="4"/>
+                          <varref loc="e,185,67,185,78" name="exponent_in" dtype_id="4"/>
+                        </lt>
+                      </or>
+                      <varref loc="e,185,3,185,18" name="out_inf_trigger" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,186,15,186,17" dtype_id="1">
+                      <and loc="e,186,34,186,35" dtype_id="1">
+                        <varref loc="e,186,18,186,33" name="out_inf_trigger" dtype_id="1"/>
+                        <not loc="e,186,36,186,37" dtype_id="1">
+                          <sel loc="e,186,46,186,47" dtype_id="1">
+                            <varref loc="e,186,37,186,46" name="in_except" dtype_id="3"/>
+                            <const loc="e,186,47,186,49" name="6&apos;h3f" dtype_id="9"/>
+                            <const loc="e,186,46,186,47" name="32&apos;h1" dtype_id="10"/>
+                          </sel>
+                        </not>
+                      </and>
+                      <varref loc="e,186,3,186,14" name="out_pos_inf" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,187,15,187,17" dtype_id="1">
+                      <and loc="e,187,34,187,35" dtype_id="1">
+                        <varref loc="e,187,18,187,33" name="out_inf_trigger" dtype_id="1"/>
+                        <sel loc="e,187,45,187,46" dtype_id="1">
+                          <varref loc="e,187,36,187,45" name="in_except" dtype_id="3"/>
+                          <const loc="e,187,46,187,48" name="6&apos;h3f" dtype_id="9"/>
+                          <const loc="e,187,45,187,46" name="32&apos;h1" dtype_id="10"/>
+                        </sel>
+                      </and>
+                      <varref loc="e,187,3,187,14" name="out_neg_inf" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,188,17,188,19" dtype_id="1">
+                      <eq loc="e,188,27,188,29" dtype_id="1">
+                        <const loc="e,188,30,188,35" name="2&apos;h0" dtype_id="2"/>
+                        <varref loc="e,188,21,188,26" name="rmode" dtype_id="2"/>
+                      </eq>
+                      <varref loc="e,188,3,188,16" name="round_nearest" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,189,17,189,19" dtype_id="1">
+                      <eq loc="e,189,27,189,29" dtype_id="1">
+                        <const loc="e,189,30,189,35" name="2&apos;h1" dtype_id="2"/>
+                        <varref loc="e,189,21,189,26" name="rmode" dtype_id="2"/>
+                      </eq>
+                      <varref loc="e,189,3,189,16" name="round_to_zero" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,190,20,190,22" dtype_id="1">
+                      <eq loc="e,190,30,190,32" dtype_id="1">
+                        <const loc="e,190,33,190,38" name="2&apos;h2" dtype_id="2"/>
+                        <varref loc="e,190,24,190,29" name="rmode" dtype_id="2"/>
+                      </eq>
+                      <varref loc="e,190,3,190,19" name="round_to_pos_inf" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,191,20,191,22" dtype_id="1">
+                      <eq loc="e,191,30,191,32" dtype_id="1">
+                        <const loc="e,191,33,191,38" name="2&apos;h3" dtype_id="2"/>
+                        <varref loc="e,191,24,191,29" name="rmode" dtype_id="2"/>
+                      </eq>
+                      <varref loc="e,191,3,191,19" name="round_to_neg_inf" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,192,26,192,28" dtype_id="1">
+                      <or loc="e,193,42,193,43" dtype_id="1">
+                        <or loc="e,192,62,192,63" dtype_id="1">
+                          <and loc="e,192,42,192,43" dtype_id="1">
+                            <varref loc="e,192,30,192,41" name="out_pos_inf" dtype_id="1"/>
+                            <varref loc="e,192,44,192,60" name="round_to_neg_inf" dtype_id="1"/>
+                          </and>
+                          <and loc="e,193,22,193,23" dtype_id="1">
+                            <varref loc="e,193,10,193,21" name="out_neg_inf" dtype_id="1"/>
+                            <varref loc="e,193,24,193,40" name="round_to_pos_inf" dtype_id="1"/>
+                          </and>
+                        </or>
+                        <and loc="e,194,26,194,27" dtype_id="1">
+                          <varref loc="e,194,10,194,25" name="out_inf_trigger" dtype_id="1"/>
+                          <varref loc="e,194,28,194,41" name="round_to_zero" dtype_id="1"/>
+                        </and>
+                      </or>
+                      <varref loc="e,192,3,192,25" name="inf_round_down_trigger" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,195,10,195,12" dtype_id="1">
+                      <and loc="e,195,52,195,53" dtype_id="1">
+                        <and loc="e,195,37,195,38" dtype_id="1">
+                          <and loc="e,195,22,195,23" dtype_id="1">
+                            <varref loc="e,195,13,195,21" name="multiply" dtype_id="1"/>
+                            <not loc="e,195,24,195,25" dtype_id="1">
+                              <varref loc="e,195,25,195,36" name="opa_et_zero" dtype_id="1"/>
+                            </not>
+                          </and>
+                          <not loc="e,195,39,195,40" dtype_id="1">
+                            <varref loc="e,195,40,195,51" name="opb_et_zero" dtype_id="1"/>
+                          </not>
+                        </and>
+                        <varref loc="e,195,54,195,64" name="in_et_zero" dtype_id="1"/>
+                      </and>
+                      <varref loc="e,195,3,195,9" name="mul_uf" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,196,10,196,12" dtype_id="1">
+                      <and loc="e,196,35,196,36" dtype_id="1">
+                        <and loc="e,196,20,196,21" dtype_id="1">
+                          <varref loc="e,196,13,196,19" name="divide" dtype_id="1"/>
+                          <not loc="e,196,22,196,23" dtype_id="1">
+                            <varref loc="e,196,23,196,34" name="opa_et_zero" dtype_id="1"/>
+                          </not>
+                        </and>
+                        <varref loc="e,196,37,196,47" name="in_et_zero" dtype_id="1"/>
+                      </and>
+                      <varref loc="e,196,3,196,9" name="div_uf" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,197,21,197,23" dtype_id="1">
+                      <or loc="e,197,44,197,45" dtype_id="1">
+                        <or loc="e,197,35,197,36" dtype_id="1">
+                          <varref loc="e,197,24,197,34" name="div_by_inf" dtype_id="1"/>
+                          <varref loc="e,197,37,197,43" name="mul_uf" dtype_id="1"/>
+                        </or>
+                        <varref loc="e,197,46,197,52" name="div_uf" dtype_id="1"/>
+                      </or>
+                      <varref loc="e,197,3,197,20" name="underflow_trigger" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,198,19,198,21" dtype_id="1">
+                      <or loc="e,199,18,199,19" dtype_id="1">
+                        <or loc="e,198,69,198,70" dtype_id="1">
+                          <or loc="e,198,54,198,55" dtype_id="1">
+                            <or loc="e,198,33,198,34" dtype_id="1">
+                              <varref loc="e,198,22,198,32" name="SNaN_input" dtype_id="1"/>
+                              <varref loc="e,198,35,198,53" name="addsub_inf_invalid" dtype_id="1"/>
+                            </or>
+                            <varref loc="e,198,56,198,68" name="mul_0_by_inf" dtype_id="1"/>
+                          </or>
+                          <varref loc="e,199,7,199,17" name="div_0_by_0" dtype_id="1"/>
+                        </or>
+                        <varref loc="e,199,20,199,34" name="div_inf_by_inf" dtype_id="1"/>
+                      </or>
+                      <varref loc="e,198,3,198,18" name="invalid_trigger" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,200,20,200,22" dtype_id="1">
+                      <and loc="e,200,39,200,40" dtype_id="1">
+                        <varref loc="e,200,23,200,38" name="out_inf_trigger" dtype_id="1"/>
+                        <not loc="e,200,41,200,42" dtype_id="1">
+                          <varref loc="e,200,42,200,51" name="NaN_input" dtype_id="1"/>
+                        </not>
+                      </and>
+                      <varref loc="e,200,3,200,19" name="overflow_trigger" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,201,19,201,21" dtype_id="1">
+                      <and loc="e,201,80,201,81" dtype_id="1">
+                        <or loc="e,201,59,201,60" dtype_id="1">
+                          <or loc="e,201,41,201,42" dtype_id="1">
+                            <redor loc="e,201,23,201,24" dtype_id="1">
+                              <varref loc="e,201,24,201,35" name="mantissa_in" dtype_id="2"/>
+                            </redor>
+                            <varref loc="e,201,43,201,58" name="out_inf_trigger" dtype_id="1"/>
+                          </or>
+                          <varref loc="e,201,61,201,78" name="underflow_trigger" dtype_id="1"/>
+                        </or>
+                        <not loc="e,202,7,202,8" dtype_id="1">
+                          <varref loc="e,202,8,202,17" name="NaN_input" dtype_id="1"/>
+                        </not>
+                      </and>
+                      <varref loc="e,201,3,201,18" name="inexact_trigger" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,203,18,203,20" dtype_id="1">
+                      <or loc="e,203,76,203,77" dtype_id="1">
+                        <or loc="e,203,56,203,57" dtype_id="1">
+                          <or loc="e,203,37,203,38" dtype_id="1">
+                            <varref loc="e,203,21,203,36" name="invalid_trigger" dtype_id="1"/>
+                            <varref loc="e,203,39,203,55" name="overflow_trigger" dtype_id="1"/>
+                          </or>
+                          <varref loc="e,203,58,203,75" name="underflow_trigger" dtype_id="1"/>
+                        </or>
+                        <varref loc="e,204,7,204,22" name="inexact_trigger" dtype_id="1"/>
+                      </or>
+                      <varref loc="e,203,3,203,17" name="except_trigger" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,205,18,205,20" dtype_id="1">
+                      <or loc="e,205,54,205,55" dtype_id="1">
+                        <or loc="e,205,36,205,37" dtype_id="1">
+                          <varref loc="e,205,21,205,35" name="except_trigger" dtype_id="1"/>
+                          <varref loc="e,205,38,205,53" name="out_inf_trigger" dtype_id="1"/>
+                        </or>
+                        <varref loc="e,205,56,205,65" name="NaN_input" dtype_id="1"/>
+                      </or>
+                      <varref loc="e,205,3,205,17" name="enable_trigger" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,206,19,206,21" dtype_id="1">
+                      <or loc="e,206,32,206,33" dtype_id="1">
+                        <varref loc="e,206,22,206,31" name="NaN_input" dtype_id="1"/>
+                        <varref loc="e,206,34,206,49" name="invalid_trigger" dtype_id="1"/>
+                      </or>
+                      <varref loc="e,206,3,206,18" name="NaN_out_trigger" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,207,16,207,18" dtype_id="1">
+                      <and loc="e,207,35,207,36" dtype_id="1">
+                        <varref loc="e,207,19,207,34" name="invalid_trigger" dtype_id="1"/>
+                        <not loc="e,207,37,207,38" dtype_id="1">
+                          <varref loc="e,207,38,207,48" name="SNaN_input" dtype_id="1"/>
+                        </not>
+                      </and>
+                      <varref loc="e,207,3,207,15" name="SNaN_trigger" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,208,16,208,18" dtype_id="7">
+                      <cond loc="e,208,25,208,26" dtype_id="7">
+                        <varref loc="e,208,19,208,24" name="a_NaN" dtype_id="1"/>
+                        <concat loc="e,208,43,208,44" dtype_id="7">
+                          <const loc="e,208,37,208,38" name="12&apos;hfff" dtype_id="4"/>
+                          <sel loc="e,208,48,208,49" dtype_id="11">
+                            <varref loc="e,208,45,208,48" name="opa" dtype_id="3"/>
+                            <const loc="e,208,52,208,53" name="6&apos;h0" dtype_id="9"/>
+                            <const loc="e,208,49,208,51" name="32&apos;h33" dtype_id="10"/>
+                          </sel>
+                        </concat>
+                        <concat loc="e,208,74,208,75" dtype_id="7">
+                          <const loc="e,208,68,208,69" name="12&apos;hfff" dtype_id="4"/>
+                          <sel loc="e,208,79,208,80" dtype_id="11">
+                            <varref loc="e,208,76,208,79" name="opb" dtype_id="3"/>
+                            <const loc="e,208,83,208,84" name="6&apos;h0" dtype_id="9"/>
+                            <const loc="e,208,80,208,82" name="32&apos;h33" dtype_id="10"/>
+                          </sel>
+                        </concat>
+                      </cond>
+                      <varref loc="e,208,3,208,15" name="NaN_output_0" dtype_id="7"/>
+                    </assigndly>
+                    <assigndly loc="e,209,14,209,16" dtype_id="7">
+                      <cond loc="e,209,30,209,31" dtype_id="7">
+                        <varref loc="e,209,17,209,29" name="SNaN_trigger" dtype_id="1"/>
+                        <concat loc="e,209,49,209,50" dtype_id="7">
+                          <const loc="e,209,42,209,43" name="13&apos;h1ffd" dtype_id="12"/>
+                          <sel loc="e,209,54,209,55" dtype_id="13">
+                            <varref loc="e,209,51,209,54" name="opa" dtype_id="3"/>
+                            <const loc="e,209,58,209,59" name="6&apos;h0" dtype_id="9"/>
+                            <const loc="e,209,55,209,57" name="32&apos;h32" dtype_id="10"/>
+                          </sel>
+                        </concat>
+                        <varref loc="e,209,64,209,76" name="NaN_output_0" dtype_id="7"/>
+                      </cond>
+                      <varref loc="e,209,3,209,13" name="NaN_output" dtype_id="7"/>
+                    </assigndly>
+                    <assigndly loc="e,210,18,210,20" dtype_id="7">
+                      <const loc="e,210,21,210,22" name="63&apos;h7fefffffffffffff" dtype_id="7"/>
+                      <varref loc="e,210,3,210,17" name="inf_round_down" dtype_id="7"/>
+                    </assigndly>
+                    <assigndly loc="e,211,11,211,13" dtype_id="7">
+                      <cond loc="e,211,37,211,38" dtype_id="7">
+                        <varref loc="e,211,14,211,36" name="inf_round_down_trigger" dtype_id="1"/>
+                        <varref loc="e,211,39,211,53" name="inf_round_down" dtype_id="7"/>
+                        <const loc="e,211,56,211,57" name="63&apos;h7ff0000000000000" dtype_id="7"/>
+                      </cond>
+                      <varref loc="e,211,3,211,10" name="out_inf" dtype_id="7"/>
+                    </assigndly>
+                    <assigndly loc="e,212,9,212,11" dtype_id="3">
+                      <cond loc="e,212,30,212,31" dtype_id="3">
+                        <varref loc="e,212,12,212,29" name="underflow_trigger" dtype_id="1"/>
+                        <concat loc="e,212,47,212,48" dtype_id="3">
+                          <sel loc="e,212,43,212,44" dtype_id="1">
+                            <varref loc="e,212,34,212,43" name="in_except" dtype_id="3"/>
+                            <const loc="e,212,44,212,46" name="6&apos;h3f" dtype_id="9"/>
+                            <const loc="e,212,43,212,44" name="32&apos;h1" dtype_id="10"/>
+                          </sel>
+                          <const loc="e,212,49,212,54" name="63&apos;h0" dtype_id="7"/>
+                        </concat>
+                        <varref loc="e,212,59,212,68" name="in_except" dtype_id="3"/>
+                      </cond>
+                      <varref loc="e,212,3,212,8" name="out_0" dtype_id="3"/>
+                    </assigndly>
+                    <assigndly loc="e,213,9,213,11" dtype_id="3">
+                      <cond loc="e,213,28,213,29" dtype_id="3">
+                        <varref loc="e,213,12,213,27" name="out_inf_trigger" dtype_id="1"/>
+                        <concat loc="e,213,45,213,46" dtype_id="3">
+                          <sel loc="e,213,41,213,42" dtype_id="1">
+                            <varref loc="e,213,32,213,41" name="in_except" dtype_id="3"/>
+                            <const loc="e,213,42,213,44" name="6&apos;h3f" dtype_id="9"/>
+                            <const loc="e,213,41,213,42" name="32&apos;h1" dtype_id="10"/>
+                          </sel>
+                          <varref loc="e,213,47,213,54" name="out_inf" dtype_id="7"/>
+                        </concat>
+                        <varref loc="e,213,59,213,64" name="out_0" dtype_id="3"/>
+                      </cond>
+                      <varref loc="e,213,3,213,8" name="out_1" dtype_id="3"/>
+                    </assigndly>
+                    <assigndly loc="e,214,9,214,11" dtype_id="3">
+                      <cond loc="e,214,28,214,29" dtype_id="3">
+                        <varref loc="e,214,12,214,27" name="NaN_out_trigger" dtype_id="1"/>
+                        <concat loc="e,214,45,214,46" dtype_id="3">
+                          <sel loc="e,214,41,214,42" dtype_id="1">
+                            <varref loc="e,214,32,214,41" name="in_except" dtype_id="3"/>
+                            <const loc="e,214,42,214,44" name="6&apos;h3f" dtype_id="9"/>
+                            <const loc="e,214,41,214,42" name="32&apos;h1" dtype_id="10"/>
+                          </sel>
+                          <varref loc="e,214,47,214,57" name="NaN_output" dtype_id="7"/>
+                        </concat>
+                        <varref loc="e,214,61,214,66" name="out_1" dtype_id="3"/>
+                      </cond>
+                      <varref loc="e,214,3,214,8" name="out_2" dtype_id="3"/>
+                    </assigndly>
+                  </begin>
+                </begin>
+              </if>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <always loc="e,217,1,217,7">
+        <sentree loc="e,217,8,217,9">
+          <senitem loc="e,217,10,217,17" edgeType="POS">
+            <varref loc="e,217,18,217,21" name="clk" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,218,1,218,6">
+          <if loc="e,219,2,219,4">
+            <varref loc="e,219,6,219,9" name="rst" dtype_id="1"/>
+            <begin>
+              <begin loc="e,219,11,219,16">
+                <assigndly loc="e,220,13,220,15" dtype_id="1">
+                  <const loc="e,220,16,220,17" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,220,3,220,12" name="ex_enable" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,221,13,221,15" dtype_id="1">
+                  <const loc="e,221,16,221,17" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,221,3,221,12" name="underflow" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,222,12,222,14" dtype_id="1">
+                  <const loc="e,222,15,222,16" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,222,3,222,11" name="overflow" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,223,11,223,13" dtype_id="1">
+                  <const loc="e,223,14,223,15" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,223,3,223,10" name="inexact" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,224,13,224,15" dtype_id="1">
+                  <const loc="e,224,16,224,17" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,224,3,224,12" name="exception" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,225,11,225,13" dtype_id="1">
+                  <const loc="e,225,14,225,15" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,225,3,225,10" name="invalid" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,226,7,226,9" dtype_id="3">
+                  <const loc="e,226,10,226,11" name="64&apos;h0" dtype_id="3"/>
+                  <varref loc="e,226,3,226,6" name="out" dtype_id="3"/>
+                </assigndly>
+              </begin>
+            </begin>
+            <begin>
+              <if loc="e,228,7,228,9">
+                <varref loc="e,228,11,228,17" name="enable" dtype_id="1"/>
+                <begin>
+                  <begin loc="e,228,19,228,24">
+                    <assigndly loc="e,229,13,229,15" dtype_id="1">
+                      <varref loc="e,229,16,229,30" name="enable_trigger" dtype_id="1"/>
+                      <varref loc="e,229,3,229,12" name="ex_enable" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,230,13,230,15" dtype_id="1">
+                      <varref loc="e,230,16,230,33" name="underflow_trigger" dtype_id="1"/>
+                      <varref loc="e,230,3,230,12" name="underflow" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,231,12,231,14" dtype_id="1">
+                      <varref loc="e,231,15,231,31" name="overflow_trigger" dtype_id="1"/>
+                      <varref loc="e,231,3,231,11" name="overflow" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,232,11,232,13" dtype_id="1">
+                      <varref loc="e,232,14,232,29" name="inexact_trigger" dtype_id="1"/>
+                      <varref loc="e,232,3,232,10" name="inexact" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,233,13,233,15" dtype_id="1">
+                      <varref loc="e,233,16,233,30" name="except_trigger" dtype_id="1"/>
+                      <varref loc="e,233,3,233,12" name="exception" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,234,11,234,13" dtype_id="1">
+                      <varref loc="e,234,14,234,29" name="invalid_trigger" dtype_id="1"/>
+                      <varref loc="e,234,3,234,10" name="invalid" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,235,7,235,9" dtype_id="3">
+                      <varref loc="e,235,10,235,15" name="out_2" dtype_id="3"/>
+                      <varref loc="e,235,3,235,6" name="out" dtype_id="3"/>
+                    </assigndly>
+                  </begin>
+                </begin>
+              </if>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <initial loc="e,80,23,80,24">
+        <assign loc="e,80,23,80,24" dtype_id="6">
+          <const loc="e,80,25,80,40" name="11&apos;h7ff" dtype_id="6"/>
+          <varref loc="e,80,14,80,22" name="exp_2047" dtype_id="6"/>
+        </assign>
+      </initial>
+      <initial loc="e,81,23,81,24">
+        <assign loc="e,81,23,81,24" dtype_id="6">
+          <const loc="e,81,25,81,40" name="11&apos;h7fe" dtype_id="6"/>
+          <varref loc="e,81,14,81,22" name="exp_2046" dtype_id="6"/>
+        </assign>
+      </initial>
+      <initial loc="e,84,27,84,28">
+        <assign loc="e,84,27,84,28" dtype_id="8">
+          <const loc="e,84,29,84,85" name="52&apos;hfffffffffffff" dtype_id="8"/>
+          <varref loc="e,84,14,84,26" name="mantissa_max" dtype_id="8"/>
+        </assign>
+      </initial>
+    </module>
+    <typetable loc="a,0,0,0,0">
+      <basicdtype loc="d,46,25,46,27" id="1" name="logic"/>
+      <voiddtype loc="d,48,18,48,27" id="14"/>
+      <basicdtype loc="e,9,7,9,8" id="2" name="logic" left="1" right="0"/>
+      <basicdtype loc="e,10,7,10,8" id="3" name="logic" left="63" right="0"/>
+      <basicdtype loc="e,13,7,13,8" id="4" name="logic" left="11" right="0"/>
+      <basicdtype loc="e,15,7,15,8" id="5" name="logic" left="2" right="0"/>
+      <basicdtype loc="e,80,6,80,7" id="6" name="logic" left="10" right="0"/>
+      <basicdtype loc="e,82,1,82,4" id="7" name="logic" left="62" right="0"/>
+      <basicdtype loc="e,84,6,84,7" id="8" name="logic" left="51" right="0"/>
+      <basicdtype loc="e,152,29,152,30" id="9" name="logic" left="5" right="0" signed="true"/>
+      <basicdtype loc="e,208,48,208,49" id="11" name="logic" left="50" right="0"/>
+      <basicdtype loc="e,209,42,209,43" id="12" name="logic" left="12" right="0"/>
+      <basicdtype loc="e,209,54,209,55" id="13" name="logic" left="49" right="0"/>
+      <basicdtype loc="e,152,30,152,32" id="10" name="logic" left="31" right="0"/>
+    </typetable>
+  </netlist>
+</verilator_xml>

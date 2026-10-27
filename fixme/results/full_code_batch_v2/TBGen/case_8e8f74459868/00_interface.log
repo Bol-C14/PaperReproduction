@@ -1,0 +1,89 @@
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_8e8f74459868/a23_wishbone.v:25:18: Operator VAR 'WB_IDLE' expects 4 bits on the Initial value, but Initial value's CONST '3'h0' generates 3 bits.
+                                                                                                                                : ... note: In instance 'a23_wishbone'
+   25 | localparam [3:0] WB_IDLE            = 3'd0,
+      |                  ^~~~~~~
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.032
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_8e8f74459868/a23_wishbone.v:26:18: Operator VAR 'WB_BURST1' expects 4 bits on the Initial value, but Initial value's CONST '3'h1' generates 3 bits.
+                                                                                                                                : ... note: In instance 'a23_wishbone'
+   26 |                  WB_BURST1          = 3'd1,
+      |                  ^~~~~~~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_8e8f74459868/a23_wishbone.v:27:18: Operator VAR 'WB_BURST2' expects 4 bits on the Initial value, but Initial value's CONST '3'h2' generates 3 bits.
+                                                                                                                                : ... note: In instance 'a23_wishbone'
+   27 |                  WB_BURST2          = 3'd2,
+      |                  ^~~~~~~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_8e8f74459868/a23_wishbone.v:28:18: Operator VAR 'WB_BURST3' expects 4 bits on the Initial value, but Initial value's CONST '3'h3' generates 3 bits.
+                                                                                                                                : ... note: In instance 'a23_wishbone'
+   28 |                  WB_BURST3          = 3'd3,
+      |                  ^~~~~~~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_8e8f74459868/a23_wishbone.v:29:18: Operator VAR 'WB_WAIT_ACK' expects 4 bits on the Initial value, but Initial value's CONST '3'h4' generates 3 bits.
+                                                                                                                                : ... note: In instance 'a23_wishbone'
+   29 |                  WB_WAIT_ACK        = 3'd4;
+      |                  ^~~~~~~~~~~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_8e8f74459868/a23_wishbone.v:30:43: Operator ASSIGN expects 3 bits on the Assign RHS, but Assign RHS's VARREF 'WB_IDLE' generates 4 bits.
+                                                                                                                               : ... note: In instance 'a23_wishbone'
+   30 | reg     [2:0]               wishbone_st = WB_IDLE;
+      |                                           ^~~~~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_8e8f74459868/a23_wishbone.v:49:67: Operator EQ expects 4 bits on the LHS, but LHS's VARREF 'wishbone_st' generates 3 bits.
+                                                                                                                                : ... note: In instance 'a23_wishbone'
+   49 |                               ( core_write_request && wishbone_st == WB_WAIT_ACK) ||
+      |                                                                   ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_8e8f74459868/a23_wishbone.v:50:68: Operator EQ expects 4 bits on the LHS, but LHS's VARREF 'wishbone_st' generates 3 bits.
+                                                                                                                                : ... note: In instance 'a23_wishbone'
+   50 |                               ( cache_write_request && wishbone_st == WB_WAIT_ACK) ||
+      |                                                                    ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_8e8f74459868/a23_wishbone.v:92:34: Operator ASSIGNDLY expects 3 bits on the Assign RHS, but Assign RHS's VARREF 'WB_WAIT_ACK' generates 4 bits.
+                                                                                                                               : ... note: In instance 'a23_wishbone'
+   92 |                 wishbone_st      <= WB_WAIT_ACK;
+      |                                  ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_8e8f74459868/a23_wishbone.v:96:37: Operator ASSIGNDLY expects 3 bits on the Assign RHS, but Assign RHS's VARREF 'WB_BURST1' generates 4 bits.
+                                                                                                                               : ... note: In instance 'a23_wishbone'
+   96 |                 wishbone_st         <= WB_BURST1;
+      |                                     ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_8e8f74459868/a23_wishbone.v:101:37: Operator ASSIGNDLY expects 3 bits on the Assign RHS, but Assign RHS's VARREF 'WB_WAIT_ACK' generates 4 bits.
+                                                                                                                                : ... note: In instance 'a23_wishbone'
+  101 |                 wishbone_st         <= WB_WAIT_ACK;
+      |                                     ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_8e8f74459868/a23_wishbone.v:131:33: Operator ASSIGNDLY expects 3 bits on the Assign RHS, but Assign RHS's VARREF 'WB_BURST2' generates 4 bits.
+                                                                                                                                : ... note: In instance 'a23_wishbone'
+  131 |                 wishbone_st     <= WB_BURST2;
+      |                                 ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_8e8f74459868/a23_wishbone.v:137:33: Operator ASSIGNDLY expects 3 bits on the Assign RHS, but Assign RHS's VARREF 'WB_BURST3' generates 4 bits.
+                                                                                                                                : ... note: In instance 'a23_wishbone'
+  137 |                 wishbone_st     <= WB_BURST3;
+      |                                 ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_8e8f74459868/a23_wishbone.v:143:33: Operator ASSIGNDLY expects 3 bits on the Assign RHS, but Assign RHS's VARREF 'WB_WAIT_ACK' generates 4 bits.
+                                                                                                                                : ... note: In instance 'a23_wishbone'
+  143 |                 wishbone_st     <= WB_WAIT_ACK;
+      |                                 ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_8e8f74459868/a23_wishbone.v:148:37: Operator ASSIGNDLY expects 3 bits on the Assign RHS, but Assign RHS's VARREF 'WB_IDLE' generates 4 bits.
+                                                                                                                                : ... note: In instance 'a23_wishbone'
+  148 |                 wishbone_st         <= WB_IDLE;
+      |                                     ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_8e8f74459868/a23_wishbone.v:75:5: Operator CASE expects 4 bits on the Case expression, but Case expression's VARREF 'wishbone_st' generates 3 bits.
+                                                                                                                               : ... note: In instance 'a23_wishbone'
+   75 |     case ( wishbone_st )
+      |     ^~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_8e8f74459868/a23_wishbone.v:156:33: Operator EQ expects 4 bits on the LHS, but LHS's VARREF 'wishbone_st' generates 3 bits.
+                                                                                                                                 : ... note: In instance 'a23_wishbone'
+  156 | assign xAS_STATE  = wishbone_st == WB_IDLE       ? "WB_IDLE"       :
+      |                                 ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_8e8f74459868/a23_wishbone.v:157:33: Operator EQ expects 4 bits on the LHS, but LHS's VARREF 'wishbone_st' generates 3 bits.
+                                                                                                                                 : ... note: In instance 'a23_wishbone'
+  157 |                     wishbone_st == WB_BURST1     ? "WB_BURST1"     :
+      |                                 ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_8e8f74459868/a23_wishbone.v:158:33: Operator EQ expects 4 bits on the LHS, but LHS's VARREF 'wishbone_st' generates 3 bits.
+                                                                                                                                 : ... note: In instance 'a23_wishbone'
+  158 |                     wishbone_st == WB_BURST2     ? "WB_BURST2"     :
+      |                                 ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_8e8f74459868/a23_wishbone.v:159:33: Operator EQ expects 4 bits on the LHS, but LHS's VARREF 'wishbone_st' generates 3 bits.
+                                                                                                                                 : ... note: In instance 'a23_wishbone'
+  159 |                     wishbone_st == WB_BURST3     ? "WB_BURST3"     :
+      |                                 ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_8e8f74459868/a23_wishbone.v:160:33: Operator EQ expects 4 bits on the LHS, but LHS's VARREF 'wishbone_st' generates 3 bits.
+                                                                                                                                 : ... note: In instance 'a23_wishbone'
+  160 |                     wishbone_st == WB_WAIT_ACK   ? "WB_WAIT_ACK"   :
+      |                                 ^~
+- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev (Debian 5.032-1+b2)
+- Verilator: Built from 0.034 MB sources in 2 modules, into 0.000 MB in 0 C++ files needing 0.000 MB
+- Verilator: Walltime 0.006 s (elab=0.001, cvt=0.001, bld=0.000); cpu 0.004 s on 1 threads; alloced 8.875 MB

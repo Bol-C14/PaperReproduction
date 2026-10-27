@@ -1,0 +1,40 @@
+{
+  "id": "TBGen/L2/Text/RMON_CTRL",
+  "subset": "TBGen",
+  "input_files": [
+    {
+      "name": "RMON_CTRL.v",
+      "bytes": 5582,
+      "sha256": "4afb980c4ceaf4f02a8932beb66f619b7771ea56fea786ef13e12d1a62aac45e"
+    },
+    {
+      "name": "RMON_CTRL_spec.txt",
+      "bytes": 7671,
+      "sha256": "59358d6755759d94de63f93d520c69873e39d41e9822bbc6976d84483abb40d4"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": true,
+  "negative_control_detected": true,
+  "commands": 5,
+  "status": "pass",
+  "stimulus_contract": {
+    "seed": 13579,
+    "cycles": 64,
+    "clock": "Clk",
+    "reset_polarities": {
+      "Reset": 1
+    },
+    "unknown_handling": "any observed unknown prevents pass",
+    "oracle": "renamed copy of supplied RTL; self-consistency/calibration only"
+  },
+  "observed_checks": 64,
+  "observed_unknown": 0,
+  "reference_status": "pass",
+  "negative_status": "fail",
+  "reason": "reference/checker positive and perturbed-checker negative executed",
+  "seconds": 0.13
+}

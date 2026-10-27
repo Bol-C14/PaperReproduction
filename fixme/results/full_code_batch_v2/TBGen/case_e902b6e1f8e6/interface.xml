@@ -1,0 +1,885 @@
+<?xml version="1.0" ?>
+<!-- DESCRIPTION: Verilator output: XML representation of netlist -->
+<verilator_xml>
+  <files>
+    <file id="d" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std.sv" language="1800-2023"/>
+    <file id="c" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std_waiver.vlt" language="1800-2023"/>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_e902b6e1f8e6/bresenham_line.v" language="1800-2023"/>
+    <file id="a" filename="&lt;built-in&gt;" language="1800-2023"/>
+    <file id="b" filename="&lt;command-line&gt;" language="1800-2023"/>
+  </files>
+  <module_files>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_e902b6e1f8e6/bresenham_line.v" language="1800-2023"/>
+  </module_files>
+  <cells>
+    <cell loc="e,3,8,3,22" name="bresenham_line" submodname="bresenham_line" hier="bresenham_line"/>
+  </cells>
+  <netlist>
+    <module loc="e,3,8,3,22" name="bresenham_line" origName="bresenham_line" topModule="1">
+      <var loc="e,10,7,10,12" name="clk_i" dtype_id="1" dir="input" pinIndex="1" vartype="logic" origName="clk_i"/>
+      <var loc="e,11,7,11,12" name="rst_i" dtype_id="1" dir="input" pinIndex="2" vartype="logic" origName="rst_i"/>
+      <var loc="e,12,46,12,56" name="pixel0_x_i" dtype_id="2" dir="input" pinIndex="3" vartype="logic" origName="pixel0_x_i"/>
+      <var loc="e,14,46,14,56" name="pixel0_y_i" dtype_id="2" dir="input" pinIndex="4" vartype="logic" origName="pixel0_y_i"/>
+      <var loc="e,13,46,13,56" name="pixel1_x_i" dtype_id="2" dir="input" pinIndex="5" vartype="logic" origName="pixel1_x_i"/>
+      <var loc="e,15,46,15,56" name="pixel1_y_i" dtype_id="2" dir="input" pinIndex="6" vartype="logic" origName="pixel1_y_i"/>
+      <var loc="e,16,7,16,18" name="draw_line_i" dtype_id="1" dir="input" pinIndex="7" vartype="logic" origName="draw_line_i"/>
+      <var loc="e,17,7,17,19" name="read_pixel_i" dtype_id="1" dir="input" pinIndex="8" vartype="logic" origName="read_pixel_i"/>
+      <var loc="e,18,12,18,18" name="busy_o" dtype_id="1" dir="output" pinIndex="9" vartype="logic" origName="busy_o"/>
+      <var loc="e,24,12,24,21" name="x_major_o" dtype_id="1" dir="output" pinIndex="10" vartype="logic" origName="x_major_o"/>
+      <var loc="e,20,37,20,44" name="major_o" dtype_id="3" dir="output" pinIndex="11" vartype="logic" origName="major_o"/>
+      <var loc="e,21,37,21,44" name="minor_o" dtype_id="3" dir="output" pinIndex="12" vartype="logic" origName="minor_o"/>
+      <var loc="e,19,12,19,19" name="valid_o" dtype_id="1" dir="output" pinIndex="13" vartype="logic" origName="valid_o"/>
+      <var loc="e,8,11,8,22" name="point_width" dtype_id="4" vartype="logic" origName="point_width" param="true">
+        <const loc="e,8,25,8,27" name="32&apos;sh10" dtype_id="4"/>
+      </var>
+      <var loc="e,9,11,9,25" name="subpixel_width" dtype_id="4" vartype="logic" origName="subpixel_width" param="true">
+        <const loc="e,9,28,9,30" name="32&apos;sh10" dtype_id="4"/>
+      </var>
+      <var loc="e,22,37,22,42" name="xdiff" dtype_id="5" vartype="logic" origName="xdiff"/>
+      <var loc="e,23,37,23,42" name="ydiff" dtype_id="5" vartype="logic" origName="ydiff"/>
+      <var loc="e,25,44,25,56" name="left_pixel_x" dtype_id="2" vartype="logic" origName="left_pixel_x"/>
+      <var loc="e,26,44,26,56" name="left_pixel_y" dtype_id="2" vartype="logic" origName="left_pixel_y"/>
+      <var loc="e,27,44,27,57" name="right_pixel_x" dtype_id="2" vartype="logic" origName="right_pixel_x"/>
+      <var loc="e,28,44,28,57" name="right_pixel_y" dtype_id="2" vartype="logic" origName="right_pixel_y"/>
+      <var loc="e,29,37,29,48" name="delta_major" dtype_id="5" vartype="logic" origName="delta_major"/>
+      <var loc="e,30,37,30,48" name="delta_minor" dtype_id="5" vartype="logic" origName="delta_minor"/>
+      <var loc="e,31,5,31,25" name="minor_slope_positive" dtype_id="1" vartype="logic" origName="minor_slope_positive"/>
+      <var loc="e,32,40,32,50" name="major_goal" dtype_id="3" vartype="logic" origName="major_goal"/>
+      <var loc="e,33,47,33,50" name="eps" dtype_id="6" vartype="logic" origName="eps"/>
+      <var loc="e,34,47,34,62" name="eps_delta_minor" dtype_id="6" vartype="logic" origName="eps_delta_minor"/>
+      <var loc="e,35,6,35,10" name="done" dtype_id="1" vartype="logic" origName="done"/>
+      <var loc="e,36,11,36,16" name="state" dtype_id="7" vartype="logic" origName="state"/>
+      <var loc="e,37,11,37,21" name="wait_state" dtype_id="4" vartype="logic" origName="wait_state" param="true">
+        <const loc="e,37,24,37,25" name="32&apos;sh0" dtype_id="4"/>
+      </var>
+      <var loc="e,37,27,37,42" name="line_prep_state" dtype_id="4" vartype="logic" origName="line_prep_state" param="true">
+        <const loc="e,37,45,37,46" name="32&apos;sh1" dtype_id="4"/>
+      </var>
+      <var loc="e,37,48,37,58" name="line_state" dtype_id="4" vartype="logic" origName="line_state" param="true">
+        <const loc="e,37,61,37,62" name="32&apos;sh2" dtype_id="4"/>
+      </var>
+      <var loc="e,37,64,37,76" name="raster_state" dtype_id="4" vartype="logic" origName="raster_state" param="true">
+        <const loc="e,37,79,37,80" name="32&apos;sh3" dtype_id="4"/>
+      </var>
+      <always loc="e,39,1,39,7">
+        <sentree loc="e,39,7,39,8">
+          <senitem loc="e,39,9,39,16" edgeType="POS">
+            <varref loc="e,39,17,39,22" name="clk_i" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,39,26,39,33" edgeType="POS">
+            <varref loc="e,39,34,39,39" name="rst_i" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <if loc="e,40,1,40,3">
+          <varref loc="e,40,4,40,9" name="rst_i" dtype_id="1"/>
+          <begin>
+            <assigndly loc="e,41,9,41,11" dtype_id="7">
+              <const loc="e,41,12,41,22" name="3&apos;h0" dtype_id="7"/>
+              <varref loc="e,41,3,41,8" name="state" dtype_id="7"/>
+            </assigndly>
+          </begin>
+          <begin>
+            <case loc="e,43,3,43,7">
+              <extend loc="e,43,9,43,14" dtype_id="8" width="32" widthminv="3">
+                <varref loc="e,43,9,43,14" name="state" dtype_id="7"/>
+              </extend>
+              <caseitem loc="e,44,15,44,16">
+                <const loc="e,44,5,44,15" name="32&apos;sh0" dtype_id="4"/>
+                <if loc="e,45,7,45,9">
+                  <varref loc="e,45,10,45,21" name="draw_line_i" dtype_id="1"/>
+                  <begin>
+                    <assigndly loc="e,46,15,46,17" dtype_id="7">
+                      <const loc="e,46,18,46,33" name="3&apos;h1" dtype_id="7"/>
+                      <varref loc="e,46,9,46,14" name="state" dtype_id="7"/>
+                    </assigndly>
+                  </begin>
+                </if>
+              </caseitem>
+              <caseitem loc="e,47,20,47,21">
+                <const loc="e,47,5,47,20" name="32&apos;sh1" dtype_id="4"/>
+                <assigndly loc="e,48,13,48,15" dtype_id="7">
+                  <const loc="e,48,16,48,26" name="3&apos;h2" dtype_id="7"/>
+                  <varref loc="e,48,7,48,12" name="state" dtype_id="7"/>
+                </assigndly>
+              </caseitem>
+              <caseitem loc="e,49,15,49,16">
+                <const loc="e,49,5,49,15" name="32&apos;sh2" dtype_id="4"/>
+                <assigndly loc="e,50,13,50,15" dtype_id="7">
+                  <const loc="e,50,16,50,28" name="3&apos;h3" dtype_id="7"/>
+                  <varref loc="e,50,7,50,12" name="state" dtype_id="7"/>
+                </assigndly>
+              </caseitem>
+              <caseitem loc="e,51,17,51,18">
+                <const loc="e,51,5,51,17" name="32&apos;sh3" dtype_id="4"/>
+                <if loc="e,52,7,52,9">
+                  <not loc="e,52,10,52,11" dtype_id="1">
+                    <varref loc="e,52,11,52,17" name="busy_o" dtype_id="1"/>
+                  </not>
+                  <begin>
+                    <assigndly loc="e,53,15,53,17" dtype_id="7">
+                      <const loc="e,53,18,53,28" name="3&apos;h0" dtype_id="7"/>
+                      <varref loc="e,53,9,53,14" name="state" dtype_id="7"/>
+                    </assigndly>
+                  </begin>
+                </if>
+              </caseitem>
+            </case>
+          </begin>
+        </if>
+      </always>
+      <var loc="e,55,6,55,22" name="is_inside_screen" dtype_id="1" vartype="logic" origName="is_inside_screen"/>
+      <var loc="e,56,5,56,30" name="previously_outside_screen" dtype_id="1" vartype="logic" origName="previously_outside_screen"/>
+      <always loc="e,57,1,57,7">
+        <sentree loc="e,57,7,57,8">
+          <senitem loc="e,57,9,57,16" edgeType="POS">
+            <varref loc="e,57,17,57,22" name="clk_i" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,57,26,57,33" edgeType="POS">
+            <varref loc="e,57,34,57,39" name="rst_i" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,58,1,58,6">
+          <if loc="e,59,3,59,5">
+            <varref loc="e,59,6,59,11" name="rst_i" dtype_id="1"/>
+            <begin>
+              <begin loc="e,60,3,60,8">
+                <assigndly loc="e,61,26,61,28" dtype_id="1">
+                  <const loc="e,61,29,61,33" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,61,5,61,25" name="minor_slope_positive" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,62,26,62,28" dtype_id="6">
+                  <const loc="e,62,29,62,33" name="48&apos;h0" dtype_id="6"/>
+                  <varref loc="e,62,5,62,8" name="eps" dtype_id="6"/>
+                </assigndly>
+                <assigndly loc="e,63,26,63,28" dtype_id="3">
+                  <const loc="e,63,29,63,33" name="16&apos;h0" dtype_id="3"/>
+                  <varref loc="e,63,5,63,12" name="major_o" dtype_id="3"/>
+                </assigndly>
+                <assigndly loc="e,64,26,64,28" dtype_id="3">
+                  <const loc="e,64,29,64,33" name="16&apos;h0" dtype_id="3"/>
+                  <varref loc="e,64,5,64,12" name="minor_o" dtype_id="3"/>
+                </assigndly>
+                <assigndly loc="e,65,26,65,28" dtype_id="1">
+                  <const loc="e,65,29,65,33" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,65,5,65,11" name="busy_o" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,66,26,66,28" dtype_id="3">
+                  <const loc="e,66,29,66,33" name="16&apos;h0" dtype_id="3"/>
+                  <varref loc="e,66,5,66,15" name="major_goal" dtype_id="3"/>
+                </assigndly>
+                <assigndly loc="e,67,26,67,28" dtype_id="1">
+                  <const loc="e,67,29,67,33" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,67,5,67,14" name="x_major_o" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,68,26,68,28" dtype_id="5">
+                  <const loc="e,68,29,68,33" name="32&apos;h0" dtype_id="5"/>
+                  <varref loc="e,68,5,68,16" name="delta_minor" dtype_id="5"/>
+                </assigndly>
+                <assigndly loc="e,69,26,69,28" dtype_id="5">
+                  <const loc="e,69,29,69,33" name="32&apos;h0" dtype_id="5"/>
+                  <varref loc="e,69,5,69,16" name="delta_major" dtype_id="5"/>
+                </assigndly>
+                <assigndly loc="e,70,26,70,28" dtype_id="1">
+                  <const loc="e,70,29,70,33" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,70,5,70,12" name="valid_o" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,71,26,71,28" dtype_id="2">
+                  <const loc="e,71,29,71,33" name="32&apos;h0" dtype_id="2"/>
+                  <varref loc="e,71,5,71,17" name="left_pixel_x" dtype_id="2"/>
+                </assigndly>
+                <assigndly loc="e,72,26,72,28" dtype_id="2">
+                  <const loc="e,72,29,72,33" name="32&apos;h0" dtype_id="2"/>
+                  <varref loc="e,72,5,72,17" name="left_pixel_y" dtype_id="2"/>
+                </assigndly>
+                <assigndly loc="e,73,26,73,28" dtype_id="2">
+                  <const loc="e,73,29,73,33" name="32&apos;h0" dtype_id="2"/>
+                  <varref loc="e,73,5,73,18" name="right_pixel_x" dtype_id="2"/>
+                </assigndly>
+                <assigndly loc="e,74,26,74,28" dtype_id="2">
+                  <const loc="e,74,29,74,33" name="32&apos;h0" dtype_id="2"/>
+                  <varref loc="e,74,5,74,18" name="right_pixel_y" dtype_id="2"/>
+                </assigndly>
+                <assigndly loc="e,75,26,75,28" dtype_id="5">
+                  <const loc="e,75,29,75,33" name="32&apos;h0" dtype_id="5"/>
+                  <varref loc="e,75,5,75,10" name="xdiff" dtype_id="5"/>
+                </assigndly>
+                <assigndly loc="e,76,26,76,28" dtype_id="5">
+                  <const loc="e,76,29,76,33" name="32&apos;h0" dtype_id="5"/>
+                  <varref loc="e,76,5,76,10" name="ydiff" dtype_id="5"/>
+                </assigndly>
+                <assigndly loc="e,77,31,77,33" dtype_id="1">
+                  <const loc="e,77,34,77,38" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,77,5,77,30" name="previously_outside_screen" dtype_id="1"/>
+                </assigndly>
+              </begin>
+            </begin>
+            <begin>
+              <begin loc="e,80,3,80,8">
+                <case loc="e,81,4,81,8">
+                  <extend loc="e,81,10,81,15" dtype_id="8" width="32" widthminv="3">
+                    <varref loc="e,81,10,81,15" name="state" dtype_id="7"/>
+                  </extend>
+                  <caseitem loc="e,82,17,82,18">
+                    <const loc="e,82,7,82,17" name="32&apos;sh0" dtype_id="4"/>
+                    <if loc="e,83,9,83,11">
+                      <varref loc="e,83,12,83,23" name="draw_line_i" dtype_id="1"/>
+                      <begin>
+                        <begin loc="e,84,9,84,14">
+                          <assigndly loc="e,85,37,85,39" dtype_id="1">
+                            <const loc="e,85,40,85,44" name="1&apos;h0" dtype_id="1"/>
+                            <varref loc="e,85,11,85,36" name="previously_outside_screen" dtype_id="1"/>
+                          </assigndly>
+                          <assigndly loc="e,86,19,86,21" dtype_id="1">
+                            <const loc="e,86,22,86,26" name="1&apos;h1" dtype_id="1"/>
+                            <varref loc="e,86,11,86,17" name="busy_o" dtype_id="1"/>
+                          </assigndly>
+                          <assigndly loc="e,87,19,87,21" dtype_id="1">
+                            <const loc="e,87,22,87,26" name="1&apos;h0" dtype_id="1"/>
+                            <varref loc="e,87,11,87,18" name="valid_o" dtype_id="1"/>
+                          </assigndly>
+                          <if loc="e,88,11,88,13">
+                            <gts loc="e,88,25,88,26" dtype_id="1">
+                              <varref loc="e,88,14,88,24" name="pixel0_x_i" dtype_id="2"/>
+                              <varref loc="e,88,27,88,37" name="pixel1_x_i" dtype_id="2"/>
+                            </gts>
+                            <begin>
+                              <begin loc="e,89,11,89,16">
+                                <assigndly loc="e,90,27,90,29" dtype_id="5">
+                                  <sub loc="e,90,41,90,42" dtype_id="4">
+                                    <varref loc="e,90,30,90,40" name="pixel0_x_i" dtype_id="2"/>
+                                    <varref loc="e,90,43,90,53" name="pixel1_x_i" dtype_id="2"/>
+                                  </sub>
+                                  <varref loc="e,90,13,90,18" name="xdiff" dtype_id="5"/>
+                                </assigndly>
+                                <assigndly loc="e,91,27,91,29" dtype_id="2">
+                                  <varref loc="e,91,30,91,40" name="pixel1_x_i" dtype_id="2"/>
+                                  <varref loc="e,91,13,91,25" name="left_pixel_x" dtype_id="2"/>
+                                </assigndly>
+                                <assigndly loc="e,92,27,92,29" dtype_id="2">
+                                  <varref loc="e,92,30,92,40" name="pixel1_y_i" dtype_id="2"/>
+                                  <varref loc="e,92,13,92,25" name="left_pixel_y" dtype_id="2"/>
+                                </assigndly>
+                                <assigndly loc="e,93,27,93,29" dtype_id="2">
+                                  <varref loc="e,93,30,93,40" name="pixel0_x_i" dtype_id="2"/>
+                                  <varref loc="e,93,13,93,26" name="right_pixel_x" dtype_id="2"/>
+                                </assigndly>
+                                <assigndly loc="e,94,27,94,29" dtype_id="2">
+                                  <varref loc="e,94,30,94,40" name="pixel0_y_i" dtype_id="2"/>
+                                  <varref loc="e,94,13,94,26" name="right_pixel_y" dtype_id="2"/>
+                                </assigndly>
+                                <if loc="e,95,13,95,15">
+                                  <gts loc="e,95,27,95,28" dtype_id="1">
+                                    <varref loc="e,95,16,95,26" name="pixel1_y_i" dtype_id="2"/>
+                                    <varref loc="e,95,29,95,39" name="pixel0_y_i" dtype_id="2"/>
+                                  </gts>
+                                  <begin>
+                                    <begin loc="e,96,13,96,18">
+                                      <assigndly loc="e,97,36,97,38" dtype_id="5">
+                                        <sub loc="e,97,50,97,51" dtype_id="4">
+                                          <varref loc="e,97,39,97,49" name="pixel1_y_i" dtype_id="2"/>
+                                          <varref loc="e,97,52,97,62" name="pixel0_y_i" dtype_id="2"/>
+                                        </sub>
+                                        <varref loc="e,97,15,97,20" name="ydiff" dtype_id="5"/>
+                                      </assigndly>
+                                      <assigndly loc="e,98,36,98,38" dtype_id="1">
+                                        <const loc="e,98,39,98,43" name="1&apos;h0" dtype_id="1"/>
+                                        <varref loc="e,98,15,98,35" name="minor_slope_positive" dtype_id="1"/>
+                                      </assigndly>
+                                    </begin>
+                                  </begin>
+                                  <begin>
+                                    <begin loc="e,101,13,101,18">
+                                      <assigndly loc="e,102,36,102,38" dtype_id="5">
+                                        <sub loc="e,102,50,102,51" dtype_id="4">
+                                          <varref loc="e,102,39,102,49" name="pixel0_y_i" dtype_id="2"/>
+                                          <varref loc="e,102,52,102,62" name="pixel1_y_i" dtype_id="2"/>
+                                        </sub>
+                                        <varref loc="e,102,15,102,20" name="ydiff" dtype_id="5"/>
+                                      </assigndly>
+                                      <assigndly loc="e,103,36,103,38" dtype_id="1">
+                                        <const loc="e,103,39,103,43" name="1&apos;h1" dtype_id="1"/>
+                                        <varref loc="e,103,15,103,35" name="minor_slope_positive" dtype_id="1"/>
+                                      </assigndly>
+                                    </begin>
+                                  </begin>
+                                </if>
+                              </begin>
+                            </begin>
+                            <begin>
+                              <begin loc="e,107,11,107,16">
+                                <assigndly loc="e,108,27,108,29" dtype_id="5">
+                                  <sub loc="e,108,41,108,42" dtype_id="4">
+                                    <varref loc="e,108,30,108,40" name="pixel1_x_i" dtype_id="2"/>
+                                    <varref loc="e,108,43,108,53" name="pixel0_x_i" dtype_id="2"/>
+                                  </sub>
+                                  <varref loc="e,108,13,108,18" name="xdiff" dtype_id="5"/>
+                                </assigndly>
+                                <assigndly loc="e,109,27,109,29" dtype_id="2">
+                                  <varref loc="e,109,30,109,40" name="pixel0_x_i" dtype_id="2"/>
+                                  <varref loc="e,109,13,109,25" name="left_pixel_x" dtype_id="2"/>
+                                </assigndly>
+                                <assigndly loc="e,110,27,110,29" dtype_id="2">
+                                  <varref loc="e,110,30,110,40" name="pixel0_y_i" dtype_id="2"/>
+                                  <varref loc="e,110,13,110,25" name="left_pixel_y" dtype_id="2"/>
+                                </assigndly>
+                                <assigndly loc="e,111,27,111,29" dtype_id="2">
+                                  <varref loc="e,111,30,111,40" name="pixel1_x_i" dtype_id="2"/>
+                                  <varref loc="e,111,13,111,26" name="right_pixel_x" dtype_id="2"/>
+                                </assigndly>
+                                <assigndly loc="e,112,27,112,29" dtype_id="2">
+                                  <varref loc="e,112,30,112,40" name="pixel1_y_i" dtype_id="2"/>
+                                  <varref loc="e,112,13,112,26" name="right_pixel_y" dtype_id="2"/>
+                                </assigndly>
+                                <if loc="e,113,13,113,15">
+                                  <gts loc="e,113,27,113,28" dtype_id="1">
+                                    <varref loc="e,113,16,113,26" name="pixel0_y_i" dtype_id="2"/>
+                                    <varref loc="e,113,29,113,39" name="pixel1_y_i" dtype_id="2"/>
+                                  </gts>
+                                  <begin>
+                                    <begin loc="e,114,13,114,18">
+                                      <assigndly loc="e,115,36,115,38" dtype_id="5">
+                                        <sub loc="e,115,50,115,51" dtype_id="4">
+                                          <varref loc="e,115,39,115,49" name="pixel0_y_i" dtype_id="2"/>
+                                          <varref loc="e,115,52,115,62" name="pixel1_y_i" dtype_id="2"/>
+                                        </sub>
+                                        <varref loc="e,115,15,115,20" name="ydiff" dtype_id="5"/>
+                                      </assigndly>
+                                      <assigndly loc="e,116,36,116,38" dtype_id="1">
+                                        <const loc="e,116,39,116,43" name="1&apos;h0" dtype_id="1"/>
+                                        <varref loc="e,116,15,116,35" name="minor_slope_positive" dtype_id="1"/>
+                                      </assigndly>
+                                    </begin>
+                                  </begin>
+                                  <begin>
+                                    <begin loc="e,119,13,119,18">
+                                      <assigndly loc="e,120,36,120,38" dtype_id="5">
+                                        <sub loc="e,120,50,120,51" dtype_id="4">
+                                          <varref loc="e,120,39,120,49" name="pixel1_y_i" dtype_id="2"/>
+                                          <varref loc="e,120,52,120,62" name="pixel0_y_i" dtype_id="2"/>
+                                        </sub>
+                                        <varref loc="e,120,15,120,20" name="ydiff" dtype_id="5"/>
+                                      </assigndly>
+                                      <assigndly loc="e,121,36,121,38" dtype_id="1">
+                                        <const loc="e,121,39,121,43" name="1&apos;h1" dtype_id="1"/>
+                                        <varref loc="e,121,15,121,35" name="minor_slope_positive" dtype_id="1"/>
+                                      </assigndly>
+                                    </begin>
+                                  </begin>
+                                </if>
+                              </begin>
+                            </begin>
+                          </if>
+                        </begin>
+                      </begin>
+                    </if>
+                  </caseitem>
+                  <caseitem loc="e,125,22,125,23">
+                    <const loc="e,125,7,125,22" name="32&apos;sh1" dtype_id="4"/>
+                    <begin loc="e,126,7,126,12">
+                      <if loc="e,127,9,127,11">
+                        <gt loc="e,127,18,127,19" dtype_id="1">
+                          <varref loc="e,127,12,127,17" name="xdiff" dtype_id="5"/>
+                          <varref loc="e,127,20,127,25" name="ydiff" dtype_id="5"/>
+                        </gt>
+                        <begin>
+                          <begin loc="e,128,9,128,14">
+                            <assigndly loc="e,129,24,129,26" dtype_id="1">
+                              <const loc="e,129,27,129,31" name="1&apos;h1" dtype_id="1"/>
+                              <varref loc="e,129,11,129,20" name="x_major_o" dtype_id="1"/>
+                            </assigndly>
+                            <assigndly loc="e,130,24,130,26" dtype_id="5">
+                              <varref loc="e,130,27,130,32" name="xdiff" dtype_id="5"/>
+                              <varref loc="e,130,11,130,22" name="delta_major" dtype_id="5"/>
+                            </assigndly>
+                            <assigndly loc="e,131,24,131,26" dtype_id="5">
+                              <varref loc="e,131,27,131,32" name="ydiff" dtype_id="5"/>
+                              <varref loc="e,131,11,131,22" name="delta_minor" dtype_id="5"/>
+                            </assigndly>
+                          </begin>
+                        </begin>
+                        <begin>
+                          <begin loc="e,134,9,134,14">
+                            <assigndly loc="e,135,24,135,26" dtype_id="1">
+                              <const loc="e,135,27,135,31" name="1&apos;h0" dtype_id="1"/>
+                              <varref loc="e,135,11,135,20" name="x_major_o" dtype_id="1"/>
+                            </assigndly>
+                            <assigndly loc="e,136,24,136,26" dtype_id="5">
+                              <varref loc="e,136,27,136,32" name="ydiff" dtype_id="5"/>
+                              <varref loc="e,136,11,136,22" name="delta_major" dtype_id="5"/>
+                            </assigndly>
+                            <assigndly loc="e,137,24,137,26" dtype_id="5">
+                              <varref loc="e,137,27,137,32" name="xdiff" dtype_id="5"/>
+                              <varref loc="e,137,11,137,22" name="delta_minor" dtype_id="5"/>
+                            </assigndly>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </caseitem>
+                  <caseitem loc="e,140,17,140,18">
+                    <const loc="e,140,7,140,17" name="32&apos;sh2" dtype_id="4"/>
+                    <begin loc="e,141,7,141,12">
+                      <if loc="e,142,11,142,13">
+                        <varref loc="e,142,14,142,23" name="x_major_o" dtype_id="1"/>
+                        <begin>
+                          <begin loc="e,143,11,143,16">
+                            <assigndly loc="e,144,24,144,26" dtype_id="3">
+                              <sel loc="e,144,47,144,48" dtype_id="3">
+                                <varref loc="e,144,35,144,47" name="left_pixel_x" dtype_id="2"/>
+                                <const loc="e,144,62,144,63" name="5&apos;h10" dtype_id="9"/>
+                                <const loc="e,144,59,144,60" name="32&apos;h10" dtype_id="8"/>
+                              </sel>
+                              <varref loc="e,144,13,144,20" name="major_o" dtype_id="3"/>
+                            </assigndly>
+                            <assigndly loc="e,145,24,145,26" dtype_id="3">
+                              <sel loc="e,145,47,145,48" dtype_id="3">
+                                <varref loc="e,145,35,145,47" name="left_pixel_y" dtype_id="2"/>
+                                <const loc="e,145,62,145,63" name="5&apos;h10" dtype_id="9"/>
+                                <const loc="e,145,59,145,60" name="32&apos;h10" dtype_id="8"/>
+                              </sel>
+                              <varref loc="e,145,13,145,20" name="minor_o" dtype_id="3"/>
+                            </assigndly>
+                            <assigndly loc="e,146,24,146,26" dtype_id="3">
+                              <sel loc="e,146,48,146,49" dtype_id="3">
+                                <varref loc="e,146,35,146,48" name="right_pixel_x" dtype_id="2"/>
+                                <const loc="e,146,63,146,64" name="5&apos;h10" dtype_id="9"/>
+                                <const loc="e,146,60,146,61" name="32&apos;h10" dtype_id="8"/>
+                              </sel>
+                              <varref loc="e,146,13,146,23" name="major_goal" dtype_id="3"/>
+                            </assigndly>
+                          </begin>
+                        </begin>
+                        <begin>
+                          <begin loc="e,149,11,149,16">
+                            <assigndly loc="e,150,24,150,26" dtype_id="3">
+                              <sel loc="e,150,47,150,48" dtype_id="3">
+                                <varref loc="e,150,35,150,47" name="left_pixel_y" dtype_id="2"/>
+                                <const loc="e,150,62,150,63" name="5&apos;h10" dtype_id="9"/>
+                                <const loc="e,150,59,150,60" name="32&apos;h10" dtype_id="8"/>
+                              </sel>
+                              <varref loc="e,150,13,150,20" name="major_o" dtype_id="3"/>
+                            </assigndly>
+                            <assigndly loc="e,151,24,151,26" dtype_id="3">
+                              <sel loc="e,151,47,151,48" dtype_id="3">
+                                <varref loc="e,151,35,151,47" name="left_pixel_x" dtype_id="2"/>
+                                <const loc="e,151,62,151,63" name="5&apos;h10" dtype_id="9"/>
+                                <const loc="e,151,59,151,60" name="32&apos;h10" dtype_id="8"/>
+                              </sel>
+                              <varref loc="e,151,13,151,20" name="minor_o" dtype_id="3"/>
+                            </assigndly>
+                            <assigndly loc="e,152,24,152,26" dtype_id="3">
+                              <sel loc="e,152,48,152,49" dtype_id="3">
+                                <varref loc="e,152,35,152,48" name="right_pixel_y" dtype_id="2"/>
+                                <const loc="e,152,63,152,64" name="5&apos;h10" dtype_id="9"/>
+                                <const loc="e,152,60,152,61" name="32&apos;h10" dtype_id="8"/>
+                              </sel>
+                              <varref loc="e,152,13,152,23" name="major_goal" dtype_id="3"/>
+                            </assigndly>
+                          </begin>
+                        </begin>
+                      </if>
+                      <assigndly loc="e,154,24,154,26" dtype_id="6">
+                        <const loc="e,154,27,154,31" name="48&apos;h0" dtype_id="6"/>
+                        <varref loc="e,154,11,154,14" name="eps" dtype_id="6"/>
+                      </assigndly>
+                      <assigndly loc="e,155,24,155,26" dtype_id="1">
+                        <const loc="e,155,27,155,31" name="1&apos;h1" dtype_id="1"/>
+                        <varref loc="e,155,11,155,17" name="busy_o" dtype_id="1"/>
+                      </assigndly>
+                      <assigndly loc="e,156,24,156,26" dtype_id="1">
+                        <and loc="e,156,46,156,48" dtype_id="1">
+                          <ltes loc="e,156,41,156,43" dtype_id="1">
+                            <const loc="e,156,44,156,45" name="32&apos;sh0" dtype_id="4"/>
+                            <varref loc="e,156,28,156,40" name="left_pixel_x" dtype_id="2"/>
+                          </ltes>
+                          <ltes loc="e,156,62,156,64" dtype_id="1">
+                            <const loc="e,156,65,156,66" name="32&apos;sh0" dtype_id="4"/>
+                            <varref loc="e,156,49,156,61" name="left_pixel_y" dtype_id="2"/>
+                          </ltes>
+                        </and>
+                        <varref loc="e,156,11,156,18" name="valid_o" dtype_id="1"/>
+                      </assigndly>
+                      <assigndly loc="e,157,37,157,39" dtype_id="1">
+                        <not loc="e,157,40,157,41" dtype_id="1">
+                          <and loc="e,157,60,157,62" dtype_id="1">
+                            <ltes loc="e,157,55,157,57" dtype_id="1">
+                              <const loc="e,157,58,157,59" name="32&apos;sh0" dtype_id="4"/>
+                              <varref loc="e,157,42,157,54" name="left_pixel_x" dtype_id="2"/>
+                            </ltes>
+                            <ltes loc="e,157,76,157,78" dtype_id="1">
+                              <const loc="e,157,79,157,80" name="32&apos;sh0" dtype_id="4"/>
+                              <varref loc="e,157,63,157,75" name="left_pixel_y" dtype_id="2"/>
+                            </ltes>
+                          </and>
+                        </not>
+                        <varref loc="e,157,11,157,36" name="previously_outside_screen" dtype_id="1"/>
+                      </assigndly>
+                    </begin>
+                  </caseitem>
+                  <caseitem loc="e,159,17,159,18">
+                    <const loc="e,159,5,159,17" name="32&apos;sh3" dtype_id="4"/>
+                    <begin loc="e,160,5,160,10">
+                      <assigndly loc="e,161,15,161,17" dtype_id="1">
+                        <and loc="e,161,61,161,62" dtype_id="1">
+                          <or loc="e,161,45,161,46" dtype_id="1">
+                            <varref loc="e,161,19,161,44" name="previously_outside_screen" dtype_id="1"/>
+                            <varref loc="e,161,47,161,59" name="read_pixel_i" dtype_id="1"/>
+                          </or>
+                          <varref loc="e,161,63,161,79" name="is_inside_screen" dtype_id="1"/>
+                        </and>
+                        <varref loc="e,161,7,161,14" name="valid_o" dtype_id="1"/>
+                      </assigndly>
+                      <assigndly loc="e,162,33,162,35" dtype_id="1">
+                        <not loc="e,162,36,162,37" dtype_id="1">
+                          <varref loc="e,162,37,162,53" name="is_inside_screen" dtype_id="1"/>
+                        </not>
+                        <varref loc="e,162,7,162,32" name="previously_outside_screen" dtype_id="1"/>
+                      </assigndly>
+                      <if loc="e,163,7,163,9">
+                        <or loc="e,163,44,163,45" dtype_id="1">
+                          <and loc="e,163,24,163,25" dtype_id="1">
+                            <varref loc="e,163,11,163,23" name="read_pixel_i" dtype_id="1"/>
+                            <varref loc="e,163,26,163,42" name="is_inside_screen" dtype_id="1"/>
+                          </and>
+                          <varref loc="e,163,46,163,71" name="previously_outside_screen" dtype_id="1"/>
+                        </or>
+                        <begin>
+                          <begin loc="e,164,7,164,12">
+                            <if loc="e,165,9,165,11">
+                              <and loc="e,165,70,165,71" dtype_id="1">
+                                <and loc="e,165,58,165,59" dtype_id="1">
+                                  <and loc="e,165,35,165,36" dtype_id="1">
+                                    <lts loc="e,165,21,165,22" dtype_id="1">
+                                      <varref loc="e,165,13,165,20" name="major_o" dtype_id="3"/>
+                                      <varref loc="e,165,23,165,33" name="major_goal" dtype_id="3"/>
+                                    </lts>
+                                    <varref loc="e,165,37,165,57" name="minor_slope_positive" dtype_id="1"/>
+                                  </and>
+                                  <varref loc="e,165,60,165,69" name="x_major_o" dtype_id="1"/>
+                                </and>
+                                <varref loc="e,165,72,165,78" name="busy_o" dtype_id="1"/>
+                              </and>
+                              <begin>
+                                <begin loc="e,166,9,166,14">
+                                  <assigndly loc="e,167,21,167,23" dtype_id="3">
+                                    <add loc="e,167,33,167,34" dtype_id="10">
+                                      <const loc="e,167,35,167,39" name="16&apos;h1" dtype_id="10"/>
+                                      <varref loc="e,167,25,167,32" name="major_o" dtype_id="3"/>
+                                    </add>
+                                    <varref loc="e,167,11,167,18" name="major_o" dtype_id="3"/>
+                                  </assigndly>
+                                  <if loc="e,168,11,168,13">
+                                    <gtes loc="e,168,34,168,36" dtype_id="1">
+                                      <muls loc="e,168,30,168,31" dtype_id="11">
+                                        <const loc="e,168,31,168,32" name="48&apos;h2" dtype_id="11"/>
+                                        <varref loc="e,168,15,168,30" name="eps_delta_minor" dtype_id="6"/>
+                                      </muls>
+                                      <extends loc="e,168,37,168,44" dtype_id="11" width="48" widthminv="32">
+                                        <varref loc="e,168,45,168,56" name="delta_major" dtype_id="4"/>
+                                      </extends>
+                                    </gtes>
+                                    <begin>
+                                      <begin loc="e,169,11,169,16">
+                                        <assigndly loc="e,170,21,170,23" dtype_id="6">
+                                          <sub loc="e,170,41,170,42" dtype_id="12">
+                                            <varref loc="e,170,25,170,40" name="eps_delta_minor" dtype_id="6"/>
+                                            <extend loc="e,170,43,170,54" dtype_id="12" width="48" widthminv="32">
+                                              <varref loc="e,170,43,170,54" name="delta_major" dtype_id="5"/>
+                                            </extend>
+                                          </sub>
+                                          <varref loc="e,170,13,170,16" name="eps" dtype_id="6"/>
+                                        </assigndly>
+                                        <assigndly loc="e,171,21,171,23" dtype_id="3">
+                                          <add loc="e,171,33,171,34" dtype_id="10">
+                                            <const loc="e,171,35,171,39" name="16&apos;h1" dtype_id="10"/>
+                                            <varref loc="e,171,25,171,32" name="minor_o" dtype_id="3"/>
+                                          </add>
+                                          <varref loc="e,171,13,171,20" name="minor_o" dtype_id="3"/>
+                                        </assigndly>
+                                      </begin>
+                                    </begin>
+                                    <begin>
+                                      <assigndly loc="e,174,21,174,23" dtype_id="6">
+                                        <varref loc="e,174,25,174,40" name="eps_delta_minor" dtype_id="6"/>
+                                        <varref loc="e,174,13,174,16" name="eps" dtype_id="6"/>
+                                      </assigndly>
+                                    </begin>
+                                  </if>
+                                </begin>
+                              </begin>
+                              <begin>
+                                <if loc="e,176,14,176,16">
+                                  <and loc="e,176,76,176,77" dtype_id="1">
+                                    <and loc="e,176,63,176,64" dtype_id="1">
+                                      <and loc="e,176,40,176,41" dtype_id="1">
+                                        <lts loc="e,176,26,176,27" dtype_id="1">
+                                          <varref loc="e,176,18,176,25" name="major_o" dtype_id="3"/>
+                                          <varref loc="e,176,28,176,38" name="major_goal" dtype_id="3"/>
+                                        </lts>
+                                        <varref loc="e,176,42,176,62" name="minor_slope_positive" dtype_id="1"/>
+                                      </and>
+                                      <not loc="e,176,65,176,66" dtype_id="1">
+                                        <varref loc="e,176,66,176,75" name="x_major_o" dtype_id="1"/>
+                                      </not>
+                                    </and>
+                                    <varref loc="e,176,78,176,84" name="busy_o" dtype_id="1"/>
+                                  </and>
+                                  <begin>
+                                    <begin loc="e,177,9,177,14">
+                                      <assigndly loc="e,178,21,178,23" dtype_id="3">
+                                        <add loc="e,178,33,178,34" dtype_id="10">
+                                          <const loc="e,178,35,178,39" name="16&apos;h1" dtype_id="10"/>
+                                          <varref loc="e,178,25,178,32" name="major_o" dtype_id="3"/>
+                                        </add>
+                                        <varref loc="e,178,11,178,18" name="major_o" dtype_id="3"/>
+                                      </assigndly>
+                                      <if loc="e,179,11,179,13">
+                                        <gtes loc="e,179,34,179,36" dtype_id="1">
+                                          <muls loc="e,179,30,179,31" dtype_id="11">
+                                            <const loc="e,179,31,179,32" name="48&apos;h2" dtype_id="11"/>
+                                            <varref loc="e,179,15,179,30" name="eps_delta_minor" dtype_id="6"/>
+                                          </muls>
+                                          <extends loc="e,179,37,179,44" dtype_id="11" width="48" widthminv="32">
+                                            <varref loc="e,179,45,179,56" name="delta_major" dtype_id="4"/>
+                                          </extends>
+                                        </gtes>
+                                        <begin>
+                                          <begin loc="e,180,11,180,16">
+                                            <assigndly loc="e,181,21,181,23" dtype_id="6">
+                                              <sub loc="e,181,41,181,42" dtype_id="12">
+                                                <varref loc="e,181,25,181,40" name="eps_delta_minor" dtype_id="6"/>
+                                                <extend loc="e,181,43,181,54" dtype_id="12" width="48" widthminv="32">
+                                                  <varref loc="e,181,43,181,54" name="delta_major" dtype_id="5"/>
+                                                </extend>
+                                              </sub>
+                                              <varref loc="e,181,13,181,16" name="eps" dtype_id="6"/>
+                                            </assigndly>
+                                            <assigndly loc="e,182,21,182,23" dtype_id="3">
+                                              <add loc="e,182,33,182,34" dtype_id="10">
+                                                <const loc="e,182,35,182,39" name="16&apos;h1" dtype_id="10"/>
+                                                <varref loc="e,182,25,182,32" name="minor_o" dtype_id="3"/>
+                                              </add>
+                                              <varref loc="e,182,13,182,20" name="minor_o" dtype_id="3"/>
+                                            </assigndly>
+                                          </begin>
+                                        </begin>
+                                        <begin>
+                                          <assigndly loc="e,185,21,185,23" dtype_id="6">
+                                            <varref loc="e,185,25,185,40" name="eps_delta_minor" dtype_id="6"/>
+                                            <varref loc="e,185,13,185,16" name="eps" dtype_id="6"/>
+                                          </assigndly>
+                                        </begin>
+                                      </if>
+                                    </begin>
+                                  </begin>
+                                  <begin>
+                                    <if loc="e,187,14,187,16">
+                                      <and loc="e,187,77,187,78" dtype_id="1">
+                                        <and loc="e,187,64,187,65" dtype_id="1">
+                                          <and loc="e,187,40,187,41" dtype_id="1">
+                                            <gts loc="e,187,26,187,27" dtype_id="1">
+                                              <varref loc="e,187,18,187,25" name="major_o" dtype_id="3"/>
+                                              <varref loc="e,187,28,187,38" name="major_goal" dtype_id="3"/>
+                                            </gts>
+                                            <not loc="e,187,42,187,43" dtype_id="1">
+                                              <varref loc="e,187,43,187,63" name="minor_slope_positive" dtype_id="1"/>
+                                            </not>
+                                          </and>
+                                          <not loc="e,187,66,187,67" dtype_id="1">
+                                            <varref loc="e,187,67,187,76" name="x_major_o" dtype_id="1"/>
+                                          </not>
+                                        </and>
+                                        <varref loc="e,187,79,187,85" name="busy_o" dtype_id="1"/>
+                                      </and>
+                                      <begin>
+                                        <begin loc="e,188,9,188,14">
+                                          <assigndly loc="e,189,21,189,23" dtype_id="3">
+                                            <sub loc="e,189,33,189,34" dtype_id="10">
+                                              <varref loc="e,189,25,189,32" name="major_o" dtype_id="3"/>
+                                              <const loc="e,189,35,189,39" name="16&apos;h1" dtype_id="10"/>
+                                            </sub>
+                                            <varref loc="e,189,11,189,18" name="major_o" dtype_id="3"/>
+                                          </assigndly>
+                                          <if loc="e,190,11,190,13">
+                                            <gtes loc="e,190,34,190,36" dtype_id="1">
+                                              <muls loc="e,190,30,190,31" dtype_id="11">
+                                                <const loc="e,190,31,190,32" name="48&apos;h2" dtype_id="11"/>
+                                                <varref loc="e,190,15,190,30" name="eps_delta_minor" dtype_id="6"/>
+                                              </muls>
+                                              <extends loc="e,190,37,190,44" dtype_id="11" width="48" widthminv="32">
+                                                <varref loc="e,190,45,190,56" name="delta_major" dtype_id="4"/>
+                                              </extends>
+                                            </gtes>
+                                            <begin>
+                                              <begin loc="e,191,11,191,16">
+                                                <assigndly loc="e,192,21,192,23" dtype_id="6">
+                                                  <sub loc="e,192,41,192,42" dtype_id="12">
+                                                    <varref loc="e,192,25,192,40" name="eps_delta_minor" dtype_id="6"/>
+                                                    <extend loc="e,192,43,192,54" dtype_id="12" width="48" widthminv="32">
+                                                      <varref loc="e,192,43,192,54" name="delta_major" dtype_id="5"/>
+                                                    </extend>
+                                                  </sub>
+                                                  <varref loc="e,192,13,192,16" name="eps" dtype_id="6"/>
+                                                </assigndly>
+                                                <assigndly loc="e,193,21,193,23" dtype_id="3">
+                                                  <add loc="e,193,33,193,34" dtype_id="10">
+                                                    <const loc="e,193,35,193,39" name="16&apos;h1" dtype_id="10"/>
+                                                    <varref loc="e,193,25,193,32" name="minor_o" dtype_id="3"/>
+                                                  </add>
+                                                  <varref loc="e,193,13,193,20" name="minor_o" dtype_id="3"/>
+                                                </assigndly>
+                                              </begin>
+                                            </begin>
+                                            <begin>
+                                              <assigndly loc="e,196,21,196,23" dtype_id="6">
+                                                <varref loc="e,196,25,196,40" name="eps_delta_minor" dtype_id="6"/>
+                                                <varref loc="e,196,13,196,16" name="eps" dtype_id="6"/>
+                                              </assigndly>
+                                            </begin>
+                                          </if>
+                                        </begin>
+                                      </begin>
+                                      <begin>
+                                        <if loc="e,198,14,198,16">
+                                          <and loc="e,198,76,198,77" dtype_id="1">
+                                            <and loc="e,198,64,198,65" dtype_id="1">
+                                              <and loc="e,198,40,198,41" dtype_id="1">
+                                                <lts loc="e,198,26,198,27" dtype_id="1">
+                                                  <varref loc="e,198,18,198,25" name="major_o" dtype_id="3"/>
+                                                  <varref loc="e,198,28,198,38" name="major_goal" dtype_id="3"/>
+                                                </lts>
+                                                <not loc="e,198,42,198,43" dtype_id="1">
+                                                  <varref loc="e,198,43,198,63" name="minor_slope_positive" dtype_id="1"/>
+                                                </not>
+                                              </and>
+                                              <varref loc="e,198,66,198,75" name="x_major_o" dtype_id="1"/>
+                                            </and>
+                                            <varref loc="e,198,78,198,84" name="busy_o" dtype_id="1"/>
+                                          </and>
+                                          <begin>
+                                            <begin loc="e,199,9,199,14">
+                                              <assigndly loc="e,200,21,200,23" dtype_id="3">
+                                                <add loc="e,200,33,200,34" dtype_id="10">
+                                                  <const loc="e,200,35,200,39" name="16&apos;h1" dtype_id="10"/>
+                                                  <varref loc="e,200,25,200,32" name="major_o" dtype_id="3"/>
+                                                </add>
+                                                <varref loc="e,200,11,200,18" name="major_o" dtype_id="3"/>
+                                              </assigndly>
+                                              <if loc="e,201,11,201,13">
+                                                <gtes loc="e,201,34,201,36" dtype_id="1">
+                                                  <muls loc="e,201,30,201,31" dtype_id="11">
+                                                    <const loc="e,201,31,201,32" name="48&apos;h2" dtype_id="11"/>
+                                                    <varref loc="e,201,15,201,30" name="eps_delta_minor" dtype_id="6"/>
+                                                  </muls>
+                                                  <extends loc="e,201,37,201,44" dtype_id="11" width="48" widthminv="32">
+                                                    <varref loc="e,201,45,201,56" name="delta_major" dtype_id="4"/>
+                                                  </extends>
+                                                </gtes>
+                                                <begin>
+                                                  <begin loc="e,202,11,202,16">
+                                                    <assigndly loc="e,203,21,203,23" dtype_id="6">
+                                                      <sub loc="e,203,41,203,42" dtype_id="12">
+                                                        <varref loc="e,203,25,203,40" name="eps_delta_minor" dtype_id="6"/>
+                                                        <extend loc="e,203,43,203,54" dtype_id="12" width="48" widthminv="32">
+                                                          <varref loc="e,203,43,203,54" name="delta_major" dtype_id="5"/>
+                                                        </extend>
+                                                      </sub>
+                                                      <varref loc="e,203,13,203,16" name="eps" dtype_id="6"/>
+                                                    </assigndly>
+                                                    <assigndly loc="e,204,21,204,23" dtype_id="3">
+                                                      <sub loc="e,204,33,204,34" dtype_id="10">
+                                                        <varref loc="e,204,25,204,32" name="minor_o" dtype_id="3"/>
+                                                        <const loc="e,204,35,204,39" name="16&apos;h1" dtype_id="10"/>
+                                                      </sub>
+                                                      <varref loc="e,204,13,204,20" name="minor_o" dtype_id="3"/>
+                                                    </assigndly>
+                                                  </begin>
+                                                </begin>
+                                                <begin>
+                                                  <assigndly loc="e,207,21,207,23" dtype_id="6">
+                                                    <varref loc="e,207,25,207,40" name="eps_delta_minor" dtype_id="6"/>
+                                                    <varref loc="e,207,13,207,16" name="eps" dtype_id="6"/>
+                                                  </assigndly>
+                                                </begin>
+                                              </if>
+                                            </begin>
+                                          </begin>
+                                          <begin>
+                                            <if loc="e,209,14,209,16">
+                                              <varref loc="e,209,17,209,23" name="busy_o" dtype_id="1"/>
+                                              <begin>
+                                                <begin loc="e,210,9,210,14">
+                                                  <assigndly loc="e,211,18,211,20" dtype_id="1">
+                                                    <const loc="e,211,22,211,26" name="1&apos;h0" dtype_id="1"/>
+                                                    <varref loc="e,211,11,211,17" name="busy_o" dtype_id="1"/>
+                                                  </assigndly>
+                                                  <assigndly loc="e,212,19,212,21" dtype_id="1">
+                                                    <const loc="e,212,22,212,26" name="1&apos;h0" dtype_id="1"/>
+                                                    <varref loc="e,212,11,212,18" name="valid_o" dtype_id="1"/>
+                                                  </assigndly>
+                                                </begin>
+                                              </begin>
+                                            </if>
+                                          </begin>
+                                        </if>
+                                      </begin>
+                                    </if>
+                                  </begin>
+                                </if>
+                              </begin>
+                            </if>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </caseitem>
+                </case>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <contassign loc="e,55,23,55,24" dtype_id="1">
+        <and loc="e,55,40,55,41" dtype_id="1">
+          <ltes loc="e,55,34,55,36" dtype_id="1">
+            <const loc="e,55,37,55,38" name="32&apos;sh0" dtype_id="4"/>
+            <extends loc="e,55,26,55,33" dtype_id="8" width="32" widthminv="16">
+              <varref loc="e,21,37,21,44" name="minor_o" dtype_id="3"/>
+            </extends>
+          </ltes>
+          <ltes loc="e,55,51,55,53" dtype_id="1">
+            <const loc="e,55,54,55,55" name="32&apos;hffffffff" dtype_id="8"/>
+            <extends loc="e,55,43,55,50" dtype_id="8" width="32" widthminv="16">
+              <varref loc="e,20,37,20,44" name="major_o" dtype_id="3"/>
+            </extends>
+          </ltes>
+        </and>
+        <varref loc="e,55,23,55,24" name="is_inside_screen" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,38,24,38,25" dtype_id="6">
+        <add loc="e,38,29,38,30" dtype_id="6">
+          <varref loc="e,33,47,33,50" name="eps" dtype_id="6"/>
+          <extend loc="e,38,30,38,41" dtype_id="12" width="48" widthminv="32">
+            <varref loc="e,30,37,30,48" name="delta_minor" dtype_id="5"/>
+          </extend>
+        </add>
+        <varref loc="e,38,24,38,25" name="eps_delta_minor" dtype_id="6"/>
+      </contassign>
+    </module>
+    <typetable loc="a,0,0,0,0">
+      <basicdtype loc="d,46,25,46,27" id="1" name="logic"/>
+      <voiddtype loc="d,48,18,48,27" id="13"/>
+      <basicdtype loc="e,12,26,12,27" id="8" name="logic" left="31" right="0"/>
+      <basicdtype loc="e,12,14,12,15" id="2" name="logic" left="15" right="-16" signed="true"/>
+      <basicdtype loc="e,20,8,20,11" id="3" name="logic" left="15" right="0" signed="true"/>
+      <basicdtype loc="e,22,1,22,4" id="5" name="logic" left="15" right="-16"/>
+      <basicdtype loc="e,33,1,33,4" id="6" name="logic" left="31" right="-16" signed="true"/>
+      <basicdtype loc="e,36,1,36,4" id="7" name="logic" left="2" right="0"/>
+      <basicdtype loc="e,38,29,38,30" id="12" name="logic" left="47" right="0"/>
+      <basicdtype loc="e,63,26,63,28" id="10" name="logic" left="15" right="0"/>
+      <basicdtype loc="e,144,47,144,48" id="9" name="logic" left="4" right="0" signed="true"/>
+      <basicdtype loc="e,168,30,168,31" id="11" name="logic" left="47" right="0" signed="true"/>
+      <basicdtype loc="e,8,25,8,27" id="4" name="logic" left="31" right="0" signed="true"/>
+    </typetable>
+  </netlist>
+</verilator_xml>

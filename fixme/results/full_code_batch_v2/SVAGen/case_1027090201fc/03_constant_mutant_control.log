@@ -1,0 +1,320 @@
+
+-- Running command `read_verilog -formal -sv constant_mutant_control.sv; hierarchy -top ct_ebiu_ncwt_entry; prep -top ct_ebiu_ncwt_entry; flatten; async2sync; dffunmap; memory_map; opt_clean; chformal -lower; write_json constant_mutant_control.json; sat -seq 2 -timeout 5 -prove-asserts -verify -show-inputs -show-outputs' --
+
+1. Executing Verilog-2005 frontend: constant_mutant_control.sv
+Parsing formal SystemVerilog input from `constant_mutant_control.sv' to AST representation.
+Generating RTLIL representation for module `\ct_ebiu_ncwt_entry'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \ct_ebiu_ncwt_entry
+
+2.2. Analyzing design hierarchy..
+Top module:  \ct_ebiu_ncwt_entry
+Removed 0 unused modules.
+Module ct_ebiu_ncwt_entry directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \ct_ebiu_ncwt_entry
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \ct_ebiu_ncwt_entry
+Removed 0 unused modules.
+Module ct_ebiu_ncwt_entry directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 2 switch rules as full_case in process $proc$constant_mutant_control.sv:153$23 in module ct_ebiu_ncwt_entry.
+Marked 1 switch rules as full_case in process $proc$constant_mutant_control.sv:136$18 in module ct_ebiu_ncwt_entry.
+Marked 2 switch rules as full_case in process $proc$constant_mutant_control.sv:127$14 in module ct_ebiu_ncwt_entry.
+Marked 2 switch rules as full_case in process $proc$constant_mutant_control.sv:118$12 in module ct_ebiu_ncwt_entry.
+Marked 3 switch rules as full_case in process $proc$constant_mutant_control.sv:107$5 in module ct_ebiu_ncwt_entry.
+Marked 3 switch rules as full_case in process $proc$constant_mutant_control.sv:96$3 in module ct_ebiu_ncwt_entry.
+Removed a total of 0 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 2 redundant assignments.
+Promoted 1 assignment to connection.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \cpurst_b in `\ct_ebiu_ncwt_entry.$proc$constant_mutant_control.sv:153$23'.
+Found async reset \cpurst_b in `\ct_ebiu_ncwt_entry.$proc$constant_mutant_control.sv:136$18'.
+Found async reset \cpurst_b in `\ct_ebiu_ncwt_entry.$proc$constant_mutant_control.sv:127$14'.
+Found async reset \cpurst_b in `\ct_ebiu_ncwt_entry.$proc$constant_mutant_control.sv:118$12'.
+Found async reset \cpurst_b in `\ct_ebiu_ncwt_entry.$proc$constant_mutant_control.sv:107$5'.
+Found async reset \cpurst_b in `\ct_ebiu_ncwt_entry.$proc$constant_mutant_control.sv:96$3'.
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~12 debug messages>
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\ct_ebiu_ncwt_entry.$proc$constant_mutant_control.sv:174$38'.
+Creating decoders for process `\ct_ebiu_ncwt_entry.$proc$constant_mutant_control.sv:153$23'.
+     1/1: $0\ncwt_bresp[1:0]
+Creating decoders for process `\ct_ebiu_ncwt_entry.$proc$constant_mutant_control.sv:136$18'.
+     1/3: $0\ncwt_id[7:0]
+     2/3: $0\ncwt_gm_fail[0:0]
+     3/3: $0\ncwt_addr[7:0]
+Creating decoders for process `\ct_ebiu_ncwt_entry.$proc$constant_mutant_control.sv:127$14'.
+     1/1: $0\ncwt_bus_done[0:0]
+Creating decoders for process `\ct_ebiu_ncwt_entry.$proc$constant_mutant_control.sv:118$12'.
+     1/1: $0\ncwt_resp_done[0:0]
+Creating decoders for process `\ct_ebiu_ncwt_entry.$proc$constant_mutant_control.sv:107$5'.
+     1/1: $0\ncwt_resp_ready[0:0]
+Creating decoders for process `\ct_ebiu_ncwt_entry.$proc$constant_mutant_control.sv:96$3'.
+     1/1: $0\ncwt_vld[0:0]
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\ct_ebiu_ncwt_entry.\ncwt_bresp' using process `\ct_ebiu_ncwt_entry.$proc$constant_mutant_control.sv:153$23'.
+  created $adff cell `$procdff$81' with positive edge clock and positive level reset.
+Creating register for signal `\ct_ebiu_ncwt_entry.\ncwt_addr' using process `\ct_ebiu_ncwt_entry.$proc$constant_mutant_control.sv:136$18'.
+  created $adff cell `$procdff$86' with positive edge clock and positive level reset.
+Creating register for signal `\ct_ebiu_ncwt_entry.\ncwt_gm_fail' using process `\ct_ebiu_ncwt_entry.$proc$constant_mutant_control.sv:136$18'.
+  created $adff cell `$procdff$91' with positive edge clock and positive level reset.
+Creating register for signal `\ct_ebiu_ncwt_entry.\ncwt_id' using process `\ct_ebiu_ncwt_entry.$proc$constant_mutant_control.sv:136$18'.
+  created $adff cell `$procdff$96' with positive edge clock and positive level reset.
+Creating register for signal `\ct_ebiu_ncwt_entry.\ncwt_bus_done' using process `\ct_ebiu_ncwt_entry.$proc$constant_mutant_control.sv:127$14'.
+  created $adff cell `$procdff$101' with positive edge clock and positive level reset.
+Creating register for signal `\ct_ebiu_ncwt_entry.\ncwt_resp_done' using process `\ct_ebiu_ncwt_entry.$proc$constant_mutant_control.sv:118$12'.
+  created $adff cell `$procdff$106' with positive edge clock and positive level reset.
+Creating register for signal `\ct_ebiu_ncwt_entry.\ncwt_resp_ready' using process `\ct_ebiu_ncwt_entry.$proc$constant_mutant_control.sv:107$5'.
+  created $adff cell `$procdff$111' with positive edge clock and positive level reset.
+Creating register for signal `\ct_ebiu_ncwt_entry.\ncwt_vld' using process `\ct_ebiu_ncwt_entry.$proc$constant_mutant_control.sv:96$3'.
+  created $adff cell `$procdff$116' with positive edge clock and positive level reset.
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `ct_ebiu_ncwt_entry.$proc$constant_mutant_control.sv:174$38'.
+Found and cleaned up 2 empty switches in `\ct_ebiu_ncwt_entry.$proc$constant_mutant_control.sv:153$23'.
+Removing empty process `ct_ebiu_ncwt_entry.$proc$constant_mutant_control.sv:153$23'.
+Found and cleaned up 1 empty switch in `\ct_ebiu_ncwt_entry.$proc$constant_mutant_control.sv:136$18'.
+Removing empty process `ct_ebiu_ncwt_entry.$proc$constant_mutant_control.sv:136$18'.
+Found and cleaned up 2 empty switches in `\ct_ebiu_ncwt_entry.$proc$constant_mutant_control.sv:127$14'.
+Removing empty process `ct_ebiu_ncwt_entry.$proc$constant_mutant_control.sv:127$14'.
+Found and cleaned up 2 empty switches in `\ct_ebiu_ncwt_entry.$proc$constant_mutant_control.sv:118$12'.
+Removing empty process `ct_ebiu_ncwt_entry.$proc$constant_mutant_control.sv:118$12'.
+Found and cleaned up 3 empty switches in `\ct_ebiu_ncwt_entry.$proc$constant_mutant_control.sv:107$5'.
+Removing empty process `ct_ebiu_ncwt_entry.$proc$constant_mutant_control.sv:107$5'.
+Found and cleaned up 2 empty switches in `\ct_ebiu_ncwt_entry.$proc$constant_mutant_control.sv:96$3'.
+Removing empty process `ct_ebiu_ncwt_entry.$proc$constant_mutant_control.sv:96$3'.
+Cleaned up 12 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_ebiu_ncwt_entry.
+<suppressed ~17 debug messages>
+
+3.3. Executing FUTURE pass.
+
+3.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_ebiu_ncwt_entry.
+
+3.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_ebiu_ncwt_entry..
+Removed 14 unused cells and 54 unused wires.
+<suppressed ~15 debug messages>
+
+3.6. Executing CHECK pass (checking for obvious problems).
+Checking module ct_ebiu_ncwt_entry...
+Found and reported 0 problems.
+
+3.7. Executing OPT pass (performing simple optimizations).
+
+3.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_ebiu_ncwt_entry.
+
+3.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ct_ebiu_ncwt_entry'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+3.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ct_ebiu_ncwt_entry..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~8 debug messages>
+
+3.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ct_ebiu_ncwt_entry.
+Performed a total of 0 changes.
+
+3.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ct_ebiu_ncwt_entry'.
+Removed a total of 0 cells.
+
+3.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_ebiu_ncwt_entry..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+3.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_ebiu_ncwt_entry.
+
+3.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ct_ebiu_ncwt_entry..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~8 debug messages>
+
+3.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ct_ebiu_ncwt_entry.
+Performed a total of 0 changes.
+
+3.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ct_ebiu_ncwt_entry'.
+Removed a total of 0 cells.
+
+3.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_ebiu_ncwt_entry..
+
+3.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_ebiu_ncwt_entry.
+
+3.7.14. Finished OPT passes. (There is nothing left to do.)
+
+3.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 3 bits (of 4) from port A of cell ct_ebiu_ncwt_entry.$shl$constant_mutant_control.sv:163$28 ($shl).
+
+3.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_ebiu_ncwt_entry..
+
+3.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.11. Executing OPT pass (performing simple optimizations).
+
+3.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_ebiu_ncwt_entry.
+
+3.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ct_ebiu_ncwt_entry'.
+Removed a total of 0 cells.
+
+3.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_ebiu_ncwt_entry..
+
+3.11.4. Finished fast OPT passes.
+
+3.12. Printing statistics.
+
+=== ct_ebiu_ncwt_entry ===
+
+   Number of wires:                 67
+   Number of wire bits:            201
+   Number of public wires:          38
+   Number of public wire bits:     153
+   Number of ports:                 24
+   Number of port bits:            119
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 46
+     $adff                           8
+     $and                            9
+     $check                          1
+     $eq                             4
+     $logic_and                      2
+     $logic_not                      4
+     $mux                           14
+     $not                            1
+     $or                             2
+     $shl                            1
+
+3.13. Executing CHECK pass (checking for obvious problems).
+Checking module ct_ebiu_ncwt_entry...
+Found and reported 0 problems.
+
+4. Executing FLATTEN pass (flatten design).
+
+5. Executing ASYNC2SYNC pass.
+Replacing ct_ebiu_ncwt_entry.$procdff$101 ($adff): ARST=\cpurst_b, D=$0\ncwt_bus_done[0:0], Q=\ncwt_bus_done
+Replacing ct_ebiu_ncwt_entry.$procdff$106 ($adff): ARST=\cpurst_b, D=$0\ncwt_resp_done[0:0], Q=\ncwt_resp_done
+Replacing ct_ebiu_ncwt_entry.$procdff$111 ($adff): ARST=\cpurst_b, D=$0\ncwt_resp_ready[0:0], Q=\ncwt_resp_ready
+Replacing ct_ebiu_ncwt_entry.$procdff$116 ($adff): ARST=\cpurst_b, D=$0\ncwt_vld[0:0], Q=\ncwt_vld
+Replacing ct_ebiu_ncwt_entry.$procdff$81 ($adff): ARST=\cpurst_b, D=$0\ncwt_bresp[1:0], Q=\ncwt_bresp
+Replacing ct_ebiu_ncwt_entry.$procdff$86 ($adff): ARST=\cpurst_b, D=$0\ncwt_addr[7:0], Q=\ncwt_addr
+Replacing ct_ebiu_ncwt_entry.$procdff$91 ($adff): ARST=\cpurst_b, D=$0\ncwt_gm_fail[0:0], Q=\ncwt_gm_fail
+Replacing ct_ebiu_ncwt_entry.$procdff$96 ($adff): ARST=\cpurst_b, D=$0\ncwt_id[7:0], Q=\ncwt_id
+
+6. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+7. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_ebiu_ncwt_entry..
+Removed 2 unused cells and 2 unused wires.
+<suppressed ~3 debug messages>
+
+9. Executing JSON backend.
+
+10. Executing SAT pass (solving SAT problems in the circuit).
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 62 cells to SAT database.
+No constraints for initial state found.
+
+Import proof for assert: 1'1 when 1'1.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 62 cells to SAT database.
+Import proof for assert: 1'1 when 1'1.
+Import show expression: \aw_needissue
+Import show expression: \bfifo_pop_bresp
+Import show expression: \ciu_icg_en
+Import show expression: \cpurst_b
+Import show expression: \forever_cpuclk
+Import show expression: \ncq_xx_araddr
+Import show expression: \ncq_xx_awaddr
+Import show expression: \ncq_xx_awid
+Import show expression: \ncwt_bresp_accept_en_x
+Import show expression: \ncwt_bus_bresp_updt_en_x
+Import show expression: \ncwt_create_dp_en_x
+Import show expression: \ncwt_create_en_x
+Import show expression: \ncwt_ctrl_clk
+Import show expression: \ncwt_wdata_create_en_x
+Import show expression: \pad_yy_icg_scan_en
+Import show expression: \nc_wo_rd_depd_ncwt_x
+Import show expression: \nc_wo_wr_dped_ncwt_x
+Import show expression: \ncwt_bvalid_x
+Import show expression: \ncwt_piu0_sel_x
+Import show expression: \ncwt_piu1_sel_x
+Import show expression: \ncwt_piu2_sel_x
+Import show expression: \ncwt_piu3_sel_x
+Import show expression: \ncwt_vld_x
+Import show expression: \x_ncwt_bus
+
+Solving problem with 1717 variables and 4045 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+

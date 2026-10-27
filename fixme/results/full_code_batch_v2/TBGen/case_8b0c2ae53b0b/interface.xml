@@ -1,0 +1,1006 @@
+<?xml version="1.0" ?>
+<!-- DESCRIPTION: Verilator output: XML representation of netlist -->
+<verilator_xml>
+  <files>
+    <file id="d" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std.sv" language="1800-2023"/>
+    <file id="c" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std_waiver.vlt" language="1800-2023"/>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_8b0c2ae53b0b/async_fifo.v" language="1800-2023"/>
+    <file id="a" filename="&lt;built-in&gt;" language="1800-2023"/>
+    <file id="b" filename="&lt;command-line&gt;" language="1800-2023"/>
+  </files>
+  <module_files>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_8b0c2ae53b0b/async_fifo.v" language="1800-2023"/>
+  </module_files>
+  <cells>
+    <cell loc="e,3,8,3,18" name="async_fifo" submodname="async_fifo" hier="async_fifo"/>
+  </cells>
+  <netlist>
+    <module loc="e,3,8,3,18" name="async_fifo" origName="async_fifo" topModule="1">
+      <var loc="e,31,22,31,28" name="wr_clk" dtype_id="1" dir="input" pinIndex="1" vartype="logic" origName="wr_clk"/>
+      <var loc="e,31,30,31,40" name="wr_reset_n" dtype_id="1" dir="input" pinIndex="2" vartype="logic" origName="wr_reset_n"/>
+      <var loc="e,31,42,31,47" name="wr_en" dtype_id="1" dir="input" pinIndex="3" vartype="logic" origName="wr_en"/>
+      <var loc="e,30,22,30,29" name="wr_data" dtype_id="2" dir="input" pinIndex="4" vartype="logic" origName="wr_data"/>
+      <var loc="e,33,22,33,26" name="full" dtype_id="1" dir="output" pinIndex="5" vartype="logic" origName="full"/>
+      <var loc="e,34,22,34,27" name="afull" dtype_id="1" dir="output" pinIndex="6" vartype="logic" origName="afull"/>
+      <var loc="e,31,49,31,55" name="rd_clk" dtype_id="1" dir="input" pinIndex="7" vartype="logic" origName="rd_clk"/>
+      <var loc="e,31,57,31,67" name="rd_reset_n" dtype_id="1" dir="input" pinIndex="8" vartype="logic" origName="rd_reset_n"/>
+      <var loc="e,32,22,32,27" name="rd_en" dtype_id="1" dir="input" pinIndex="9" vartype="logic" origName="rd_en"/>
+      <var loc="e,33,28,33,33" name="empty" dtype_id="1" dir="output" pinIndex="10" vartype="logic" origName="empty"/>
+      <var loc="e,34,29,34,35" name="aempty" dtype_id="1" dir="output" pinIndex="11" vartype="logic" origName="aempty"/>
+      <var loc="e,29,22,29,29" name="rd_data" dtype_id="2" dir="output" pinIndex="12" vartype="logic" origName="rd_data"/>
+      <var loc="e,15,14,15,15" name="W" dtype_id="3" vartype="logic" origName="W" param="true">
+        <const loc="e,15,18,15,22" name="4&apos;h8" dtype_id="3"/>
+      </var>
+      <var loc="e,16,14,16,16" name="DP" dtype_id="4" vartype="logic" origName="DP" param="true">
+        <const loc="e,16,19,16,23" name="3&apos;h4" dtype_id="4"/>
+      </var>
+      <var loc="e,17,14,17,21" name="WR_FAST" dtype_id="5" vartype="logic" origName="WR_FAST" param="true">
+        <const loc="e,17,24,17,28" name="1&apos;h1" dtype_id="1"/>
+      </var>
+      <var loc="e,18,14,18,21" name="RD_FAST" dtype_id="5" vartype="logic" origName="RD_FAST" param="true">
+        <const loc="e,18,24,18,28" name="1&apos;h1" dtype_id="1"/>
+      </var>
+      <var loc="e,19,14,19,21" name="FULL_DP" dtype_id="4" vartype="logic" origName="FULL_DP" param="true">
+        <const loc="e,19,24,19,26" name="3&apos;h4" dtype_id="4"/>
+      </var>
+      <var loc="e,20,14,20,22" name="EMPTY_DP" dtype_id="5" vartype="logic" origName="EMPTY_DP" param="true">
+        <const loc="e,20,25,20,29" name="1&apos;h0" dtype_id="1"/>
+      </var>
+      <var loc="e,21,14,21,16" name="AW" dtype_id="6" vartype="logic" origName="AW" param="true">
+        <const loc="e,22,19,22,20" name="32&apos;sh2" dtype_id="6"/>
+      </var>
+      <initial loc="e,35,4,35,11">
+        <begin loc="e,35,12,35,17"/>
+      </initial>
+      <var loc="e,40,21,40,24" name="mem" dtype_id="7" vartype="" origName="mem"/>
+      <var loc="e,41,15,41,28" name="sync_rd_ptr_0" dtype_id="4" vartype="logic" origName="sync_rd_ptr_0"/>
+      <var loc="e,41,30,41,43" name="sync_rd_ptr_1" dtype_id="4" vartype="logic" origName="sync_rd_ptr_1"/>
+      <var loc="e,42,16,42,27" name="sync_rd_ptr" dtype_id="4" vartype="logic" origName="sync_rd_ptr"/>
+      <var loc="e,43,15,43,21" name="wr_ptr" dtype_id="4" vartype="logic" origName="wr_ptr"/>
+      <var loc="e,43,23,43,34" name="grey_wr_ptr" dtype_id="4" vartype="logic" origName="grey_wr_ptr"/>
+      <var loc="e,44,15,44,26" name="grey_rd_ptr" dtype_id="4" vartype="logic" origName="grey_rd_ptr"/>
+      <var loc="e,45,8,45,14" name="full_q" dtype_id="1" vartype="logic" origName="full_q"/>
+      <var loc="e,48,16,48,26" name="wr_ptr_inc" dtype_id="4" vartype="logic" origName="wr_ptr_inc"/>
+      <var loc="e,49,16,49,22" name="wr_cnt" dtype_id="4" vartype="logic" origName="wr_cnt"/>
+      <contassign loc="e,49,23,49,24" dtype_id="4">
+        <funcref loc="e,49,25,49,32" name="get_cnt" dtype_id="4">
+          <arg loc="e,49,33,49,39">
+            <varref loc="e,49,33,49,39" name="wr_ptr" dtype_id="4"/>
+          </arg>
+          <arg loc="e,49,41,49,52">
+            <varref loc="e,49,41,49,52" name="sync_rd_ptr" dtype_id="4"/>
+          </arg>
+        </funcref>
+        <varref loc="e,49,16,49,22" name="wr_cnt" dtype_id="4"/>
+      </contassign>
+      <always loc="e,52,4,52,10">
+        <sentree loc="e,52,11,52,12">
+          <senitem loc="e,52,13,52,20" edgeType="POS">
+            <varref loc="e,52,21,52,27" name="wr_clk" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,52,31,52,38" edgeType="NEG">
+            <varref loc="e,52,39,52,49" name="wr_reset_n" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,52,51,52,56">
+          <if loc="e,53,2,53,4">
+            <varref loc="e,53,7,53,17" name="wr_reset_n" dtype_id="1"/>
+            <begin>
+              <if loc="e,58,7,58,9">
+                <varref loc="e,58,11,58,16" name="wr_en" dtype_id="1"/>
+                <begin>
+                  <begin loc="e,58,18,58,23">
+                    <assigndly loc="e,59,10,59,12" dtype_id="4">
+                      <varref loc="e,59,13,59,23" name="wr_ptr_inc" dtype_id="4"/>
+                      <varref loc="e,59,3,59,9" name="wr_ptr" dtype_id="4"/>
+                    </assigndly>
+                    <assigndly loc="e,60,15,60,17" dtype_id="4">
+                      <funcref loc="e,60,18,60,26" name="bin2grey" dtype_id="4">
+                        <arg loc="e,60,27,60,37">
+                          <varref loc="e,60,27,60,37" name="wr_ptr_inc" dtype_id="4"/>
+                        </arg>
+                      </funcref>
+                      <varref loc="e,60,3,60,14" name="grey_wr_ptr" dtype_id="4"/>
+                    </assigndly>
+                    <if loc="e,61,3,61,5">
+                      <eq loc="e,61,14,61,16" dtype_id="1">
+                        <const loc="e,61,25,61,26" name="3&apos;h3" dtype_id="4"/>
+                        <varref loc="e,61,7,61,13" name="wr_cnt" dtype_id="4"/>
+                      </eq>
+                      <begin>
+                        <begin loc="e,61,30,61,35">
+                          <assigndly loc="e,62,11,62,13" dtype_id="1">
+                            <const loc="e,62,14,62,18" name="1&apos;h1" dtype_id="1"/>
+                            <varref loc="e,62,4,62,10" name="full_q" dtype_id="1"/>
+                          </assigndly>
+                        </begin>
+                      </begin>
+                    </if>
+                  </begin>
+                </begin>
+                <begin>
+                  <begin loc="e,65,7,65,12">
+                    <if loc="e,66,7,66,9">
+                      <and loc="e,66,18,66,20" dtype_id="1">
+                        <varref loc="e,66,11,66,17" name="full_q" dtype_id="1"/>
+                        <gt loc="e,66,28,66,29" dtype_id="1">
+                          <const loc="e,66,29,66,36" name="3&apos;h4" dtype_id="4"/>
+                          <varref loc="e,66,22,66,28" name="wr_cnt" dtype_id="4"/>
+                        </gt>
+                      </and>
+                      <begin>
+                        <begin loc="e,66,39,66,44">
+                          <assigndly loc="e,67,11,67,13" dtype_id="1">
+                            <const loc="e,67,14,67,18" name="1&apos;h0" dtype_id="1"/>
+                            <varref loc="e,67,4,67,10" name="full_q" dtype_id="1"/>
+                          </assigndly>
+                        </begin>
+                      </begin>
+                    </if>
+                  </begin>
+                </begin>
+              </if>
+            </begin>
+            <begin>
+              <begin loc="e,53,19,53,24">
+                <assigndly loc="e,54,10,54,12" dtype_id="4">
+                  <const loc="e,54,13,54,14" name="3&apos;h0" dtype_id="4"/>
+                  <varref loc="e,54,3,54,9" name="wr_ptr" dtype_id="4"/>
+                </assigndly>
+                <assigndly loc="e,55,15,55,17" dtype_id="4">
+                  <const loc="e,55,18,55,19" name="3&apos;h0" dtype_id="4"/>
+                  <varref loc="e,55,3,55,14" name="grey_wr_ptr" dtype_id="4"/>
+                </assigndly>
+                <assigndly loc="e,56,10,56,12" dtype_id="1">
+                  <const loc="e,56,13,56,14" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,56,3,56,9" name="full_q" dtype_id="1"/>
+                </assigndly>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <always loc="e,73,5,73,11">
+        <sentree loc="e,73,12,73,13">
+          <senitem loc="e,73,14,73,21" edgeType="POS">
+            <varref loc="e,73,22,73,28" name="wr_clk" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,73,30,73,35">
+          <if loc="e,74,2,74,4">
+            <varref loc="e,74,6,74,11" name="wr_en" dtype_id="1"/>
+            <begin>
+              <begin loc="e,74,13,74,18">
+                <assigndly loc="e,75,23,75,25" dtype_id="2">
+                  <varref loc="e,75,26,75,33" name="wr_data" dtype_id="2"/>
+                  <arraysel loc="e,75,6,75,7" dtype_id="2">
+                    <varref loc="e,75,3,75,6" name="mem" dtype_id="7"/>
+                    <sel loc="e,75,13,75,14" dtype_id="8">
+                      <varref loc="e,75,7,75,13" name="wr_ptr" dtype_id="4"/>
+                      <const loc="e,75,19,75,20" name="2&apos;h0" dtype_id="9"/>
+                      <const loc="e,75,16,75,17" name="32&apos;h2" dtype_id="10"/>
+                    </sel>
+                  </arraysel>
+                </assigndly>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <var loc="e,78,17,78,32" name="grey_rd_ptr_dly" dtype_id="4" vartype="logic" origName="grey_rd_ptr_dly"/>
+      <contassign loc="e,79,31,79,32" dtype_id="4">
+        <varref loc="e,79,33,79,44" name="grey_rd_ptr" dtype_id="4"/>
+        <varref loc="e,79,15,79,30" name="grey_rd_ptr_dly" dtype_id="4"/>
+        <delay loc="e,79,12,79,13">
+          <const loc="e,79,13,79,14" name="64&apos;h1" dtype_id="11"/>
+        </delay>
+      </contassign>
+      <always loc="e,80,5,80,11">
+        <sentree loc="e,80,12,80,13">
+          <senitem loc="e,80,14,80,21" edgeType="POS">
+            <varref loc="e,80,22,80,28" name="wr_clk" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,80,32,80,39" edgeType="NEG">
+            <varref loc="e,80,40,80,50" name="wr_reset_n" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,80,52,80,57">
+          <if loc="e,81,2,81,4">
+            <varref loc="e,81,7,81,17" name="wr_reset_n" dtype_id="1"/>
+            <begin>
+              <begin loc="e,85,7,85,12">
+                <assigndly loc="e,86,17,86,19" dtype_id="4">
+                  <varref loc="e,86,20,86,35" name="grey_rd_ptr_dly" dtype_id="4"/>
+                  <varref loc="e,86,3,86,16" name="sync_rd_ptr_0" dtype_id="4"/>
+                </assigndly>
+                <assigndly loc="e,87,17,87,19" dtype_id="4">
+                  <varref loc="e,87,20,87,33" name="sync_rd_ptr_0" dtype_id="4"/>
+                  <varref loc="e,87,3,87,16" name="sync_rd_ptr_1" dtype_id="4"/>
+                </assigndly>
+              </begin>
+            </begin>
+            <begin>
+              <begin loc="e,81,19,81,24">
+                <assigndly loc="e,82,17,82,19" dtype_id="4">
+                  <const loc="e,82,20,82,21" name="3&apos;h0" dtype_id="4"/>
+                  <varref loc="e,82,3,82,16" name="sync_rd_ptr_0" dtype_id="4"/>
+                </assigndly>
+                <assigndly loc="e,83,17,83,19" dtype_id="4">
+                  <const loc="e,83,20,83,21" name="3&apos;h0" dtype_id="4"/>
+                  <varref loc="e,83,3,83,16" name="sync_rd_ptr_1" dtype_id="4"/>
+                </assigndly>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <contassign loc="e,90,24,90,25" dtype_id="4">
+        <funcref loc="e,90,26,90,34" name="grey2bin" dtype_id="4">
+          <arg loc="e,90,35,90,48">
+            <varref loc="e,90,35,90,48" name="sync_rd_ptr_1" dtype_id="4"/>
+          </arg>
+        </funcref>
+        <varref loc="e,90,12,90,23" name="sync_rd_ptr" dtype_id="4"/>
+      </contassign>
+      <var loc="e,91,15,91,28" name="sync_wr_ptr_0" dtype_id="4" vartype="logic" origName="sync_wr_ptr_0"/>
+      <var loc="e,91,30,91,43" name="sync_wr_ptr_1" dtype_id="4" vartype="logic" origName="sync_wr_ptr_1"/>
+      <var loc="e,92,16,92,27" name="sync_wr_ptr" dtype_id="4" vartype="logic" origName="sync_wr_ptr"/>
+      <var loc="e,93,15,93,21" name="rd_ptr" dtype_id="4" vartype="logic" origName="rd_ptr"/>
+      <var loc="e,94,8,94,15" name="empty_q" dtype_id="1" vartype="logic" origName="empty_q"/>
+      <var loc="e,97,16,97,26" name="rd_ptr_inc" dtype_id="4" vartype="logic" origName="rd_ptr_inc"/>
+      <var loc="e,99,16,99,22" name="rd_cnt" dtype_id="4" vartype="logic" origName="rd_cnt"/>
+      <contassign loc="e,99,23,99,24" dtype_id="4">
+        <funcref loc="e,99,25,99,32" name="get_cnt" dtype_id="4">
+          <arg loc="e,99,33,99,44">
+            <varref loc="e,99,33,99,44" name="sync_wr_ptr" dtype_id="4"/>
+          </arg>
+          <arg loc="e,99,46,99,52">
+            <varref loc="e,99,46,99,52" name="rd_ptr" dtype_id="4"/>
+          </arg>
+        </funcref>
+        <varref loc="e,99,16,99,22" name="rd_cnt" dtype_id="4"/>
+      </contassign>
+      <always loc="e,102,4,102,10">
+        <sentree loc="e,102,11,102,12">
+          <senitem loc="e,102,13,102,20" edgeType="POS">
+            <varref loc="e,102,21,102,27" name="rd_clk" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,102,31,102,38" edgeType="NEG">
+            <varref loc="e,102,39,102,49" name="rd_reset_n" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,102,51,102,56">
+          <if loc="e,103,7,103,9">
+            <varref loc="e,103,12,103,22" name="rd_reset_n" dtype_id="1"/>
+            <begin>
+              <begin loc="e,108,12,108,17">
+                <if loc="e,109,10,109,12">
+                  <varref loc="e,109,14,109,19" name="rd_en" dtype_id="1"/>
+                  <begin>
+                    <begin loc="e,109,21,109,26">
+                      <assigndly loc="e,110,20,110,22" dtype_id="4">
+                        <varref loc="e,110,23,110,33" name="rd_ptr_inc" dtype_id="4"/>
+                        <varref loc="e,110,13,110,19" name="rd_ptr" dtype_id="4"/>
+                      </assigndly>
+                      <assigndly loc="e,111,25,111,27" dtype_id="4">
+                        <funcref loc="e,111,28,111,36" name="bin2grey" dtype_id="4">
+                          <arg loc="e,111,37,111,47">
+                            <varref loc="e,111,37,111,47" name="rd_ptr_inc" dtype_id="4"/>
+                          </arg>
+                        </funcref>
+                        <varref loc="e,111,13,111,24" name="grey_rd_ptr" dtype_id="4"/>
+                      </assigndly>
+                      <if loc="e,112,13,112,15">
+                        <eq loc="e,112,23,112,25" dtype_id="1">
+                          <const loc="e,112,34,112,35" name="3&apos;h1" dtype_id="4"/>
+                          <varref loc="e,112,17,112,23" name="rd_cnt" dtype_id="4"/>
+                        </eq>
+                        <begin>
+                          <begin loc="e,112,39,112,44">
+                            <assigndly loc="e,113,24,113,26" dtype_id="1">
+                              <const loc="e,113,27,113,31" name="1&apos;h1" dtype_id="1"/>
+                              <varref loc="e,113,16,113,23" name="empty_q" dtype_id="1"/>
+                            </assigndly>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </begin>
+                  <begin>
+                    <begin loc="e,116,15,116,20">
+                      <if loc="e,117,13,117,15">
+                        <and loc="e,117,25,117,27" dtype_id="1">
+                          <varref loc="e,117,17,117,24" name="empty_q" dtype_id="1"/>
+                          <neq loc="e,117,35,117,37" dtype_id="1">
+                            <const loc="e,117,37,117,45" name="3&apos;h0" dtype_id="4"/>
+                            <varref loc="e,117,29,117,35" name="rd_cnt" dtype_id="4"/>
+                          </neq>
+                        </and>
+                        <begin>
+                          <begin loc="e,117,48,117,53">
+                            <assigndly loc="e,118,16,118,18" dtype_id="1">
+                              <const loc="e,118,19,118,23" name="1&apos;h0" dtype_id="1"/>
+                              <varref loc="e,118,8,118,15" name="empty_q" dtype_id="1"/>
+                            </assigndly>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </begin>
+                </if>
+              </begin>
+            </begin>
+            <begin>
+              <begin loc="e,103,24,103,29">
+                <assigndly loc="e,104,17,104,19" dtype_id="4">
+                  <const loc="e,104,20,104,21" name="3&apos;h0" dtype_id="4"/>
+                  <varref loc="e,104,10,104,16" name="rd_ptr" dtype_id="4"/>
+                </assigndly>
+                <assigndly loc="e,105,15,105,17" dtype_id="4">
+                  <const loc="e,105,18,105,19" name="3&apos;h0" dtype_id="4"/>
+                  <varref loc="e,105,3,105,14" name="grey_rd_ptr" dtype_id="4"/>
+                </assigndly>
+                <assigndly loc="e,106,11,106,13" dtype_id="1">
+                  <const loc="e,106,14,106,18" name="1&apos;h1" dtype_id="1"/>
+                  <varref loc="e,106,3,106,10" name="empty_q" dtype_id="1"/>
+                </assigndly>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <var loc="e,125,20,125,29" name="rd_data_q" dtype_id="2" vartype="logic" origName="rd_data_q"/>
+      <var loc="e,126,19,126,28" name="rd_data_c" dtype_id="2" vartype="logic" origName="rd_data_c"/>
+      <always loc="e,127,4,127,10">
+        <sentree loc="e,127,11,127,12">
+          <senitem loc="e,127,13,127,20" edgeType="POS">
+            <varref loc="e,127,21,127,27" name="rd_clk" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,127,29,127,34">
+          <assigndly loc="e,128,12,128,14" dtype_id="2">
+            <varref loc="e,128,15,128,24" name="rd_data_c" dtype_id="2"/>
+            <varref loc="e,128,2,128,11" name="rd_data_q" dtype_id="2"/>
+          </assigndly>
+        </begin>
+      </always>
+      <var loc="e,131,17,131,32" name="grey_wr_ptr_dly" dtype_id="4" vartype="logic" origName="grey_wr_ptr_dly"/>
+      <contassign loc="e,132,31,132,32" dtype_id="4">
+        <varref loc="e,132,34,132,45" name="grey_wr_ptr" dtype_id="4"/>
+        <varref loc="e,132,15,132,30" name="grey_wr_ptr_dly" dtype_id="4"/>
+        <delay loc="e,132,12,132,13">
+          <const loc="e,132,13,132,14" name="64&apos;h1" dtype_id="11"/>
+        </delay>
+      </contassign>
+      <always loc="e,133,5,133,11">
+        <sentree loc="e,133,12,133,13">
+          <senitem loc="e,133,14,133,21" edgeType="POS">
+            <varref loc="e,133,22,133,28" name="rd_clk" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,133,32,133,39" edgeType="NEG">
+            <varref loc="e,133,40,133,50" name="rd_reset_n" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,133,52,133,57">
+          <if loc="e,134,2,134,4">
+            <varref loc="e,134,7,134,17" name="rd_reset_n" dtype_id="1"/>
+            <begin>
+              <begin loc="e,138,7,138,12">
+                <assigndly loc="e,139,19,139,21" dtype_id="4">
+                  <varref loc="e,139,22,139,37" name="grey_wr_ptr_dly" dtype_id="4"/>
+                  <varref loc="e,139,5,139,18" name="sync_wr_ptr_0" dtype_id="4"/>
+                </assigndly>
+                <assigndly loc="e,140,19,140,21" dtype_id="4">
+                  <varref loc="e,140,22,140,35" name="sync_wr_ptr_0" dtype_id="4"/>
+                  <varref loc="e,140,5,140,18" name="sync_wr_ptr_1" dtype_id="4"/>
+                </assigndly>
+              </begin>
+            </begin>
+            <begin>
+              <begin loc="e,134,19,134,24">
+                <assigndly loc="e,135,19,135,21" dtype_id="4">
+                  <const loc="e,135,22,135,23" name="3&apos;h0" dtype_id="4"/>
+                  <varref loc="e,135,5,135,18" name="sync_wr_ptr_0" dtype_id="4"/>
+                </assigndly>
+                <assigndly loc="e,136,19,136,21" dtype_id="4">
+                  <const loc="e,136,22,136,23" name="3&apos;h0" dtype_id="4"/>
+                  <varref loc="e,136,5,136,18" name="sync_wr_ptr_1" dtype_id="4"/>
+                </assigndly>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <contassign loc="e,143,24,143,25" dtype_id="4">
+        <funcref loc="e,143,26,143,34" name="grey2bin" dtype_id="4">
+          <arg loc="e,143,35,143,48">
+            <varref loc="e,143,35,143,48" name="sync_wr_ptr_1" dtype_id="4"/>
+          </arg>
+        </funcref>
+        <varref loc="e,143,12,143,23" name="sync_wr_ptr" dtype_id="4"/>
+      </contassign>
+      <func loc="e,144,17,144,25" name="bin2grey" dtype_id="4">
+        <var loc="e,144,17,144,25" name="bin2grey" dtype_id="4" dir="output" vartype="logic" origName="bin2grey"/>
+        <var loc="e,145,14,145,17" name="bin" dtype_id="4" dir="input" vartype="logic" origName="bin"/>
+        <var loc="e,146,11,146,16" name="bin_8" dtype_id="12" vartype="logic" origName="bin_8"/>
+        <var loc="e,147,11,147,17" name="grey_8" dtype_id="12" vartype="logic" origName="grey_8"/>
+        <begin loc="e,148,1,148,6">
+          <assign loc="e,149,8,149,9" dtype_id="12">
+            <extend loc="e,149,10,149,13" dtype_id="12" width="9" widthminv="3">
+              <varref loc="e,149,10,149,13" name="bin" dtype_id="4"/>
+            </extend>
+            <varref loc="e,149,2,149,7" name="bin_8" dtype_id="12"/>
+          </assign>
+          <assign loc="e,150,14,150,15" dtype_id="8">
+            <funcref loc="e,150,16,150,23" name="do_grey" dtype_id="8">
+              <arg loc="e,150,29,150,30">
+                <sel loc="e,150,29,150,30" dtype_id="4">
+                  <varref loc="e,150,24,150,29" name="bin_8" dtype_id="12"/>
+                  <const loc="e,150,32,150,33" name="4&apos;h0" dtype_id="13"/>
+                  <const loc="e,150,30,150,31" name="32&apos;h3" dtype_id="10"/>
+                </sel>
+              </arg>
+            </funcref>
+            <sel loc="e,150,8,150,9" dtype_id="8">
+              <varref loc="e,150,2,150,8" name="grey_8" dtype_id="12"/>
+              <const loc="e,150,11,150,12" name="4&apos;h0" dtype_id="13"/>
+              <const loc="e,150,9,150,10" name="32&apos;h2" dtype_id="10"/>
+            </sel>
+          </assign>
+          <assign loc="e,151,14,151,15" dtype_id="8">
+            <funcref loc="e,151,16,151,23" name="do_grey" dtype_id="8">
+              <arg loc="e,151,29,151,30">
+                <sel loc="e,151,29,151,30" dtype_id="4">
+                  <varref loc="e,151,24,151,29" name="bin_8" dtype_id="12"/>
+                  <const loc="e,151,32,151,33" name="4&apos;h2" dtype_id="13"/>
+                  <const loc="e,151,30,151,31" name="32&apos;h3" dtype_id="10"/>
+                </sel>
+              </arg>
+            </funcref>
+            <sel loc="e,151,8,151,9" dtype_id="8">
+              <varref loc="e,151,2,151,8" name="grey_8" dtype_id="12"/>
+              <const loc="e,151,11,151,12" name="4&apos;h2" dtype_id="13"/>
+              <const loc="e,151,9,151,10" name="32&apos;h2" dtype_id="10"/>
+            </sel>
+          </assign>
+          <assign loc="e,152,14,152,15" dtype_id="8">
+            <funcref loc="e,152,16,152,23" name="do_grey" dtype_id="8">
+              <arg loc="e,152,29,152,30">
+                <sel loc="e,152,29,152,30" dtype_id="4">
+                  <varref loc="e,152,24,152,29" name="bin_8" dtype_id="12"/>
+                  <const loc="e,152,32,152,33" name="4&apos;h4" dtype_id="13"/>
+                  <const loc="e,152,30,152,31" name="32&apos;h3" dtype_id="10"/>
+                </sel>
+              </arg>
+            </funcref>
+            <sel loc="e,152,8,152,9" dtype_id="8">
+              <varref loc="e,152,2,152,8" name="grey_8" dtype_id="12"/>
+              <const loc="e,152,11,152,12" name="4&apos;h4" dtype_id="13"/>
+              <const loc="e,152,9,152,10" name="32&apos;h2" dtype_id="10"/>
+            </sel>
+          </assign>
+          <assign loc="e,153,14,153,15" dtype_id="8">
+            <funcref loc="e,153,16,153,23" name="do_grey" dtype_id="8">
+              <arg loc="e,153,29,153,30">
+                <sel loc="e,153,29,153,30" dtype_id="4">
+                  <varref loc="e,153,24,153,29" name="bin_8" dtype_id="12"/>
+                  <const loc="e,153,32,153,33" name="4&apos;h6" dtype_id="13"/>
+                  <const loc="e,153,30,153,31" name="32&apos;h3" dtype_id="10"/>
+                </sel>
+              </arg>
+            </funcref>
+            <sel loc="e,153,8,153,9" dtype_id="8">
+              <varref loc="e,153,2,153,8" name="grey_8" dtype_id="12"/>
+              <const loc="e,153,11,153,12" name="4&apos;h6" dtype_id="13"/>
+              <const loc="e,153,9,153,10" name="32&apos;h2" dtype_id="10"/>
+            </sel>
+          </assign>
+          <assign loc="e,154,12,154,13" dtype_id="1">
+            <sel loc="e,154,19,154,20" dtype_id="1">
+              <varref loc="e,154,14,154,19" name="bin_8" dtype_id="12"/>
+              <const loc="e,154,20,154,21" name="4&apos;h8" dtype_id="13"/>
+              <const loc="e,154,19,154,20" name="32&apos;h1" dtype_id="10"/>
+            </sel>
+            <sel loc="e,154,8,154,9" dtype_id="1">
+              <varref loc="e,154,2,154,8" name="grey_8" dtype_id="12"/>
+              <const loc="e,154,9,154,10" name="4&apos;h8" dtype_id="13"/>
+              <const loc="e,154,8,154,9" name="32&apos;h1" dtype_id="10"/>
+            </sel>
+          </assign>
+          <assign loc="e,155,11,155,12" dtype_id="4">
+            <sel loc="e,155,13,155,19" dtype_id="4">
+              <varref loc="e,155,13,155,19" name="grey_8" dtype_id="12"/>
+              <const loc="e,155,13,155,19" name="32&apos;h0" dtype_id="10"/>
+              <const loc="e,155,13,155,19" name="32&apos;h3" dtype_id="10"/>
+            </sel>
+            <varref loc="e,155,2,155,10" name="bin2grey" dtype_id="4"/>
+          </assign>
+        </begin>
+      </func>
+      <func loc="e,158,17,158,25" name="grey2bin" dtype_id="4">
+        <var loc="e,158,17,158,25" name="grey2bin" dtype_id="4" dir="output" vartype="logic" origName="grey2bin"/>
+        <var loc="e,159,14,159,18" name="grey" dtype_id="4" dir="input" vartype="logic" origName="grey"/>
+        <var loc="e,160,11,160,17" name="grey_8" dtype_id="12" vartype="logic" origName="grey_8"/>
+        <var loc="e,161,11,161,16" name="bin_8" dtype_id="12" vartype="logic" origName="bin_8"/>
+        <begin loc="e,162,1,162,6">
+          <assign loc="e,163,9,163,10" dtype_id="12">
+            <extend loc="e,163,11,163,15" dtype_id="12" width="9" widthminv="3">
+              <varref loc="e,163,11,163,15" name="grey" dtype_id="4"/>
+            </extend>
+            <varref loc="e,163,2,163,8" name="grey_8" dtype_id="12"/>
+          </assign>
+          <assign loc="e,164,11,164,12" dtype_id="1">
+            <sel loc="e,164,19,164,20" dtype_id="1">
+              <varref loc="e,164,13,164,19" name="grey_8" dtype_id="12"/>
+              <const loc="e,164,20,164,21" name="4&apos;h8" dtype_id="13"/>
+              <const loc="e,164,19,164,20" name="32&apos;h1" dtype_id="10"/>
+            </sel>
+            <sel loc="e,164,7,164,8" dtype_id="1">
+              <varref loc="e,164,2,164,7" name="bin_8" dtype_id="12"/>
+              <const loc="e,164,8,164,9" name="4&apos;h8" dtype_id="13"/>
+              <const loc="e,164,7,164,8" name="32&apos;h1" dtype_id="10"/>
+            </sel>
+          </assign>
+          <assign loc="e,165,13,165,14" dtype_id="8">
+            <funcref loc="e,165,15,165,21" name="do_bin" dtype_id="8">
+              <arg loc="e,165,22,165,23">
+                <concat loc="e,165,31,165,32" dtype_id="4">
+                  <sel loc="e,165,28,165,29" dtype_id="1">
+                    <varref loc="e,165,23,165,28" name="bin_8" dtype_id="12"/>
+                    <const loc="e,165,29,165,30" name="4&apos;h8" dtype_id="13"/>
+                    <const loc="e,165,28,165,29" name="32&apos;h1" dtype_id="10"/>
+                  </sel>
+                  <sel loc="e,165,39,165,40" dtype_id="8">
+                    <varref loc="e,165,33,165,39" name="grey_8" dtype_id="12"/>
+                    <const loc="e,165,42,165,43" name="4&apos;h6" dtype_id="13"/>
+                    <const loc="e,165,40,165,41" name="32&apos;h2" dtype_id="10"/>
+                  </sel>
+                </concat>
+              </arg>
+            </funcref>
+            <sel loc="e,165,7,165,8" dtype_id="8">
+              <varref loc="e,165,2,165,7" name="bin_8" dtype_id="12"/>
+              <const loc="e,165,10,165,11" name="4&apos;h6" dtype_id="13"/>
+              <const loc="e,165,8,165,9" name="32&apos;h2" dtype_id="10"/>
+            </sel>
+          </assign>
+          <assign loc="e,166,13,166,14" dtype_id="8">
+            <funcref loc="e,166,15,166,21" name="do_bin" dtype_id="8">
+              <arg loc="e,166,22,166,23">
+                <concat loc="e,166,31,166,32" dtype_id="4">
+                  <sel loc="e,166,28,166,29" dtype_id="1">
+                    <varref loc="e,166,23,166,28" name="bin_8" dtype_id="12"/>
+                    <const loc="e,166,29,166,30" name="4&apos;h6" dtype_id="13"/>
+                    <const loc="e,166,28,166,29" name="32&apos;h1" dtype_id="10"/>
+                  </sel>
+                  <sel loc="e,166,39,166,40" dtype_id="8">
+                    <varref loc="e,166,33,166,39" name="grey_8" dtype_id="12"/>
+                    <const loc="e,166,42,166,43" name="4&apos;h4" dtype_id="13"/>
+                    <const loc="e,166,40,166,41" name="32&apos;h2" dtype_id="10"/>
+                  </sel>
+                </concat>
+              </arg>
+            </funcref>
+            <sel loc="e,166,7,166,8" dtype_id="8">
+              <varref loc="e,166,2,166,7" name="bin_8" dtype_id="12"/>
+              <const loc="e,166,10,166,11" name="4&apos;h4" dtype_id="13"/>
+              <const loc="e,166,8,166,9" name="32&apos;h2" dtype_id="10"/>
+            </sel>
+          </assign>
+          <assign loc="e,167,13,167,14" dtype_id="8">
+            <funcref loc="e,167,15,167,21" name="do_bin" dtype_id="8">
+              <arg loc="e,167,22,167,23">
+                <concat loc="e,167,31,167,32" dtype_id="4">
+                  <sel loc="e,167,28,167,29" dtype_id="1">
+                    <varref loc="e,167,23,167,28" name="bin_8" dtype_id="12"/>
+                    <const loc="e,167,29,167,30" name="4&apos;h4" dtype_id="13"/>
+                    <const loc="e,167,28,167,29" name="32&apos;h1" dtype_id="10"/>
+                  </sel>
+                  <sel loc="e,167,39,167,40" dtype_id="8">
+                    <varref loc="e,167,33,167,39" name="grey_8" dtype_id="12"/>
+                    <const loc="e,167,42,167,43" name="4&apos;h2" dtype_id="13"/>
+                    <const loc="e,167,40,167,41" name="32&apos;h2" dtype_id="10"/>
+                  </sel>
+                </concat>
+              </arg>
+            </funcref>
+            <sel loc="e,167,7,167,8" dtype_id="8">
+              <varref loc="e,167,2,167,7" name="bin_8" dtype_id="12"/>
+              <const loc="e,167,10,167,11" name="4&apos;h2" dtype_id="13"/>
+              <const loc="e,167,8,167,9" name="32&apos;h2" dtype_id="10"/>
+            </sel>
+          </assign>
+          <assign loc="e,168,13,168,14" dtype_id="8">
+            <funcref loc="e,168,15,168,21" name="do_bin" dtype_id="8">
+              <arg loc="e,168,22,168,23">
+                <concat loc="e,168,31,168,32" dtype_id="4">
+                  <sel loc="e,168,28,168,29" dtype_id="1">
+                    <varref loc="e,168,23,168,28" name="bin_8" dtype_id="12"/>
+                    <const loc="e,168,29,168,30" name="4&apos;h2" dtype_id="13"/>
+                    <const loc="e,168,28,168,29" name="32&apos;h1" dtype_id="10"/>
+                  </sel>
+                  <sel loc="e,168,39,168,40" dtype_id="8">
+                    <varref loc="e,168,33,168,39" name="grey_8" dtype_id="12"/>
+                    <const loc="e,168,42,168,43" name="4&apos;h0" dtype_id="13"/>
+                    <const loc="e,168,40,168,41" name="32&apos;h2" dtype_id="10"/>
+                  </sel>
+                </concat>
+              </arg>
+            </funcref>
+            <sel loc="e,168,7,168,8" dtype_id="8">
+              <varref loc="e,168,2,168,7" name="bin_8" dtype_id="12"/>
+              <const loc="e,168,10,168,11" name="4&apos;h0" dtype_id="13"/>
+              <const loc="e,168,8,168,9" name="32&apos;h2" dtype_id="10"/>
+            </sel>
+          </assign>
+          <assign loc="e,169,11,169,12" dtype_id="4">
+            <sel loc="e,169,13,169,18" dtype_id="4">
+              <varref loc="e,169,13,169,18" name="bin_8" dtype_id="12"/>
+              <const loc="e,169,13,169,18" name="32&apos;h0" dtype_id="10"/>
+              <const loc="e,169,13,169,18" name="32&apos;h3" dtype_id="10"/>
+            </sel>
+            <varref loc="e,169,2,169,10" name="grey2bin" dtype_id="4"/>
+          </assign>
+        </begin>
+      </func>
+      <func loc="e,172,16,172,23" name="do_grey" dtype_id="8">
+        <var loc="e,172,16,172,23" name="do_grey" dtype_id="8" dir="output" vartype="logic" origName="do_grey"/>
+        <var loc="e,173,13,173,16" name="bin" dtype_id="4" dir="input" vartype="logic" origName="bin"/>
+        <begin loc="e,174,1,174,6">
+          <if loc="e,175,2,175,4">
+            <sel loc="e,175,9,175,10" dtype_id="1">
+              <varref loc="e,175,6,175,9" name="bin" dtype_id="4"/>
+              <const loc="e,175,10,175,11" name="2&apos;h2" dtype_id="9"/>
+              <const loc="e,175,9,175,10" name="32&apos;h1" dtype_id="10"/>
+            </sel>
+            <begin>
+              <begin loc="e,175,14,175,19">
+                <case loc="e,176,3,176,7">
+                  <sel loc="e,176,12,176,13" dtype_id="8">
+                    <varref loc="e,176,9,176,12" name="bin" dtype_id="4"/>
+                    <const loc="e,176,15,176,16" name="2&apos;h0" dtype_id="9"/>
+                    <const loc="e,176,13,176,14" name="32&apos;h2" dtype_id="10"/>
+                  </sel>
+                  <caseitem loc="e,177,9,177,10">
+                    <const loc="e,177,4,177,9" name="2&apos;h0" dtype_id="8"/>
+                    <assign loc="e,177,19,177,20" dtype_id="8">
+                      <const loc="e,177,21,177,26" name="2&apos;h2" dtype_id="8"/>
+                      <varref loc="e,177,11,177,18" name="do_grey" dtype_id="8"/>
+                    </assign>
+                  </caseitem>
+                  <caseitem loc="e,178,9,178,10">
+                    <const loc="e,178,4,178,9" name="2&apos;h1" dtype_id="8"/>
+                    <assign loc="e,178,19,178,20" dtype_id="8">
+                      <const loc="e,178,21,178,26" name="2&apos;h3" dtype_id="8"/>
+                      <varref loc="e,178,11,178,18" name="do_grey" dtype_id="8"/>
+                    </assign>
+                  </caseitem>
+                  <caseitem loc="e,179,9,179,10">
+                    <const loc="e,179,4,179,9" name="2&apos;h2" dtype_id="8"/>
+                    <assign loc="e,179,19,179,20" dtype_id="8">
+                      <const loc="e,179,21,179,26" name="2&apos;h1" dtype_id="8"/>
+                      <varref loc="e,179,11,179,18" name="do_grey" dtype_id="8"/>
+                    </assign>
+                  </caseitem>
+                  <caseitem loc="e,180,9,180,10">
+                    <const loc="e,180,4,180,9" name="2&apos;h3" dtype_id="8"/>
+                    <assign loc="e,180,19,180,20" dtype_id="8">
+                      <const loc="e,180,21,180,26" name="2&apos;h0" dtype_id="8"/>
+                      <varref loc="e,180,11,180,18" name="do_grey" dtype_id="8"/>
+                    </assign>
+                  </caseitem>
+                </case>
+              </begin>
+            </begin>
+            <begin>
+              <begin loc="e,183,7,183,12">
+                <case loc="e,184,3,184,7">
+                  <sel loc="e,184,12,184,13" dtype_id="8">
+                    <varref loc="e,184,9,184,12" name="bin" dtype_id="4"/>
+                    <const loc="e,184,15,184,16" name="2&apos;h0" dtype_id="9"/>
+                    <const loc="e,184,13,184,14" name="32&apos;h2" dtype_id="10"/>
+                  </sel>
+                  <caseitem loc="e,185,9,185,10">
+                    <const loc="e,185,4,185,9" name="2&apos;h0" dtype_id="8"/>
+                    <assign loc="e,185,19,185,20" dtype_id="8">
+                      <const loc="e,185,21,185,26" name="2&apos;h0" dtype_id="8"/>
+                      <varref loc="e,185,11,185,18" name="do_grey" dtype_id="8"/>
+                    </assign>
+                  </caseitem>
+                  <caseitem loc="e,186,9,186,10">
+                    <const loc="e,186,4,186,9" name="2&apos;h1" dtype_id="8"/>
+                    <assign loc="e,186,19,186,20" dtype_id="8">
+                      <const loc="e,186,21,186,26" name="2&apos;h1" dtype_id="8"/>
+                      <varref loc="e,186,11,186,18" name="do_grey" dtype_id="8"/>
+                    </assign>
+                  </caseitem>
+                  <caseitem loc="e,187,9,187,10">
+                    <const loc="e,187,4,187,9" name="2&apos;h2" dtype_id="8"/>
+                    <assign loc="e,187,19,187,20" dtype_id="8">
+                      <const loc="e,187,21,187,26" name="2&apos;h3" dtype_id="8"/>
+                      <varref loc="e,187,11,187,18" name="do_grey" dtype_id="8"/>
+                    </assign>
+                  </caseitem>
+                  <caseitem loc="e,188,9,188,10">
+                    <const loc="e,188,4,188,9" name="2&apos;h3" dtype_id="8"/>
+                    <assign loc="e,188,19,188,20" dtype_id="8">
+                      <const loc="e,188,21,188,26" name="2&apos;h2" dtype_id="8"/>
+                      <varref loc="e,188,11,188,18" name="do_grey" dtype_id="8"/>
+                    </assign>
+                  </caseitem>
+                </case>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </func>
+      <func loc="e,193,16,193,22" name="do_bin" dtype_id="8">
+        <var loc="e,193,16,193,22" name="do_bin" dtype_id="8" dir="output" vartype="logic" origName="do_bin"/>
+        <var loc="e,194,13,194,17" name="grey" dtype_id="4" dir="input" vartype="logic" origName="grey"/>
+        <begin loc="e,195,1,195,6">
+          <if loc="e,196,2,196,4">
+            <sel loc="e,196,10,196,11" dtype_id="1">
+              <varref loc="e,196,6,196,10" name="grey" dtype_id="4"/>
+              <const loc="e,196,11,196,12" name="2&apos;h2" dtype_id="9"/>
+              <const loc="e,196,10,196,11" name="32&apos;h1" dtype_id="10"/>
+            </sel>
+            <begin>
+              <begin loc="e,196,15,196,20">
+                <case loc="e,197,3,197,7">
+                  <sel loc="e,197,13,197,14" dtype_id="8">
+                    <varref loc="e,197,9,197,13" name="grey" dtype_id="4"/>
+                    <const loc="e,197,16,197,17" name="2&apos;h0" dtype_id="9"/>
+                    <const loc="e,197,14,197,15" name="32&apos;h2" dtype_id="10"/>
+                  </sel>
+                  <caseitem loc="e,198,9,198,10">
+                    <const loc="e,198,4,198,9" name="2&apos;h2" dtype_id="8"/>
+                    <assign loc="e,198,18,198,19" dtype_id="8">
+                      <const loc="e,198,20,198,25" name="2&apos;h0" dtype_id="8"/>
+                      <varref loc="e,198,11,198,17" name="do_bin" dtype_id="8"/>
+                    </assign>
+                  </caseitem>
+                  <caseitem loc="e,199,9,199,10">
+                    <const loc="e,199,4,199,9" name="2&apos;h3" dtype_id="8"/>
+                    <assign loc="e,199,18,199,19" dtype_id="8">
+                      <const loc="e,199,20,199,25" name="2&apos;h1" dtype_id="8"/>
+                      <varref loc="e,199,11,199,17" name="do_bin" dtype_id="8"/>
+                    </assign>
+                  </caseitem>
+                  <caseitem loc="e,200,9,200,10">
+                    <const loc="e,200,4,200,9" name="2&apos;h1" dtype_id="8"/>
+                    <assign loc="e,200,18,200,19" dtype_id="8">
+                      <const loc="e,200,20,200,25" name="2&apos;h2" dtype_id="8"/>
+                      <varref loc="e,200,11,200,17" name="do_bin" dtype_id="8"/>
+                    </assign>
+                  </caseitem>
+                  <caseitem loc="e,201,9,201,10">
+                    <const loc="e,201,4,201,9" name="2&apos;h0" dtype_id="8"/>
+                    <assign loc="e,201,18,201,19" dtype_id="8">
+                      <const loc="e,201,20,201,25" name="2&apos;h3" dtype_id="8"/>
+                      <varref loc="e,201,11,201,17" name="do_bin" dtype_id="8"/>
+                    </assign>
+                  </caseitem>
+                </case>
+              </begin>
+            </begin>
+            <begin>
+              <begin loc="e,204,7,204,12">
+                <case loc="e,205,3,205,7">
+                  <sel loc="e,205,13,205,14" dtype_id="8">
+                    <varref loc="e,205,9,205,13" name="grey" dtype_id="4"/>
+                    <const loc="e,205,16,205,17" name="2&apos;h0" dtype_id="9"/>
+                    <const loc="e,205,14,205,15" name="32&apos;h2" dtype_id="10"/>
+                  </sel>
+                  <caseitem loc="e,206,9,206,10">
+                    <const loc="e,206,4,206,9" name="2&apos;h0" dtype_id="8"/>
+                    <assign loc="e,206,18,206,19" dtype_id="8">
+                      <const loc="e,206,20,206,25" name="2&apos;h0" dtype_id="8"/>
+                      <varref loc="e,206,11,206,17" name="do_bin" dtype_id="8"/>
+                    </assign>
+                  </caseitem>
+                  <caseitem loc="e,207,9,207,10">
+                    <const loc="e,207,4,207,9" name="2&apos;h1" dtype_id="8"/>
+                    <assign loc="e,207,18,207,19" dtype_id="8">
+                      <const loc="e,207,20,207,25" name="2&apos;h1" dtype_id="8"/>
+                      <varref loc="e,207,11,207,17" name="do_bin" dtype_id="8"/>
+                    </assign>
+                  </caseitem>
+                  <caseitem loc="e,208,9,208,10">
+                    <const loc="e,208,4,208,9" name="2&apos;h3" dtype_id="8"/>
+                    <assign loc="e,208,18,208,19" dtype_id="8">
+                      <const loc="e,208,20,208,25" name="2&apos;h2" dtype_id="8"/>
+                      <varref loc="e,208,11,208,17" name="do_bin" dtype_id="8"/>
+                    </assign>
+                  </caseitem>
+                  <caseitem loc="e,209,9,209,10">
+                    <const loc="e,209,4,209,9" name="2&apos;h2" dtype_id="8"/>
+                    <assign loc="e,209,18,209,19" dtype_id="8">
+                      <const loc="e,209,20,209,25" name="2&apos;h3" dtype_id="8"/>
+                      <varref loc="e,209,11,209,17" name="do_bin" dtype_id="8"/>
+                    </assign>
+                  </caseitem>
+                </case>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </func>
+      <func loc="e,214,17,214,24" name="get_cnt" dtype_id="4">
+        <var loc="e,214,17,214,24" name="get_cnt" dtype_id="4" dir="output" vartype="logic" origName="get_cnt"/>
+        <var loc="e,215,14,215,20" name="wr_ptr" dtype_id="4" dir="input" vartype="logic" origName="wr_ptr"/>
+        <var loc="e,215,22,215,28" name="rd_ptr" dtype_id="4" dir="input" vartype="logic" origName="rd_ptr"/>
+        <begin loc="e,216,1,216,6">
+          <if loc="e,217,2,217,4">
+            <gte loc="e,217,13,217,15" dtype_id="1">
+              <varref loc="e,217,6,217,12" name="wr_ptr" dtype_id="4"/>
+              <varref loc="e,217,16,217,22" name="rd_ptr" dtype_id="4"/>
+            </gte>
+            <begin>
+              <begin loc="e,217,24,217,29">
+                <assign loc="e,218,11,218,12" dtype_id="4">
+                  <sub loc="e,218,21,218,22" dtype_id="4">
+                    <varref loc="e,218,14,218,20" name="wr_ptr" dtype_id="4"/>
+                    <varref loc="e,218,23,218,29" name="rd_ptr" dtype_id="4"/>
+                  </sub>
+                  <varref loc="e,218,3,218,10" name="get_cnt" dtype_id="4"/>
+                </assign>
+              </begin>
+            </begin>
+            <begin>
+              <begin loc="e,220,7,220,12">
+                <assign loc="e,221,11,221,12" dtype_id="4">
+                  <negate loc="e,221,18,221,19" dtype_id="4">
+                    <sub loc="e,221,28,221,29" dtype_id="4">
+                      <varref loc="e,221,21,221,27" name="rd_ptr" dtype_id="4"/>
+                      <varref loc="e,221,30,221,36" name="wr_ptr" dtype_id="4"/>
+                    </sub>
+                  </negate>
+                  <varref loc="e,221,3,221,10" name="get_cnt" dtype_id="4"/>
+                </assign>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </func>
+      <always loc="e,225,1,225,7">
+        <sentree loc="e,225,8,225,9">
+          <senitem loc="e,225,10,225,17" edgeType="POS">
+            <varref loc="e,225,18,225,24" name="wr_clk" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,225,26,225,31">
+          <if loc="e,226,4,226,6">
+            <and loc="e,226,14,226,16" dtype_id="1">
+              <varref loc="e,226,8,226,13" name="wr_en" dtype_id="1"/>
+              <varref loc="e,226,17,226,21" name="full" dtype_id="1"/>
+            </and>
+            <begin>
+              <begin loc="e,226,23,226,28">
+                <display loc="e,227,7,227,15" displaytype="$display">
+                  <sformatf loc="e,227,7,227,15" name="%d%m Error! afifo overflow!" dtype_id="14">
+                    <time loc="e,227,16,227,21" dtype_id="15"/>
+                    <scopename loc="e,227,7,227,15" dtype_id="15"/>
+                  </sformatf>
+                </display>
+                <stop loc="e,228,7,228,12"/>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <always loc="e,231,1,231,7">
+        <sentree loc="e,231,8,231,9">
+          <senitem loc="e,231,10,231,17" edgeType="POS">
+            <varref loc="e,231,18,231,24" name="rd_clk" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,231,26,231,31">
+          <if loc="e,232,4,232,6">
+            <and loc="e,232,14,232,16" dtype_id="1">
+              <varref loc="e,232,8,232,13" name="rd_en" dtype_id="1"/>
+              <varref loc="e,232,17,232,22" name="empty" dtype_id="1"/>
+            </and>
+            <begin>
+              <begin loc="e,232,24,232,29">
+                <display loc="e,233,7,233,15" displaytype="$display">
+                  <sformatf loc="e,233,7,233,15" name="%d%m error! afifo underflow!" dtype_id="14">
+                    <time loc="e,233,16,233,21" dtype_id="15"/>
+                    <scopename loc="e,233,7,233,15" dtype_id="15"/>
+                  </sformatf>
+                </display>
+                <stop loc="e,234,7,234,12"/>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <contassign loc="e,71,18,71,19" dtype_id="1">
+        <eq loc="e,50,29,50,31" dtype_id="1">
+          <const loc="e,50,32,50,39" name="3&apos;h4" dtype_id="4"/>
+          <varref loc="e,49,16,49,22" name="wr_cnt" dtype_id="4"/>
+        </eq>
+        <varref loc="e,71,18,71,19" name="full" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,72,18,72,19" dtype_id="1">
+        <eq loc="e,51,29,51,31" dtype_id="1">
+          <const loc="e,51,39,51,40" name="3&apos;h3" dtype_id="4"/>
+          <varref loc="e,49,16,49,22" name="wr_cnt" dtype_id="4"/>
+        </eq>
+        <varref loc="e,72,18,72,19" name="afull" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,123,19,123,20" dtype_id="1">
+        <eq loc="e,100,30,100,32" dtype_id="1">
+          <const loc="e,100,33,100,34" name="3&apos;h0" dtype_id="4"/>
+          <varref loc="e,99,16,99,22" name="rd_cnt" dtype_id="4"/>
+        </eq>
+        <varref loc="e,123,19,123,20" name="empty" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,124,19,124,20" dtype_id="1">
+        <eq loc="e,101,30,101,32" dtype_id="1">
+          <const loc="e,101,33,101,34" name="3&apos;h1" dtype_id="4"/>
+          <varref loc="e,99,16,99,22" name="rd_cnt" dtype_id="4"/>
+        </eq>
+        <varref loc="e,124,19,124,20" name="aempty" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,130,20,130,21" dtype_id="2">
+        <arraysel loc="e,126,34,126,35" dtype_id="2">
+          <varref loc="e,40,21,40,24" name="mem" dtype_id="7"/>
+          <sel loc="e,126,41,126,42" dtype_id="8">
+            <varref loc="e,93,15,93,21" name="rd_ptr" dtype_id="4"/>
+            <const loc="e,126,41,126,42" name="32&apos;h0" dtype_id="10"/>
+            <const loc="e,126,41,126,42" name="32&apos;h2" dtype_id="10"/>
+          </sel>
+        </arraysel>
+        <varref loc="e,130,20,130,21" name="rd_data" dtype_id="2"/>
+      </contassign>
+      <contassign loc="e,97,27,97,28" dtype_id="4">
+        <add loc="e,97,36,97,37" dtype_id="4">
+          <const loc="e,97,38,97,42" name="3&apos;h1" dtype_id="4"/>
+          <varref loc="e,93,15,93,21" name="rd_ptr" dtype_id="4"/>
+        </add>
+        <varref loc="e,97,27,97,28" name="rd_ptr_inc" dtype_id="4"/>
+      </contassign>
+      <contassign loc="e,126,29,126,30" dtype_id="2">
+        <arraysel loc="e,126,34,126,35" dtype_id="2">
+          <varref loc="e,40,21,40,24" name="mem" dtype_id="7"/>
+          <sel loc="e,126,41,126,42" dtype_id="8">
+            <varref loc="e,93,15,93,21" name="rd_ptr" dtype_id="4"/>
+            <const loc="e,126,41,126,42" name="32&apos;h0" dtype_id="10"/>
+            <const loc="e,126,41,126,42" name="32&apos;h2" dtype_id="10"/>
+          </sel>
+        </arraysel>
+        <varref loc="e,126,29,126,30" name="rd_data_c" dtype_id="2"/>
+      </contassign>
+      <contassign loc="e,48,27,48,28" dtype_id="4">
+        <add loc="e,48,36,48,37" dtype_id="4">
+          <const loc="e,48,38,48,42" name="3&apos;h1" dtype_id="4"/>
+          <varref loc="e,43,15,43,21" name="wr_ptr" dtype_id="4"/>
+        </add>
+        <varref loc="e,48,27,48,28" name="wr_ptr_inc" dtype_id="4"/>
+      </contassign>
+    </module>
+    <typetable loc="a,0,0,0,0">
+      <basicdtype loc="d,46,25,46,27" id="1" name="logic"/>
+      <voiddtype loc="d,48,18,48,27" id="16"/>
+      <basicdtype loc="d,165,10,165,16" id="14" name="string"/>
+      <basicdtype loc="e,15,18,15,22" id="3" name="logic" left="3" right="0"/>
+      <basicdtype loc="e,16,19,16,23" id="4" name="logic" left="2" right="0"/>
+      <basicdtype loc="e,177,4,177,9" id="8" name="logic" left="1" right="0"/>
+      <basicdtype loc="e,227,16,227,21" id="15" name="QData" left="63" right="0"/>
+      <basicdtype loc="e,17,14,17,21" id="5" name="logic" left="0" right="0"/>
+      <basicdtype loc="e,21,23,21,25" id="10" name="logic" left="31" right="0"/>
+      <basicdtype loc="e,30,10,30,11" id="2" name="logic" left="7" right="0"/>
+      <unpackarraydtype loc="e,40,24,40,25" id="7" sub_dtype_id="2">
+        <range loc="e,40,24,40,25">
+          <const loc="e,40,27,40,28" name="32&apos;h3" dtype_id="10"/>
+          <const loc="e,40,32,40,33" name="32&apos;sh0" dtype_id="6"/>
+        </range>
+      </unpackarraydtype>
+      <basicdtype loc="e,146,1,146,4" id="12" name="logic" left="8" right="0"/>
+      <basicdtype loc="e,150,8,150,9" id="13" name="logic" left="3" right="0" signed="true"/>
+      <basicdtype loc="e,176,12,176,13" id="9" name="logic" left="1" right="0" signed="true"/>
+      <basicdtype loc="e,79,12,79,13" id="11" name="logic" left="63" right="0"/>
+      <basicdtype loc="e,22,19,22,20" id="6" name="logic" left="31" right="0" signed="true"/>
+    </typetable>
+  </netlist>
+</verilator_xml>

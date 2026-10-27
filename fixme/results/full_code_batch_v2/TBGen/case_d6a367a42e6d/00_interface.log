@@ -1,0 +1,21 @@
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_d6a367a42e6d/hpdmc_ctlif.v:108:19: Operator ASSIGNDLY expects 32 bits on the Assign RHS, but Assign RHS's REPLICATE generates 3 bits.
+                                                                                                                                : ... note: In instance 'hpdmc_ctlif'
+  108 |     2'b00: csr_do <= {sdram_cke, sdram_rst, bypass};
+      |                   ^~
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.032
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_d6a367a42e6d/hpdmc_ctlif.v:109:19: Operator ASSIGNDLY expects 32 bits on the Assign RHS, but Assign RHS's REPLICATE generates 19 bits.
+                                                                                                                                : ... note: In instance 'hpdmc_ctlif'
+  109 |     2'b01: csr_do <= {sdram_ba, sdram_adr, 4'h0};
+      |                   ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_d6a367a42e6d/hpdmc_ctlif.v:110:19: Operator ASSIGNDLY expects 32 bits on the Assign RHS, but Assign RHS's REPLICATE generates 24 bits.
+                                                                                                                                : ... note: In instance 'hpdmc_ctlif'
+  110 |     2'b10: csr_do <= {tim_wr, tim_rfc, tim_refi, tim_cas, tim_rcd, tim_rp};
+      |                   ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_d6a367a42e6d/hpdmc_ctlif.v:111:19: Operator ASSIGNDLY expects 32 bits on the Assign RHS, but Assign RHS's REPLICATE generates 8 bits.
+                                                                                                                                : ... note: In instance 'hpdmc_ctlif'
+  111 |     2'b11: csr_do <= {pll_stat2, psready, 5'd0};
+      |                   ^~
+- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev (Debian 5.032-1+b2)
+- Verilator: Built from 0.029 MB sources in 2 modules, into 0.000 MB in 0 C++ files needing 0.000 MB
+- Verilator: Walltime 0.005 s (elab=0.001, cvt=0.000, bld=0.000); cpu 0.003 s on 1 threads; alloced 8.871 MB

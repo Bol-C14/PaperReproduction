@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<!-- DESCRIPTION: Verilator output: XML representation of netlist -->
+<verilator_xml>
+  <files>
+    <file id="d" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std.sv" language="1800-2023"/>
+    <file id="c" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std_waiver.vlt" language="1800-2023"/>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_5e2b8bcd3c59/R_GATE.v" language="1800-2023"/>
+    <file id="a" filename="&lt;built-in&gt;" language="1800-2023"/>
+    <file id="b" filename="&lt;command-line&gt;" language="1800-2023"/>
+  </files>
+  <module_files>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_5e2b8bcd3c59/R_GATE.v" language="1800-2023"/>
+  </module_files>
+  <cells>
+    <cell loc="e,3,8,3,14" name="R_GATE" submodname="R_GATE" hier="R_GATE"/>
+  </cells>
+  <netlist>
+    <module loc="e,3,8,3,14" name="R_GATE" origName="R_GATE" topModule="1">
+      <var loc="e,4,8,4,11" name="INA" dtype_id="1" dir="input" pinIndex="1" vartype="logic" origName="INA"/>
+      <var loc="e,5,8,5,11" name="INB" dtype_id="1" dir="input" pinIndex="2" vartype="logic" origName="INB"/>
+      <var loc="e,6,8,6,11" name="INC" dtype_id="1" dir="input" pinIndex="3" vartype="logic" origName="INC"/>
+      <var loc="e,7,8,7,13" name="PPBIT" dtype_id="1" dir="output" pinIndex="4" vartype="logic" origName="PPBIT"/>
+      <contassign loc="e,8,17,8,18" dtype_id="1">
+        <and loc="e,8,36,8,37" dtype_id="1">
+          <not loc="e,8,21,8,22" dtype_id="1">
+            <and loc="e,8,28,8,29" dtype_id="1">
+              <varref loc="e,4,8,4,11" name="INA" dtype_id="1"/>
+              <varref loc="e,5,8,5,11" name="INB" dtype_id="1"/>
+            </and>
+          </not>
+          <varref loc="e,6,8,6,11" name="INC" dtype_id="1"/>
+        </and>
+        <varref loc="e,8,17,8,18" name="PPBIT" dtype_id="1"/>
+      </contassign>
+    </module>
+    <typetable loc="a,0,0,0,0">
+      <basicdtype loc="d,46,25,46,27" id="1" name="logic"/>
+      <voiddtype loc="d,48,18,48,27" id="2"/>
+    </typetable>
+  </netlist>
+</verilator_xml>

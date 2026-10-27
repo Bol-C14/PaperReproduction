@@ -1,0 +1,39 @@
+{
+  "id": "SVAGen/L2/Text/13",
+  "subset": "SVAGen",
+  "input_files": [
+    {
+      "name": "M65C02_MPCv3.v",
+      "bytes": 3312,
+      "sha256": "0451508245bc8b4255f226426cb2c700dd4ebc9e7130b9d160ddc32305030458"
+    },
+    {
+      "name": "M65C02_MPCv3_spec.txt",
+      "bytes": 8519,
+      "sha256": "160fa30a574fe586e4517c8e5938c2c05fc09fca9e3711f9667d4135dd5c3ab8"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": true,
+  "negative_control_detected": true,
+  "commands": 4,
+  "status": "pass",
+  "assignment_target_width": 2,
+  "assertion": "always @* assert((Via) == 2'({((I == pBRV2) | (I == pBRV3)), ((I == pBRV3) | (I == pBRV1))}));",
+  "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+  "relation_lhs": "Via",
+  "property_counts": {
+    "assert": 1,
+    "assume": 0,
+    "cover": 0
+  },
+  "constant_mutation_status": "completed",
+  "constant_mutation_killed": false,
+  "negative_status": "fail",
+  "constant_control_status": "unknown",
+  "reason": "nonzero properties proven and selected output mutant falsified",
+  "seconds": 0.247
+}

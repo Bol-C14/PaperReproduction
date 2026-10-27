@@ -1,0 +1,417 @@
+<?xml version="1.0" ?>
+<!-- DESCRIPTION: Verilator output: XML representation of netlist -->
+<verilator_xml>
+  <files>
+    <file id="d" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std.sv" language="1800-2023"/>
+    <file id="c" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std_waiver.vlt" language="1800-2023"/>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_b4ed0200724a/flow_ctrl.v" language="1800-2023"/>
+    <file id="a" filename="&lt;built-in&gt;" language="1800-2023"/>
+    <file id="b" filename="&lt;command-line&gt;" language="1800-2023"/>
+  </files>
+  <module_files>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_b4ed0200724a/flow_ctrl.v" language="1800-2023"/>
+  </module_files>
+  <cells>
+    <cell loc="e,3,8,3,17" name="flow_ctrl" submodname="flow_ctrl" hier="flow_ctrl"/>
+  </cells>
+  <netlist>
+    <module loc="e,3,8,3,17" name="flow_ctrl" origName="flow_ctrl" topModule="1">
+      <var loc="e,19,17,19,22" name="Reset" dtype_id="1" dir="input" pinIndex="1" vartype="logic" origName="Reset"/>
+      <var loc="e,20,17,20,20" name="Clk" dtype_id="1" dir="input" pinIndex="2" vartype="logic" origName="Clk"/>
+      <var loc="e,21,17,21,28" name="tx_pause_en" dtype_id="1" dir="input" pinIndex="3" vartype="logic" origName="tx_pause_en"/>
+      <var loc="e,22,17,22,25" name="xoff_cpu" dtype_id="1" dir="input" pinIndex="4" vartype="logic" origName="xoff_cpu"/>
+      <var loc="e,23,17,23,24" name="xon_cpu" dtype_id="1" dir="input" pinIndex="5" vartype="logic" origName="xon_cpu"/>
+      <var loc="e,24,17,24,29" name="pause_quanta" dtype_id="2" dir="input" pinIndex="6" vartype="logic" origName="pause_quanta"/>
+      <var loc="e,25,17,25,33" name="pause_quanta_val" dtype_id="1" dir="input" pinIndex="7" vartype="logic" origName="pause_quanta_val"/>
+      <var loc="e,26,17,26,28" name="pause_apply" dtype_id="1" dir="output" pinIndex="8" vartype="logic" origName="pause_apply"/>
+      <var loc="e,27,17,27,33" name="pause_quanta_sub" dtype_id="1" dir="input" pinIndex="9" vartype="logic" origName="pause_quanta_sub"/>
+      <var loc="e,28,17,28,25" name="xoff_gen" dtype_id="1" dir="output" pinIndex="10" vartype="logic" origName="xoff_gen"/>
+      <var loc="e,29,17,29,34" name="xoff_gen_complete" dtype_id="1" dir="input" pinIndex="11" vartype="logic" origName="xoff_gen_complete"/>
+      <var loc="e,30,17,30,24" name="xon_gen" dtype_id="1" dir="output" pinIndex="12" vartype="logic" origName="xon_gen"/>
+      <var loc="e,31,17,31,33" name="xon_gen_complete" dtype_id="1" dir="input" pinIndex="13" vartype="logic" origName="xon_gen_complete"/>
+      <var loc="e,32,17,32,29" name="xoff_cpu_dl1" dtype_id="1" vartype="logic" origName="xoff_cpu_dl1"/>
+      <var loc="e,33,17,33,29" name="xoff_cpu_dl2" dtype_id="1" vartype="logic" origName="xoff_cpu_dl2"/>
+      <var loc="e,34,17,34,28" name="xon_cpu_dl1" dtype_id="1" vartype="logic" origName="xon_cpu_dl1"/>
+      <var loc="e,35,17,35,28" name="xon_cpu_dl2" dtype_id="1" vartype="logic" origName="xon_cpu_dl2"/>
+      <var loc="e,36,17,36,33" name="pause_quanta_dl1" dtype_id="2" vartype="logic" origName="pause_quanta_dl1"/>
+      <var loc="e,37,17,37,37" name="pause_quanta_val_dl1" dtype_id="1" vartype="logic" origName="pause_quanta_val_dl1"/>
+      <var loc="e,38,17,38,37" name="pause_quanta_val_dl2" dtype_id="1" vartype="logic" origName="pause_quanta_val_dl2"/>
+      <var loc="e,42,17,42,37" name="pause_quanta_counter" dtype_id="2" vartype="logic" origName="pause_quanta_counter"/>
+      <var loc="e,43,17,43,32" name="tx_pause_en_dl1" dtype_id="1" vartype="logic" origName="tx_pause_en_dl1"/>
+      <var loc="e,44,17,44,32" name="tx_pause_en_dl2" dtype_id="1" vartype="logic" origName="tx_pause_en_dl2"/>
+      <always loc="e,45,1,45,7">
+        <sentree loc="e,45,8,45,9">
+          <senitem loc="e,45,11,45,18" edgeType="POS">
+            <varref loc="e,45,19,45,22" name="Clk" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,45,26,45,33" edgeType="POS">
+            <varref loc="e,45,34,45,39" name="Reset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <if loc="e,46,5,46,7">
+          <varref loc="e,46,9,46,14" name="Reset" dtype_id="1"/>
+          <begin>
+            <begin loc="e,47,9,47,14">
+              <assigndly loc="e,48,29,48,31" dtype_id="1">
+                <const loc="e,48,31,48,32" name="1&apos;h0" dtype_id="1"/>
+                <varref loc="e,48,9,48,21" name="xoff_cpu_dl1" dtype_id="1"/>
+              </assigndly>
+              <assigndly loc="e,49,29,49,31" dtype_id="1">
+                <const loc="e,49,31,49,32" name="1&apos;h0" dtype_id="1"/>
+                <varref loc="e,49,9,49,21" name="xoff_cpu_dl2" dtype_id="1"/>
+              </assigndly>
+            </begin>
+          </begin>
+          <begin>
+            <begin loc="e,52,9,52,14">
+              <assigndly loc="e,53,29,53,31" dtype_id="1">
+                <varref loc="e,53,31,53,39" name="xoff_cpu" dtype_id="1"/>
+                <varref loc="e,53,9,53,21" name="xoff_cpu_dl1" dtype_id="1"/>
+              </assigndly>
+              <assigndly loc="e,54,29,54,31" dtype_id="1">
+                <varref loc="e,54,31,54,43" name="xoff_cpu_dl1" dtype_id="1"/>
+                <varref loc="e,54,9,54,21" name="xoff_cpu_dl2" dtype_id="1"/>
+              </assigndly>
+            </begin>
+          </begin>
+        </if>
+      </always>
+      <always loc="e,56,1,56,7">
+        <sentree loc="e,56,8,56,9">
+          <senitem loc="e,56,11,56,18" edgeType="POS">
+            <varref loc="e,56,19,56,22" name="Clk" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,56,26,56,33" edgeType="POS">
+            <varref loc="e,56,34,56,39" name="Reset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <if loc="e,57,5,57,7">
+          <varref loc="e,57,9,57,14" name="Reset" dtype_id="1"/>
+          <begin>
+            <begin loc="e,58,9,58,14">
+              <assigndly loc="e,59,25,59,27" dtype_id="1">
+                <const loc="e,59,27,59,28" name="1&apos;h0" dtype_id="1"/>
+                <varref loc="e,59,9,59,20" name="xon_cpu_dl1" dtype_id="1"/>
+              </assigndly>
+              <assigndly loc="e,60,25,60,27" dtype_id="1">
+                <const loc="e,60,27,60,28" name="1&apos;h0" dtype_id="1"/>
+                <varref loc="e,60,9,60,20" name="xon_cpu_dl2" dtype_id="1"/>
+              </assigndly>
+            </begin>
+          </begin>
+          <begin>
+            <begin loc="e,63,9,63,14">
+              <assigndly loc="e,64,25,64,27" dtype_id="1">
+                <varref loc="e,64,27,64,34" name="xon_cpu" dtype_id="1"/>
+                <varref loc="e,64,9,64,20" name="xon_cpu_dl1" dtype_id="1"/>
+              </assigndly>
+              <assigndly loc="e,65,25,65,27" dtype_id="1">
+                <varref loc="e,65,27,65,38" name="xon_cpu_dl1" dtype_id="1"/>
+                <varref loc="e,65,9,65,20" name="xon_cpu_dl2" dtype_id="1"/>
+              </assigndly>
+            </begin>
+          </begin>
+        </if>
+      </always>
+      <always loc="e,67,1,67,7">
+        <sentree loc="e,67,8,67,9">
+          <senitem loc="e,67,11,67,18" edgeType="POS">
+            <varref loc="e,67,19,67,22" name="Clk" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,67,26,67,33" edgeType="POS">
+            <varref loc="e,67,34,67,39" name="Reset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <if loc="e,68,5,68,7">
+          <varref loc="e,68,9,68,14" name="Reset" dtype_id="1"/>
+          <begin>
+            <begin loc="e,69,9,69,14">
+              <assigndly loc="e,70,33,70,35" dtype_id="2">
+                <const loc="e,70,35,70,36" name="16&apos;h0" dtype_id="2"/>
+                <varref loc="e,70,9,70,25" name="pause_quanta_dl1" dtype_id="2"/>
+              </assigndly>
+            </begin>
+          </begin>
+          <begin>
+            <begin loc="e,73,9,73,14">
+              <assigndly loc="e,74,33,74,35" dtype_id="2">
+                <varref loc="e,74,35,74,47" name="pause_quanta" dtype_id="2"/>
+                <varref loc="e,74,9,74,25" name="pause_quanta_dl1" dtype_id="2"/>
+              </assigndly>
+            </begin>
+          </begin>
+        </if>
+      </always>
+      <always loc="e,76,1,76,7">
+        <sentree loc="e,76,8,76,9">
+          <senitem loc="e,76,11,76,18" edgeType="POS">
+            <varref loc="e,76,19,76,22" name="Clk" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,76,26,76,33" edgeType="POS">
+            <varref loc="e,76,34,76,39" name="Reset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <if loc="e,77,5,77,7">
+          <varref loc="e,77,9,77,14" name="Reset" dtype_id="1"/>
+          <begin>
+            <begin loc="e,78,9,78,14">
+              <assigndly loc="e,79,33,79,35" dtype_id="1">
+                <const loc="e,79,35,79,36" name="1&apos;h0" dtype_id="1"/>
+                <varref loc="e,79,9,79,29" name="pause_quanta_val_dl1" dtype_id="1"/>
+              </assigndly>
+              <assigndly loc="e,80,33,80,35" dtype_id="1">
+                <const loc="e,80,35,80,36" name="1&apos;h0" dtype_id="1"/>
+                <varref loc="e,80,9,80,29" name="pause_quanta_val_dl2" dtype_id="1"/>
+              </assigndly>
+            </begin>
+          </begin>
+          <begin>
+            <begin loc="e,83,9,83,14">
+              <assigndly loc="e,84,33,84,35" dtype_id="1">
+                <varref loc="e,84,35,84,51" name="pause_quanta_val" dtype_id="1"/>
+                <varref loc="e,84,9,84,29" name="pause_quanta_val_dl1" dtype_id="1"/>
+              </assigndly>
+              <assigndly loc="e,85,33,85,35" dtype_id="1">
+                <varref loc="e,85,35,85,55" name="pause_quanta_val_dl1" dtype_id="1"/>
+                <varref loc="e,85,9,85,29" name="pause_quanta_val_dl2" dtype_id="1"/>
+              </assigndly>
+            </begin>
+          </begin>
+        </if>
+      </always>
+      <always loc="e,87,1,87,7">
+        <sentree loc="e,87,8,87,9">
+          <senitem loc="e,87,11,87,18" edgeType="POS">
+            <varref loc="e,87,19,87,22" name="Clk" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,87,26,87,33" edgeType="POS">
+            <varref loc="e,87,34,87,39" name="Reset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <if loc="e,88,5,88,7">
+          <varref loc="e,88,9,88,14" name="Reset" dtype_id="1"/>
+          <begin>
+            <begin loc="e,89,9,89,14">
+              <assigndly loc="e,90,29,90,31" dtype_id="1">
+                <const loc="e,90,31,90,32" name="1&apos;h0" dtype_id="1"/>
+                <varref loc="e,90,9,90,24" name="tx_pause_en_dl1" dtype_id="1"/>
+              </assigndly>
+              <assigndly loc="e,91,29,91,31" dtype_id="1">
+                <const loc="e,91,31,91,32" name="1&apos;h0" dtype_id="1"/>
+                <varref loc="e,91,9,91,24" name="tx_pause_en_dl2" dtype_id="1"/>
+              </assigndly>
+            </begin>
+          </begin>
+          <begin>
+            <begin loc="e,94,9,94,14">
+              <assigndly loc="e,95,29,95,31" dtype_id="1">
+                <varref loc="e,95,31,95,42" name="tx_pause_en" dtype_id="1"/>
+                <varref loc="e,95,9,95,24" name="tx_pause_en_dl1" dtype_id="1"/>
+              </assigndly>
+              <assigndly loc="e,96,29,96,31" dtype_id="1">
+                <varref loc="e,96,31,96,46" name="tx_pause_en_dl1" dtype_id="1"/>
+                <varref loc="e,96,9,96,24" name="tx_pause_en_dl2" dtype_id="1"/>
+              </assigndly>
+            </begin>
+          </begin>
+        </if>
+      </always>
+      <always loc="e,98,1,98,7">
+        <sentree loc="e,98,8,98,9">
+          <senitem loc="e,98,11,98,18" edgeType="POS">
+            <varref loc="e,98,19,98,22" name="Clk" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,98,26,98,33" edgeType="POS">
+            <varref loc="e,98,34,98,39" name="Reset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <if loc="e,99,5,99,7">
+          <varref loc="e,99,9,99,14" name="Reset" dtype_id="1"/>
+          <begin>
+            <assigndly loc="e,100,25,100,27" dtype_id="1">
+              <const loc="e,100,27,100,28" name="1&apos;h0" dtype_id="1"/>
+              <varref loc="e,100,9,100,17" name="xoff_gen" dtype_id="1"/>
+            </assigndly>
+          </begin>
+          <begin>
+            <if loc="e,101,10,101,12">
+              <varref loc="e,101,14,101,31" name="xoff_gen_complete" dtype_id="1"/>
+              <begin>
+                <assigndly loc="e,102,25,102,27" dtype_id="1">
+                  <const loc="e,102,27,102,28" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,102,9,102,17" name="xoff_gen" dtype_id="1"/>
+                </assigndly>
+              </begin>
+              <begin>
+                <if loc="e,103,10,103,12">
+                  <and loc="e,103,26,103,28" dtype_id="1">
+                    <varref loc="e,103,14,103,26" name="xoff_cpu_dl1" dtype_id="1"/>
+                    <not loc="e,103,28,103,29" dtype_id="1">
+                      <varref loc="e,103,29,103,41" name="xoff_cpu_dl2" dtype_id="1"/>
+                    </not>
+                  </and>
+                  <begin>
+                    <assigndly loc="e,104,25,104,27" dtype_id="1">
+                      <const loc="e,104,27,104,28" name="1&apos;h1" dtype_id="1"/>
+                      <varref loc="e,104,9,104,17" name="xoff_gen" dtype_id="1"/>
+                    </assigndly>
+                  </begin>
+                </if>
+              </begin>
+            </if>
+          </begin>
+        </if>
+      </always>
+      <always loc="e,105,1,105,7">
+        <sentree loc="e,105,8,105,9">
+          <senitem loc="e,105,11,105,18" edgeType="POS">
+            <varref loc="e,105,19,105,22" name="Clk" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,105,26,105,33" edgeType="POS">
+            <varref loc="e,105,34,105,39" name="Reset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <if loc="e,106,5,106,7">
+          <varref loc="e,106,9,106,14" name="Reset" dtype_id="1"/>
+          <begin>
+            <assigndly loc="e,107,21,107,23" dtype_id="1">
+              <const loc="e,107,23,107,24" name="1&apos;h0" dtype_id="1"/>
+              <varref loc="e,107,9,107,16" name="xon_gen" dtype_id="1"/>
+            </assigndly>
+          </begin>
+          <begin>
+            <if loc="e,108,10,108,12">
+              <varref loc="e,108,14,108,30" name="xon_gen_complete" dtype_id="1"/>
+              <begin>
+                <assigndly loc="e,109,21,109,23" dtype_id="1">
+                  <const loc="e,109,23,109,24" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,109,9,109,16" name="xon_gen" dtype_id="1"/>
+                </assigndly>
+              </begin>
+              <begin>
+                <if loc="e,110,10,110,12">
+                  <and loc="e,110,25,110,27" dtype_id="1">
+                    <varref loc="e,110,14,110,25" name="xon_cpu_dl1" dtype_id="1"/>
+                    <not loc="e,110,27,110,28" dtype_id="1">
+                      <varref loc="e,110,28,110,39" name="xon_cpu_dl2" dtype_id="1"/>
+                    </not>
+                  </and>
+                  <begin>
+                    <assigndly loc="e,111,21,111,23" dtype_id="1">
+                      <const loc="e,111,23,111,24" name="1&apos;h1" dtype_id="1"/>
+                      <varref loc="e,111,9,111,16" name="xon_gen" dtype_id="1"/>
+                    </assigndly>
+                  </begin>
+                </if>
+              </begin>
+            </if>
+          </begin>
+        </if>
+      </always>
+      <always loc="e,112,1,112,7">
+        <sentree loc="e,112,8,112,9">
+          <senitem loc="e,112,11,112,18" edgeType="POS">
+            <varref loc="e,112,19,112,22" name="Clk" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,112,26,112,33" edgeType="POS">
+            <varref loc="e,112,34,112,39" name="Reset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <if loc="e,113,5,113,7">
+          <varref loc="e,113,9,113,14" name="Reset" dtype_id="1"/>
+          <begin>
+            <assigndly loc="e,114,33,114,35" dtype_id="2">
+              <const loc="e,114,35,114,36" name="16&apos;h0" dtype_id="2"/>
+              <varref loc="e,114,9,114,29" name="pause_quanta_counter" dtype_id="2"/>
+            </assigndly>
+          </begin>
+          <begin>
+            <if loc="e,115,10,115,12">
+              <and loc="e,115,33,115,35" dtype_id="1">
+                <varref loc="e,115,13,115,33" name="pause_quanta_val_dl1" dtype_id="1"/>
+                <not loc="e,115,35,115,36" dtype_id="1">
+                  <varref loc="e,115,36,115,56" name="pause_quanta_val_dl2" dtype_id="1"/>
+                </not>
+              </and>
+              <begin>
+                <assigndly loc="e,116,33,116,35" dtype_id="2">
+                  <varref loc="e,116,35,116,51" name="pause_quanta_dl1" dtype_id="2"/>
+                  <varref loc="e,116,9,116,29" name="pause_quanta_counter" dtype_id="2"/>
+                </assigndly>
+              </begin>
+              <begin>
+                <if loc="e,117,10,117,12">
+                  <and loc="e,117,29,117,31" dtype_id="1">
+                    <varref loc="e,117,13,117,29" name="pause_quanta_sub" dtype_id="1"/>
+                    <neq loc="e,117,51,117,53" dtype_id="1">
+                      <const loc="e,117,53,117,54" name="16&apos;h0" dtype_id="2"/>
+                      <varref loc="e,117,31,117,51" name="pause_quanta_counter" dtype_id="2"/>
+                    </neq>
+                  </and>
+                  <begin>
+                    <assigndly loc="e,118,33,118,35" dtype_id="2">
+                      <sub loc="e,118,55,118,56" dtype_id="2">
+                        <varref loc="e,118,35,118,55" name="pause_quanta_counter" dtype_id="2"/>
+                        <const loc="e,118,55,118,56" name="16&apos;h1" dtype_id="2"/>
+                      </sub>
+                      <varref loc="e,118,9,118,29" name="pause_quanta_counter" dtype_id="2"/>
+                    </assigndly>
+                  </begin>
+                </if>
+              </begin>
+            </if>
+          </begin>
+        </if>
+      </always>
+      <always loc="e,119,1,119,7">
+        <sentree loc="e,119,8,119,9">
+          <senitem loc="e,119,11,119,18" edgeType="POS">
+            <varref loc="e,119,19,119,22" name="Clk" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,119,26,119,33" edgeType="POS">
+            <varref loc="e,119,34,119,39" name="Reset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <if loc="e,120,5,120,7">
+          <varref loc="e,120,9,120,14" name="Reset" dtype_id="1"/>
+          <begin>
+            <assigndly loc="e,121,25,121,27" dtype_id="1">
+              <const loc="e,121,27,121,28" name="1&apos;h0" dtype_id="1"/>
+              <varref loc="e,121,9,121,20" name="pause_apply" dtype_id="1"/>
+            </assigndly>
+          </begin>
+          <begin>
+            <if loc="e,122,10,122,12">
+              <eq loc="e,122,33,122,35" dtype_id="1">
+                <const loc="e,122,35,122,36" name="16&apos;h0" dtype_id="2"/>
+                <varref loc="e,122,13,122,33" name="pause_quanta_counter" dtype_id="2"/>
+              </eq>
+              <begin>
+                <assigndly loc="e,123,25,123,27" dtype_id="1">
+                  <const loc="e,123,27,123,28" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,123,9,123,20" name="pause_apply" dtype_id="1"/>
+                </assigndly>
+              </begin>
+              <begin>
+                <if loc="e,124,10,124,12">
+                  <varref loc="e,124,14,124,29" name="tx_pause_en_dl2" dtype_id="1"/>
+                  <begin>
+                    <assigndly loc="e,125,25,125,27" dtype_id="1">
+                      <const loc="e,125,27,125,28" name="1&apos;h1" dtype_id="1"/>
+                      <varref loc="e,125,9,125,20" name="pause_apply" dtype_id="1"/>
+                    </assigndly>
+                  </begin>
+                </if>
+              </begin>
+            </if>
+          </begin>
+        </if>
+      </always>
+    </module>
+    <typetable loc="a,0,0,0,0">
+      <basicdtype loc="d,46,25,46,27" id="1" name="logic"/>
+      <voiddtype loc="d,48,18,48,27" id="3"/>
+      <basicdtype loc="e,24,9,24,10" id="2" name="logic" left="15" right="0"/>
+    </typetable>
+  </netlist>
+</verilator_xml>

@@ -1,0 +1,261 @@
+
+-- Running command `read_verilog -formal -sv constant_control.sv; hierarchy -top PIC_8259; prep -top PIC_8259; flatten; async2sync; dffunmap; memory_map; opt_clean; chformal -lower; write_json constant_control.json; sat -seq 2 -timeout 5 -prove-asserts -verify -show-inputs -show-outputs' --
+
+1. Executing Verilog-2005 frontend: constant_control.sv
+Parsing formal SystemVerilog input from `constant_control.sv' to AST representation.
+Generating RTLIL representation for module `\PIC_8259'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \PIC_8259
+
+2.2. Analyzing design hierarchy..
+Top module:  \PIC_8259
+Removed 0 unused modules.
+Module PIC_8259 directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \PIC_8259
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \PIC_8259
+Removed 0 unused modules.
+Module PIC_8259 directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 4 switch rules as full_case in process $proc$constant_control.sv:21$3 in module PIC_8259.
+Removed a total of 0 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 8 assignments to connections.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\PIC_8259.$proc$constant_control.sv:18$19'.
+  Set init value: \IRR = 4'0000
+Found init rule in `\PIC_8259.$proc$constant_control.sv:17$18'.
+  Set init value: \IMR = 4'1111
+Found init rule in `\PIC_8259.$proc$constant_control.sv:16$17'.
+  Set init value: \s_I = 4'0000
+Found init rule in `\PIC_8259.$proc$constant_control.sv:15$16'.
+  Set init value: \ss_I = 4'0000
+Found init rule in `\PIC_8259.$proc$constant_control.sv:0$15'.
+  Set init value: \INT = 1'0
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~7 debug messages>
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\PIC_8259.$proc$constant_control.sv:18$19'.
+Creating decoders for process `\PIC_8259.$proc$constant_control.sv:17$18'.
+Creating decoders for process `\PIC_8259.$proc$constant_control.sv:16$17'.
+Creating decoders for process `\PIC_8259.$proc$constant_control.sv:15$16'.
+Creating decoders for process `\PIC_8259.$proc$constant_control.sv:0$15'.
+Creating decoders for process `\PIC_8259.$proc$constant_control.sv:46$11'.
+Creating decoders for process `\PIC_8259.$proc$constant_control.sv:21$3'.
+     1/7: $0\IRR[3:0] [3]
+     2/7: $0\IRR[3:0] [2]
+     3/7: $0\IRR[3:0] [1]
+     4/7: $0\IRR[3:0] [0]
+     5/7: $0\IMR[3:0]
+     6/7: $0\INT[0:0]
+     7/7: $0\ivect[7:0]
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\PIC_8259.\ivect' using process `\PIC_8259.$proc$constant_control.sv:21$3'.
+  created $dff cell `$procdff$93' with positive edge clock.
+Creating register for signal `\PIC_8259.\INT' using process `\PIC_8259.$proc$constant_control.sv:21$3'.
+  created $dff cell `$procdff$94' with positive edge clock.
+Creating register for signal `\PIC_8259.\ss_I' using process `\PIC_8259.$proc$constant_control.sv:21$3'.
+  created $dff cell `$procdff$95' with positive edge clock.
+Creating register for signal `\PIC_8259.\s_I' using process `\PIC_8259.$proc$constant_control.sv:21$3'.
+  created $dff cell `$procdff$96' with positive edge clock.
+Creating register for signal `\PIC_8259.\IMR' using process `\PIC_8259.$proc$constant_control.sv:21$3'.
+  created $dff cell `$procdff$97' with positive edge clock.
+Creating register for signal `\PIC_8259.\IRR' using process `\PIC_8259.$proc$constant_control.sv:21$3'.
+  created $dff cell `$procdff$98' with positive edge clock.
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `PIC_8259.$proc$constant_control.sv:18$19'.
+Removing empty process `PIC_8259.$proc$constant_control.sv:17$18'.
+Removing empty process `PIC_8259.$proc$constant_control.sv:16$17'.
+Removing empty process `PIC_8259.$proc$constant_control.sv:15$16'.
+Removing empty process `PIC_8259.$proc$constant_control.sv:0$15'.
+Removing empty process `PIC_8259.$proc$constant_control.sv:46$11'.
+Found and cleaned up 7 empty switches in `\PIC_8259.$proc$constant_control.sv:21$3'.
+Removing empty process `PIC_8259.$proc$constant_control.sv:21$3'.
+Cleaned up 7 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PIC_8259.
+<suppressed ~7 debug messages>
+
+3.3. Executing FUTURE pass.
+
+3.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PIC_8259.
+
+3.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PIC_8259..
+Removed 1 unused cells and 44 unused wires.
+<suppressed ~2 debug messages>
+
+3.6. Executing CHECK pass (checking for obvious problems).
+Checking module PIC_8259...
+Found and reported 0 problems.
+
+3.7. Executing OPT pass (performing simple optimizations).
+
+3.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PIC_8259.
+
+3.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PIC_8259'.
+Removed a total of 0 cells.
+
+3.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \PIC_8259..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port A of cell $procmux$63: \INT -> 1'1
+      Replacing known input bits on port A of cell $procmux$66: \INT -> 1'0
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~7 debug messages>
+
+3.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \PIC_8259.
+Performed a total of 0 changes.
+
+3.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PIC_8259'.
+Removed a total of 0 cells.
+
+3.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PIC_8259..
+
+3.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PIC_8259.
+
+3.7.8. Finished OPT passes. (There is nothing left to do.)
+
+3.8. Executing WREDUCE pass (reducing word size of cells).
+
+3.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PIC_8259..
+
+3.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.11. Executing OPT pass (performing simple optimizations).
+
+3.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module PIC_8259.
+
+3.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\PIC_8259'.
+Removed a total of 0 cells.
+
+3.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PIC_8259..
+
+3.11.4. Finished fast OPT passes.
+
+3.12. Printing statistics.
+
+=== PIC_8259 ===
+
+   Number of wires:                 44
+   Number of wire bits:            136
+   Number of public wires:          14
+   Number of public wire bits:      50
+   Number of ports:                 10
+   Number of port bits:             34
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 41
+     $and                            4
+     $check                          1
+     $dff                            6
+     $mux                           26
+     $not                            3
+     $or                             1
+
+3.13. Executing CHECK pass (checking for obvious problems).
+Checking module PIC_8259...
+Found and reported 0 problems.
+
+4. Executing FLATTEN pass (flatten design).
+
+5. Executing ASYNC2SYNC pass.
+
+6. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+7. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \PIC_8259..
+Removed 2 unused cells and 2 unused wires.
+<suppressed ~3 debug messages>
+
+9. Executing JSON backend.
+
+10. Executing SAT pass (solving SAT problems in the circuit).
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 41 cells to SAT database.
+Import set-constraint from init attribute: \IMR = 4'1111
+Import set-constraint from init attribute: \INT = 1'0
+Import set-constraint from init attribute: \IRR = 4'0000
+Import set-constraint from init attribute: \s_I = 4'0000
+Import set-constraint from init attribute: \ss_I = 4'0000
+Final init constraint equation: { \ss_I \s_I \IRR \INT \IMR } = 17'00000000000001111
+Import proof for assert: 1'1 when 1'1.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 41 cells to SAT database.
+Import proof for assert: 1'1 when 1'1.
+Import show expression: \CS
+Import show expression: \I
+Import show expression: \IACK
+Import show expression: \WR
+Import show expression: \clk
+Import show expression: \din
+Import show expression: \INT
+Import show expression: \OE
+Import show expression: \dout
+Import show expression: \ivect
+
+Solving problem with 1223 variables and 3116 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+

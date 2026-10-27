@@ -1,0 +1,39 @@
+{
+  "id": "SVAGen/L3/Text/8",
+  "subset": "SVAGen",
+  "input_files": [
+    {
+      "name": "tessera_sdram_ctrl_594.txt",
+      "bytes": 32232,
+      "sha256": "4b070fa995fa4ba36ca901bf6d5faf77f09369f0d0b246e4e03415fece89d268"
+    },
+    {
+      "name": "tessera_sdram_ctrl_594.v",
+      "bytes": 14382,
+      "sha256": "440fd3f858d8beece2e3e23ebeb5740e0d70796486963d4244f4f917018a0762"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": true,
+  "negative_control_detected": true,
+  "commands": 4,
+  "status": "pass",
+  "assignment_target_width": 5,
+  "assertion": "always @* assert((ctrl_cmd) == 5'(ini_cmd | ref_cmd | dma_cmd | wri_cmd | rea_cmd));",
+  "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+  "relation_lhs": "ctrl_cmd",
+  "property_counts": {
+    "assert": 1,
+    "assume": 0,
+    "cover": 0
+  },
+  "constant_mutation_status": "completed",
+  "constant_mutation_killed": false,
+  "negative_status": "fail",
+  "constant_control_status": "unknown",
+  "reason": "nonzero properties proven and selected output mutant falsified",
+  "seconds": 0.688
+}

@@ -1,0 +1,641 @@
+<?xml version="1.0" ?>
+<!-- DESCRIPTION: Verilator output: XML representation of netlist -->
+<verilator_xml>
+  <files>
+    <file id="d" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std.sv" language="1800-2023"/>
+    <file id="c" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std_waiver.vlt" language="1800-2023"/>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ceecd359a02c/sync_check.v" language="1800-2023"/>
+    <file id="a" filename="&lt;built-in&gt;" language="1800-2023"/>
+    <file id="b" filename="&lt;command-line&gt;" language="1800-2023"/>
+  </files>
+  <module_files>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ceecd359a02c/sync_check.v" language="1800-2023"/>
+  </module_files>
+  <cells>
+    <cell loc="e,3,8,3,18" name="sync_check" submodname="sync_check" hier="sync_check"/>
+  </cells>
+  <netlist>
+    <module loc="e,3,8,3,18" name="sync_check" origName="sync_check" topModule="1">
+      <var loc="e,7,8,7,12" name="pclk" dtype_id="1" dir="input" pinIndex="1" vartype="logic" origName="pclk"/>
+      <var loc="e,7,14,7,17" name="rst" dtype_id="1" dir="input" pinIndex="2" vartype="logic" origName="rst"/>
+      <var loc="e,7,19,7,25" name="enable" dtype_id="1" dir="input" pinIndex="3" vartype="logic" origName="enable"/>
+      <var loc="e,7,27,7,32" name="hsync" dtype_id="1" dir="input" pinIndex="4" vartype="logic" origName="hsync"/>
+      <var loc="e,7,34,7,39" name="vsync" dtype_id="1" dir="input" pinIndex="5" vartype="logic" origName="vsync"/>
+      <var loc="e,7,41,7,46" name="csync" dtype_id="1" dir="input" pinIndex="6" vartype="logic" origName="csync"/>
+      <var loc="e,7,48,7,53" name="blanc" dtype_id="1" dir="input" pinIndex="7" vartype="logic" origName="blanc"/>
+      <var loc="e,8,8,8,12" name="hpol" dtype_id="1" dir="input" pinIndex="8" vartype="logic" origName="hpol"/>
+      <var loc="e,8,14,8,18" name="vpol" dtype_id="1" dir="input" pinIndex="9" vartype="logic" origName="vpol"/>
+      <var loc="e,8,20,8,24" name="cpol" dtype_id="1" dir="input" pinIndex="10" vartype="logic" origName="cpol"/>
+      <var loc="e,8,26,8,30" name="bpol" dtype_id="1" dir="input" pinIndex="11" vartype="logic" origName="bpol"/>
+      <var loc="e,9,13,9,19" name="thsync" dtype_id="2" dir="input" pinIndex="12" vartype="logic" origName="thsync"/>
+      <var loc="e,9,21,9,27" name="thgdel" dtype_id="2" dir="input" pinIndex="13" vartype="logic" origName="thgdel"/>
+      <var loc="e,10,14,10,20" name="thgate" dtype_id="3" dir="input" pinIndex="14" vartype="logic" origName="thgate"/>
+      <var loc="e,10,22,10,27" name="thlen" dtype_id="3" dir="input" pinIndex="15" vartype="logic" origName="thlen"/>
+      <var loc="e,11,13,11,19" name="tvsync" dtype_id="2" dir="input" pinIndex="16" vartype="logic" origName="tvsync"/>
+      <var loc="e,11,21,11,27" name="tvgdel" dtype_id="2" dir="input" pinIndex="17" vartype="logic" origName="tvgdel"/>
+      <var loc="e,12,14,12,20" name="tvgate" dtype_id="3" dir="input" pinIndex="18" vartype="logic" origName="tvgate"/>
+      <var loc="e,12,22,12,27" name="tvlen" dtype_id="3" dir="input" pinIndex="19" vartype="logic" origName="tvlen"/>
+      <var loc="e,13,7,13,17" name="last_htime" dtype_id="4" vartype="time" origName="last_htime"/>
+      <var loc="e,14,6,14,12" name="hvalid" dtype_id="1" vartype="logic" origName="hvalid"/>
+      <var loc="e,15,7,15,12" name="htime" dtype_id="4" vartype="time" origName="htime"/>
+      <var loc="e,16,7,16,13" name="hhtime" dtype_id="4" vartype="time" origName="hhtime"/>
+      <var loc="e,17,7,17,17" name="last_vtime" dtype_id="4" vartype="time" origName="last_vtime"/>
+      <var loc="e,18,6,18,12" name="vvalid" dtype_id="1" vartype="logic" origName="vvalid"/>
+      <var loc="e,19,7,19,12" name="vtime" dtype_id="4" vartype="time" origName="vtime"/>
+      <var loc="e,20,7,20,13" name="vhtime" dtype_id="4" vartype="time" origName="vhtime"/>
+      <var loc="e,21,13,21,22" name="htime_exp" dtype_id="5" vartype="logic" origName="htime_exp"/>
+      <var loc="e,22,13,22,23" name="hhtime_exp" dtype_id="5" vartype="logic" origName="hhtime_exp"/>
+      <var loc="e,23,13,23,22" name="vtime_exp" dtype_id="5" vartype="logic" origName="vtime_exp"/>
+      <var loc="e,24,13,24,23" name="vhtime_exp" dtype_id="5" vartype="logic" origName="vhtime_exp"/>
+      <var loc="e,27,13,27,21" name="bh_start" dtype_id="5" vartype="logic" origName="bh_start"/>
+      <var loc="e,28,13,28,19" name="bh_end" dtype_id="5" vartype="logic" origName="bh_end"/>
+      <var loc="e,29,13,29,21" name="bv_start" dtype_id="5" vartype="logic" origName="bv_start"/>
+      <var loc="e,30,13,30,19" name="bv_end" dtype_id="5" vartype="logic" origName="bv_end"/>
+      <var loc="e,31,10,31,15" name="bdel1" dtype_id="6" vartype="integer" origName="bdel1"/>
+      <var loc="e,32,6,32,11" name="bval1" dtype_id="1" vartype="logic" origName="bval1"/>
+      <var loc="e,33,6,33,10" name="bval" dtype_id="1" vartype="logic" origName="bval"/>
+      <var loc="e,34,10,34,15" name="bdel2" dtype_id="6" vartype="integer" origName="bdel2"/>
+      <var loc="e,36,11,36,19" name="clk_time" dtype_id="7" vartype="logic" origName="clk_time" param="true">
+        <const loc="e,36,22,36,24" name="32&apos;sh28" dtype_id="7"/>
+      </var>
+      <always loc="e,43,1,43,7">
+        <sentree loc="e,43,8,43,9">
+          <senitem loc="e,43,10,43,17" edgeType="POS">
+            <varref loc="e,43,18,43,22" name="pclk" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <if loc="e,44,2,44,4">
+          <or loc="e,44,10,44,11" dtype_id="1">
+            <not loc="e,44,5,44,6" dtype_id="1">
+              <varref loc="e,44,6,44,9" name="rst" dtype_id="1"/>
+            </not>
+            <not loc="e,44,12,44,13" dtype_id="1">
+              <varref loc="e,44,13,44,19" name="enable" dtype_id="1"/>
+            </not>
+          </or>
+          <begin>
+            <begin loc="e,45,5,45,10">
+              <assign loc="e,46,10,46,11" dtype_id="1">
+                <const loc="e,46,12,46,13" name="1&apos;h0" dtype_id="1"/>
+                <varref loc="e,46,3,46,9" name="hvalid" dtype_id="1"/>
+              </assign>
+              <assign loc="e,47,10,47,11" dtype_id="1">
+                <const loc="e,47,12,47,13" name="1&apos;h0" dtype_id="1"/>
+                <varref loc="e,47,3,47,9" name="vvalid" dtype_id="1"/>
+              </assign>
+            </begin>
+          </begin>
+        </if>
+      </always>
+      <always loc="e,49,1,49,7">
+        <sentree loc="e,49,8,49,9">
+          <senitem loc="e,49,10,49,15" edgeType="CHANGED">
+            <varref loc="e,49,10,49,15" name="hsync" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <if loc="e,50,4,50,6">
+          <varref loc="e,50,7,50,13" name="enable" dtype_id="1"/>
+          <begin>
+            <begin loc="e,51,7,51,12">
+              <if loc="e,52,2,52,4">
+                <eq loc="e,52,11,52,13" dtype_id="1">
+                  <varref loc="e,52,5,52,10" name="hsync" dtype_id="1"/>
+                  <not loc="e,52,14,52,15" dtype_id="1">
+                    <varref loc="e,52,15,52,19" name="hpol" dtype_id="1"/>
+                  </not>
+                </eq>
+                <begin>
+                  <begin loc="e,53,5,53,10">
+                    <assign loc="e,54,9,54,10" dtype_id="4">
+                      <sub loc="e,54,17,54,18" dtype_id="4">
+                        <time loc="e,54,11,54,16" dtype_id="8"/>
+                        <varref loc="e,54,19,54,29" name="last_htime" dtype_id="4"/>
+                      </sub>
+                      <varref loc="e,54,3,54,8" name="htime" dtype_id="4"/>
+                    </assign>
+                    <if loc="e,55,3,55,5">
+                      <and loc="e,55,13,55,14" dtype_id="1">
+                        <varref loc="e,55,6,55,12" name="hvalid" dtype_id="1"/>
+                        <neq loc="e,55,22,55,24" dtype_id="1">
+                          <varref loc="e,55,16,55,21" name="htime" dtype_id="4"/>
+                          <extend loc="e,55,25,55,34" dtype_id="9" width="64" widthminv="32">
+                            <varref loc="e,55,25,55,34" name="htime_exp" dtype_id="5"/>
+                          </extend>
+                        </neq>
+                      </and>
+                      <begin>
+                        <display loc="e,56,4,56,12" displaytype="$display">
+                          <sformatf loc="e,56,4,56,12" name="HSYNC length ERROR: Expected: %0d Got: %0d (%0t)" dtype_id="10">
+                            <varref loc="e,57,5,57,14" name="htime_exp" dtype_id="5"/>
+                            <varref loc="e,57,16,57,21" name="htime" dtype_id="4"/>
+                            <time loc="e,57,23,57,28" dtype_id="8"/>
+                          </sformatf>
+                        </display>
+                      </begin>
+                    </if>
+                    <assign loc="e,58,14,58,15" dtype_id="4">
+                      <time loc="e,58,16,58,21" dtype_id="8"/>
+                      <varref loc="e,58,3,58,13" name="last_htime" dtype_id="4"/>
+                    </assign>
+                    <assign loc="e,59,10,59,11" dtype_id="1">
+                      <const loc="e,59,12,59,13" name="1&apos;h1" dtype_id="1"/>
+                      <varref loc="e,59,3,59,9" name="hvalid" dtype_id="1"/>
+                    </assign>
+                  </begin>
+                </begin>
+              </if>
+              <if loc="e,61,2,61,4">
+                <eq loc="e,61,11,61,13" dtype_id="1">
+                  <varref loc="e,61,5,61,10" name="hsync" dtype_id="1"/>
+                  <varref loc="e,61,14,61,18" name="hpol" dtype_id="1"/>
+                </eq>
+                <begin>
+                  <begin loc="e,62,5,62,10">
+                    <assign loc="e,63,10,63,11" dtype_id="4">
+                      <sub loc="e,63,18,63,19" dtype_id="4">
+                        <time loc="e,63,12,63,17" dtype_id="8"/>
+                        <varref loc="e,63,20,63,30" name="last_htime" dtype_id="4"/>
+                      </sub>
+                      <varref loc="e,63,3,63,9" name="hhtime" dtype_id="4"/>
+                    </assign>
+                    <if loc="e,64,3,64,5">
+                      <and loc="e,64,13,64,14" dtype_id="1">
+                        <varref loc="e,64,6,64,12" name="hvalid" dtype_id="1"/>
+                        <neq loc="e,64,23,64,25" dtype_id="1">
+                          <varref loc="e,64,16,64,22" name="hhtime" dtype_id="4"/>
+                          <extend loc="e,64,26,64,36" dtype_id="9" width="64" widthminv="32">
+                            <varref loc="e,64,26,64,36" name="hhtime_exp" dtype_id="5"/>
+                          </extend>
+                        </neq>
+                      </and>
+                      <begin>
+                        <display loc="e,65,4,65,12" displaytype="$display">
+                          <sformatf loc="e,65,4,65,12" name="HSYNC Pulse ERROR: Expected: %0d Got: %0d (%0t)" dtype_id="10">
+                            <varref loc="e,66,5,66,15" name="hhtime_exp" dtype_id="5"/>
+                            <varref loc="e,66,17,66,23" name="hhtime" dtype_id="4"/>
+                            <time loc="e,66,25,66,30" dtype_id="8"/>
+                          </sformatf>
+                        </display>
+                      </begin>
+                    </if>
+                  </begin>
+                </begin>
+              </if>
+            </begin>
+          </begin>
+        </if>
+      </always>
+      <always loc="e,69,1,69,7">
+        <sentree loc="e,69,8,69,9">
+          <senitem loc="e,69,10,69,15" edgeType="CHANGED">
+            <varref loc="e,69,10,69,15" name="vsync" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <if loc="e,70,4,70,6">
+          <varref loc="e,70,7,70,13" name="enable" dtype_id="1"/>
+          <begin>
+            <begin loc="e,71,7,71,12">
+              <if loc="e,72,2,72,4">
+                <eq loc="e,72,11,72,13" dtype_id="1">
+                  <varref loc="e,72,5,72,10" name="vsync" dtype_id="1"/>
+                  <not loc="e,72,14,72,15" dtype_id="1">
+                    <varref loc="e,72,15,72,19" name="vpol" dtype_id="1"/>
+                  </not>
+                </eq>
+                <begin>
+                  <begin loc="e,73,5,73,10">
+                    <assign loc="e,74,9,74,10" dtype_id="4">
+                      <sub loc="e,74,17,74,18" dtype_id="4">
+                        <time loc="e,74,11,74,16" dtype_id="8"/>
+                        <varref loc="e,74,19,74,29" name="last_vtime" dtype_id="4"/>
+                      </sub>
+                      <varref loc="e,74,3,74,8" name="vtime" dtype_id="4"/>
+                    </assign>
+                    <if loc="e,75,3,75,5">
+                      <and loc="e,75,13,75,14" dtype_id="1">
+                        <varref loc="e,75,6,75,12" name="vvalid" dtype_id="1"/>
+                        <neq loc="e,75,22,75,24" dtype_id="1">
+                          <varref loc="e,75,16,75,21" name="vtime" dtype_id="4"/>
+                          <extend loc="e,75,25,75,34" dtype_id="9" width="64" widthminv="32">
+                            <varref loc="e,75,25,75,34" name="vtime_exp" dtype_id="5"/>
+                          </extend>
+                        </neq>
+                      </and>
+                      <begin>
+                        <display loc="e,76,4,76,12" displaytype="$display">
+                          <sformatf loc="e,76,4,76,12" name="VSYNC length ERROR: Expected: %0d Got: %0d (%0t)" dtype_id="10">
+                            <varref loc="e,77,5,77,14" name="vtime_exp" dtype_id="5"/>
+                            <varref loc="e,77,16,77,21" name="vtime" dtype_id="4"/>
+                            <time loc="e,77,23,77,28" dtype_id="8"/>
+                          </sformatf>
+                        </display>
+                      </begin>
+                    </if>
+                    <assign loc="e,78,14,78,15" dtype_id="4">
+                      <time loc="e,78,16,78,21" dtype_id="8"/>
+                      <varref loc="e,78,3,78,13" name="last_vtime" dtype_id="4"/>
+                    </assign>
+                    <assign loc="e,79,10,79,11" dtype_id="1">
+                      <const loc="e,79,12,79,13" name="1&apos;h1" dtype_id="1"/>
+                      <varref loc="e,79,3,79,9" name="vvalid" dtype_id="1"/>
+                    </assign>
+                  </begin>
+                </begin>
+              </if>
+              <if loc="e,81,2,81,4">
+                <eq loc="e,81,11,81,13" dtype_id="1">
+                  <varref loc="e,81,5,81,10" name="vsync" dtype_id="1"/>
+                  <varref loc="e,81,14,81,18" name="vpol" dtype_id="1"/>
+                </eq>
+                <begin>
+                  <begin loc="e,82,5,82,10">
+                    <assign loc="e,83,10,83,11" dtype_id="4">
+                      <sub loc="e,83,18,83,19" dtype_id="4">
+                        <time loc="e,83,12,83,17" dtype_id="8"/>
+                        <varref loc="e,83,20,83,30" name="last_vtime" dtype_id="4"/>
+                      </sub>
+                      <varref loc="e,83,3,83,9" name="vhtime" dtype_id="4"/>
+                    </assign>
+                    <if loc="e,84,3,84,5">
+                      <and loc="e,84,13,84,14" dtype_id="1">
+                        <varref loc="e,84,6,84,12" name="vvalid" dtype_id="1"/>
+                        <neq loc="e,84,23,84,25" dtype_id="1">
+                          <varref loc="e,84,16,84,22" name="vhtime" dtype_id="4"/>
+                          <extend loc="e,84,26,84,36" dtype_id="9" width="64" widthminv="32">
+                            <varref loc="e,84,26,84,36" name="vhtime_exp" dtype_id="5"/>
+                          </extend>
+                        </neq>
+                      </and>
+                      <begin>
+                        <display loc="e,85,4,85,12" displaytype="$display">
+                          <sformatf loc="e,85,4,85,12" name="VSYNC Pulse ERROR: Expected: %0d Got: %0d (%0t)" dtype_id="10">
+                            <varref loc="e,86,5,86,15" name="vhtime_exp" dtype_id="5"/>
+                            <varref loc="e,86,17,86,23" name="vhtime" dtype_id="4"/>
+                            <time loc="e,86,25,86,30" dtype_id="8"/>
+                          </sformatf>
+                        </display>
+                      </begin>
+                    </if>
+                  </begin>
+                </begin>
+              </if>
+            </begin>
+          </begin>
+        </if>
+      </always>
+      <always loc="e,96,1,96,7">
+        <sentree loc="e,96,8,96,9">
+          <senitem loc="e,96,10,96,15" edgeType="CHANGED">
+            <varref loc="e,96,10,96,15" name="vsync" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <if loc="e,97,2,97,4">
+          <eq loc="e,97,11,97,13" dtype_id="1">
+            <varref loc="e,97,5,97,10" name="vsync" dtype_id="1"/>
+            <not loc="e,97,14,97,15" dtype_id="1">
+              <varref loc="e,97,15,97,19" name="vpol" dtype_id="1"/>
+            </not>
+          </eq>
+          <begin>
+            <assign loc="e,98,9,98,10" dtype_id="6">
+              <const loc="e,98,11,98,12" name="32&apos;sh0" dtype_id="7"/>
+              <varref loc="e,98,3,98,8" name="bdel1" dtype_id="6"/>
+            </assign>
+          </begin>
+        </if>
+      </always>
+      <always loc="e,99,1,99,7">
+        <sentree loc="e,99,8,99,9">
+          <senitem loc="e,99,10,99,15" edgeType="CHANGED">
+            <varref loc="e,99,10,99,15" name="hsync" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <if loc="e,100,2,100,4">
+          <eq loc="e,100,11,100,13" dtype_id="1">
+            <varref loc="e,100,5,100,10" name="hsync" dtype_id="1"/>
+            <not loc="e,100,14,100,15" dtype_id="1">
+              <varref loc="e,100,15,100,19" name="hpol" dtype_id="1"/>
+            </not>
+          </eq>
+          <begin>
+            <assign loc="e,101,9,101,10" dtype_id="6">
+              <add loc="e,101,17,101,18" dtype_id="6">
+                <const loc="e,101,19,101,20" name="32&apos;sh1" dtype_id="7"/>
+                <varref loc="e,101,11,101,16" name="bdel1" dtype_id="6"/>
+              </add>
+              <varref loc="e,101,3,101,8" name="bdel1" dtype_id="6"/>
+            </assign>
+          </begin>
+        </if>
+      </always>
+      <always loc="e,102,1,102,7">
+        <sentree loc="e,102,8,102,9">
+          <senitem loc="e,102,10,102,15" edgeType="CHANGED">
+            <varref loc="e,102,10,102,15" name="bdel1" dtype_id="6"/>
+          </senitem>
+        </sentree>
+        <assign loc="e,103,8,103,9" dtype_id="1">
+          <and loc="e,103,29,103,30" dtype_id="1">
+            <gt loc="e,103,17,103,18" dtype_id="1">
+              <varref loc="e,103,11,103,16" name="bdel1" dtype_id="6"/>
+              <varref loc="e,103,19,103,27" name="bv_start" dtype_id="5"/>
+            </gt>
+            <lt loc="e,103,38,103,39" dtype_id="1">
+              <varref loc="e,103,32,103,37" name="bdel1" dtype_id="6"/>
+              <varref loc="e,103,40,103,46" name="bv_end" dtype_id="5"/>
+            </lt>
+          </and>
+          <varref loc="e,103,2,103,7" name="bval1" dtype_id="1"/>
+        </assign>
+      </always>
+      <always loc="e,104,1,104,7">
+        <sentree loc="e,104,8,104,9">
+          <senitem loc="e,104,10,104,15" edgeType="CHANGED">
+            <varref loc="e,104,10,104,15" name="hsync" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <if loc="e,105,2,105,4">
+          <eq loc="e,105,11,105,13" dtype_id="1">
+            <varref loc="e,105,5,105,10" name="hsync" dtype_id="1"/>
+            <not loc="e,105,14,105,15" dtype_id="1">
+              <varref loc="e,105,15,105,19" name="hpol" dtype_id="1"/>
+            </not>
+          </eq>
+          <begin>
+            <assign loc="e,106,9,106,10" dtype_id="6">
+              <const loc="e,106,11,106,12" name="32&apos;sh0" dtype_id="7"/>
+              <varref loc="e,106,3,106,8" name="bdel2" dtype_id="6"/>
+            </assign>
+          </begin>
+        </if>
+      </always>
+      <always loc="e,107,1,107,7">
+        <sentree loc="e,107,8,107,9">
+          <senitem loc="e,107,10,107,17" edgeType="POS">
+            <varref loc="e,107,18,107,22" name="pclk" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <assign loc="e,108,8,108,9" dtype_id="6">
+          <add loc="e,108,16,108,17" dtype_id="6">
+            <const loc="e,108,18,108,19" name="32&apos;sh1" dtype_id="7"/>
+            <varref loc="e,108,10,108,15" name="bdel2" dtype_id="6"/>
+          </add>
+          <varref loc="e,108,2,108,7" name="bdel2" dtype_id="6"/>
+        </assign>
+      </always>
+      <initial loc="e,109,1,109,8">
+        <assign loc="e,109,14,109,15" dtype_id="1">
+          <const loc="e,109,16,109,17" name="1&apos;h1" dtype_id="1"/>
+          <varref loc="e,109,9,109,13" name="bval" dtype_id="1"/>
+        </assign>
+      </initial>
+      <always loc="e,110,1,110,7">
+        <sentree loc="e,110,8,110,9">
+          <senitem loc="e,110,10,110,15" edgeType="CHANGED">
+            <varref loc="e,110,10,110,15" name="bdel2" dtype_id="6"/>
+          </senitem>
+        </sentree>
+        <assign loc="e,111,7,111,8" dtype_id="1">
+          <not loc="e,111,12,111,13" dtype_id="1">
+            <and loc="e,111,41,111,42" dtype_id="1">
+              <and loc="e,111,20,111,21" dtype_id="1">
+                <varref loc="e,111,14,111,19" name="bval1" dtype_id="1"/>
+                <gt loc="e,111,29,111,30" dtype_id="1">
+                  <varref loc="e,111,23,111,28" name="bdel2" dtype_id="6"/>
+                  <varref loc="e,111,31,111,39" name="bh_start" dtype_id="5"/>
+                </gt>
+              </and>
+              <lt loc="e,111,50,111,51" dtype_id="1">
+                <varref loc="e,111,44,111,49" name="bdel2" dtype_id="6"/>
+                <varref loc="e,111,52,111,58" name="bh_end" dtype_id="5"/>
+              </lt>
+            </and>
+          </not>
+          <varref loc="e,111,2,111,6" name="bval" dtype_id="1"/>
+          <delay loc="e,111,9,111,10">
+            <const loc="e,111,10,111,11" name="64&apos;h1" dtype_id="9"/>
+          </delay>
+        </assign>
+      </always>
+      <always loc="e,112,1,112,7">
+        <sentree loc="e,112,8,112,9">
+          <senitem loc="e,112,18,112,23" edgeType="CHANGED">
+            <varref loc="e,112,18,112,23" name="blanc" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,112,10,112,14" edgeType="CHANGED">
+            <varref loc="e,112,10,112,14" name="bval" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <delay loc="e,113,2,113,3">
+          <const loc="e,113,3,113,7" name="0.01" dtype_id="11"/>
+          <if loc="e,114,2,114,4">
+            <varref loc="e,114,5,114,11" name="enable" dtype_id="1"/>
+            <begin>
+              <if loc="e,115,2,115,4">
+                <and loc="e,115,31,115,32" dtype_id="1">
+                  <neq loc="e,115,22,115,24" dtype_id="1">
+                    <xor loc="e,115,14,115,15" dtype_id="1">
+                      <varref loc="e,115,8,115,13" name="blanc" dtype_id="1"/>
+                      <varref loc="e,115,16,115,20" name="bpol" dtype_id="1"/>
+                    </xor>
+                    <varref loc="e,115,25,115,29" name="bval" dtype_id="1"/>
+                  </neq>
+                  <varref loc="e,115,33,115,39" name="enable" dtype_id="1"/>
+                </and>
+                <begin>
+                  <display loc="e,116,3,116,11" displaytype="$display">
+                    <sformatf loc="e,116,3,116,11" name="BLANK ERROR: Expected: %0d Got: %0d (%0t)" dtype_id="10">
+                      <varref loc="e,117,4,117,8" name="bval" dtype_id="1"/>
+                      <xor loc="e,117,17,117,18" dtype_id="1">
+                        <varref loc="e,117,11,117,16" name="blanc" dtype_id="1"/>
+                        <varref loc="e,117,19,117,23" name="bpol" dtype_id="1"/>
+                      </xor>
+                      <time loc="e,117,26,117,31" dtype_id="8"/>
+                    </sformatf>
+                  </display>
+                </begin>
+              </if>
+            </begin>
+          </if>
+        </delay>
+      </always>
+      <always loc="e,118,1,118,7">
+        <sentree loc="e,118,8,118,9">
+          <senitem loc="e,118,10,118,15" edgeType="CHANGED">
+            <varref loc="e,118,10,118,15" name="csync" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,118,28,118,33" edgeType="CHANGED">
+            <varref loc="e,118,28,118,33" name="hsync" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,118,19,118,24" edgeType="CHANGED">
+            <varref loc="e,118,19,118,24" name="vsync" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <if loc="e,119,2,119,4">
+          <varref loc="e,119,5,119,11" name="enable" dtype_id="1"/>
+          <begin>
+            <if loc="e,120,2,120,4">
+              <neq loc="e,120,21,120,23" dtype_id="1">
+                <xor loc="e,120,13,120,14" dtype_id="1">
+                  <varref loc="e,120,7,120,12" name="csync" dtype_id="1"/>
+                  <varref loc="e,120,15,120,19" name="cpol" dtype_id="1"/>
+                </xor>
+                <or loc="e,120,41,120,42" dtype_id="1">
+                  <xor loc="e,120,33,120,34" dtype_id="1">
+                    <varref loc="e,120,27,120,32" name="vsync" dtype_id="1"/>
+                    <varref loc="e,120,35,120,39" name="vpol" dtype_id="1"/>
+                  </xor>
+                  <xor loc="e,120,50,120,51" dtype_id="1">
+                    <varref loc="e,120,44,120,49" name="hsync" dtype_id="1"/>
+                    <varref loc="e,120,52,120,56" name="hpol" dtype_id="1"/>
+                  </xor>
+                </or>
+              </neq>
+              <begin>
+                <display loc="e,121,3,121,11" displaytype="$display">
+                  <sformatf loc="e,121,3,121,11" name="CSYNC ERROR: Expected: %0d Got: %0d (%0t)" dtype_id="10">
+                    <or loc="e,122,20,122,21" dtype_id="1">
+                      <xor loc="e,122,12,122,13" dtype_id="1">
+                        <varref loc="e,122,6,122,11" name="vsync" dtype_id="1"/>
+                        <varref loc="e,122,14,122,18" name="vpol" dtype_id="1"/>
+                      </xor>
+                      <xor loc="e,122,29,122,30" dtype_id="1">
+                        <varref loc="e,122,23,122,28" name="hsync" dtype_id="1"/>
+                        <varref loc="e,122,31,122,35" name="hpol" dtype_id="1"/>
+                      </xor>
+                    </or>
+                    <xor loc="e,122,47,122,48" dtype_id="1">
+                      <varref loc="e,122,41,122,46" name="csync" dtype_id="1"/>
+                      <varref loc="e,122,49,122,53" name="cpol" dtype_id="1"/>
+                    </xor>
+                    <time loc="e,122,56,122,61" dtype_id="8"/>
+                  </sformatf>
+                </display>
+              </begin>
+            </if>
+          </begin>
+        </if>
+      </always>
+      <var loc="e,39,22,39,28" name="__VdfgRegularize_h272da421_1_0" dtype_id="5" vartype="logic" origName="__VdfgRegularize_h272da421_1_0"/>
+      <var loc="e,41,35,41,41" name="__VdfgRegularize_h272da421_2_0" dtype_id="5" vartype="logic" origName="__VdfgRegularize_h272da421_2_0"/>
+      <contassign loc="e,39,19,39,20" dtype_id="5">
+        <mul loc="e,39,33,39,34" dtype_id="7">
+          <const loc="e,39,35,39,43" name="32&apos;sh28" dtype_id="7"/>
+          <add loc="e,39,29,39,30" dtype_id="7">
+            <const loc="e,39,30,39,31" name="32&apos;sh1" dtype_id="7"/>
+            <varref loc="e,39,22,39,28" name="__VdfgRegularize_h272da421_1_0" dtype_id="5"/>
+          </add>
+        </mul>
+        <varref loc="e,39,19,39,20" name="hhtime_exp" dtype_id="5"/>
+      </contassign>
+      <contassign loc="e,93,17,93,18" dtype_id="5">
+        <add loc="e,93,37,93,38" dtype_id="7">
+          <const loc="e,93,39,93,40" name="32&apos;sh1" dtype_id="7"/>
+          <add loc="e,93,28,93,29" dtype_id="5">
+            <varref loc="e,39,22,39,28" name="__VdfgRegularize_h272da421_1_0" dtype_id="5"/>
+            <extend loc="e,93,30,93,36" dtype_id="5" width="32" widthminv="8">
+              <varref loc="e,9,21,9,27" name="thgdel" dtype_id="2"/>
+            </extend>
+          </add>
+        </add>
+        <varref loc="e,93,17,93,18" name="bh_start" dtype_id="5"/>
+      </contassign>
+      <contassign loc="e,94,17,94,18" dtype_id="5">
+        <add loc="e,94,37,94,38" dtype_id="7">
+          <const loc="e,94,39,94,40" name="32&apos;sh2" dtype_id="7"/>
+          <add loc="e,94,28,94,29" dtype_id="5">
+            <varref loc="e,27,13,27,21" name="bh_start" dtype_id="5"/>
+            <extend loc="e,94,30,94,36" dtype_id="5" width="32" widthminv="16">
+              <varref loc="e,10,14,10,20" name="thgate" dtype_id="3"/>
+            </extend>
+          </add>
+        </add>
+        <varref loc="e,94,17,94,18" name="bh_end" dtype_id="5"/>
+      </contassign>
+      <contassign loc="e,9,13,9,19" dtype_id="5">
+        <extend loc="e,9,13,9,19" dtype_id="5" width="32" widthminv="8">
+          <varref loc="e,9,13,9,19" name="thsync" dtype_id="2"/>
+        </extend>
+        <varref loc="e,9,13,9,19" name="__VdfgRegularize_h272da421_1_0" dtype_id="5"/>
+      </contassign>
+      <contassign loc="e,40,19,40,20" dtype_id="5">
+        <mul loc="e,40,32,40,33" dtype_id="7">
+          <const loc="e,40,34,40,42" name="32&apos;sh28" dtype_id="7"/>
+          <add loc="e,40,28,40,29" dtype_id="7">
+            <const loc="e,40,29,40,30" name="32&apos;sh1" dtype_id="7"/>
+            <extend loc="e,40,22,40,27" dtype_id="5" width="32" widthminv="16">
+              <varref loc="e,10,22,10,27" name="thlen" dtype_id="3"/>
+            </extend>
+          </add>
+        </mul>
+        <varref loc="e,40,19,40,20" name="htime_exp" dtype_id="5"/>
+      </contassign>
+      <contassign loc="e,42,19,42,20" dtype_id="5">
+        <mul loc="e,42,31,42,32" dtype_id="5">
+          <varref loc="e,21,13,21,22" name="htime_exp" dtype_id="5"/>
+          <add loc="e,42,40,42,41" dtype_id="7">
+            <const loc="e,42,41,42,42" name="32&apos;sh1" dtype_id="7"/>
+            <extend loc="e,42,34,42,39" dtype_id="5" width="32" widthminv="16">
+              <varref loc="e,12,22,12,27" name="tvlen" dtype_id="3"/>
+            </extend>
+          </add>
+        </mul>
+        <varref loc="e,42,19,42,20" name="vtime_exp" dtype_id="5"/>
+      </contassign>
+      <contassign loc="e,41,19,41,20" dtype_id="5">
+        <mul loc="e,41,32,41,33" dtype_id="5">
+          <varref loc="e,21,13,21,22" name="htime_exp" dtype_id="5"/>
+          <add loc="e,41,42,41,43" dtype_id="7">
+            <const loc="e,41,43,41,44" name="32&apos;sh1" dtype_id="7"/>
+            <varref loc="e,41,35,41,41" name="__VdfgRegularize_h272da421_2_0" dtype_id="5"/>
+          </add>
+        </mul>
+        <varref loc="e,41,19,41,20" name="vhtime_exp" dtype_id="5"/>
+      </contassign>
+      <contassign loc="e,91,17,91,18" dtype_id="5">
+        <add loc="e,91,37,91,38" dtype_id="7">
+          <const loc="e,91,39,91,40" name="32&apos;sh1" dtype_id="7"/>
+          <add loc="e,91,28,91,29" dtype_id="5">
+            <varref loc="e,41,35,41,41" name="__VdfgRegularize_h272da421_2_0" dtype_id="5"/>
+            <extend loc="e,91,30,91,36" dtype_id="5" width="32" widthminv="8">
+              <varref loc="e,11,21,11,27" name="tvgdel" dtype_id="2"/>
+            </extend>
+          </add>
+        </add>
+        <varref loc="e,91,17,91,18" name="bv_start" dtype_id="5"/>
+      </contassign>
+      <contassign loc="e,92,17,92,18" dtype_id="5">
+        <add loc="e,92,37,92,38" dtype_id="7">
+          <const loc="e,92,39,92,40" name="32&apos;sh2" dtype_id="7"/>
+          <add loc="e,92,28,92,29" dtype_id="5">
+            <varref loc="e,29,13,29,21" name="bv_start" dtype_id="5"/>
+            <extend loc="e,92,30,92,36" dtype_id="5" width="32" widthminv="16">
+              <varref loc="e,12,14,12,20" name="tvgate" dtype_id="3"/>
+            </extend>
+          </add>
+        </add>
+        <varref loc="e,92,17,92,18" name="bv_end" dtype_id="5"/>
+      </contassign>
+      <contassign loc="e,11,13,11,19" dtype_id="5">
+        <extend loc="e,11,13,11,19" dtype_id="5" width="32" widthminv="8">
+          <varref loc="e,11,13,11,19" name="tvsync" dtype_id="2"/>
+        </extend>
+        <varref loc="e,11,13,11,19" name="__VdfgRegularize_h272da421_2_0" dtype_id="5"/>
+      </contassign>
+    </module>
+    <typetable loc="a,0,0,0,0">
+      <basicdtype loc="d,46,25,46,27" id="1" name="logic"/>
+      <voiddtype loc="d,48,18,48,27" id="12"/>
+      <basicdtype loc="d,165,10,165,16" id="10" name="string"/>
+      <basicdtype loc="e,54,11,54,16" id="8" name="QData" left="63" right="0"/>
+      <basicdtype loc="e,113,3,113,7" id="11" name="real" signed="true"/>
+      <basicdtype loc="e,9,7,9,8" id="2" name="logic" left="7" right="0"/>
+      <basicdtype loc="e,10,7,10,8" id="3" name="logic" left="15" right="0"/>
+      <basicdtype loc="e,13,1,13,5" id="4" name="time" left="63" right="0"/>
+      <basicdtype loc="e,21,6,21,7" id="5" name="logic" left="31" right="0"/>
+      <basicdtype loc="e,31,1,31,8" id="6" name="integer" left="31" right="0" signed="true"/>
+      <basicdtype loc="e,55,22,55,24" id="9" name="logic" left="63" right="0"/>
+      <basicdtype loc="e,36,22,36,24" id="7" name="logic" left="31" right="0" signed="true"/>
+    </typetable>
+  </netlist>
+</verilator_xml>

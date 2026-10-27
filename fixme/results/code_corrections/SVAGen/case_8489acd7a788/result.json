@@ -1,0 +1,39 @@
+{
+  "id": "SVAGen/L1/Text/equivalence_resolver",
+  "subset": "SVAGen",
+  "input_files": [
+    {
+      "name": "equivalence_resolver.v",
+      "bytes": 2063,
+      "sha256": "bf156d5e35ccd4b16c8300e3432ede818551e07ddedc89c0da16e00e2d43f2c9"
+    },
+    {
+      "name": "equivalence_resolver_spec.txt",
+      "bytes": 7269,
+      "sha256": "a03bb4c1eb8a5409ada8d198760f7c28a07accce5a3bcaa806c91b62f12425b2"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": true,
+  "negative_control_detected": true,
+  "commands": 4,
+  "status": "pass",
+  "assignment_target_width": 1,
+  "assertion": "always @* assert((DMG) == 1'(O&~(f&hp==h)));",
+  "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+  "relation_lhs": "DMG",
+  "property_counts": {
+    "assert": 1,
+    "assume": 0,
+    "cover": 0
+  },
+  "constant_mutation_status": "completed",
+  "constant_mutation_killed": false,
+  "negative_status": "fail",
+  "constant_control_status": "unknown",
+  "reason": "nonzero properties proven and selected output mutant falsified",
+  "seconds": 0.377
+}

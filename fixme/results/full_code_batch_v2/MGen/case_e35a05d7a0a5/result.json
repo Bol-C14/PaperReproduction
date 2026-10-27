@@ -1,0 +1,43 @@
+{
+  "id": "MGen/L1/Text/4 bit FA using HA",
+  "subset": "MGen",
+  "input_files": [
+    {
+      "name": "full_add_4bit.v",
+      "bytes": 3151,
+      "sha256": "3f9a2e3109c1736cee239cbe92536ecd721d002a1e8d872313b75a9f4081367b"
+    },
+    {
+      "name": "full_add_4bit_tb.v",
+      "bytes": 2130,
+      "sha256": "123ffa809bd7273d75e29111aa96c3bc893e5eab5f3f832b869aaa7f97f04866"
+    }
+  ],
+  "overlays": [
+    {
+      "field": "spec_text",
+      "source": "data/SpeCom/L1/Text/4 bit FA using HA/full_add_4bit_spec.txt",
+      "sha256": "cbceac9470f576247a67ad91c1c7be987a6df7ad8d390214b58790e8b0dca11c",
+      "reason": "same case name and byte-identical RTL in SpeCom; explicit cross-subset reuse",
+      "fidelity": "structural-input-overlay",
+      "matched_rtl_sha256": "3f9a2e3109c1736cee239cbe92536ecd721d002a1e8d872313b75a9f4081367b"
+    }
+  ],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": true,
+  "negative_control_detected": true,
+  "commands": 6,
+  "status": "pass",
+  "wrapper_mode": "dut_replacement",
+  "reference_source": "full_add_4bit.v",
+  "reference_source_sha256": "3f9a2e3109c1736cee239cbe92536ecd721d002a1e8d872313b75a9f4081367b",
+  "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+  "resolved_tb_parameters": {},
+  "observed_checks": 0,
+  "reference_status": "pass",
+  "negative_status": "fail",
+  "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+  "seconds": 12.621
+}

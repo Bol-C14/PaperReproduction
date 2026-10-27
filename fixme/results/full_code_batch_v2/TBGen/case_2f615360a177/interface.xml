@@ -1,0 +1,65 @@
+<?xml version="1.0" ?>
+<!-- DESCRIPTION: Verilator output: XML representation of netlist -->
+<verilator_xml>
+  <files>
+    <file id="d" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std.sv" language="1800-2023"/>
+    <file id="c" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std_waiver.vlt" language="1800-2023"/>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_2f615360a177/Register.v" language="1800-2023"/>
+    <file id="a" filename="&lt;built-in&gt;" language="1800-2023"/>
+    <file id="b" filename="&lt;command-line&gt;" language="1800-2023"/>
+  </files>
+  <module_files>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_2f615360a177/Register.v" language="1800-2023"/>
+  </module_files>
+  <cells>
+    <cell loc="e,3,8,3,16" name="Register" submodname="Register" hier="Register"/>
+  </cells>
+  <netlist>
+    <module loc="e,3,8,3,16" name="Register" origName="Register" topModule="1">
+      <var loc="e,3,29,3,34" name="WIDTH" dtype_id="1" vartype="logic" origName="WIDTH" param="true">
+        <const loc="e,3,37,3,39" name="32&apos;sh20" dtype_id="1"/>
+      </var>
+      <var loc="e,3,41,3,45" name="INIT" dtype_id="1" vartype="logic" origName="INIT" param="true">
+        <const loc="e,3,48,3,49" name="32&apos;sh0" dtype_id="1"/>
+      </var>
+      <var loc="e,4,12,4,17" name="clock" dtype_id="2" dir="input" pinIndex="1" vartype="logic" origName="clock"/>
+      <var loc="e,5,12,5,17" name="reset" dtype_id="2" dir="input" pinIndex="2" vartype="logic" origName="reset"/>
+      <var loc="e,6,12,6,18" name="enable" dtype_id="2" dir="input" pinIndex="3" vartype="logic" origName="enable"/>
+      <var loc="e,7,26,7,27" name="D" dtype_id="3" dir="input" pinIndex="4" vartype="logic" origName="D"/>
+      <var loc="e,8,30,8,31" name="Q" dtype_id="3" dir="output" pinIndex="5" vartype="logic" origName="Q"/>
+      <initial loc="e,10,5,10,12">
+        <assign loc="e,11,11,11,12" dtype_id="3">
+          <const loc="e,11,13,11,17" name="32&apos;sh0" dtype_id="1"/>
+          <varref loc="e,11,9,11,10" name="Q" dtype_id="3"/>
+        </assign>
+      </initial>
+      <always loc="e,12,5,12,11">
+        <sentree loc="e,12,12,12,13">
+          <senitem loc="e,12,14,12,21" edgeType="POS">
+            <varref loc="e,12,22,12,27" name="clock" dtype_id="2"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,12,29,12,34">
+          <assigndly loc="e,13,11,13,13" dtype_id="3">
+            <cond loc="e,13,22,13,23" dtype_id="3">
+              <varref loc="e,13,15,13,20" name="reset" dtype_id="2"/>
+              <const loc="e,13,24,13,28" name="32&apos;sh0" dtype_id="1"/>
+              <cond loc="e,13,41,13,42" dtype_id="3">
+                <varref loc="e,13,33,13,39" name="enable" dtype_id="2"/>
+                <varref loc="e,13,43,13,44" name="D" dtype_id="3"/>
+                <varref loc="e,13,47,13,48" name="Q" dtype_id="3"/>
+              </cond>
+            </cond>
+            <varref loc="e,13,9,13,10" name="Q" dtype_id="3"/>
+          </assigndly>
+        </begin>
+      </always>
+    </module>
+    <typetable loc="a,0,0,0,0">
+      <basicdtype loc="d,46,25,46,27" id="2" name="logic"/>
+      <voiddtype loc="d,48,18,48,27" id="4"/>
+      <basicdtype loc="e,7,12,7,13" id="3" name="logic" left="31" right="0"/>
+      <basicdtype loc="e,3,37,3,39" id="1" name="logic" left="31" right="0" signed="true"/>
+    </typetable>
+  </netlist>
+</verilator_xml>

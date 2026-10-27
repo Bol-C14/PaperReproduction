@@ -1,0 +1,17 @@
+%Warning-ASCRANGE: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_898b27587c86/alu_barrel_shifter.v:29:8: Ascending bit range vector: left < right of bit range: [0:8]
+                                                                                                                                  : ... note: In instance 'alu_barrel_shifter'
+   29 |  reg   [0 : SHIFTER_WIDTH] a_reversed;
+      |        ^
+                   ... For warning description see https://verilator.org/warn/ASCRANGE?v=5.032
+                   ... Use "/* verilator lint_off ASCRANGE */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_898b27587c86/alu_barrel_shifter.v:39:27: Operator AND expects 9 bits on the LHS, but LHS's VARREF 'y' generates 8 bits.
+                                                                                                                                      : ... note: In instance 'alu_barrel_shifter'
+   39 |   assign  Yreg = {1'b0, y & value_7}                                   ;
+      |                           ^
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_898b27587c86/alu_barrel_shifter.v:39:16: Operator ASSIGNW expects 9 bits on the Assign RHS, but Assign RHS's REPLICATE generates 10 bits.
+                                                                                                                                     : ... note: In instance 'alu_barrel_shifter'
+   39 |   assign  Yreg = {1'b0, y & value_7}                                   ;
+      |                ^
+- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev (Debian 5.032-1+b2)
+- Verilator: Built from 0.030 MB sources in 2 modules, into 0.000 MB in 0 C++ files needing 0.000 MB
+- Verilator: Walltime 0.004 s (elab=0.001, cvt=0.001, bld=0.000); cpu 0.004 s on 1 threads; alloced 8.875 MB

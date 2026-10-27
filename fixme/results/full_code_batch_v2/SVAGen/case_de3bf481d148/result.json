@@ -1,0 +1,38 @@
+{
+  "id": "SVAGen/L3/Text/3",
+  "subset": "SVAGen",
+  "input_files": [
+    {
+      "name": "ct_ciu_regs_kid_272.txt",
+      "bytes": 15818,
+      "sha256": "bd9d3eb017e595806f1ace926f1c6cb023548a56f374fa8228c26fe36d2ca33b"
+    },
+    {
+      "name": "ct_ciu_regs_kid_272.v",
+      "bytes": 9153,
+      "sha256": "205ac9e9e3f665be61b0d76b530ebf46fcc0c16d1283fbaf135eef04f4b3c066"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": true,
+  "negative_control_detected": true,
+  "commands": 4,
+  "status": "pass",
+  "assertion": "always @* assert((x_csr_value[63:0]) == (regs_dout[63:0]));",
+  "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+  "relation_lhs": "x_csr_value[63:0]",
+  "property_counts": {
+    "assert": 1,
+    "assume": 0,
+    "cover": 0
+  },
+  "constant_mutation_status": "completed",
+  "constant_mutation_killed": false,
+  "negative_status": "fail",
+  "constant_control_status": "unknown",
+  "reason": "nonzero properties proven and selected output mutant falsified",
+  "seconds": 0.582
+}

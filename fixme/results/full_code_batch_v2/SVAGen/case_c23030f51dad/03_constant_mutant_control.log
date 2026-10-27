@@ -1,0 +1,653 @@
+
+-- Running command `read_verilog -formal -sv constant_mutant_control.sv; hierarchy -top tessera_sdram_ctrl; prep -top tessera_sdram_ctrl; flatten; async2sync; dffunmap; memory_map; opt_clean; chformal -lower; write_json constant_mutant_control.json; sat -seq 2 -timeout 5 -prove-asserts -verify -show-inputs -show-outputs' --
+
+1. Executing Verilog-2005 frontend: constant_mutant_control.sv
+Parsing formal SystemVerilog input from `constant_mutant_control.sv' to AST representation.
+Generating RTLIL representation for module `\tessera_sdram_ctrl'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \tessera_sdram_ctrl
+
+2.2. Analyzing design hierarchy..
+Top module:  \tessera_sdram_ctrl
+Removed 0 unused modules.
+Module tessera_sdram_ctrl directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \tessera_sdram_ctrl
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \tessera_sdram_ctrl
+Removed 0 unused modules.
+Module tessera_sdram_ctrl directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 4 switch rules as full_case in process $proc$constant_mutant_control.sv:528$142 in module tessera_sdram_ctrl.
+Marked 4 switch rules as full_case in process $proc$constant_mutant_control.sv:461$133 in module tessera_sdram_ctrl.
+Marked 4 switch rules as full_case in process $proc$constant_mutant_control.sv:394$123 in module tessera_sdram_ctrl.
+Marked 3 switch rules as full_case in process $proc$constant_mutant_control.sv:348$117 in module tessera_sdram_ctrl.
+Removed 1 dead cases from process $proc$constant_mutant_control.sv:251$101 in module tessera_sdram_ctrl.
+Marked 4 switch rules as full_case in process $proc$constant_mutant_control.sv:251$101 in module tessera_sdram_ctrl.
+Marked 2 switch rules as full_case in process $proc$constant_mutant_control.sv:247$98 in module tessera_sdram_ctrl.
+Marked 2 switch rules as full_case in process $proc$constant_mutant_control.sv:243$95 in module tessera_sdram_ctrl.
+Marked 1 switch rules as full_case in process $proc$constant_mutant_control.sv:240$91 in module tessera_sdram_ctrl.
+Marked 1 switch rules as full_case in process $proc$constant_mutant_control.sv:208$58 in module tessera_sdram_ctrl.
+Marked 1 switch rules as full_case in process $proc$constant_mutant_control.sv:191$34 in module tessera_sdram_ctrl.
+Removed a total of 1 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 23 redundant assignments.
+Promoted 2 assignments to connections.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst in `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:528$142'.
+Found async reset \rst in `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:461$133'.
+Found async reset \rst in `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:394$123'.
+Found async reset \rst in `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:348$117'.
+Found async reset \rst in `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:251$101'.
+Found async reset \rst in `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:247$98'.
+Found async reset \rst in `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:243$95'.
+Found async reset \rst in `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:240$91'.
+Found async reset \rst in `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:208$58'.
+Found async reset \rst in `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:191$34'.
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~19 debug messages>
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:595$151'.
+Creating decoders for process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:528$142'.
+     1/7: $0\rea_sta[3:0]
+     2/7: $0\rea_cmd[4:0]
+     3/7: $0\rea_val[0:0]
+     4/7: $0\rea_sub[3:0]
+     5/7: $0\rea_adr[12:0]
+     6/7: $0\rea_ba[1:0]
+     7/7: $0\rea_cs[1:0]
+Creating decoders for process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:461$133'.
+     1/7: $0\wri_sta[3:0]
+     2/7: $0\wri_cmd[4:0]
+     3/7: $0\wri_val[0:0]
+     4/7: $0\wri_sub[3:0]
+     5/7: $0\wri_adr[12:0]
+     6/7: $0\wri_ba[1:0]
+     7/7: $0\wri_cs[1:0]
+Creating decoders for process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:394$123'.
+     1/7: $0\dma_sta[3:0]
+     2/7: $0\dma_cmd[4:0]
+     3/7: $0\dma_val[0:0]
+     4/7: $0\dma_sub[3:0]
+     5/7: $0\dma_adr[12:0]
+     6/7: $0\dma_ba[1:0]
+     7/7: $0\dma_cs[1:0]
+Creating decoders for process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:348$117'.
+     1/5: $0\ref_sta[3:0]
+     2/5: $0\ref_cmd[4:0]
+     3/5: $0\ref_adr[12:0]
+     4/5: $0\ref_ba[1:0]
+     5/5: $0\ref_cs[1:0]
+Creating decoders for process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:251$101'.
+     1/8: $0\ini_adr[12:0] [12:11]
+     2/8: $0\ini_adr[12:0] [9:0]
+     3/8: $0\ini_adr[12:0] [10]
+     4/8: $0\ini_sub[3:0]
+     5/8: $0\ini_sta[3:0]
+     6/8: $0\ini_cmd[4:0]
+     7/8: $0\ini_ba[1:0]
+     8/8: $0\ini_cs[1:0]
+Creating decoders for process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:247$98'.
+     1/1: $0\timer_expire[0:0]
+Creating decoders for process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:243$95'.
+     1/1: $0\timer[15:0]
+Creating decoders for process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:240$91'.
+     1/1: $0\timer_enable[0:0]
+Creating decoders for process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:208$58'.
+     1/10: $0\read_exit[0:0]
+     2/10: $0\write_exit[0:0]
+     3/10: $0\dma_exit[0:0]
+     4/10: $0\refresh_exit[0:0]
+     5/10: $0\init_exit[0:0]
+     6/10: $0\read_enter[0:0]
+     7/10: $0\write_enter[0:0]
+     8/10: $0\dma_enter[0:0]
+     9/10: $0\refresh_enter[0:0]
+    10/10: $0\init_enter[0:0]
+Creating decoders for process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:191$34'.
+     1/1: $0\gnt_execute[4:0]
+Creating decoders for process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:101$1'.
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\tessera_sdram_ctrl.\rea_cmd' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:528$142'.
+  created $adff cell `$procdff$581' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\rea_cs' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:528$142'.
+  created $adff cell `$procdff$584' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\rea_ba' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:528$142'.
+  created $adff cell `$procdff$587' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\rea_adr' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:528$142'.
+  created $adff cell `$procdff$590' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\rea_sta' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:528$142'.
+  created $adff cell `$procdff$593' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\rea_sub' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:528$142'.
+  created $adff cell `$procdff$596' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\rea_val' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:528$142'.
+  created $adff cell `$procdff$599' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\wri_cmd' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:461$133'.
+  created $adff cell `$procdff$602' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\wri_cs' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:461$133'.
+  created $adff cell `$procdff$605' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\wri_ba' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:461$133'.
+  created $adff cell `$procdff$608' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\wri_adr' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:461$133'.
+  created $adff cell `$procdff$611' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\wri_sta' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:461$133'.
+  created $adff cell `$procdff$614' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\wri_sub' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:461$133'.
+  created $adff cell `$procdff$617' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\wri_val' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:461$133'.
+  created $adff cell `$procdff$620' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\dma_cmd' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:394$123'.
+  created $adff cell `$procdff$623' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\dma_cs' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:394$123'.
+  created $adff cell `$procdff$626' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\dma_ba' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:394$123'.
+  created $adff cell `$procdff$629' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\dma_adr' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:394$123'.
+  created $adff cell `$procdff$632' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\dma_sta' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:394$123'.
+  created $adff cell `$procdff$635' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\dma_sub' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:394$123'.
+  created $adff cell `$procdff$638' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\dma_val' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:394$123'.
+  created $adff cell `$procdff$641' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\ref_cmd' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:348$117'.
+  created $adff cell `$procdff$644' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\ref_cs' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:348$117'.
+  created $adff cell `$procdff$647' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\ref_ba' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:348$117'.
+  created $adff cell `$procdff$650' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\ref_adr' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:348$117'.
+  created $adff cell `$procdff$653' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\ref_sta' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:348$117'.
+  created $adff cell `$procdff$656' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\ini_cmd' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:251$101'.
+  created $adff cell `$procdff$659' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\ini_cs' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:251$101'.
+  created $adff cell `$procdff$662' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\ini_ba' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:251$101'.
+  created $adff cell `$procdff$665' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\ini_adr' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:251$101'.
+  created $adff cell `$procdff$668' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\ini_sta' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:251$101'.
+  created $adff cell `$procdff$671' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\ini_sub' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:251$101'.
+  created $adff cell `$procdff$674' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\timer_expire' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:247$98'.
+  created $adff cell `$procdff$677' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\timer' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:243$95'.
+  created $adff cell `$procdff$680' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\timer_enable' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:240$91'.
+  created $adff cell `$procdff$683' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\init_enter' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:208$58'.
+  created $adff cell `$procdff$686' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\init_exit' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:208$58'.
+  created $adff cell `$procdff$689' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\refresh_enter' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:208$58'.
+  created $adff cell `$procdff$692' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\refresh_exit' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:208$58'.
+  created $adff cell `$procdff$695' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\write_enter' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:208$58'.
+  created $adff cell `$procdff$698' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\write_exit' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:208$58'.
+  created $adff cell `$procdff$701' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\read_enter' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:208$58'.
+  created $adff cell `$procdff$704' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\read_exit' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:208$58'.
+  created $adff cell `$procdff$707' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\dma_enter' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:208$58'.
+  created $adff cell `$procdff$710' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\dma_exit' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:208$58'.
+  created $adff cell `$procdff$713' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\gnt_execute' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:191$34'.
+  created $adff cell `$procdff$716' with positive edge clock and positive level reset.
+Creating register for signal `\tessera_sdram_ctrl.\pre_option' using process `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:101$1'.
+  created $dff cell `$procdff$717' with positive edge clock.
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `tessera_sdram_ctrl.$proc$constant_mutant_control.sv:595$151'.
+Found and cleaned up 3 empty switches in `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:528$142'.
+Removing empty process `tessera_sdram_ctrl.$proc$constant_mutant_control.sv:528$142'.
+Found and cleaned up 3 empty switches in `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:461$133'.
+Removing empty process `tessera_sdram_ctrl.$proc$constant_mutant_control.sv:461$133'.
+Found and cleaned up 3 empty switches in `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:394$123'.
+Removing empty process `tessera_sdram_ctrl.$proc$constant_mutant_control.sv:394$123'.
+Found and cleaned up 2 empty switches in `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:348$117'.
+Removing empty process `tessera_sdram_ctrl.$proc$constant_mutant_control.sv:348$117'.
+Found and cleaned up 5 empty switches in `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:251$101'.
+Removing empty process `tessera_sdram_ctrl.$proc$constant_mutant_control.sv:251$101'.
+Found and cleaned up 1 empty switch in `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:247$98'.
+Removing empty process `tessera_sdram_ctrl.$proc$constant_mutant_control.sv:247$98'.
+Found and cleaned up 1 empty switch in `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:243$95'.
+Removing empty process `tessera_sdram_ctrl.$proc$constant_mutant_control.sv:243$95'.
+Removing empty process `tessera_sdram_ctrl.$proc$constant_mutant_control.sv:240$91'.
+Removing empty process `tessera_sdram_ctrl.$proc$constant_mutant_control.sv:208$58'.
+Found and cleaned up 1 empty switch in `\tessera_sdram_ctrl.$proc$constant_mutant_control.sv:191$34'.
+Removing empty process `tessera_sdram_ctrl.$proc$constant_mutant_control.sv:191$34'.
+Removing empty process `tessera_sdram_ctrl.$proc$constant_mutant_control.sv:101$1'.
+Cleaned up 19 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tessera_sdram_ctrl.
+<suppressed ~129 debug messages>
+
+3.3. Executing FUTURE pass.
+
+3.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tessera_sdram_ctrl.
+
+3.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tessera_sdram_ctrl..
+Removed 13 unused cells and 186 unused wires.
+<suppressed ~14 debug messages>
+
+3.6. Executing CHECK pass (checking for obvious problems).
+Checking module tessera_sdram_ctrl...
+Found and reported 0 problems.
+
+3.7. Executing OPT pass (performing simple optimizations).
+
+3.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tessera_sdram_ctrl.
+
+3.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tessera_sdram_ctrl'.
+<suppressed ~663 debug messages>
+Removed a total of 221 cells.
+
+3.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tessera_sdram_ctrl..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~42 debug messages>
+
+3.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tessera_sdram_ctrl.
+    New ctrl vector for $pmux cell $procmux$242: { $procmux$247_CMP $auto$opt_reduce.cc:137:opt_pmux$719 }
+    New ctrl vector for $pmux cell $procmux$265: { $procmux$249_CMP $procmux$247_CMP $auto$opt_reduce.cc:137:opt_pmux$721 }
+    New ctrl vector for $pmux cell $procmux$279: { $procmux$247_CMP $auto$opt_reduce.cc:137:opt_pmux$723 }
+    New ctrl vector for $pmux cell $procmux$293: { $eq$constant_mutant_control.sv:201$44_Y $procmux$248_CMP $auto$opt_reduce.cc:137:opt_pmux$725 }
+    New ctrl vector for $pmux cell $procmux$304: { $eq$constant_mutant_control.sv:201$44_Y $auto$opt_reduce.cc:137:opt_pmux$727 }
+    New ctrl vector for $pmux cell $procmux$315: { $eq$constant_mutant_control.sv:201$44_Y $auto$opt_reduce.cc:137:opt_pmux$729 }
+    New ctrl vector for $pmux cell $procmux$327: { $procmux$332_CMP $auto$opt_reduce.cc:137:opt_pmux$731 }
+    New ctrl vector for $pmux cell $procmux$350: { $procmux$334_CMP $procmux$332_CMP $auto$opt_reduce.cc:137:opt_pmux$733 }
+    New ctrl vector for $pmux cell $procmux$364: { $procmux$332_CMP $auto$opt_reduce.cc:137:opt_pmux$735 }
+    New ctrl vector for $pmux cell $procmux$219: { $eq$constant_mutant_control.sv:202$46_Y $auto$opt_reduce.cc:137:opt_pmux$737 }
+    New ctrl vector for $pmux cell $procmux$378: { $eq$constant_mutant_control.sv:200$42_Y $procmux$333_CMP $auto$opt_reduce.cc:137:opt_pmux$739 }
+    New ctrl vector for $pmux cell $procmux$389: { $eq$constant_mutant_control.sv:200$42_Y $auto$opt_reduce.cc:137:opt_pmux$741 }
+    New ctrl vector for $pmux cell $procmux$400: { $eq$constant_mutant_control.sv:200$42_Y $auto$opt_reduce.cc:137:opt_pmux$743 }
+    New ctrl vector for $pmux cell $procmux$412: $auto$opt_reduce.cc:137:opt_pmux$745
+    New ctrl vector for $pmux cell $procmux$430: { $eq$constant_mutant_control.sv:199$40_Y $auto$opt_reduce.cc:137:opt_pmux$747 }
+    New ctrl vector for $pmux cell $procmux$440: $auto$opt_reduce.cc:137:opt_pmux$749
+    New ctrl vector for $pmux cell $procmux$450: { $eq$constant_mutant_control.sv:199$40_Y $auto$opt_reduce.cc:137:opt_pmux$751 }
+    New ctrl vector for $pmux cell $procmux$157: { $procmux$162_CMP $auto$opt_reduce.cc:137:opt_pmux$753 }
+    New ctrl vector for $pmux cell $procmux$463: $auto$opt_reduce.cc:137:opt_pmux$755
+    New ctrl vector for $pmux cell $procmux$483: { $procmux$485_CMP $auto$opt_reduce.cc:137:opt_pmux$757 }
+    New ctrl vector for $pmux cell $procmux$503: { $eq$constant_mutant_control.sv:242$92_Y $procmux$499_CMP $auto$opt_reduce.cc:137:opt_pmux$759 $eq$constant_mutant_control.sv:242$93_Y $eq$constant_mutant_control.sv:203$48_Y }
+    New ctrl vector for $pmux cell $procmux$180: { $procmux$164_CMP $procmux$162_CMP $auto$opt_reduce.cc:137:opt_pmux$761 }
+    New ctrl vector for $pmux cell $procmux$527: { $procmux$485_CMP $procmux$517_CMP $procmux$464_CMP $auto$opt_reduce.cc:137:opt_pmux$763 }
+    New ctrl vector for $pmux cell $procmux$194: { $procmux$162_CMP $auto$opt_reduce.cc:137:opt_pmux$765 }
+    New ctrl vector for $pmux cell $procmux$230: { $eq$constant_mutant_control.sv:202$46_Y $auto$opt_reduce.cc:137:opt_pmux$767 }
+    New ctrl vector for $pmux cell $procmux$548: $auto$opt_reduce.cc:137:opt_pmux$769
+    New ctrl vector for $pmux cell $procmux$208: { $eq$constant_mutant_control.sv:202$46_Y $procmux$163_CMP $auto$opt_reduce.cc:137:opt_pmux$771 }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$718: { $procmux$249_CMP $procmux$248_CMP $procmux$243_CMP $eq$constant_mutant_control.sv:201$44_Y }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$720: { $procmux$248_CMP $procmux$243_CMP $eq$constant_mutant_control.sv:206$54_Y $eq$constant_mutant_control.sv:201$44_Y }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$722: { $procmux$249_CMP $procmux$248_CMP $procmux$243_CMP $eq$constant_mutant_control.sv:206$54_Y $eq$constant_mutant_control.sv:201$44_Y }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$724: { $procmux$249_CMP $procmux$247_CMP $procmux$243_CMP $eq$constant_mutant_control.sv:206$54_Y }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$726: { $procmux$249_CMP $procmux$248_CMP $procmux$247_CMP $procmux$243_CMP $eq$constant_mutant_control.sv:206$54_Y }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$728: { $procmux$249_CMP $procmux$248_CMP $procmux$247_CMP $procmux$243_CMP $eq$constant_mutant_control.sv:206$54_Y }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$730: { $procmux$334_CMP $procmux$333_CMP $procmux$328_CMP $eq$constant_mutant_control.sv:200$42_Y }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$732: { $procmux$333_CMP $procmux$328_CMP $eq$constant_mutant_control.sv:205$52_Y $eq$constant_mutant_control.sv:200$42_Y }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$734: { $procmux$334_CMP $procmux$333_CMP $procmux$328_CMP $eq$constant_mutant_control.sv:205$52_Y $eq$constant_mutant_control.sv:200$42_Y }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$736: { $procmux$164_CMP $procmux$163_CMP $procmux$162_CMP $procmux$158_CMP $eq$constant_mutant_control.sv:207$56_Y }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$738: { $procmux$334_CMP $procmux$332_CMP $procmux$328_CMP $eq$constant_mutant_control.sv:205$52_Y }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$740: { $procmux$334_CMP $procmux$333_CMP $procmux$332_CMP $procmux$328_CMP $eq$constant_mutant_control.sv:205$52_Y }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$742: { $procmux$334_CMP $procmux$333_CMP $procmux$332_CMP $procmux$328_CMP $eq$constant_mutant_control.sv:205$52_Y }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$744: { $procmux$415_CMP $procmux$414_CMP $procmux$413_CMP $eq$constant_mutant_control.sv:199$40_Y }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$746: { $procmux$415_CMP $procmux$414_CMP $procmux$413_CMP $eq$constant_mutant_control.sv:204$50_Y }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$748: { $procmux$415_CMP $procmux$414_CMP $procmux$413_CMP $eq$constant_mutant_control.sv:204$50_Y $eq$constant_mutant_control.sv:199$40_Y }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$750: { $procmux$415_CMP $procmux$414_CMP $procmux$413_CMP $eq$constant_mutant_control.sv:204$50_Y }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$752: { $procmux$164_CMP $procmux$163_CMP $procmux$158_CMP $eq$constant_mutant_control.sv:202$46_Y }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$758: { $procmux$518_CMP $procmux$517_CMP $procmux$516_CMP $procmux$515_CMP $procmux$509_CMP $procmux$508_CMP $procmux$485_CMP $procmux$464_CMP $eq$constant_mutant_control.sv:198$38_Y }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$760: { $procmux$163_CMP $procmux$158_CMP $eq$constant_mutant_control.sv:207$56_Y $eq$constant_mutant_control.sv:202$46_Y }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$762: { $procmux$518_CMP $procmux$516_CMP $procmux$515_CMP $procmux$509_CMP $procmux$508_CMP $procmux$499_CMP $eq$constant_mutant_control.sv:242$93_Y $eq$constant_mutant_control.sv:242$92_Y $eq$constant_mutant_control.sv:203$48_Y $eq$constant_mutant_control.sv:198$38_Y }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$764: { $procmux$164_CMP $procmux$163_CMP $procmux$158_CMP $eq$constant_mutant_control.sv:207$56_Y $eq$constant_mutant_control.sv:202$46_Y }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$766: { $procmux$164_CMP $procmux$163_CMP $procmux$162_CMP $procmux$158_CMP $eq$constant_mutant_control.sv:207$56_Y }
+    New input vector for $reduce_or cell $auto$opt_reduce.cc:131:opt_pmux$770: { $procmux$164_CMP $procmux$162_CMP $procmux$158_CMP $eq$constant_mutant_control.sv:207$56_Y }
+  Optimizing cells in module \tessera_sdram_ctrl.
+Performed a total of 51 changes.
+
+3.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tessera_sdram_ctrl'.
+<suppressed ~21 debug messages>
+Removed a total of 7 cells.
+
+3.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tessera_sdram_ctrl..
+Removed 6 unused cells and 208 unused wires.
+<suppressed ~7 debug messages>
+
+3.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tessera_sdram_ctrl.
+
+3.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tessera_sdram_ctrl..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~42 debug messages>
+
+3.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tessera_sdram_ctrl.
+    New ctrl vector for $pmux cell $procmux$503: { $procmux$499_CMP $auto$opt_reduce.cc:137:opt_pmux$759 $auto$opt_reduce.cc:137:opt_pmux$773 $eq$constant_mutant_control.sv:203$48_Y }
+  Optimizing cells in module \tessera_sdram_ctrl.
+Performed a total of 1 changes.
+
+3.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tessera_sdram_ctrl'.
+Removed a total of 0 cells.
+
+3.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tessera_sdram_ctrl..
+
+3.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tessera_sdram_ctrl.
+
+3.7.14. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.7.15. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tessera_sdram_ctrl..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~42 debug messages>
+
+3.7.16. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tessera_sdram_ctrl.
+Performed a total of 0 changes.
+
+3.7.17. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tessera_sdram_ctrl'.
+Removed a total of 0 cells.
+
+3.7.18. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tessera_sdram_ctrl..
+
+3.7.19. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tessera_sdram_ctrl.
+
+3.7.20. Finished OPT passes. (There is nothing left to do.)
+
+3.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 4) from port B of cell tessera_sdram_ctrl.$eq$constant_mutant_control.sv:204$50 ($eq).
+Removed top 1 bits (of 4) from port B of cell tessera_sdram_ctrl.$eq$constant_mutant_control.sv:205$52 ($eq).
+Removed top 1 bits (of 4) from port B of cell tessera_sdram_ctrl.$eq$constant_mutant_control.sv:206$54 ($eq).
+Removed top 1 bits (of 4) from port B of cell tessera_sdram_ctrl.$eq$constant_mutant_control.sv:207$56 ($eq).
+Removed top 3 bits (of 4) from port B of cell tessera_sdram_ctrl.$eq$constant_mutant_control.sv:242$92 ($eq).
+Removed top 15 bits (of 16) from port B of cell tessera_sdram_ctrl.$add$constant_mutant_control.sv:246$97 ($add).
+Removed top 1 bits (of 16) from port B of cell tessera_sdram_ctrl.$eq$constant_mutant_control.sv:250$100 ($eq).
+Removed top 3 bits (of 4) from port B of cell tessera_sdram_ctrl.$add$constant_mutant_control.sv:274$103 ($add).
+Removed top 1 bits (of 4) from port B of cell tessera_sdram_ctrl.$eq$constant_mutant_control.sv:303$110 ($eq).
+Removed top 2 bits (of 3) from port B of cell tessera_sdram_ctrl.$add$constant_mutant_control.sv:308$112 ($add).
+Removed top 3 bits (of 4) from port B of cell tessera_sdram_ctrl.$add$constant_mutant_control.sv:368$119 ($add).
+Removed top 3 bits (of 4) from port B of cell tessera_sdram_ctrl.$add$constant_mutant_control.sv:419$125 ($add).
+Removed top 3 bits (of 4) from port B of cell tessera_sdram_ctrl.$add$constant_mutant_control.sv:439$131 ($add).
+Removed top 3 bits (of 4) from port B of cell tessera_sdram_ctrl.$add$constant_mutant_control.sv:486$135 ($add).
+Removed top 3 bits (of 4) from port B of cell tessera_sdram_ctrl.$add$constant_mutant_control.sv:506$140 ($add).
+Removed top 3 bits (of 4) from port B of cell tessera_sdram_ctrl.$add$constant_mutant_control.sv:553$144 ($add).
+Removed top 3 bits (of 4) from port B of cell tessera_sdram_ctrl.$add$constant_mutant_control.sv:573$149 ($add).
+Removed top 1 bits (of 4) from port B of cell tessera_sdram_ctrl.$procmux$158_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell tessera_sdram_ctrl.$procmux$158_CMP1 ($eq).
+Removed top 2 bits (of 4) from port B of cell tessera_sdram_ctrl.$procmux$162_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell tessera_sdram_ctrl.$procmux$163_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell tessera_sdram_ctrl.$procmux$164_CMP0 ($eq).
+Removed top 1 bits (of 5) from mux cell tessera_sdram_ctrl.$procmux$173 ($pmux).
+Removed top 1 bits (of 5) from mux cell tessera_sdram_ctrl.$procmux$177 ($mux).
+Removed top 1 bits (of 4) from port B of cell tessera_sdram_ctrl.$procmux$243_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell tessera_sdram_ctrl.$procmux$243_CMP1 ($eq).
+Removed top 2 bits (of 4) from port B of cell tessera_sdram_ctrl.$procmux$247_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell tessera_sdram_ctrl.$procmux$248_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell tessera_sdram_ctrl.$procmux$249_CMP0 ($eq).
+Removed top 1 bits (of 5) from mux cell tessera_sdram_ctrl.$procmux$258 ($pmux).
+Removed top 1 bits (of 5) from mux cell tessera_sdram_ctrl.$procmux$262 ($mux).
+Removed top 1 bits (of 4) from port B of cell tessera_sdram_ctrl.$procmux$328_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell tessera_sdram_ctrl.$procmux$328_CMP1 ($eq).
+Removed top 2 bits (of 4) from port B of cell tessera_sdram_ctrl.$procmux$332_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell tessera_sdram_ctrl.$procmux$333_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell tessera_sdram_ctrl.$procmux$334_CMP0 ($eq).
+Removed top 1 bits (of 5) from mux cell tessera_sdram_ctrl.$procmux$343 ($pmux).
+Removed top 1 bits (of 5) from mux cell tessera_sdram_ctrl.$procmux$347 ($mux).
+Removed top 2 bits (of 4) from port B of cell tessera_sdram_ctrl.$procmux$413_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell tessera_sdram_ctrl.$procmux$413_CMP1 ($eq).
+Removed top 1 bits (of 4) from port B of cell tessera_sdram_ctrl.$procmux$413_CMP2 ($eq).
+Removed top 2 bits (of 4) from port B of cell tessera_sdram_ctrl.$procmux$414_CMP0 ($eq).
+Removed top 3 bits (of 4) from port B of cell tessera_sdram_ctrl.$procmux$415_CMP0 ($eq).
+Removed top 1 bits (of 5) from mux cell tessera_sdram_ctrl.$procmux$423 ($pmux).
+Removed top 1 bits (of 5) from mux cell tessera_sdram_ctrl.$procmux$427 ($mux).
+Removed top 2 bits (of 4) from port B of cell tessera_sdram_ctrl.$procmux$485_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell tessera_sdram_ctrl.$procmux$515_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell tessera_sdram_ctrl.$procmux$515_CMP1 ($eq).
+Removed top 1 bits (of 4) from port B of cell tessera_sdram_ctrl.$procmux$516_CMP0 ($eq).
+Removed top 1 bits (of 4) from port B of cell tessera_sdram_ctrl.$procmux$517_CMP0 ($eq).
+Removed top 2 bits (of 4) from port B of cell tessera_sdram_ctrl.$procmux$518_CMP0 ($eq).
+Removed top 1 bits (of 5) from wire tessera_sdram_ctrl.$0\dma_cmd[4:0].
+Removed top 1 bits (of 5) from wire tessera_sdram_ctrl.$0\rea_cmd[4:0].
+Removed top 1 bits (of 5) from wire tessera_sdram_ctrl.$0\ref_cmd[4:0].
+Removed top 1 bits (of 5) from wire tessera_sdram_ctrl.$0\wri_cmd[4:0].
+Removed top 1 bits (of 5) from wire tessera_sdram_ctrl.$procmux$173_Y.
+Removed top 1 bits (of 5) from wire tessera_sdram_ctrl.$procmux$258_Y.
+Removed top 1 bits (of 5) from wire tessera_sdram_ctrl.$procmux$343_Y.
+Removed top 1 bits (of 5) from wire tessera_sdram_ctrl.$procmux$423_Y.
+Removed top 7 bits (of 32) from wire tessera_sdram_ctrl.next_dma_adr.
+Removed top 3 bits (of 12) from wire tessera_sdram_ctrl.next_dma_adr_col.
+Removed top 1 bits (of 13) from wire tessera_sdram_ctrl.next_dma_adr_row.
+Removed top 7 bits (of 32) from wire tessera_sdram_ctrl.next_rea_adr.
+Removed top 3 bits (of 12) from wire tessera_sdram_ctrl.next_rea_adr_col.
+Removed top 1 bits (of 13) from wire tessera_sdram_ctrl.next_rea_adr_row.
+Removed top 7 bits (of 32) from wire tessera_sdram_ctrl.next_wri_adr.
+Removed top 3 bits (of 12) from wire tessera_sdram_ctrl.next_wri_adr_col.
+Removed top 1 bits (of 13) from wire tessera_sdram_ctrl.next_wri_adr_row.
+
+3.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tessera_sdram_ctrl..
+Removed 0 unused cells and 17 unused wires.
+<suppressed ~1 debug messages>
+
+3.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.11. Executing OPT pass (performing simple optimizations).
+
+3.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tessera_sdram_ctrl.
+
+3.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tessera_sdram_ctrl'.
+Removed a total of 0 cells.
+
+3.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tessera_sdram_ctrl..
+
+3.11.4. Finished fast OPT passes.
+
+3.12. Printing statistics.
+
+=== tessera_sdram_ctrl ===
+
+   Number of wires:                293
+   Number of wire bits:           1065
+   Number of public wires:          96
+   Number of public wire bits:     482
+   Number of ports:                 28
+   Number of port bits:            139
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                279
+     $add                           10
+     $adff                          46
+     $and                            1
+     $check                          1
+     $dff                            1
+     $eq                            42
+     $logic_and                     19
+     $logic_not                     17
+     $logic_or                       9
+     $mux                           65
+     $not                            1
+     $or                            16
+     $pmux                          28
+     $reduce_or                     23
+
+3.13. Executing CHECK pass (checking for obvious problems).
+Checking module tessera_sdram_ctrl...
+Found and reported 0 problems.
+
+4. Executing FLATTEN pass (flatten design).
+
+5. Executing ASYNC2SYNC pass.
+Replacing tessera_sdram_ctrl.$procdff$581 ($adff): ARST=\rst, D={ 1'1 $0\rea_cmd[4:0] }, Q=\rea_cmd
+Replacing tessera_sdram_ctrl.$procdff$584 ($adff): ARST=\rst, D=$0\rea_cs[1:0], Q=\rea_cs
+Replacing tessera_sdram_ctrl.$procdff$587 ($adff): ARST=\rst, D=$0\rea_ba[1:0], Q=\rea_ba
+Replacing tessera_sdram_ctrl.$procdff$590 ($adff): ARST=\rst, D=$0\rea_adr[12:0], Q=\rea_adr
+Replacing tessera_sdram_ctrl.$procdff$593 ($adff): ARST=\rst, D=$0\rea_sta[3:0], Q=\rea_sta
+Replacing tessera_sdram_ctrl.$procdff$596 ($adff): ARST=\rst, D=$0\rea_sub[3:0], Q=\rea_sub
+Replacing tessera_sdram_ctrl.$procdff$599 ($adff): ARST=\rst, D=$0\rea_val[0:0], Q=\rea_val
+Replacing tessera_sdram_ctrl.$procdff$602 ($adff): ARST=\rst, D={ 1'1 $0\wri_cmd[4:0] }, Q=\wri_cmd
+Replacing tessera_sdram_ctrl.$procdff$605 ($adff): ARST=\rst, D=$0\wri_cs[1:0], Q=\wri_cs
+Replacing tessera_sdram_ctrl.$procdff$608 ($adff): ARST=\rst, D=$0\wri_ba[1:0], Q=\wri_ba
+Replacing tessera_sdram_ctrl.$procdff$611 ($adff): ARST=\rst, D=$0\wri_adr[12:0], Q=\wri_adr
+Replacing tessera_sdram_ctrl.$procdff$614 ($adff): ARST=\rst, D=$0\wri_sta[3:0], Q=\wri_sta
+Replacing tessera_sdram_ctrl.$procdff$617 ($adff): ARST=\rst, D=$0\wri_sub[3:0], Q=\wri_sub
+Replacing tessera_sdram_ctrl.$procdff$620 ($adff): ARST=\rst, D=$0\wri_val[0:0], Q=\wri_val
+Replacing tessera_sdram_ctrl.$procdff$623 ($adff): ARST=\rst, D={ 1'1 $0\dma_cmd[4:0] }, Q=\dma_cmd
+Replacing tessera_sdram_ctrl.$procdff$626 ($adff): ARST=\rst, D=$0\dma_cs[1:0], Q=\dma_cs
+Replacing tessera_sdram_ctrl.$procdff$629 ($adff): ARST=\rst, D=$0\dma_ba[1:0], Q=\dma_ba
+Replacing tessera_sdram_ctrl.$procdff$632 ($adff): ARST=\rst, D=$0\dma_adr[12:0], Q=\dma_adr
+Replacing tessera_sdram_ctrl.$procdff$635 ($adff): ARST=\rst, D=$0\dma_sta[3:0], Q=\dma_sta
+Replacing tessera_sdram_ctrl.$procdff$638 ($adff): ARST=\rst, D=$0\dma_sub[3:0], Q=\dma_sub
+Replacing tessera_sdram_ctrl.$procdff$641 ($adff): ARST=\rst, D=$0\dma_val[0:0], Q=\dma_val
+Replacing tessera_sdram_ctrl.$procdff$644 ($adff): ARST=\rst, D={ 1'1 $0\ref_cmd[4:0] }, Q=\ref_cmd
+Replacing tessera_sdram_ctrl.$procdff$647 ($adff): ARST=\rst, D=$0\ref_cs[1:0], Q=\ref_cs
+Replacing tessera_sdram_ctrl.$procdff$650 ($adff): ARST=\rst, D=$0\ref_ba[1:0], Q=\ref_ba
+Replacing tessera_sdram_ctrl.$procdff$653 ($adff): ARST=\rst, D=$0\ref_adr[12:0], Q=\ref_adr
+Replacing tessera_sdram_ctrl.$procdff$656 ($adff): ARST=\rst, D=$0\ref_sta[3:0], Q=\ref_sta
+Replacing tessera_sdram_ctrl.$procdff$659 ($adff): ARST=\rst, D=$0\ini_cmd[4:0], Q=\ini_cmd
+Replacing tessera_sdram_ctrl.$procdff$662 ($adff): ARST=\rst, D=$0\ini_cs[1:0], Q=\ini_cs
+Replacing tessera_sdram_ctrl.$procdff$665 ($adff): ARST=\rst, D=$0\ini_ba[1:0], Q=\ini_ba
+Replacing tessera_sdram_ctrl.$procdff$668 ($adff): ARST=\rst, D=$0\ini_adr[12:0], Q=\ini_adr
+Replacing tessera_sdram_ctrl.$procdff$671 ($adff): ARST=\rst, D=$0\ini_sta[3:0], Q=\ini_sta
+Replacing tessera_sdram_ctrl.$procdff$674 ($adff): ARST=\rst, D=$0\ini_sub[3:0], Q=\ini_sub
+Replacing tessera_sdram_ctrl.$procdff$677 ($adff): ARST=\rst, D=$0\timer_expire[0:0], Q=\timer_expire
+Replacing tessera_sdram_ctrl.$procdff$680 ($adff): ARST=\rst, D=$0\timer[15:0], Q=\timer
+Replacing tessera_sdram_ctrl.$procdff$683 ($adff): ARST=\rst, D=$0\timer_enable[0:0], Q=\timer_enable
+Replacing tessera_sdram_ctrl.$procdff$686 ($adff): ARST=\rst, D=\init_syn, Q=\init_enter
+Replacing tessera_sdram_ctrl.$procdff$689 ($adff): ARST=\rst, D=$0\init_exit[0:0], Q=\init_exit
+Replacing tessera_sdram_ctrl.$procdff$692 ($adff): ARST=\rst, D=\refresh_syn, Q=\refresh_enter
+Replacing tessera_sdram_ctrl.$procdff$695 ($adff): ARST=\rst, D=$0\refresh_exit[0:0], Q=\refresh_exit
+Replacing tessera_sdram_ctrl.$procdff$698 ($adff): ARST=\rst, D=\write_syn, Q=\write_enter
+Replacing tessera_sdram_ctrl.$procdff$701 ($adff): ARST=\rst, D=$0\write_exit[0:0], Q=\write_exit
+Replacing tessera_sdram_ctrl.$procdff$704 ($adff): ARST=\rst, D=\read_syn, Q=\read_enter
+Replacing tessera_sdram_ctrl.$procdff$707 ($adff): ARST=\rst, D=$0\read_exit[0:0], Q=\read_exit
+Replacing tessera_sdram_ctrl.$procdff$710 ($adff): ARST=\rst, D=\dma_syn, Q=\dma_enter
+Replacing tessera_sdram_ctrl.$procdff$713 ($adff): ARST=\rst, D=$0\dma_exit[0:0], Q=\dma_exit
+Replacing tessera_sdram_ctrl.$procdff$716 ($adff): ARST=\rst, D=$0\gnt_execute[4:0], Q=\gnt_execute
+
+6. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+7. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tessera_sdram_ctrl..
+Removed 2 unused cells and 2 unused wires.
+<suppressed ~3 debug messages>
+
+9. Executing JSON backend.
+
+10. Executing SAT pass (solving SAT problems in the circuit).
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 371 cells to SAT database.
+No constraints for initial state found.
+
+Import proof for assert: 1'1 when 1'1.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 371 cells to SAT database.
+Import proof for assert: 1'1 when 1'1.
+Import show expression: \clk
+Import show expression: \dma_address
+Import show expression: \dma_req
+Import show expression: \init_req
+Import show expression: \option
+Import show expression: \read_address
+Import show expression: \read_req
+Import show expression: \refresh_req
+Import show expression: \rst
+Import show expression: \write_address
+Import show expression: \write_req
+Import show expression: \ctrl_a
+Import show expression: \ctrl_ba
+Import show expression: \ctrl_cmd
+Import show expression: \ctrl_cs
+Import show expression: \dma_enter
+Import show expression: \dma_exit
+Import show expression: \dma_valid
+Import show expression: \init_enter
+Import show expression: \init_exit
+Import show expression: \read_enter
+Import show expression: \read_exit
+Import show expression: \read_valid
+Import show expression: \refresh_enter
+Import show expression: \refresh_exit
+Import show expression: \write_enter
+Import show expression: \write_exit
+Import show expression: \write_valid
+
+Solving problem with 13935 variables and 36721 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+

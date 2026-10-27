@@ -1,0 +1,45 @@
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch/MGen/case_d6c874514917/ref.v:47:14: Operator AND expects 32 bits on the LHS, but LHS's VARREF 'sr8' generates 8 bits.
+                                                                                                                   : ... note: In instance 'ref_tiny_spi'
+   47 |         (sr8 & {8{(adr_i == 0)}})
+      |              ^
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.032
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch/MGen/case_d6c874514917/ref.v:47:14: Operator AND expects 32 bits on the RHS, but RHS's REPLICATE generates 8 bits.
+                                                                                                                   : ... note: In instance 'ref_tiny_spi'
+   47 |         (sr8 & {8{(adr_i == 0)}})
+      |              ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch/MGen/case_d6c874514917/ref.v:48:14: Operator AND expects 32 bits on the LHS, but LHS's VARREF 'bb8' generates 8 bits.
+                                                                                                                   : ... note: In instance 'ref_tiny_spi'
+   48 |       | (bb8 & {8{(adr_i == 1)}})
+      |              ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch/MGen/case_d6c874514917/ref.v:48:14: Operator AND expects 32 bits on the RHS, but RHS's REPLICATE generates 8 bits.
+                                                                                                                   : ... note: In instance 'ref_tiny_spi'
+   48 |       | (bb8 & {8{(adr_i == 1)}})
+      |              ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch/MGen/case_d6c874514917/ref.v:49:23: Operator AND expects 32 bits on the LHS, but LHS's REPLICATE generates 2 bits.
+                                                                                                                   : ... note: In instance 'ref_tiny_spi'
+   49 |       | ({ txr, txe } & {8{(adr_i == 2)}})
+      |                       ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch/MGen/case_d6c874514917/ref.v:49:23: Operator AND expects 32 bits on the RHS, but RHS's REPLICATE generates 8 bits.
+                                                                                                                   : ... note: In instance 'ref_tiny_spi'
+   49 |       | ({ txr, txe } & {8{(adr_i == 2)}})
+      |                       ^
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch/MGen/case_d6c874514917/ref.v:129:21: Operator ASSIGNDLY expects 2 bits on the Assign RHS, but Assign RHS's VARREF 'dat_i' generates 32 bits.
+                                                                                                                   : ... note: In instance 'ref_tiny_spi'
+  129 |    { cpolr, cphar } <= dat_i;
+      |                     ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch/MGen/case_d6c874514917/ref.v:133:21: Operator ASSIGNDLY expects 2 bits on the Assign RHS, but Assign RHS's VARREF 'dat_i' generates 32 bits.
+                                                                                                                   : ... note: In instance 'ref_tiny_spi'
+  133 |    { txren, txeen } <= dat_i;
+      |                     ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch/MGen/case_d6c874514917/ref.v:137:8: Operator ASSIGNDLY expects 8 bits on the Assign RHS, but Assign RHS's VARREF 'dat_i' generates 32 bits.
+                                                                                                                  : ... note: In instance 'ref_tiny_spi'
+  137 |    ccr <= dat_i;
+      |        ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch/MGen/case_d6c874514917/ref.v:147:8: Operator ASSIGNDLY expects 8 bits on the Assign RHS, but Assign RHS's VARREF 'dat_i' generates 32 bits.
+                                                                                                                  : ... note: In instance 'ref_tiny_spi'
+  147 |    bb8 <= dat_i;
+      |        ^~
+- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev (Debian 5.032-1+b2)
+- Verilator: Built from 0.030 MB sources in 2 modules, into 0.047 MB in 7 C++ files needing 0.000 MB
+- Verilator: Walltime 0.008 s (elab=0.001, cvt=0.004, bld=0.000); cpu 0.008 s on 1 threads; alloced 9.328 MB

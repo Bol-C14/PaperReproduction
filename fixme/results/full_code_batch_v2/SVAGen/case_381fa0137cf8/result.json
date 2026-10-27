@@ -1,0 +1,38 @@
+{
+  "id": "SVAGen/L3/Text/1",
+  "subset": "SVAGen",
+  "input_files": [
+    {
+      "name": "ct_lsu_pfu_sdb_entry_281.txt",
+      "bytes": 16779,
+      "sha256": "d889a9516205d0453744161b43fcfa79876cdeb160df1cc9c7a3f7b06e4edd10"
+    },
+    {
+      "name": "ct_lsu_pfu_sdb_entry_281.v",
+      "bytes": 11475,
+      "sha256": "fe9f13a54087848b8686be38795c65348c5934083e178bbdeac2328dc6354bfb"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": true,
+  "negative_control_detected": true,
+  "commands": 4,
+  "status": "pass",
+  "assertion": "always @* assert((pfu_sdb_entry_vld_x) == (pfu_sdb_entry_vld));",
+  "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+  "relation_lhs": "pfu_sdb_entry_vld_x",
+  "property_counts": {
+    "assert": 1,
+    "assume": 0,
+    "cover": 0
+  },
+  "constant_mutation_status": "completed",
+  "constant_mutation_killed": false,
+  "negative_status": "fail",
+  "constant_control_status": "unknown",
+  "reason": "nonzero properties proven and selected output mutant falsified",
+  "seconds": 0.246
+}

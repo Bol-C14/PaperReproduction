@@ -1,0 +1,40 @@
+{
+  "id": "TBGen/L3/Text/bresenham_line",
+  "subset": "TBGen",
+  "input_files": [
+    {
+      "name": "bresenham_line.v",
+      "bytes": 6992,
+      "sha256": "6544b7a62b4b7e68132b19c0100d75e3f640c1c1555951d7f02c68d684ff7de5"
+    },
+    {
+      "name": "bresenham_line_spec.txt",
+      "bytes": 8009,
+      "sha256": "f7847feca9499814f03cfaf00261e3311a3f75fca6b01d603107878465f3d79d"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": true,
+  "negative_control_detected": true,
+  "commands": 5,
+  "status": "pass",
+  "stimulus_contract": {
+    "seed": 13579,
+    "cycles": 64,
+    "clock": "clk_i",
+    "reset_polarities": {
+      "rst_i": 1
+    },
+    "unknown_handling": "any observed unknown prevents pass",
+    "oracle": "renamed copy of supplied RTL; self-consistency/calibration only"
+  },
+  "observed_checks": 64,
+  "observed_unknown": 0,
+  "reference_status": "pass",
+  "negative_status": "fail",
+  "reason": "reference/checker positive and perturbed-checker negative executed",
+  "seconds": 0.117
+}

@@ -1,0 +1,950 @@
+<?xml version="1.0" ?>
+<!-- DESCRIPTION: Verilator output: XML representation of netlist -->
+<verilator_xml>
+  <files>
+    <file id="d" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std.sv" language="1800-2023"/>
+    <file id="c" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std_waiver.vlt" language="1800-2023"/>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_71f19b8008a7/fpu_sub.v" language="1800-2023"/>
+    <file id="a" filename="&lt;built-in&gt;" language="1800-2023"/>
+    <file id="b" filename="&lt;command-line&gt;" language="1800-2023"/>
+  </files>
+  <module_files>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_71f19b8008a7/fpu_sub.v" language="1800-2023"/>
+  </module_files>
+  <cells>
+    <cell loc="e,3,8,3,15" name="fpu_sub" submodname="fpu_sub" hier="fpu_sub"/>
+  </cells>
+  <netlist>
+    <module loc="e,3,8,3,15" name="fpu_sub" origName="fpu_sub" topModule="1">
+      <var loc="e,4,8,4,11" name="clk" dtype_id="1" dir="input" pinIndex="1" vartype="logic" origName="clk"/>
+      <var loc="e,5,8,5,11" name="rst" dtype_id="1" dir="input" pinIndex="2" vartype="logic" origName="rst"/>
+      <var loc="e,6,8,6,14" name="enable" dtype_id="1" dir="input" pinIndex="3" vartype="logic" origName="enable"/>
+      <var loc="e,7,14,7,17" name="opa" dtype_id="2" dir="input" pinIndex="4" vartype="logic" origName="opa"/>
+      <var loc="e,7,19,7,22" name="opb" dtype_id="2" dir="input" pinIndex="5" vartype="logic" origName="opb"/>
+      <var loc="e,8,13,8,19" name="fpu_op" dtype_id="3" dir="input" pinIndex="6" vartype="logic" origName="fpu_op"/>
+      <var loc="e,9,9,9,13" name="sign" dtype_id="1" dir="output" pinIndex="7" vartype="logic" origName="sign"/>
+      <var loc="e,10,15,10,21" name="diff_2" dtype_id="4" dir="output" pinIndex="8" vartype="logic" origName="diff_2"/>
+      <var loc="e,11,15,11,25" name="exponent_2" dtype_id="5" dir="output" pinIndex="9" vartype="logic" origName="exponent_2"/>
+      <var loc="e,12,12,12,22" name="diff_shift" dtype_id="6" vartype="logic" origName="diff_shift"/>
+      <var loc="e,13,12,13,24" name="diff_shift_2" dtype_id="6" vartype="logic" origName="diff_shift_2"/>
+      <var loc="e,14,14,14,24" name="exponent_a" dtype_id="5" vartype="logic" origName="exponent_a"/>
+      <var loc="e,15,14,15,24" name="exponent_b" dtype_id="5" vartype="logic" origName="exponent_b"/>
+      <var loc="e,16,14,16,24" name="mantissa_a" dtype_id="7" vartype="logic" origName="mantissa_a"/>
+      <var loc="e,17,14,17,24" name="mantissa_b" dtype_id="7" vartype="logic" origName="mantissa_b"/>
+      <var loc="e,18,7,18,19" name="expa_gt_expb" dtype_id="1" vartype="logic" origName="expa_gt_expb"/>
+      <var loc="e,19,7,19,19" name="expa_et_expb" dtype_id="1" vartype="logic" origName="expa_et_expb"/>
+      <var loc="e,20,7,20,21" name="mana_gtet_manb" dtype_id="1" vartype="logic" origName="mana_gtet_manb"/>
+      <var loc="e,21,7,21,15" name="a_gtet_b" dtype_id="1" vartype="logic" origName="a_gtet_b"/>
+      <var loc="e,23,14,23,28" name="exponent_small" dtype_id="5" vartype="logic" origName="exponent_small"/>
+      <var loc="e,24,14,24,28" name="exponent_large" dtype_id="5" vartype="logic" origName="exponent_large"/>
+      <var loc="e,25,14,25,28" name="mantissa_small" dtype_id="7" vartype="logic" origName="mantissa_small"/>
+      <var loc="e,26,14,26,28" name="mantissa_large" dtype_id="7" vartype="logic" origName="mantissa_large"/>
+      <var loc="e,27,7,27,22" name="small_is_denorm" dtype_id="1" vartype="logic" origName="small_is_denorm"/>
+      <var loc="e,28,7,28,22" name="large_is_denorm" dtype_id="1" vartype="logic" origName="large_is_denorm"/>
+      <var loc="e,29,7,29,30" name="large_norm_small_denorm" dtype_id="1" vartype="logic" origName="large_norm_small_denorm"/>
+      <var loc="e,30,7,30,23" name="small_is_nonzero" dtype_id="1" vartype="logic" origName="small_is_nonzero"/>
+      <var loc="e,31,14,31,27" name="exponent_diff" dtype_id="5" vartype="logic" origName="exponent_diff"/>
+      <var loc="e,32,14,32,21" name="minuend" dtype_id="8" vartype="logic" origName="minuend"/>
+      <var loc="e,33,14,33,24" name="subtrahend" dtype_id="8" vartype="logic" origName="subtrahend"/>
+      <var loc="e,34,14,34,26" name="subtra_shift" dtype_id="8" vartype="logic" origName="subtra_shift"/>
+      <var loc="e,36,8,36,30" name="subtra_fraction_enable" dtype_id="1" vartype="logic" origName="subtra_fraction_enable"/>
+      <var loc="e,37,15,37,29" name="subtra_shift_2" dtype_id="8" vartype="logic" origName="subtra_shift_2">
+        <const loc="e,37,32,37,33" name="55&apos;h1" dtype_id="8"/>
+      </var>
+      <var loc="e,38,14,38,28" name="subtra_shift_3" dtype_id="8" vartype="logic" origName="subtra_shift_3"/>
+      <var loc="e,39,14,39,18" name="diff" dtype_id="8" vartype="logic" origName="diff"/>
+      <var loc="e,40,7,40,28" name="diffshift_gt_exponent" dtype_id="1" vartype="logic" origName="diffshift_gt_exponent"/>
+      <var loc="e,41,7,41,22" name="diffshift_et_55" dtype_id="1" vartype="logic" origName="diffshift_et_55"/>
+      <var loc="e,42,14,42,20" name="diff_1" dtype_id="8" vartype="logic" origName="diff_1"/>
+      <var loc="e,43,14,43,22" name="exponent" dtype_id="5" vartype="logic" origName="exponent"/>
+      <var loc="e,45,8,45,26" name="in_norm_out_denorm" dtype_id="1" vartype="logic" origName="in_norm_out_denorm"/>
+      <always loc="e,47,1,47,7">
+        <sentree loc="e,47,8,47,9">
+          <senitem loc="e,47,10,47,17" edgeType="POS">
+            <varref loc="e,47,18,47,21" name="clk" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,48,2,48,7">
+          <if loc="e,49,3,49,5">
+            <varref loc="e,49,7,49,10" name="rst" dtype_id="1"/>
+            <begin>
+              <begin loc="e,49,12,49,17">
+                <assigndly loc="e,50,14,50,16" dtype_id="5">
+                  <const loc="e,50,17,50,18" name="11&apos;h0" dtype_id="5"/>
+                  <varref loc="e,50,3,50,13" name="exponent_a" dtype_id="5"/>
+                </assigndly>
+                <assigndly loc="e,51,14,51,16" dtype_id="5">
+                  <const loc="e,51,17,51,18" name="11&apos;h0" dtype_id="5"/>
+                  <varref loc="e,51,3,51,13" name="exponent_b" dtype_id="5"/>
+                </assigndly>
+                <assigndly loc="e,52,14,52,16" dtype_id="7">
+                  <const loc="e,52,17,52,18" name="52&apos;h0" dtype_id="7"/>
+                  <varref loc="e,52,3,52,13" name="mantissa_a" dtype_id="7"/>
+                </assigndly>
+                <assigndly loc="e,53,14,53,16" dtype_id="7">
+                  <const loc="e,53,17,53,18" name="52&apos;h0" dtype_id="7"/>
+                  <varref loc="e,53,3,53,13" name="mantissa_b" dtype_id="7"/>
+                </assigndly>
+                <assigndly loc="e,54,16,54,18" dtype_id="1">
+                  <const loc="e,54,19,54,20" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,54,3,54,15" name="expa_gt_expb" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,55,16,55,18" dtype_id="1">
+                  <const loc="e,55,19,55,20" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,55,3,55,15" name="expa_et_expb" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,56,18,56,20" dtype_id="1">
+                  <const loc="e,56,21,56,22" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,56,3,56,17" name="mana_gtet_manb" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,57,15,57,17" dtype_id="1">
+                  <const loc="e,57,18,57,19" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,57,6,57,14" name="a_gtet_b" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,58,11,58,13" dtype_id="1">
+                  <const loc="e,58,14,58,15" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,58,6,58,10" name="sign" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,59,22,59,24" dtype_id="5">
+                  <const loc="e,59,25,59,26" name="11&apos;h0" dtype_id="5"/>
+                  <varref loc="e,59,6,59,20" name="exponent_small" dtype_id="5"/>
+                </assigndly>
+                <assigndly loc="e,60,22,60,24" dtype_id="5">
+                  <const loc="e,60,25,60,26" name="11&apos;h0" dtype_id="5"/>
+                  <varref loc="e,60,6,60,20" name="exponent_large" dtype_id="5"/>
+                </assigndly>
+                <assigndly loc="e,61,21,61,23" dtype_id="7">
+                  <const loc="e,61,24,61,25" name="52&apos;h0" dtype_id="7"/>
+                  <varref loc="e,61,5,61,19" name="mantissa_small" dtype_id="7"/>
+                </assigndly>
+                <assigndly loc="e,62,22,62,24" dtype_id="7">
+                  <const loc="e,62,25,62,26" name="52&apos;h0" dtype_id="7"/>
+                  <varref loc="e,62,6,62,20" name="mantissa_large" dtype_id="7"/>
+                </assigndly>
+                <assigndly loc="e,63,22,63,24" dtype_id="1">
+                  <const loc="e,63,25,63,26" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,63,6,63,21" name="small_is_denorm" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,64,22,64,24" dtype_id="1">
+                  <const loc="e,64,25,64,26" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,64,6,64,21" name="large_is_denorm" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,65,30,65,32" dtype_id="1">
+                  <const loc="e,65,33,65,34" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,65,6,65,29" name="large_norm_small_denorm" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,66,23,66,25" dtype_id="1">
+                  <const loc="e,66,26,66,27" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,66,6,66,22" name="small_is_nonzero" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,67,17,67,19" dtype_id="5">
+                  <const loc="e,67,20,67,21" name="11&apos;h0" dtype_id="5"/>
+                  <varref loc="e,67,3,67,16" name="exponent_diff" dtype_id="5"/>
+                </assigndly>
+                <assigndly loc="e,68,11,68,13" dtype_id="8">
+                  <const loc="e,68,14,68,15" name="55&apos;h0" dtype_id="8"/>
+                  <varref loc="e,68,3,68,10" name="minuend" dtype_id="8"/>
+                </assigndly>
+                <assigndly loc="e,69,14,69,16" dtype_id="8">
+                  <const loc="e,69,17,69,18" name="55&apos;h0" dtype_id="8"/>
+                  <varref loc="e,69,3,69,13" name="subtrahend" dtype_id="8"/>
+                </assigndly>
+                <assigndly loc="e,70,16,70,18" dtype_id="8">
+                  <const loc="e,70,19,70,20" name="55&apos;h0" dtype_id="8"/>
+                  <varref loc="e,70,3,70,15" name="subtra_shift" dtype_id="8"/>
+                </assigndly>
+                <assigndly loc="e,71,18,71,20" dtype_id="8">
+                  <const loc="e,71,21,71,22" name="55&apos;h0" dtype_id="8"/>
+                  <varref loc="e,71,3,71,17" name="subtra_shift_3" dtype_id="8"/>
+                </assigndly>
+                <assigndly loc="e,72,16,72,18" dtype_id="6">
+                  <const loc="e,72,19,72,20" name="7&apos;h0" dtype_id="6"/>
+                  <varref loc="e,72,3,72,15" name="diff_shift_2" dtype_id="6"/>
+                </assigndly>
+                <assigndly loc="e,73,8,73,10" dtype_id="8">
+                  <const loc="e,73,11,73,12" name="55&apos;h0" dtype_id="8"/>
+                  <varref loc="e,73,3,73,7" name="diff" dtype_id="8"/>
+                </assigndly>
+                <assigndly loc="e,74,25,74,27" dtype_id="1">
+                  <const loc="e,74,28,74,29" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,74,3,74,24" name="diffshift_gt_exponent" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,75,19,75,21" dtype_id="1">
+                  <const loc="e,75,22,75,23" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,75,3,75,18" name="diffshift_et_55" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,76,10,76,12" dtype_id="8">
+                  <const loc="e,76,13,76,14" name="55&apos;h0" dtype_id="8"/>
+                  <varref loc="e,76,3,76,9" name="diff_1" dtype_id="8"/>
+                </assigndly>
+                <assigndly loc="e,77,12,77,14" dtype_id="5">
+                  <const loc="e,77,15,77,16" name="11&apos;h0" dtype_id="5"/>
+                  <varref loc="e,77,3,77,11" name="exponent" dtype_id="5"/>
+                </assigndly>
+                <assigndly loc="e,78,14,78,16" dtype_id="5">
+                  <const loc="e,78,17,78,18" name="11&apos;h0" dtype_id="5"/>
+                  <varref loc="e,78,3,78,13" name="exponent_2" dtype_id="5"/>
+                </assigndly>
+                <assigndly loc="e,79,10,79,12" dtype_id="4">
+                  <const loc="e,79,13,79,14" name="56&apos;h0" dtype_id="4"/>
+                  <varref loc="e,79,3,79,9" name="diff_2" dtype_id="4"/>
+                </assigndly>
+              </begin>
+            </begin>
+            <begin>
+              <if loc="e,81,8,81,10">
+                <varref loc="e,81,12,81,18" name="enable" dtype_id="1"/>
+                <begin>
+                  <begin loc="e,81,20,81,25">
+                    <assigndly loc="e,82,14,82,16" dtype_id="5">
+                      <sel loc="e,82,20,82,21" dtype_id="5">
+                        <varref loc="e,82,17,82,20" name="opa" dtype_id="2"/>
+                        <const loc="e,82,24,82,26" name="6&apos;h34" dtype_id="9"/>
+                        <const loc="e,82,21,82,23" name="32&apos;hb" dtype_id="10"/>
+                      </sel>
+                      <varref loc="e,82,3,82,13" name="exponent_a" dtype_id="5"/>
+                    </assigndly>
+                    <assigndly loc="e,83,14,83,16" dtype_id="5">
+                      <sel loc="e,83,20,83,21" dtype_id="5">
+                        <varref loc="e,83,17,83,20" name="opb" dtype_id="2"/>
+                        <const loc="e,83,24,83,26" name="6&apos;h34" dtype_id="9"/>
+                        <const loc="e,83,21,83,23" name="32&apos;hb" dtype_id="10"/>
+                      </sel>
+                      <varref loc="e,83,3,83,13" name="exponent_b" dtype_id="5"/>
+                    </assigndly>
+                    <assigndly loc="e,84,14,84,16" dtype_id="7">
+                      <sel loc="e,84,20,84,21" dtype_id="7">
+                        <varref loc="e,84,17,84,20" name="opa" dtype_id="2"/>
+                        <const loc="e,84,24,84,25" name="6&apos;h0" dtype_id="9"/>
+                        <const loc="e,84,21,84,23" name="32&apos;h34" dtype_id="10"/>
+                      </sel>
+                      <varref loc="e,84,3,84,13" name="mantissa_a" dtype_id="7"/>
+                    </assigndly>
+                    <assigndly loc="e,85,14,85,16" dtype_id="7">
+                      <sel loc="e,85,20,85,21" dtype_id="7">
+                        <varref loc="e,85,17,85,20" name="opb" dtype_id="2"/>
+                        <const loc="e,85,24,85,25" name="6&apos;h0" dtype_id="9"/>
+                        <const loc="e,85,21,85,23" name="32&apos;h34" dtype_id="10"/>
+                      </sel>
+                      <varref loc="e,85,3,85,13" name="mantissa_b" dtype_id="7"/>
+                    </assigndly>
+                    <assigndly loc="e,86,16,86,18" dtype_id="1">
+                      <gt loc="e,86,30,86,31" dtype_id="1">
+                        <varref loc="e,86,19,86,29" name="exponent_a" dtype_id="5"/>
+                        <varref loc="e,86,32,86,42" name="exponent_b" dtype_id="5"/>
+                      </gt>
+                      <varref loc="e,86,3,86,15" name="expa_gt_expb" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,87,16,87,18" dtype_id="1">
+                      <eq loc="e,87,30,87,32" dtype_id="1">
+                        <varref loc="e,87,19,87,29" name="exponent_a" dtype_id="5"/>
+                        <varref loc="e,87,33,87,43" name="exponent_b" dtype_id="5"/>
+                      </eq>
+                      <varref loc="e,87,3,87,15" name="expa_et_expb" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,88,18,88,20" dtype_id="1">
+                      <gte loc="e,88,32,88,34" dtype_id="1">
+                        <varref loc="e,88,21,88,31" name="mantissa_a" dtype_id="7"/>
+                        <varref loc="e,88,35,88,45" name="mantissa_b" dtype_id="7"/>
+                      </gte>
+                      <varref loc="e,88,3,88,17" name="mana_gtet_manb" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,89,15,89,17" dtype_id="1">
+                      <or loc="e,89,31,89,32" dtype_id="1">
+                        <varref loc="e,89,18,89,30" name="expa_gt_expb" dtype_id="1"/>
+                        <and loc="e,89,47,89,48" dtype_id="1">
+                          <varref loc="e,89,34,89,46" name="expa_et_expb" dtype_id="1"/>
+                          <varref loc="e,89,49,89,63" name="mana_gtet_manb" dtype_id="1"/>
+                        </and>
+                      </or>
+                      <varref loc="e,89,6,89,14" name="a_gtet_b" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,90,11,90,13" dtype_id="1">
+                      <cond loc="e,90,23,90,24" dtype_id="1">
+                        <varref loc="e,90,14,90,22" name="a_gtet_b" dtype_id="1"/>
+                        <sel loc="e,90,28,90,29" dtype_id="1">
+                          <varref loc="e,90,25,90,28" name="opa" dtype_id="2"/>
+                          <const loc="e,90,29,90,31" name="6&apos;h3f" dtype_id="9"/>
+                          <const loc="e,90,28,90,29" name="32&apos;h1" dtype_id="10"/>
+                        </sel>
+                        <xor loc="e,90,43,90,44" dtype_id="1">
+                          <not loc="e,90,34,90,35" dtype_id="1">
+                            <sel loc="e,90,38,90,39" dtype_id="1">
+                              <varref loc="e,90,35,90,38" name="opb" dtype_id="2"/>
+                              <const loc="e,90,39,90,41" name="6&apos;h3f" dtype_id="9"/>
+                              <const loc="e,90,38,90,39" name="32&apos;h1" dtype_id="10"/>
+                            </sel>
+                          </not>
+                          <eq loc="e,90,53,90,55" dtype_id="1">
+                            <const loc="e,90,56,90,62" name="3&apos;h0" dtype_id="3"/>
+                            <varref loc="e,90,46,90,52" name="fpu_op" dtype_id="3"/>
+                          </eq>
+                        </xor>
+                      </cond>
+                      <varref loc="e,90,6,90,10" name="sign" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,91,22,91,24" dtype_id="5">
+                      <cond loc="e,91,34,91,35" dtype_id="5">
+                        <varref loc="e,91,25,91,33" name="a_gtet_b" dtype_id="1"/>
+                        <varref loc="e,91,36,91,46" name="exponent_b" dtype_id="5"/>
+                        <varref loc="e,91,49,91,59" name="exponent_a" dtype_id="5"/>
+                      </cond>
+                      <varref loc="e,91,6,91,20" name="exponent_small" dtype_id="5"/>
+                    </assigndly>
+                    <assigndly loc="e,92,22,92,24" dtype_id="5">
+                      <cond loc="e,92,34,92,35" dtype_id="5">
+                        <varref loc="e,92,25,92,33" name="a_gtet_b" dtype_id="1"/>
+                        <varref loc="e,92,36,92,46" name="exponent_a" dtype_id="5"/>
+                        <varref loc="e,92,49,92,59" name="exponent_b" dtype_id="5"/>
+                      </cond>
+                      <varref loc="e,92,6,92,20" name="exponent_large" dtype_id="5"/>
+                    </assigndly>
+                    <assigndly loc="e,93,21,93,23" dtype_id="7">
+                      <cond loc="e,93,33,93,34" dtype_id="7">
+                        <varref loc="e,93,24,93,32" name="a_gtet_b" dtype_id="1"/>
+                        <varref loc="e,93,35,93,45" name="mantissa_b" dtype_id="7"/>
+                        <varref loc="e,93,48,93,58" name="mantissa_a" dtype_id="7"/>
+                      </cond>
+                      <varref loc="e,93,5,93,19" name="mantissa_small" dtype_id="7"/>
+                    </assigndly>
+                    <assigndly loc="e,94,22,94,24" dtype_id="7">
+                      <cond loc="e,94,34,94,35" dtype_id="7">
+                        <varref loc="e,94,25,94,33" name="a_gtet_b" dtype_id="1"/>
+                        <varref loc="e,94,36,94,46" name="mantissa_a" dtype_id="7"/>
+                        <varref loc="e,94,49,94,59" name="mantissa_b" dtype_id="7"/>
+                      </cond>
+                      <varref loc="e,94,6,94,20" name="mantissa_large" dtype_id="7"/>
+                    </assigndly>
+                    <assigndly loc="e,95,22,95,24" dtype_id="1">
+                      <gte loc="e,95,25,95,26" dtype_id="1">
+                        <const loc="e,95,44,95,45" name="11&apos;h0" dtype_id="5"/>
+                        <varref loc="e,95,27,95,41" name="exponent_small" dtype_id="5"/>
+                      </gte>
+                      <varref loc="e,95,6,95,21" name="small_is_denorm" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,96,22,96,24" dtype_id="1">
+                      <gte loc="e,96,25,96,26" dtype_id="1">
+                        <const loc="e,96,44,96,45" name="11&apos;h0" dtype_id="5"/>
+                        <varref loc="e,96,27,96,41" name="exponent_large" dtype_id="5"/>
+                      </gte>
+                      <varref loc="e,96,6,96,21" name="large_is_denorm" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,97,30,97,32" dtype_id="1">
+                      <and loc="e,97,55,97,57" dtype_id="1">
+                        <varref loc="e,97,34,97,49" name="small_is_denorm" dtype_id="1"/>
+                        <not loc="e,97,74,97,76" dtype_id="1">
+                          <varref loc="e,97,58,97,73" name="large_is_denorm" dtype_id="1"/>
+                        </not>
+                      </and>
+                      <varref loc="e,97,6,97,29" name="large_norm_small_denorm" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,98,23,98,25" dtype_id="1">
+                      <or loc="e,98,47,98,48" dtype_id="1">
+                        <lt loc="e,98,42,98,43" dtype_id="1">
+                          <const loc="e,98,44,98,45" name="11&apos;h0" dtype_id="5"/>
+                          <varref loc="e,98,27,98,41" name="exponent_small" dtype_id="5"/>
+                        </lt>
+                        <redor loc="e,98,49,98,50" dtype_id="1">
+                          <varref loc="e,98,50,98,64" name="mantissa_small" dtype_id="7"/>
+                        </redor>
+                      </or>
+                      <varref loc="e,98,6,98,22" name="small_is_nonzero" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,99,17,99,19" dtype_id="5">
+                      <sub loc="e,99,52,99,53" dtype_id="5">
+                        <sub loc="e,99,35,99,36" dtype_id="5">
+                          <varref loc="e,99,20,99,34" name="exponent_large" dtype_id="5"/>
+                          <varref loc="e,99,37,99,51" name="exponent_small" dtype_id="5"/>
+                        </sub>
+                        <extend loc="e,99,54,99,77" dtype_id="5" width="11" widthminv="1">
+                          <varref loc="e,99,54,99,77" name="large_norm_small_denorm" dtype_id="1"/>
+                        </extend>
+                      </sub>
+                      <varref loc="e,99,3,99,16" name="exponent_diff" dtype_id="5"/>
+                    </assigndly>
+                    <assigndly loc="e,100,11,100,13" dtype_id="8">
+                      <concat loc="e,100,48,100,49" dtype_id="8">
+                        <not loc="e,100,16,100,17" dtype_id="1">
+                          <varref loc="e,100,17,100,32" name="large_is_denorm" dtype_id="1"/>
+                        </not>
+                        <concat loc="e,100,32,100,33" dtype_id="11">
+                          <varref loc="e,100,34,100,48" name="mantissa_large" dtype_id="7"/>
+                          <const loc="e,100,50,100,55" name="2&apos;h0" dtype_id="12"/>
+                        </concat>
+                      </concat>
+                      <varref loc="e,100,3,100,10" name="minuend" dtype_id="8"/>
+                    </assigndly>
+                    <assigndly loc="e,101,14,101,16" dtype_id="8">
+                      <concat loc="e,101,51,101,52" dtype_id="8">
+                        <not loc="e,101,19,101,20" dtype_id="1">
+                          <varref loc="e,101,20,101,35" name="small_is_denorm" dtype_id="1"/>
+                        </not>
+                        <concat loc="e,101,35,101,36" dtype_id="11">
+                          <varref loc="e,101,37,101,51" name="mantissa_small" dtype_id="7"/>
+                          <const loc="e,101,53,101,58" name="2&apos;h0" dtype_id="12"/>
+                        </concat>
+                      </concat>
+                      <varref loc="e,101,3,101,13" name="subtrahend" dtype_id="8"/>
+                    </assigndly>
+                    <assigndly loc="e,102,16,102,18" dtype_id="8">
+                      <shiftr loc="e,102,30,102,32" dtype_id="8">
+                        <varref loc="e,102,19,102,29" name="subtrahend" dtype_id="8"/>
+                        <varref loc="e,102,33,102,46" name="exponent_diff" dtype_id="5"/>
+                      </shiftr>
+                      <varref loc="e,102,3,102,15" name="subtra_shift" dtype_id="8"/>
+                    </assigndly>
+                    <assigndly loc="e,103,18,103,20" dtype_id="8">
+                      <cond loc="e,103,44,103,45" dtype_id="8">
+                        <varref loc="e,103,21,103,43" name="subtra_fraction_enable" dtype_id="1"/>
+                        <const loc="e,103,46,103,60" name="55&apos;h1" dtype_id="8"/>
+                        <varref loc="e,103,63,103,75" name="subtra_shift" dtype_id="8"/>
+                      </cond>
+                      <varref loc="e,103,3,103,17" name="subtra_shift_3" dtype_id="8"/>
+                    </assigndly>
+                    <assigndly loc="e,104,16,104,18" dtype_id="6">
+                      <varref loc="e,104,19,104,29" name="diff_shift" dtype_id="6"/>
+                      <varref loc="e,104,3,104,15" name="diff_shift_2" dtype_id="6"/>
+                    </assigndly>
+                    <assigndly loc="e,105,8,105,10" dtype_id="8">
+                      <sub loc="e,105,19,105,20" dtype_id="8">
+                        <varref loc="e,105,11,105,18" name="minuend" dtype_id="8"/>
+                        <varref loc="e,105,21,105,35" name="subtra_shift_3" dtype_id="8"/>
+                      </sub>
+                      <varref loc="e,105,3,105,7" name="diff" dtype_id="8"/>
+                    </assigndly>
+                    <assigndly loc="e,106,25,106,27" dtype_id="1">
+                      <gt loc="e,106,41,106,42" dtype_id="1">
+                        <extend loc="e,106,28,106,40" dtype_id="5" width="11" widthminv="7">
+                          <varref loc="e,106,28,106,40" name="diff_shift_2" dtype_id="6"/>
+                        </extend>
+                        <varref loc="e,106,43,106,57" name="exponent_large" dtype_id="5"/>
+                      </gt>
+                      <varref loc="e,106,3,106,24" name="diffshift_gt_exponent" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,107,19,107,21" dtype_id="1">
+                      <eq loc="e,107,35,107,37" dtype_id="1">
+                        <const loc="e,107,38,107,40" name="7&apos;h37" dtype_id="6"/>
+                        <varref loc="e,107,22,107,34" name="diff_shift_2" dtype_id="6"/>
+                      </eq>
+                      <varref loc="e,107,3,107,18" name="diffshift_et_55" dtype_id="1"/>
+                    </assigndly>
+                    <assigndly loc="e,108,10,108,12" dtype_id="8">
+                      <cond loc="e,108,35,108,36" dtype_id="8">
+                        <varref loc="e,108,13,108,34" name="diffshift_gt_exponent" dtype_id="1"/>
+                        <shiftl loc="e,108,42,108,44" dtype_id="8">
+                          <varref loc="e,108,37,108,41" name="diff" dtype_id="8"/>
+                          <varref loc="e,108,45,108,59" name="exponent_large" dtype_id="5"/>
+                        </shiftl>
+                        <shiftl loc="e,108,67,108,69" dtype_id="8">
+                          <varref loc="e,108,62,108,66" name="diff" dtype_id="8"/>
+                          <varref loc="e,108,70,108,82" name="diff_shift_2" dtype_id="6"/>
+                        </shiftl>
+                      </cond>
+                      <varref loc="e,108,3,108,9" name="diff_1" dtype_id="8"/>
+                    </assigndly>
+                    <assigndly loc="e,109,12,109,14" dtype_id="5">
+                      <sel loc="e,109,37,109,38" dtype_id="5">
+                        <cond loc="e,109,37,109,38" dtype_id="10">
+                          <varref loc="e,109,15,109,36" name="diffshift_gt_exponent" dtype_id="1"/>
+                          <const loc="e,109,39,109,40" name="32&apos;sh0" dtype_id="13"/>
+                          <sub loc="e,109,59,109,60" dtype_id="10">
+                            <extend loc="e,109,44,109,58" dtype_id="10" width="32" widthminv="11">
+                              <varref loc="e,109,44,109,58" name="exponent_large" dtype_id="5"/>
+                            </extend>
+                            <extend loc="e,109,61,109,73" dtype_id="10" width="32" widthminv="7">
+                              <varref loc="e,109,61,109,73" name="diff_shift_2" dtype_id="6"/>
+                            </extend>
+                          </sub>
+                        </cond>
+                        <const loc="e,109,37,109,38" name="32&apos;h0" dtype_id="10"/>
+                        <const loc="e,109,37,109,38" name="32&apos;hb" dtype_id="10"/>
+                      </sel>
+                      <varref loc="e,109,3,109,11" name="exponent" dtype_id="5"/>
+                    </assigndly>
+                    <assigndly loc="e,110,14,110,16" dtype_id="5">
+                      <sel loc="e,110,33,110,34" dtype_id="5">
+                        <cond loc="e,110,33,110,34" dtype_id="10">
+                          <varref loc="e,110,17,110,32" name="diffshift_et_55" dtype_id="1"/>
+                          <const loc="e,110,35,110,36" name="32&apos;sh0" dtype_id="13"/>
+                          <extend loc="e,110,39,110,47" dtype_id="10" width="32" widthminv="11">
+                            <varref loc="e,110,39,110,47" name="exponent" dtype_id="5"/>
+                          </extend>
+                        </cond>
+                        <const loc="e,110,33,110,34" name="32&apos;h0" dtype_id="10"/>
+                        <const loc="e,110,33,110,34" name="32&apos;hb" dtype_id="10"/>
+                      </sel>
+                      <varref loc="e,110,3,110,13" name="exponent_2" dtype_id="5"/>
+                    </assigndly>
+                    <assigndly loc="e,111,10,111,12" dtype_id="4">
+                      <cond loc="e,111,32,111,33" dtype_id="4">
+                        <varref loc="e,111,13,111,31" name="in_norm_out_denorm" dtype_id="1"/>
+                        <extend loc="e,111,40,111,41" dtype_id="4" width="56" widthminv="55">
+                          <shiftr loc="e,111,49,111,51" dtype_id="8">
+                            <varref loc="e,111,42,111,48" name="diff_1" dtype_id="8"/>
+                            <const loc="e,111,52,111,53" name="32&apos;sh1" dtype_id="13"/>
+                          </shiftr>
+                        </extend>
+                        <extend loc="e,111,62,111,63" dtype_id="4" width="56" widthminv="55">
+                          <varref loc="e,111,64,111,70" name="diff_1" dtype_id="8"/>
+                        </extend>
+                      </cond>
+                      <varref loc="e,111,3,111,9" name="diff_2" dtype_id="4"/>
+                    </assigndly>
+                  </begin>
+                </begin>
+              </if>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <always loc="e,114,1,114,7">
+        <sentree loc="e,114,8,114,9">
+          <senitem loc="e,114,10,114,14" edgeType="CHANGED">
+            <varref loc="e,114,10,114,14" name="diff" dtype_id="8"/>
+          </senitem>
+        </sentree>
+        <case loc="e,115,4,115,9">
+          <varref loc="e,115,10,115,14" name="diff" dtype_id="8"/>
+          <caseitem loc="e,116,64,116,65">
+            <const loc="e,116,5,116,64" name="55&apos;b1zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,116,77,116,79" dtype_id="6">
+              <const loc="e,116,81,116,82" name="7&apos;h0" dtype_id="6"/>
+              <varref loc="e,116,66,116,76" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,117,61,117,62">
+            <const loc="e,117,2,117,61" name="55&apos;b1zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,117,74,117,76" dtype_id="6">
+              <const loc="e,117,78,117,79" name="7&apos;h1" dtype_id="6"/>
+              <varref loc="e,117,63,117,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,118,61,118,62">
+            <const loc="e,118,2,118,61" name="55&apos;b1zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,118,74,118,76" dtype_id="6">
+              <const loc="e,118,78,118,79" name="7&apos;h2" dtype_id="6"/>
+              <varref loc="e,118,63,118,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,119,61,119,62">
+            <const loc="e,119,2,119,61" name="55&apos;b1zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,119,74,119,76" dtype_id="6">
+              <const loc="e,119,78,119,79" name="7&apos;h3" dtype_id="6"/>
+              <varref loc="e,119,63,119,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,120,61,120,62">
+            <const loc="e,120,2,120,61" name="55&apos;b1zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,120,74,120,76" dtype_id="6">
+              <const loc="e,120,78,120,79" name="7&apos;h4" dtype_id="6"/>
+              <varref loc="e,120,63,120,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,121,61,121,62">
+            <const loc="e,121,2,121,61" name="55&apos;b1zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,121,74,121,76" dtype_id="6">
+              <const loc="e,121,78,121,79" name="7&apos;h5" dtype_id="6"/>
+              <varref loc="e,121,63,121,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,122,61,122,62">
+            <const loc="e,122,2,122,61" name="55&apos;b1zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,122,74,122,76" dtype_id="6">
+              <const loc="e,122,78,122,79" name="7&apos;h6" dtype_id="6"/>
+              <varref loc="e,122,63,122,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,123,61,123,62">
+            <const loc="e,123,2,123,61" name="55&apos;b1zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,123,74,123,76" dtype_id="6">
+              <const loc="e,123,78,123,79" name="7&apos;h7" dtype_id="6"/>
+              <varref loc="e,123,63,123,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,124,61,124,62">
+            <const loc="e,124,2,124,61" name="55&apos;b1zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,124,74,124,76" dtype_id="6">
+              <const loc="e,124,78,124,79" name="7&apos;h8" dtype_id="6"/>
+              <varref loc="e,124,63,124,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,125,61,125,62">
+            <const loc="e,125,2,125,61" name="55&apos;b1zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,125,74,125,76" dtype_id="6">
+              <const loc="e,125,78,125,79" name="7&apos;h9" dtype_id="6"/>
+              <varref loc="e,125,63,125,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,126,61,126,62">
+            <const loc="e,126,2,126,61" name="55&apos;b1zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,126,74,126,76" dtype_id="6">
+              <const loc="e,126,78,126,80" name="7&apos;ha" dtype_id="6"/>
+              <varref loc="e,126,63,126,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,127,61,127,62">
+            <const loc="e,127,2,127,61" name="55&apos;b1zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,127,74,127,76" dtype_id="6">
+              <const loc="e,127,78,127,80" name="7&apos;hb" dtype_id="6"/>
+              <varref loc="e,127,63,127,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,128,61,128,62">
+            <const loc="e,128,2,128,61" name="55&apos;b1zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,128,74,128,76" dtype_id="6">
+              <const loc="e,128,78,128,80" name="7&apos;hc" dtype_id="6"/>
+              <varref loc="e,128,63,128,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,129,61,129,62">
+            <const loc="e,129,2,129,61" name="55&apos;b1zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,129,74,129,76" dtype_id="6">
+              <const loc="e,129,78,129,80" name="7&apos;hd" dtype_id="6"/>
+              <varref loc="e,129,63,129,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,130,61,130,62">
+            <const loc="e,130,2,130,61" name="55&apos;b1zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,130,74,130,76" dtype_id="6">
+              <const loc="e,130,78,130,80" name="7&apos;he" dtype_id="6"/>
+              <varref loc="e,130,63,130,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,131,61,131,62">
+            <const loc="e,131,2,131,61" name="55&apos;b1zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,131,74,131,76" dtype_id="6">
+              <const loc="e,131,78,131,80" name="7&apos;hf" dtype_id="6"/>
+              <varref loc="e,131,63,131,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,132,61,132,62">
+            <const loc="e,132,2,132,61" name="55&apos;b1zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,132,74,132,76" dtype_id="6">
+              <const loc="e,132,78,132,80" name="7&apos;h10" dtype_id="6"/>
+              <varref loc="e,132,63,132,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,133,61,133,62">
+            <const loc="e,133,2,133,61" name="55&apos;b1zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,133,74,133,76" dtype_id="6">
+              <const loc="e,133,78,133,80" name="7&apos;h11" dtype_id="6"/>
+              <varref loc="e,133,63,133,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,134,61,134,62">
+            <const loc="e,134,2,134,61" name="55&apos;b1zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,134,74,134,76" dtype_id="6">
+              <const loc="e,134,78,134,80" name="7&apos;h12" dtype_id="6"/>
+              <varref loc="e,134,63,134,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,135,61,135,62">
+            <const loc="e,135,2,135,61" name="55&apos;b1zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,135,74,135,76" dtype_id="6">
+              <const loc="e,135,78,135,80" name="7&apos;h13" dtype_id="6"/>
+              <varref loc="e,135,63,135,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,136,61,136,62">
+            <const loc="e,136,2,136,61" name="55&apos;b1zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,136,74,136,76" dtype_id="6">
+              <const loc="e,136,78,136,80" name="7&apos;h14" dtype_id="6"/>
+              <varref loc="e,136,63,136,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,137,61,137,62">
+            <const loc="e,137,2,137,61" name="55&apos;b1zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,137,74,137,76" dtype_id="6">
+              <const loc="e,137,78,137,80" name="7&apos;h15" dtype_id="6"/>
+              <varref loc="e,137,63,137,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,138,61,138,62">
+            <const loc="e,138,2,138,61" name="55&apos;b1zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,138,74,138,76" dtype_id="6">
+              <const loc="e,138,78,138,80" name="7&apos;h16" dtype_id="6"/>
+              <varref loc="e,138,63,138,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,139,61,139,62">
+            <const loc="e,139,2,139,61" name="55&apos;b1zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,139,74,139,76" dtype_id="6">
+              <const loc="e,139,78,139,80" name="7&apos;h17" dtype_id="6"/>
+              <varref loc="e,139,63,139,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,140,61,140,62">
+            <const loc="e,140,2,140,61" name="55&apos;b1zzzzzzzzzzzzzzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,140,74,140,76" dtype_id="6">
+              <const loc="e,140,78,140,80" name="7&apos;h18" dtype_id="6"/>
+              <varref loc="e,140,63,140,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,141,61,141,62">
+            <const loc="e,141,2,141,61" name="55&apos;b1zzzzzzzzzzzzzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,141,74,141,76" dtype_id="6">
+              <const loc="e,141,78,141,80" name="7&apos;h19" dtype_id="6"/>
+              <varref loc="e,141,63,141,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,142,61,142,62">
+            <const loc="e,142,2,142,61" name="55&apos;b1zzzzzzzzzzzzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,142,74,142,76" dtype_id="6">
+              <const loc="e,142,78,142,80" name="7&apos;h1a" dtype_id="6"/>
+              <varref loc="e,142,63,142,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,143,61,143,62">
+            <const loc="e,143,2,143,61" name="55&apos;b1zzzzzzzzzzzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,143,74,143,76" dtype_id="6">
+              <const loc="e,143,78,143,80" name="7&apos;h1b" dtype_id="6"/>
+              <varref loc="e,143,63,143,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,144,61,144,62">
+            <const loc="e,144,2,144,61" name="55&apos;b1zzzzzzzzzzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,144,74,144,76" dtype_id="6">
+              <const loc="e,144,78,144,80" name="7&apos;h1c" dtype_id="6"/>
+              <varref loc="e,144,63,144,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,145,61,145,62">
+            <const loc="e,145,2,145,61" name="55&apos;b1zzzzzzzzzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,145,74,145,76" dtype_id="6">
+              <const loc="e,145,78,145,80" name="7&apos;h1d" dtype_id="6"/>
+              <varref loc="e,145,63,145,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,146,61,146,62">
+            <const loc="e,146,2,146,61" name="55&apos;b1zzzzzzzzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,146,74,146,76" dtype_id="6">
+              <const loc="e,146,78,146,80" name="7&apos;h1e" dtype_id="6"/>
+              <varref loc="e,146,63,146,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,147,61,147,62">
+            <const loc="e,147,2,147,61" name="55&apos;b1zzzzzzzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,147,74,147,76" dtype_id="6">
+              <const loc="e,147,78,147,80" name="7&apos;h1f" dtype_id="6"/>
+              <varref loc="e,147,63,147,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,148,61,148,62">
+            <const loc="e,148,2,148,61" name="55&apos;b1zzzzzzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,148,74,148,76" dtype_id="6">
+              <const loc="e,148,78,148,80" name="7&apos;h20" dtype_id="6"/>
+              <varref loc="e,148,63,148,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,149,61,149,62">
+            <const loc="e,149,2,149,61" name="55&apos;b1zzzzzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,149,74,149,76" dtype_id="6">
+              <const loc="e,149,78,149,80" name="7&apos;h21" dtype_id="6"/>
+              <varref loc="e,149,63,149,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,150,61,150,62">
+            <const loc="e,150,2,150,61" name="55&apos;b1zzzzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,150,74,150,76" dtype_id="6">
+              <const loc="e,150,78,150,80" name="7&apos;h22" dtype_id="6"/>
+              <varref loc="e,150,63,150,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,151,61,151,62">
+            <const loc="e,151,2,151,61" name="55&apos;b1zzzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,151,74,151,76" dtype_id="6">
+              <const loc="e,151,78,151,80" name="7&apos;h23" dtype_id="6"/>
+              <varref loc="e,151,63,151,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,152,61,152,62">
+            <const loc="e,152,2,152,61" name="55&apos;b1zzzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,152,74,152,76" dtype_id="6">
+              <const loc="e,152,78,152,80" name="7&apos;h24" dtype_id="6"/>
+              <varref loc="e,152,63,152,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,153,61,153,62">
+            <const loc="e,153,2,153,61" name="55&apos;b1zzzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,153,74,153,76" dtype_id="6">
+              <const loc="e,153,78,153,80" name="7&apos;h25" dtype_id="6"/>
+              <varref loc="e,153,63,153,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,154,61,154,62">
+            <const loc="e,154,2,154,61" name="55&apos;b1zzzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,154,74,154,76" dtype_id="6">
+              <const loc="e,154,78,154,80" name="7&apos;h26" dtype_id="6"/>
+              <varref loc="e,154,63,154,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,155,61,155,62">
+            <const loc="e,155,2,155,61" name="55&apos;b1zzzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,155,74,155,76" dtype_id="6">
+              <const loc="e,155,78,155,80" name="7&apos;h27" dtype_id="6"/>
+              <varref loc="e,155,63,155,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,156,61,156,62">
+            <const loc="e,156,2,156,61" name="55&apos;b1zzzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,156,74,156,76" dtype_id="6">
+              <const loc="e,156,78,156,80" name="7&apos;h28" dtype_id="6"/>
+              <varref loc="e,156,63,156,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,157,61,157,62">
+            <const loc="e,157,2,157,61" name="55&apos;b1zzzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,157,74,157,76" dtype_id="6">
+              <const loc="e,157,78,157,80" name="7&apos;h29" dtype_id="6"/>
+              <varref loc="e,157,63,157,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,158,61,158,62">
+            <const loc="e,158,2,158,61" name="55&apos;b1zzzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,158,74,158,76" dtype_id="6">
+              <const loc="e,158,78,158,80" name="7&apos;h2a" dtype_id="6"/>
+              <varref loc="e,158,63,158,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,159,61,159,62">
+            <const loc="e,159,2,159,61" name="55&apos;b1zzzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,159,74,159,76" dtype_id="6">
+              <const loc="e,159,78,159,80" name="7&apos;h2b" dtype_id="6"/>
+              <varref loc="e,159,63,159,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,160,61,160,62">
+            <const loc="e,160,2,160,61" name="55&apos;b1zzzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,160,74,160,76" dtype_id="6">
+              <const loc="e,160,78,160,80" name="7&apos;h2c" dtype_id="6"/>
+              <varref loc="e,160,63,160,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,161,61,161,62">
+            <const loc="e,161,2,161,61" name="55&apos;b1zzzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,161,74,161,76" dtype_id="6">
+              <const loc="e,161,78,161,80" name="7&apos;h2d" dtype_id="6"/>
+              <varref loc="e,161,63,161,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,162,61,162,62">
+            <const loc="e,162,2,162,61" name="55&apos;b1zzzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,162,74,162,76" dtype_id="6">
+              <const loc="e,162,78,162,80" name="7&apos;h2e" dtype_id="6"/>
+              <varref loc="e,162,63,162,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,163,61,163,62">
+            <const loc="e,163,2,163,61" name="55&apos;b1zzzzzzz" dtype_id="8"/>
+            <assigndly loc="e,163,74,163,76" dtype_id="6">
+              <const loc="e,163,78,163,80" name="7&apos;h2f" dtype_id="6"/>
+              <varref loc="e,163,63,163,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,164,61,164,62">
+            <const loc="e,164,2,164,61" name="55&apos;b1zzzzzz" dtype_id="8"/>
+            <assigndly loc="e,164,74,164,76" dtype_id="6">
+              <const loc="e,164,78,164,80" name="7&apos;h30" dtype_id="6"/>
+              <varref loc="e,164,63,164,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,165,64,165,65">
+            <const loc="e,165,5,165,64" name="55&apos;b1zzzzz" dtype_id="8"/>
+            <assigndly loc="e,165,77,165,79" dtype_id="6">
+              <const loc="e,165,81,165,83" name="7&apos;h31" dtype_id="6"/>
+              <varref loc="e,165,66,165,76" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,166,61,166,62">
+            <const loc="e,166,2,166,61" name="55&apos;b1zzzz" dtype_id="8"/>
+            <assigndly loc="e,166,74,166,76" dtype_id="6">
+              <const loc="e,166,78,166,80" name="7&apos;h32" dtype_id="6"/>
+              <varref loc="e,166,63,166,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,167,61,167,62">
+            <const loc="e,167,2,167,61" name="55&apos;b1zzz" dtype_id="8"/>
+            <assigndly loc="e,167,74,167,76" dtype_id="6">
+              <const loc="e,167,78,167,80" name="7&apos;h33" dtype_id="6"/>
+              <varref loc="e,167,63,167,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,168,61,168,62">
+            <const loc="e,168,2,168,61" name="55&apos;b1zz" dtype_id="8"/>
+            <assigndly loc="e,168,74,168,76" dtype_id="6">
+              <const loc="e,168,78,168,80" name="7&apos;h34" dtype_id="6"/>
+              <varref loc="e,168,63,168,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,169,61,169,62">
+            <const loc="e,169,2,169,61" name="55&apos;b1z" dtype_id="8"/>
+            <assigndly loc="e,169,74,169,76" dtype_id="6">
+              <const loc="e,169,78,169,80" name="7&apos;h35" dtype_id="6"/>
+              <varref loc="e,169,63,169,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,170,61,170,62">
+            <const loc="e,170,2,170,61" name="55&apos;h1" dtype_id="8"/>
+            <assigndly loc="e,170,74,170,76" dtype_id="6">
+              <const loc="e,170,78,170,80" name="7&apos;h36" dtype_id="6"/>
+              <varref loc="e,170,63,170,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,171,61,171,62">
+            <const loc="e,171,2,171,61" name="55&apos;h0" dtype_id="8"/>
+            <assigndly loc="e,171,74,171,76" dtype_id="6">
+              <const loc="e,171,78,171,80" name="7&apos;h37" dtype_id="6"/>
+              <varref loc="e,171,63,171,73" name="diff_shift" dtype_id="6"/>
+            </assigndly>
+          </caseitem>
+        </case>
+      </always>
+      <initial loc="e,37,30,37,31">
+        <assign loc="e,37,30,37,31" dtype_id="8">
+          <const loc="e,37,32,37,33" name="55&apos;h1" dtype_id="8"/>
+          <varref loc="e,37,15,37,29" name="subtra_shift_2" dtype_id="8"/>
+        </assign>
+      </initial>
+      <contassign loc="e,45,27,45,28" dtype_id="1">
+        <and loc="e,45,50,45,51" dtype_id="1">
+          <lt loc="e,45,45,45,46" dtype_id="1">
+            <const loc="e,45,47,45,48" name="11&apos;h0" dtype_id="5"/>
+            <varref loc="e,24,14,24,28" name="exponent_large" dtype_id="5"/>
+          </lt>
+          <eq loc="e,45,61,45,63" dtype_id="1">
+            <const loc="e,45,64,45,65" name="11&apos;h0" dtype_id="5"/>
+            <varref loc="e,43,14,43,22" name="exponent" dtype_id="5"/>
+          </eq>
+        </and>
+        <varref loc="e,45,27,45,28" name="in_norm_out_denorm" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,36,31,36,32" dtype_id="1">
+        <and loc="e,36,50,36,51" dtype_id="1">
+          <not loc="e,36,52,36,53" dtype_id="1">
+            <redor loc="e,35,31,35,32" dtype_id="1">
+              <varref loc="e,34,14,34,26" name="subtra_shift" dtype_id="8"/>
+            </redor>
+          </not>
+          <varref loc="e,30,7,30,23" name="small_is_nonzero" dtype_id="1"/>
+        </and>
+        <varref loc="e,36,31,36,32" name="subtra_fraction_enable" dtype_id="1"/>
+      </contassign>
+    </module>
+    <typetable loc="a,0,0,0,0">
+      <basicdtype loc="d,46,25,46,27" id="1" name="logic"/>
+      <voiddtype loc="d,48,18,48,27" id="14"/>
+      <basicdtype loc="e,37,34,37,39" id="11" name="logic" left="53" right="0"/>
+      <basicdtype loc="e,100,50,100,55" id="12" name="logic" left="1" right="0"/>
+      <basicdtype loc="e,7,7,7,8" id="2" name="logic" left="63" right="0"/>
+      <basicdtype loc="e,8,7,8,8" id="3" name="logic" left="2" right="0"/>
+      <basicdtype loc="e,10,8,10,9" id="4" name="logic" left="55" right="0"/>
+      <basicdtype loc="e,11,8,11,9" id="5" name="logic" left="10" right="0"/>
+      <basicdtype loc="e,12,1,12,4" id="6" name="logic" left="6" right="0"/>
+      <basicdtype loc="e,16,1,16,4" id="7" name="logic" left="51" right="0"/>
+      <basicdtype loc="e,32,1,32,4" id="8" name="logic" left="54" right="0"/>
+      <basicdtype loc="e,35,44,35,45" id="9" name="logic" left="5" right="0" signed="true"/>
+      <basicdtype loc="e,35,45,35,47" id="10" name="logic" left="31" right="0"/>
+      <basicdtype loc="e,45,47,45,48" id="13" name="logic" left="31" right="0" signed="true"/>
+    </typetable>
+  </netlist>
+</verilator_xml>

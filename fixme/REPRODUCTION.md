@@ -126,3 +126,9 @@ connect, ptrace and mount-related syscalls. Network denial is tested. Timeout
 kills the process group. Landlock ABI and bwrap user namespaces are unavailable
 in this host; filesystem confidentiality/write confinement is not guaranteed.
 This runner is for locally reviewed fixtures, not a safe service for untrusted code.
+
+
+Full-code update: all 231 public code cases have adapter outcomes, including the
+previously unattempted 227. See BATCH_EXECUTION.md for the 85 reference calibration
+passes, 72 unknowns, 22 errors and 52 explicit contract refusals; these are not model
+scores. The current all-482 execution matrix is results/final_coverage_selected.

@@ -1,0 +1,53 @@
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_8b0c2ae53b0b/async_fifo.v:23:23: Operator EQ expects 32 or 4 bits on the LHS, but LHS's VARREF 'DP' generates 3 bits.
+                                                                                                                              : ... note: In instance 'async_fifo'
+   23 |                   (DP == 8)   ? 3 :
+      |                       ^~
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.032
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_8b0c2ae53b0b/async_fifo.v:24:23: Operator EQ expects 32 or 5 bits on the LHS, but LHS's VARREF 'DP' generates 3 bits.
+                                                                                                                              : ... note: In instance 'async_fifo'
+   24 |                   (DP == 16)  ? 4 :
+      |                       ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_8b0c2ae53b0b/async_fifo.v:25:23: Operator EQ expects 32 or 6 bits on the LHS, but LHS's VARREF 'DP' generates 3 bits.
+                                                                                                                              : ... note: In instance 'async_fifo'
+   25 |                   (DP == 32)  ? 5 :
+      |                       ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_8b0c2ae53b0b/async_fifo.v:26:23: Operator EQ expects 32 or 7 bits on the LHS, but LHS's VARREF 'DP' generates 3 bits.
+                                                                                                                              : ... note: In instance 'async_fifo'
+   26 |                   (DP == 64)  ? 6 :
+      |                       ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_8b0c2ae53b0b/async_fifo.v:27:23: Operator EQ expects 32 or 8 bits on the LHS, but LHS's VARREF 'DP' generates 3 bits.
+                                                                                                                              : ... note: In instance 'async_fifo'
+   27 |                   (DP == 128) ? 7 :
+      |                       ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_8b0c2ae53b0b/async_fifo.v:28:23: Operator EQ expects 32 or 9 bits on the LHS, but LHS's VARREF 'DP' generates 3 bits.
+                                                                                                                              : ... note: In instance 'async_fifo'
+   28 |                   (DP == 256) ? 8 : 0;
+      |                       ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_8b0c2ae53b0b/async_fifo.v:149:8: Operator ASSIGN expects 9 bits on the Assign RHS, but Assign RHS's VARREF 'bin' generates 3 bits.
+                                                                                                                              : ... note: In instance 'async_fifo'
+  149 |  bin_8 = bin;
+      |        ^
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_8b0c2ae53b0b/async_fifo.v:155:11: Operator ASSIGN expects 3 bits on the Assign RHS, but Assign RHS's VARREF 'grey_8' generates 9 bits.
+                                                                                                                              : ... note: In instance 'async_fifo'
+  155 |  bin2grey = grey_8;
+      |           ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_8b0c2ae53b0b/async_fifo.v:163:9: Operator ASSIGN expects 9 bits on the Assign RHS, but Assign RHS's VARREF 'grey' generates 3 bits.
+                                                                                                                              : ... note: In instance 'async_fifo'
+  163 |  grey_8 = grey;
+      |         ^
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_8b0c2ae53b0b/async_fifo.v:169:11: Operator ASSIGN expects 3 bits on the Assign RHS, but Assign RHS's VARREF 'bin_8' generates 9 bits.
+                                                                                                                              : ... note: In instance 'async_fifo'
+  169 |  grey2bin = bin_8;
+      |           ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_8b0c2ae53b0b/async_fifo.v:112:34: Operator ADD expects 32 or 3 bits on the LHS, but LHS's VARREF 'EMPTY_DP' generates 1 bits.
+                                                                                                                               : ... note: In instance 'async_fifo'
+  112 |             if (rd_cnt==(EMPTY_DP+1)) begin
+      |                                  ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_8b0c2ae53b0b/async_fifo.v:117:35: Operator NEQ expects 3 bits on the RHS, but RHS's VARREF 'EMPTY_DP' generates 1 bits.
+                                                                                                                               : ... note: In instance 'async_fifo'
+  117 |             if (empty_q && (rd_cnt!=EMPTY_DP)) begin
+      |                                   ^~
+- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev (Debian 5.032-1+b2)
+- Verilator: Built from 0.033 MB sources in 2 modules, into 0.000 MB in 0 C++ files needing 0.000 MB
+- Verilator: Walltime 0.005 s (elab=0.001, cvt=0.000, bld=0.000); cpu 0.003 s on 1 threads; alloced 9.008 MB

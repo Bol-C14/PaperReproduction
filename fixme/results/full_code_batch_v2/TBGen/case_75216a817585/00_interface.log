@@ -1,0 +1,21 @@
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_75216a817585/lcd.v:200:28: Operator ASSIGNDLY expects 7 bits on the Assign RHS, but Assign RHS's VARREF 'dat' generates 32 bits.
+                                                                                                                       : ... note: In instance 'lcd'
+  200 |                     wr_dat <= dat;
+      |                            ^~
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.032
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_75216a817585/lcd.v:207:33: Operator OR expects 32 or 8 bits on the RHS, but RHS's VARREF 'wr_addr' generates 7 bits.
+                                                                                                                        : ... note: In instance 'lcd'
+  207 |                 tx_byte <= (128 | wr_addr);
+      |                                 ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_75216a817585/lcd.v:213:25: Operator ASSIGNDLY expects 8 bits on the Assign RHS, but Assign RHS's VARREF 'wr_dat' generates 7 bits.
+                                                                                                                        : ... note: In instance 'lcd'
+  213 |                 tx_byte <= wr_dat;
+      |                         ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_75216a817585/lcd.v:319:25: Operator ASSIGNDLY expects 21 bits on the Assign RHS, but Assign RHS's VARREF 'delay_value' generates 20 bits.
+                                                                                                                        : ... note: In instance 'lcd'
+  319 |         counter_counter <= delay_value;
+      |                         ^~
+- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev (Debian 5.032-1+b2)
+- Verilator: Built from 0.036 MB sources in 2 modules, into 0.000 MB in 0 C++ files needing 0.000 MB
+- Verilator: Walltime 0.005 s (elab=0.001, cvt=0.000, bld=0.000); cpu 0.000 s on 1 threads; alloced 9.133 MB

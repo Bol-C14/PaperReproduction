@@ -1,0 +1,2 @@
+#include "RefModel.h"
+extern "C" void ref_model_eval(unsigned long long a,unsigned long long b,unsigned long long select,unsigned long long* zero,unsigned long long* carry,unsigned long long* sign,unsigned long long* parity,unsigned long long* overflow,unsigned long long* out){static VerilatedContext context;static RefModel model(&context);model.a=a;model.b=b;model.select=select;model.eval();*zero=model.zero;*carry=model.carry;*sign=model.sign;*parity=model.parity;*overflow=model.overflow;*out=model.out;}

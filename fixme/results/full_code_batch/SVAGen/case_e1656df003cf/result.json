@@ -1,0 +1,30 @@
+{
+  "id": "SVAGen/L2/Text/8",
+  "subset": "SVAGen",
+  "input_files": [
+    {
+      "name": "eth_txstatem.v",
+      "bytes": 4754,
+      "sha256": "8d9b044421c61ee642d94d47d9fb90a0dacd936829ca02301c91ad93c155109b"
+    },
+    {
+      "name": "eth_txstatem_spec.txt",
+      "bytes": 7105,
+      "sha256": "07521ddd891a8c0cf57b273eaf5c872ab3072eec426bc8fbe3fe652fa083f069"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": null,
+  "negative_control_detected": null,
+  "commands": 0,
+  "status": "unknown",
+  "assertion": "always @* assert((StartIPG) == (StateDefer & ~ExcessiveDefer & ~CarrierSense));",
+  "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+  "relation_lhs": "StartIPG",
+  "property_counts": null,
+  "reason": "reference proof baseline: wall timeout",
+  "seconds": 150.188
+}

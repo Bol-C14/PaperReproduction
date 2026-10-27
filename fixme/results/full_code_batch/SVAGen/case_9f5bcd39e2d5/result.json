@@ -1,0 +1,30 @@
+{
+  "id": "SVAGen/L3/Text/4",
+  "subset": "SVAGen",
+  "input_files": [
+    {
+      "name": "ct_clint_func_355.txt",
+      "bytes": 18878,
+      "sha256": "b21296125e02d3de236852827deee10388e3560665648e8a888a5dc8afd2804c"
+    },
+    {
+      "name": "ct_clint_func_355.v",
+      "bytes": 11067,
+      "sha256": "75229a4d7728ac6f994d14e109d77413cce14d23db7d1cf38634bb81d9608d41"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": null,
+  "negative_control_detected": null,
+  "commands": 0,
+  "status": "unknown",
+  "assertion": "always @* assert((prdata_clint[31:0]) == (data_out[31:0]));",
+  "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+  "relation_lhs": "prdata_clint[31:0]",
+  "property_counts": null,
+  "reason": "reference proof baseline: wall timeout",
+  "seconds": 150.204
+}

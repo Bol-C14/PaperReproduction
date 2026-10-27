@@ -1,0 +1,13 @@
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_48b6df47d160/flexible_lvds_tx.v:138:43: Operator EQ expects 24 bits on the LHS, but LHS's VARREF 'registered_input' generates 16 bits.
+                                                                                                                                     : ... note: In instance 'flexible_lvds_tx'
+  138 |     assign tx_in_int  = (registered_input == "OFF") ? tx_in : tx_reg;
+      |                                           ^~
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.032
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_48b6df47d160/flexible_lvds_tx.v:139:43: Operator EQ expects 24 bits on the LHS, but LHS's VARREF 'registered_input' generates 16 bits.
+                                                                                                                                     : ... note: In instance 'flexible_lvds_tx'
+  139 |     assign tx_in_int2 = (registered_input == "OFF") ? sync_b_reg : tx_reg2;
+      |                                           ^~
+- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev (Debian 5.032-1+b2)
+- Verilator: Built from 0.032 MB sources in 2 modules, into 0.000 MB in 0 C++ files needing 0.000 MB
+- Verilator: Walltime 0.004 s (elab=0.001, cvt=0.000, bld=0.000); cpu 0.004 s on 1 threads; alloced 8.879 MB

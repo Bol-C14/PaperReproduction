@@ -1,0 +1,38 @@
+{
+  "id": "SVAGen/L3/Text/14",
+  "subset": "SVAGen",
+  "input_files": [
+    {
+      "name": "ct_biu_read_channel_627.txt",
+      "bytes": 26580,
+      "sha256": "5c88c55f1ad758e1aa9da35c977ca47ecc81eac5fee8c3cdb55ba978c3deb4c5"
+    },
+    {
+      "name": "ct_biu_read_channel_627.v",
+      "bytes": 22828,
+      "sha256": "122b32682d3adb3451f33607c4f052572fbb41b9d560f5a9efe3ddc63ef1402c"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": true,
+  "negative_control_detected": true,
+  "commands": 4,
+  "status": "pass",
+  "assertion": "always @* assert((arready) == (cur_raddr_buf_ready));",
+  "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+  "relation_lhs": "arready",
+  "property_counts": {
+    "assert": 1,
+    "assume": 0,
+    "cover": 0
+  },
+  "constant_mutation_status": "completed",
+  "constant_mutation_killed": false,
+  "negative_status": "fail",
+  "constant_control_status": "unknown",
+  "reason": "nonzero properties proven and selected output mutant falsified",
+  "seconds": 0.689
+}

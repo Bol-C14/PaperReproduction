@@ -1,0 +1,1687 @@
+{
+  "kind": "reference-calibration-not-model-score",
+  "live_llm": false,
+  "case_count": 47,
+  "max_workers": 2,
+  "case_budget_seconds": 150,
+  "results": [
+    {
+      "id": "MGen/L3/Text/GA_70",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": ".fsm.sch.verilog.xml",
+          "bytes": 56,
+          "sha256": "4b9dad72827b173a43d570c924aad53b345e21485e3fa3a1deadf098783684bb"
+        },
+        {
+          "name": "dut.f",
+          "bytes": 27,
+          "sha256": "85f962db6f0a138db67a6c64fb84664cd2459a96548439499529589bb912a8bc"
+        },
+        {
+          "name": "dut.v",
+          "bytes": 16044,
+          "sha256": "a7d9d23624daf2c59bf049c03640ff875c80adfa7fcad7152e984a49828a8866"
+        },
+        {
+          "name": "fpu_div_ref",
+          "bytes": 14168,
+          "sha256": "be5f78534fb3eb5fb9d923d11e03ace17060f744fc995e416f58fe1feecff794"
+        },
+        {
+          "name": "fpu_div_ref.cpp",
+          "bytes": 1241,
+          "sha256": "f5131fc928b4ca397b6b7648951b2b49be2c5310eb74b2d66378deee8d71ef3e"
+        },
+        {
+          "name": "makefile",
+          "bytes": 865,
+          "sha256": "de1974fd4efad8cbbc2765709ba76331fc80e47c0896457754c9a7680734b5dc"
+        },
+        {
+          "name": "ref.v",
+          "bytes": 16103,
+          "sha256": "a376a97bde92464f84da6518d69f441cde1d0ecb6cd9a2afc3d66580ec191e77"
+        },
+        {
+          "name": "ref_output.txt",
+          "bytes": 21,
+          "sha256": "8f8c6255fbc4fc8ea637036352e20e56d954b46a8c87f4ef3aba6df7ac1ff379"
+        },
+        {
+          "name": "ref_tb.v",
+          "bytes": 3229,
+          "sha256": "6687ea1b536eeac8528f211895a3d8cfc1337e5da61f03ddafe6315f9480ed44"
+        },
+        {
+          "name": "spec.txt",
+          "bytes": 7944,
+          "sha256": "4f75440713b49d90bc353a8200761335bb137eaa25ec829e04d1faf06ec4e724"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 0,
+      "status": "adapter_unsupported",
+      "reason": "read-file dependency staging not implemented; no missing asset inferred",
+      "seconds": 0.008
+    },
+    {
+      "id": "SVAGen/L1/MultiModal/1",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "jk_ff.v",
+          "bytes": 285,
+          "sha256": "b4a1b5ec4845f13eee37eea91aef0826cdf1553ae328c9dfaf2ef32222ae6dcd"
+        },
+        {
+          "name": "jk_spec.pdf",
+          "bytes": 185165,
+          "sha256": "4566e9cd76b3eb7eb17df87d64bdcaeb3e374330fcf9f93831a44d251ebb090b"
+        },
+        {
+          "name": "tb_jk.sv",
+          "bytes": 425,
+          "sha256": "b45973e36b7ee51fcf57bfcef7ff23d2ba335415d3139e86ff1dd91900aeba63"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 0,
+      "status": "adapter_unsupported",
+      "reason": "no direct continuous output assignment: temporal/reference-property generation outside implemented adapter contract",
+      "seconds": 0.001
+    },
+    {
+      "id": "SVAGen/L1/Text/PIC_8259",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "PIC_8259.v",
+          "bytes": 892,
+          "sha256": "7471336f0c47afdf3549d793476cf10809d00e11d69e245c1eed201acc898478"
+        },
+        {
+          "name": "PIC_8259_spec.txt",
+          "bytes": 6975,
+          "sha256": "b8c5f8f23c578aa850b62e8f1d73d6e85c130f9574893f5ffd7d024912fb9133"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 4,
+      "status": "pass",
+      "assignment_target_width": 8,
+      "assertion": "always @* assert((dout) == 8'({3'b000, IMR[3:2], 1'b0, IMR[1:0]}));",
+      "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+      "relation_lhs": "dout",
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "constant_mutation_status": "completed",
+      "constant_mutation_killed": false,
+      "negative_status": "fail",
+      "constant_control_status": "unknown",
+      "reason": "nonzero properties proven and selected output mutant falsified",
+      "seconds": 0.149
+    },
+    {
+      "id": "SVAGen/L1/Text/Piezo_Driver",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "Piezo_Driver.v",
+          "bytes": 601,
+          "sha256": "693375a56e7c6f0a617ef7270d22e01e0e8ea2a8b037a188390a60ca9899aa1f"
+        },
+        {
+          "name": "Piezo_Driver_spec.txt",
+          "bytes": 6669,
+          "sha256": "40126aaccf92f01634554d847dc63fdc780f90aeea9a435dbd70090e617029c8"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 0,
+      "status": "adapter_unsupported",
+      "reason": "no direct continuous output assignment: temporal/reference-property generation outside implemented adapter contract",
+      "seconds": 0.0
+    },
+    {
+      "id": "SVAGen/L1/Text/VGA_SG",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "VGA_SG.v",
+          "bytes": 1017,
+          "sha256": "1457cd83873acce9839901d23ea7e3c97ca96eca9b8a0d7db0f9e1bb3e3af969"
+        },
+        {
+          "name": "VGA_SG_spec.txt",
+          "bytes": 7321,
+          "sha256": "24d92b97644dee601a22703ab847cbee5f83d924894d4aabdc91732ff2072ae7"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 0,
+      "status": "adapter_unsupported",
+      "reason": "no direct continuous output assignment: temporal/reference-property generation outside implemented adapter contract",
+      "seconds": 0.0
+    },
+    {
+      "id": "SVAGen/L1/Text/WB_stage",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "WB_stage.v",
+          "bytes": 639,
+          "sha256": "64882b128755b80058d1bc00daf23bce9152bca52697cb17d4045c9c99f4919d"
+        },
+        {
+          "name": "WB_stage_spec.txt",
+          "bytes": 8127,
+          "sha256": "557abb9ed135d25631671695f57a76963bab2f4e67c43a9e5b6f77757da93858"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 4,
+      "status": "pass",
+      "assignment_target_width": 1,
+      "assertion": "always @* assert((reg_write_en) == 1'(write_back_en));",
+      "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+      "relation_lhs": "reg_write_en",
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "constant_mutation_status": "completed",
+      "constant_mutation_killed": false,
+      "negative_status": "fail",
+      "constant_control_status": "unknown",
+      "reason": "nonzero properties proven and selected output mutant falsified",
+      "seconds": 0.092
+    },
+    {
+      "id": "SVAGen/L1/Text/aeMB2_xslif",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "aeMB2_xslif.v",
+          "bytes": 1767,
+          "sha256": "a8cd7baa7d020dc508687b4dd6290f4e9d542eca50b297ba7dd365ff50851460"
+        },
+        {
+          "name": "aeMB2_xslif_spec.txt",
+          "bytes": 8756,
+          "sha256": "e734f81518b3191b5c1dafc273f1da132759a9e39742a6260d2efa8a714e6b5b"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 4,
+      "status": "pass",
+      "assignment_target_width": 1,
+      "assertion": "always @* assert((xwb_fb) == 1'((xwb_stb_o ~^ xwb_ack_i)));",
+      "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+      "relation_lhs": "xwb_fb",
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "constant_mutation_status": "completed",
+      "constant_mutation_killed": false,
+      "negative_status": "fail",
+      "constant_control_status": "unknown",
+      "reason": "nonzero properties proven and selected output mutant falsified",
+      "seconds": 0.209
+    },
+    {
+      "id": "SVAGen/L1/Text/ag6502_decimal",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "ag6502_decimal.v",
+          "bytes": 244,
+          "sha256": "dc395430f32d1d57d9f858c903ca8a4f70147a518364bc3d38cc1e5c628c4f1c"
+        },
+        {
+          "name": "ag6502_decimal_spec.txt",
+          "bytes": 6472,
+          "sha256": "a05152864719e46f0c7115e38b0d18dfd46635ed5a6af3b9f38d3db204ae264a"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 0,
+      "status": "adapter_unsupported",
+      "reason": "no direct continuous output assignment: temporal/reference-property generation outside implemented adapter contract",
+      "seconds": 0.001
+    },
+    {
+      "id": "SVAGen/L1/Text/equivalence_resolver",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "equivalence_resolver.v",
+          "bytes": 2063,
+          "sha256": "bf156d5e35ccd4b16c8300e3432ede818551e07ddedc89c0da16e00e2d43f2c9"
+        },
+        {
+          "name": "equivalence_resolver_spec.txt",
+          "bytes": 7269,
+          "sha256": "a03bb4c1eb8a5409ada8d198760f7c28a07accce5a3bcaa806c91b62f12425b2"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 4,
+      "status": "pass",
+      "assignment_target_width": 1,
+      "assertion": "always @* assert((DMG) == 1'(O&~(f&hp==h)));",
+      "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+      "relation_lhs": "DMG",
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "constant_mutation_status": "completed",
+      "constant_mutation_killed": false,
+      "negative_status": "fail",
+      "constant_control_status": "unknown",
+      "reason": "nonzero properties proven and selected output mutant falsified",
+      "seconds": 0.377
+    },
+    {
+      "id": "SVAGen/L1/Text/eth_clockgen",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "eth_clockgen.v",
+          "bytes": 1045,
+          "sha256": "a5f6f5546d6b8d6938d75e996a5ea6f1a4bb4c1d10fe5228a65b87bd64906241"
+        },
+        {
+          "name": "eth_clockgen_spec.txt",
+          "bytes": 6989,
+          "sha256": "90d056fadd19eec09e3cb3f9d50dd2d8d6d6014aa735eb0e4e561327a442655e"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 4,
+      "status": "pass",
+      "assignment_target_width": 1,
+      "assertion": "always @* assert((MdcEn) == 1'(CountEq0 & ~Mdc));",
+      "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+      "relation_lhs": "MdcEn",
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "constant_mutation_status": "completed",
+      "constant_mutation_killed": false,
+      "negative_status": "fail",
+      "constant_control_status": "unknown",
+      "reason": "nonzero properties proven and selected output mutant falsified",
+      "seconds": 0.143
+    },
+    {
+      "id": "SVAGen/L1/Text/eth_memory",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "eth_memory.v",
+          "bytes": 2768,
+          "sha256": "c42915e7fe611146288f2aa3dc7584742898ecae9c4fdb1088c047fafd33c1e7"
+        },
+        {
+          "name": "eth_memory_spec.txt",
+          "bytes": 7864,
+          "sha256": "2f801dbf2fa9538e816159c418274522fb3753abc1a1481499fa1d3d5ada4816"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 0,
+      "status": "adapter_unsupported",
+      "file_io_contract": "constant basename-only output file; private cwd, file-size limit; no filesystem sandbox claim",
+      "reason": "no direct continuous output assignment: temporal/reference-property generation outside implemented adapter contract",
+      "seconds": 0.001
+    },
+    {
+      "id": "SVAGen/L1/Text/test_endian",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "test_endian.v",
+          "bytes": 182,
+          "sha256": "d14669fb00b7a5c9903306f7cf8642d6ab8d75b1d26730e02649d129020547a6"
+        },
+        {
+          "name": "test_endian_spec.txt",
+          "bytes": 5566,
+          "sha256": "e55767d36e5ced0d1f398e30bd0e420dcb8b03bce1f948e1f2fbd7fdfe47f5cc"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 0,
+      "status": "adapter_unsupported",
+      "reason": "no parsed module/port interface for invariant fixture generation",
+      "seconds": 0.0
+    },
+    {
+      "id": "SVAGen/L1/Text/usbh_crc16",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "usbh_crc16.v",
+          "bytes": 1611,
+          "sha256": "6324ffcb76b1f999bef6d46a100f11bc4aa011778d8f951d4482161e4843a01f"
+        },
+        {
+          "name": "usbh_crc16_spec.txt",
+          "bytes": 5436,
+          "sha256": "2013e4ee76446be031b6c1086b06d9f9a98b795d0e158060c1aa78d6549154a9"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 4,
+      "status": "pass",
+      "assignment_target_width": 1,
+      "assertion": "always @* assert((crc_o[15]) == 1'(data_i[0] ^ data_i[1] ^ data_i[2] ^ data_i[3] ^ data_i[4] ^\n                        data_i[5] ^ data_i[6] ^ data_i[7] ^ crc_i[7] ^ crc_i[6] ^\n                        crc_i[5] ^ crc_i[4] ^ crc_i[3] ^ crc_i[2] ^\n                        crc_i[1] ^ crc_i[0]));",
+      "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+      "relation_lhs": "crc_o[15]",
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "constant_mutation_status": "completed",
+      "constant_mutation_killed": false,
+      "negative_status": "fail",
+      "constant_control_status": "unknown",
+      "reason": "nonzero properties proven and selected output mutant falsified",
+      "seconds": 0.142
+    },
+    {
+      "id": "SVAGen/L1/Text/wbwatchdog",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "wbwatchdog.v",
+          "bytes": 504,
+          "sha256": "5f32ad3f8197406ce53eda4dc83202609ad79f3d4c9fc91a26fe3aec2a84f73a"
+        },
+        {
+          "name": "wbwatchdog_spec.txt",
+          "bytes": 7055,
+          "sha256": "bbe947b1789c28587d4a3cfc81e0066689e02993ae82844dd551e09e24776c40"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 0,
+      "status": "adapter_unsupported",
+      "reason": "no direct continuous output assignment: temporal/reference-property generation outside implemented adapter contract",
+      "seconds": 0.001
+    },
+    {
+      "id": "SVAGen/L1/Text/zipjiffies",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "zipjiffies.v",
+          "bytes": 1324,
+          "sha256": "d8b38773ddd20473ff2d4e5202663c104170c60ee4350e035ecae8635a8cc1f9"
+        },
+        {
+          "name": "zipjiffies_spec.txt",
+          "bytes": 7764,
+          "sha256": "7e6360bc375e4c2ed37c3f4bc6b7c661357b73ff1ccbd182c266455c58078d0b"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 4,
+      "status": "pass",
+      "assignment_target_width": 32,
+      "assertion": "always @* assert((o_wb_data) == 32'(r_counter));",
+      "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+      "relation_lhs": "o_wb_data",
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "constant_mutation_status": "completed",
+      "constant_mutation_killed": false,
+      "negative_status": "fail",
+      "constant_control_status": "unknown",
+      "reason": "nonzero properties proven and selected output mutant falsified",
+      "seconds": 0.238
+    },
+    {
+      "id": "SVAGen/L2/Text/1",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "ct_ebiu_ncwt_entry_172.txt",
+          "bytes": 10327,
+          "sha256": "b8c6e46a7f76ac084a493e8992f1c0a55f350f78f9609156796421cacae1a300"
+        },
+        {
+          "name": "ct_ebiu_ncwt_entry_172.v",
+          "bytes": 5083,
+          "sha256": "b40e99e67cfef1b2d94ec20b9c32d7a90b11bc02dd6f05be331fed6b1b0c7fe7"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 4,
+      "status": "pass",
+      "assignment_target_width": 1,
+      "assertion": "always @* assert((ncwt_piu0_sel_x) == 1'(ncwt_mid_sel[0]));",
+      "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+      "relation_lhs": "ncwt_piu0_sel_x",
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "constant_mutation_status": "completed",
+      "constant_mutation_killed": false,
+      "negative_status": "fail",
+      "constant_control_status": "unknown",
+      "reason": "nonzero properties proven and selected output mutant falsified",
+      "seconds": 0.212
+    },
+    {
+      "id": "SVAGen/L2/Text/10",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "fm_avalon_wb.v",
+          "bytes": 4125,
+          "sha256": "ce229098c79fdf80e2cb5d81172b734b372dfe48907ff47a318f86bf91ab8998"
+        },
+        {
+          "name": "fm_avalon_wb_spec.txt",
+          "bytes": 7487,
+          "sha256": "5b039ee0562482e6719d1fc0d252e267e3a35f14f8bc38aafa12dff488c11fef"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": false,
+      "commands": 4,
+      "status": "unknown",
+      "assignment_target_width": 32,
+      "assertion": "always @* assert((o_av_rd) == 32'({'d4{r_rdata}}));",
+      "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+      "relation_lhs": "o_av_rd",
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "constant_mutation_status": "completed",
+      "constant_mutation_killed": false,
+      "negative_status": "completed",
+      "constant_control_status": "unknown",
+      "reason": "vacuity/adequacy gate: selected CRC output mutant was not falsified",
+      "seconds": 0.24
+    },
+    {
+      "id": "SVAGen/L2/Text/11",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "IDDR.v",
+          "bytes": 3582,
+          "sha256": "8f65a8c4a89d7f26d80356085f97364efc97caa24bde17dfa1a874b01694c5af"
+        },
+        {
+          "name": "IDDR_spec.txt",
+          "bytes": 6874,
+          "sha256": "3e317abe3df917f71972fad03472e679448013e02ffc1f166427c8c58f637358"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 0,
+      "status": "adapter_unsupported",
+      "reason": "no direct continuous output assignment: temporal/reference-property generation outside implemented adapter contract",
+      "seconds": 0.001
+    },
+    {
+      "id": "SVAGen/L2/Text/12",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "interrupts.v",
+          "bytes": 3802,
+          "sha256": "c322aa3cd472097bae15e725ee7547ba4b5ea082ecda0f520d25701b2dfc818c"
+        },
+        {
+          "name": "interrupts_spec.txt",
+          "bytes": 7574,
+          "sha256": "c38f851541659d65be8c7ce0ddfa0ef0d841f89c0d2eb377c797269c1ace26fd"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 4,
+      "status": "pass",
+      "assignment_target_width": 1,
+      "assertion": "always @* assert((iff2) == 1'(DFFE_instIFF2));",
+      "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+      "relation_lhs": "iff2",
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "constant_mutation_status": "completed",
+      "constant_mutation_killed": false,
+      "negative_status": "fail",
+      "constant_control_status": "unknown",
+      "reason": "nonzero properties proven and selected output mutant falsified",
+      "seconds": 0.145
+    },
+    {
+      "id": "SVAGen/L2/Text/13",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "M65C02_MPCv3.v",
+          "bytes": 3312,
+          "sha256": "0451508245bc8b4255f226426cb2c700dd4ebc9e7130b9d160ddc32305030458"
+        },
+        {
+          "name": "M65C02_MPCv3_spec.txt",
+          "bytes": 8519,
+          "sha256": "160fa30a574fe586e4517c8e5938c2c05fc09fca9e3711f9667d4135dd5c3ab8"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 4,
+      "status": "pass",
+      "assignment_target_width": 2,
+      "assertion": "always @* assert((Via) == 2'({((I == pBRV2) | (I == pBRV3)), ((I == pBRV3) | (I == pBRV1))}));",
+      "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+      "relation_lhs": "Via",
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "constant_mutation_status": "completed",
+      "constant_mutation_killed": false,
+      "negative_status": "fail",
+      "constant_control_status": "unknown",
+      "reason": "nonzero properties proven and selected output mutant falsified",
+      "seconds": 0.247
+    },
+    {
+      "id": "SVAGen/L2/Text/2",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "Phy_int_141.txt",
+          "bytes": 7760,
+          "sha256": "65bc03e188e99188529466e5c39919db891edfc9f4261e198dc6ae1ee393da41"
+        },
+        {
+          "name": "Phy_int_141.v",
+          "bytes": 4349,
+          "sha256": "33003ea7d14ffba3c74ce429cdf13af8edc9b24030c0d622eeac2b5b2be73d29"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 4,
+      "status": "pass",
+      "assignment_target_width": 1,
+      "assertion": "always @* assert((Tx_er) == 1'(0));",
+      "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+      "relation_lhs": "Tx_er",
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "constant_mutation_status": "completed",
+      "constant_mutation_killed": false,
+      "negative_status": "fail",
+      "constant_control_status": "unknown",
+      "reason": "nonzero properties proven and selected output mutant falsified",
+      "seconds": 0.175
+    },
+    {
+      "id": "SVAGen/L2/Text/3",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "tap2_sm_183.txt",
+          "bytes": 7888,
+          "sha256": "7cd3bf0c69f2a7c47c98c7781f1c8dab7b668711a5ca7674d175b40484a9ac84"
+        },
+        {
+          "name": "tap2_sm_183.v",
+          "bytes": 4569,
+          "sha256": "aecb94b81bdc97d8e65f964a8f5b6e9657c062d3acbb9af9b970961efff0ec51"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 4,
+      "status": "pass",
+      "assignment_target_width": 1,
+      "assertion": "always @* assert((debug_wake_vld) == 1'(sm2_write_vld));",
+      "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+      "relation_lhs": "debug_wake_vld",
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "constant_mutation_status": "completed",
+      "constant_mutation_killed": false,
+      "negative_status": "fail",
+      "constant_control_status": "unknown",
+      "reason": "nonzero properties proven and selected output mutant falsified",
+      "seconds": 0.142
+    },
+    {
+      "id": "SVAGen/L2/Text/4",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "ct_ciu_ctcq_respq_entry_178.txt",
+          "bytes": 8946,
+          "sha256": "53be3f6145b5d840133348fb3d5fe461cadd290799e4325473807bdbdafb4243"
+        },
+        {
+          "name": "ct_ciu_ctcq_respq_entry_178.v",
+          "bytes": 5532,
+          "sha256": "a28760f46f069d08955db2f6bb4242917c0ceb6ea26e15971e621ac2909597b7"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 4,
+      "status": "pass",
+      "assignment_target_width": 1,
+      "assertion": "always @* assert((respq_vld_x) == 1'(respq_vld));",
+      "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+      "relation_lhs": "respq_vld_x",
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "constant_mutation_status": "completed",
+      "constant_mutation_killed": false,
+      "negative_status": "fail",
+      "constant_control_status": "unknown",
+      "reason": "nonzero properties proven and selected output mutant falsified",
+      "seconds": 0.141
+    },
+    {
+      "id": "SVAGen/L2/Text/5",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "pfcache_198.txt",
+          "bytes": 14800,
+          "sha256": "09ccef0744c3ed0e956d673df5d019c89d6aa552c0d92e73111b68ad226889e0"
+        },
+        {
+          "name": "pfcache_198.v",
+          "bytes": 5584,
+          "sha256": "bb5b1df2bca446a7e4eb5aa608f58ff7a8250b98a0f69a9557c9ed292779055a"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 4,
+      "status": "pass",
+      "assignment_target_width": 1,
+      "assertion": "always @* assert((o_wb_we) == 1'(1'b0));",
+      "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+      "relation_lhs": "o_wb_we",
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "constant_mutation_status": "completed",
+      "constant_mutation_killed": false,
+      "negative_status": "fail",
+      "constant_control_status": "unknown",
+      "reason": "nonzero properties proven and selected output mutant falsified",
+      "seconds": 7.695
+    },
+    {
+      "id": "SVAGen/L2/Text/6",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "ddr_cal_ctl_110.txt",
+          "bytes": 7846,
+          "sha256": "1fb92539d99d686bd4d6653caf68f45e02b16ba0b177ee85904a2ff639c72e6d"
+        },
+        {
+          "name": "ddr_cal_ctl_110.v",
+          "bytes": 3271,
+          "sha256": "1fe8d57237f6ea65c9c9a56b0176da3210545b09bf3e6fe4595421da8641c3f4"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 4,
+      "status": "pass",
+      "assignment_target_width": 5,
+      "assertion": "always @* assert((dbg_phase_cnt) == 5'(phase_cnt));",
+      "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+      "relation_lhs": "dbg_phase_cnt",
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "constant_mutation_status": "completed",
+      "constant_mutation_killed": false,
+      "negative_status": "fail",
+      "constant_control_status": "unknown",
+      "reason": "nonzero properties proven and selected output mutant falsified",
+      "seconds": 0.211
+    },
+    {
+      "id": "SVAGen/L2/Text/7",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "eth_rxcounters.v",
+          "bytes": 3688,
+          "sha256": "20b08b210b03491b30ea17a803b24ac7b251efe9bdca62629594bc8eab0a622b"
+        },
+        {
+          "name": "eth_rxcounters_spec.txt",
+          "bytes": 8443,
+          "sha256": "8ffda819c80b46d34054ab5788085ae64378f1b20098a5d13b0c593423353903"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 4,
+      "status": "pass",
+      "assignment_target_width": 16,
+      "assertion": "always @* assert((ByteCntOut) == 16'(DlyCrcEn ? ByteCntDelayed : ByteCnt));",
+      "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+      "relation_lhs": "ByteCntOut",
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "constant_mutation_status": "completed",
+      "constant_mutation_killed": false,
+      "negative_status": "fail",
+      "constant_control_status": "unknown",
+      "reason": "nonzero properties proven and selected output mutant falsified",
+      "seconds": 0.289
+    },
+    {
+      "id": "SVAGen/L2/Text/8",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "eth_txstatem.v",
+          "bytes": 4754,
+          "sha256": "8d9b044421c61ee642d94d47d9fb90a0dacd936829ca02301c91ad93c155109b"
+        },
+        {
+          "name": "eth_txstatem_spec.txt",
+          "bytes": 7105,
+          "sha256": "07521ddd891a8c0cf57b273eaf5c872ab3072eec426bc8fbe3fe652fa083f069"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 4,
+      "status": "pass",
+      "assignment_target_width": 1,
+      "assertion": "always @* assert((StartIPG) == 1'(StateDefer & ~ExcessiveDefer & ~CarrierSense));",
+      "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+      "relation_lhs": "StartIPG",
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "constant_mutation_status": "completed",
+      "constant_mutation_killed": false,
+      "negative_status": "fail",
+      "constant_control_status": "unknown",
+      "reason": "nonzero properties proven and selected output mutant falsified",
+      "seconds": 0.182
+    },
+    {
+      "id": "SVAGen/L2/Text/9",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "flow_ctrl.v",
+          "bytes": 3674,
+          "sha256": "e44338f3b4a3628e6c537e1879610efddac4fd09d7f3f89de671ffaf72538fb9"
+        },
+        {
+          "name": "flow_ctrl_spec.txt",
+          "bytes": 7163,
+          "sha256": "8912a8e27647b873a5e812d13e13ad58501837aa46270bb2f0ae9fcbd7bebb0f"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 0,
+      "status": "adapter_unsupported",
+      "reason": "no direct continuous output assignment: temporal/reference-property generation outside implemented adapter contract",
+      "seconds": 0.002
+    },
+    {
+      "id": "SVAGen/L3/Text/1",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "ct_lsu_pfu_sdb_entry_281.txt",
+          "bytes": 16779,
+          "sha256": "d889a9516205d0453744161b43fcfa79876cdeb160df1cc9c7a3f7b06e4edd10"
+        },
+        {
+          "name": "ct_lsu_pfu_sdb_entry_281.v",
+          "bytes": 11475,
+          "sha256": "fe9f13a54087848b8686be38795c65348c5934083e178bbdeac2328dc6354bfb"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 4,
+      "status": "pass",
+      "assignment_target_width": 1,
+      "assertion": "always @* assert((pfu_sdb_entry_vld_x) == 1'(pfu_sdb_entry_vld));",
+      "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+      "relation_lhs": "pfu_sdb_entry_vld_x",
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "constant_mutation_status": "completed",
+      "constant_mutation_killed": false,
+      "negative_status": "fail",
+      "constant_control_status": "unknown",
+      "reason": "nonzero properties proven and selected output mutant falsified",
+      "seconds": 0.297
+    },
+    {
+      "id": "SVAGen/L3/Text/10",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "tessera_mem_core_383.txt",
+          "bytes": 37868,
+          "sha256": "4b8b8edc383da9fb54c08b4b9a25074be7b0712913c4cc66ff415ea662ffb9b5"
+        },
+        {
+          "name": "tessera_mem_core_383.v",
+          "bytes": 17033,
+          "sha256": "90d9fd7c524c9aa76897562862025816c4a808eb60567fb90b094daa3e2e3a81"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 0,
+      "status": "adapter_unsupported",
+      "reason": "no direct continuous output assignment: temporal/reference-property generation outside implemented adapter contract",
+      "seconds": 0.002
+    },
+    {
+      "id": "SVAGen/L3/Text/11",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "ct_biu_other_io_sync_306.txt",
+          "bytes": 14628,
+          "sha256": "2aa00181fe138a81b937510a11bfbe9a793c9db29cfb56418b806e4eb055436d"
+        },
+        {
+          "name": "ct_biu_other_io_sync_306.v",
+          "bytes": 8674,
+          "sha256": "224be57a6aae31d18df2cf367e92e499cc74ef4c73229229c1eb6d7a4a67b012"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 4,
+      "status": "pass",
+      "assignment_target_width": 3,
+      "assertion": "always @* assert((biu_cp0_coreid[2:0]) == 3'(pad_core_hartid[2:0]));",
+      "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+      "relation_lhs": "biu_cp0_coreid[2:0]",
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "constant_mutation_status": "completed",
+      "constant_mutation_killed": false,
+      "negative_status": "fail",
+      "constant_control_status": "unknown",
+      "reason": "nonzero properties proven and selected output mutant falsified",
+      "seconds": 0.279
+    },
+    {
+      "id": "SVAGen/L3/Text/12",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "ethgenerator32_698.txt",
+          "bytes": 21451,
+          "sha256": "4b7b57626ff4587cdfdd7be5ee0513b4d1c405b9a21c9b353869860d947d18e7"
+        },
+        {
+          "name": "ethgenerator32_698.v",
+          "bytes": 17213,
+          "sha256": "8ac9f20f46ac586377698257108f52ba547cd0da7eef5844d9450644f70fabbf"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 0,
+      "status": "adapter_unsupported",
+      "reason": "no direct continuous output assignment: temporal/reference-property generation outside implemented adapter contract",
+      "seconds": 0.002
+    },
+    {
+      "id": "SVAGen/L3/Text/13",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "sequencer_218.txt",
+          "bytes": 10678,
+          "sha256": "564ac80ffe0c73de5387f5e239c15fc06c828bcce866492624137e348d0d11e3"
+        },
+        {
+          "name": "sequencer_218.v",
+          "bytes": 3615,
+          "sha256": "b1ac4b5c9f1c3c870d2ca1e0b9218075876214621aad02adf5c0ef82d005ef22"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 4,
+      "status": "pass",
+      "assignment_target_width": 1,
+      "assertion": "always @* assert((M1) == 1'(DFFE_M1_ff));",
+      "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+      "relation_lhs": "M1",
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "constant_mutation_status": "completed",
+      "constant_mutation_killed": false,
+      "negative_status": "fail",
+      "constant_control_status": "unknown",
+      "reason": "nonzero properties proven and selected output mutant falsified",
+      "seconds": 0.146
+    },
+    {
+      "id": "SVAGen/L3/Text/14",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "ct_biu_read_channel_627.txt",
+          "bytes": 26580,
+          "sha256": "5c88c55f1ad758e1aa9da35c977ca47ecc81eac5fee8c3cdb55ba978c3deb4c5"
+        },
+        {
+          "name": "ct_biu_read_channel_627.v",
+          "bytes": 22828,
+          "sha256": "122b32682d3adb3451f33607c4f052572fbb41b9d560f5a9efe3ddc63ef1402c"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 4,
+      "status": "pass",
+      "assignment_target_width": 1,
+      "assertion": "always @* assert((arready) == 1'(cur_raddr_buf_ready));",
+      "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+      "relation_lhs": "arready",
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "constant_mutation_status": "completed",
+      "constant_mutation_killed": false,
+      "negative_status": "fail",
+      "constant_control_status": "unknown",
+      "reason": "nonzero properties proven and selected output mutant falsified",
+      "seconds": 0.585
+    },
+    {
+      "id": "SVAGen/L3/Text/2",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "ct_idu_dep_reg_src2_entry_294.txt",
+          "bytes": 16939,
+          "sha256": "c38ec865747b8f0e281cb3e32c44a98597a91e36acf31a181d981dabad8b4cde"
+        },
+        {
+          "name": "ct_idu_dep_reg_src2_entry_294.v",
+          "bytes": 10917,
+          "sha256": "8fd835b0783d849b297bab71c3847c73cff9fd89ca6feee35adc81b2a92f70f1"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 4,
+      "status": "pass",
+      "assignment_target_width": 1,
+      "assertion": "always @* assert((x_read_data[12]) == 1'(x_read_lsu_match));",
+      "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+      "relation_lhs": "x_read_data[12]",
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "constant_mutation_status": "completed",
+      "constant_mutation_killed": false,
+      "negative_status": "fail",
+      "constant_control_status": "unknown",
+      "reason": "nonzero properties proven and selected output mutant falsified",
+      "seconds": 0.147
+    },
+    {
+      "id": "SVAGen/L3/Text/3",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "ct_ciu_regs_kid_272.txt",
+          "bytes": 15818,
+          "sha256": "bd9d3eb017e595806f1ace926f1c6cb023548a56f374fa8228c26fe36d2ca33b"
+        },
+        {
+          "name": "ct_ciu_regs_kid_272.v",
+          "bytes": 9153,
+          "sha256": "205ac9e9e3f665be61b0d76b530ebf46fcc0c16d1283fbaf135eef04f4b3c066"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 4,
+      "status": "pass",
+      "assignment_target_width": 64,
+      "assertion": "always @* assert((x_csr_value[63:0]) == 64'(regs_dout[63:0]));",
+      "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+      "relation_lhs": "x_csr_value[63:0]",
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "constant_mutation_status": "completed",
+      "constant_mutation_killed": false,
+      "negative_status": "fail",
+      "constant_control_status": "unknown",
+      "reason": "nonzero properties proven and selected output mutant falsified",
+      "seconds": 0.681
+    },
+    {
+      "id": "SVAGen/L3/Text/4",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "ct_clint_func_355.txt",
+          "bytes": 18878,
+          "sha256": "b21296125e02d3de236852827deee10388e3560665648e8a888a5dc8afd2804c"
+        },
+        {
+          "name": "ct_clint_func_355.v",
+          "bytes": 11067,
+          "sha256": "75229a4d7728ac6f994d14e109d77413cce14d23db7d1cf38634bb81d9608d41"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 4,
+      "status": "pass",
+      "assignment_target_width": 32,
+      "assertion": "always @* assert((prdata_clint[31:0]) == 32'(data_out[31:0]));",
+      "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+      "relation_lhs": "prdata_clint[31:0]",
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "constant_mutation_status": "completed",
+      "constant_mutation_killed": false,
+      "negative_status": "fail",
+      "constant_control_status": "unknown",
+      "reason": "nonzero properties proven and selected output mutant falsified",
+      "seconds": 0.481
+    },
+    {
+      "id": "SVAGen/L3/Text/5",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "ct_lsu_pfu_sdb_cmp_389.txt",
+          "bytes": 25783,
+          "sha256": "f5afc31719ca05855927f6d3fa8873cf43098910c6c2de6ed4a5704a9326ee5d"
+        },
+        {
+          "name": "ct_lsu_pfu_sdb_cmp_389.v",
+          "bytes": 15721,
+          "sha256": "71d36e785b26b3361ce770f0a5ba11cee83d56c154e434bdcd608a7c6316a194"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 4,
+      "status": "pass",
+      "assignment_target_width": 1,
+      "assertion": "always @* assert((entry_normal_stride) == 1'(!entry_stride_0to1_zero\n                                      &&  !entry_stride_0to1_cross_2k\n                                      &&  entry_stride_diff_eq));",
+      "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+      "relation_lhs": "entry_normal_stride",
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "constant_mutation_status": "completed",
+      "constant_mutation_killed": false,
+      "negative_status": "fail",
+      "constant_control_status": "unknown",
+      "reason": "nonzero properties proven and selected output mutant falsified",
+      "seconds": 0.489
+    },
+    {
+      "id": "SVAGen/L3/Text/6",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "ct_had_regs_761.txt",
+          "bytes": 35149,
+          "sha256": "86a76fe562d8c4aae56c080d47a59792e9eac61d4a6a64992051da3cb89eae0d"
+        },
+        {
+          "name": "ct_had_regs_761.v",
+          "bytes": 22665,
+          "sha256": "673ba5efe60a24bb2a5d15ad602cd61d1d79d2a5ccc1e1e3602beafa1621db86"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 4,
+      "status": "pass",
+      "assignment_target_width": 32,
+      "assertion": "always @* assert((had_ifu_ir[31:0]) == 32'(ir_reg[31:0]));",
+      "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+      "relation_lhs": "had_ifu_ir[31:0]",
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "constant_mutation_status": "completed",
+      "constant_mutation_killed": false,
+      "negative_status": "fail",
+      "constant_control_status": "unknown",
+      "reason": "nonzero properties proven and selected output mutant falsified",
+      "seconds": 1.102
+    },
+    {
+      "id": "SVAGen/L3/Text/7",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "ct_ifu_btb_556.txt",
+          "bytes": 33804,
+          "sha256": "bb931f058af6d0ac93db3ca5549cdd93207d9e69e687b886860c281396474c65"
+        },
+        {
+          "name": "ct_ifu_btb_556.v",
+          "bytes": 21530,
+          "sha256": "a559969a3aee415684cae0f72247b74ee5800a73d62817f5e20e658b9ab05687"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 4,
+      "status": "pass",
+      "assignment_target_width": 20,
+      "assertion": "always @* assert((btb_ifdp_way0_target[19:0]) == 20'((btb_mem_way0_valid)\n                                  ? btb_mem_way0_target_pc[19:0]\n                                  : btb_buf_target_pc[19:0]));",
+      "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+      "relation_lhs": "btb_ifdp_way0_target[19:0]",
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "constant_mutation_status": "completed",
+      "constant_mutation_killed": false,
+      "negative_status": "fail",
+      "constant_control_status": "unknown",
+      "reason": "nonzero properties proven and selected output mutant falsified",
+      "seconds": 0.535
+    },
+    {
+      "id": "SVAGen/L3/Text/8",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "tessera_sdram_ctrl_594.txt",
+          "bytes": 32232,
+          "sha256": "4b070fa995fa4ba36ca901bf6d5faf77f09369f0d0b246e4e03415fece89d268"
+        },
+        {
+          "name": "tessera_sdram_ctrl_594.v",
+          "bytes": 14382,
+          "sha256": "440fd3f858d8beece2e3e23ebeb5740e0d70796486963d4244f4f917018a0762"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 4,
+      "status": "pass",
+      "assignment_target_width": 5,
+      "assertion": "always @* assert((ctrl_cmd) == 5'(ini_cmd | ref_cmd | dma_cmd | wri_cmd | rea_cmd));",
+      "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+      "relation_lhs": "ctrl_cmd",
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "constant_mutation_status": "completed",
+      "constant_mutation_killed": false,
+      "negative_status": "fail",
+      "constant_control_status": "unknown",
+      "reason": "nonzero properties proven and selected output mutant falsified",
+      "seconds": 0.688
+    },
+    {
+      "id": "SVAGen/L3/Text/9",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "eth_macstatus_180.txt",
+          "bytes": 12870,
+          "sha256": "fbe4933fe2f5028789bc676ae32c4b026081c0d04bf7c7e5faf25396d25994da"
+        },
+        {
+          "name": "eth_macstatus_180.v",
+          "bytes": 6375,
+          "sha256": "f5a0fee4fbdaa7561e090b80bacdcbc45f2ad89f074ac96bddffacc24e72afd3"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 4,
+      "status": "pass",
+      "assignment_target_width": 1,
+      "assertion": "always @* assert((ReceivedPacketGood) == 1'(~LatchedCrcError));",
+      "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+      "relation_lhs": "ReceivedPacketGood",
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "constant_mutation_status": "completed",
+      "constant_mutation_killed": false,
+      "negative_status": "fail",
+      "constant_control_status": "unknown",
+      "reason": "nonzero properties proven and selected output mutant falsified",
+      "seconds": 0.252
+    },
+    {
+      "id": "TBGen/L1/Text/fasm_dparam",
+      "subset": "TBGen",
+      "input_files": [
+        {
+          "name": "fasm_dparam.v",
+          "bytes": 810,
+          "sha256": "59bc2a486916e952f382ea097b559430d78207a525a8a33b49c5510ea9d4d8af"
+        },
+        {
+          "name": "fasm_dparam_spec.txt",
+          "bytes": 7374,
+          "sha256": "a8bc2e8810f56e54e9f1c2d0075fc3b2078d24151cdab63c04781d24058930ff"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 0,
+      "status": "adapter_unsupported",
+      "reason": "internal source randomness has independent state across cloned RTL instances; deterministic oracle contract unavailable",
+      "seconds": 0.002
+    },
+    {
+      "id": "TBGen/L1/Text/sq_sin",
+      "subset": "TBGen",
+      "input_files": [
+        {
+          "name": "sq_sin.v",
+          "bytes": 425,
+          "sha256": "edf7c327bb14928e7cd4eb2eaa15a5aebcd9cc69a72a40746e2f58a9cad0bb36"
+        },
+        {
+          "name": "sq_sin_spec.txt",
+          "bytes": 6421,
+          "sha256": "8fe02971e0aa43208b6cd9571687ca83baf5ebb687431a9799cbca70b2a2eafa"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 0,
+      "status": "error",
+      "reason": "missing external input asset: ['../tables/sin_table.hex']",
+      "seconds": 0.005
+    },
+    {
+      "id": "TBGen/L2/Text/gmii_tx_bfm",
+      "subset": "TBGen",
+      "input_files": [
+        {
+          "name": "gmii_tx_bfm.v",
+          "bytes": 6487,
+          "sha256": "340d740f73c82df1c4e93eec540affb6c74ea35fa516b4cfdde49d35677370cd"
+        },
+        {
+          "name": "gmii_tx_bfm_spec.txt",
+          "bytes": 7094,
+          "sha256": "45f28b816941b8f9cd5715f0b0b7f6f0e96b5c267d3020c2604a92cfdcacadc3"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 0,
+      "status": "error",
+      "reason": "missing external input asset: ['ptpdv2_tx.pcap']",
+      "seconds": 0.001
+    },
+    {
+      "id": "TBGen/L3/Text/alt_exc_upcore",
+      "subset": "TBGen",
+      "input_files": [
+        {
+          "name": "alt_exc_upcore.v",
+          "bytes": 42767,
+          "sha256": "e32c81c06a09cf601f6663cbe914aa9e28aa4c7319026d59a6fb6f5687ce33d3"
+        },
+        {
+          "name": "alt_exc_upcore_spec.txt",
+          "bytes": 8521,
+          "sha256": "40c2371bb526c4a869b404bd791ea5f78f5b0a7248e96780c0ff19122cb1edd0"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 0,
+      "status": "error",
+      "reason": "missing external input asset: ['mastercommands.dat', 'slavememory.0.dat', 'slavememory.1.dat', 'slavememory.2.dat', 'slavememory.3.dat', 'slavememory.4.dat', 'slavememory.5.dat', 'slavememory.cfg.dat']",
+      "seconds": 0.002
+    },
+    {
+      "id": "TBGen/L3/Text/cavlc_read_levels",
+      "subset": "TBGen",
+      "input_files": [
+        {
+          "name": "cavlc_read_levels.v",
+          "bytes": 9308,
+          "sha256": "f3b045e27faaf4a4d13ccc1ee27676004b9a682315dcbcb57a64dc4ed112dc58"
+        },
+        {
+          "name": "cavlc_read_levels_spec.txt",
+          "bytes": 8584,
+          "sha256": "be7cc152ccecbd37a89bda3d68733fe596b09491b2bc7a3e0551b51054d21316"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 5,
+      "status": "pass",
+      "stimulus_contract": {
+        "seed": 13579,
+        "cycles": 64,
+        "clock": "clk",
+        "reset_polarities": {
+          "rst_n": 0
+        },
+        "unknown_handling": "any observed unknown prevents pass",
+        "oracle": "renamed copy of supplied RTL; self-consistency/calibration only"
+      },
+      "observed_checks": 64,
+      "observed_unknown": 0,
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "reference/checker positive and perturbed-checker negative executed",
+      "seconds": 0.172
+    }
+  ],
+  "statuses": {
+    "error": 3,
+    "adapter_unsupported": 13,
+    "pass": 30,
+    "unknown": 1
+  }
+}

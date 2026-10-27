@@ -1,0 +1,424 @@
+
+-- Running command `read_verilog -formal -sv negative_rtl.sv; hierarchy -top eth_txstatem; prep -top eth_txstatem; flatten; async2sync; dffunmap; memory_map; opt_clean; chformal -lower; write_json negative_rtl.json; sat -seq 2 -timeout 5 -prove-asserts -verify -show-inputs -show-outputs' --
+
+1. Executing Verilog-2005 frontend: negative_rtl.sv
+Parsing formal SystemVerilog input from `negative_rtl.sv' to AST representation.
+Generating RTLIL representation for module `\eth_txstatem'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \eth_txstatem
+
+2.2. Analyzing design hierarchy..
+Top module:  \eth_txstatem
+Removed 0 unused modules.
+Module eth_txstatem directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \eth_txstatem
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \eth_txstatem
+Removed 0 unused modules.
+Module eth_txstatem directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 2 switch rules as full_case in process $proc$negative_rtl.sv:146$91 in module eth_txstatem.
+Marked 9 switch rules as full_case in process $proc$negative_rtl.sv:85$84 in module eth_txstatem.
+Removed a total of 0 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 3 redundant assignments.
+Promoted 1 assignment to connection.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \Reset in `\eth_txstatem.$proc$negative_rtl.sv:146$91'.
+Found async reset \Reset in `\eth_txstatem.$proc$negative_rtl.sv:85$84'.
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~18 debug messages>
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\eth_txstatem.$proc$negative_rtl.sv:159$94'.
+Creating decoders for process `\eth_txstatem.$proc$negative_rtl.sv:146$91'.
+     1/1: $0\Rule1[0:0]
+Creating decoders for process `\eth_txstatem.$proc$negative_rtl.sv:85$84'.
+     1/10: $0\StateJam_q[0:0]
+     2/10: $0\StateData[1:0]
+     3/10: $0\StateDefer[0:0]
+     4/10: $0\StateBackOff[0:0]
+     5/10: $0\StateJam[0:0]
+     6/10: $0\StateFCS[0:0]
+     7/10: $0\StatePAD[0:0]
+     8/10: $0\StatePreamble[0:0]
+     9/10: $0\StateIPG[0:0]
+    10/10: $0\StateIdle[0:0]
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\eth_txstatem.\Rule1' using process `\eth_txstatem.$proc$negative_rtl.sv:146$91'.
+  created $adff cell `$procdff$148' with positive edge clock and positive level reset.
+Creating register for signal `\eth_txstatem.\StateIdle' using process `\eth_txstatem.$proc$negative_rtl.sv:85$84'.
+  created $adff cell `$procdff$151' with positive edge clock and positive level reset.
+Creating register for signal `\eth_txstatem.\StateIPG' using process `\eth_txstatem.$proc$negative_rtl.sv:85$84'.
+  created $adff cell `$procdff$154' with positive edge clock and positive level reset.
+Creating register for signal `\eth_txstatem.\StatePreamble' using process `\eth_txstatem.$proc$negative_rtl.sv:85$84'.
+  created $adff cell `$procdff$157' with positive edge clock and positive level reset.
+Creating register for signal `\eth_txstatem.\StateData' using process `\eth_txstatem.$proc$negative_rtl.sv:85$84'.
+  created $adff cell `$procdff$160' with positive edge clock and positive level reset.
+Creating register for signal `\eth_txstatem.\StatePAD' using process `\eth_txstatem.$proc$negative_rtl.sv:85$84'.
+  created $adff cell `$procdff$163' with positive edge clock and positive level reset.
+Creating register for signal `\eth_txstatem.\StateFCS' using process `\eth_txstatem.$proc$negative_rtl.sv:85$84'.
+  created $adff cell `$procdff$166' with positive edge clock and positive level reset.
+Creating register for signal `\eth_txstatem.\StateJam' using process `\eth_txstatem.$proc$negative_rtl.sv:85$84'.
+  created $adff cell `$procdff$169' with positive edge clock and positive level reset.
+Creating register for signal `\eth_txstatem.\StateJam_q' using process `\eth_txstatem.$proc$negative_rtl.sv:85$84'.
+  created $adff cell `$procdff$172' with positive edge clock and positive level reset.
+Creating register for signal `\eth_txstatem.\StateBackOff' using process `\eth_txstatem.$proc$negative_rtl.sv:85$84'.
+  created $adff cell `$procdff$175' with positive edge clock and positive level reset.
+Creating register for signal `\eth_txstatem.\StateDefer' using process `\eth_txstatem.$proc$negative_rtl.sv:85$84'.
+  created $adff cell `$procdff$178' with positive edge clock and positive level reset.
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `eth_txstatem.$proc$negative_rtl.sv:159$94'.
+Found and cleaned up 2 empty switches in `\eth_txstatem.$proc$negative_rtl.sv:146$91'.
+Removing empty process `eth_txstatem.$proc$negative_rtl.sv:146$91'.
+Found and cleaned up 16 empty switches in `\eth_txstatem.$proc$negative_rtl.sv:85$84'.
+Removing empty process `eth_txstatem.$proc$negative_rtl.sv:85$84'.
+Cleaned up 18 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module eth_txstatem.
+<suppressed ~13 debug messages>
+
+3.3. Executing FUTURE pass.
+
+3.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module eth_txstatem.
+
+3.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \eth_txstatem..
+Removed 0 unused cells and 52 unused wires.
+<suppressed ~1 debug messages>
+
+3.6. Executing CHECK pass (checking for obvious problems).
+Checking module eth_txstatem...
+Found and reported 0 problems.
+
+3.7. Executing OPT pass (performing simple optimizations).
+
+3.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module eth_txstatem.
+
+3.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\eth_txstatem'.
+<suppressed ~42 debug messages>
+Removed a total of 14 cells.
+
+3.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \eth_txstatem..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~9 debug messages>
+
+3.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \eth_txstatem.
+Performed a total of 0 changes.
+
+3.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\eth_txstatem'.
+Removed a total of 0 cells.
+
+3.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \eth_txstatem..
+Removed 0 unused cells and 14 unused wires.
+<suppressed ~1 debug messages>
+
+3.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module eth_txstatem.
+
+3.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \eth_txstatem..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~9 debug messages>
+
+3.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \eth_txstatem.
+Performed a total of 0 changes.
+
+3.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\eth_txstatem'.
+Removed a total of 0 cells.
+
+3.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \eth_txstatem..
+
+3.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module eth_txstatem.
+
+3.7.14. Finished OPT passes. (There is nothing left to do.)
+
+3.8. Executing WREDUCE pass (reducing word size of cells).
+
+3.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \eth_txstatem..
+
+3.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.11. Executing OPT pass (performing simple optimizations).
+
+3.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module eth_txstatem.
+
+3.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\eth_txstatem'.
+Removed a total of 0 cells.
+
+3.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \eth_txstatem..
+
+3.11.4. Finished fast OPT passes.
+
+3.12. Printing statistics.
+
+=== eth_txstatem ===
+
+   Number of wires:                137
+   Number of wire bits:            163
+   Number of public wires:          48
+   Number of public wire bits:      74
+   Number of ports:                 45
+   Number of port bits:             71
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                112
+     $adff                          11
+     $and                           37
+     $check                          1
+     $eq                             1
+     $ge                             2
+     $le                             1
+     $mux                           18
+     $ne                             1
+     $not                           14
+     $or                            25
+     $reduce_or                      1
+
+3.13. Executing CHECK pass (checking for obvious problems).
+Checking module eth_txstatem...
+Found and reported 0 problems.
+
+4. Executing FLATTEN pass (flatten design).
+
+5. Executing ASYNC2SYNC pass.
+Replacing eth_txstatem.$procdff$148 ($adff): ARST=\Reset, D=$0\Rule1[0:0], Q=\Rule1
+Replacing eth_txstatem.$procdff$151 ($adff): ARST=\Reset, D=$0\StateIdle[0:0], Q=\StateIdle
+Replacing eth_txstatem.$procdff$154 ($adff): ARST=\Reset, D=$0\StateIPG[0:0], Q=\StateIPG
+Replacing eth_txstatem.$procdff$157 ($adff): ARST=\Reset, D=$0\StatePreamble[0:0], Q=\StatePreamble
+Replacing eth_txstatem.$procdff$160 ($adff): ARST=\Reset, D=\StartData, Q=\StateData
+Replacing eth_txstatem.$procdff$163 ($adff): ARST=\Reset, D=$0\StatePAD[0:0], Q=\StatePAD
+Replacing eth_txstatem.$procdff$166 ($adff): ARST=\Reset, D=$0\StateFCS[0:0], Q=\StateFCS
+Replacing eth_txstatem.$procdff$169 ($adff): ARST=\Reset, D=$0\StateJam[0:0], Q=\StateJam
+Replacing eth_txstatem.$procdff$172 ($adff): ARST=\Reset, D=\StateJam, Q=\StateJam_q
+Replacing eth_txstatem.$procdff$175 ($adff): ARST=\Reset, D=$0\StateBackOff[0:0], Q=\StateBackOff
+Replacing eth_txstatem.$procdff$178 ($adff): ARST=\Reset, D=$0\StateDefer[0:0], Q=\StateDefer
+
+6. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+7. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \eth_txstatem..
+Removed 2 unused cells and 2 unused wires.
+<suppressed ~3 debug messages>
+
+9. Executing JSON backend.
+
+10. Executing SAT pass (solving SAT problems in the circuit).
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 134 cells to SAT database.
+No constraints for initial state found.
+
+Import proof for assert: $eq$negative_rtl.sv:159$100_Y when 1'1.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 134 cells to SAT database.
+Import proof for assert: $eq$negative_rtl.sv:159$100_Y when 1'1.
+Import show expression: \CarrierSense
+Import show expression: \ColWindow
+Import show expression: \Collision
+Import show expression: \CrcEn
+Import show expression: \ExcessiveDefer
+Import show expression: \FullD
+Import show expression: \IPGR1
+Import show expression: \IPGR2
+Import show expression: \IPGT
+Import show expression: \MTxClk
+Import show expression: \MaxFrame
+Import show expression: \NibCnt
+Import show expression: \NibCntEq15
+Import show expression: \NibCntEq7
+Import show expression: \NibbleMinFl
+Import show expression: \NoBckof
+Import show expression: \Pad
+Import show expression: \RandomEq0
+Import show expression: \RandomEqByteCnt
+Import show expression: \Reset
+Import show expression: \RetryMax
+Import show expression: \StartTxDone
+Import show expression: \TooBig
+Import show expression: \TxEndFrm
+Import show expression: \TxStartFrm
+Import show expression: \TxUnderRun
+Import show expression: \UnderRun
+Import show expression: \DeferIndication
+Import show expression: \StartBackoff
+Import show expression: \StartData
+Import show expression: \StartDefer
+Import show expression: \StartFCS
+Import show expression: \StartIPG
+Import show expression: \StartJam
+Import show expression: \StartPreamble
+Import show expression: \StateBackOff
+Import show expression: \StateData
+Import show expression: \StateDefer
+Import show expression: \StateFCS
+Import show expression: \StateIPG
+Import show expression: \StateIdle
+Import show expression: \StateJam
+Import show expression: \StateJam_q
+Import show expression: \StatePAD
+Import show expression: \StatePreamble
+
+Solving problem with 1803 variables and 4556 clauses..
+SAT proof finished - model found: FAIL!
+
+   ______                   ___       ___       _ _            _ _ 
+  (_____ \                 / __)     / __)     (_) |          | | |
+   _____) )___ ___   ___ _| |__    _| |__ _____ _| | _____  __| | |
+  |  ____/ ___) _ \ / _ (_   __)  (_   __|____ | | || ___ |/ _  |_|
+  | |   | |  | |_| | |_| || |       | |  / ___ | | || ____( (_| |_ 
+  |_|   |_|   \___/ \___/ |_|       |_|  \_____|_|\_)_____)\____|_|
+
+
+  Time Signal Name                                      Dec       Hex           Bin
+  ---- ---------------------------------------- ----------- --------- -------------
+  init $auto$async2sync.cc:228:execute$179                0         0             0
+  init $auto$async2sync.cc:228:execute$181                0         0             0
+  init $auto$async2sync.cc:228:execute$183                1         1             1
+  init $auto$async2sync.cc:228:execute$185                0         0             0
+  init $auto$async2sync.cc:228:execute$187                0         0            00
+  init $auto$async2sync.cc:228:execute$189                0         0             0
+  init $auto$async2sync.cc:228:execute$191                0         0             0
+  init $auto$async2sync.cc:228:execute$193                0         0             0
+  init $auto$async2sync.cc:228:execute$195                0         0             0
+  init $auto$async2sync.cc:228:execute$197                0         0             0
+  init $auto$async2sync.cc:228:execute$199                0         0             0
+  ---- ---------------------------------------- ----------- --------- -------------
+     1 \CarrierSense                                      1         1             1
+     1 \ColWindow                                         1         1             1
+     1 \Collision                                         0         0             0
+     1 \CrcEn                                             0         0             0
+     1 \DeferIndication                                   0         0             0
+     1 \ExcessiveDefer                                    0         0             0
+     1 \FullD                                             0         0             0
+     1 \IPGR1                                            96        60       1100000
+     1 \IPGR2                                           127        7f       1111111
+     1 \IPGT                                              1         1       0000001
+     1 \MTxClk                                            0         0             0
+     1 \MaxFrame                                          0         0             0
+     1 \NibCnt                                            0         0       0000000
+     1 \NibCntEq15                                        0         0             0
+     1 \NibCntEq7                                         0         0             0
+     1 \NibbleMinFl                                       0         0             0
+     1 \NoBckof                                           0         0             0
+     1 \Pad                                               1         1             1
+     1 \RandomEq0                                         0         0             0
+     1 \RandomEqByteCnt                                   0         0             0
+     1 \Reset                                             0         0             0
+     1 \RetryMax                                          0         0             0
+     1 \StartBackoff                                      0         0             0
+     1 \StartData                                         0         0            00
+     1 \StartDefer                                        1         1             1
+     1 \StartFCS                                          0         0             0
+     1 \StartIPG                                          1         1             1
+     1 \StartJam                                          0         0             0
+     1 \StartPreamble                                     0         0             0
+     1 \StartTxDone                                       0         0             0
+     1 \StateBackOff                                      0         0             0
+     1 \StateData                                         0         0            00
+     1 \StateDefer                                        0         0             0
+     1 \StateFCS                                          0         0             0
+     1 \StateIPG                                          1         1             1
+     1 \StateIdle                                         0         0             0
+     1 \StateJam                                          0         0             0
+     1 \StateJam_q                                        0         0             0
+     1 \StatePAD                                          0         0             0
+     1 \StatePreamble                                     0         0             0
+     1 \TooBig                                            0         0             0
+     1 \TxEndFrm                                          0         0             0
+     1 \TxStartFrm                                        0         0             0
+     1 \TxUnderRun                                        0         0             0
+     1 \UnderRun                                          0         0             0
+  ---- ---------------------------------------- ----------- --------- -------------
+     2 \CarrierSense                                      0         0             0
+     2 \ColWindow                                         1         1             1
+     2 \Collision                                         0         0             0
+     2 \CrcEn                                             0         0             0
+     2 \DeferIndication                                   0         0             0
+     2 \ExcessiveDefer                                    0         0             0
+     2 \FullD                                             0         0             0
+     2 \IPGR1                                             0         0       0000000
+     2 \IPGR2                                           127        7f       1111111
+     2 \IPGT                                             56        38       0111000
+     2 \MTxClk                                            0         0             0
+     2 \MaxFrame                                          0         0             0
+     2 \NibCnt                                            0         0       0000000
+     2 \NibCntEq15                                        0         0             0
+     2 \NibCntEq7                                         0         0             0
+     2 \NibbleMinFl                                       0         0             0
+     2 \NoBckof                                           0         0             0
+     2 \Pad                                               1         1             1
+     2 \RandomEq0                                         0         0             0
+     2 \RandomEqByteCnt                                   0         0             0
+     2 \Reset                                             1         1             1
+     2 \RetryMax                                          0         0             0
+     2 \StartBackoff                                      0         0             0
+     2 \StartData                                         0         0            00
+     2 \StartDefer                                        0         0             0
+     2 \StartFCS                                          0         0             0
+     2 \StartIPG                                          0         0             0
+     2 \StartJam                                          0         0             0
+     2 \StartPreamble                                     0         0             0
+     2 \StartTxDone                                       0         0             0
+     2 \StateBackOff                                      0         0             0
+     2 \StateData                                         0         0            00
+     2 \StateERROR: Called with -verify and proof did fail!

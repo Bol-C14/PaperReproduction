@@ -1,0 +1,30 @@
+{
+  "id": "SVAGen/L2/Text/12",
+  "subset": "SVAGen",
+  "input_files": [
+    {
+      "name": "interrupts.v",
+      "bytes": 3802,
+      "sha256": "c322aa3cd472097bae15e725ee7547ba4b5ea082ecda0f520d25701b2dfc818c"
+    },
+    {
+      "name": "interrupts_spec.txt",
+      "bytes": 7574,
+      "sha256": "c38f851541659d65be8c7ce0ddfa0ef0d841f89c0d2eb377c797269c1ace26fd"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": null,
+  "negative_control_detected": null,
+  "commands": 0,
+  "status": "unknown",
+  "assertion": "always @* assert((iff2) == (DFFE_instIFF2));",
+  "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+  "relation_lhs": "iff2",
+  "property_counts": null,
+  "reason": "reference proof baseline: wall timeout",
+  "seconds": 150.179
+}

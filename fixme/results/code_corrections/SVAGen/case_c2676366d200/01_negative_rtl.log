@@ -1,0 +1,513 @@
+
+-- Running command `read_verilog -formal -sv negative_rtl.sv; hierarchy -top ct_biu_other_io_sync; prep -top ct_biu_other_io_sync; flatten; async2sync; dffunmap; memory_map; opt_clean; chformal -lower; write_json negative_rtl.json; sat -seq 2 -timeout 5 -prove-asserts -verify -show-inputs -show-outputs' --
+
+1. Executing Verilog-2005 frontend: negative_rtl.sv
+Parsing formal SystemVerilog input from `negative_rtl.sv' to AST representation.
+Generating RTLIL representation for module `\ct_biu_other_io_sync'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \ct_biu_other_io_sync
+
+2.2. Analyzing design hierarchy..
+Top module:  \ct_biu_other_io_sync
+Removed 0 unused modules.
+Module ct_biu_other_io_sync directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \ct_biu_other_io_sync
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \ct_biu_other_io_sync
+Removed 0 unused modules.
+Module ct_biu_other_io_sync directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$negative_rtl.sv:299$31 in module ct_biu_other_io_sync.
+Marked 1 switch rules as full_case in process $proc$negative_rtl.sv:292$29 in module ct_biu_other_io_sync.
+Marked 1 switch rules as full_case in process $proc$negative_rtl.sv:280$27 in module ct_biu_other_io_sync.
+Marked 1 switch rules as full_case in process $proc$negative_rtl.sv:263$23 in module ct_biu_other_io_sync.
+Marked 1 switch rules as full_case in process $proc$negative_rtl.sv:224$16 in module ct_biu_other_io_sync.
+Marked 1 switch rules as full_case in process $proc$negative_rtl.sv:212$13 in module ct_biu_other_io_sync.
+Marked 1 switch rules as full_case in process $proc$negative_rtl.sv:198$10 in module ct_biu_other_io_sync.
+Marked 1 switch rules as full_case in process $proc$negative_rtl.sv:190$6 in module ct_biu_other_io_sync.
+Removed a total of 0 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 22 redundant assignments.
+Promoted 4 assignments to connections.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \cpurst_b in `\ct_biu_other_io_sync.$proc$negative_rtl.sv:299$31'.
+Found async reset \cpurst_b in `\ct_biu_other_io_sync.$proc$negative_rtl.sv:292$29'.
+Found async reset \cpurst_b in `\ct_biu_other_io_sync.$proc$negative_rtl.sv:280$27'.
+Found async reset \cpurst_b in `\ct_biu_other_io_sync.$proc$negative_rtl.sv:263$23'.
+Found async reset \cpurst_b in `\ct_biu_other_io_sync.$proc$negative_rtl.sv:224$16'.
+Found async reset \cpurst_b in `\ct_biu_other_io_sync.$proc$negative_rtl.sv:212$13'.
+Found async reset \cpurst_b in `\ct_biu_other_io_sync.$proc$negative_rtl.sv:198$10'.
+Found async reset \cpurst_b in `\ct_biu_other_io_sync.$proc$negative_rtl.sv:190$6'.
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~2 debug messages>
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:307$33'.
+Creating decoders for process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:299$31'.
+     1/1: $0\biu_hpcp_l2of_int[3:0]
+Creating decoders for process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:292$29'.
+     1/1: $0\biu_pad_cnt_en[3:0]
+Creating decoders for process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:280$27'.
+     1/2: $0\biu_pad_jdb_pm[0:0]
+     2/2: $0\biu_pad_lpmd_b[0:0]
+Creating decoders for process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:276$26'.
+Creating decoders for process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:263$23'.
+     1/2: $0\had_sdb_req_b_ff2[0:0]
+     2/2: $0\had_sdb_req_b_ff1[0:0]
+Creating decoders for process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:224$16'.
+     1/12: $0\cp0_ss_int_ff2[0:0]
+     2/12: $0\cp0_st_int_ff2[0:0]
+     3/12: $0\cp0_se_int_ff2[0:0]
+     4/12: $0\cp0_ms_int_ff2[0:0]
+     5/12: $0\cp0_mt_int_ff2[0:0]
+     6/12: $0\cp0_me_int_ff2[0:0]
+     7/12: $0\cp0_ss_int_ff1[0:0]
+     8/12: $0\cp0_st_int_ff1[0:0]
+     9/12: $0\cp0_se_int_ff1[0:0]
+    10/12: $0\cp0_ms_int_ff1[0:0]
+    11/12: $0\cp0_mt_int_ff1[0:0]
+    12/12: $0\cp0_me_int_ff1[0:0]
+Creating decoders for process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:219$15'.
+     1/1: $0\biu_csr_rdata[127:0]
+Creating decoders for process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:212$13'.
+     1/1: $0\biu_csr_cmplt[0:0]
+Creating decoders for process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:206$12'.
+     1/1: $0\biu_pad_csr_wdata[79:0]
+Creating decoders for process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:198$10'.
+     1/1: $0\biu_pad_csr_sel[0:0]
+Creating decoders for process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:190$6'.
+     1/1: $0\biu_csr_sel_ff[0:0]
+Creating decoders for process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:181$3'.
+Creating decoders for process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:177$2'.
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\ct_biu_other_io_sync.\biu_hpcp_l2of_int' using process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:299$31'.
+  created $adff cell `$procdff$44' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\biu_pad_cnt_en' using process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:292$29'.
+  created $adff cell `$procdff$49' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\biu_pad_jdb_pm' using process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:280$27'.
+  created $adff cell `$procdff$54' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\biu_pad_lpmd_b' using process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:280$27'.
+  created $adff cell `$procdff$59' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\biu_hpcp_time' using process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:276$26'.
+  created $dff cell `$procdff$60' with positive edge clock.
+Creating register for signal `\ct_biu_other_io_sync.\had_sdb_req_b_ff1' using process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:263$23'.
+  created $adff cell `$procdff$65' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\had_sdb_req_b_ff2' using process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:263$23'.
+  created $adff cell `$procdff$70' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\cp0_me_int_ff1' using process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:224$16'.
+  created $adff cell `$procdff$75' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\cp0_me_int_ff2' using process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:224$16'.
+  created $adff cell `$procdff$80' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\cp0_ms_int_ff1' using process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:224$16'.
+  created $adff cell `$procdff$85' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\cp0_ms_int_ff2' using process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:224$16'.
+  created $adff cell `$procdff$90' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\cp0_mt_int_ff1' using process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:224$16'.
+  created $adff cell `$procdff$95' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\cp0_mt_int_ff2' using process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:224$16'.
+  created $adff cell `$procdff$100' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\cp0_se_int_ff1' using process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:224$16'.
+  created $adff cell `$procdff$105' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\cp0_se_int_ff2' using process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:224$16'.
+  created $adff cell `$procdff$110' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\cp0_ss_int_ff1' using process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:224$16'.
+  created $adff cell `$procdff$115' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\cp0_ss_int_ff2' using process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:224$16'.
+  created $adff cell `$procdff$120' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\cp0_st_int_ff1' using process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:224$16'.
+  created $adff cell `$procdff$125' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\cp0_st_int_ff2' using process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:224$16'.
+  created $adff cell `$procdff$130' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\biu_csr_rdata' using process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:219$15'.
+  created $dff cell `$procdff$131' with positive edge clock.
+Creating register for signal `\ct_biu_other_io_sync.\biu_csr_cmplt' using process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:212$13'.
+  created $adff cell `$procdff$136' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\biu_pad_csr_wdata' using process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:206$12'.
+  created $dff cell `$procdff$137' with positive edge clock.
+Creating register for signal `\ct_biu_other_io_sync.\biu_pad_csr_sel' using process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:198$10'.
+  created $adff cell `$procdff$142' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\biu_csr_sel_ff' using process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:190$6'.
+  created $adff cell `$procdff$147' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\biu_cp0_apb_base' using process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:181$3'.
+  created $dff cell `$procdff$148' with positive edge clock.
+Creating register for signal `\ct_biu_other_io_sync.\biu_cp0_rvba' using process `\ct_biu_other_io_sync.$proc$negative_rtl.sv:177$2'.
+  created $dff cell `$procdff$149' with positive edge clock.
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `ct_biu_other_io_sync.$proc$negative_rtl.sv:307$33'.
+Removing empty process `ct_biu_other_io_sync.$proc$negative_rtl.sv:299$31'.
+Removing empty process `ct_biu_other_io_sync.$proc$negative_rtl.sv:292$29'.
+Removing empty process `ct_biu_other_io_sync.$proc$negative_rtl.sv:280$27'.
+Removing empty process `ct_biu_other_io_sync.$proc$negative_rtl.sv:276$26'.
+Removing empty process `ct_biu_other_io_sync.$proc$negative_rtl.sv:263$23'.
+Removing empty process `ct_biu_other_io_sync.$proc$negative_rtl.sv:224$16'.
+Found and cleaned up 1 empty switch in `\ct_biu_other_io_sync.$proc$negative_rtl.sv:219$15'.
+Removing empty process `ct_biu_other_io_sync.$proc$negative_rtl.sv:219$15'.
+Removing empty process `ct_biu_other_io_sync.$proc$negative_rtl.sv:212$13'.
+Found and cleaned up 1 empty switch in `\ct_biu_other_io_sync.$proc$negative_rtl.sv:206$12'.
+Removing empty process `ct_biu_other_io_sync.$proc$negative_rtl.sv:206$12'.
+Removing empty process `ct_biu_other_io_sync.$proc$negative_rtl.sv:198$10'.
+Removing empty process `ct_biu_other_io_sync.$proc$negative_rtl.sv:190$6'.
+Removing empty process `ct_biu_other_io_sync.$proc$negative_rtl.sv:181$3'.
+Removing empty process `ct_biu_other_io_sync.$proc$negative_rtl.sv:177$2'.
+Cleaned up 2 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_biu_other_io_sync.
+<suppressed ~42 debug messages>
+
+3.3. Executing FUTURE pass.
+
+3.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_biu_other_io_sync.
+
+3.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_biu_other_io_sync..
+Removed 31 unused cells and 87 unused wires.
+<suppressed ~34 debug messages>
+
+3.6. Executing CHECK pass (checking for obvious problems).
+Checking module ct_biu_other_io_sync...
+Found and reported 0 problems.
+
+3.7. Executing OPT pass (performing simple optimizations).
+
+3.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_biu_other_io_sync.
+
+3.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ct_biu_other_io_sync'.
+Removed a total of 0 cells.
+
+3.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ct_biu_other_io_sync..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+3.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ct_biu_other_io_sync.
+Performed a total of 0 changes.
+
+3.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ct_biu_other_io_sync'.
+Removed a total of 0 cells.
+
+3.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_biu_other_io_sync..
+
+3.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_biu_other_io_sync.
+
+3.7.8. Finished OPT passes. (There is nothing left to do.)
+
+3.8. Executing WREDUCE pass (reducing word size of cells).
+
+3.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_biu_other_io_sync..
+
+3.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.11. Executing OPT pass (performing simple optimizations).
+
+3.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_biu_other_io_sync.
+
+3.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ct_biu_other_io_sync'.
+Removed a total of 0 cells.
+
+3.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_biu_other_io_sync..
+
+3.11.4. Finished fast OPT passes.
+
+3.12. Printing statistics.
+
+=== ct_biu_other_io_sync ===
+
+   Number of wires:                 77
+   Number of wire bits:           1074
+   Number of public wires:          69
+   Number of public wire bits:     860
+   Number of ports:                 50
+   Number of port bits:            762
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 39
+     $adff                          21
+     $and                            1
+     $check                          1
+     $dff                            5
+     $eq                             1
+     $logic_not                      2
+     $mux                            2
+     $not                            1
+     $or                             5
+
+3.13. Executing CHECK pass (checking for obvious problems).
+Checking module ct_biu_other_io_sync...
+Found and reported 0 problems.
+
+4. Executing FLATTEN pass (flatten design).
+
+5. Executing ASYNC2SYNC pass.
+Replacing ct_biu_other_io_sync.$procdff$100 ($adff): ARST=\cpurst_b, D=\cp0_mt_int_ff1, Q=\cp0_mt_int_ff2
+Replacing ct_biu_other_io_sync.$procdff$105 ($adff): ARST=\cpurst_b, D=\pad_biu_se_int, Q=\cp0_se_int_ff1
+Replacing ct_biu_other_io_sync.$procdff$110 ($adff): ARST=\cpurst_b, D=\cp0_se_int_ff1, Q=\cp0_se_int_ff2
+Replacing ct_biu_other_io_sync.$procdff$115 ($adff): ARST=\cpurst_b, D=\pad_biu_ss_int, Q=\cp0_ss_int_ff1
+Replacing ct_biu_other_io_sync.$procdff$120 ($adff): ARST=\cpurst_b, D=\cp0_ss_int_ff1, Q=\cp0_ss_int_ff2
+Replacing ct_biu_other_io_sync.$procdff$125 ($adff): ARST=\cpurst_b, D=\pad_biu_st_int, Q=\cp0_st_int_ff1
+Replacing ct_biu_other_io_sync.$procdff$130 ($adff): ARST=\cpurst_b, D=\cp0_st_int_ff1, Q=\cp0_st_int_ff2
+Replacing ct_biu_other_io_sync.$procdff$136 ($adff): ARST=\cpurst_b, D=\pad_biu_csr_cmplt, Q=\biu_csr_cmplt
+Replacing ct_biu_other_io_sync.$procdff$142 ($adff): ARST=\cpurst_b, D=\csr_sel_pulse, Q=\biu_pad_csr_sel
+Replacing ct_biu_other_io_sync.$procdff$147 ($adff): ARST=\cpurst_b, D=\biu_csr_sel, Q=\biu_csr_sel_ff
+Replacing ct_biu_other_io_sync.$procdff$44 ($adff): ARST=\cpurst_b, D=\pad_biu_hpcp_l2of_int, Q=\biu_hpcp_l2of_int
+Replacing ct_biu_other_io_sync.$procdff$49 ($adff): ARST=\cpurst_b, D=\hpcp_biu_cnt_en, Q=\biu_pad_cnt_en
+Replacing ct_biu_other_io_sync.$procdff$54 ($adff): ARST=\cpurst_b, D=\had_biu_jdb_pm [1], Q=\biu_pad_jdb_pm
+Replacing ct_biu_other_io_sync.$procdff$59 ($adff): ARST=\cpurst_b, D=\cp0_biu_lpmd_b [0], Q=\biu_pad_lpmd_b
+Replacing ct_biu_other_io_sync.$procdff$65 ($adff): ARST=\cpurst_b, D=\pad_biu_dbgrq_b, Q=\had_sdb_req_b_ff1
+Replacing ct_biu_other_io_sync.$procdff$70 ($adff): ARST=\cpurst_b, D=\had_sdb_req_b_ff1, Q=\had_sdb_req_b_ff2
+Replacing ct_biu_other_io_sync.$procdff$75 ($adff): ARST=\cpurst_b, D=\pad_biu_me_int, Q=\cp0_me_int_ff1
+Replacing ct_biu_other_io_sync.$procdff$80 ($adff): ARST=\cpurst_b, D=\cp0_me_int_ff1, Q=\cp0_me_int_ff2
+Replacing ct_biu_other_io_sync.$procdff$85 ($adff): ARST=\cpurst_b, D=\pad_biu_ms_int, Q=\cp0_ms_int_ff1
+Replacing ct_biu_other_io_sync.$procdff$90 ($adff): ARST=\cpurst_b, D=\cp0_ms_int_ff1, Q=\cp0_ms_int_ff2
+Replacing ct_biu_other_io_sync.$procdff$95 ($adff): ARST=\cpurst_b, D=\pad_biu_mt_int, Q=\cp0_mt_int_ff1
+
+6. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+7. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_biu_other_io_sync..
+Removed 2 unused cells and 2 unused wires.
+<suppressed ~3 debug messages>
+
+9. Executing JSON backend.
+
+10. Executing SAT pass (solving SAT problems in the circuit).
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 81 cells to SAT database.
+No constraints for initial state found.
+
+Import proof for assert: $eq$negative_rtl.sv:307$35_Y when 1'1.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 81 cells to SAT database.
+Import proof for assert: $eq$negative_rtl.sv:307$35_Y when 1'1.
+Import show expression: \biu_csr_op
+Import show expression: \biu_csr_sel
+Import show expression: \biu_csr_wdata
+Import show expression: \coreclk
+Import show expression: \cp0_biu_icg_en
+Import show expression: \cp0_biu_lpmd_b
+Import show expression: \cpurst_b
+Import show expression: \forever_coreclk
+Import show expression: \had_biu_jdb_pm
+Import show expression: \hpcp_biu_cnt_en
+Import show expression: \pad_biu_csr_cmplt
+Import show expression: \pad_biu_csr_rdata
+Import show expression: \pad_biu_dbgrq_b
+Import show expression: \pad_biu_hpcp_l2of_int
+Import show expression: \pad_biu_me_int
+Import show expression: \pad_biu_ms_int
+Import show expression: \pad_biu_mt_int
+Import show expression: \pad_biu_se_int
+Import show expression: \pad_biu_ss_int
+Import show expression: \pad_biu_st_int
+Import show expression: \pad_core_hartid
+Import show expression: \pad_core_rvba
+Import show expression: \pad_xx_apb_base
+Import show expression: \pad_xx_time
+Import show expression: \pad_yy_icg_scan_en
+Import show expression: \biu_cp0_apb_base
+Import show expression: \biu_cp0_coreid
+Import show expression: \biu_cp0_me_int
+Import show expression: \biu_cp0_ms_int
+Import show expression: \biu_cp0_mt_int
+Import show expression: \biu_cp0_rvba
+Import show expression: \biu_cp0_se_int
+Import show expression: \biu_cp0_ss_int
+Import show expression: \biu_cp0_st_int
+Import show expression: \biu_csr_cmplt
+Import show expression: \biu_csr_rdata
+Import show expression: \biu_had_coreid
+Import show expression: \biu_had_sdb_req_b
+Import show expression: \biu_hpcp_l2of_int
+Import show expression: \biu_hpcp_time
+Import show expression: \biu_mmu_smp_disable
+Import show expression: \biu_pad_cnt_en
+Import show expression: \biu_pad_csr_sel
+Import show expression: \biu_pad_csr_wdata
+Import show expression: \biu_pad_jdb_pm
+Import show expression: \biu_pad_lpmd_b
+Import show expression: \biu_xx_dbg_wakeup
+Import show expression: \biu_xx_int_wakeup
+Import show expression: \biu_xx_normal_work
+Import show expression: \biu_xx_pmp_sel
+
+Solving problem with 6350 variables and 13774 clauses..
+SAT proof finished - model found: FAIL!
+
+   ______                   ___       ___       _ _            _ _ 
+  (_____ \                 / __)     / __)     (_) |          | | |
+   _____) )___ ___   ___ _| |__    _| |__ _____ _| | _____  __| | |
+  |  ____/ ___) _ \ / _ (_   __)  (_   __|____ | | || ___ |/ _  |_|
+  | |   | |  | |_| | |_| || |       | |  / ___ | | || ____( (_| |_ 
+  |_|   |_|   \___/ \___/ |_|       |_|  \_____|_|\_)_____)\____|_|
+
+
+  Time Signal Name                                      Dec       Hex                                                                                                                                 Bin
+  ---- ---------------------------------------- ----------- --------- -----------------------------------------------------------------------------------------------------------------------------------
+  init $auto$async2sync.cc:228:execute$150                0         0                                                                                                                                   0
+  init $auto$async2sync.cc:228:execute$152                0         0                                                                                                                                   0
+  init $auto$async2sync.cc:228:execute$154                0         0                                                                                                                                   0
+  init $auto$async2sync.cc:228:execute$156                0         0                                                                                                                                   0
+  init $auto$async2sync.cc:228:execute$158                0         0                                                                                                                                   0
+  init $auto$async2sync.cc:228:execute$160                0         0                                                                                                                                   0
+  init $auto$async2sync.cc:228:execute$162                0         0                                                                                                                                   0
+  init $auto$async2sync.cc:228:execute$164                0         0                                                                                                                                   0
+  init $auto$async2sync.cc:228:execute$166                0         0                                                                                                                                   0
+  init $auto$async2sync.cc:228:execute$168                0         0                                                                                                                                   0
+  init $auto$async2sync.cc:228:execute$170                0         0                                                                                                                                0000
+  init $auto$async2sync.cc:228:execute$172                0         0                                                                                                                                0000
+  init $auto$async2sync.cc:228:execute$174                0         0                                                                                                                                   0
+  init $auto$async2sync.cc:228:execute$176                0         0                                                                                                                                   0
+  init $auto$async2sync.cc:228:execute$178                1         1                                                                                                                                   1
+  init $auto$async2sync.cc:228:execute$180                1         1                                                                                                                                   1
+  init $auto$async2sync.cc:228:execute$182                0         0                                                                                                                                   0
+  init $auto$async2sync.cc:228:execute$184                0         0                                                                                                                                   0
+  init $auto$async2sync.cc:228:execute$186                0         0                                                                                                                                   0
+  init $auto$async2sync.cc:228:execute$188                0         0                                                                                                                                   0
+  init $auto$async2sync.cc:228:execute$190                0         0                                                                                                                                   0
+  init \biu_cp0_apb_base                                 --        --                                                                                            0000000000000000000000000000000000000000
+  init \biu_cp0_rvba                                     --        --                                                                                            0000000000000000000000000000000000000000
+  init \biu_csr_rdata                                    --        --    00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+  init \biu_hpcp_time                                    --        --                                                                    0000000000000000000000000000000000000000000000000000000000000000
+  init \biu_pad_csr_wdata                                --        --                                                    00000000000000000000000000000000000000000000000000000000000000000000000000000000
+  ---- ---------------------------------------- ----------- --------- -----------------------------------------------------------------------------------------------------------------------------------
+     1 \biu_cp0_apb_base                                 --        --                                                                                            0000000000000000000000000000000000000000
+     1 \biu_cp0_coreid                                    7         7                                                                                                                                 111
+     1 \biu_cp0_me_int                                    0         0                                                                                                                                   0
+     1 \biu_cp0_ms_int                                    0         0                                                                                                                                   0
+     1 \biu_cp0_mt_int                                    0         0                                                                                                                                   0
+     1 \biu_cp0_rvba                                     --        --                                                                                            0000000000000000000000000000000000000000
+     1 \biu_cp0_se_int                                    0         0                                                                                                                                   0
+     1 \biu_cp0_ss_int                                    0         0                                                                                                                                   0
+     1 \biu_cp0_st_int                                    0         0                                                                                                                                   0
+     1 \biu_csr_cmplt                                     0         0                                                                                                                                   0
+     1 \biu_csr_op                                        0         0                                                                                                                    0000000000000000
+     1 \biu_csr_rdata                                    --        --    00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+     1 \biu_csr_sel                                       0         0                                                                                                                                   0
+     1 \biu_csr_wdata                                    --        --                                                                    0000000000000000000000000000000000000000000000000000000000000000
+     1 \biu_had_coreid                                    0         0                                                                                                                                  00
+     1 \biu_had_sdb_req_b                                 1         1                                                                                                                                   1
+     1 \biu_hpcp_l2of_int                                 0         0                                                                                                                                0000
+     1 \biu_hpcp_time                                    --        --                                                                    0000000000000000000000000000000000000000000000000000000000000000
+     1 \biu_mmu_smp_disable                               0         0                                                                                                                                   0
+     1 \biu_pad_cnt_en                                    0         0                                                                                                                                0000
+     1 \biu_pad_csr_sel                                   0         0                                                                                                                                   0
+     1 \biu_pad_csr_wdata                                --        --                                                    00000000000000000000000000000000000000000000000000000000000000000000000000000000
+     1 \biu_pad_jdb_pm                                    0         0                                                                                                                                   0
+     1 \biu_pad_lpmd_b                                    0         0                                                                                                                                   0
+     1 \biu_xx_dbg_wakeup                                 0         0                                                                                                                                   0
+     1 \biu_xx_int_wakeup                                 0         0                                                                                                                                   0
+     1 \biu_xx_normal_work                                0         0                                                                                                                                   0
+     1 \biu_xx_pmp_sel                                    0         0                                                                                                                                   0
+     1 \coreclk                                           0         0                                                                                                                                   0
+     1 \cp0_biu_icg_en                                    0         0                                                                                                                                   0
+     1 \cp0_biu_lpmd_b                                    0         0                                                                                                                                  00
+     1 \cpurst_b                                          1         1                                                                                                                                   1
+     1 \forever_coreclk                                   0         0                                                                                                                                   0
+     1 \had_biu_jdb_pm                                    0         0                                                                                                                                  00
+     1 \hpcp_biu_cnt_en                                   0         0                                                                                                                                0000
+     1 \pad_biu_csr_cmplt                                 0         0                                                                                                                                   0
+     1 \pad_biu_csr_rdata                                --        --    00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+     1 \pad_biu_dbgrq_b                                   0         0                                                                                                                                   0
+     1 \pad_biu_hpcp_l2of_int                             0         0                                                                                                                                0000
+     1 \pad_biu_me_int                                    0         0                                                                                                                                   0
+     1 \pad_biu_ms_int                                    0         0                                                                                                                                   0
+     1 \pad_biu_mt_int                                    0         0                                                                                                                                   0
+     1 \pad_biu_se_int                                    0         0                                                                                                                                   0
+     1 \pad_biu_ss_int                                    0         0                                                                                                                                   0
+     1 \pad_biu_st_int                                    0         0                                                                                                                                   0
+     1 \pad_core_hartid                                   0         0                                                                                                                                 000
+     1 \pad_core_rvba                                    --        --                                                                                            0000000000000000000000000000000000000000
+     1 \pad_xx_apb_base                                  --        --                                                                                            0000000000000000000000000000000000000000
+     1 \pad_xx_time                                      --        --                                                                    0000000000000000000000000000000000000000000000000000000000000000
+     1 \pad_yy_icg_scan_en                                0         0                                                                                                                                   0
+  ---- ---------------------------------------- ----------- --------- -----------------------------------------------------------------------------------------------------------------------------------
+     2 \biu_cp0_apb_base                                 --        --                                                                                            0000000000000000000000000000000000000000
+     2 \biu_cp0_coreid                                    7         7                                                                                                                                 111
+     2 \biu_cp0_me_int                                    0         0                                                                                                                                   0
+     2 \biu_cp0_ms_int                                    0         0                                                                                                                                   0
+     2 \biu_cp0_mt_int                                    0         0                                                                                                                                   0
+     2 \biu_cp0_rvba                                     --        --                                                                                            0000000000000000000000000000000000000000
+     2 \biu_cp0_se_int                                    0         0                                                                                                                                   0
+     2 \biu_cp0_ss_int                                    0         0                                                                                                                                   0
+     2 \biu_cp0_st_int                                    0         0                                                                                                                                   0
+     2 \biu_csr_cmplt                                     0         0                                                                                                                                   0
+     2 \biu_csr_op                                        0         0                                                                                                                    0000000000000000
+     2 \biu_csr_rdata                                    --        --    00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+     2 \biu_csr_sel                                       0         0                                                                                                                                   0
+     2 \biu_csr_wdata                                    --        --                                                                    0000000000000000000000000000000000000000000000000000000000000000
+     2 \biu_had_coreid                                    0         0                                                                                                                                  00
+     2 \biu_had_sdb_req_b                                 1         1                                                                                                                                   1
+     2 \biu_hpcp_l2of_int                                 0         0                                                                                                                                0000
+     2 \biu_hpcp_time                                    --        --                                                                    0000000000000000000000000000000000000000000000000000000000000000
+     2 \biu_mmu_smp_disable                               0         0                                                                                                                                   0
+     2 \biu_pad_cnt_en                                    0         0                                                                                                                                0000
+     2 \biu_pad_csr_sel                                   0         0                                                                                                                                   0
+     2 \biu_pad_csr_wdata                                --        --                                                    00000000000000000000000000000000000000000000000000000000000000000000000000000000
+     2 \biu_pad_jdb_pm                                    0         0                                                                                                                                   0
+     2 \biu_pad_lpmd_b                                    0         0                                                                                                                                   0
+     2 \biu_xx_dbg_wakeup                                 0         0                                                                                                                                   0
+     2 \biu_xx_int_wakeup                                 0         0                                                                                                                                   0
+     2 \biu_xx_normal_work                                0         0                                                                                                                                   0
+     2 \biu_xx_pmp_sel                                    0         0                                                                                                                                   0
+     2 \coreclk                                           0         0                                                                                                                                   0
+     2 \cp0_biu_icg_en                                    0         0                                                                                                                                   0
+     2 \cp0_biu_lpmd_b                                    0         0                                                                                                                                  00
+     2 \cpurst_b                                          1         1                                                                                                                                   1
+     2 \forever_coreclk                                   0         0                                                                                                                                   0
+     2 \had_biu_jdb_pm                                    0         0                                                                                                                                  00
+     2 \hpcp_biu_cnt_en                                   0         0                                                                                                                                0000
+     2 \pad_biu_csr_cmplt                                 0         0                                                                                                                                   0
+     2 \pad_biu_csr_rdata                                --        --    00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+     2 \pad_biu_dbgrq_b                                   0         0                                                                                                                                   0
+     2 \pad_biu_hpcp_l2of_int                             0         0                                                                                                                                0000
+     2 \pad_biu_me_int                                    0         0                  ERROR: Called with -verify and proof did fail!

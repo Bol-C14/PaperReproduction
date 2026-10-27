@@ -1,0 +1,363 @@
+
+-- Running command `read_verilog -formal -sv negative_rtl.sv; hierarchy -top sequencer; prep -top sequencer; flatten; async2sync; dffunmap; memory_map; opt_clean; chformal -lower; write_json negative_rtl.json; sat -seq 2 -timeout 5 -prove-asserts -verify -show-inputs -show-outputs' --
+
+1. Executing Verilog-2005 frontend: negative_rtl.sv
+Parsing formal SystemVerilog input from `negative_rtl.sv' to AST representation.
+Generating RTLIL representation for module `\sequencer'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \sequencer
+
+2.2. Analyzing design hierarchy..
+Top module:  \sequencer
+Removed 0 unused modules.
+Module sequencer directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \sequencer
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \sequencer
+Removed 0 unused modules.
+Module sequencer directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$negative_rtl.sv:206$37 in module sequencer.
+Marked 1 switch rules as full_case in process $proc$negative_rtl.sv:194$35 in module sequencer.
+Marked 1 switch rules as full_case in process $proc$negative_rtl.sv:182$33 in module sequencer.
+Marked 1 switch rules as full_case in process $proc$negative_rtl.sv:170$31 in module sequencer.
+Marked 1 switch rules as full_case in process $proc$negative_rtl.sv:158$29 in module sequencer.
+Marked 1 switch rules as full_case in process $proc$negative_rtl.sv:146$27 in module sequencer.
+Marked 1 switch rules as full_case in process $proc$negative_rtl.sv:132$23 in module sequencer.
+Marked 1 switch rules as full_case in process $proc$negative_rtl.sv:120$21 in module sequencer.
+Marked 1 switch rules as full_case in process $proc$negative_rtl.sv:108$19 in module sequencer.
+Marked 1 switch rules as full_case in process $proc$negative_rtl.sv:96$17 in module sequencer.
+Marked 1 switch rules as full_case in process $proc$negative_rtl.sv:84$15 in module sequencer.
+Removed a total of 0 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 1 assignment to connection.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \nreset in `\sequencer.$proc$negative_rtl.sv:206$37'.
+Found async reset \nreset in `\sequencer.$proc$negative_rtl.sv:194$35'.
+Found async reset \nreset in `\sequencer.$proc$negative_rtl.sv:182$33'.
+Found async reset \nreset in `\sequencer.$proc$negative_rtl.sv:170$31'.
+Found async reset \nreset in `\sequencer.$proc$negative_rtl.sv:158$29'.
+Found async reset \nreset in `\sequencer.$proc$negative_rtl.sv:146$27'.
+Found async reset \nreset in `\sequencer.$proc$negative_rtl.sv:132$23'.
+Found async reset \nreset in `\sequencer.$proc$negative_rtl.sv:120$21'.
+Found async reset \nreset in `\sequencer.$proc$negative_rtl.sv:108$19'.
+Found async reset \nreset in `\sequencer.$proc$negative_rtl.sv:96$17'.
+Found async reset \nreset in `\sequencer.$proc$negative_rtl.sv:84$15'.
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~11 debug messages>
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\sequencer.$proc$negative_rtl.sv:219$39'.
+Creating decoders for process `\sequencer.$proc$negative_rtl.sv:206$37'.
+     1/1: $0\T6[0:0]
+Creating decoders for process `\sequencer.$proc$negative_rtl.sv:194$35'.
+     1/1: $0\DFFE_T5_ff[0:0]
+Creating decoders for process `\sequencer.$proc$negative_rtl.sv:182$33'.
+     1/1: $0\DFFE_T4_ff[0:0]
+Creating decoders for process `\sequencer.$proc$negative_rtl.sv:170$31'.
+     1/1: $0\DFFE_T3_ff[0:0]
+Creating decoders for process `\sequencer.$proc$negative_rtl.sv:158$29'.
+     1/1: $0\DFFE_T2_ff[0:0]
+Creating decoders for process `\sequencer.$proc$negative_rtl.sv:146$27'.
+     1/1: $0\DFFE_T1_ff[0:0]
+Creating decoders for process `\sequencer.$proc$negative_rtl.sv:132$23'.
+     1/1: $0\M5[0:0]
+Creating decoders for process `\sequencer.$proc$negative_rtl.sv:120$21'.
+     1/1: $0\DFFE_M4_ff[0:0]
+Creating decoders for process `\sequencer.$proc$negative_rtl.sv:108$19'.
+     1/1: $0\DFFE_M3_ff[0:0]
+Creating decoders for process `\sequencer.$proc$negative_rtl.sv:96$17'.
+     1/1: $0\DFFE_M2_ff[0:0]
+Creating decoders for process `\sequencer.$proc$negative_rtl.sv:84$15'.
+     1/1: $0\DFFE_M1_ff[0:0]
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\sequencer.\T6' using process `\sequencer.$proc$negative_rtl.sv:206$37'.
+  created $adff cell `$procdff$68' with positive edge clock and positive level reset.
+Creating register for signal `\sequencer.\DFFE_T5_ff' using process `\sequencer.$proc$negative_rtl.sv:194$35'.
+  created $adff cell `$procdff$73' with positive edge clock and positive level reset.
+Creating register for signal `\sequencer.\DFFE_T4_ff' using process `\sequencer.$proc$negative_rtl.sv:182$33'.
+  created $adff cell `$procdff$78' with positive edge clock and positive level reset.
+Creating register for signal `\sequencer.\DFFE_T3_ff' using process `\sequencer.$proc$negative_rtl.sv:170$31'.
+  created $adff cell `$procdff$83' with positive edge clock and positive level reset.
+Creating register for signal `\sequencer.\DFFE_T2_ff' using process `\sequencer.$proc$negative_rtl.sv:158$29'.
+  created $adff cell `$procdff$88' with positive edge clock and positive level reset.
+Creating register for signal `\sequencer.\DFFE_T1_ff' using process `\sequencer.$proc$negative_rtl.sv:146$27'.
+  created $adff cell `$procdff$93' with positive edge clock and positive level reset.
+Creating register for signal `\sequencer.\M5' using process `\sequencer.$proc$negative_rtl.sv:132$23'.
+  created $adff cell `$procdff$98' with positive edge clock and positive level reset.
+Creating register for signal `\sequencer.\DFFE_M4_ff' using process `\sequencer.$proc$negative_rtl.sv:120$21'.
+  created $adff cell `$procdff$103' with positive edge clock and positive level reset.
+Creating register for signal `\sequencer.\DFFE_M3_ff' using process `\sequencer.$proc$negative_rtl.sv:108$19'.
+  created $adff cell `$procdff$108' with positive edge clock and positive level reset.
+Creating register for signal `\sequencer.\DFFE_M2_ff' using process `\sequencer.$proc$negative_rtl.sv:96$17'.
+  created $adff cell `$procdff$113' with positive edge clock and positive level reset.
+Creating register for signal `\sequencer.\DFFE_M1_ff' using process `\sequencer.$proc$negative_rtl.sv:84$15'.
+  created $adff cell `$procdff$118' with positive edge clock and positive level reset.
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `sequencer.$proc$negative_rtl.sv:219$39'.
+Found and cleaned up 1 empty switch in `\sequencer.$proc$negative_rtl.sv:206$37'.
+Removing empty process `sequencer.$proc$negative_rtl.sv:206$37'.
+Found and cleaned up 1 empty switch in `\sequencer.$proc$negative_rtl.sv:194$35'.
+Removing empty process `sequencer.$proc$negative_rtl.sv:194$35'.
+Found and cleaned up 1 empty switch in `\sequencer.$proc$negative_rtl.sv:182$33'.
+Removing empty process `sequencer.$proc$negative_rtl.sv:182$33'.
+Found and cleaned up 1 empty switch in `\sequencer.$proc$negative_rtl.sv:170$31'.
+Removing empty process `sequencer.$proc$negative_rtl.sv:170$31'.
+Found and cleaned up 1 empty switch in `\sequencer.$proc$negative_rtl.sv:158$29'.
+Removing empty process `sequencer.$proc$negative_rtl.sv:158$29'.
+Found and cleaned up 1 empty switch in `\sequencer.$proc$negative_rtl.sv:146$27'.
+Removing empty process `sequencer.$proc$negative_rtl.sv:146$27'.
+Found and cleaned up 1 empty switch in `\sequencer.$proc$negative_rtl.sv:132$23'.
+Removing empty process `sequencer.$proc$negative_rtl.sv:132$23'.
+Found and cleaned up 1 empty switch in `\sequencer.$proc$negative_rtl.sv:120$21'.
+Removing empty process `sequencer.$proc$negative_rtl.sv:120$21'.
+Found and cleaned up 1 empty switch in `\sequencer.$proc$negative_rtl.sv:108$19'.
+Removing empty process `sequencer.$proc$negative_rtl.sv:108$19'.
+Found and cleaned up 1 empty switch in `\sequencer.$proc$negative_rtl.sv:96$17'.
+Removing empty process `sequencer.$proc$negative_rtl.sv:96$17'.
+Found and cleaned up 1 empty switch in `\sequencer.$proc$negative_rtl.sv:84$15'.
+Removing empty process `sequencer.$proc$negative_rtl.sv:84$15'.
+Cleaned up 11 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sequencer.
+<suppressed ~28 debug messages>
+
+3.3. Executing FUTURE pass.
+
+3.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sequencer.
+
+3.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \sequencer..
+Removed 22 unused cells and 70 unused wires.
+<suppressed ~23 debug messages>
+
+3.6. Executing CHECK pass (checking for obvious problems).
+Checking module sequencer...
+Found and reported 0 problems.
+
+3.7. Executing OPT pass (performing simple optimizations).
+
+3.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sequencer.
+
+3.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\sequencer'.
+Removed a total of 0 cells.
+
+3.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \sequencer..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~11 debug messages>
+
+3.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \sequencer.
+Performed a total of 0 changes.
+
+3.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\sequencer'.
+Removed a total of 0 cells.
+
+3.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \sequencer..
+
+3.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sequencer.
+
+3.7.8. Finished OPT passes. (There is nothing left to do.)
+
+3.8. Executing WREDUCE pass (reducing word size of cells).
+
+3.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \sequencer..
+
+3.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.11. Executing OPT pass (performing simple optimizations).
+
+3.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sequencer.
+
+3.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\sequencer'.
+Removed a total of 0 cells.
+
+3.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \sequencer..
+
+3.11.4. Finished fast OPT passes.
+
+3.12. Printing statistics.
+
+=== sequencer ===
+
+   Number of wires:                 55
+   Number of wire bits:             55
+   Number of public wires:          41
+   Number of public wire bits:      41
+   Number of ports:                 19
+   Number of port bits:             19
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 40
+     $adff                          11
+     $and                            9
+     $check                          1
+     $eq                             1
+     $mux                           11
+     $not                            4
+     $or                             3
+
+3.13. Executing CHECK pass (checking for obvious problems).
+Checking module sequencer...
+Found and reported 0 problems.
+
+4. Executing FLATTEN pass (flatten design).
+
+5. Executing ASYNC2SYNC pass.
+Replacing sequencer.$procdff$103 ($adff): ARST=\nreset, D=$0\DFFE_M4_ff[0:0], Q=\DFFE_M4_ff
+Replacing sequencer.$procdff$108 ($adff): ARST=\nreset, D=$0\DFFE_M3_ff[0:0], Q=\DFFE_M3_ff
+Replacing sequencer.$procdff$113 ($adff): ARST=\nreset, D=$0\DFFE_M2_ff[0:0], Q=\DFFE_M2_ff
+Replacing sequencer.$procdff$118 ($adff): ARST=\nreset, D=$0\DFFE_M1_ff[0:0], Q=\DFFE_M1_ff
+Replacing sequencer.$procdff$68 ($adff): ARST=\nreset, D=$0\T6[0:0], Q=\T6
+Replacing sequencer.$procdff$73 ($adff): ARST=\nreset, D=$0\DFFE_T5_ff[0:0], Q=\DFFE_T5_ff
+Replacing sequencer.$procdff$78 ($adff): ARST=\nreset, D=$0\DFFE_T4_ff[0:0], Q=\DFFE_T4_ff
+Replacing sequencer.$procdff$83 ($adff): ARST=\nreset, D=$0\DFFE_T3_ff[0:0], Q=\DFFE_T3_ff
+Replacing sequencer.$procdff$88 ($adff): ARST=\nreset, D=$0\DFFE_T2_ff[0:0], Q=\DFFE_T2_ff
+Replacing sequencer.$procdff$93 ($adff): ARST=\nreset, D=$0\DFFE_T1_ff[0:0], Q=\DFFE_T1_ff
+Replacing sequencer.$procdff$98 ($adff): ARST=\nreset, D=$0\M5[0:0], Q=\M5
+
+6. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+7. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \sequencer..
+Removed 2 unused cells and 2 unused wires.
+<suppressed ~3 debug messages>
+
+9. Executing JSON backend.
+
+10. Executing SAT pass (solving SAT problems in the circuit).
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 62 cells to SAT database.
+No constraints for initial state found.
+
+Import proof for assert: $eq$negative_rtl.sv:219$41_Y when 1'1.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 62 cells to SAT database.
+Import proof for assert: $eq$negative_rtl.sv:219$41_Y when 1'1.
+Import show expression: \clk
+Import show expression: \hold_clk_busrq
+Import show expression: \hold_clk_iorq
+Import show expression: \hold_clk_wait
+Import show expression: \nextM
+Import show expression: \nreset
+Import show expression: \setM1
+Import show expression: \M1
+Import show expression: \M2
+Import show expression: \M3
+Import show expression: \M4
+Import show expression: \M5
+Import show expression: \T1
+Import show expression: \T2
+Import show expression: \T3
+Import show expression: \T4
+Import show expression: \T5
+Import show expression: \T6
+Import show expression: \timings_en
+
+Solving problem with 658 variables and 1676 clauses..
+SAT proof finished - model found: FAIL!
+
+   ______                   ___       ___       _ _            _ _ 
+  (_____ \                 / __)     / __)     (_) |          | | |
+   _____) )___ ___   ___ _| |__    _| |__ _____ _| | _____  __| | |
+  |  ____/ ___) _ \ / _ (_   __)  (_   __|____ | | || ___ |/ _  |_|
+  | |   | |  | |_| | |_| || |       | |  / ___ | | || ____( (_| |_ 
+  |_|   |_|   \___/ \___/ |_|       |_|  \_____|_|\_)_____)\____|_|
+
+
+  Time Signal Name                                      Dec       Hex           Bin
+  ---- ---------------------------------------- ----------- --------- -------------
+  init $auto$async2sync.cc:228:execute$119                0         0             0
+  init $auto$async2sync.cc:228:execute$121                0         0             0
+  init $auto$async2sync.cc:228:execute$123                0         0             0
+  init $auto$async2sync.cc:228:execute$125                1         1             1
+  init $auto$async2sync.cc:228:execute$127                0         0             0
+  init $auto$async2sync.cc:228:execute$129                0         0             0
+  init $auto$async2sync.cc:228:execute$131                0         0             0
+  init $auto$async2sync.cc:228:execute$133                0         0             0
+  init $auto$async2sync.cc:228:execute$135                0         0             0
+  init $auto$async2sync.cc:228:execute$137                0         0             0
+  init $auto$async2sync.cc:228:execute$139                0         0             0
+  ---- ---------------------------------------- ----------- --------- -------------
+     1 \M1                                                0         0             0
+     1 \M2                                                0         0             0
+     1 \M3                                                0         0             0
+     1 \M4                                                0         0             0
+     1 \M5                                                0         0             0
+     1 \T1                                                0         0             0
+     1 \T2                                                0         0             0
+     1 \T3                                                0         0             0
+     1 \T4                                                0         0             0
+     1 \T5                                                0         0             0
+     1 \T6                                                0         0             0
+     1 \clk                                               0         0             0
+     1 \hold_clk_busrq                                    0         0             0
+     1 \hold_clk_iorq                                     0         0             0
+     1 \hold_clk_wait                                     0         0             0
+     1 \nextM                                             0         0             0
+     1 \nreset                                            1         1             1
+     1 \setM1                                             0         0             0
+     1 \timings_en                                        1         1             1
+  ---- ---------------------------------------- ----------- --------- -------------
+     2 \M1                                                0         0             0
+     2 \M2                                                0         0             0
+     2 \M3                                                0         0             0
+     2 \M4                                                0         0             0
+     2 \M5                                                0         0             0
+     2 \T1                                                0         0             0
+     2 \T2                                                0         0             0
+     2 \T3                                                0         0             0
+     2 \T4                                                0         0             0
+     2 \T5                       ERROR: Called with -verify and proof did fail!

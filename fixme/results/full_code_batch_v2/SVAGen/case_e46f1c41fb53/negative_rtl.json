@@ -1,0 +1,269 @@
+{
+  "creator": "Yosys 0.52 (git sha1 fee39a3284c90249e1d9684cf6944ffbbcbb8f90)",
+  "modules": {
+    "tap2_sm": {
+      "attributes": {
+        "keep": "00000000000000000000000000000001",
+        "top": "00000000000000000000000000000001",
+        "src": "negative_rtl.sv:2.1-185.10"
+      },
+      "parameter_default_values": {
+        "TAP2_DATA": "0101",
+        "TAP2_PARITY": "0111",
+        "TAP2_RESET": "0000",
+        "TAP2_RS": "0011",
+        "TAP2_RW": "0010",
+        "TAP2_START": "0001",
+        "TAP2_SYNC": "0110",
+        "TAP2_TRN1": "0100",
+        "TAP2_TRN2": "1000"
+      },
+      "ports": {
+        "debug_wake_vld": {
+          "direction": "output",
+          "bits": [ 2 ]
+        },
+        "pad_had_jtg_tap_en": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "tclk": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "tms_i": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "trst_b": {
+          "direction": "input",
+          "bits": [ 6 ]
+        }
+      },
+      "cells": {
+        "$assert$negative_rtl.sv:184$33": {
+          "hide_name": 1,
+          "type": "$assert",
+          "parameters": {
+          },
+          "attributes": {
+            "src": "negative_rtl.sv:184.11-184.54"
+          },
+          "port_directions": {
+            "A": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "A": [ 7 ],
+            "EN": [ "1" ]
+          }
+        },
+        "$auto$async2sync.cc:237:execute$176": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ 8 ],
+            "S": [ 6 ],
+            "Y": [ 9 ]
+          }
+        },
+        "$auto$ff.cc:526:unmap_srst$182": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ 10 ],
+            "S": [ 6 ],
+            "Y": [ 11 ]
+          }
+        },
+        "$eq$negative_rtl.sv:184$34": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "negative_rtl.sv:184.18-184.53"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 2 ],
+            "B": [ 9 ],
+            "Y": [ 7 ]
+          }
+        },
+        "$logic_not$negative_rtl.sv:144$21": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "negative_rtl.sv:144.22-144.28"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 5 ],
+            "Y": [ 10 ]
+          }
+        },
+        "$not$negative_rtl.sv:152$23": {
+          "hide_name": 1,
+          "type": "$not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "negative_rtl.sv:152.25-152.41"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 9 ],
+            "Y": [ 2 ]
+          }
+        },
+        "$procdff$164": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "00000000000000000000000000000001",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "negative_rtl.sv:134.1-151.4"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 4 ],
+            "D": [ 11 ],
+            "Q": [ 8 ]
+          }
+        }
+      },
+      "netnames": {
+        "$0\\sm2_write_vld[0:0]": {
+          "hide_name": 1,
+          "bits": [ 10 ],
+          "attributes": {
+            "src": "negative_rtl.sv:134.1-151.4"
+          }
+        },
+        "$auto$async2sync.cc:228:execute$175": {
+          "hide_name": 1,
+          "bits": [ 8 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:2914:Mux$183": {
+          "hide_name": 1,
+          "bits": [ 11 ],
+          "attributes": {
+          }
+        },
+        "$eq$negative_rtl.sv:184$34_Y": {
+          "hide_name": 1,
+          "bits": [ 7 ],
+          "attributes": {
+            "src": "negative_rtl.sv:184.18-184.53"
+          }
+        },
+        "debug_wake_vld": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "negative_rtl.sv:13.16-13.30"
+          }
+        },
+        "pad_had_jtg_tap_en": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "negative_rtl.sv:9.16-9.34"
+          }
+        },
+        "sm2_write_vld": {
+          "hide_name": 0,
+          "bits": [ 9 ],
+          "attributes": {
+            "src": "negative_rtl.sv:18.16-18.29"
+          }
+        },
+        "tap2_sm_tap_en": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "negative_rtl.sv:32.16-32.30",
+            "unused_bits": "0 "
+          }
+        },
+        "tclk": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "negative_rtl.sv:10.16-10.20"
+          }
+        },
+        "tms_i": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "src": "negative_rtl.sv:11.16-11.21"
+          }
+        },
+        "trst_b": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+            "src": "negative_rtl.sv:12.16-12.22"
+          }
+        }
+      }
+    }
+  }
+}

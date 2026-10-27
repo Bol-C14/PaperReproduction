@@ -1,0 +1,40 @@
+{
+  "id": "MGen/L1/Text/Dual Port RAM",
+  "subset": "MGen",
+  "input_files": [
+    {
+      "name": "dualport_ram.v",
+      "bytes": 2106,
+      "sha256": "edbacfa34dd42376e281fa7cc2c2cdaefdbc8b2024d415062cb0a800b57333f9"
+    },
+    {
+      "name": "dualportram_tb.v",
+      "bytes": 3302,
+      "sha256": "c37c03b6385e9c7cb3d72baa2a1ac6fae9071cbfb1da9c1f3e98171151f9e41e"
+    }
+  ],
+  "overlays": [
+    {
+      "field": "spec_text",
+      "source": "data/SpeCom/L1/Text/Dual Port RAM/dualport_ram_spec.txt",
+      "sha256": "393719cce569e31c6a6c4c91f19023a2aefc14de128856c96ac7c2766e107596",
+      "reason": "same case name and byte-identical RTL in SpeCom; explicit cross-subset reuse",
+      "fidelity": "structural-input-overlay",
+      "matched_rtl_sha256": "edbacfa34dd42376e281fa7cc2c2cdaefdbc8b2024d415062cb0a800b57333f9"
+    }
+  ],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": null,
+  "negative_control_detected": null,
+  "commands": 1,
+  "status": "adapter_unsupported",
+  "wrapper_mode": "dut_replacement",
+  "reference_source": "dualport_ram.v",
+  "reference_source_sha256": "edbacfa34dd42376e281fa7cc2c2cdaefdbc8b2024d415062cb0a800b57333f9",
+  "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+  "resolved_tb_parameters": {},
+  "reason": "DPI requires scalar/vector <=64-bit resolved ports; complex or wider port found",
+  "seconds": 0.067
+}

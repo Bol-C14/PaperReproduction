@@ -1,0 +1,40 @@
+{
+  "id": "TBGen/L2/Text/fm_cmn_if_ff_out",
+  "subset": "TBGen",
+  "input_files": [
+    {
+      "name": "fm_cmn_if_ff_out.v",
+      "bytes": 2795,
+      "sha256": "d2b0bf570b84c7c2d6a8d18dec567c1f1545a75532a69aaca45d995d6da7111d"
+    },
+    {
+      "name": "fm_cmn_if_ff_out_spec.txt",
+      "bytes": 8134,
+      "sha256": "86bbfd5bcb00f6b082bd6a0116d3f3404298903f2d1cd0351083897cb22a0031"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": true,
+  "negative_control_detected": true,
+  "commands": 5,
+  "status": "pass",
+  "stimulus_contract": {
+    "seed": 13579,
+    "cycles": 64,
+    "clock": "clk_core",
+    "reset_polarities": {
+      "rst_x": 1
+    },
+    "unknown_handling": "any observed unknown prevents pass",
+    "oracle": "renamed copy of supplied RTL; self-consistency/calibration only"
+  },
+  "observed_checks": 64,
+  "observed_unknown": 0,
+  "reference_status": "pass",
+  "negative_status": "fail",
+  "reason": "reference/checker positive and perturbed-checker negative executed",
+  "seconds": 0.129
+}

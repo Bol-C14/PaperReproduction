@@ -1,0 +1,313 @@
+
+-- Running command `read_verilog -formal -sv positive.sv; hierarchy -top ct_ciu_ctcq_respq_entry; prep -top ct_ciu_ctcq_respq_entry; flatten; async2sync; dffunmap; memory_map; opt_clean; chformal -lower; write_json positive.json; sat -seq 2 -timeout 5 -prove-asserts -verify -show-inputs -show-outputs' --
+
+1. Executing Verilog-2005 frontend: positive.sv
+Parsing formal SystemVerilog input from `positive.sv' to AST representation.
+Generating RTLIL representation for module `\ct_ciu_ctcq_respq_entry'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \ct_ciu_ctcq_respq_entry
+
+2.2. Analyzing design hierarchy..
+Top module:  \ct_ciu_ctcq_respq_entry
+Removed 0 unused modules.
+Module ct_ciu_ctcq_respq_entry directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \ct_ciu_ctcq_respq_entry
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \ct_ciu_ctcq_respq_entry
+Removed 0 unused modules.
+Module ct_ciu_ctcq_respq_entry directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$positive.sv:155$21 in module ct_ciu_ctcq_respq_entry.
+Marked 3 switch rules as full_case in process $proc$positive.sv:144$19 in module ct_ciu_ctcq_respq_entry.
+Marked 3 switch rules as full_case in process $proc$positive.sv:133$17 in module ct_ciu_ctcq_respq_entry.
+Marked 3 switch rules as full_case in process $proc$positive.sv:122$15 in module ct_ciu_ctcq_respq_entry.
+Marked 3 switch rules as full_case in process $proc$positive.sv:111$13 in module ct_ciu_ctcq_respq_entry.
+Marked 3 switch rules as full_case in process $proc$positive.sv:100$11 in module ct_ciu_ctcq_respq_entry.
+Marked 3 switch rules as full_case in process $proc$positive.sv:89$9 in module ct_ciu_ctcq_respq_entry.
+Marked 3 switch rules as full_case in process $proc$positive.sv:75$7 in module ct_ciu_ctcq_respq_entry.
+Removed a total of 0 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 9 redundant assignments.
+Promoted 1 assignment to connection.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \cpurst_b in `\ct_ciu_ctcq_respq_entry.$proc$positive.sv:144$19'.
+Found async reset \cpurst_b in `\ct_ciu_ctcq_respq_entry.$proc$positive.sv:133$17'.
+Found async reset \cpurst_b in `\ct_ciu_ctcq_respq_entry.$proc$positive.sv:122$15'.
+Found async reset \cpurst_b in `\ct_ciu_ctcq_respq_entry.$proc$positive.sv:111$13'.
+Found async reset \cpurst_b in `\ct_ciu_ctcq_respq_entry.$proc$positive.sv:100$11'.
+Found async reset \cpurst_b in `\ct_ciu_ctcq_respq_entry.$proc$positive.sv:89$9'.
+Found async reset \cpurst_b in `\ct_ciu_ctcq_respq_entry.$proc$positive.sv:75$7'.
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~15 debug messages>
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\ct_ciu_ctcq_respq_entry.$proc$positive.sv:179$29'.
+Creating decoders for process `\ct_ciu_ctcq_respq_entry.$proc$positive.sv:155$21'.
+     1/1: $0\respq_dvm[0:0]
+Creating decoders for process `\ct_ciu_ctcq_respq_entry.$proc$positive.sv:144$19'.
+     1/1: $0\respq_piu0_cmplt[0:0]
+Creating decoders for process `\ct_ciu_ctcq_respq_entry.$proc$positive.sv:133$17'.
+     1/1: $0\respq_piu1_cmplt[0:0]
+Creating decoders for process `\ct_ciu_ctcq_respq_entry.$proc$positive.sv:122$15'.
+     1/1: $0\respq_piu2_cmplt[0:0]
+Creating decoders for process `\ct_ciu_ctcq_respq_entry.$proc$positive.sv:111$13'.
+     1/1: $0\respq_piu3_cmplt[0:0]
+Creating decoders for process `\ct_ciu_ctcq_respq_entry.$proc$positive.sv:100$11'.
+     1/1: $0\respq_ebiu_cmplt[0:0]
+Creating decoders for process `\ct_ciu_ctcq_respq_entry.$proc$positive.sv:89$9'.
+     1/1: $0\respq_l2c_cmplt[0:0]
+Creating decoders for process `\ct_ciu_ctcq_respq_entry.$proc$positive.sv:75$7'.
+     1/1: $0\respq_vld[0:0]
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\ct_ciu_ctcq_respq_entry.\respq_dvm' using process `\ct_ciu_ctcq_respq_entry.$proc$positive.sv:155$21'.
+  created $dff cell `$procdff$77' with positive edge clock.
+Creating register for signal `\ct_ciu_ctcq_respq_entry.\respq_piu0_cmplt' using process `\ct_ciu_ctcq_respq_entry.$proc$positive.sv:144$19'.
+  created $adff cell `$procdff$82' with positive edge clock and positive level reset.
+Creating register for signal `\ct_ciu_ctcq_respq_entry.\respq_piu1_cmplt' using process `\ct_ciu_ctcq_respq_entry.$proc$positive.sv:133$17'.
+  created $adff cell `$procdff$87' with positive edge clock and positive level reset.
+Creating register for signal `\ct_ciu_ctcq_respq_entry.\respq_piu2_cmplt' using process `\ct_ciu_ctcq_respq_entry.$proc$positive.sv:122$15'.
+  created $adff cell `$procdff$92' with positive edge clock and positive level reset.
+Creating register for signal `\ct_ciu_ctcq_respq_entry.\respq_piu3_cmplt' using process `\ct_ciu_ctcq_respq_entry.$proc$positive.sv:111$13'.
+  created $adff cell `$procdff$97' with positive edge clock and positive level reset.
+Creating register for signal `\ct_ciu_ctcq_respq_entry.\respq_ebiu_cmplt' using process `\ct_ciu_ctcq_respq_entry.$proc$positive.sv:100$11'.
+  created $adff cell `$procdff$102' with positive edge clock and positive level reset.
+Creating register for signal `\ct_ciu_ctcq_respq_entry.\respq_l2c_cmplt' using process `\ct_ciu_ctcq_respq_entry.$proc$positive.sv:89$9'.
+  created $adff cell `$procdff$107' with positive edge clock and positive level reset.
+Creating register for signal `\ct_ciu_ctcq_respq_entry.\respq_vld' using process `\ct_ciu_ctcq_respq_entry.$proc$positive.sv:75$7'.
+  created $adff cell `$procdff$112' with positive edge clock and positive level reset.
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `ct_ciu_ctcq_respq_entry.$proc$positive.sv:179$29'.
+Found and cleaned up 1 empty switch in `\ct_ciu_ctcq_respq_entry.$proc$positive.sv:155$21'.
+Removing empty process `ct_ciu_ctcq_respq_entry.$proc$positive.sv:155$21'.
+Found and cleaned up 2 empty switches in `\ct_ciu_ctcq_respq_entry.$proc$positive.sv:144$19'.
+Removing empty process `ct_ciu_ctcq_respq_entry.$proc$positive.sv:144$19'.
+Found and cleaned up 2 empty switches in `\ct_ciu_ctcq_respq_entry.$proc$positive.sv:133$17'.
+Removing empty process `ct_ciu_ctcq_respq_entry.$proc$positive.sv:133$17'.
+Found and cleaned up 2 empty switches in `\ct_ciu_ctcq_respq_entry.$proc$positive.sv:122$15'.
+Removing empty process `ct_ciu_ctcq_respq_entry.$proc$positive.sv:122$15'.
+Found and cleaned up 2 empty switches in `\ct_ciu_ctcq_respq_entry.$proc$positive.sv:111$13'.
+Removing empty process `ct_ciu_ctcq_respq_entry.$proc$positive.sv:111$13'.
+Found and cleaned up 2 empty switches in `\ct_ciu_ctcq_respq_entry.$proc$positive.sv:100$11'.
+Removing empty process `ct_ciu_ctcq_respq_entry.$proc$positive.sv:100$11'.
+Found and cleaned up 2 empty switches in `\ct_ciu_ctcq_respq_entry.$proc$positive.sv:89$9'.
+Removing empty process `ct_ciu_ctcq_respq_entry.$proc$positive.sv:89$9'.
+Found and cleaned up 2 empty switches in `\ct_ciu_ctcq_respq_entry.$proc$positive.sv:75$7'.
+Removing empty process `ct_ciu_ctcq_respq_entry.$proc$positive.sv:75$7'.
+Cleaned up 15 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_ciu_ctcq_respq_entry.
+<suppressed ~14 debug messages>
+
+3.3. Executing FUTURE pass.
+
+3.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_ciu_ctcq_respq_entry.
+
+3.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_ciu_ctcq_respq_entry..
+Removed 21 unused cells and 54 unused wires.
+<suppressed ~23 debug messages>
+
+3.6. Executing CHECK pass (checking for obvious problems).
+Checking module ct_ciu_ctcq_respq_entry...
+Found and reported 0 problems.
+
+3.7. Executing OPT pass (performing simple optimizations).
+
+3.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_ciu_ctcq_respq_entry.
+<suppressed ~1 debug messages>
+
+3.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ct_ciu_ctcq_respq_entry'.
+Removed a total of 0 cells.
+
+3.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ct_ciu_ctcq_respq_entry..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~8 debug messages>
+
+3.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ct_ciu_ctcq_respq_entry.
+Performed a total of 0 changes.
+
+3.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ct_ciu_ctcq_respq_entry'.
+Removed a total of 0 cells.
+
+3.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_ciu_ctcq_respq_entry..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+3.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_ciu_ctcq_respq_entry.
+
+3.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ct_ciu_ctcq_respq_entry..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~8 debug messages>
+
+3.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ct_ciu_ctcq_respq_entry.
+Performed a total of 0 changes.
+
+3.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ct_ciu_ctcq_respq_entry'.
+Removed a total of 0 cells.
+
+3.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_ciu_ctcq_respq_entry..
+
+3.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_ciu_ctcq_respq_entry.
+
+3.7.14. Finished OPT passes. (There is nothing left to do.)
+
+3.8. Executing WREDUCE pass (reducing word size of cells).
+
+3.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_ciu_ctcq_respq_entry..
+
+3.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.11. Executing OPT pass (performing simple optimizations).
+
+3.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_ciu_ctcq_respq_entry.
+
+3.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ct_ciu_ctcq_respq_entry'.
+Removed a total of 0 cells.
+
+3.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_ciu_ctcq_respq_entry..
+
+3.11.4. Finished fast OPT passes.
+
+3.12. Printing statistics.
+
+=== ct_ciu_ctcq_respq_entry ===
+
+   Number of wires:                 52
+   Number of wire bits:             57
+   Number of public wires:          32
+   Number of public wire bits:      37
+   Number of ports:                 15
+   Number of port bits:             20
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 30
+     $adff                           7
+     $and                            6
+     $check                          1
+     $dff                            1
+     $mux                           15
+
+3.13. Executing CHECK pass (checking for obvious problems).
+Checking module ct_ciu_ctcq_respq_entry...
+Found and reported 0 problems.
+
+4. Executing FLATTEN pass (flatten design).
+
+5. Executing ASYNC2SYNC pass.
+Replacing ct_ciu_ctcq_respq_entry.$procdff$102 ($adff): ARST=\cpurst_b, D=$0\respq_ebiu_cmplt[0:0], Q=\respq_ebiu_cmplt
+Replacing ct_ciu_ctcq_respq_entry.$procdff$107 ($adff): ARST=\cpurst_b, D=$0\respq_l2c_cmplt[0:0], Q=\respq_l2c_cmplt
+Replacing ct_ciu_ctcq_respq_entry.$procdff$112 ($adff): ARST=\cpurst_b, D=$0\respq_vld[0:0], Q=\respq_vld
+Replacing ct_ciu_ctcq_respq_entry.$procdff$82 ($adff): ARST=\cpurst_b, D=$0\respq_piu0_cmplt[0:0], Q=\respq_piu0_cmplt
+Replacing ct_ciu_ctcq_respq_entry.$procdff$87 ($adff): ARST=\cpurst_b, D=$0\respq_piu1_cmplt[0:0], Q=\respq_piu1_cmplt
+Replacing ct_ciu_ctcq_respq_entry.$procdff$92 ($adff): ARST=\cpurst_b, D=$0\respq_piu2_cmplt[0:0], Q=\respq_piu2_cmplt
+Replacing ct_ciu_ctcq_respq_entry.$procdff$97 ($adff): ARST=\cpurst_b, D=$0\respq_piu3_cmplt[0:0], Q=\respq_piu3_cmplt
+
+6. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+7. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_ciu_ctcq_respq_entry..
+Removed 2 unused cells and 2 unused wires.
+<suppressed ~3 debug messages>
+
+9. Executing JSON backend.
+
+10. Executing SAT pass (solving SAT problems in the circuit).
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 44 cells to SAT database.
+No constraints for initial state found.
+
+Import proof for assert: 1'1 when 1'1.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 44 cells to SAT database.
+Import proof for assert: 1'1 when 1'1.
+Import show expression: \ciu_icg_en
+Import show expression: \cpurst_b
+Import show expression: \forever_cpuclk
+Import show expression: \pad_yy_icg_scan_en
+Import show expression: \respq_create_cmplt_init
+Import show expression: \respq_create_dvm
+Import show expression: \respq_create_en_x
+Import show expression: \respq_ebiu_resp_create_en_x
+Import show expression: \respq_l2c_resp_create_en_x
+Import show expression: \respq_piu0_resp_create_en_x
+Import show expression: \respq_piu1_resp_create_en_x
+Import show expression: \respq_piu2_resp_create_en_x
+Import show expression: \respq_piu3_resp_create_en_x
+Import show expression: \respq_dvm_x
+Import show expression: \respq_vld_x
+
+Solving problem with 504 variables and 1223 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+

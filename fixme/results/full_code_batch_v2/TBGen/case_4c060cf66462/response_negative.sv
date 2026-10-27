@@ -1,0 +1,100 @@
+`timescale 1ns/1ps
+module calibration_tb;
+reg ctl_alu_oe;
+reg ctl_alu_shift_oe;
+reg ctl_alu_op2_oe;
+reg ctl_alu_res_oe;
+reg ctl_alu_op1_oe;
+reg ctl_alu_bs_oe;
+reg ctl_alu_op1_sel_bus;
+reg ctl_alu_op1_sel_low;
+reg ctl_alu_op1_sel_zero;
+reg ctl_alu_op2_sel_zero;
+reg ctl_alu_op2_sel_bus;
+reg ctl_alu_op2_sel_lq;
+reg ctl_alu_sel_op2_neg;
+reg ctl_alu_sel_op2_high;
+reg ctl_alu_core_R;
+reg ctl_alu_core_V;
+reg ctl_alu_core_S;
+wire alu_oe;
+wire ref_alu_oe;
+wire alu_shift_oe;
+wire ref_alu_shift_oe;
+wire alu_op2_oe;
+wire ref_alu_op2_oe;
+wire alu_res_oe;
+wire ref_alu_res_oe;
+wire alu_op1_oe;
+wire ref_alu_op1_oe;
+wire alu_bs_oe;
+wire ref_alu_bs_oe;
+wire alu_op1_sel_bus;
+wire ref_alu_op1_sel_bus;
+wire alu_op1_sel_low;
+wire ref_alu_op1_sel_low;
+wire alu_op1_sel_zero;
+wire ref_alu_op1_sel_zero;
+wire alu_op2_sel_zero;
+wire ref_alu_op2_sel_zero;
+wire alu_op2_sel_bus;
+wire ref_alu_op2_sel_bus;
+wire alu_op2_sel_lq;
+wire ref_alu_op2_sel_lq;
+wire alu_sel_op2_neg;
+wire ref_alu_sel_op2_neg;
+wire alu_sel_op2_high;
+wire ref_alu_sel_op2_high;
+wire alu_core_R;
+wire ref_alu_core_R;
+wire alu_core_V;
+wire ref_alu_core_V;
+wire alu_core_S;
+wire ref_alu_core_S;
+integer seed=13579; integer i; integer checks=0;integer failures=0;integer unknowns=0;
+alu_select dut(.ctl_alu_oe(ctl_alu_oe), .ctl_alu_shift_oe(ctl_alu_shift_oe), .ctl_alu_op2_oe(ctl_alu_op2_oe), .ctl_alu_res_oe(ctl_alu_res_oe), .ctl_alu_op1_oe(ctl_alu_op1_oe), .ctl_alu_bs_oe(ctl_alu_bs_oe), .ctl_alu_op1_sel_bus(ctl_alu_op1_sel_bus), .ctl_alu_op1_sel_low(ctl_alu_op1_sel_low), .ctl_alu_op1_sel_zero(ctl_alu_op1_sel_zero), .ctl_alu_op2_sel_zero(ctl_alu_op2_sel_zero), .ctl_alu_op2_sel_bus(ctl_alu_op2_sel_bus), .ctl_alu_op2_sel_lq(ctl_alu_op2_sel_lq), .ctl_alu_sel_op2_neg(ctl_alu_sel_op2_neg), .ctl_alu_sel_op2_high(ctl_alu_sel_op2_high), .ctl_alu_core_R(ctl_alu_core_R), .ctl_alu_core_V(ctl_alu_core_V), .ctl_alu_core_S(ctl_alu_core_S), .alu_oe(alu_oe), .alu_shift_oe(alu_shift_oe), .alu_op2_oe(alu_op2_oe), .alu_res_oe(alu_res_oe), .alu_op1_oe(alu_op1_oe), .alu_bs_oe(alu_bs_oe), .alu_op1_sel_bus(alu_op1_sel_bus), .alu_op1_sel_low(alu_op1_sel_low), .alu_op1_sel_zero(alu_op1_sel_zero), .alu_op2_sel_zero(alu_op2_sel_zero), .alu_op2_sel_bus(alu_op2_sel_bus), .alu_op2_sel_lq(alu_op2_sel_lq), .alu_sel_op2_neg(alu_sel_op2_neg), .alu_sel_op2_high(alu_sel_op2_high), .alu_core_R(alu_core_R), .alu_core_V(alu_core_V), .alu_core_S(alu_core_S));
+oracle_alu_select golden(.ctl_alu_oe(ctl_alu_oe), .ctl_alu_shift_oe(ctl_alu_shift_oe), .ctl_alu_op2_oe(ctl_alu_op2_oe), .ctl_alu_res_oe(ctl_alu_res_oe), .ctl_alu_op1_oe(ctl_alu_op1_oe), .ctl_alu_bs_oe(ctl_alu_bs_oe), .ctl_alu_op1_sel_bus(ctl_alu_op1_sel_bus), .ctl_alu_op1_sel_low(ctl_alu_op1_sel_low), .ctl_alu_op1_sel_zero(ctl_alu_op1_sel_zero), .ctl_alu_op2_sel_zero(ctl_alu_op2_sel_zero), .ctl_alu_op2_sel_bus(ctl_alu_op2_sel_bus), .ctl_alu_op2_sel_lq(ctl_alu_op2_sel_lq), .ctl_alu_sel_op2_neg(ctl_alu_sel_op2_neg), .ctl_alu_sel_op2_high(ctl_alu_sel_op2_high), .ctl_alu_core_R(ctl_alu_core_R), .ctl_alu_core_V(ctl_alu_core_V), .ctl_alu_core_S(ctl_alu_core_S), .alu_oe(ref_alu_oe), .alu_shift_oe(ref_alu_shift_oe), .alu_op2_oe(ref_alu_op2_oe), .alu_res_oe(ref_alu_res_oe), .alu_op1_oe(ref_alu_op1_oe), .alu_bs_oe(ref_alu_bs_oe), .alu_op1_sel_bus(ref_alu_op1_sel_bus), .alu_op1_sel_low(ref_alu_op1_sel_low), .alu_op1_sel_zero(ref_alu_op1_sel_zero), .alu_op2_sel_zero(ref_alu_op2_sel_zero), .alu_op2_sel_bus(ref_alu_op2_sel_bus), .alu_op2_sel_lq(ref_alu_op2_sel_lq), .alu_sel_op2_neg(ref_alu_sel_op2_neg), .alu_sel_op2_high(ref_alu_sel_op2_high), .alu_core_R(ref_alu_core_R), .alu_core_V(ref_alu_core_V), .alu_core_S(ref_alu_core_S));
+initial begin
+ctl_alu_oe = 0;
+ctl_alu_shift_oe = 0;
+ctl_alu_op2_oe = 0;
+ctl_alu_res_oe = 0;
+ctl_alu_op1_oe = 0;
+ctl_alu_bs_oe = 0;
+ctl_alu_op1_sel_bus = 0;
+ctl_alu_op1_sel_low = 0;
+ctl_alu_op1_sel_zero = 0;
+ctl_alu_op2_sel_zero = 0;
+ctl_alu_op2_sel_bus = 0;
+ctl_alu_op2_sel_lq = 0;
+ctl_alu_sel_op2_neg = 0;
+ctl_alu_sel_op2_high = 0;
+ctl_alu_core_R = 0;
+ctl_alu_core_V = 0;
+ctl_alu_core_S = 0;
+#2;
+
+for(i=0;i<64;i=i+1) begin
+ctl_alu_oe = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+ctl_alu_shift_oe = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+ctl_alu_op2_oe = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+ctl_alu_res_oe = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+ctl_alu_op1_oe = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+ctl_alu_bs_oe = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+ctl_alu_op1_sel_bus = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+ctl_alu_op1_sel_low = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+ctl_alu_op1_sel_zero = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+ctl_alu_op2_sel_zero = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+ctl_alu_op2_sel_bus = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+ctl_alu_op2_sel_lq = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+ctl_alu_sel_op2_neg = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+ctl_alu_sel_op2_high = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+ctl_alu_core_R = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+ctl_alu_core_V = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+ctl_alu_core_S = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+#2;
+if ((^{ref_alu_oe,ref_alu_shift_oe,ref_alu_op2_oe,ref_alu_res_oe,ref_alu_op1_oe,ref_alu_bs_oe,ref_alu_op1_sel_bus,ref_alu_op1_sel_low,ref_alu_op1_sel_zero,ref_alu_op2_sel_zero,ref_alu_op2_sel_bus,ref_alu_op2_sel_lq,ref_alu_sel_op2_neg,ref_alu_sel_op2_high,ref_alu_core_R,ref_alu_core_V,ref_alu_core_S}) === 1'bx || (^{alu_oe,alu_shift_oe,alu_op2_oe,alu_res_oe,alu_op1_oe,alu_bs_oe,alu_op1_sel_bus,alu_op1_sel_low,alu_op1_sel_zero,alu_op2_sel_zero,alu_op2_sel_bus,alu_op2_sel_lq,alu_sel_op2_neg,alu_sel_op2_high,alu_core_R,alu_core_V,alu_core_S}) === 1'bx) unknowns=unknowns+1; else begin checks=checks+1; if ({alu_oe,alu_shift_oe,alu_op2_oe,alu_res_oe,alu_op1_oe,alu_bs_oe,alu_op1_sel_bus,alu_op1_sel_low,alu_op1_sel_zero,alu_op2_sel_zero,alu_op2_sel_bus,alu_op2_sel_lq,alu_sel_op2_neg,alu_sel_op2_high,alu_core_R,alu_core_V,alu_core_S} !== ({ref_alu_oe,ref_alu_shift_oe,ref_alu_op2_oe,ref_alu_res_oe,ref_alu_op1_oe,ref_alu_bs_oe,ref_alu_op1_sel_bus,ref_alu_op1_sel_low,ref_alu_op1_sel_zero,ref_alu_op2_sel_zero,ref_alu_op2_sel_bus,ref_alu_op2_sel_lq,ref_alu_sel_op2_neg,ref_alu_sel_op2_high,ref_alu_core_R,ref_alu_core_V,ref_alu_core_S} ^ 1'b1)) failures=failures+1; end
+
+end
+$display("CALIBRATION checks=%0d failures=%0d unknown=%0d",checks,failures,unknowns); $finish; end
+endmodule

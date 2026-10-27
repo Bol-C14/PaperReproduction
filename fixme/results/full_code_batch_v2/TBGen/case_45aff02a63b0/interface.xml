@@ -1,0 +1,1258 @@
+<?xml version="1.0" ?>
+<!-- DESCRIPTION: Verilator output: XML representation of netlist -->
+<verilator_xml>
+  <files>
+    <file id="d" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std.sv" language="1800-2023"/>
+    <file id="c" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std_waiver.vlt" language="1800-2023"/>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_45aff02a63b0/board_move.v" language="1800-2023"/>
+    <file id="a" filename="&lt;built-in&gt;" language="1800-2023"/>
+    <file id="b" filename="&lt;command-line&gt;" language="1800-2023"/>
+  </files>
+  <module_files>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_45aff02a63b0/board_move.v" language="1800-2023"/>
+  </module_files>
+  <cells>
+    <cell loc="e,3,8,3,18" name="board_move" submodname="board_move" hier="board_move"/>
+  </cells>
+  <netlist>
+    <module loc="e,3,8,3,18" name="board_move" origName="board_move" topModule="1">
+      <var loc="e,6,7,6,10" name="clk" dtype_id="1" dir="input" pinIndex="1" vartype="logic" origName="clk"/>
+      <var loc="e,5,14,5,15" name="B" dtype_id="2" dir="input" pinIndex="2" vartype="logic" origName="B"/>
+      <var loc="e,4,14,4,15" name="R" dtype_id="2" dir="input" pinIndex="3" vartype="logic" origName="R"/>
+      <var loc="e,8,14,8,15" name="X" dtype_id="3" dir="input" pinIndex="4" vartype="logic" origName="X"/>
+      <var loc="e,9,14,9,15" name="Y" dtype_id="3" dir="input" pinIndex="5" vartype="logic" origName="Y"/>
+      <var loc="e,10,7,10,13" name="player" dtype_id="1" dir="input" pinIndex="6" vartype="logic" origName="player"/>
+      <var loc="e,11,15,11,17" name="MB" dtype_id="2" dir="output" pinIndex="7" vartype="logic" origName="MB"/>
+      <var loc="e,12,15,12,17" name="MR" dtype_id="2" dir="output" pinIndex="8" vartype="logic" origName="MR"/>
+      <var loc="e,7,7,7,10" name="RST" dtype_id="1" dir="input" pinIndex="9" vartype="logic" origName="RST"/>
+      <var loc="e,13,12,13,24" name="oponent_ff_d" dtype_id="2" vartype="logic" origName="oponent_ff_d"/>
+      <var loc="e,14,12,14,24" name="current_ff_d" dtype_id="2" vartype="logic" origName="current_ff_d"/>
+      <var loc="e,15,12,15,24" name="oponent_ff_q" dtype_id="2" vartype="logic" origName="oponent_ff_q"/>
+      <var loc="e,16,12,16,24" name="current_ff_q" dtype_id="2" vartype="logic" origName="current_ff_q"/>
+      <var loc="e,17,11,17,22" name="countx_ff_d" dtype_id="3" vartype="logic" origName="countx_ff_d"/>
+      <var loc="e,18,11,18,22" name="countx_ff_q" dtype_id="3" vartype="logic" origName="countx_ff_q"/>
+      <var loc="e,19,11,19,22" name="county_ff_d" dtype_id="3" vartype="logic" origName="county_ff_d"/>
+      <var loc="e,20,11,20,22" name="county_ff_q" dtype_id="3" vartype="logic" origName="county_ff_q"/>
+      <var loc="e,21,11,21,23" name="count2x_ff_d" dtype_id="3" vartype="logic" origName="count2x_ff_d"/>
+      <var loc="e,22,11,22,23" name="count2x_ff_q" dtype_id="3" vartype="logic" origName="count2x_ff_q"/>
+      <var loc="e,23,11,23,23" name="count2y_ff_d" dtype_id="3" vartype="logic" origName="count2y_ff_d"/>
+      <var loc="e,24,11,24,23" name="count2y_ff_q" dtype_id="3" vartype="logic" origName="count2y_ff_q"/>
+      <var loc="e,25,11,25,21" name="state_ff_q" dtype_id="4" vartype="logic" origName="state_ff_q"/>
+      <var loc="e,26,11,26,21" name="state_ff_d" dtype_id="4" vartype="logic" origName="state_ff_d"/>
+      <var loc="e,27,11,27,22" name="state2_ff_q" dtype_id="4" vartype="logic" origName="state2_ff_q"/>
+      <var loc="e,28,11,28,22" name="state2_ff_d" dtype_id="4" vartype="logic" origName="state2_ff_d"/>
+      <var loc="e,29,11,29,16" name="RESET" dtype_id="4" vartype="logic" origName="RESET" param="true">
+        <const loc="e,29,20,29,25" name="2&apos;h0" dtype_id="4"/>
+      </var>
+      <var loc="e,30,11,30,15" name="FLIP" dtype_id="4" vartype="logic" origName="FLIP" param="true">
+        <const loc="e,30,20,30,25" name="2&apos;h1" dtype_id="4"/>
+      </var>
+      <var loc="e,31,11,31,16" name="WRONG" dtype_id="4" vartype="logic" origName="WRONG" param="true">
+        <const loc="e,31,20,31,25" name="2&apos;h2" dtype_id="4"/>
+      </var>
+      <var loc="e,32,11,32,17" name="FINISH" dtype_id="4" vartype="logic" origName="FINISH" param="true">
+        <const loc="e,32,20,32,25" name="2&apos;h3" dtype_id="4"/>
+      </var>
+      <var loc="e,33,11,33,18" name="DISC_ON" dtype_id="5" vartype="logic" origName="DISC_ON" param="true">
+        <const loc="e,33,22,33,26" name="1&apos;h1" dtype_id="1"/>
+      </var>
+      <var loc="e,34,11,34,19" name="DISC_OFF" dtype_id="5" vartype="logic" origName="DISC_OFF" param="true">
+        <const loc="e,34,22,34,26" name="1&apos;h0" dtype_id="1"/>
+      </var>
+      <var loc="e,35,11,35,16" name="LIMIT" dtype_id="3" vartype="logic" origName="LIMIT" param="true">
+        <const loc="e,35,22,35,26" name="3&apos;h7" dtype_id="3"/>
+      </var>
+      <var loc="e,36,11,36,18" name="NO_DISC" dtype_id="5" vartype="logic" origName="NO_DISC" param="true">
+        <const loc="e,36,22,36,26" name="1&apos;h0" dtype_id="1"/>
+      </var>
+      <var loc="e,37,11,37,14" name="RED" dtype_id="5" vartype="logic" origName="RED" param="true">
+        <const loc="e,37,19,37,23" name="1&apos;h1" dtype_id="1"/>
+      </var>
+      <always loc="e,38,1,38,7">
+        <sentree loc="e,38,8,38,9">
+          <senitem loc="e,38,24,38,35" edgeType="CHANGED">
+            <varref loc="e,38,24,38,35" name="countx_ff_q" dtype_id="3"/>
+          </senitem>
+          <senitem loc="e,38,39,38,50" edgeType="CHANGED">
+            <varref loc="e,38,39,38,50" name="county_ff_q" dtype_id="3"/>
+          </senitem>
+          <senitem loc="e,38,10,38,20" edgeType="CHANGED">
+            <varref loc="e,38,10,38,20" name="state_ff_q" dtype_id="4"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,39,4,39,9">
+          <assign loc="e,40,16,40,17" dtype_id="2">
+            <varref loc="e,40,18,40,30" name="oponent_ff_q" dtype_id="2"/>
+            <varref loc="e,40,3,40,15" name="oponent_ff_d" dtype_id="2"/>
+          </assign>
+          <assign loc="e,41,16,41,17" dtype_id="2">
+            <varref loc="e,41,18,41,30" name="current_ff_q" dtype_id="2"/>
+            <varref loc="e,41,3,41,15" name="current_ff_d" dtype_id="2"/>
+          </assign>
+          <case loc="e,42,3,42,7">
+            <varref loc="e,42,9,42,19" name="state_ff_q" dtype_id="4"/>
+            <caseitem loc="e,43,8,43,9">
+              <const loc="e,43,4,43,8" name="2&apos;h1" dtype_id="4"/>
+              <begin loc="e,43,10,43,15">
+                <assign loc="e,44,49,44,50" dtype_id="1">
+                  <const loc="e,44,51,44,59" name="1&apos;h0" dtype_id="5"/>
+                  <sel loc="e,44,19,44,20" dtype_id="1">
+                    <varref loc="e,44,7,44,19" name="oponent_ff_d" dtype_id="2"/>
+                    <add loc="e,44,34,44,35" dtype_id="6">
+                      <sel loc="e,44,34,44,35" dtype_id="6">
+                        <shiftl loc="e,44,31,44,32" dtype_id="7">
+                          <extend loc="e,44,20,44,31" dtype_id="7" width="32" widthminv="3">
+                            <varref loc="e,44,20,44,31" name="county_ff_q" dtype_id="3"/>
+                          </extend>
+                          <const loc="e,44,31,44,32" name="32&apos;h3" dtype_id="7"/>
+                        </shiftl>
+                        <const loc="e,44,34,44,35" name="32&apos;h0" dtype_id="7"/>
+                        <const loc="e,44,34,44,35" name="32&apos;h6" dtype_id="7"/>
+                      </sel>
+                      <sel loc="e,44,34,44,35" dtype_id="6">
+                        <extend loc="e,44,36,44,47" dtype_id="7" width="32" widthminv="3">
+                          <varref loc="e,44,36,44,47" name="countx_ff_q" dtype_id="3"/>
+                        </extend>
+                        <const loc="e,44,34,44,35" name="32&apos;h0" dtype_id="7"/>
+                        <const loc="e,44,34,44,35" name="32&apos;h6" dtype_id="7"/>
+                      </sel>
+                    </add>
+                    <const loc="e,44,19,44,20" name="32&apos;h1" dtype_id="7"/>
+                  </sel>
+                </assign>
+                <assign loc="e,45,49,45,50" dtype_id="1">
+                  <const loc="e,45,51,45,58" name="1&apos;h1" dtype_id="5"/>
+                  <sel loc="e,45,19,45,20" dtype_id="1">
+                    <varref loc="e,45,7,45,19" name="current_ff_d" dtype_id="2"/>
+                    <add loc="e,45,34,45,35" dtype_id="6">
+                      <sel loc="e,45,34,45,35" dtype_id="6">
+                        <shiftl loc="e,45,31,45,32" dtype_id="7">
+                          <extend loc="e,45,20,45,31" dtype_id="7" width="32" widthminv="3">
+                            <varref loc="e,45,20,45,31" name="county_ff_q" dtype_id="3"/>
+                          </extend>
+                          <const loc="e,45,31,45,32" name="32&apos;h3" dtype_id="7"/>
+                        </shiftl>
+                        <const loc="e,45,34,45,35" name="32&apos;h0" dtype_id="7"/>
+                        <const loc="e,45,34,45,35" name="32&apos;h6" dtype_id="7"/>
+                      </sel>
+                      <sel loc="e,45,34,45,35" dtype_id="6">
+                        <extend loc="e,45,36,45,47" dtype_id="7" width="32" widthminv="3">
+                          <varref loc="e,45,36,45,47" name="countx_ff_q" dtype_id="3"/>
+                        </extend>
+                        <const loc="e,45,34,45,35" name="32&apos;h0" dtype_id="7"/>
+                        <const loc="e,45,34,45,35" name="32&apos;h6" dtype_id="7"/>
+                      </sel>
+                    </add>
+                    <const loc="e,45,19,45,20" name="32&apos;h1" dtype_id="7"/>
+                  </sel>
+                </assign>
+              </begin>
+            </caseitem>
+            <caseitem loc="e,47,9,47,10">
+              <const loc="e,47,4,47,9" name="2&apos;h2" dtype_id="4"/>
+              <begin loc="e,47,11,47,16">
+                <assign loc="e,48,49,48,50" dtype_id="1">
+                  <const loc="e,48,51,48,58" name="1&apos;h1" dtype_id="5"/>
+                  <sel loc="e,48,19,48,20" dtype_id="1">
+                    <varref loc="e,48,7,48,19" name="oponent_ff_d" dtype_id="2"/>
+                    <add loc="e,48,34,48,35" dtype_id="6">
+                      <sel loc="e,48,34,48,35" dtype_id="6">
+                        <shiftl loc="e,48,31,48,32" dtype_id="7">
+                          <extend loc="e,48,20,48,31" dtype_id="7" width="32" widthminv="3">
+                            <varref loc="e,48,20,48,31" name="county_ff_q" dtype_id="3"/>
+                          </extend>
+                          <const loc="e,48,31,48,32" name="32&apos;h3" dtype_id="7"/>
+                        </shiftl>
+                        <const loc="e,48,34,48,35" name="32&apos;h0" dtype_id="7"/>
+                        <const loc="e,48,34,48,35" name="32&apos;h6" dtype_id="7"/>
+                      </sel>
+                      <sel loc="e,48,34,48,35" dtype_id="6">
+                        <extend loc="e,48,36,48,47" dtype_id="7" width="32" widthminv="3">
+                          <varref loc="e,48,36,48,47" name="countx_ff_q" dtype_id="3"/>
+                        </extend>
+                        <const loc="e,48,34,48,35" name="32&apos;h0" dtype_id="7"/>
+                        <const loc="e,48,34,48,35" name="32&apos;h6" dtype_id="7"/>
+                      </sel>
+                    </add>
+                    <const loc="e,48,19,48,20" name="32&apos;h1" dtype_id="7"/>
+                  </sel>
+                </assign>
+                <assign loc="e,49,49,49,50" dtype_id="1">
+                  <const loc="e,49,51,49,59" name="1&apos;h0" dtype_id="5"/>
+                  <sel loc="e,49,19,49,20" dtype_id="1">
+                    <varref loc="e,49,7,49,19" name="current_ff_d" dtype_id="2"/>
+                    <add loc="e,49,34,49,35" dtype_id="6">
+                      <sel loc="e,49,34,49,35" dtype_id="6">
+                        <shiftl loc="e,49,31,49,32" dtype_id="7">
+                          <extend loc="e,49,20,49,31" dtype_id="7" width="32" widthminv="3">
+                            <varref loc="e,49,20,49,31" name="county_ff_q" dtype_id="3"/>
+                          </extend>
+                          <const loc="e,49,31,49,32" name="32&apos;h3" dtype_id="7"/>
+                        </shiftl>
+                        <const loc="e,49,34,49,35" name="32&apos;h0" dtype_id="7"/>
+                        <const loc="e,49,34,49,35" name="32&apos;h6" dtype_id="7"/>
+                      </sel>
+                      <sel loc="e,49,34,49,35" dtype_id="6">
+                        <extend loc="e,49,36,49,47" dtype_id="7" width="32" widthminv="3">
+                          <varref loc="e,49,36,49,47" name="countx_ff_q" dtype_id="3"/>
+                        </extend>
+                        <const loc="e,49,34,49,35" name="32&apos;h0" dtype_id="7"/>
+                        <const loc="e,49,34,49,35" name="32&apos;h6" dtype_id="7"/>
+                      </sel>
+                    </add>
+                    <const loc="e,49,19,49,20" name="32&apos;h1" dtype_id="7"/>
+                  </sel>
+                </assign>
+              </begin>
+            </caseitem>
+            <caseitem loc="e,51,4,51,11">
+              <begin loc="e,51,13,51,18">
+                <assign loc="e,52,21,52,22" dtype_id="2">
+                  <varref loc="e,52,23,52,35" name="oponent_ff_q" dtype_id="2"/>
+                  <varref loc="e,52,8,52,20" name="oponent_ff_d" dtype_id="2"/>
+                </assign>
+                <assign loc="e,53,21,53,22" dtype_id="2">
+                  <varref loc="e,53,23,53,35" name="current_ff_q" dtype_id="2"/>
+                  <varref loc="e,53,8,53,20" name="current_ff_d" dtype_id="2"/>
+                </assign>
+              </begin>
+            </caseitem>
+          </case>
+          <case loc="e,56,3,56,7">
+            <varref loc="e,56,9,56,20" name="state2_ff_q" dtype_id="4"/>
+            <caseitem loc="e,57,8,57,9">
+              <const loc="e,57,4,57,8" name="2&apos;h1" dtype_id="4"/>
+              <begin loc="e,57,10,57,15">
+                <assign loc="e,58,51,58,52" dtype_id="1">
+                  <const loc="e,58,53,58,61" name="1&apos;h0" dtype_id="5"/>
+                  <sel loc="e,58,19,58,20" dtype_id="1">
+                    <varref loc="e,58,7,58,19" name="oponent_ff_d" dtype_id="2"/>
+                    <add loc="e,58,35,58,36" dtype_id="6">
+                      <sel loc="e,58,35,58,36" dtype_id="6">
+                        <shiftl loc="e,58,32,58,33" dtype_id="7">
+                          <extend loc="e,58,20,58,32" dtype_id="7" width="32" widthminv="3">
+                            <varref loc="e,58,20,58,32" name="count2y_ff_q" dtype_id="3"/>
+                          </extend>
+                          <const loc="e,58,32,58,33" name="32&apos;h3" dtype_id="7"/>
+                        </shiftl>
+                        <const loc="e,58,35,58,36" name="32&apos;h0" dtype_id="7"/>
+                        <const loc="e,58,35,58,36" name="32&apos;h6" dtype_id="7"/>
+                      </sel>
+                      <sel loc="e,58,35,58,36" dtype_id="6">
+                        <extend loc="e,58,37,58,49" dtype_id="7" width="32" widthminv="3">
+                          <varref loc="e,58,37,58,49" name="count2x_ff_q" dtype_id="3"/>
+                        </extend>
+                        <const loc="e,58,35,58,36" name="32&apos;h0" dtype_id="7"/>
+                        <const loc="e,58,35,58,36" name="32&apos;h6" dtype_id="7"/>
+                      </sel>
+                    </add>
+                    <const loc="e,58,19,58,20" name="32&apos;h1" dtype_id="7"/>
+                  </sel>
+                </assign>
+                <assign loc="e,59,51,59,52" dtype_id="1">
+                  <const loc="e,59,53,59,60" name="1&apos;h1" dtype_id="5"/>
+                  <sel loc="e,59,19,59,20" dtype_id="1">
+                    <varref loc="e,59,7,59,19" name="current_ff_d" dtype_id="2"/>
+                    <add loc="e,59,35,59,36" dtype_id="6">
+                      <sel loc="e,59,35,59,36" dtype_id="6">
+                        <shiftl loc="e,59,32,59,33" dtype_id="7">
+                          <extend loc="e,59,20,59,32" dtype_id="7" width="32" widthminv="3">
+                            <varref loc="e,59,20,59,32" name="count2y_ff_q" dtype_id="3"/>
+                          </extend>
+                          <const loc="e,59,32,59,33" name="32&apos;h3" dtype_id="7"/>
+                        </shiftl>
+                        <const loc="e,59,35,59,36" name="32&apos;h0" dtype_id="7"/>
+                        <const loc="e,59,35,59,36" name="32&apos;h6" dtype_id="7"/>
+                      </sel>
+                      <sel loc="e,59,35,59,36" dtype_id="6">
+                        <extend loc="e,59,37,59,49" dtype_id="7" width="32" widthminv="3">
+                          <varref loc="e,59,37,59,49" name="count2x_ff_q" dtype_id="3"/>
+                        </extend>
+                        <const loc="e,59,35,59,36" name="32&apos;h0" dtype_id="7"/>
+                        <const loc="e,59,35,59,36" name="32&apos;h6" dtype_id="7"/>
+                      </sel>
+                    </add>
+                    <const loc="e,59,19,59,20" name="32&apos;h1" dtype_id="7"/>
+                  </sel>
+                </assign>
+              </begin>
+            </caseitem>
+            <caseitem loc="e,61,9,61,10">
+              <const loc="e,61,4,61,9" name="2&apos;h2" dtype_id="4"/>
+              <begin loc="e,61,11,61,16">
+                <assign loc="e,62,51,62,52" dtype_id="1">
+                  <const loc="e,62,53,62,60" name="1&apos;h1" dtype_id="5"/>
+                  <sel loc="e,62,19,62,20" dtype_id="1">
+                    <varref loc="e,62,7,62,19" name="oponent_ff_d" dtype_id="2"/>
+                    <add loc="e,62,35,62,36" dtype_id="6">
+                      <sel loc="e,62,35,62,36" dtype_id="6">
+                        <shiftl loc="e,62,32,62,33" dtype_id="7">
+                          <extend loc="e,62,20,62,32" dtype_id="7" width="32" widthminv="3">
+                            <varref loc="e,62,20,62,32" name="count2y_ff_q" dtype_id="3"/>
+                          </extend>
+                          <const loc="e,62,32,62,33" name="32&apos;h3" dtype_id="7"/>
+                        </shiftl>
+                        <const loc="e,62,35,62,36" name="32&apos;h0" dtype_id="7"/>
+                        <const loc="e,62,35,62,36" name="32&apos;h6" dtype_id="7"/>
+                      </sel>
+                      <sel loc="e,62,35,62,36" dtype_id="6">
+                        <extend loc="e,62,37,62,49" dtype_id="7" width="32" widthminv="3">
+                          <varref loc="e,62,37,62,49" name="count2x_ff_q" dtype_id="3"/>
+                        </extend>
+                        <const loc="e,62,35,62,36" name="32&apos;h0" dtype_id="7"/>
+                        <const loc="e,62,35,62,36" name="32&apos;h6" dtype_id="7"/>
+                      </sel>
+                    </add>
+                    <const loc="e,62,19,62,20" name="32&apos;h1" dtype_id="7"/>
+                  </sel>
+                </assign>
+                <assign loc="e,63,51,63,52" dtype_id="1">
+                  <const loc="e,63,53,63,61" name="1&apos;h0" dtype_id="5"/>
+                  <sel loc="e,63,19,63,20" dtype_id="1">
+                    <varref loc="e,63,7,63,19" name="current_ff_d" dtype_id="2"/>
+                    <add loc="e,63,35,63,36" dtype_id="6">
+                      <sel loc="e,63,35,63,36" dtype_id="6">
+                        <shiftl loc="e,63,32,63,33" dtype_id="7">
+                          <extend loc="e,63,20,63,32" dtype_id="7" width="32" widthminv="3">
+                            <varref loc="e,63,20,63,32" name="count2y_ff_q" dtype_id="3"/>
+                          </extend>
+                          <const loc="e,63,32,63,33" name="32&apos;h3" dtype_id="7"/>
+                        </shiftl>
+                        <const loc="e,63,35,63,36" name="32&apos;h0" dtype_id="7"/>
+                        <const loc="e,63,35,63,36" name="32&apos;h6" dtype_id="7"/>
+                      </sel>
+                      <sel loc="e,63,35,63,36" dtype_id="6">
+                        <extend loc="e,63,37,63,49" dtype_id="7" width="32" widthminv="3">
+                          <varref loc="e,63,37,63,49" name="count2x_ff_q" dtype_id="3"/>
+                        </extend>
+                        <const loc="e,63,35,63,36" name="32&apos;h0" dtype_id="7"/>
+                        <const loc="e,63,35,63,36" name="32&apos;h6" dtype_id="7"/>
+                      </sel>
+                    </add>
+                    <const loc="e,63,19,63,20" name="32&apos;h1" dtype_id="7"/>
+                  </sel>
+                </assign>
+              </begin>
+            </caseitem>
+            <caseitem loc="e,65,4,65,11">
+              <begin loc="e,65,13,65,18">
+                <assign loc="e,66,21,66,22" dtype_id="2">
+                  <varref loc="e,66,23,66,35" name="oponent_ff_q" dtype_id="2"/>
+                  <varref loc="e,66,8,66,20" name="oponent_ff_d" dtype_id="2"/>
+                </assign>
+                <assign loc="e,67,21,67,22" dtype_id="2">
+                  <varref loc="e,67,23,67,35" name="current_ff_q" dtype_id="2"/>
+                  <varref loc="e,67,8,67,20" name="current_ff_d" dtype_id="2"/>
+                </assign>
+              </begin>
+            </caseitem>
+          </case>
+        </begin>
+      </always>
+      <always loc="e,71,1,71,7">
+        <sentree loc="e,71,8,71,9">
+          <senitem loc="e,71,24,71,35" edgeType="CHANGED">
+            <varref loc="e,71,24,71,35" name="countx_ff_q" dtype_id="3"/>
+          </senitem>
+          <senitem loc="e,71,39,71,50" edgeType="CHANGED">
+            <varref loc="e,71,39,71,50" name="county_ff_q" dtype_id="3"/>
+          </senitem>
+          <senitem loc="e,71,10,71,20" edgeType="CHANGED">
+            <varref loc="e,71,10,71,20" name="state_ff_q" dtype_id="4"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,72,1,72,6">
+          <case loc="e,73,1,73,5">
+            <varref loc="e,73,7,73,17" name="state_ff_q" dtype_id="4"/>
+            <caseitem loc="e,74,8,74,9">
+              <const loc="e,74,3,74,8" name="2&apos;h0" dtype_id="4"/>
+              <begin loc="e,74,10,74,15">
+                <if loc="e,75,9,75,11">
+                  <or loc="e,75,57,75,58" dtype_id="1">
+                    <sel loc="e,75,27,75,28" dtype_id="1">
+                      <varref loc="e,75,15,75,27" name="oponent_ff_q" dtype_id="2"/>
+                      <add loc="e,75,42,75,43" dtype_id="6">
+                        <sel loc="e,75,42,75,43" dtype_id="6">
+                          <shiftl loc="e,75,39,75,40" dtype_id="7">
+                            <extend loc="e,75,28,75,39" dtype_id="7" width="32" widthminv="3">
+                              <varref loc="e,75,28,75,39" name="county_ff_q" dtype_id="3"/>
+                            </extend>
+                            <const loc="e,75,39,75,40" name="32&apos;h3" dtype_id="7"/>
+                          </shiftl>
+                          <const loc="e,75,42,75,43" name="32&apos;h0" dtype_id="7"/>
+                          <const loc="e,75,42,75,43" name="32&apos;h6" dtype_id="7"/>
+                        </sel>
+                        <sel loc="e,75,42,75,43" dtype_id="6">
+                          <extend loc="e,75,44,75,55" dtype_id="7" width="32" widthminv="3">
+                            <varref loc="e,75,44,75,55" name="countx_ff_q" dtype_id="3"/>
+                          </extend>
+                          <const loc="e,75,42,75,43" name="32&apos;h0" dtype_id="7"/>
+                          <const loc="e,75,42,75,43" name="32&apos;h6" dtype_id="7"/>
+                        </sel>
+                      </add>
+                      <const loc="e,75,27,75,28" name="32&apos;h1" dtype_id="7"/>
+                    </sel>
+                    <sel loc="e,75,71,75,72" dtype_id="1">
+                      <varref loc="e,75,59,75,71" name="current_ff_q" dtype_id="2"/>
+                      <add loc="e,75,86,75,87" dtype_id="6">
+                        <sel loc="e,75,86,75,87" dtype_id="6">
+                          <shiftl loc="e,75,83,75,84" dtype_id="7">
+                            <extend loc="e,75,72,75,83" dtype_id="7" width="32" widthminv="3">
+                              <varref loc="e,75,72,75,83" name="county_ff_q" dtype_id="3"/>
+                            </extend>
+                            <const loc="e,75,83,75,84" name="32&apos;h3" dtype_id="7"/>
+                          </shiftl>
+                          <const loc="e,75,86,75,87" name="32&apos;h0" dtype_id="7"/>
+                          <const loc="e,75,86,75,87" name="32&apos;h6" dtype_id="7"/>
+                        </sel>
+                        <sel loc="e,75,86,75,87" dtype_id="6">
+                          <extend loc="e,75,88,75,99" dtype_id="7" width="32" widthminv="3">
+                            <varref loc="e,75,88,75,99" name="countx_ff_q" dtype_id="3"/>
+                          </extend>
+                          <const loc="e,75,86,75,87" name="32&apos;h0" dtype_id="7"/>
+                          <const loc="e,75,86,75,87" name="32&apos;h6" dtype_id="7"/>
+                        </sel>
+                      </add>
+                      <const loc="e,75,71,75,72" name="32&apos;h1" dtype_id="7"/>
+                    </sel>
+                  </or>
+                  <begin>
+                    <begin loc="e,97,12,97,17">
+                      <assign loc="e,98,18,98,19" dtype_id="4">
+                        <const loc="e,98,20,98,25" name="2&apos;h0" dtype_id="4"/>
+                        <varref loc="e,98,7,98,17" name="state_ff_d" dtype_id="4"/>
+                      </assign>
+                      <assign loc="e,99,19,99,20" dtype_id="3">
+                        <varref loc="e,99,21,99,32" name="countx_ff_q" dtype_id="3"/>
+                        <varref loc="e,99,7,99,18" name="countx_ff_d" dtype_id="3"/>
+                      </assign>
+                      <assign loc="e,100,19,100,20" dtype_id="3">
+                        <varref loc="e,100,21,100,32" name="county_ff_q" dtype_id="3"/>
+                        <varref loc="e,100,7,100,18" name="county_ff_d" dtype_id="3"/>
+                      </assign>
+                    </begin>
+                  </begin>
+                  <begin>
+                    <begin loc="e,76,7,76,12">
+                      <if loc="e,77,7,77,9">
+                        <eq loc="e,77,24,77,26" dtype_id="1">
+                          <const loc="e,77,27,77,32" name="3&apos;h7" dtype_id="3"/>
+                          <varref loc="e,77,12,77,23" name="countx_ff_q" dtype_id="3"/>
+                        </eq>
+                        <begin>
+                          <begin loc="e,78,7,78,12">
+                            <assign loc="e,79,19,79,20" dtype_id="4">
+                              <const loc="e,79,21,79,27" name="2&apos;h3" dtype_id="4"/>
+                              <varref loc="e,79,8,79,18" name="state_ff_d" dtype_id="4"/>
+                            </assign>
+                            <assign loc="e,80,20,80,21" dtype_id="3">
+                              <varref loc="e,80,22,80,33" name="countx_ff_q" dtype_id="3"/>
+                              <varref loc="e,80,8,80,19" name="countx_ff_d" dtype_id="3"/>
+                            </assign>
+                            <assign loc="e,81,20,81,21" dtype_id="3">
+                              <varref loc="e,81,22,81,33" name="county_ff_q" dtype_id="3"/>
+                              <varref loc="e,81,8,81,19" name="county_ff_d" dtype_id="3"/>
+                            </assign>
+                          </begin>
+                        </begin>
+                        <begin>
+                          <begin loc="e,83,12,83,17">
+                            <if loc="e,84,8,84,10">
+                              <sel loc="e,84,25,84,26" dtype_id="1">
+                                <varref loc="e,84,13,84,25" name="oponent_ff_q" dtype_id="2"/>
+                                <add loc="e,84,54,84,55" dtype_id="6">
+                                  <const loc="e,84,54,84,55" name="6&apos;h1" dtype_id="6"/>
+                                  <add loc="e,84,40,84,41" dtype_id="6">
+                                    <sel loc="e,84,54,84,55" dtype_id="6">
+                                      <shiftl loc="e,84,37,84,38" dtype_id="7">
+                                        <extend loc="e,84,26,84,37" dtype_id="7" width="32" widthminv="3">
+                                          <varref loc="e,84,26,84,37" name="county_ff_q" dtype_id="3"/>
+                                        </extend>
+                                        <const loc="e,84,37,84,38" name="32&apos;h3" dtype_id="7"/>
+                                      </shiftl>
+                                      <const loc="e,84,54,84,55" name="32&apos;h0" dtype_id="7"/>
+                                      <const loc="e,84,54,84,55" name="32&apos;h6" dtype_id="7"/>
+                                    </sel>
+                                    <sel loc="e,84,54,84,55" dtype_id="6">
+                                      <extend loc="e,84,42,84,53" dtype_id="7" width="32" widthminv="3">
+                                        <varref loc="e,84,42,84,53" name="countx_ff_q" dtype_id="3"/>
+                                      </extend>
+                                      <const loc="e,84,54,84,55" name="32&apos;h0" dtype_id="7"/>
+                                      <const loc="e,84,54,84,55" name="32&apos;h6" dtype_id="7"/>
+                                    </sel>
+                                  </add>
+                                </add>
+                                <const loc="e,84,25,84,26" name="32&apos;h1" dtype_id="7"/>
+                              </sel>
+                              <begin>
+                                <begin loc="e,85,8,85,13">
+                                  <assign loc="e,86,20,86,21" dtype_id="4">
+                                    <const loc="e,86,22,86,26" name="2&apos;h1" dtype_id="4"/>
+                                    <varref loc="e,86,9,86,19" name="state_ff_d" dtype_id="4"/>
+                                  </assign>
+                                  <assign loc="e,87,21,87,22" dtype_id="3">
+                                    <add loc="e,87,35,87,36" dtype_id="3">
+                                      <const loc="e,87,35,87,36" name="3&apos;h1" dtype_id="3"/>
+                                      <varref loc="e,87,23,87,34" name="countx_ff_q" dtype_id="3"/>
+                                    </add>
+                                    <varref loc="e,87,9,87,20" name="countx_ff_d" dtype_id="3"/>
+                                  </assign>
+                                  <assign loc="e,88,21,88,22" dtype_id="3">
+                                    <varref loc="e,88,23,88,34" name="county_ff_q" dtype_id="3"/>
+                                    <varref loc="e,88,9,88,20" name="county_ff_d" dtype_id="3"/>
+                                  </assign>
+                                </begin>
+                              </begin>
+                              <begin>
+                                <begin loc="e,90,13,90,18">
+                                  <assign loc="e,91,20,91,21" dtype_id="4">
+                                    <const loc="e,91,22,91,28" name="2&apos;h3" dtype_id="4"/>
+                                    <varref loc="e,91,9,91,19" name="state_ff_d" dtype_id="4"/>
+                                  </assign>
+                                  <assign loc="e,92,21,92,22" dtype_id="3">
+                                    <varref loc="e,92,23,92,34" name="countx_ff_q" dtype_id="3"/>
+                                    <varref loc="e,92,9,92,20" name="countx_ff_d" dtype_id="3"/>
+                                  </assign>
+                                  <assign loc="e,93,21,93,22" dtype_id="3">
+                                    <varref loc="e,93,23,93,34" name="county_ff_q" dtype_id="3"/>
+                                    <varref loc="e,93,9,93,20" name="county_ff_d" dtype_id="3"/>
+                                  </assign>
+                                </begin>
+                              </begin>
+                            </if>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </begin>
+                </if>
+              </begin>
+            </caseitem>
+            <caseitem loc="e,103,9,103,10">
+              <const loc="e,103,5,103,9" name="2&apos;h1" dtype_id="4"/>
+              <begin loc="e,103,11,103,16">
+                <if loc="e,104,6,104,8">
+                  <eq loc="e,104,22,104,24" dtype_id="1">
+                    <const loc="e,104,25,104,30" name="3&apos;h7" dtype_id="3"/>
+                    <varref loc="e,104,10,104,21" name="countx_ff_q" dtype_id="3"/>
+                  </eq>
+                  <begin>
+                    <begin loc="e,104,32,104,37">
+                      <assign loc="e,105,19,105,20" dtype_id="4">
+                        <const loc="e,105,21,105,26" name="2&apos;h2" dtype_id="4"/>
+                        <varref loc="e,105,8,105,18" name="state_ff_d" dtype_id="4"/>
+                      </assign>
+                      <assign loc="e,106,20,106,21" dtype_id="3">
+                        <varref loc="e,106,22,106,33" name="countx_ff_q" dtype_id="3"/>
+                        <varref loc="e,106,8,106,19" name="countx_ff_d" dtype_id="3"/>
+                      </assign>
+                      <assign loc="e,107,20,107,21" dtype_id="3">
+                        <varref loc="e,107,22,107,33" name="county_ff_q" dtype_id="3"/>
+                        <varref loc="e,107,8,107,19" name="county_ff_d" dtype_id="3"/>
+                      </assign>
+                    </begin>
+                  </begin>
+                  <begin>
+                    <begin loc="e,109,19,109,24">
+                      <if loc="e,110,7,110,9">
+                        <sel loc="e,110,24,110,25" dtype_id="1">
+                          <varref loc="e,110,12,110,24" name="oponent_ff_q" dtype_id="2"/>
+                          <add loc="e,110,53,110,54" dtype_id="6">
+                            <const loc="e,110,53,110,54" name="6&apos;h1" dtype_id="6"/>
+                            <add loc="e,110,39,110,40" dtype_id="6">
+                              <sel loc="e,110,53,110,54" dtype_id="6">
+                                <shiftl loc="e,110,36,110,37" dtype_id="7">
+                                  <extend loc="e,110,25,110,36" dtype_id="7" width="32" widthminv="3">
+                                    <varref loc="e,110,25,110,36" name="county_ff_q" dtype_id="3"/>
+                                  </extend>
+                                  <const loc="e,110,36,110,37" name="32&apos;h3" dtype_id="7"/>
+                                </shiftl>
+                                <const loc="e,110,53,110,54" name="32&apos;h0" dtype_id="7"/>
+                                <const loc="e,110,53,110,54" name="32&apos;h6" dtype_id="7"/>
+                              </sel>
+                              <sel loc="e,110,53,110,54" dtype_id="6">
+                                <extend loc="e,110,41,110,52" dtype_id="7" width="32" widthminv="3">
+                                  <varref loc="e,110,41,110,52" name="countx_ff_q" dtype_id="3"/>
+                                </extend>
+                                <const loc="e,110,53,110,54" name="32&apos;h0" dtype_id="7"/>
+                                <const loc="e,110,53,110,54" name="32&apos;h6" dtype_id="7"/>
+                              </sel>
+                            </add>
+                          </add>
+                          <const loc="e,110,24,110,25" name="32&apos;h1" dtype_id="7"/>
+                        </sel>
+                        <begin>
+                          <begin loc="e,111,6,111,11">
+                            <assign loc="e,112,18,112,19" dtype_id="4">
+                              <varref loc="e,112,20,112,30" name="state_ff_q" dtype_id="4"/>
+                              <varref loc="e,112,7,112,17" name="state_ff_d" dtype_id="4"/>
+                            </assign>
+                            <assign loc="e,113,19,113,20" dtype_id="3">
+                              <add loc="e,113,33,113,34" dtype_id="3">
+                                <const loc="e,113,33,113,34" name="3&apos;h1" dtype_id="3"/>
+                                <varref loc="e,113,21,113,32" name="countx_ff_q" dtype_id="3"/>
+                              </add>
+                              <varref loc="e,113,7,113,18" name="countx_ff_d" dtype_id="3"/>
+                            </assign>
+                            <assign loc="e,114,19,114,20" dtype_id="3">
+                              <varref loc="e,114,21,114,32" name="county_ff_q" dtype_id="3"/>
+                              <varref loc="e,114,7,114,18" name="county_ff_d" dtype_id="3"/>
+                            </assign>
+                          </begin>
+                        </begin>
+                        <begin>
+                          <begin loc="e,116,11,116,16">
+                            <if loc="e,117,7,117,9">
+                              <sel loc="e,117,24,117,25" dtype_id="1">
+                                <varref loc="e,117,12,117,24" name="current_ff_q" dtype_id="2"/>
+                                <add loc="e,117,53,117,54" dtype_id="6">
+                                  <const loc="e,117,53,117,54" name="6&apos;h1" dtype_id="6"/>
+                                  <add loc="e,117,39,117,40" dtype_id="6">
+                                    <sel loc="e,117,53,117,54" dtype_id="6">
+                                      <shiftl loc="e,117,36,117,37" dtype_id="7">
+                                        <extend loc="e,117,25,117,36" dtype_id="7" width="32" widthminv="3">
+                                          <varref loc="e,117,25,117,36" name="county_ff_q" dtype_id="3"/>
+                                        </extend>
+                                        <const loc="e,117,36,117,37" name="32&apos;h3" dtype_id="7"/>
+                                      </shiftl>
+                                      <const loc="e,117,53,117,54" name="32&apos;h0" dtype_id="7"/>
+                                      <const loc="e,117,53,117,54" name="32&apos;h6" dtype_id="7"/>
+                                    </sel>
+                                    <sel loc="e,117,53,117,54" dtype_id="6">
+                                      <extend loc="e,117,41,117,52" dtype_id="7" width="32" widthminv="3">
+                                        <varref loc="e,117,41,117,52" name="countx_ff_q" dtype_id="3"/>
+                                      </extend>
+                                      <const loc="e,117,53,117,54" name="32&apos;h0" dtype_id="7"/>
+                                      <const loc="e,117,53,117,54" name="32&apos;h6" dtype_id="7"/>
+                                    </sel>
+                                  </add>
+                                </add>
+                                <const loc="e,117,24,117,25" name="32&apos;h1" dtype_id="7"/>
+                              </sel>
+                              <begin>
+                                <begin loc="e,118,7,118,12">
+                                  <assign loc="e,119,19,119,20" dtype_id="4">
+                                    <const loc="e,119,21,119,27" name="2&apos;h3" dtype_id="4"/>
+                                    <varref loc="e,119,8,119,18" name="state_ff_d" dtype_id="4"/>
+                                  </assign>
+                                  <assign loc="e,120,20,120,21" dtype_id="3">
+                                    <varref loc="e,120,22,120,33" name="countx_ff_q" dtype_id="3"/>
+                                    <varref loc="e,120,8,120,19" name="countx_ff_d" dtype_id="3"/>
+                                  </assign>
+                                  <assign loc="e,121,20,121,21" dtype_id="3">
+                                    <varref loc="e,121,22,121,33" name="county_ff_q" dtype_id="3"/>
+                                    <varref loc="e,121,8,121,19" name="county_ff_d" dtype_id="3"/>
+                                  </assign>
+                                </begin>
+                              </begin>
+                              <begin>
+                                <begin loc="e,123,12,123,17">
+                                  <assign loc="e,124,19,124,20" dtype_id="4">
+                                    <const loc="e,124,21,124,26" name="2&apos;h2" dtype_id="4"/>
+                                    <varref loc="e,124,8,124,18" name="state_ff_d" dtype_id="4"/>
+                                  </assign>
+                                  <assign loc="e,125,20,125,21" dtype_id="3">
+                                    <varref loc="e,125,22,125,33" name="countx_ff_q" dtype_id="3"/>
+                                    <varref loc="e,125,8,125,19" name="countx_ff_d" dtype_id="3"/>
+                                  </assign>
+                                  <assign loc="e,126,20,126,21" dtype_id="3">
+                                    <varref loc="e,126,22,126,33" name="county_ff_q" dtype_id="3"/>
+                                    <varref loc="e,126,8,126,19" name="county_ff_d" dtype_id="3"/>
+                                  </assign>
+                                </begin>
+                              </begin>
+                            </if>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </begin>
+                </if>
+              </begin>
+            </caseitem>
+            <caseitem loc="e,131,8,131,9">
+              <const loc="e,131,3,131,8" name="2&apos;h2" dtype_id="4"/>
+              <begin loc="e,132,5,132,10">
+                <if loc="e,133,5,133,7">
+                  <eq loc="e,133,26,133,28" dtype_id="1">
+                    <sub loc="e,133,21,133,22" dtype_id="7">
+                      <extend loc="e,133,9,133,20" dtype_id="7" width="32" widthminv="3">
+                        <varref loc="e,133,9,133,20" name="countx_ff_q" dtype_id="3"/>
+                      </extend>
+                      <const loc="e,133,23,133,24" name="32&apos;sh1" dtype_id="8"/>
+                    </sub>
+                    <extend loc="e,133,29,133,30" dtype_id="7" width="32" widthminv="3">
+                      <varref loc="e,133,29,133,30" name="X" dtype_id="3"/>
+                    </extend>
+                  </eq>
+                  <begin>
+                    <begin loc="e,134,5,134,10">
+                      <assign loc="e,135,17,135,18" dtype_id="4">
+                        <const loc="e,135,19,135,25" name="2&apos;h3" dtype_id="4"/>
+                        <varref loc="e,135,6,135,16" name="state_ff_d" dtype_id="4"/>
+                      </assign>
+                      <assign loc="e,136,18,136,19" dtype_id="3">
+                        <varref loc="e,136,20,136,31" name="countx_ff_q" dtype_id="3"/>
+                        <varref loc="e,136,6,136,17" name="countx_ff_d" dtype_id="3"/>
+                      </assign>
+                      <assign loc="e,137,18,137,19" dtype_id="3">
+                        <varref loc="e,137,20,137,31" name="county_ff_q" dtype_id="3"/>
+                        <varref loc="e,137,6,137,17" name="county_ff_d" dtype_id="3"/>
+                      </assign>
+                    </begin>
+                  </begin>
+                  <begin>
+                    <begin loc="e,139,10,139,15">
+                      <assign loc="e,140,19,140,20" dtype_id="4">
+                        <const loc="e,140,21,140,26" name="2&apos;h2" dtype_id="4"/>
+                        <varref loc="e,140,8,140,18" name="state_ff_d" dtype_id="4"/>
+                      </assign>
+                      <assign loc="e,141,18,141,19" dtype_id="3">
+                        <sub loc="e,141,32,141,33" dtype_id="3">
+                          <varref loc="e,141,20,141,31" name="countx_ff_q" dtype_id="3"/>
+                          <const loc="e,141,32,141,33" name="3&apos;h1" dtype_id="3"/>
+                        </sub>
+                        <varref loc="e,141,6,141,17" name="countx_ff_d" dtype_id="3"/>
+                      </assign>
+                      <assign loc="e,142,18,142,19" dtype_id="3">
+                        <varref loc="e,142,20,142,31" name="county_ff_q" dtype_id="3"/>
+                        <varref loc="e,142,6,142,17" name="county_ff_d" dtype_id="3"/>
+                      </assign>
+                    </begin>
+                  </begin>
+                </if>
+              </begin>
+            </caseitem>
+            <caseitem loc="e,145,3,145,10">
+              <begin loc="e,146,7,146,12">
+                <assign loc="e,147,15,147,16" dtype_id="4">
+                  <varref loc="e,147,17,147,27" name="state_ff_q" dtype_id="4"/>
+                  <varref loc="e,147,4,147,14" name="state_ff_d" dtype_id="4"/>
+                </assign>
+                <assign loc="e,148,16,148,17" dtype_id="3">
+                  <varref loc="e,148,18,148,29" name="countx_ff_q" dtype_id="3"/>
+                  <varref loc="e,148,4,148,15" name="countx_ff_d" dtype_id="3"/>
+                </assign>
+                <assign loc="e,149,16,149,17" dtype_id="3">
+                  <varref loc="e,149,18,149,29" name="county_ff_q" dtype_id="3"/>
+                  <varref loc="e,149,4,149,15" name="county_ff_d" dtype_id="3"/>
+                </assign>
+              </begin>
+            </caseitem>
+          </case>
+        </begin>
+      </always>
+      <always loc="e,153,1,153,7">
+        <sentree loc="e,153,8,153,9">
+          <senitem loc="e,153,25,153,37" edgeType="CHANGED">
+            <varref loc="e,153,25,153,37" name="count2x_ff_q" dtype_id="3"/>
+          </senitem>
+          <senitem loc="e,153,41,153,53" edgeType="CHANGED">
+            <varref loc="e,153,41,153,53" name="count2y_ff_q" dtype_id="3"/>
+          </senitem>
+          <senitem loc="e,153,10,153,21" edgeType="CHANGED">
+            <varref loc="e,153,10,153,21" name="state2_ff_q" dtype_id="4"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,154,1,154,6">
+          <case loc="e,155,1,155,5">
+            <varref loc="e,155,7,155,18" name="state2_ff_q" dtype_id="4"/>
+            <caseitem loc="e,156,8,156,9">
+              <const loc="e,156,3,156,8" name="2&apos;h0" dtype_id="4"/>
+              <begin loc="e,156,10,156,15">
+                <if loc="e,157,9,157,11">
+                  <or loc="e,157,59,157,60" dtype_id="1">
+                    <sel loc="e,157,27,157,28" dtype_id="1">
+                      <varref loc="e,157,15,157,27" name="oponent_ff_q" dtype_id="2"/>
+                      <add loc="e,157,43,157,44" dtype_id="6">
+                        <sel loc="e,157,43,157,44" dtype_id="6">
+                          <shiftl loc="e,157,40,157,41" dtype_id="7">
+                            <extend loc="e,157,28,157,40" dtype_id="7" width="32" widthminv="3">
+                              <varref loc="e,157,28,157,40" name="count2y_ff_q" dtype_id="3"/>
+                            </extend>
+                            <const loc="e,157,40,157,41" name="32&apos;h3" dtype_id="7"/>
+                          </shiftl>
+                          <const loc="e,157,43,157,44" name="32&apos;h0" dtype_id="7"/>
+                          <const loc="e,157,43,157,44" name="32&apos;h6" dtype_id="7"/>
+                        </sel>
+                        <sel loc="e,157,43,157,44" dtype_id="6">
+                          <extend loc="e,157,45,157,57" dtype_id="7" width="32" widthminv="3">
+                            <varref loc="e,157,45,157,57" name="count2x_ff_q" dtype_id="3"/>
+                          </extend>
+                          <const loc="e,157,43,157,44" name="32&apos;h0" dtype_id="7"/>
+                          <const loc="e,157,43,157,44" name="32&apos;h6" dtype_id="7"/>
+                        </sel>
+                      </add>
+                      <const loc="e,157,27,157,28" name="32&apos;h1" dtype_id="7"/>
+                    </sel>
+                    <sel loc="e,157,73,157,74" dtype_id="1">
+                      <varref loc="e,157,61,157,73" name="current_ff_q" dtype_id="2"/>
+                      <add loc="e,157,89,157,90" dtype_id="6">
+                        <sel loc="e,157,89,157,90" dtype_id="6">
+                          <shiftl loc="e,157,86,157,87" dtype_id="7">
+                            <extend loc="e,157,74,157,86" dtype_id="7" width="32" widthminv="3">
+                              <varref loc="e,157,74,157,86" name="count2y_ff_q" dtype_id="3"/>
+                            </extend>
+                            <const loc="e,157,86,157,87" name="32&apos;h3" dtype_id="7"/>
+                          </shiftl>
+                          <const loc="e,157,89,157,90" name="32&apos;h0" dtype_id="7"/>
+                          <const loc="e,157,89,157,90" name="32&apos;h6" dtype_id="7"/>
+                        </sel>
+                        <sel loc="e,157,89,157,90" dtype_id="6">
+                          <extend loc="e,157,91,157,103" dtype_id="7" width="32" widthminv="3">
+                            <varref loc="e,157,91,157,103" name="count2x_ff_q" dtype_id="3"/>
+                          </extend>
+                          <const loc="e,157,89,157,90" name="32&apos;h0" dtype_id="7"/>
+                          <const loc="e,157,89,157,90" name="32&apos;h6" dtype_id="7"/>
+                        </sel>
+                      </add>
+                      <const loc="e,157,73,157,74" name="32&apos;h1" dtype_id="7"/>
+                    </sel>
+                  </or>
+                  <begin>
+                    <begin loc="e,179,12,179,17">
+                      <assign loc="e,180,19,180,20" dtype_id="4">
+                        <const loc="e,180,21,180,26" name="2&apos;h0" dtype_id="4"/>
+                        <varref loc="e,180,7,180,18" name="state2_ff_d" dtype_id="4"/>
+                      </assign>
+                      <assign loc="e,181,20,181,21" dtype_id="3">
+                        <varref loc="e,181,22,181,34" name="count2x_ff_q" dtype_id="3"/>
+                        <varref loc="e,181,7,181,19" name="count2x_ff_d" dtype_id="3"/>
+                      </assign>
+                      <assign loc="e,182,20,182,21" dtype_id="3">
+                        <varref loc="e,182,22,182,34" name="count2y_ff_q" dtype_id="3"/>
+                        <varref loc="e,182,7,182,19" name="count2y_ff_d" dtype_id="3"/>
+                      </assign>
+                    </begin>
+                  </begin>
+                  <begin>
+                    <begin loc="e,158,7,158,12">
+                      <if loc="e,159,7,159,9">
+                        <eq loc="e,159,25,159,27" dtype_id="1">
+                          <const loc="e,159,28,159,33" name="3&apos;h7" dtype_id="3"/>
+                          <varref loc="e,159,12,159,24" name="count2x_ff_q" dtype_id="3"/>
+                        </eq>
+                        <begin>
+                          <begin loc="e,160,7,160,12">
+                            <assign loc="e,161,20,161,21" dtype_id="4">
+                              <const loc="e,161,22,161,28" name="2&apos;h3" dtype_id="4"/>
+                              <varref loc="e,161,8,161,19" name="state2_ff_d" dtype_id="4"/>
+                            </assign>
+                            <assign loc="e,162,21,162,22" dtype_id="3">
+                              <varref loc="e,162,23,162,35" name="count2x_ff_q" dtype_id="3"/>
+                              <varref loc="e,162,8,162,20" name="count2x_ff_d" dtype_id="3"/>
+                            </assign>
+                            <assign loc="e,163,21,163,22" dtype_id="3">
+                              <varref loc="e,163,23,163,35" name="count2y_ff_q" dtype_id="3"/>
+                              <varref loc="e,163,8,163,20" name="count2y_ff_d" dtype_id="3"/>
+                            </assign>
+                          </begin>
+                        </begin>
+                        <begin>
+                          <begin loc="e,165,12,165,17">
+                            <if loc="e,166,8,166,10">
+                              <sel loc="e,166,25,166,26" dtype_id="1">
+                                <varref loc="e,166,13,166,25" name="oponent_ff_q" dtype_id="2"/>
+                                <sub loc="e,166,56,166,57" dtype_id="6">
+                                  <add loc="e,166,41,166,42" dtype_id="6">
+                                    <sel loc="e,166,56,166,57" dtype_id="6">
+                                      <shiftl loc="e,166,38,166,39" dtype_id="7">
+                                        <extend loc="e,166,26,166,38" dtype_id="7" width="32" widthminv="3">
+                                          <varref loc="e,166,26,166,38" name="count2y_ff_q" dtype_id="3"/>
+                                        </extend>
+                                        <const loc="e,166,38,166,39" name="32&apos;h3" dtype_id="7"/>
+                                      </shiftl>
+                                      <const loc="e,166,56,166,57" name="32&apos;h0" dtype_id="7"/>
+                                      <const loc="e,166,56,166,57" name="32&apos;h6" dtype_id="7"/>
+                                    </sel>
+                                    <sel loc="e,166,56,166,57" dtype_id="6">
+                                      <extend loc="e,166,43,166,55" dtype_id="7" width="32" widthminv="3">
+                                        <varref loc="e,166,43,166,55" name="count2x_ff_q" dtype_id="3"/>
+                                      </extend>
+                                      <const loc="e,166,56,166,57" name="32&apos;h0" dtype_id="7"/>
+                                      <const loc="e,166,56,166,57" name="32&apos;h6" dtype_id="7"/>
+                                    </sel>
+                                  </add>
+                                  <const loc="e,166,56,166,57" name="6&apos;h1" dtype_id="6"/>
+                                </sub>
+                                <const loc="e,166,25,166,26" name="32&apos;h1" dtype_id="7"/>
+                              </sel>
+                              <begin>
+                                <begin loc="e,167,8,167,13">
+                                  <assign loc="e,168,21,168,22" dtype_id="4">
+                                    <const loc="e,168,23,168,27" name="2&apos;h1" dtype_id="4"/>
+                                    <varref loc="e,168,9,168,20" name="state2_ff_d" dtype_id="4"/>
+                                  </assign>
+                                  <assign loc="e,169,22,169,23" dtype_id="3">
+                                    <sub loc="e,169,37,169,38" dtype_id="3">
+                                      <varref loc="e,169,24,169,36" name="count2x_ff_q" dtype_id="3"/>
+                                      <const loc="e,169,37,169,38" name="3&apos;h1" dtype_id="3"/>
+                                    </sub>
+                                    <varref loc="e,169,9,169,21" name="count2x_ff_d" dtype_id="3"/>
+                                  </assign>
+                                  <assign loc="e,170,22,170,23" dtype_id="3">
+                                    <varref loc="e,170,24,170,36" name="count2y_ff_q" dtype_id="3"/>
+                                    <varref loc="e,170,9,170,21" name="count2y_ff_d" dtype_id="3"/>
+                                  </assign>
+                                </begin>
+                              </begin>
+                              <begin>
+                                <begin loc="e,172,13,172,18">
+                                  <assign loc="e,173,21,173,22" dtype_id="4">
+                                    <const loc="e,173,23,173,29" name="2&apos;h3" dtype_id="4"/>
+                                    <varref loc="e,173,9,173,20" name="state2_ff_d" dtype_id="4"/>
+                                  </assign>
+                                  <assign loc="e,174,22,174,23" dtype_id="3">
+                                    <varref loc="e,174,24,174,36" name="count2x_ff_q" dtype_id="3"/>
+                                    <varref loc="e,174,9,174,21" name="count2x_ff_d" dtype_id="3"/>
+                                  </assign>
+                                  <assign loc="e,175,22,175,23" dtype_id="3">
+                                    <varref loc="e,175,24,175,36" name="count2y_ff_q" dtype_id="3"/>
+                                    <varref loc="e,175,9,175,21" name="count2y_ff_d" dtype_id="3"/>
+                                  </assign>
+                                </begin>
+                              </begin>
+                            </if>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </begin>
+                </if>
+              </begin>
+            </caseitem>
+            <caseitem loc="e,185,9,185,10">
+              <const loc="e,185,5,185,9" name="2&apos;h1" dtype_id="4"/>
+              <begin loc="e,185,11,185,16">
+                <if loc="e,186,6,186,8">
+                  <eq loc="e,186,23,186,25" dtype_id="1">
+                    <const loc="e,186,26,186,30" name="3&apos;h0" dtype_id="3"/>
+                    <varref loc="e,186,10,186,22" name="count2x_ff_q" dtype_id="3"/>
+                  </eq>
+                  <begin>
+                    <begin loc="e,186,32,186,37">
+                      <assign loc="e,187,20,187,21" dtype_id="4">
+                        <const loc="e,187,22,187,27" name="2&apos;h2" dtype_id="4"/>
+                        <varref loc="e,187,8,187,19" name="state2_ff_d" dtype_id="4"/>
+                      </assign>
+                      <assign loc="e,188,21,188,22" dtype_id="3">
+                        <varref loc="e,188,23,188,35" name="count2x_ff_q" dtype_id="3"/>
+                        <varref loc="e,188,8,188,20" name="count2x_ff_d" dtype_id="3"/>
+                      </assign>
+                      <assign loc="e,189,21,189,22" dtype_id="3">
+                        <varref loc="e,189,23,189,35" name="count2y_ff_q" dtype_id="3"/>
+                        <varref loc="e,189,8,189,20" name="count2y_ff_d" dtype_id="3"/>
+                      </assign>
+                    </begin>
+                  </begin>
+                  <begin>
+                    <begin loc="e,191,19,191,24">
+                      <if loc="e,192,7,192,9">
+                        <sel loc="e,192,24,192,25" dtype_id="1">
+                          <varref loc="e,192,12,192,24" name="oponent_ff_q" dtype_id="2"/>
+                          <sub loc="e,192,55,192,56" dtype_id="6">
+                            <add loc="e,192,40,192,41" dtype_id="6">
+                              <sel loc="e,192,55,192,56" dtype_id="6">
+                                <shiftl loc="e,192,37,192,38" dtype_id="7">
+                                  <extend loc="e,192,25,192,37" dtype_id="7" width="32" widthminv="3">
+                                    <varref loc="e,192,25,192,37" name="count2y_ff_q" dtype_id="3"/>
+                                  </extend>
+                                  <const loc="e,192,37,192,38" name="32&apos;h3" dtype_id="7"/>
+                                </shiftl>
+                                <const loc="e,192,55,192,56" name="32&apos;h0" dtype_id="7"/>
+                                <const loc="e,192,55,192,56" name="32&apos;h6" dtype_id="7"/>
+                              </sel>
+                              <sel loc="e,192,55,192,56" dtype_id="6">
+                                <extend loc="e,192,42,192,54" dtype_id="7" width="32" widthminv="3">
+                                  <varref loc="e,192,42,192,54" name="count2x_ff_q" dtype_id="3"/>
+                                </extend>
+                                <const loc="e,192,55,192,56" name="32&apos;h0" dtype_id="7"/>
+                                <const loc="e,192,55,192,56" name="32&apos;h6" dtype_id="7"/>
+                              </sel>
+                            </add>
+                            <const loc="e,192,55,192,56" name="6&apos;h1" dtype_id="6"/>
+                          </sub>
+                          <const loc="e,192,24,192,25" name="32&apos;h1" dtype_id="7"/>
+                        </sel>
+                        <begin>
+                          <begin loc="e,193,6,193,11">
+                            <assign loc="e,194,19,194,20" dtype_id="4">
+                              <varref loc="e,194,21,194,32" name="state2_ff_q" dtype_id="4"/>
+                              <varref loc="e,194,7,194,18" name="state2_ff_d" dtype_id="4"/>
+                            </assign>
+                            <assign loc="e,195,20,195,21" dtype_id="3">
+                              <add loc="e,195,35,195,36" dtype_id="3">
+                                <const loc="e,195,35,195,36" name="3&apos;h1" dtype_id="3"/>
+                                <varref loc="e,195,22,195,34" name="count2x_ff_q" dtype_id="3"/>
+                              </add>
+                              <varref loc="e,195,7,195,19" name="count2x_ff_d" dtype_id="3"/>
+                            </assign>
+                            <assign loc="e,196,20,196,21" dtype_id="3">
+                              <varref loc="e,196,22,196,34" name="count2y_ff_q" dtype_id="3"/>
+                              <varref loc="e,196,7,196,19" name="count2y_ff_d" dtype_id="3"/>
+                            </assign>
+                          </begin>
+                        </begin>
+                        <begin>
+                          <begin loc="e,198,11,198,16">
+                            <if loc="e,199,7,199,9">
+                              <sel loc="e,199,24,199,25" dtype_id="1">
+                                <varref loc="e,199,12,199,24" name="current_ff_q" dtype_id="2"/>
+                                <sub loc="e,199,55,199,56" dtype_id="6">
+                                  <add loc="e,199,40,199,41" dtype_id="6">
+                                    <sel loc="e,199,55,199,56" dtype_id="6">
+                                      <shiftl loc="e,199,37,199,38" dtype_id="7">
+                                        <extend loc="e,199,25,199,37" dtype_id="7" width="32" widthminv="3">
+                                          <varref loc="e,199,25,199,37" name="count2y_ff_q" dtype_id="3"/>
+                                        </extend>
+                                        <const loc="e,199,37,199,38" name="32&apos;h3" dtype_id="7"/>
+                                      </shiftl>
+                                      <const loc="e,199,55,199,56" name="32&apos;h0" dtype_id="7"/>
+                                      <const loc="e,199,55,199,56" name="32&apos;h6" dtype_id="7"/>
+                                    </sel>
+                                    <sel loc="e,199,55,199,56" dtype_id="6">
+                                      <extend loc="e,199,42,199,54" dtype_id="7" width="32" widthminv="3">
+                                        <varref loc="e,199,42,199,54" name="count2x_ff_q" dtype_id="3"/>
+                                      </extend>
+                                      <const loc="e,199,55,199,56" name="32&apos;h0" dtype_id="7"/>
+                                      <const loc="e,199,55,199,56" name="32&apos;h6" dtype_id="7"/>
+                                    </sel>
+                                  </add>
+                                  <const loc="e,199,55,199,56" name="6&apos;h1" dtype_id="6"/>
+                                </sub>
+                                <const loc="e,199,24,199,25" name="32&apos;h1" dtype_id="7"/>
+                              </sel>
+                              <begin>
+                                <begin loc="e,200,7,200,12">
+                                  <assign loc="e,201,20,201,21" dtype_id="4">
+                                    <const loc="e,201,22,201,28" name="2&apos;h3" dtype_id="4"/>
+                                    <varref loc="e,201,8,201,19" name="state2_ff_d" dtype_id="4"/>
+                                  </assign>
+                                  <assign loc="e,202,21,202,22" dtype_id="3">
+                                    <varref loc="e,202,23,202,35" name="count2x_ff_q" dtype_id="3"/>
+                                    <varref loc="e,202,8,202,20" name="count2x_ff_d" dtype_id="3"/>
+                                  </assign>
+                                  <assign loc="e,203,21,203,22" dtype_id="3">
+                                    <varref loc="e,203,23,203,35" name="count2y_ff_q" dtype_id="3"/>
+                                    <varref loc="e,203,8,203,20" name="count2y_ff_d" dtype_id="3"/>
+                                  </assign>
+                                </begin>
+                              </begin>
+                              <begin>
+                                <begin loc="e,205,12,205,17">
+                                  <assign loc="e,206,20,206,21" dtype_id="4">
+                                    <const loc="e,206,22,206,27" name="2&apos;h2" dtype_id="4"/>
+                                    <varref loc="e,206,8,206,19" name="state2_ff_d" dtype_id="4"/>
+                                  </assign>
+                                  <assign loc="e,207,21,207,22" dtype_id="3">
+                                    <varref loc="e,207,23,207,35" name="count2x_ff_q" dtype_id="3"/>
+                                    <varref loc="e,207,8,207,20" name="count2x_ff_d" dtype_id="3"/>
+                                  </assign>
+                                  <assign loc="e,208,21,208,22" dtype_id="3">
+                                    <varref loc="e,208,23,208,35" name="count2y_ff_q" dtype_id="3"/>
+                                    <varref loc="e,208,8,208,20" name="count2y_ff_d" dtype_id="3"/>
+                                  </assign>
+                                </begin>
+                              </begin>
+                            </if>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </begin>
+                </if>
+              </begin>
+            </caseitem>
+            <caseitem loc="e,213,8,213,9">
+              <const loc="e,213,3,213,8" name="2&apos;h2" dtype_id="4"/>
+              <begin loc="e,214,5,214,10">
+                <if loc="e,215,5,215,7">
+                  <eq loc="e,215,27,215,29" dtype_id="1">
+                    <add loc="e,215,22,215,23" dtype_id="7">
+                      <const loc="e,215,24,215,25" name="32&apos;sh1" dtype_id="8"/>
+                      <extend loc="e,215,9,215,21" dtype_id="7" width="32" widthminv="3">
+                        <varref loc="e,215,9,215,21" name="count2x_ff_q" dtype_id="3"/>
+                      </extend>
+                    </add>
+                    <extend loc="e,215,30,215,31" dtype_id="7" width="32" widthminv="3">
+                      <varref loc="e,215,30,215,31" name="X" dtype_id="3"/>
+                    </extend>
+                  </eq>
+                  <begin>
+                    <begin loc="e,216,5,216,10">
+                      <assign loc="e,217,18,217,19" dtype_id="4">
+                        <const loc="e,217,20,217,26" name="2&apos;h3" dtype_id="4"/>
+                        <varref loc="e,217,6,217,17" name="state2_ff_d" dtype_id="4"/>
+                      </assign>
+                      <assign loc="e,218,19,218,20" dtype_id="3">
+                        <varref loc="e,218,21,218,33" name="count2x_ff_q" dtype_id="3"/>
+                        <varref loc="e,218,6,218,18" name="count2x_ff_d" dtype_id="3"/>
+                      </assign>
+                      <assign loc="e,219,19,219,20" dtype_id="3">
+                        <varref loc="e,219,21,219,33" name="count2y_ff_q" dtype_id="3"/>
+                        <varref loc="e,219,6,219,18" name="count2y_ff_d" dtype_id="3"/>
+                      </assign>
+                    </begin>
+                  </begin>
+                  <begin>
+                    <begin loc="e,221,10,221,15">
+                      <assign loc="e,222,20,222,21" dtype_id="4">
+                        <const loc="e,222,22,222,27" name="2&apos;h2" dtype_id="4"/>
+                        <varref loc="e,222,8,222,19" name="state2_ff_d" dtype_id="4"/>
+                      </assign>
+                      <assign loc="e,223,19,223,20" dtype_id="3">
+                        <add loc="e,223,34,223,35" dtype_id="3">
+                          <const loc="e,223,34,223,35" name="3&apos;h1" dtype_id="3"/>
+                          <varref loc="e,223,21,223,33" name="count2x_ff_q" dtype_id="3"/>
+                        </add>
+                        <varref loc="e,223,6,223,18" name="count2x_ff_d" dtype_id="3"/>
+                      </assign>
+                      <assign loc="e,224,19,224,20" dtype_id="3">
+                        <varref loc="e,224,21,224,33" name="count2y_ff_q" dtype_id="3"/>
+                        <varref loc="e,224,6,224,18" name="count2y_ff_d" dtype_id="3"/>
+                      </assign>
+                    </begin>
+                  </begin>
+                </if>
+              </begin>
+            </caseitem>
+            <caseitem loc="e,227,3,227,10">
+              <begin loc="e,228,7,228,12">
+                <assign loc="e,229,16,229,17" dtype_id="4">
+                  <varref loc="e,229,18,229,29" name="state2_ff_q" dtype_id="4"/>
+                  <varref loc="e,229,4,229,15" name="state2_ff_d" dtype_id="4"/>
+                </assign>
+                <assign loc="e,230,17,230,18" dtype_id="3">
+                  <varref loc="e,230,19,230,31" name="count2x_ff_q" dtype_id="3"/>
+                  <varref loc="e,230,4,230,16" name="count2x_ff_d" dtype_id="3"/>
+                </assign>
+                <assign loc="e,231,17,231,18" dtype_id="3">
+                  <varref loc="e,231,19,231,31" name="count2y_ff_q" dtype_id="3"/>
+                  <varref loc="e,231,4,231,16" name="count2y_ff_d" dtype_id="3"/>
+                </assign>
+              </begin>
+            </caseitem>
+          </case>
+        </begin>
+      </always>
+      <always loc="e,235,1,235,7">
+        <sentree loc="e,235,8,235,9">
+          <senitem loc="e,235,10,235,17" edgeType="POS">
+            <varref loc="e,235,18,235,21" name="clk" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,236,1,236,6">
+          <if loc="e,237,2,237,4">
+            <varref loc="e,237,6,237,9" name="RST" dtype_id="1"/>
+            <begin>
+              <begin loc="e,238,2,238,7">
+                <assigndly loc="e,239,16,239,18" dtype_id="4">
+                  <const loc="e,239,19,239,24" name="2&apos;h0" dtype_id="4"/>
+                  <varref loc="e,239,5,239,15" name="state_ff_q" dtype_id="4"/>
+                </assigndly>
+                <assigndly loc="e,240,16,240,18" dtype_id="4">
+                  <const loc="e,240,19,240,24" name="2&apos;h0" dtype_id="4"/>
+                  <varref loc="e,240,4,240,15" name="state2_ff_q" dtype_id="4"/>
+                </assigndly>
+                <assigndly loc="e,241,17,241,19" dtype_id="2">
+                  <varref loc="e,241,20,241,21" name="B" dtype_id="2"/>
+                  <varref loc="e,241,4,241,16" name="current_ff_q" dtype_id="2"/>
+                </assigndly>
+                <assigndly loc="e,242,17,242,19" dtype_id="2">
+                  <varref loc="e,242,20,242,21" name="R" dtype_id="2"/>
+                  <varref loc="e,242,4,242,16" name="oponent_ff_q" dtype_id="2"/>
+                </assigndly>
+                <if loc="e,243,4,243,6">
+                  <varref loc="e,243,9,243,15" name="player" dtype_id="1"/>
+                  <begin>
+                    <begin loc="e,243,25,243,30">
+                      <assigndly loc="e,244,18,244,20" dtype_id="2">
+                        <varref loc="e,244,21,244,22" name="R" dtype_id="2"/>
+                        <varref loc="e,244,5,244,17" name="current_ff_q" dtype_id="2"/>
+                      </assigndly>
+                      <assigndly loc="e,245,18,245,20" dtype_id="2">
+                        <varref loc="e,245,21,245,22" name="B" dtype_id="2"/>
+                        <varref loc="e,245,5,245,17" name="oponent_ff_q" dtype_id="2"/>
+                      </assigndly>
+                    </begin>
+                  </begin>
+                </if>
+                <assigndly loc="e,247,15,247,17" dtype_id="3">
+                  <varref loc="e,247,18,247,19" name="X" dtype_id="3"/>
+                  <varref loc="e,247,3,247,14" name="countx_ff_q" dtype_id="3"/>
+                </assigndly>
+                <assigndly loc="e,248,15,248,17" dtype_id="3">
+                  <varref loc="e,248,18,248,19" name="Y" dtype_id="3"/>
+                  <varref loc="e,248,3,248,14" name="county_ff_q" dtype_id="3"/>
+                </assigndly>
+                <assigndly loc="e,249,16,249,18" dtype_id="3">
+                  <varref loc="e,249,19,249,20" name="X" dtype_id="3"/>
+                  <varref loc="e,249,3,249,15" name="count2x_ff_q" dtype_id="3"/>
+                </assigndly>
+                <assigndly loc="e,250,16,250,18" dtype_id="3">
+                  <varref loc="e,250,19,250,20" name="Y" dtype_id="3"/>
+                  <varref loc="e,250,3,250,15" name="count2y_ff_q" dtype_id="3"/>
+                </assigndly>
+              </begin>
+            </begin>
+            <begin>
+              <begin loc="e,252,7,252,12">
+                <assigndly loc="e,253,15,253,17" dtype_id="4">
+                  <varref loc="e,253,18,253,28" name="state_ff_d" dtype_id="4"/>
+                  <varref loc="e,253,3,253,13" name="state_ff_q" dtype_id="4"/>
+                </assigndly>
+                <assigndly loc="e,254,15,254,17" dtype_id="3">
+                  <varref loc="e,254,18,254,29" name="countx_ff_d" dtype_id="3"/>
+                  <varref loc="e,254,3,254,14" name="countx_ff_q" dtype_id="3"/>
+                </assigndly>
+                <assigndly loc="e,255,15,255,17" dtype_id="3">
+                  <varref loc="e,255,18,255,29" name="county_ff_d" dtype_id="3"/>
+                  <varref loc="e,255,3,255,14" name="county_ff_q" dtype_id="3"/>
+                </assigndly>
+                <assigndly loc="e,256,16,256,18" dtype_id="4">
+                  <varref loc="e,256,19,256,30" name="state2_ff_d" dtype_id="4"/>
+                  <varref loc="e,256,3,256,14" name="state2_ff_q" dtype_id="4"/>
+                </assigndly>
+                <assigndly loc="e,257,16,257,18" dtype_id="3">
+                  <varref loc="e,257,19,257,31" name="count2x_ff_d" dtype_id="3"/>
+                  <varref loc="e,257,3,257,15" name="count2x_ff_q" dtype_id="3"/>
+                </assigndly>
+                <assigndly loc="e,258,16,258,18" dtype_id="3">
+                  <varref loc="e,258,19,258,31" name="count2y_ff_d" dtype_id="3"/>
+                  <varref loc="e,258,3,258,15" name="count2y_ff_q" dtype_id="3"/>
+                </assigndly>
+                <assigndly loc="e,259,16,259,18" dtype_id="2">
+                  <varref loc="e,259,19,259,31" name="oponent_ff_d" dtype_id="2"/>
+                  <varref loc="e,259,3,259,15" name="oponent_ff_q" dtype_id="2"/>
+                </assigndly>
+                <assigndly loc="e,260,16,260,18" dtype_id="2">
+                  <varref loc="e,260,19,260,31" name="current_ff_d" dtype_id="2"/>
+                  <varref loc="e,260,3,260,15" name="current_ff_q" dtype_id="2"/>
+                </assigndly>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <contassign loc="e,263,11,263,12" dtype_id="2">
+        <varref loc="e,16,12,16,24" name="current_ff_q" dtype_id="2"/>
+        <varref loc="e,263,11,263,12" name="MB" dtype_id="2"/>
+      </contassign>
+      <contassign loc="e,264,11,264,12" dtype_id="2">
+        <varref loc="e,15,12,15,24" name="oponent_ff_q" dtype_id="2"/>
+        <varref loc="e,264,11,264,12" name="MR" dtype_id="2"/>
+      </contassign>
+    </module>
+    <typetable loc="a,0,0,0,0">
+      <basicdtype loc="d,46,25,46,27" id="1" name="logic"/>
+      <voiddtype loc="d,48,18,48,27" id="9"/>
+      <basicdtype loc="e,33,11,33,18" id="5" name="logic" left="0" right="0"/>
+      <basicdtype loc="e,5,7,5,8" id="2" name="logic" left="63" right="0"/>
+      <basicdtype loc="e,8,7,8,8" id="3" name="logic" left="2" right="0"/>
+      <basicdtype loc="e,25,1,25,4" id="4" name="logic" left="1" right="0"/>
+      <basicdtype loc="e,44,31,44,32" id="7" name="logic" left="31" right="0"/>
+      <basicdtype loc="e,44,19,44,20" id="6" name="logic" left="5" right="0"/>
+      <basicdtype loc="e,44,32,44,33" id="8" name="logic" left="31" right="0" signed="true"/>
+    </typetable>
+  </netlist>
+</verilator_xml>

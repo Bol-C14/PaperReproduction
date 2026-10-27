@@ -1,0 +1,84 @@
+`timescale 1ns/1ps
+module calibration_tb;
+reg reset;
+reg tx_clk;
+reg [7:0] txd;
+reg tx_dv;
+reg tx_er;
+reg tx_sop;
+reg tx_eop;
+wire [47:0] dst;
+wire [47:0] ref_dst;
+wire [47:0] src;
+wire [47:0] ref_src;
+wire [13:0] prmble_len;
+wire [13:0] ref_prmble_len;
+wire [15:0] pquant;
+wire [15:0] ref_pquant;
+wire [15:0] vlan_ctl;
+wire [15:0] ref_vlan_ctl;
+wire [15:0] len;
+wire [15:0] ref_len;
+wire [15:0] frmtype;
+wire [15:0] ref_frmtype;
+wire [7:0] payload;
+wire [7:0] ref_payload;
+wire payload_vld;
+wire ref_payload_vld;
+wire is_vlan;
+wire ref_is_vlan;
+wire is_stack_vlan;
+wire ref_is_stack_vlan;
+wire is_pause;
+wire ref_is_pause;
+wire crc_err;
+wire ref_crc_err;
+wire prmbl_err;
+wire ref_prmbl_err;
+wire len_err;
+wire ref_len_err;
+wire payload_err;
+wire ref_payload_err;
+wire frame_err;
+wire ref_frame_err;
+wire pause_op_err;
+wire ref_pause_op_err;
+wire pause_dst_err;
+wire ref_pause_dst_err;
+wire mac_err;
+wire ref_mac_err;
+wire end_err;
+wire ref_end_err;
+reg jumbo_en;
+reg data_only;
+wire frm_rcvd;
+wire ref_frm_rcvd;
+integer seed=13579; integer i; integer checks=0;integer failures=0;integer unknowns=0;
+ethmonitor dut(.reset(reset), .tx_clk(tx_clk), .txd(txd), .tx_dv(tx_dv), .tx_er(tx_er), .tx_sop(tx_sop), .tx_eop(tx_eop), .dst(dst), .src(src), .prmble_len(prmble_len), .pquant(pquant), .vlan_ctl(vlan_ctl), .len(len), .frmtype(frmtype), .payload(payload), .payload_vld(payload_vld), .is_vlan(is_vlan), .is_stack_vlan(is_stack_vlan), .is_pause(is_pause), .crc_err(crc_err), .prmbl_err(prmbl_err), .len_err(len_err), .payload_err(payload_err), .frame_err(frame_err), .pause_op_err(pause_op_err), .pause_dst_err(pause_dst_err), .mac_err(mac_err), .end_err(end_err), .jumbo_en(jumbo_en), .data_only(data_only), .frm_rcvd(frm_rcvd));
+oracle_ethmonitor golden(.reset(reset), .tx_clk(tx_clk), .txd(txd), .tx_dv(tx_dv), .tx_er(tx_er), .tx_sop(tx_sop), .tx_eop(tx_eop), .dst(ref_dst), .src(ref_src), .prmble_len(ref_prmble_len), .pquant(ref_pquant), .vlan_ctl(ref_vlan_ctl), .len(ref_len), .frmtype(ref_frmtype), .payload(ref_payload), .payload_vld(ref_payload_vld), .is_vlan(ref_is_vlan), .is_stack_vlan(ref_is_stack_vlan), .is_pause(ref_is_pause), .crc_err(ref_crc_err), .prmbl_err(ref_prmbl_err), .len_err(ref_len_err), .payload_err(ref_payload_err), .frame_err(ref_frame_err), .pause_op_err(ref_pause_op_err), .pause_dst_err(ref_pause_dst_err), .mac_err(ref_mac_err), .end_err(ref_end_err), .jumbo_en(jumbo_en), .data_only(data_only), .frm_rcvd(ref_frm_rcvd));
+initial begin
+reset = 1;
+tx_clk = 0;
+txd = 0;
+tx_dv = 0;
+tx_er = 0;
+tx_sop = 0;
+tx_eop = 0;
+jumbo_en = 0;
+data_only = 0;
+#2;
+reset = 0;
+for(i=0;i<64;i=i+1) begin
+txd = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+tx_dv = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+tx_er = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+tx_sop = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+tx_eop = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+jumbo_en = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+data_only = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+#2; tx_clk=1; #2;
+if ((^{ref_dst,ref_src,ref_prmble_len,ref_pquant,ref_vlan_ctl,ref_len,ref_frmtype,ref_payload,ref_payload_vld,ref_is_vlan,ref_is_stack_vlan,ref_is_pause,ref_crc_err,ref_prmbl_err,ref_len_err,ref_payload_err,ref_frame_err,ref_pause_op_err,ref_pause_dst_err,ref_mac_err,ref_end_err,ref_frm_rcvd}) === 1'bx || (^{dst,src,prmble_len,pquant,vlan_ctl,len,frmtype,payload,payload_vld,is_vlan,is_stack_vlan,is_pause,crc_err,prmbl_err,len_err,payload_err,frame_err,pause_op_err,pause_dst_err,mac_err,end_err,frm_rcvd}) === 1'bx) unknowns=unknowns+1; else begin checks=checks+1; if ({dst,src,prmble_len,pquant,vlan_ctl,len,frmtype,payload,payload_vld,is_vlan,is_stack_vlan,is_pause,crc_err,prmbl_err,len_err,payload_err,frame_err,pause_op_err,pause_dst_err,mac_err,end_err,frm_rcvd} !== ({ref_dst,ref_src,ref_prmble_len,ref_pquant,ref_vlan_ctl,ref_len,ref_frmtype,ref_payload,ref_payload_vld,ref_is_vlan,ref_is_stack_vlan,ref_is_pause,ref_crc_err,ref_prmbl_err,ref_len_err,ref_payload_err,ref_frame_err,ref_pause_op_err,ref_pause_dst_err,ref_mac_err,ref_end_err,ref_frm_rcvd} ^ 1'b1)) failures=failures+1; end
+tx_clk=0;
+end
+$display("CALIBRATION checks=%0d failures=%0d unknown=%0d",checks,failures,unknowns); $finish; end
+endmodule

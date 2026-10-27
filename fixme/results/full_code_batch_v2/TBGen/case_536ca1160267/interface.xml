@@ -1,0 +1,867 @@
+<?xml version="1.0" ?>
+<!-- DESCRIPTION: Verilator output: XML representation of netlist -->
+<verilator_xml>
+  <files>
+    <file id="d" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std.sv" language="1800-2023"/>
+    <file id="c" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std_waiver.vlt" language="1800-2023"/>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_536ca1160267/UART_RXSM.v" language="1800-2023"/>
+    <file id="a" filename="&lt;built-in&gt;" language="1800-2023"/>
+    <file id="b" filename="&lt;command-line&gt;" language="1800-2023"/>
+  </files>
+  <module_files>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_536ca1160267/UART_RXSM.v" language="1800-2023"/>
+  </module_files>
+  <cells>
+    <cell loc="e,3,8,3,17" name="UART_RXSM" submodname="UART_RXSM" hier="UART_RXSM"/>
+  </cells>
+  <netlist>
+    <module loc="e,3,8,3,17" name="UART_RXSM" origName="UART_RXSM" topModule="1">
+      <var loc="e,4,13,4,16" name="Rst" dtype_id="1" dir="input" pinIndex="1" vartype="logic" origName="Rst"/>
+      <var loc="e,5,13,5,16" name="Clk" dtype_id="1" dir="input" pinIndex="2" vartype="logic" origName="Clk"/>
+      <var loc="e,6,13,6,19" name="CE_16x" dtype_id="1" dir="input" pinIndex="3" vartype="logic" origName="CE_16x"/>
+      <var loc="e,7,13,7,16" name="Len" dtype_id="1" dir="input" pinIndex="4" vartype="logic" origName="Len"/>
+      <var loc="e,8,13,8,20" name="NumStop" dtype_id="1" dir="input" pinIndex="5" vartype="logic" origName="NumStop"/>
+      <var loc="e,9,13,9,18" name="ParEn" dtype_id="1" dir="input" pinIndex="6" vartype="logic" origName="ParEn"/>
+      <var loc="e,10,19,10,22" name="Par" dtype_id="2" dir="input" pinIndex="7" vartype="logic" origName="Par"/>
+      <var loc="e,11,13,11,16" name="RxD" dtype_id="1" dir="input" pinIndex="8" vartype="logic" origName="RxD"/>
+      <var loc="e,12,23,12,25" name="RD" dtype_id="3" dir="output" pinIndex="9" vartype="logic" origName="RD"/>
+      <var loc="e,13,17,13,23" name="WE_RHR" dtype_id="1" dir="output" pinIndex="10" vartype="logic" origName="WE_RHR"/>
+      <var loc="e,14,13,14,19" name="RxWait" dtype_id="1" dir="output" pinIndex="11" vartype="logic" origName="RxWait"/>
+      <var loc="e,15,13,15,19" name="RxIdle" dtype_id="1" dir="output" pinIndex="12" vartype="logic" origName="RxIdle"/>
+      <var loc="e,16,13,16,20" name="RxStart" dtype_id="1" dir="output" pinIndex="13" vartype="logic" origName="RxStart"/>
+      <var loc="e,17,13,17,20" name="RxShift" dtype_id="1" dir="output" pinIndex="14" vartype="logic" origName="RxShift"/>
+      <var loc="e,18,13,18,21" name="RxParity" dtype_id="1" dir="output" pinIndex="15" vartype="logic" origName="RxParity"/>
+      <var loc="e,19,13,19,19" name="RxStop" dtype_id="1" dir="output" pinIndex="16" vartype="logic" origName="RxStop"/>
+      <var loc="e,20,13,20,20" name="RxError" dtype_id="1" dir="output" pinIndex="17" vartype="logic" origName="RxError"/>
+      <var loc="e,22,12,22,21" name="pWaitMark" dtype_id="4" vartype="logic" origName="pWaitMark" localparam="true">
+        <const loc="e,22,26,22,27" name="32&apos;sh0" dtype_id="4"/>
+      </var>
+      <var loc="e,23,12,23,20" name="pChkMark" dtype_id="4" vartype="logic" origName="pChkMark" localparam="true">
+        <const loc="e,23,26,23,27" name="32&apos;sh1" dtype_id="4"/>
+      </var>
+      <var loc="e,24,12,24,17" name="pIdle" dtype_id="4" vartype="logic" origName="pIdle" localparam="true">
+        <const loc="e,24,26,24,27" name="32&apos;sh3" dtype_id="4"/>
+      </var>
+      <var loc="e,25,12,25,21" name="pChkStart" dtype_id="4" vartype="logic" origName="pChkStart" localparam="true">
+        <const loc="e,25,26,25,27" name="32&apos;sh2" dtype_id="4"/>
+      </var>
+      <var loc="e,26,12,26,19" name="pShift0" dtype_id="4" vartype="logic" origName="pShift0" localparam="true">
+        <const loc="e,26,25,26,27" name="32&apos;sha" dtype_id="4"/>
+      </var>
+      <var loc="e,27,12,27,19" name="pShift1" dtype_id="4" vartype="logic" origName="pShift1" localparam="true">
+        <const loc="e,27,25,27,27" name="32&apos;shb" dtype_id="4"/>
+      </var>
+      <var loc="e,28,12,28,19" name="pShift2" dtype_id="4" vartype="logic" origName="pShift2" localparam="true">
+        <const loc="e,28,26,28,27" name="32&apos;sh9" dtype_id="4"/>
+      </var>
+      <var loc="e,29,12,29,19" name="pShift3" dtype_id="4" vartype="logic" origName="pShift3" localparam="true">
+        <const loc="e,29,26,29,27" name="32&apos;sh8" dtype_id="4"/>
+      </var>
+      <var loc="e,30,12,30,19" name="pShift4" dtype_id="4" vartype="logic" origName="pShift4" localparam="true">
+        <const loc="e,30,25,30,27" name="32&apos;shc" dtype_id="4"/>
+      </var>
+      <var loc="e,31,12,31,19" name="pShift5" dtype_id="4" vartype="logic" origName="pShift5" localparam="true">
+        <const loc="e,31,25,31,27" name="32&apos;shd" dtype_id="4"/>
+      </var>
+      <var loc="e,32,12,32,19" name="pShift6" dtype_id="4" vartype="logic" origName="pShift6" localparam="true">
+        <const loc="e,32,25,32,27" name="32&apos;shf" dtype_id="4"/>
+      </var>
+      <var loc="e,33,12,33,19" name="pShift7" dtype_id="4" vartype="logic" origName="pShift7" localparam="true">
+        <const loc="e,33,25,33,27" name="32&apos;she" dtype_id="4"/>
+      </var>
+      <var loc="e,34,12,34,21" name="pChkStop1" dtype_id="4" vartype="logic" origName="pChkStop1" localparam="true">
+        <const loc="e,34,26,34,27" name="32&apos;sh6" dtype_id="4"/>
+      </var>
+      <var loc="e,35,12,35,21" name="pChkStop2" dtype_id="4" vartype="logic" origName="pChkStop2" localparam="true">
+        <const loc="e,35,26,35,27" name="32&apos;sh7" dtype_id="4"/>
+      </var>
+      <var loc="e,36,12,36,22" name="pChkParity" dtype_id="4" vartype="logic" origName="pChkParity" localparam="true">
+        <const loc="e,36,26,36,27" name="32&apos;sh5" dtype_id="4"/>
+      </var>
+      <var loc="e,37,12,37,21" name="pRcvError" dtype_id="4" vartype="logic" origName="pRcvError" localparam="true">
+        <const loc="e,37,26,37,27" name="32&apos;sh4" dtype_id="4"/>
+      </var>
+      <var loc="e,40,48,40,52" name="RxSM" dtype_id="5" vartype="logic" origName="RxSM"/>
+      <initialstatic loc="e,40,55,40,64">
+        <assign loc="e,40,55,40,64" dtype_id="5">
+          <const loc="e,40,55,40,64" name="4&apos;h0" dtype_id="5"/>
+          <varref loc="e,40,55,40,64" name="RxSM" dtype_id="5"/>
+        </assign>
+      </initialstatic>
+      <var loc="e,41,19,41,23" name="BCnt" dtype_id="5" vartype="logic" origName="BCnt"/>
+      <var loc="e,42,19,42,22" name="RSR" dtype_id="6" vartype="logic" origName="RSR"/>
+      <var loc="e,43,13,43,16" name="Err" dtype_id="1" vartype="logic" origName="Err"/>
+      <always loc="e,63,1,63,7">
+        <sentree loc="e,63,8,63,9">
+          <senitem loc="e,63,10,63,17" edgeType="POS">
+            <varref loc="e,63,18,63,21" name="Clk" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,64,1,64,6">
+          <if loc="e,65,5,65,7">
+            <varref loc="e,65,8,65,16" name="Rst_BCnt" dtype_id="1"/>
+            <begin>
+              <assigndly loc="e,66,15,66,17" dtype_id="5">
+                <const loc="e,66,21,66,28" name="4&apos;h8" dtype_id="5"/>
+                <varref loc="e,66,10,66,14" name="BCnt" dtype_id="5"/>
+                <delay loc="e,66,18,66,19">
+                  <const loc="e,66,19,66,20" name="64&apos;h1" dtype_id="7"/>
+                </delay>
+              </assigndly>
+            </begin>
+            <begin>
+              <if loc="e,67,10,67,12">
+                <varref loc="e,67,13,67,19" name="CE_16x" dtype_id="1"/>
+                <begin>
+                  <assigndly loc="e,68,15,68,17" dtype_id="5">
+                    <add loc="e,68,26,68,27" dtype_id="5">
+                      <const loc="e,68,26,68,27" name="4&apos;h1" dtype_id="5"/>
+                      <varref loc="e,68,21,68,25" name="BCnt" dtype_id="5"/>
+                    </add>
+                    <varref loc="e,68,10,68,14" name="BCnt" dtype_id="5"/>
+                    <delay loc="e,68,18,68,19">
+                      <const loc="e,68,19,68,20" name="64&apos;h1" dtype_id="7"/>
+                    </delay>
+                  </assigndly>
+                </begin>
+              </if>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <always loc="e,72,1,72,7">
+        <sentree loc="e,72,8,72,9">
+          <senitem loc="e,72,10,72,17" edgeType="POS">
+            <varref loc="e,72,18,72,21" name="Clk" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,73,1,73,6">
+          <if loc="e,74,5,74,7">
+            <varref loc="e,74,8,74,11" name="Rst" dtype_id="1"/>
+            <begin>
+              <assigndly loc="e,75,14,75,16" dtype_id="6">
+                <const loc="e,75,20,75,24" name="8&apos;h0" dtype_id="6"/>
+                <varref loc="e,75,10,75,13" name="RSR" dtype_id="6"/>
+                <delay loc="e,75,17,75,18">
+                  <const loc="e,75,18,75,19" name="64&apos;h1" dtype_id="7"/>
+                </delay>
+              </assigndly>
+            </begin>
+            <begin>
+              <if loc="e,76,10,76,12">
+                <varref loc="e,76,13,76,20" name="CE_RxSM" dtype_id="1"/>
+                <begin>
+                  <case loc="e,77,9,77,13">
+                    <extend loc="e,77,14,77,18" dtype_id="8" width="32" widthminv="4">
+                      <varref loc="e,77,14,77,18" name="RxSM" dtype_id="5"/>
+                    </extend>
+                    <caseitem loc="e,78,23,78,24">
+                      <const loc="e,78,13,78,22" name="32&apos;sh2" dtype_id="4"/>
+                      <assigndly loc="e,78,33,78,35" dtype_id="6">
+                        <const loc="e,78,39,78,43" name="8&apos;h0" dtype_id="6"/>
+                        <varref loc="e,78,26,78,29" name="RSR" dtype_id="6"/>
+                        <delay loc="e,78,36,78,37">
+                          <const loc="e,78,37,78,38" name="64&apos;h1" dtype_id="7"/>
+                        </delay>
+                      </assigndly>
+                    </caseitem>
+                    <caseitem loc="e,79,23,79,24">
+                      <const loc="e,79,13,79,20" name="32&apos;sha" dtype_id="4"/>
+                      <assigndly loc="e,79,33,79,35" dtype_id="1">
+                        <varref loc="e,79,39,79,42" name="RxD" dtype_id="1"/>
+                        <sel loc="e,79,29,79,30" dtype_id="1">
+                          <varref loc="e,79,26,79,29" name="RSR" dtype_id="6"/>
+                          <const loc="e,79,30,79,31" name="3&apos;h0" dtype_id="9"/>
+                          <const loc="e,79,29,79,30" name="32&apos;h1" dtype_id="8"/>
+                        </sel>
+                        <delay loc="e,79,36,79,37">
+                          <const loc="e,79,37,79,38" name="64&apos;h1" dtype_id="7"/>
+                        </delay>
+                      </assigndly>
+                    </caseitem>
+                    <caseitem loc="e,80,23,80,24">
+                      <const loc="e,80,13,80,20" name="32&apos;shb" dtype_id="4"/>
+                      <assigndly loc="e,80,33,80,35" dtype_id="1">
+                        <varref loc="e,80,39,80,42" name="RxD" dtype_id="1"/>
+                        <sel loc="e,80,29,80,30" dtype_id="1">
+                          <varref loc="e,80,26,80,29" name="RSR" dtype_id="6"/>
+                          <const loc="e,80,30,80,31" name="3&apos;h1" dtype_id="9"/>
+                          <const loc="e,80,29,80,30" name="32&apos;h1" dtype_id="8"/>
+                        </sel>
+                        <delay loc="e,80,36,80,37">
+                          <const loc="e,80,37,80,38" name="64&apos;h1" dtype_id="7"/>
+                        </delay>
+                      </assigndly>
+                    </caseitem>
+                    <caseitem loc="e,81,23,81,24">
+                      <const loc="e,81,13,81,20" name="32&apos;sh9" dtype_id="4"/>
+                      <assigndly loc="e,81,33,81,35" dtype_id="1">
+                        <varref loc="e,81,39,81,42" name="RxD" dtype_id="1"/>
+                        <sel loc="e,81,29,81,30" dtype_id="1">
+                          <varref loc="e,81,26,81,29" name="RSR" dtype_id="6"/>
+                          <const loc="e,81,30,81,31" name="3&apos;h2" dtype_id="9"/>
+                          <const loc="e,81,29,81,30" name="32&apos;h1" dtype_id="8"/>
+                        </sel>
+                        <delay loc="e,81,36,81,37">
+                          <const loc="e,81,37,81,38" name="64&apos;h1" dtype_id="7"/>
+                        </delay>
+                      </assigndly>
+                    </caseitem>
+                    <caseitem loc="e,82,23,82,24">
+                      <const loc="e,82,13,82,20" name="32&apos;sh8" dtype_id="4"/>
+                      <assigndly loc="e,82,33,82,35" dtype_id="1">
+                        <varref loc="e,82,39,82,42" name="RxD" dtype_id="1"/>
+                        <sel loc="e,82,29,82,30" dtype_id="1">
+                          <varref loc="e,82,26,82,29" name="RSR" dtype_id="6"/>
+                          <const loc="e,82,30,82,31" name="3&apos;h3" dtype_id="9"/>
+                          <const loc="e,82,29,82,30" name="32&apos;h1" dtype_id="8"/>
+                        </sel>
+                        <delay loc="e,82,36,82,37">
+                          <const loc="e,82,37,82,38" name="64&apos;h1" dtype_id="7"/>
+                        </delay>
+                      </assigndly>
+                    </caseitem>
+                    <caseitem loc="e,83,23,83,24">
+                      <const loc="e,83,13,83,20" name="32&apos;shc" dtype_id="4"/>
+                      <assigndly loc="e,83,33,83,35" dtype_id="1">
+                        <varref loc="e,83,39,83,42" name="RxD" dtype_id="1"/>
+                        <sel loc="e,83,29,83,30" dtype_id="1">
+                          <varref loc="e,83,26,83,29" name="RSR" dtype_id="6"/>
+                          <const loc="e,83,30,83,31" name="3&apos;h4" dtype_id="9"/>
+                          <const loc="e,83,29,83,30" name="32&apos;h1" dtype_id="8"/>
+                        </sel>
+                        <delay loc="e,83,36,83,37">
+                          <const loc="e,83,37,83,38" name="64&apos;h1" dtype_id="7"/>
+                        </delay>
+                      </assigndly>
+                    </caseitem>
+                    <caseitem loc="e,84,23,84,24">
+                      <const loc="e,84,13,84,20" name="32&apos;shd" dtype_id="4"/>
+                      <assigndly loc="e,84,33,84,35" dtype_id="1">
+                        <varref loc="e,84,39,84,42" name="RxD" dtype_id="1"/>
+                        <sel loc="e,84,29,84,30" dtype_id="1">
+                          <varref loc="e,84,26,84,29" name="RSR" dtype_id="6"/>
+                          <const loc="e,84,30,84,31" name="3&apos;h5" dtype_id="9"/>
+                          <const loc="e,84,29,84,30" name="32&apos;h1" dtype_id="8"/>
+                        </sel>
+                        <delay loc="e,84,36,84,37">
+                          <const loc="e,84,37,84,38" name="64&apos;h1" dtype_id="7"/>
+                        </delay>
+                      </assigndly>
+                    </caseitem>
+                    <caseitem loc="e,85,23,85,24">
+                      <const loc="e,85,13,85,20" name="32&apos;shf" dtype_id="4"/>
+                      <assigndly loc="e,85,33,85,35" dtype_id="1">
+                        <varref loc="e,85,39,85,42" name="RxD" dtype_id="1"/>
+                        <sel loc="e,85,29,85,30" dtype_id="1">
+                          <varref loc="e,85,26,85,29" name="RSR" dtype_id="6"/>
+                          <const loc="e,85,30,85,31" name="3&apos;h6" dtype_id="9"/>
+                          <const loc="e,85,29,85,30" name="32&apos;h1" dtype_id="8"/>
+                        </sel>
+                        <delay loc="e,85,36,85,37">
+                          <const loc="e,85,37,85,38" name="64&apos;h1" dtype_id="7"/>
+                        </delay>
+                      </assigndly>
+                    </caseitem>
+                    <caseitem loc="e,86,23,86,24">
+                      <const loc="e,86,13,86,20" name="32&apos;she" dtype_id="4"/>
+                      <assigndly loc="e,86,33,86,35" dtype_id="1">
+                        <varref loc="e,86,39,86,42" name="RxD" dtype_id="1"/>
+                        <sel loc="e,86,29,86,30" dtype_id="1">
+                          <varref loc="e,86,26,86,29" name="RSR" dtype_id="6"/>
+                          <const loc="e,86,30,86,31" name="3&apos;h7" dtype_id="9"/>
+                          <const loc="e,86,29,86,30" name="32&apos;h1" dtype_id="8"/>
+                        </sel>
+                        <delay loc="e,86,36,86,37">
+                          <const loc="e,86,37,86,38" name="64&apos;h1" dtype_id="7"/>
+                        </delay>
+                      </assigndly>
+                    </caseitem>
+                    <caseitem loc="e,87,13,87,20">
+                      <assigndly loc="e,87,33,87,35" dtype_id="6">
+                        <varref loc="e,87,39,87,42" name="RSR" dtype_id="6"/>
+                        <varref loc="e,87,26,87,29" name="RSR" dtype_id="6"/>
+                        <delay loc="e,87,36,87,37">
+                          <const loc="e,87,37,87,38" name="64&apos;h1" dtype_id="7"/>
+                        </delay>
+                      </assigndly>
+                    </caseitem>
+                  </case>
+                </begin>
+              </if>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <always loc="e,92,1,92,7">
+        <begin loc="e,93,1,93,6">
+          <case loc="e,94,5,94,9">
+            <varref loc="e,94,10,94,13" name="Par" dtype_id="2"/>
+            <caseitem loc="e,95,15,95,16">
+              <const loc="e,95,9,95,14" name="2&apos;h0" dtype_id="2"/>
+              <assigndly loc="e,95,21,95,23" dtype_id="1">
+                <varref loc="e,95,24,95,25" name="__VdfgExtracted_h2f1c888a__0" dtype_id="1"/>
+                <varref loc="e,95,17,95,20" name="Err" dtype_id="1"/>
+              </assigndly>
+            </caseitem>
+            <caseitem loc="e,96,15,96,16">
+              <const loc="e,96,9,96,14" name="2&apos;h1" dtype_id="2"/>
+              <assigndly loc="e,96,21,96,23" dtype_id="1">
+                <varref loc="e,96,24,96,25" name="__VdfgExtracted_h3fa8e829__0" dtype_id="1"/>
+                <varref loc="e,96,17,96,20" name="Err" dtype_id="1"/>
+              </assigndly>
+            </caseitem>
+            <caseitem loc="e,97,15,97,16">
+              <const loc="e,97,9,97,14" name="2&apos;h2" dtype_id="2"/>
+              <assigndly loc="e,97,21,97,23" dtype_id="1">
+                <varref loc="e,97,25,97,28" name="RxD" dtype_id="1"/>
+                <varref loc="e,97,17,97,20" name="Err" dtype_id="1"/>
+              </assigndly>
+            </caseitem>
+            <caseitem loc="e,98,15,98,16">
+              <const loc="e,98,9,98,14" name="2&apos;h3" dtype_id="2"/>
+              <assigndly loc="e,98,21,98,23" dtype_id="1">
+                <not loc="e,98,24,98,25" dtype_id="1">
+                  <varref loc="e,98,25,98,28" name="RxD" dtype_id="1"/>
+                </not>
+                <varref loc="e,98,17,98,20" name="Err" dtype_id="1"/>
+              </assigndly>
+            </caseitem>
+          </case>
+        </begin>
+      </always>
+      <always loc="e,103,1,103,7">
+        <sentree loc="e,103,8,103,9">
+          <senitem loc="e,103,10,103,17" edgeType="POS">
+            <varref loc="e,103,18,103,21" name="Clk" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,104,1,104,6">
+          <if loc="e,105,5,105,7">
+            <varref loc="e,105,8,105,11" name="Rst" dtype_id="1"/>
+            <begin>
+              <assigndly loc="e,106,13,106,15" dtype_id="3">
+                <const loc="e,106,19,106,23" name="9&apos;h0" dtype_id="3"/>
+                <varref loc="e,106,10,106,12" name="RD" dtype_id="3"/>
+                <delay loc="e,106,16,106,17">
+                  <const loc="e,106,17,106,18" name="64&apos;h1" dtype_id="7"/>
+                </delay>
+              </assigndly>
+            </begin>
+            <begin>
+              <if loc="e,107,10,107,12">
+                <varref loc="e,107,13,107,18" name="CE_RD" dtype_id="1"/>
+                <begin>
+                  <assigndly loc="e,108,13,108,15" dtype_id="3">
+                    <concat loc="e,108,39,108,40" dtype_id="3">
+                      <eq loc="e,108,26,108,28" dtype_id="1">
+                        <const loc="e,108,29,108,38" name="4&apos;h4" dtype_id="5"/>
+                        <varref loc="e,108,21,108,25" name="RxSM" dtype_id="5"/>
+                      </eq>
+                      <varref loc="e,108,41,108,44" name="RSR" dtype_id="6"/>
+                    </concat>
+                    <varref loc="e,108,10,108,12" name="RD" dtype_id="3"/>
+                    <delay loc="e,108,16,108,17">
+                      <const loc="e,108,17,108,18" name="64&apos;h1" dtype_id="7"/>
+                    </delay>
+                  </assigndly>
+                </begin>
+              </if>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <always loc="e,110,1,110,7">
+        <sentree loc="e,110,8,110,9">
+          <senitem loc="e,110,10,110,17" edgeType="POS">
+            <varref loc="e,110,18,110,21" name="Clk" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,111,1,111,6">
+          <assigndly loc="e,113,17,113,19" dtype_id="1">
+            <and loc="e,113,23,113,27" dtype_id="1">
+              <not loc="e,113,23,113,27" dtype_id="1">
+                <varref loc="e,112,8,112,11" name="Rst" dtype_id="1"/>
+              </not>
+              <varref loc="e,115,23,115,28" name="CE_RD" dtype_id="1"/>
+            </and>
+            <varref loc="e,113,10,113,16" name="WE_RHR" dtype_id="1"/>
+            <delay loc="e,113,20,113,21">
+              <const loc="e,113,21,113,22" name="64&apos;h1" dtype_id="7"/>
+            </delay>
+          </assigndly>
+        </begin>
+      </always>
+      <always loc="e,117,1,117,7">
+        <sentree loc="e,117,8,117,9">
+          <senitem loc="e,117,10,117,17" edgeType="POS">
+            <varref loc="e,117,18,117,21" name="Clk" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,118,1,118,6">
+          <if loc="e,119,5,119,7">
+            <varref loc="e,119,8,119,11" name="Rst" dtype_id="1"/>
+            <begin>
+              <assigndly loc="e,120,15,120,17" dtype_id="5">
+                <const loc="e,120,21,120,30" name="4&apos;h0" dtype_id="5"/>
+                <varref loc="e,120,10,120,14" name="RxSM" dtype_id="5"/>
+                <delay loc="e,120,18,120,19">
+                  <const loc="e,120,19,120,20" name="64&apos;h1" dtype_id="7"/>
+                </delay>
+              </assigndly>
+            </begin>
+            <begin>
+              <if loc="e,121,10,121,12">
+                <varref loc="e,121,13,121,20" name="CE_RxSM" dtype_id="1"/>
+                <begin>
+                  <case loc="e,122,9,122,13">
+                    <extend loc="e,122,14,122,18" dtype_id="8" width="32" widthminv="4">
+                      <varref loc="e,122,14,122,18" name="RxSM" dtype_id="5"/>
+                    </extend>
+                    <caseitem loc="e,123,24,123,25">
+                      <const loc="e,123,13,123,22" name="32&apos;sh0" dtype_id="4"/>
+                      <assigndly loc="e,123,32,123,34" dtype_id="5">
+                        <sel loc="e,123,44,123,45" dtype_id="5">
+                          <cond loc="e,123,44,123,45" dtype_id="4">
+                            <varref loc="e,123,40,123,43" name="RxD" dtype_id="1"/>
+                            <const loc="e,123,46,123,54" name="32&apos;sh1" dtype_id="4"/>
+                            <const loc="e,124,46,124,55" name="32&apos;sh0" dtype_id="4"/>
+                          </cond>
+                          <const loc="e,123,44,123,45" name="32&apos;h0" dtype_id="8"/>
+                          <const loc="e,123,44,123,45" name="32&apos;h4" dtype_id="8"/>
+                        </sel>
+                        <varref loc="e,123,27,123,31" name="RxSM" dtype_id="5"/>
+                        <delay loc="e,123,35,123,36">
+                          <const loc="e,123,36,123,37" name="64&apos;h1" dtype_id="7"/>
+                        </delay>
+                      </assigndly>
+                    </caseitem>
+                    <caseitem loc="e,125,24,125,25">
+                      <const loc="e,125,13,125,21" name="32&apos;sh1" dtype_id="4"/>
+                      <assigndly loc="e,125,32,125,34" dtype_id="5">
+                        <sel loc="e,125,44,125,45" dtype_id="5">
+                          <cond loc="e,125,44,125,45" dtype_id="4">
+                            <varref loc="e,125,40,125,43" name="RxD" dtype_id="1"/>
+                            <const loc="e,125,46,125,51" name="32&apos;sh3" dtype_id="4"/>
+                            <const loc="e,126,46,126,55" name="32&apos;sh0" dtype_id="4"/>
+                          </cond>
+                          <const loc="e,125,44,125,45" name="32&apos;h0" dtype_id="8"/>
+                          <const loc="e,125,44,125,45" name="32&apos;h4" dtype_id="8"/>
+                        </sel>
+                        <varref loc="e,125,27,125,31" name="RxSM" dtype_id="5"/>
+                        <delay loc="e,125,35,125,36">
+                          <const loc="e,125,36,125,37" name="64&apos;h1" dtype_id="7"/>
+                        </delay>
+                      </assigndly>
+                    </caseitem>
+                    <caseitem loc="e,127,24,127,25">
+                      <const loc="e,127,13,127,18" name="32&apos;sh3" dtype_id="4"/>
+                      <assigndly loc="e,127,32,127,34" dtype_id="5">
+                        <sel loc="e,127,44,127,45" dtype_id="5">
+                          <cond loc="e,127,44,127,45" dtype_id="4">
+                            <varref loc="e,127,40,127,43" name="RxD" dtype_id="1"/>
+                            <const loc="e,128,46,128,51" name="32&apos;sh3" dtype_id="4"/>
+                            <const loc="e,127,46,127,55" name="32&apos;sh2" dtype_id="4"/>
+                          </cond>
+                          <const loc="e,127,44,127,45" name="32&apos;h0" dtype_id="8"/>
+                          <const loc="e,127,44,127,45" name="32&apos;h4" dtype_id="8"/>
+                        </sel>
+                        <varref loc="e,127,27,127,31" name="RxSM" dtype_id="5"/>
+                        <delay loc="e,127,35,127,36">
+                          <const loc="e,127,36,127,37" name="64&apos;h1" dtype_id="7"/>
+                        </delay>
+                      </assigndly>
+                    </caseitem>
+                    <caseitem loc="e,129,24,129,25">
+                      <const loc="e,129,13,129,22" name="32&apos;sh2" dtype_id="4"/>
+                      <assigndly loc="e,129,32,129,34" dtype_id="5">
+                        <sel loc="e,129,44,129,45" dtype_id="5">
+                          <cond loc="e,129,44,129,45" dtype_id="4">
+                            <varref loc="e,129,40,129,43" name="RxD" dtype_id="1"/>
+                            <const loc="e,129,46,129,51" name="32&apos;sh3" dtype_id="4"/>
+                            <const loc="e,130,46,130,53" name="32&apos;sha" dtype_id="4"/>
+                          </cond>
+                          <const loc="e,129,44,129,45" name="32&apos;h0" dtype_id="8"/>
+                          <const loc="e,129,44,129,45" name="32&apos;h4" dtype_id="8"/>
+                        </sel>
+                        <varref loc="e,129,27,129,31" name="RxSM" dtype_id="5"/>
+                        <delay loc="e,129,35,129,36">
+                          <const loc="e,129,36,129,37" name="64&apos;h1" dtype_id="7"/>
+                        </delay>
+                      </assigndly>
+                    </caseitem>
+                    <caseitem loc="e,131,24,131,25">
+                      <const loc="e,131,13,131,20" name="32&apos;sha" dtype_id="4"/>
+                      <assigndly loc="e,131,32,131,34" dtype_id="5">
+                        <const loc="e,131,38,131,45" name="4&apos;hb" dtype_id="5"/>
+                        <varref loc="e,131,27,131,31" name="RxSM" dtype_id="5"/>
+                        <delay loc="e,131,35,131,36">
+                          <const loc="e,131,36,131,37" name="64&apos;h1" dtype_id="7"/>
+                        </delay>
+                      </assigndly>
+                    </caseitem>
+                    <caseitem loc="e,132,24,132,25">
+                      <const loc="e,132,13,132,20" name="32&apos;shb" dtype_id="4"/>
+                      <assigndly loc="e,132,32,132,34" dtype_id="5">
+                        <const loc="e,132,38,132,45" name="4&apos;h9" dtype_id="5"/>
+                        <varref loc="e,132,27,132,31" name="RxSM" dtype_id="5"/>
+                        <delay loc="e,132,35,132,36">
+                          <const loc="e,132,36,132,37" name="64&apos;h1" dtype_id="7"/>
+                        </delay>
+                      </assigndly>
+                    </caseitem>
+                    <caseitem loc="e,133,24,133,25">
+                      <const loc="e,133,13,133,20" name="32&apos;sh9" dtype_id="4"/>
+                      <assigndly loc="e,133,32,133,34" dtype_id="5">
+                        <const loc="e,133,38,133,45" name="4&apos;h8" dtype_id="5"/>
+                        <varref loc="e,133,27,133,31" name="RxSM" dtype_id="5"/>
+                        <delay loc="e,133,35,133,36">
+                          <const loc="e,133,36,133,37" name="64&apos;h1" dtype_id="7"/>
+                        </delay>
+                      </assigndly>
+                    </caseitem>
+                    <caseitem loc="e,134,24,134,25">
+                      <const loc="e,134,13,134,20" name="32&apos;sh8" dtype_id="4"/>
+                      <assigndly loc="e,134,32,134,34" dtype_id="5">
+                        <const loc="e,134,38,134,45" name="4&apos;hc" dtype_id="5"/>
+                        <varref loc="e,134,27,134,31" name="RxSM" dtype_id="5"/>
+                        <delay loc="e,134,35,134,36">
+                          <const loc="e,134,36,134,37" name="64&apos;h1" dtype_id="7"/>
+                        </delay>
+                      </assigndly>
+                    </caseitem>
+                    <caseitem loc="e,135,24,135,25">
+                      <const loc="e,135,13,135,20" name="32&apos;shc" dtype_id="4"/>
+                      <assigndly loc="e,135,32,135,34" dtype_id="5">
+                        <const loc="e,135,38,135,45" name="4&apos;hd" dtype_id="5"/>
+                        <varref loc="e,135,27,135,31" name="RxSM" dtype_id="5"/>
+                        <delay loc="e,135,35,135,36">
+                          <const loc="e,135,36,135,37" name="64&apos;h1" dtype_id="7"/>
+                        </delay>
+                      </assigndly>
+                    </caseitem>
+                    <caseitem loc="e,136,24,136,25">
+                      <const loc="e,136,13,136,20" name="32&apos;shd" dtype_id="4"/>
+                      <assigndly loc="e,136,32,136,34" dtype_id="5">
+                        <const loc="e,136,38,136,45" name="4&apos;hf" dtype_id="5"/>
+                        <varref loc="e,136,27,136,31" name="RxSM" dtype_id="5"/>
+                        <delay loc="e,136,35,136,36">
+                          <const loc="e,136,36,136,37" name="64&apos;h1" dtype_id="7"/>
+                        </delay>
+                      </assigndly>
+                    </caseitem>
+                    <caseitem loc="e,137,24,137,25">
+                      <const loc="e,137,13,137,20" name="32&apos;shf" dtype_id="4"/>
+                      <assigndly loc="e,137,32,137,34" dtype_id="5">
+                        <sel loc="e,137,46,137,47" dtype_id="5">
+                          <cond loc="e,137,46,137,47" dtype_id="4">
+                            <varref loc="e,137,39,137,42" name="Len" dtype_id="1"/>
+                            <const loc="e,137,48,137,58" name="32&apos;sh5" dtype_id="4"/>
+                            <const loc="e,138,48,138,55" name="32&apos;she" dtype_id="4"/>
+                          </cond>
+                          <const loc="e,137,46,137,47" name="32&apos;h0" dtype_id="8"/>
+                          <const loc="e,137,46,137,47" name="32&apos;h4" dtype_id="8"/>
+                        </sel>
+                        <varref loc="e,137,27,137,31" name="RxSM" dtype_id="5"/>
+                        <delay loc="e,137,35,137,36">
+                          <const loc="e,137,36,137,37" name="64&apos;h1" dtype_id="7"/>
+                        </delay>
+                      </assigndly>
+                    </caseitem>
+                    <caseitem loc="e,139,24,139,25">
+                      <const loc="e,139,13,139,20" name="32&apos;she" dtype_id="4"/>
+                      <assigndly loc="e,139,32,139,34" dtype_id="5">
+                        <sel loc="e,139,46,139,47" dtype_id="5">
+                          <cond loc="e,139,46,139,47" dtype_id="4">
+                            <varref loc="e,139,39,139,44" name="ParEn" dtype_id="1"/>
+                            <const loc="e,139,48,139,58" name="32&apos;sh5" dtype_id="4"/>
+                            <cond loc="e,140,57,140,58" dtype_id="4">
+                              <varref loc="e,140,49,140,56" name="NumStop" dtype_id="1"/>
+                              <const loc="e,140,59,140,68" name="32&apos;sh7" dtype_id="4"/>
+                              <const loc="e,141,59,141,68" name="32&apos;sh6" dtype_id="4"/>
+                            </cond>
+                          </cond>
+                          <const loc="e,139,46,139,47" name="32&apos;h0" dtype_id="8"/>
+                          <const loc="e,139,46,139,47" name="32&apos;h4" dtype_id="8"/>
+                        </sel>
+                        <varref loc="e,139,27,139,31" name="RxSM" dtype_id="5"/>
+                        <delay loc="e,139,35,139,36">
+                          <const loc="e,139,36,139,37" name="64&apos;h1" dtype_id="7"/>
+                        </delay>
+                      </assigndly>
+                    </caseitem>
+                    <caseitem loc="e,142,24,142,25">
+                      <const loc="e,142,13,142,23" name="32&apos;sh5" dtype_id="4"/>
+                      <assigndly loc="e,142,32,142,34" dtype_id="5">
+                        <sel loc="e,142,46,142,47" dtype_id="5">
+                          <cond loc="e,142,46,142,47" dtype_id="4">
+                            <varref loc="e,142,39,142,45" name="ParErr" dtype_id="1"/>
+                            <const loc="e,142,48,142,57" name="32&apos;sh4" dtype_id="4"/>
+                            <cond loc="e,143,57,143,58" dtype_id="4">
+                              <varref loc="e,143,49,143,56" name="NumStop" dtype_id="1"/>
+                              <const loc="e,143,59,143,68" name="32&apos;sh7" dtype_id="4"/>
+                              <const loc="e,144,59,144,68" name="32&apos;sh6" dtype_id="4"/>
+                            </cond>
+                          </cond>
+                          <const loc="e,142,46,142,47" name="32&apos;h0" dtype_id="8"/>
+                          <const loc="e,142,46,142,47" name="32&apos;h4" dtype_id="8"/>
+                        </sel>
+                        <varref loc="e,142,27,142,31" name="RxSM" dtype_id="5"/>
+                        <delay loc="e,142,35,142,36">
+                          <const loc="e,142,36,142,37" name="64&apos;h1" dtype_id="7"/>
+                        </delay>
+                      </assigndly>
+                    </caseitem>
+                    <caseitem loc="e,145,24,145,25">
+                      <const loc="e,145,13,145,22" name="32&apos;sh7" dtype_id="4"/>
+                      <assigndly loc="e,145,32,145,34" dtype_id="5">
+                        <sel loc="e,145,43,145,44" dtype_id="5">
+                          <cond loc="e,145,43,145,44" dtype_id="4">
+                            <varref loc="e,145,39,145,42" name="RxD" dtype_id="1"/>
+                            <const loc="e,145,45,145,54" name="32&apos;sh6" dtype_id="4"/>
+                            <const loc="e,146,45,146,54" name="32&apos;sh4" dtype_id="4"/>
+                          </cond>
+                          <const loc="e,145,43,145,44" name="32&apos;h0" dtype_id="8"/>
+                          <const loc="e,145,43,145,44" name="32&apos;h4" dtype_id="8"/>
+                        </sel>
+                        <varref loc="e,145,27,145,31" name="RxSM" dtype_id="5"/>
+                        <delay loc="e,145,35,145,36">
+                          <const loc="e,145,36,145,37" name="64&apos;h1" dtype_id="7"/>
+                        </delay>
+                      </assigndly>
+                    </caseitem>
+                    <caseitem loc="e,147,24,147,25">
+                      <const loc="e,147,13,147,22" name="32&apos;sh6" dtype_id="4"/>
+                      <assigndly loc="e,147,32,147,34" dtype_id="5">
+                        <sel loc="e,147,43,147,44" dtype_id="5">
+                          <cond loc="e,147,43,147,44" dtype_id="4">
+                            <varref loc="e,147,39,147,42" name="RxD" dtype_id="1"/>
+                            <const loc="e,147,45,147,50" name="32&apos;sh3" dtype_id="4"/>
+                            <const loc="e,148,45,148,54" name="32&apos;sh4" dtype_id="4"/>
+                          </cond>
+                          <const loc="e,147,43,147,44" name="32&apos;h0" dtype_id="8"/>
+                          <const loc="e,147,43,147,44" name="32&apos;h4" dtype_id="8"/>
+                        </sel>
+                        <varref loc="e,147,27,147,31" name="RxSM" dtype_id="5"/>
+                        <delay loc="e,147,35,147,36">
+                          <const loc="e,147,36,147,37" name="64&apos;h1" dtype_id="7"/>
+                        </delay>
+                      </assigndly>
+                    </caseitem>
+                    <caseitem loc="e,149,24,149,25">
+                      <const loc="e,149,13,149,22" name="32&apos;sh4" dtype_id="4"/>
+                      <assigndly loc="e,149,32,149,34" dtype_id="5">
+                        <const loc="e,149,38,149,47" name="4&apos;h0" dtype_id="5"/>
+                        <varref loc="e,149,27,149,31" name="RxSM" dtype_id="5"/>
+                        <delay loc="e,149,35,149,36">
+                          <const loc="e,149,36,149,37" name="64&apos;h1" dtype_id="7"/>
+                        </delay>
+                      </assigndly>
+                    </caseitem>
+                    <caseitem loc="e,150,13,150,20">
+                      <assigndly loc="e,150,32,150,34" dtype_id="5">
+                        <const loc="e,150,38,150,47" name="4&apos;h0" dtype_id="5"/>
+                        <varref loc="e,150,27,150,31" name="RxSM" dtype_id="5"/>
+                        <delay loc="e,150,35,150,36">
+                          <const loc="e,150,36,150,37" name="64&apos;h1" dtype_id="7"/>
+                        </delay>
+                      </assigndly>
+                    </caseitem>
+                  </case>
+                </begin>
+              </if>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <var loc="e,62,8,62,16" name="Rst_BCnt" dtype_id="1" vartype="logic" origName="Rst_BCnt"/>
+      <var loc="e,71,8,71,15" name="CE_RxSM" dtype_id="1" vartype="logic" origName="CE_RxSM"/>
+      <var loc="e,101,8,101,14" name="ParErr" dtype_id="1" vartype="logic" origName="ParErr"/>
+      <var loc="e,102,8,102,13" name="CE_RD" dtype_id="1" vartype="logic" origName="CE_RD"/>
+      <var loc="e,95,24,95,25" name="__VdfgExtracted_h2f1c888a__0" dtype_id="1" vartype="logic" origName="__VdfgExtracted_h2f1c888a__0"/>
+      <var loc="e,96,24,96,25" name="__VdfgExtracted_h3fa8e829__0" dtype_id="1" vartype="logic" origName="__VdfgExtracted_h3fa8e829__0"/>
+      <var loc="e,60,25,60,27" name="__VdfgRegularize_h2dcc531e_0_0" dtype_id="1" vartype="logic" origName="__VdfgRegularize_h2dcc531e_0_0"/>
+      <contassign loc="e,48,17,48,18" dtype_id="1">
+        <or loc="e,45,21,45,22" dtype_id="1">
+          <eq loc="e,44,29,44,31" dtype_id="1">
+            <const loc="e,44,32,44,41" name="4&apos;h0" dtype_id="5"/>
+            <varref loc="e,40,48,40,52" name="RxSM" dtype_id="5"/>
+          </eq>
+          <or loc="e,46,21,46,22" dtype_id="1">
+            <eq loc="e,45,29,45,31" dtype_id="1">
+              <const loc="e,45,32,45,40" name="4&apos;h1" dtype_id="5"/>
+              <varref loc="e,40,48,40,52" name="RxSM" dtype_id="5"/>
+            </eq>
+            <or loc="e,47,21,47,22" dtype_id="1">
+              <varref loc="e,15,13,15,19" name="RxIdle" dtype_id="1"/>
+              <varref loc="e,20,13,20,20" name="RxError" dtype_id="1"/>
+            </or>
+          </or>
+        </or>
+        <varref loc="e,48,17,48,18" name="RxWait" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,49,17,49,18" dtype_id="1">
+        <eq loc="e,46,29,46,31" dtype_id="1">
+          <const loc="e,46,32,46,37" name="4&apos;h3" dtype_id="5"/>
+          <varref loc="e,40,48,40,52" name="RxSM" dtype_id="5"/>
+        </eq>
+        <varref loc="e,49,17,49,18" name="RxIdle" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,50,17,50,18" dtype_id="1">
+        <eq loc="e,50,25,50,27" dtype_id="1">
+          <const loc="e,50,28,50,37" name="4&apos;h2" dtype_id="5"/>
+          <varref loc="e,40,48,40,52" name="RxSM" dtype_id="5"/>
+        </eq>
+        <varref loc="e,50,17,50,18" name="RxStart" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,51,17,51,18" dtype_id="1">
+        <or loc="e,52,20,52,21" dtype_id="1">
+          <eq loc="e,51,28,51,30" dtype_id="1">
+            <const loc="e,51,31,51,38" name="4&apos;ha" dtype_id="5"/>
+            <varref loc="e,40,48,40,52" name="RxSM" dtype_id="5"/>
+          </eq>
+          <or loc="e,53,20,53,21" dtype_id="1">
+            <eq loc="e,52,28,52,30" dtype_id="1">
+              <const loc="e,52,31,52,38" name="4&apos;hb" dtype_id="5"/>
+              <varref loc="e,40,48,40,52" name="RxSM" dtype_id="5"/>
+            </eq>
+            <or loc="e,54,20,54,21" dtype_id="1">
+              <eq loc="e,53,28,53,30" dtype_id="1">
+                <const loc="e,53,31,53,38" name="4&apos;h9" dtype_id="5"/>
+                <varref loc="e,40,48,40,52" name="RxSM" dtype_id="5"/>
+              </eq>
+              <or loc="e,55,20,55,21" dtype_id="1">
+                <eq loc="e,54,28,54,30" dtype_id="1">
+                  <const loc="e,54,31,54,38" name="4&apos;h8" dtype_id="5"/>
+                  <varref loc="e,40,48,40,52" name="RxSM" dtype_id="5"/>
+                </eq>
+                <or loc="e,56,20,56,21" dtype_id="1">
+                  <eq loc="e,55,28,55,30" dtype_id="1">
+                    <const loc="e,55,31,55,38" name="4&apos;hc" dtype_id="5"/>
+                    <varref loc="e,40,48,40,52" name="RxSM" dtype_id="5"/>
+                  </eq>
+                  <or loc="e,57,20,57,21" dtype_id="1">
+                    <eq loc="e,56,28,56,30" dtype_id="1">
+                      <const loc="e,56,31,56,38" name="4&apos;hd" dtype_id="5"/>
+                      <varref loc="e,40,48,40,52" name="RxSM" dtype_id="5"/>
+                    </eq>
+                    <or loc="e,58,20,58,21" dtype_id="1">
+                      <eq loc="e,57,28,57,30" dtype_id="1">
+                        <const loc="e,57,31,57,38" name="4&apos;hf" dtype_id="5"/>
+                        <varref loc="e,40,48,40,52" name="RxSM" dtype_id="5"/>
+                      </eq>
+                      <eq loc="e,58,28,58,30" dtype_id="1">
+                        <const loc="e,58,31,58,38" name="4&apos;he" dtype_id="5"/>
+                        <varref loc="e,40,48,40,52" name="RxSM" dtype_id="5"/>
+                      </eq>
+                    </or>
+                  </or>
+                </or>
+              </or>
+            </or>
+          </or>
+        </or>
+        <varref loc="e,51,17,51,18" name="RxShift" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,59,17,59,18" dtype_id="1">
+        <eq loc="e,59,25,59,27" dtype_id="1">
+          <const loc="e,59,28,59,38" name="4&apos;h5" dtype_id="5"/>
+          <varref loc="e,40,48,40,52" name="RxSM" dtype_id="5"/>
+        </eq>
+        <varref loc="e,59,17,59,18" name="RxParity" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,60,17,60,18" dtype_id="1">
+        <or loc="e,60,39,60,40" dtype_id="1">
+          <varref loc="e,60,25,60,27" name="__VdfgRegularize_h2dcc531e_0_0" dtype_id="1"/>
+          <eq loc="e,60,47,60,49" dtype_id="1">
+            <const loc="e,60,50,60,59" name="4&apos;h7" dtype_id="5"/>
+            <varref loc="e,40,48,40,52" name="RxSM" dtype_id="5"/>
+          </eq>
+        </or>
+        <varref loc="e,60,17,60,18" name="RxStop" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,61,17,61,18" dtype_id="1">
+        <eq loc="e,47,29,47,31" dtype_id="1">
+          <const loc="e,47,32,47,41" name="4&apos;h4" dtype_id="5"/>
+          <varref loc="e,40,48,40,52" name="RxSM" dtype_id="5"/>
+        </eq>
+        <varref loc="e,61,17,61,18" name="RxError" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,62,17,62,18" dtype_id="1">
+        <or loc="e,62,23,62,24" dtype_id="1">
+          <varref loc="e,4,13,4,16" name="Rst" dtype_id="1"/>
+          <varref loc="e,14,13,14,19" name="RxWait" dtype_id="1"/>
+        </or>
+        <varref loc="e,62,17,62,18" name="Rst_BCnt" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,71,16,71,17" dtype_id="1">
+        <cond loc="e,71,29,71,30" dtype_id="1">
+          <varref loc="e,14,13,14,19" name="RxWait" dtype_id="1"/>
+          <varref loc="e,6,13,6,19" name="CE_16x" dtype_id="1"/>
+          <and loc="e,70,25,70,26" dtype_id="1">
+            <varref loc="e,6,13,6,19" name="CE_16x" dtype_id="1"/>
+            <eq loc="e,70,33,70,35" dtype_id="1">
+              <const loc="e,70,36,70,43" name="4&apos;hf" dtype_id="5"/>
+              <varref loc="e,41,19,41,23" name="BCnt" dtype_id="5"/>
+            </eq>
+          </and>
+        </cond>
+        <varref loc="e,71,16,71,17" name="CE_RxSM" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,95,24,95,25" dtype_id="1">
+        <not loc="e,91,17,91,18" dtype_id="1">
+          <varref loc="e,96,24,96,25" name="__VdfgExtracted_h3fa8e829__0" dtype_id="1"/>
+        </not>
+        <varref loc="e,95,24,95,25" name="__VdfgExtracted_h2f1c888a__0" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,96,24,96,25" dtype_id="1">
+        <xor loc="e,90,17,90,18" dtype_id="1">
+          <varref loc="e,11,13,11,16" name="RxD" dtype_id="1"/>
+          <redxor loc="e,90,17,90,18" dtype_id="1">
+            <varref loc="e,42,19,42,22" name="RSR" dtype_id="6"/>
+          </redxor>
+        </xor>
+        <varref loc="e,96,24,96,25" name="__VdfgExtracted_h3fa8e829__0" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,102,14,102,15" dtype_id="1">
+        <and loc="e,102,24,102,25" dtype_id="1">
+          <varref loc="e,71,8,71,15" name="CE_RxSM" dtype_id="1"/>
+          <or loc="e,102,55,102,56" dtype_id="1">
+            <and loc="e,102,48,102,49" dtype_id="1">
+              <varref loc="e,60,25,60,27" name="__VdfgRegularize_h2dcc531e_0_0" dtype_id="1"/>
+              <varref loc="e,11,13,11,16" name="RxD" dtype_id="1"/>
+            </and>
+            <varref loc="e,20,13,20,20" name="RxError" dtype_id="1"/>
+          </or>
+        </and>
+        <varref loc="e,102,14,102,15" name="CE_RD" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,101,15,101,16" dtype_id="1">
+        <and loc="e,101,21,101,22" dtype_id="1">
+          <varref loc="e,43,13,43,16" name="Err" dtype_id="1"/>
+          <varref loc="e,18,13,18,21" name="RxParity" dtype_id="1"/>
+        </and>
+        <varref loc="e,101,15,101,16" name="ParErr" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,60,25,60,27" dtype_id="1">
+        <eq loc="e,60,25,60,27" dtype_id="1">
+          <const loc="e,60,28,60,37" name="4&apos;h6" dtype_id="5"/>
+          <varref loc="e,40,48,40,52" name="RxSM" dtype_id="5"/>
+        </eq>
+        <varref loc="e,60,25,60,27" name="__VdfgRegularize_h2dcc531e_0_0" dtype_id="1"/>
+      </contassign>
+    </module>
+    <typetable loc="a,0,0,0,0">
+      <basicdtype loc="d,46,25,46,27" id="1" name="logic"/>
+      <voiddtype loc="d,48,18,48,27" id="10"/>
+      <basicdtype loc="e,90,18,90,19" id="8" name="logic" left="31" right="0"/>
+      <basicdtype loc="e,10,13,10,14" id="2" name="logic" left="1" right="0"/>
+      <basicdtype loc="e,12,13,12,16" id="3" name="logic" left="8" right="0"/>
+      <basicdtype loc="e,40,38,40,41" id="5" name="logic" left="3" right="0"/>
+      <basicdtype loc="e,42,5,42,8" id="6" name="logic" left="7" right="0"/>
+      <basicdtype loc="e,66,18,66,19" id="7" name="logic" left="63" right="0"/>
+      <basicdtype loc="e,79,29,79,30" id="9" name="logic" left="2" right="0" signed="true"/>
+      <basicdtype loc="e,22,26,22,27" id="4" name="logic" left="31" right="0" signed="true"/>
+    </typetable>
+  </netlist>
+</verilator_xml>

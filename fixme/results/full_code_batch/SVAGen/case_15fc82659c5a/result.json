@@ -1,0 +1,30 @@
+{
+  "id": "SVAGen/L3/Text/7",
+  "subset": "SVAGen",
+  "input_files": [
+    {
+      "name": "ct_ifu_btb_556.txt",
+      "bytes": 33804,
+      "sha256": "bb931f058af6d0ac93db3ca5549cdd93207d9e69e687b886860c281396474c65"
+    },
+    {
+      "name": "ct_ifu_btb_556.v",
+      "bytes": 21530,
+      "sha256": "a559969a3aee415684cae0f72247b74ee5800a73d62817f5e20e658b9ab05687"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": null,
+  "negative_control_detected": null,
+  "commands": 0,
+  "status": "unknown",
+  "assertion": "always @* assert((btb_ifdp_way0_target[19:0]) == ((btb_mem_way0_valid)\n                                  ? btb_mem_way0_target_pc[19:0]\n                                  : btb_buf_target_pc[19:0]));",
+  "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+  "relation_lhs": "btb_ifdp_way0_target[19:0]",
+  "property_counts": null,
+  "reason": "reference proof baseline: wall timeout",
+  "seconds": 150.211
+}

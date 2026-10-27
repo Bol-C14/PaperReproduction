@@ -1,0 +1,38 @@
+{
+  "id": "SVAGen/L3/Text/5",
+  "subset": "SVAGen",
+  "input_files": [
+    {
+      "name": "ct_lsu_pfu_sdb_cmp_389.txt",
+      "bytes": 25783,
+      "sha256": "f5afc31719ca05855927f6d3fa8873cf43098910c6c2de6ed4a5704a9326ee5d"
+    },
+    {
+      "name": "ct_lsu_pfu_sdb_cmp_389.v",
+      "bytes": 15721,
+      "sha256": "71d36e785b26b3361ce770f0a5ba11cee83d56c154e434bdcd608a7c6316a194"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": true,
+  "negative_control_detected": true,
+  "commands": 4,
+  "status": "pass",
+  "assertion": "always @* assert((entry_normal_stride) == (!entry_stride_0to1_zero\n                                      &&  !entry_stride_0to1_cross_2k\n                                      &&  entry_stride_diff_eq));",
+  "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+  "relation_lhs": "entry_normal_stride",
+  "property_counts": {
+    "assert": 1,
+    "assume": 0,
+    "cover": 0
+  },
+  "constant_mutation_status": "completed",
+  "constant_mutation_killed": false,
+  "negative_status": "fail",
+  "constant_control_status": "unknown",
+  "reason": "nonzero properties proven and selected output mutant falsified",
+  "seconds": 0.537
+}

@@ -94,5 +94,5 @@ def formal_score(event, log, counts, mutation_killed=None):
     if 'SUCCESS!' not in log:
         return dict(status='unknown', functional_pass=None, reason='no recognized proof completion')
     if mutation_killed is not True:
-        return dict(status='unknown', functional_pass=None, reason='vacuity/adequacy gate: selected CRC output mutant was not falsified')
+        return dict(status='unknown', functional_pass=None, reason='vacuity/adequacy gate: selected output mutant was not falsified')
     return dict(status='pass', functional_pass=True, reason='nonzero properties proven and selected output mutant falsified')

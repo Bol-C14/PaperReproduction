@@ -1,0 +1,140 @@
+<?xml version="1.0" ?>
+<!-- DESCRIPTION: Verilator output: XML representation of netlist -->
+<verilator_xml>
+  <files>
+    <file id="d" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std.sv" language="1800-2023"/>
+    <file id="c" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std_waiver.vlt" language="1800-2023"/>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_e6c36a89a6db/fasm_dparam.v" language="1800-2023"/>
+    <file id="a" filename="&lt;built-in&gt;" language="1800-2023"/>
+    <file id="b" filename="&lt;command-line&gt;" language="1800-2023"/>
+  </files>
+  <module_files>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_e6c36a89a6db/fasm_dparam.v" language="1800-2023"/>
+  </module_files>
+  <cells>
+    <cell loc="e,3,8,3,19" name="fasm_dparam" submodname="fasm_dparam" hier="fasm_dparam"/>
+  </cells>
+  <netlist>
+    <module loc="e,3,8,3,19" name="fasm_dparam" origName="fasm_dparam" topModule="1">
+      <var loc="e,10,20,10,25" name="dat_o" dtype_id="1" dir="output" pinIndex="1" vartype="logic" origName="dat_o"/>
+      <var loc="e,17,20,17,26" name="xdat_o" dtype_id="1" dir="output" pinIndex="2" vartype="logic" origName="xdat_o"/>
+      <var loc="e,11,20,11,25" name="dat_i" dtype_id="1" dir="input" pinIndex="3" vartype="logic" origName="dat_i"/>
+      <var loc="e,12,20,12,25" name="adr_i" dtype_id="2" dir="input" pinIndex="4" vartype="logic" origName="adr_i"/>
+      <var loc="e,13,14,13,19" name="wre_i" dtype_id="3" dir="input" pinIndex="5" vartype="logic" origName="wre_i"/>
+      <var loc="e,14,14,14,19" name="stb_i" dtype_id="3" dir="input" pinIndex="6" vartype="logic" origName="stb_i"/>
+      <var loc="e,15,14,15,19" name="clk_i" dtype_id="3" dir="input" pinIndex="7" vartype="logic" origName="clk_i"/>
+      <var loc="e,16,6,16,11" name="rst_i" dtype_id="3" dir="input" pinIndex="8" vartype="logic" origName="rst_i"/>
+      <var loc="e,18,20,18,26" name="xdat_i" dtype_id="1" dir="input" pinIndex="9" vartype="logic" origName="xdat_i"/>
+      <var loc="e,19,20,19,26" name="xadr_i" dtype_id="2" dir="input" pinIndex="10" vartype="logic" origName="xadr_i"/>
+      <var loc="e,20,14,20,20" name="xwre_i" dtype_id="3" dir="input" pinIndex="11" vartype="logic" origName="xwre_i"/>
+      <var loc="e,21,14,21,20" name="xstb_i" dtype_id="3" dir="input" pinIndex="12" vartype="logic" origName="xstb_i"/>
+      <var loc="e,22,14,22,20" name="xclk_i" dtype_id="3" dir="input" pinIndex="13" vartype="logic" origName="xclk_i"/>
+      <var loc="e,23,6,23,12" name="xrst_i" dtype_id="3" dir="input" pinIndex="14" vartype="logic" origName="xrst_i"/>
+      <var loc="e,8,14,8,16" name="AW" dtype_id="4" vartype="logic" origName="AW" param="true">
+        <const loc="e,8,19,8,20" name="32&apos;sh5" dtype_id="4"/>
+      </var>
+      <var loc="e,9,14,9,16" name="DW" dtype_id="4" vartype="logic" origName="DW" param="true">
+        <const loc="e,9,19,9,20" name="32&apos;sh2" dtype_id="4"/>
+      </var>
+      <var loc="e,24,20,24,24" name="lram" dtype_id="5" vartype="" origName="lram"/>
+      <always loc="e,25,4,25,10">
+        <sentree loc="e,25,11,25,12">
+          <senitem loc="e,25,13,25,20" edgeType="POS">
+            <varref loc="e,25,21,25,27" name="xclk_i" dtype_id="3"/>
+          </senitem>
+        </sentree>
+        <if loc="e,26,6,26,8">
+          <varref loc="e,26,10,26,16" name="xwre_i" dtype_id="3"/>
+          <begin>
+            <assigndly loc="e,26,31,26,33" dtype_id="1">
+              <varref loc="e,26,37,26,43" name="xdat_i" dtype_id="1"/>
+              <arraysel loc="e,26,22,26,23" dtype_id="1">
+                <varref loc="e,26,18,26,22" name="lram" dtype_id="5"/>
+                <varref loc="e,26,23,26,29" name="xadr_i" dtype_id="2"/>
+              </arraysel>
+              <delay loc="e,26,34,26,35">
+                <const loc="e,26,35,26,36" name="64&apos;h1" dtype_id="6"/>
+              </delay>
+            </assigndly>
+          </begin>
+        </if>
+      </always>
+      <var loc="e,29,12,29,13" name="i" dtype_id="7" vartype="integer" origName="i"/>
+      <initial loc="e,30,4,30,11">
+        <begin loc="e,30,12,30,17">
+          <begin loc="e,31,7,31,10">
+            <assign loc="e,31,13,31,14" dtype_id="7">
+              <const loc="e,31,14,31,15" name="32&apos;sh0" dtype_id="4"/>
+              <varref loc="e,31,12,31,13" name="i" dtype_id="7"/>
+            </assign>
+            <while loc="e,31,7,31,10">
+              <begin>
+              </begin>
+              <begin>
+                <gts loc="e,31,18,31,19" dtype_id="3">
+                  <const loc="e,31,21,31,23" name="32&apos;h20" dtype_id="4"/>
+                  <varref loc="e,31,17,31,18" name="i" dtype_id="7"/>
+                </gts>
+              </begin>
+              <begin>
+                <begin loc="e,31,35,31,40">
+                  <assigndly loc="e,32,11,32,13" dtype_id="1">
+                    <rand loc="e,32,14,32,21" dtype_id="1"/>
+                    <arraysel loc="e,32,7,32,8" dtype_id="1">
+                      <varref loc="e,32,3,32,7" name="lram" dtype_id="5"/>
+                      <sel loc="e,32,8,32,9" dtype_id="8">
+                        <varref loc="e,32,8,32,9" name="i" dtype_id="7"/>
+                        <const loc="e,32,8,32,9" name="32&apos;h0" dtype_id="9"/>
+                        <const loc="e,32,8,32,9" name="32&apos;h5" dtype_id="9"/>
+                      </sel>
+                    </arraysel>
+                  </assigndly>
+                </begin>
+              </begin>
+              <begin>
+                <assign loc="e,31,29,31,30" dtype_id="7">
+                  <add loc="e,31,31,31,32" dtype_id="7">
+                    <const loc="e,31,32,31,33" name="32&apos;sh1" dtype_id="4"/>
+                    <varref loc="e,31,30,31,31" name="i" dtype_id="7"/>
+                  </add>
+                  <varref loc="e,31,28,31,29" name="i" dtype_id="7"/>
+                </assign>
+              </begin>
+            </while>
+          </begin>
+        </begin>
+      </initial>
+      <contassign loc="e,27,21,27,22" dtype_id="1">
+        <arraysel loc="e,27,27,27,28" dtype_id="1">
+          <varref loc="e,24,20,24,24" name="lram" dtype_id="5"/>
+          <varref loc="e,12,20,12,25" name="adr_i" dtype_id="2"/>
+        </arraysel>
+        <varref loc="e,27,21,27,22" name="dat_o" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,28,22,28,23" dtype_id="1">
+        <arraysel loc="e,28,28,28,29" dtype_id="1">
+          <varref loc="e,24,20,24,24" name="lram" dtype_id="5"/>
+          <varref loc="e,19,20,19,26" name="xadr_i" dtype_id="2"/>
+        </arraysel>
+        <varref loc="e,28,22,28,23" name="xdat_o" dtype_id="1"/>
+      </contassign>
+    </module>
+    <typetable loc="a,0,0,0,0">
+      <basicdtype loc="d,46,25,46,27" id="3" name="logic"/>
+      <voiddtype loc="d,48,18,48,27" id="10"/>
+      <basicdtype loc="e,10,14,10,15" id="9" name="logic" left="31" right="0"/>
+      <basicdtype loc="e,10,11,10,12" id="1" name="logic" left="1" right="0"/>
+      <basicdtype loc="e,12,10,12,11" id="2" name="logic" left="4" right="0"/>
+      <unpackarraydtype loc="e,24,25,24,26" id="5" sub_dtype_id="1">
+        <range loc="e,24,25,24,26">
+          <const loc="e,24,33,24,34" name="32&apos;h1f" dtype_id="4"/>
+          <const loc="e,24,36,24,37" name="32&apos;sh0" dtype_id="4"/>
+        </range>
+      </unpackarraydtype>
+      <basicdtype loc="e,26,34,26,35" id="6" name="logic" left="63" right="0"/>
+      <basicdtype loc="e,29,4,29,11" id="7" name="integer" left="31" right="0" signed="true"/>
+      <basicdtype loc="e,32,7,32,8" id="8" name="logic" left="4" right="0" signed="true"/>
+      <basicdtype loc="e,8,19,8,20" id="4" name="logic" left="31" right="0" signed="true"/>
+    </typetable>
+  </netlist>
+</verilator_xml>

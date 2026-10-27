@@ -1,0 +1,40 @@
+{
+  "id": "MGen/L1/Text/1 bit Full Adder using HA",
+  "subset": "MGen",
+  "input_files": [
+    {
+      "name": "full_half_add_1bit.v",
+      "bytes": 1461,
+      "sha256": "abc9512c7a8ad44feba987eca51f632af27ff157ac682b53f6052848ed0ab00f"
+    },
+    {
+      "name": "full_half_add_1bit_tb.v",
+      "bytes": 1928,
+      "sha256": "fa0dd55c8f1a389544aceeb094e4cbc945121ece3931d2b02d1d10606b4dce76"
+    }
+  ],
+  "overlays": [
+    {
+      "field": "spec_text",
+      "source": "data/SpeCom/L1/Text/1 bit Full Adder using HA/full_half_add_1bit_spec.txt",
+      "sha256": "048b7305dec344ab7cee0cff5cd3982c53e9c35d730fe86e403c74171195810a",
+      "reason": "same case name and byte-identical RTL in SpeCom; explicit cross-subset reuse",
+      "fidelity": "structural-input-overlay",
+      "matched_rtl_sha256": "abc9512c7a8ad44feba987eca51f632af27ff157ac682b53f6052848ed0ab00f"
+    }
+  ],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": null,
+  "negative_control_detected": null,
+  "commands": 4,
+  "status": "unknown",
+  "wrapper_mode": "dut_replacement",
+  "reference_source": "full_half_add_1bit.v",
+  "reference_source_sha256": "abc9512c7a8ad44feba987eca51f632af27ff157ac682b53f6052848ed0ab00f",
+  "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+  "reference_status": "unknown",
+  "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
+  "seconds": 14.704
+}

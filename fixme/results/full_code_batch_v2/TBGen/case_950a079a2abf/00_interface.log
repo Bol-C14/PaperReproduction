@@ -1,0 +1,69 @@
+%Warning-ASCRANGE: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_950a079a2abf/cavlc_read_levels.v:42:9: Ascending bit range vector: left < right of bit range: [0:15]
+                                                                                                                                 : ... note: In instance 'cavlc_read_levels'
+   42 | input   [0:15]  rbsp;
+      |         ^
+                   ... For warning description see https://verilator.org/warn/ASCRANGE?v=5.032
+                   ... Use "/* verilator lint_off ASCRANGE */" and lint_on around source to disable this message.
+%Warning-ASCRANGE: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_950a079a2abf/cavlc_read_levels.v:61:9: Ascending bit range vector: left < right of bit range: [0:15]
+                                                                                                                                 : ... note: In instance 'cavlc_read_levels'
+   61 | reg     [0:15]  rbsp_internal;        
+      |         ^
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_950a079a2abf/cavlc_read_levels.v:94:49: Operator ASSIGNDLY expects 4 bits on the Assign RHS, but Assign RHS's CONST '?32?bxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' generates 32 bits.
+                                                                                                                                    : ... note: In instance 'cavlc_read_levels'
+   94 | else                          level_prefix_comb <= 'bx;
+      |                                                 ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_950a079a2abf/cavlc_read_levels.v:101:25: Operator EQ expects 32 or 5 bits on the LHS, but LHS's VARREF 'i' generates 4 bits.
+                                                                                                                                      : ... note: In instance 'cavlc_read_levels'
+  101 | assign first_level = (i == TotalCoeff - TrailingOnes - 1);
+      |                         ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_950a079a2abf/cavlc_read_levels.v:101:39: Operator SUB expects 32 or 5 bits on the RHS, but RHS's VARREF 'TrailingOnes' generates 2 bits.
+                                                                                                                                      : ... note: In instance 'cavlc_read_levels'
+  101 | assign first_level = (i == TotalCoeff - TrailingOnes - 1);
+      |                                       ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_950a079a2abf/cavlc_read_levels.v:114:34: Operator SHIFTL expects 9 bits on the LHS, but LHS's CONST '2'h3' generates 2 bits.
+                                                                                                                                      : ... note: In instance 'cavlc_read_levels'
+  114 |     else if (  level_abs > (2'd3 << (suffixLength - 1'b1) ) && suffixLength < 6)
+      |                                  ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_950a079a2abf/cavlc_read_levels.v:110:45: Operator GT expects 9 bits on the RHS, but RHS's CONST '2'h3' generates 2 bits.
+                                                                                                                                      : ... note: In instance 'cavlc_read_levels'
+  110 |     else if (suffixLength == 0 && level_abs > 2'd3)
+      |                                             ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_950a079a2abf/cavlc_read_levels.v:121:18: Operator ASSIGNDLY expects 9 bits on the Assign RHS, but Assign RHS's REPLICATE generates 7 bits.
+                                                                                                                                      : ... note: In instance 'cavlc_read_levels'
+  121 |     level_suffix <= {3'b0, rbsp_internal[0:3] };
+      |                  ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_950a079a2abf/cavlc_read_levels.v:131:37: Operator SHIFTL expects 32 or 9 bits on the LHS, but LHS's VARREF 'level_prefix' generates 4 bits.
+                                                                                                                                      : ... note: In instance 'cavlc_read_levels'
+  131 |     level_code_tmp <= (level_prefix << suffixLength) + level_suffix + 
+      |                                     ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_950a079a2abf/cavlc_read_levels.v:132:48: Operator COND expects 32 or 9 bits on the Conditional True, but Conditional True's CONST '4'hf' generates 4 bits.
+                                                                                                                                      : ... note: In instance 'cavlc_read_levels'
+  132 |     ((suffixLength == 0 && level_prefix == 15) ? 4'd15 : 0);
+      |                                                ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_950a079a2abf/cavlc_read_levels.v:135:48: Operator COND expects 3 bits on the Conditional True, but Conditional True's CONST '2'h2' generates 2 bits.
+                                                                                                                                      : ... note: In instance 'cavlc_read_levels'
+  135 | assign tmp1 = (first_level && TrailingOnes < 3)? 2'd2 : 2'd0;
+      |                                                ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_950a079a2abf/cavlc_read_levels.v:135:48: Operator COND expects 3 bits on the Conditional False, but Conditional False's CONST '2'h0' generates 2 bits.
+                                                                                                                                      : ... note: In instance 'cavlc_read_levels'
+  135 | assign tmp1 = (first_level && TrailingOnes < 3)? 2'd2 : 2'd0;
+      |                                                ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_950a079a2abf/cavlc_read_levels.v:139:35: Operator ADD expects 32 or 9 bits on the RHS, but RHS's VARREF 'tmp1' generates 3 bits.
+                                                                                                                                      : ... note: In instance 'cavlc_read_levels'
+  139 |         level <= ( level_code_tmp + tmp1 + 2 ) >> 1;
+      |                                   ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_950a079a2abf/cavlc_read_levels.v:142:35: Operator SUB expects 32 or 9 bits on the RHS, but RHS's VARREF 'tmp1' generates 3 bits.
+                                                                                                                                      : ... note: In instance 'cavlc_read_levels'
+  142 |         level <= (-level_code_tmp - tmp1 - 1 ) >> 1;
+      |                                   ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_950a079a2abf/cavlc_read_levels.v:289:14: Operator ASSIGNDLY expects 5 bits on the Assign RHS, but Assign RHS's VARREF 'TrailingOnes' generates 2 bits.
+                                                                                                                                      : ... note: In instance 'cavlc_read_levels'
+  289 |     len_comb <= TrailingOnes;
+      |              ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_950a079a2abf/cavlc_read_levels.v:293:14: Operator ASSIGNDLY expects 5 bits on the Assign RHS, but Assign RHS's VARREF 'suffixLength' generates 3 bits.
+                                                                                                                                      : ... note: In instance 'cavlc_read_levels'
+  293 |     len_comb <= suffixLength;  
+      |              ^~
+- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev (Debian 5.032-1+b2)
+- Verilator: Built from 0.036 MB sources in 2 modules, into 0.000 MB in 0 C++ files needing 0.000 MB
+- Verilator: Walltime 0.008 s (elab=0.001, cvt=0.001, bld=0.000); cpu 0.000 s on 1 threads; alloced 9.410 MB

@@ -1,0 +1,39 @@
+{
+  "id": "SVAGen/L3/Text/13",
+  "subset": "SVAGen",
+  "input_files": [
+    {
+      "name": "sequencer_218.txt",
+      "bytes": 10678,
+      "sha256": "564ac80ffe0c73de5387f5e239c15fc06c828bcce866492624137e348d0d11e3"
+    },
+    {
+      "name": "sequencer_218.v",
+      "bytes": 3615,
+      "sha256": "b1ac4b5c9f1c3c870d2ca1e0b9218075876214621aad02adf5c0ef82d005ef22"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": true,
+  "negative_control_detected": true,
+  "commands": 4,
+  "status": "pass",
+  "assignment_target_width": 1,
+  "assertion": "always @* assert((M1) == 1'(DFFE_M1_ff));",
+  "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+  "relation_lhs": "M1",
+  "property_counts": {
+    "assert": 1,
+    "assume": 0,
+    "cover": 0
+  },
+  "constant_mutation_status": "completed",
+  "constant_mutation_killed": false,
+  "negative_status": "fail",
+  "constant_control_status": "unknown",
+  "reason": "nonzero properties proven and selected output mutant falsified",
+  "seconds": 0.146
+}

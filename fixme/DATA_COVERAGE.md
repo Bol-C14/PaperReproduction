@@ -55,8 +55,8 @@ Only five MM cases have usable image/task assets in this snapshot.
 * **TBGen:** `TBGen/L3/Text/tbu/tbu.v` exists and is nonempty. The official generic
   finder excludes filenames containing `tb`, and its module selector also skips
   `tbu`. The overlay accepts the sole RTL file using explicit TB-name boundaries
-  and its declared module `tbu`. All 108 become schema-ready. Execution on 107
-  other testbench-generation inputs is still unattempted.
+  and its declared module `tbu`. All 108 become schema-ready. The subsequent full-code batch attempts all 108; see BATCH_EXECUTION.md for
+  actual execution versus preflight outcomes.
 * **SVAGen:** all 41 present cases have input assets. That does not imply temporal
   proof support: the current executable adapter certifies only the selected CRC
   immediate-property pilot. The official prompt requests concurrent properties;
@@ -109,8 +109,9 @@ record, including invalid-reference diagnostics; 227 code-generation inputs have
 inputs account for 203 schema-ready case keys. These are oracle/adapter checks,
 not 203 LLM results. No live model scores have been produced.
 
-The current EDA runner is case-specific. It is **not** a general executable
-747- or 482-case adapter. The matrix labels per-case asset state, actual execution
+At the time of this schema audit the EDA runner was case-specific. The subsequent
+family adapters now attempt all 231 public code cases; see BATCH_EXECUTION.md.
+They remain scoped reference-calibration contracts, not a full 747-task model runner. The matrix labels per-case asset state, actual execution
 state, and unverified backend support separately. It does not call unattempted
 cases unsupported or executable. Proprietary VCS/VC Static runs, general temporal
 SVA support, coverage comparability, full response/model generation and published
@@ -154,3 +155,9 @@ retained separately; no prior pilot results were changed.
    semantics. Free-tool porting can continue; exact proprietary-tool numbers and
    original live-model pass@5 remain unclaimed. Do not run a full costly sweep
    until the case adapters and oracle contracts are reliable.
+
+
+Update: the previously unattempted 227 code cases have now received bounded adapter
+attempts. The authoritative 482-state execution matrix and all remaining substantive
+limits are in BATCH_EXECUTION.md and results/final_coverage_selected. The earlier
+schema-audit execution counts above are historical, not the current final totals.

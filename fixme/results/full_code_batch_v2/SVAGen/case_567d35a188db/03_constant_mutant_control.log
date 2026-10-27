@@ -1,0 +1,571 @@
+
+-- Running command `read_verilog -formal -sv constant_mutant_control.sv; hierarchy -top ct_biu_read_channel; prep -top ct_biu_read_channel; flatten; async2sync; dffunmap; memory_map; opt_clean; chformal -lower; write_json constant_mutant_control.json; sat -seq 2 -timeout 5 -prove-asserts -verify -show-inputs -show-outputs' --
+
+1. Executing Verilog-2005 frontend: constant_mutant_control.sv
+Parsing formal SystemVerilog input from `constant_mutant_control.sv' to AST representation.
+Generating RTLIL representation for module `\ct_biu_read_channel'.
+Note: Assuming pure combinatorial block at constant_mutant_control.sv:264.1-320.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at constant_mutant_control.sv:498.1-522.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \ct_biu_read_channel
+
+2.2. Analyzing design hierarchy..
+Top module:  \ct_biu_read_channel
+Removed 0 unused modules.
+Module ct_biu_read_channel directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \ct_biu_read_channel
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \ct_biu_read_channel
+Removed 0 unused modules.
+Module ct_biu_read_channel directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 2 switch rules as full_case in process $proc$constant_mutant_control.sv:587$93 in module ct_biu_read_channel.
+Marked 3 switch rules as full_case in process $proc$constant_mutant_control.sv:576$89 in module ct_biu_read_channel.
+Marked 2 switch rules as full_case in process $proc$constant_mutant_control.sv:552$85 in module ct_biu_read_channel.
+Marked 3 switch rules as full_case in process $proc$constant_mutant_control.sv:541$79 in module ct_biu_read_channel.
+Marked 2 switch rules as full_case in process $proc$constant_mutant_control.sv:532$76 in module ct_biu_read_channel.
+Marked 2 switch rules as full_case in process $proc$constant_mutant_control.sv:523$73 in module ct_biu_read_channel.
+Marked 1 switch rules as full_case in process $proc$constant_mutant_control.sv:498$72 in module ct_biu_read_channel.
+Marked 2 switch rules as full_case in process $proc$constant_mutant_control.sv:485$67 in module ct_biu_read_channel.
+Marked 2 switch rules as full_case in process $proc$constant_mutant_control.sv:476$64 in module ct_biu_read_channel.
+Marked 2 switch rules as full_case in process $proc$constant_mutant_control.sv:409$37 in module ct_biu_read_channel.
+Marked 3 switch rules as full_case in process $proc$constant_mutant_control.sv:398$30 in module ct_biu_read_channel.
+Marked 2 switch rules as full_case in process $proc$constant_mutant_control.sv:350$24 in module ct_biu_read_channel.
+Marked 3 switch rules as full_case in process $proc$constant_mutant_control.sv:339$15 in module ct_biu_read_channel.
+Marked 2 switch rules as full_case in process $proc$constant_mutant_control.sv:330$11 in module ct_biu_read_channel.
+Marked 2 switch rules as full_case in process $proc$constant_mutant_control.sv:321$7 in module ct_biu_read_channel.
+Marked 1 switch rules as full_case in process $proc$constant_mutant_control.sv:264$6 in module ct_biu_read_channel.
+Removed a total of 0 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 41 redundant assignments.
+Promoted 17 assignments to connections.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \cpurst_b in `\ct_biu_read_channel.$proc$constant_mutant_control.sv:587$93'.
+Found async reset \cpurst_b in `\ct_biu_read_channel.$proc$constant_mutant_control.sv:576$89'.
+Found async reset \cpurst_b in `\ct_biu_read_channel.$proc$constant_mutant_control.sv:552$85'.
+Found async reset \cpurst_b in `\ct_biu_read_channel.$proc$constant_mutant_control.sv:541$79'.
+Found async reset \cpurst_b in `\ct_biu_read_channel.$proc$constant_mutant_control.sv:532$76'.
+Found async reset \cpurst_b in `\ct_biu_read_channel.$proc$constant_mutant_control.sv:523$73'.
+Found async reset \cpurst_b in `\ct_biu_read_channel.$proc$constant_mutant_control.sv:485$67'.
+Found async reset \cpurst_b in `\ct_biu_read_channel.$proc$constant_mutant_control.sv:476$64'.
+Found async reset \cpurst_b in `\ct_biu_read_channel.$proc$constant_mutant_control.sv:409$37'.
+Found async reset \cpurst_b in `\ct_biu_read_channel.$proc$constant_mutant_control.sv:398$30'.
+Found async reset \cpurst_b in `\ct_biu_read_channel.$proc$constant_mutant_control.sv:350$24'.
+Found async reset \cpurst_b in `\ct_biu_read_channel.$proc$constant_mutant_control.sv:339$15'.
+Found async reset \cpurst_b in `\ct_biu_read_channel.$proc$constant_mutant_control.sv:330$11'.
+Found async reset \cpurst_b in `\ct_biu_read_channel.$proc$constant_mutant_control.sv:321$7'.
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~22 debug messages>
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:629$105'.
+Creating decoders for process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:587$93'.
+     1/4: $0\cur_rdata_buf1_rlast[0:0]
+     2/4: $0\cur_rdata_buf1_rresp[3:0]
+     3/4: $0\cur_rdata_buf1_rdata[127:0]
+     4/4: $0\cur_rdata_buf1_rid[4:0]
+Creating decoders for process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:576$89'.
+     1/1: $0\cur_rdata_buf1_rvalid[0:0]
+Creating decoders for process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:552$85'.
+     1/4: $0\cur_rdata_buf0_rlast[0:0]
+     2/4: $0\cur_rdata_buf0_rresp[3:0]
+     3/4: $0\cur_rdata_buf0_rdata[127:0]
+     4/4: $0\cur_rdata_buf0_rid[4:0]
+Creating decoders for process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:541$79'.
+     1/1: $0\cur_rdata_buf0_rvalid[0:0]
+Creating decoders for process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:532$76'.
+     1/1: $0\cur_rdata_buf_pop1_sel[0:0]
+Creating decoders for process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:523$73'.
+     1/1: $0\cur_rdata_buf_crt1_sel[0:0]
+Creating decoders for process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:498$72'.
+     1/4: $1\cur_rdata_buf_rlast[0:0]
+     2/4: $1\cur_rdata_buf_rresp[3:0]
+     3/4: $1\cur_rdata_buf_rdata[127:0]
+     4/4: $1\cur_rdata_buf_rid[4:0]
+Creating decoders for process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:485$67'.
+     1/1: $0\rack_pending[0:0]
+Creating decoders for process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:476$64'.
+     1/1: $0\rack_valid[0:0]
+Creating decoders for process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:409$37'.
+     1/12: $0\cur_raddr_buf1_aruser[2:0]
+     2/12: $0\cur_raddr_buf1_arbar[1:0]
+     3/12: $0\cur_raddr_buf1_ardomain[1:0]
+     4/12: $0\cur_raddr_buf1_arsnoop[3:0]
+     5/12: $0\cur_raddr_buf1_arprot[2:0]
+     6/12: $0\cur_raddr_buf1_arcache[3:0]
+     7/12: $0\cur_raddr_buf1_arlock[0:0]
+     8/12: $0\cur_raddr_buf1_arburst[1:0]
+     9/12: $0\cur_raddr_buf1_arsize[2:0]
+    10/12: $0\cur_raddr_buf1_arlen[1:0]
+    11/12: $0\cur_raddr_buf1_araddr[39:0]
+    12/12: $0\cur_raddr_buf1_arid[4:0]
+Creating decoders for process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:398$30'.
+     1/1: $0\cur_raddr_buf1_arvalid[0:0]
+Creating decoders for process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:350$24'.
+     1/12: $0\cur_raddr_buf0_aruser[2:0]
+     2/12: $0\cur_raddr_buf0_arbar[1:0]
+     3/12: $0\cur_raddr_buf0_ardomain[1:0]
+     4/12: $0\cur_raddr_buf0_arsnoop[3:0]
+     5/12: $0\cur_raddr_buf0_arprot[2:0]
+     6/12: $0\cur_raddr_buf0_arcache[3:0]
+     7/12: $0\cur_raddr_buf0_arlock[0:0]
+     8/12: $0\cur_raddr_buf0_arburst[1:0]
+     9/12: $0\cur_raddr_buf0_arsize[2:0]
+    10/12: $0\cur_raddr_buf0_arlen[1:0]
+    11/12: $0\cur_raddr_buf0_araddr[39:0]
+    12/12: $0\cur_raddr_buf0_arid[4:0]
+Creating decoders for process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:339$15'.
+     1/1: $0\cur_raddr_buf0_arvalid[0:0]
+Creating decoders for process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:330$11'.
+     1/1: $0\cur_raddr_buf_pop1_sel[0:0]
+Creating decoders for process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:321$7'.
+     1/1: $0\cur_raddr_buf_crt1_sel[0:0]
+Creating decoders for process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:264$6'.
+     1/12: $1\cur_raddr_buf_aruser[2:0]
+     2/12: $1\cur_raddr_buf_arbar[1:0]
+     3/12: $1\cur_raddr_buf_ardomain[1:0]
+     4/12: $1\cur_raddr_buf_arsnoop[3:0]
+     5/12: $1\cur_raddr_buf_arprot[2:0]
+     6/12: $1\cur_raddr_buf_arcache[3:0]
+     7/12: $1\cur_raddr_buf_arlock[0:0]
+     8/12: $1\cur_raddr_buf_arburst[1:0]
+     9/12: $1\cur_raddr_buf_arsize[2:0]
+    10/12: $1\cur_raddr_buf_arlen[1:0]
+    11/12: $1\cur_raddr_buf_araddr[39:0]
+    12/12: $1\cur_raddr_buf_arid[4:0]
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\ct_biu_read_channel.\cur_rdata_buf_rdata' from process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:498$72'.
+No latch inferred for signal `\ct_biu_read_channel.\cur_rdata_buf_rid' from process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:498$72'.
+No latch inferred for signal `\ct_biu_read_channel.\cur_rdata_buf_rlast' from process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:498$72'.
+No latch inferred for signal `\ct_biu_read_channel.\cur_rdata_buf_rresp' from process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:498$72'.
+No latch inferred for signal `\ct_biu_read_channel.\cur_raddr_buf_araddr' from process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:264$6'.
+No latch inferred for signal `\ct_biu_read_channel.\cur_raddr_buf_arbar' from process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:264$6'.
+No latch inferred for signal `\ct_biu_read_channel.\cur_raddr_buf_arburst' from process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:264$6'.
+No latch inferred for signal `\ct_biu_read_channel.\cur_raddr_buf_arcache' from process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:264$6'.
+No latch inferred for signal `\ct_biu_read_channel.\cur_raddr_buf_ardomain' from process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:264$6'.
+No latch inferred for signal `\ct_biu_read_channel.\cur_raddr_buf_arid' from process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:264$6'.
+No latch inferred for signal `\ct_biu_read_channel.\cur_raddr_buf_arlen' from process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:264$6'.
+No latch inferred for signal `\ct_biu_read_channel.\cur_raddr_buf_arlock' from process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:264$6'.
+No latch inferred for signal `\ct_biu_read_channel.\cur_raddr_buf_arprot' from process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:264$6'.
+No latch inferred for signal `\ct_biu_read_channel.\cur_raddr_buf_arsize' from process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:264$6'.
+No latch inferred for signal `\ct_biu_read_channel.\cur_raddr_buf_arsnoop' from process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:264$6'.
+No latch inferred for signal `\ct_biu_read_channel.\cur_raddr_buf_aruser' from process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:264$6'.
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\ct_biu_read_channel.\cur_rdata_buf1_rdata' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:587$93'.
+  created $adff cell `$procdff$303' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_rdata_buf1_rid' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:587$93'.
+  created $adff cell `$procdff$308' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_rdata_buf1_rlast' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:587$93'.
+  created $adff cell `$procdff$313' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_rdata_buf1_rresp' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:587$93'.
+  created $adff cell `$procdff$318' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_rdata_buf1_rvalid' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:576$89'.
+  created $adff cell `$procdff$323' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_rdata_buf0_rdata' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:552$85'.
+  created $adff cell `$procdff$328' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_rdata_buf0_rid' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:552$85'.
+  created $adff cell `$procdff$333' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_rdata_buf0_rlast' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:552$85'.
+  created $adff cell `$procdff$338' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_rdata_buf0_rresp' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:552$85'.
+  created $adff cell `$procdff$343' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_rdata_buf0_rvalid' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:541$79'.
+  created $adff cell `$procdff$348' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_rdata_buf_pop1_sel' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:532$76'.
+  created $adff cell `$procdff$353' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_rdata_buf_crt1_sel' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:523$73'.
+  created $adff cell `$procdff$358' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\rack_pending' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:485$67'.
+  created $adff cell `$procdff$363' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\rack_valid' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:476$64'.
+  created $adff cell `$procdff$368' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_raddr_buf1_araddr' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:409$37'.
+  created $adff cell `$procdff$373' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_raddr_buf1_arbar' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:409$37'.
+  created $adff cell `$procdff$378' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_raddr_buf1_arburst' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:409$37'.
+  created $adff cell `$procdff$383' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_raddr_buf1_arcache' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:409$37'.
+  created $adff cell `$procdff$388' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_raddr_buf1_ardomain' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:409$37'.
+  created $adff cell `$procdff$393' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_raddr_buf1_arid' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:409$37'.
+  created $adff cell `$procdff$398' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_raddr_buf1_arlen' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:409$37'.
+  created $adff cell `$procdff$403' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_raddr_buf1_arlock' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:409$37'.
+  created $adff cell `$procdff$408' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_raddr_buf1_arprot' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:409$37'.
+  created $adff cell `$procdff$413' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_raddr_buf1_arsize' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:409$37'.
+  created $adff cell `$procdff$418' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_raddr_buf1_arsnoop' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:409$37'.
+  created $adff cell `$procdff$423' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_raddr_buf1_aruser' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:409$37'.
+  created $adff cell `$procdff$428' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_raddr_buf1_arvalid' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:398$30'.
+  created $adff cell `$procdff$433' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_raddr_buf0_araddr' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:350$24'.
+  created $adff cell `$procdff$438' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_raddr_buf0_arbar' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:350$24'.
+  created $adff cell `$procdff$443' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_raddr_buf0_arburst' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:350$24'.
+  created $adff cell `$procdff$448' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_raddr_buf0_arcache' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:350$24'.
+  created $adff cell `$procdff$453' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_raddr_buf0_ardomain' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:350$24'.
+  created $adff cell `$procdff$458' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_raddr_buf0_arid' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:350$24'.
+  created $adff cell `$procdff$463' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_raddr_buf0_arlen' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:350$24'.
+  created $adff cell `$procdff$468' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_raddr_buf0_arlock' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:350$24'.
+  created $adff cell `$procdff$473' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_raddr_buf0_arprot' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:350$24'.
+  created $adff cell `$procdff$478' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_raddr_buf0_arsize' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:350$24'.
+  created $adff cell `$procdff$483' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_raddr_buf0_arsnoop' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:350$24'.
+  created $adff cell `$procdff$488' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_raddr_buf0_aruser' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:350$24'.
+  created $adff cell `$procdff$493' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_raddr_buf0_arvalid' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:339$15'.
+  created $adff cell `$procdff$498' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_raddr_buf_pop1_sel' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:330$11'.
+  created $adff cell `$procdff$503' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_read_channel.\cur_raddr_buf_crt1_sel' using process `\ct_biu_read_channel.$proc$constant_mutant_control.sv:321$7'.
+  created $adff cell `$procdff$508' with positive edge clock and positive level reset.
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `ct_biu_read_channel.$proc$constant_mutant_control.sv:629$105'.
+Found and cleaned up 1 empty switch in `\ct_biu_read_channel.$proc$constant_mutant_control.sv:587$93'.
+Removing empty process `ct_biu_read_channel.$proc$constant_mutant_control.sv:587$93'.
+Found and cleaned up 2 empty switches in `\ct_biu_read_channel.$proc$constant_mutant_control.sv:576$89'.
+Removing empty process `ct_biu_read_channel.$proc$constant_mutant_control.sv:576$89'.
+Found and cleaned up 1 empty switch in `\ct_biu_read_channel.$proc$constant_mutant_control.sv:552$85'.
+Removing empty process `ct_biu_read_channel.$proc$constant_mutant_control.sv:552$85'.
+Found and cleaned up 2 empty switches in `\ct_biu_read_channel.$proc$constant_mutant_control.sv:541$79'.
+Removing empty process `ct_biu_read_channel.$proc$constant_mutant_control.sv:541$79'.
+Found and cleaned up 1 empty switch in `\ct_biu_read_channel.$proc$constant_mutant_control.sv:532$76'.
+Removing empty process `ct_biu_read_channel.$proc$constant_mutant_control.sv:532$76'.
+Found and cleaned up 1 empty switch in `\ct_biu_read_channel.$proc$constant_mutant_control.sv:523$73'.
+Removing empty process `ct_biu_read_channel.$proc$constant_mutant_control.sv:523$73'.
+Found and cleaned up 1 empty switch in `\ct_biu_read_channel.$proc$constant_mutant_control.sv:498$72'.
+Removing empty process `ct_biu_read_channel.$proc$constant_mutant_control.sv:498$72'.
+Found and cleaned up 2 empty switches in `\ct_biu_read_channel.$proc$constant_mutant_control.sv:485$67'.
+Removing empty process `ct_biu_read_channel.$proc$constant_mutant_control.sv:485$67'.
+Found and cleaned up 2 empty switches in `\ct_biu_read_channel.$proc$constant_mutant_control.sv:476$64'.
+Removing empty process `ct_biu_read_channel.$proc$constant_mutant_control.sv:476$64'.
+Found and cleaned up 1 empty switch in `\ct_biu_read_channel.$proc$constant_mutant_control.sv:409$37'.
+Removing empty process `ct_biu_read_channel.$proc$constant_mutant_control.sv:409$37'.
+Found and cleaned up 2 empty switches in `\ct_biu_read_channel.$proc$constant_mutant_control.sv:398$30'.
+Removing empty process `ct_biu_read_channel.$proc$constant_mutant_control.sv:398$30'.
+Found and cleaned up 1 empty switch in `\ct_biu_read_channel.$proc$constant_mutant_control.sv:350$24'.
+Removing empty process `ct_biu_read_channel.$proc$constant_mutant_control.sv:350$24'.
+Found and cleaned up 2 empty switches in `\ct_biu_read_channel.$proc$constant_mutant_control.sv:339$15'.
+Removing empty process `ct_biu_read_channel.$proc$constant_mutant_control.sv:339$15'.
+Found and cleaned up 1 empty switch in `\ct_biu_read_channel.$proc$constant_mutant_control.sv:330$11'.
+Removing empty process `ct_biu_read_channel.$proc$constant_mutant_control.sv:330$11'.
+Found and cleaned up 1 empty switch in `\ct_biu_read_channel.$proc$constant_mutant_control.sv:321$7'.
+Removing empty process `ct_biu_read_channel.$proc$constant_mutant_control.sv:321$7'.
+Found and cleaned up 1 empty switch in `\ct_biu_read_channel.$proc$constant_mutant_control.sv:264$6'.
+Removing empty process `ct_biu_read_channel.$proc$constant_mutant_control.sv:264$6'.
+Cleaned up 22 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_biu_read_channel.
+<suppressed ~86 debug messages>
+
+3.3. Executing FUTURE pass.
+
+3.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_biu_read_channel.
+
+3.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_biu_read_channel..
+Removed 56 unused cells and 272 unused wires.
+<suppressed ~57 debug messages>
+
+3.6. Executing CHECK pass (checking for obvious problems).
+Checking module ct_biu_read_channel...
+Found and reported 0 problems.
+
+3.7. Executing OPT pass (performing simple optimizations).
+
+3.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_biu_read_channel.
+
+3.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ct_biu_read_channel'.
+<suppressed ~42 debug messages>
+Removed a total of 14 cells.
+
+3.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ct_biu_read_channel..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~58 debug messages>
+
+3.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ct_biu_read_channel.
+Performed a total of 0 changes.
+
+3.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ct_biu_read_channel'.
+Removed a total of 0 cells.
+
+3.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_biu_read_channel..
+Removed 0 unused cells and 14 unused wires.
+<suppressed ~1 debug messages>
+
+3.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_biu_read_channel.
+
+3.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ct_biu_read_channel..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~58 debug messages>
+
+3.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ct_biu_read_channel.
+Performed a total of 0 changes.
+
+3.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ct_biu_read_channel'.
+Removed a total of 0 cells.
+
+3.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_biu_read_channel..
+
+3.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_biu_read_channel.
+
+3.7.14. Finished OPT passes. (There is nothing left to do.)
+
+3.8. Executing WREDUCE pass (reducing word size of cells).
+
+3.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_biu_read_channel..
+
+3.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.11. Executing OPT pass (performing simple optimizations).
+
+3.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_biu_read_channel.
+
+3.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ct_biu_read_channel'.
+Removed a total of 0 cells.
+
+3.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_biu_read_channel..
+
+3.11.4. Finished fast OPT passes.
+
+3.12. Printing statistics.
+
+=== ct_biu_read_channel ===
+
+   Number of wires:                218
+   Number of wire bits:           1697
+   Number of public wires:         128
+   Number of public wire bits:    1221
+   Number of ports:                 56
+   Number of port bits:            570
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                167
+     $adff                          42
+     $check                          1
+     $eq                             2
+     $logic_and                     32
+     $logic_not                     12
+     $logic_or                      13
+     $mux                           64
+     $not                            1
+
+3.13. Executing CHECK pass (checking for obvious problems).
+Checking module ct_biu_read_channel...
+Found and reported 0 problems.
+
+4. Executing FLATTEN pass (flatten design).
+
+5. Executing ASYNC2SYNC pass.
+Replacing ct_biu_read_channel.$procdff$303 ($adff): ARST=\cpurst_b, D=$0\cur_rdata_buf1_rdata[127:0], Q=\cur_rdata_buf1_rdata
+Replacing ct_biu_read_channel.$procdff$308 ($adff): ARST=\cpurst_b, D=$0\cur_rdata_buf1_rid[4:0], Q=\cur_rdata_buf1_rid
+Replacing ct_biu_read_channel.$procdff$313 ($adff): ARST=\cpurst_b, D=$0\cur_rdata_buf1_rlast[0:0], Q=\cur_rdata_buf1_rlast
+Replacing ct_biu_read_channel.$procdff$318 ($adff): ARST=\cpurst_b, D=$0\cur_rdata_buf1_rresp[3:0], Q=\cur_rdata_buf1_rresp
+Replacing ct_biu_read_channel.$procdff$323 ($adff): ARST=\cpurst_b, D=$0\cur_rdata_buf1_rvalid[0:0], Q=\cur_rdata_buf1_rvalid
+Replacing ct_biu_read_channel.$procdff$328 ($adff): ARST=\cpurst_b, D=$0\cur_rdata_buf0_rdata[127:0], Q=\cur_rdata_buf0_rdata
+Replacing ct_biu_read_channel.$procdff$333 ($adff): ARST=\cpurst_b, D=$0\cur_rdata_buf0_rid[4:0], Q=\cur_rdata_buf0_rid
+Replacing ct_biu_read_channel.$procdff$338 ($adff): ARST=\cpurst_b, D=$0\cur_rdata_buf0_rlast[0:0], Q=\cur_rdata_buf0_rlast
+Replacing ct_biu_read_channel.$procdff$343 ($adff): ARST=\cpurst_b, D=$0\cur_rdata_buf0_rresp[3:0], Q=\cur_rdata_buf0_rresp
+Replacing ct_biu_read_channel.$procdff$348 ($adff): ARST=\cpurst_b, D=$0\cur_rdata_buf0_rvalid[0:0], Q=\cur_rdata_buf0_rvalid
+Replacing ct_biu_read_channel.$procdff$353 ($adff): ARST=\cpurst_b, D=$0\cur_rdata_buf_pop1_sel[0:0], Q=\cur_rdata_buf_pop1_sel
+Replacing ct_biu_read_channel.$procdff$358 ($adff): ARST=\cpurst_b, D=$0\cur_rdata_buf_crt1_sel[0:0], Q=\cur_rdata_buf_crt1_sel
+Replacing ct_biu_read_channel.$procdff$363 ($adff): ARST=\cpurst_b, D=$0\rack_pending[0:0], Q=\rack_pending
+Replacing ct_biu_read_channel.$procdff$368 ($adff): ARST=\cpurst_b, D=$0\rack_valid[0:0], Q=\rack_valid
+Replacing ct_biu_read_channel.$procdff$373 ($adff): ARST=\cpurst_b, D=$0\cur_raddr_buf1_araddr[39:0], Q=\cur_raddr_buf1_araddr
+Replacing ct_biu_read_channel.$procdff$378 ($adff): ARST=\cpurst_b, D=$0\cur_raddr_buf1_arbar[1:0], Q=\cur_raddr_buf1_arbar
+Replacing ct_biu_read_channel.$procdff$383 ($adff): ARST=\cpurst_b, D=$0\cur_raddr_buf1_arburst[1:0], Q=\cur_raddr_buf1_arburst
+Replacing ct_biu_read_channel.$procdff$388 ($adff): ARST=\cpurst_b, D=$0\cur_raddr_buf1_arcache[3:0], Q=\cur_raddr_buf1_arcache
+Replacing ct_biu_read_channel.$procdff$393 ($adff): ARST=\cpurst_b, D=$0\cur_raddr_buf1_ardomain[1:0], Q=\cur_raddr_buf1_ardomain
+Replacing ct_biu_read_channel.$procdff$398 ($adff): ARST=\cpurst_b, D=$0\cur_raddr_buf1_arid[4:0], Q=\cur_raddr_buf1_arid
+Replacing ct_biu_read_channel.$procdff$403 ($adff): ARST=\cpurst_b, D=$0\cur_raddr_buf1_arlen[1:0], Q=\cur_raddr_buf1_arlen
+Replacing ct_biu_read_channel.$procdff$408 ($adff): ARST=\cpurst_b, D=$0\cur_raddr_buf1_arlock[0:0], Q=\cur_raddr_buf1_arlock
+Replacing ct_biu_read_channel.$procdff$413 ($adff): ARST=\cpurst_b, D=$0\cur_raddr_buf1_arprot[2:0], Q=\cur_raddr_buf1_arprot
+Replacing ct_biu_read_channel.$procdff$418 ($adff): ARST=\cpurst_b, D=$0\cur_raddr_buf1_arsize[2:0], Q=\cur_raddr_buf1_arsize
+Replacing ct_biu_read_channel.$procdff$423 ($adff): ARST=\cpurst_b, D=$0\cur_raddr_buf1_arsnoop[3:0], Q=\cur_raddr_buf1_arsnoop
+Replacing ct_biu_read_channel.$procdff$428 ($adff): ARST=\cpurst_b, D=$0\cur_raddr_buf1_aruser[2:0], Q=\cur_raddr_buf1_aruser
+Replacing ct_biu_read_channel.$procdff$433 ($adff): ARST=\cpurst_b, D=$0\cur_raddr_buf1_arvalid[0:0], Q=\cur_raddr_buf1_arvalid
+Replacing ct_biu_read_channel.$procdff$438 ($adff): ARST=\cpurst_b, D=$0\cur_raddr_buf0_araddr[39:0], Q=\cur_raddr_buf0_araddr
+Replacing ct_biu_read_channel.$procdff$443 ($adff): ARST=\cpurst_b, D=$0\cur_raddr_buf0_arbar[1:0], Q=\cur_raddr_buf0_arbar
+Replacing ct_biu_read_channel.$procdff$448 ($adff): ARST=\cpurst_b, D=$0\cur_raddr_buf0_arburst[1:0], Q=\cur_raddr_buf0_arburst
+Replacing ct_biu_read_channel.$procdff$453 ($adff): ARST=\cpurst_b, D=$0\cur_raddr_buf0_arcache[3:0], Q=\cur_raddr_buf0_arcache
+Replacing ct_biu_read_channel.$procdff$458 ($adff): ARST=\cpurst_b, D=$0\cur_raddr_buf0_ardomain[1:0], Q=\cur_raddr_buf0_ardomain
+Replacing ct_biu_read_channel.$procdff$463 ($adff): ARST=\cpurst_b, D=$0\cur_raddr_buf0_arid[4:0], Q=\cur_raddr_buf0_arid
+Replacing ct_biu_read_channel.$procdff$468 ($adff): ARST=\cpurst_b, D=$0\cur_raddr_buf0_arlen[1:0], Q=\cur_raddr_buf0_arlen
+Replacing ct_biu_read_channel.$procdff$473 ($adff): ARST=\cpurst_b, D=$0\cur_raddr_buf0_arlock[0:0], Q=\cur_raddr_buf0_arlock
+Replacing ct_biu_read_channel.$procdff$478 ($adff): ARST=\cpurst_b, D=$0\cur_raddr_buf0_arprot[2:0], Q=\cur_raddr_buf0_arprot
+Replacing ct_biu_read_channel.$procdff$483 ($adff): ARST=\cpurst_b, D=$0\cur_raddr_buf0_arsize[2:0], Q=\cur_raddr_buf0_arsize
+Replacing ct_biu_read_channel.$procdff$488 ($adff): ARST=\cpurst_b, D=$0\cur_raddr_buf0_arsnoop[3:0], Q=\cur_raddr_buf0_arsnoop
+Replacing ct_biu_read_channel.$procdff$493 ($adff): ARST=\cpurst_b, D=$0\cur_raddr_buf0_aruser[2:0], Q=\cur_raddr_buf0_aruser
+Replacing ct_biu_read_channel.$procdff$498 ($adff): ARST=\cpurst_b, D=$0\cur_raddr_buf0_arvalid[0:0], Q=\cur_raddr_buf0_arvalid
+Replacing ct_biu_read_channel.$procdff$503 ($adff): ARST=\cpurst_b, D=$0\cur_raddr_buf_pop1_sel[0:0], Q=\cur_raddr_buf_pop1_sel
+Replacing ct_biu_read_channel.$procdff$508 ($adff): ARST=\cpurst_b, D=$0\cur_raddr_buf_crt1_sel[0:0], Q=\cur_raddr_buf_crt1_sel
+
+6. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+7. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_biu_read_channel..
+Removed 2 unused cells and 2 unused wires.
+<suppressed ~3 debug messages>
+
+9. Executing JSON backend.
+
+10. Executing SAT pass (solving SAT problems in the circuit).
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 251 cells to SAT database.
+No constraints for initial state found.
+
+Import proof for assert: 1'1 when 1'1.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 251 cells to SAT database.
+Import proof for assert: 1'1 when 1'1.
+Import show expression: \araddr
+Import show expression: \arbar
+Import show expression: \arburst
+Import show expression: \arcache
+Import show expression: \arcpuclk
+Import show expression: \ardomain
+Import show expression: \arid
+Import show expression: \arlen
+Import show expression: \arlock
+Import show expression: \arprot
+Import show expression: \arsize
+Import show expression: \arsnoop
+Import show expression: \aruser
+Import show expression: \arvalid
+Import show expression: \arvalid_gate
+Import show expression: \coreclk
+Import show expression: \cpurst_b
+Import show expression: \ifu_biu_r_ready
+Import show expression: \lsu_biu_r_linefill_ready
+Import show expression: \pad_biu_arready
+Import show expression: \pad_biu_rack_ready
+Import show expression: \pad_biu_rdata
+Import show expression: \pad_biu_rid
+Import show expression: \pad_biu_rlast
+Import show expression: \pad_biu_rresp
+Import show expression: \pad_biu_rvalid
+Import show expression: \rcpuclk
+Import show expression: \arready
+Import show expression: \biu_ifu_rd_data
+Import show expression: \biu_ifu_rd_data_vld
+Import show expression: \biu_ifu_rd_id
+Import show expression: \biu_ifu_rd_last
+Import show expression: \biu_ifu_rd_resp
+Import show expression: \biu_lsu_r_data
+Import show expression: \biu_lsu_r_id
+Import show expression: \biu_lsu_r_last
+Import show expression: \biu_lsu_r_resp
+Import show expression: \biu_lsu_r_vld
+Import show expression: \biu_pad_araddr
+Import show expression: \biu_pad_arbar
+Import show expression: \biu_pad_arburst
+Import show expression: \biu_pad_arcache
+Import show expression: \biu_pad_ardomain
+Import show expression: \biu_pad_arid
+Import show expression: \biu_pad_arlen
+Import show expression: \biu_pad_arlock
+Import show expression: \biu_pad_arprot
+Import show expression: \biu_pad_arsize
+Import show expression: \biu_pad_arsnoop
+Import show expression: \biu_pad_aruser
+Import show expression: \biu_pad_arvalid
+Import show expression: \biu_pad_rack
+Import show expression: \biu_pad_rready
+Import show expression: \read_ar_clk_en
+Import show expression: \read_busy
+Import show expression: \read_r_clk_en
+
+Solving problem with 22440 variables and 57635 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+

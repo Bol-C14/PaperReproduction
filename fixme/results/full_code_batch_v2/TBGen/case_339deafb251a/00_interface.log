@@ -1,0 +1,261 @@
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:247:21: Bit extraction of var[7:0] requires 3 bit index, not 4 bits.
+                                                                                                                              : ... note: In instance 'ethmonitor'
+  247 |             if ((txd[V2V_process_6_i] ^ process_6_crctmp[31]) == 1'b 1)
+      |                     ^
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.032
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:290:21: Operator ASSIGNDLY expects 8 bits on the Assign RHS, but Assign RHS's REPLICATE generates 9 bits.
+                                                                                                                              : ... note: In instance 'ethmonitor'
+  290 |             datacnt <= ({1'b 0, txd});  
+      |                     ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:295:21: Operator ASSIGNDLY expects 8 bits on the Assign RHS, but Assign RHS's REPLICATE generates 9 bits.
+                                                                                                                              : ... note: In instance 'ethmonitor'
+  295 |             datainc <= ({1'b 0, txd});  
+      |                     ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:299:21: Operator ASSIGNDLY expects 8 bits on the Assign RHS, but Assign RHS's MODDIV generates 32 or 9 bits.
+                                                                                                                              : ... note: In instance 'ethmonitor'
+  299 |             datacnt <= (datacnt + datainc) % 256;   
+      |                     ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:300:25: Operator NEQ expects 9 bits on the LHS, but LHS's VARREF 'datacnt' generates 8 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  300 |             if (datacnt != ({1'b 0, txd}))
+      |                         ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:412:24: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's CONST '1'h0' generates 1 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  412 |          process_11_ix = 1'b 0; 
+      |                        ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:416:17: Operator CASE expects 32 bits on the Case Item, but Case Item's CONST '1'h0' generates 1 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  416 |                 case (count)
+      |                 ^~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:416:17: Operator CASE expects 32 bits on the Case Item, but Case Item's CONST '1'h1' generates 1 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  416 |                 case (count)
+      |                 ^~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:424:13: Operator CASE expects 32 bits on the Case Item, but Case Item's CONST '1'h0' generates 1 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  424 |             case (count)
+      |             ^~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:424:13: Operator CASE expects 32 bits on the Case Item, but Case Item's CONST '1'h1' generates 1 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  424 |             case (count)
+      |             ^~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:424:13: Operator CASE expects 32 bits on the Case Item, but Case Item's CONST '2'h2' generates 2 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  424 |             case (count)
+      |             ^~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:424:13: Operator CASE expects 32 bits on the Case Item, but Case Item's CONST '2'h3' generates 2 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  424 |             case (count)
+      |             ^~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:424:13: Operator CASE expects 32 bits on the Case Item, but Case Item's CONST '3'h4' generates 3 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  424 |             case (count)
+      |             ^~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:424:13: Operator CASE expects 32 bits on the Case Item, but Case Item's CONST '3'h5' generates 3 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  424 |             case (count)
+      |             ^~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:455:10: Operator CASE expects 32 bits on the Case Item, but Case Item's CONST '1'h0' generates 1 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  455 |          case (count)
+      |          ^~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:455:10: Operator CASE expects 32 bits on the Case Item, but Case Item's CONST '1'h1' generates 1 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  455 |          case (count)
+      |          ^~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:455:10: Operator CASE expects 32 bits on the Case Item, but Case Item's CONST '2'h2' generates 2 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  455 |          case (count)
+      |          ^~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:455:10: Operator CASE expects 32 bits on the Case Item, but Case Item's CONST '2'h3' generates 2 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  455 |          case (count)
+      |          ^~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:455:10: Operator CASE expects 32 bits on the Case Item, but Case Item's CONST '3'h4' generates 3 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  455 |          case (count)
+      |          ^~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:455:10: Operator CASE expects 32 bits on the Case Item, but Case Item's CONST '3'h5' generates 3 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  455 |          case (count)
+      |          ^~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:485:9: Operator CASE expects 32 bits on the Case Item, but Case Item's CONST '1'h0' generates 1 bits.
+                                                                                                                              : ... note: In instance 'ethmonitor'
+  485 |         case (count)
+      |         ^~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:485:9: Operator CASE expects 32 bits on the Case Item, but Case Item's CONST '1'h1' generates 1 bits.
+                                                                                                                              : ... note: In instance 'ethmonitor'
+  485 |         case (count)
+      |         ^~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:485:9: Operator CASE expects 32 bits on the Case Item, but Case Item's CONST '2'h2' generates 2 bits.
+                                                                                                                              : ... note: In instance 'ethmonitor'
+  485 |         case (count)
+      |         ^~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:485:9: Operator CASE expects 32 bits on the Case Item, but Case Item's CONST '2'h3' generates 2 bits.
+                                                                                                                              : ... note: In instance 'ethmonitor'
+  485 |         case (count)
+      |         ^~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:485:9: Operator CASE expects 32 bits on the Case Item, but Case Item's CONST '3'h4' generates 3 bits.
+                                                                                                                              : ... note: In instance 'ethmonitor'
+  485 |         case (count)
+      |         ^~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:485:9: Operator CASE expects 32 bits on the Case Item, but Case Item's CONST '3'h5' generates 3 bits.
+                                                                                                                              : ... note: In instance 'ethmonitor'
+  485 |         case (count)
+      |         ^~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:528:32: Operator SUB expects 32 bits on the LHS, but LHS's CONST '4'h8' generates 4 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  528 |       process_12_ix = 4'b 1000 - count * 8; 
+      |                                ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:531:9: Operator CASE expects 32 bits on the Case Item, but Case Item's CONST '1'h0' generates 1 bits.
+                                                                                                                              : ... note: In instance 'ethmonitor'
+  531 |         case (count)
+      |         ^~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:531:9: Operator CASE expects 32 bits on the Case Item, but Case Item's CONST '1'h1' generates 1 bits.
+                                                                                                                              : ... note: In instance 'ethmonitor'
+  531 |         case (count)
+      |         ^~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:559:10: Operator CASE expects 32 bits on the Case Item, but Case Item's CONST '1'h0' generates 1 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  559 |          case (count)
+      |          ^~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:559:10: Operator CASE expects 32 bits on the Case Item, but Case Item's CONST '1'h1' generates 1 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  559 |          case (count)
+      |          ^~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:577:9: Operator CASE expects 32 bits on the Case Item, but Case Item's CONST '1'h0' generates 1 bits.
+                                                                                                                              : ... note: In instance 'ethmonitor'
+  577 |         case (count)
+      |         ^~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:577:9: Operator CASE expects 32 bits on the Case Item, but Case Item's CONST '1'h1' generates 1 bits.
+                                                                                                                              : ... note: In instance 'ethmonitor'
+  577 |         case (count)
+      |         ^~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:595:45: Operator NEQ expects 32 bits on the LHS, but LHS's VARREF 'ilen' generates 16 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  595 |              iis_stack_vlan == 1'b 1 & ilen != poscnt - 5'b 11010 |
+      |                                             ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:595:55: Operator SUB expects 32 bits on the RHS, but RHS's CONST '5'h1a' generates 5 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  595 |              iis_stack_vlan == 1'b 1 & ilen != poscnt - 5'b 11010 |
+      |                                                       ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:596:67: Operator NEQ expects 32 bits on the LHS, but LHS's VARREF 'ilen' generates 16 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  596 |              (iis_vlan == 1'b 1 & iis_stack_vlan == 1'b 0) & ilen != poscnt - 5'b 10110 | 
+      |                                                                   ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:596:77: Operator SUB expects 32 bits on the RHS, but RHS's CONST '5'h16' generates 5 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  596 |              (iis_vlan == 1'b 1 & iis_stack_vlan == 1'b 0) & ilen != poscnt - 5'b 10110 | 
+      |                                                                             ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:597:39: Operator NEQ expects 32 bits on the LHS, but LHS's VARREF 'ilen' generates 16 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  597 |              iis_vlan == 1'b 0 & ilen != poscnt - 5'b 10010)
+      |                                       ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:597:49: Operator SUB expects 32 bits on the RHS, but RHS's CONST '5'h12' generates 5 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  597 |              iis_vlan == 1'b 0 & ilen != poscnt - 5'b 10010)
+      |                                                 ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:628:9: Operator CASE expects 32 bits on the Case Item, but Case Item's CONST '2'h2' generates 2 bits.
+                                                                                                                              : ... note: In instance 'ethmonitor'
+  628 |         case (count)
+      |         ^~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:628:9: Operator CASE expects 32 bits on the Case Item, but Case Item's CONST '2'h3' generates 2 bits.
+                                                                                                                              : ... note: In instance 'ethmonitor'
+  628 |         case (count)
+      |         ^~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:689:37: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's CONST '1'h1' generates 1 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  689 |                   process_14_cnttmp = 1'b 1;    
+      |                                     ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:707:34: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's CONST '1'h1' generates 1 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  707 |                process_14_cnttmp = 1'b 1;   
+      |                                  ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:723:34: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's CONST '1'h0' generates 1 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  723 |                process_14_cnttmp = 1'b 0;   
+      |                                  ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:731:34: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's CONST '1'h0' generates 1 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  731 |                process_14_cnttmp = 1'b 0;   
+      |                                  ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:739:33: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's CONST '1'h0' generates 1 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  739 |               process_14_cnttmp = 1'b 0;  
+      |                                 ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:747:34: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's CONST '1'h0' generates 1 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  747 |                process_14_cnttmp = 1'b 0;   
+      |                                  ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:755:34: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's CONST '1'h0' generates 1 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  755 |                process_14_cnttmp = 1'b 0;   
+      |                                  ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:762:34: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's CONST '1'h0' generates 1 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  762 |                process_14_cnttmp = 1'b 0;   
+      |                                  ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:763:32: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's REPLICATE generates 17 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  763 |                process_14_flen = ({1'b 0, ilen[15:8], txd});    
+      |                                ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:788:44: Operator EQ expects 32 bits on the RHS, but RHS's CONST '16'h8100' generates 16 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  788 |                   else if (process_14_flen == 16'h 8100 )
+      |                                            ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:784:39: Operator EQ expects 32 bits on the RHS, but RHS's CONST '16'h8808' generates 16 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  784 |                   if (process_14_flen == 16'h 8808)
+      |                                       ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:804:34: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's CONST '1'h0' generates 1 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  804 |                process_14_cnttmp = 1'b 0;   
+      |                                  ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:812:34: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's CONST '1'h0' generates 1 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  812 |                process_14_cnttmp = 1'b 0;   
+      |                                  ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:819:34: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's CONST '1'h0' generates 1 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  819 |                process_14_cnttmp = 1'b 0;   
+      |                                  ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:820:32: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's REPLICATE generates 17 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  820 |                process_14_flen = ({1'b 0, ilen[15:8], txd});    
+      |                                ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:821:37: Operator EQ expects 32 bits on the RHS, but RHS's CONST '16'h8100' generates 16 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  821 |                if ( process_14_flen == 16'h8100)
+      |                                     ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:846:34: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's CONST '1'h0' generates 1 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  846 |                process_14_cnttmp = 1'b 0;   
+      |                                  ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:851:45: Operator SUB expects 32 bits on the LHS, but LHS's CONST '6'h3c' generates 6 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  851 |                else if (poscnt < 6'b 111100 - 1'b 1 )
+      |                                             ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:844:31: Operator SUB expects 32 bits on the LHS, but LHS's VARREF 'ilen' generates 16 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  844 |             if (count >= ilen - 1'b 1)
+      |                               ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:866:34: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's CONST '1'h0' generates 1 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  866 |                process_14_cnttmp = 1'b 0;   
+      |                                  ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:863:38: Operator SUB expects 32 bits on the LHS, but LHS's CONST '6'h3c' generates 6 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  863 |             if (poscnt >= 6'b 111100 - 1'b 1)
+      |                                      ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:874:34: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's CONST '1'h0' generates 1 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  874 |                process_14_cnttmp = 1'b 0;   
+      |                                  ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_339deafb251a/ethmonitor.v:882:34: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's CONST '1'h0' generates 1 bits.
+                                                                                                                               : ... note: In instance 'ethmonitor'
+  882 |                process_14_cnttmp = 1'b 0;   
+      |                                  ^
+- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev (Debian 5.032-1+b2)
+- Verilator: Built from 0.048 MB sources in 2 modules, into 0.000 MB in 0 C++ files needing 0.000 MB
+- Verilator: Walltime 0.010 s (elab=0.002, cvt=0.001, bld=0.000); cpu 0.012 s on 1 threads; alloced 9.668 MB

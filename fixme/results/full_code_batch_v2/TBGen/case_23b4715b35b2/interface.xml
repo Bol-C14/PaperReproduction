@@ -1,0 +1,52 @@
+<?xml version="1.0" ?>
+<!-- DESCRIPTION: Verilator output: XML representation of netlist -->
+<verilator_xml>
+  <files>
+    <file id="d" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std.sv" language="1800-2023"/>
+    <file id="c" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std_waiver.vlt" language="1800-2023"/>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_23b4715b35b2/address_mux.v" language="1800-2023"/>
+    <file id="a" filename="&lt;built-in&gt;" language="1800-2023"/>
+    <file id="b" filename="&lt;command-line&gt;" language="1800-2023"/>
+  </files>
+  <module_files>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_23b4715b35b2/address_mux.v" language="1800-2023"/>
+  </module_files>
+  <cells>
+    <cell loc="e,3,8,3,19" name="address_mux" submodname="address_mux" hier="address_mux"/>
+  </cells>
+  <netlist>
+    <module loc="e,3,8,3,19" name="address_mux" origName="address_mux" topModule="1">
+      <var loc="e,9,12,9,18" name="select" dtype_id="1" dir="input" pinIndex="1" vartype="logic" origName="select"/>
+      <var loc="e,10,19,10,22" name="in0" dtype_id="2" dir="input" pinIndex="2" vartype="logic" origName="in0"/>
+      <var loc="e,11,19,11,22" name="in1" dtype_id="2" dir="input" pinIndex="3" vartype="logic" origName="in1"/>
+      <var loc="e,12,20,12,23" name="out" dtype_id="2" dir="output" pinIndex="4" vartype="logic" origName="out"/>
+      <contassign loc="e,19,12,19,13" dtype_id="2">
+        <or loc="e,19,33,19,34" dtype_id="2">
+          <and loc="e,16,33,16,34" dtype_id="2">
+            <varref loc="e,10,19,10,22" name="in0" dtype_id="2"/>
+            <replicate loc="e,16,320,16,321" dtype_id="2">
+              <not loc="e,18,30,18,31" dtype_id="1">
+                <varref loc="e,9,12,9,18" name="select" dtype_id="1"/>
+              </not>
+              <const loc="e,16,320,16,321" name="32&apos;h10" dtype_id="3"/>
+            </replicate>
+          </and>
+          <and loc="e,17,33,17,34" dtype_id="2">
+            <varref loc="e,11,19,11,22" name="in1" dtype_id="2"/>
+            <replicate loc="e,17,140,17,141" dtype_id="2">
+              <varref loc="e,9,12,9,18" name="select" dtype_id="1"/>
+              <const loc="e,17,140,17,141" name="32&apos;h10" dtype_id="3"/>
+            </replicate>
+          </and>
+        </or>
+        <varref loc="e,19,12,19,13" name="out" dtype_id="2"/>
+      </contassign>
+    </module>
+    <typetable loc="a,0,0,0,0">
+      <basicdtype loc="d,46,25,46,27" id="1" name="logic"/>
+      <voiddtype loc="d,48,18,48,27" id="4"/>
+      <basicdtype loc="e,16,35,16,36" id="3" name="logic" left="31" right="0"/>
+      <basicdtype loc="e,10,12,10,13" id="2" name="logic" left="15" right="0"/>
+    </typetable>
+  </netlist>
+</verilator_xml>

@@ -1,0 +1,420 @@
+
+-- Running command `read_verilog -formal -sv constant_mutant_control.sv; hierarchy -top ct_clint_func; prep -top ct_clint_func; flatten; async2sync; dffunmap; memory_map; opt_clean; chformal -lower; write_json constant_mutant_control.json; sat -seq 2 -timeout 5 -prove-asserts -verify -show-inputs -show-outputs' --
+
+1. Executing Verilog-2005 frontend: constant_mutant_control.sv
+Parsing formal SystemVerilog input from `constant_mutant_control.sv' to AST representation.
+Generating RTLIL representation for module `\ct_clint_func'.
+Note: Assuming pure combinatorial block at constant_mutant_control.sv:176.1-193.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at constant_mutant_control.sv:304.1-333.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \ct_clint_func
+
+2.2. Analyzing design hierarchy..
+Top module:  \ct_clint_func
+Removed 0 unused modules.
+Module ct_clint_func directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \ct_clint_func
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \ct_clint_func
+Removed 0 unused modules.
+Module ct_clint_func directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 2 switch rules as full_case in process $proc$constant_mutant_control.sv:335$82 in module ct_clint_func.
+Marked 1 switch rules as full_case in process $proc$constant_mutant_control.sv:304$81 in module ct_clint_func.
+Marked 1 switch rules as full_case in process $proc$constant_mutant_control.sv:296$79 in module ct_clint_func.
+Marked 1 switch rules as full_case in process $proc$constant_mutant_control.sv:288$77 in module ct_clint_func.
+Marked 1 switch rules as full_case in process $proc$constant_mutant_control.sv:280$75 in module ct_clint_func.
+Marked 1 switch rules as full_case in process $proc$constant_mutant_control.sv:272$73 in module ct_clint_func.
+Marked 1 switch rules as full_case in process $proc$constant_mutant_control.sv:264$71 in module ct_clint_func.
+Marked 1 switch rules as full_case in process $proc$constant_mutant_control.sv:256$69 in module ct_clint_func.
+Marked 1 switch rules as full_case in process $proc$constant_mutant_control.sv:248$67 in module ct_clint_func.
+Marked 1 switch rules as full_case in process $proc$constant_mutant_control.sv:240$65 in module ct_clint_func.
+Marked 1 switch rules as full_case in process $proc$constant_mutant_control.sv:232$63 in module ct_clint_func.
+Marked 1 switch rules as full_case in process $proc$constant_mutant_control.sv:224$61 in module ct_clint_func.
+Marked 1 switch rules as full_case in process $proc$constant_mutant_control.sv:216$59 in module ct_clint_func.
+Marked 1 switch rules as full_case in process $proc$constant_mutant_control.sv:208$57 in module ct_clint_func.
+Marked 1 switch rules as full_case in process $proc$constant_mutant_control.sv:176$22 in module ct_clint_func.
+Marked 2 switch rules as full_case in process $proc$constant_mutant_control.sv:166$15 in module ct_clint_func.
+Marked 2 switch rules as full_case in process $proc$constant_mutant_control.sv:157$11 in module ct_clint_func.
+Removed a total of 0 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 4 redundant assignments.
+Promoted 3 assignments to connections.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \cpurst_b in `\ct_clint_func.$proc$constant_mutant_control.sv:335$82'.
+Found async reset \cpurst_b in `\ct_clint_func.$proc$constant_mutant_control.sv:296$79'.
+Found async reset \cpurst_b in `\ct_clint_func.$proc$constant_mutant_control.sv:288$77'.
+Found async reset \cpurst_b in `\ct_clint_func.$proc$constant_mutant_control.sv:280$75'.
+Found async reset \cpurst_b in `\ct_clint_func.$proc$constant_mutant_control.sv:272$73'.
+Found async reset \cpurst_b in `\ct_clint_func.$proc$constant_mutant_control.sv:264$71'.
+Found async reset \cpurst_b in `\ct_clint_func.$proc$constant_mutant_control.sv:256$69'.
+Found async reset \cpurst_b in `\ct_clint_func.$proc$constant_mutant_control.sv:248$67'.
+Found async reset \cpurst_b in `\ct_clint_func.$proc$constant_mutant_control.sv:240$65'.
+Found async reset \cpurst_b in `\ct_clint_func.$proc$constant_mutant_control.sv:232$63'.
+Found async reset \cpurst_b in `\ct_clint_func.$proc$constant_mutant_control.sv:224$61'.
+Found async reset \cpurst_b in `\ct_clint_func.$proc$constant_mutant_control.sv:216$59'.
+Found async reset \cpurst_b in `\ct_clint_func.$proc$constant_mutant_control.sv:208$57'.
+Found async reset \cpurst_b in `\ct_clint_func.$proc$constant_mutant_control.sv:166$15'.
+Found async reset \cpurst_b in `\ct_clint_func.$proc$constant_mutant_control.sv:157$11'.
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~17 debug messages>
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\ct_clint_func.$proc$constant_mutant_control.sv:356$92'.
+Creating decoders for process `\ct_clint_func.$proc$constant_mutant_control.sv:335$82'.
+     1/1: $0\clint_mtime_reg[63:0]
+Creating decoders for process `\ct_clint_func.$proc$constant_mutant_control.sv:304$81'.
+     1/1: $1\data_out[31:0]
+Creating decoders for process `\ct_clint_func.$proc$constant_mutant_control.sv:296$79'.
+     1/1: $0\stimecmph1_reg[31:0]
+Creating decoders for process `\ct_clint_func.$proc$constant_mutant_control.sv:288$77'.
+     1/1: $0\stimecmp1_reg[31:0]
+Creating decoders for process `\ct_clint_func.$proc$constant_mutant_control.sv:280$75'.
+     1/1: $0\ssip1_reg[0:0]
+Creating decoders for process `\ct_clint_func.$proc$constant_mutant_control.sv:272$73'.
+     1/1: $0\mtimecmph1_reg[31:0]
+Creating decoders for process `\ct_clint_func.$proc$constant_mutant_control.sv:264$71'.
+     1/1: $0\mtimecmp1_reg[31:0]
+Creating decoders for process `\ct_clint_func.$proc$constant_mutant_control.sv:256$69'.
+     1/1: $0\msip1_reg[0:0]
+Creating decoders for process `\ct_clint_func.$proc$constant_mutant_control.sv:248$67'.
+     1/1: $0\stimecmph0_reg[31:0]
+Creating decoders for process `\ct_clint_func.$proc$constant_mutant_control.sv:240$65'.
+     1/1: $0\stimecmp0_reg[31:0]
+Creating decoders for process `\ct_clint_func.$proc$constant_mutant_control.sv:232$63'.
+     1/1: $0\ssip0_reg[0:0]
+Creating decoders for process `\ct_clint_func.$proc$constant_mutant_control.sv:224$61'.
+     1/1: $0\mtimecmph0_reg[31:0]
+Creating decoders for process `\ct_clint_func.$proc$constant_mutant_control.sv:216$59'.
+     1/1: $0\mtimecmp0_reg[31:0]
+Creating decoders for process `\ct_clint_func.$proc$constant_mutant_control.sv:208$57'.
+     1/1: $0\msip0_reg[0:0]
+Creating decoders for process `\ct_clint_func.$proc$constant_mutant_control.sv:176$22'.
+     1/1: $1\acc_err[0:0]
+Creating decoders for process `\ct_clint_func.$proc$constant_mutant_control.sv:166$15'.
+     1/1: $0\perr_clint[0:0]
+Creating decoders for process `\ct_clint_func.$proc$constant_mutant_control.sv:157$11'.
+     1/1: $0\pready_clint[0:0]
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\ct_clint_func.\data_out' from process `\ct_clint_func.$proc$constant_mutant_control.sv:304$81'.
+No latch inferred for signal `\ct_clint_func.\acc_err' from process `\ct_clint_func.$proc$constant_mutant_control.sv:176$22'.
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\ct_clint_func.\clint_mtime_reg' using process `\ct_clint_func.$proc$constant_mutant_control.sv:335$82'.
+  created $adff cell `$procdff$161' with positive edge clock and positive level reset.
+Creating register for signal `\ct_clint_func.\stimecmph1_reg' using process `\ct_clint_func.$proc$constant_mutant_control.sv:296$79'.
+  created $adff cell `$procdff$166' with positive edge clock and positive level reset.
+Creating register for signal `\ct_clint_func.\stimecmp1_reg' using process `\ct_clint_func.$proc$constant_mutant_control.sv:288$77'.
+  created $adff cell `$procdff$171' with positive edge clock and positive level reset.
+Creating register for signal `\ct_clint_func.\ssip1_reg' using process `\ct_clint_func.$proc$constant_mutant_control.sv:280$75'.
+  created $adff cell `$procdff$176' with positive edge clock and positive level reset.
+Creating register for signal `\ct_clint_func.\mtimecmph1_reg' using process `\ct_clint_func.$proc$constant_mutant_control.sv:272$73'.
+  created $adff cell `$procdff$181' with positive edge clock and positive level reset.
+Creating register for signal `\ct_clint_func.\mtimecmp1_reg' using process `\ct_clint_func.$proc$constant_mutant_control.sv:264$71'.
+  created $adff cell `$procdff$186' with positive edge clock and positive level reset.
+Creating register for signal `\ct_clint_func.\msip1_reg' using process `\ct_clint_func.$proc$constant_mutant_control.sv:256$69'.
+  created $adff cell `$procdff$191' with positive edge clock and positive level reset.
+Creating register for signal `\ct_clint_func.\stimecmph0_reg' using process `\ct_clint_func.$proc$constant_mutant_control.sv:248$67'.
+  created $adff cell `$procdff$196' with positive edge clock and positive level reset.
+Creating register for signal `\ct_clint_func.\stimecmp0_reg' using process `\ct_clint_func.$proc$constant_mutant_control.sv:240$65'.
+  created $adff cell `$procdff$201' with positive edge clock and positive level reset.
+Creating register for signal `\ct_clint_func.\ssip0_reg' using process `\ct_clint_func.$proc$constant_mutant_control.sv:232$63'.
+  created $adff cell `$procdff$206' with positive edge clock and positive level reset.
+Creating register for signal `\ct_clint_func.\mtimecmph0_reg' using process `\ct_clint_func.$proc$constant_mutant_control.sv:224$61'.
+  created $adff cell `$procdff$211' with positive edge clock and positive level reset.
+Creating register for signal `\ct_clint_func.\mtimecmp0_reg' using process `\ct_clint_func.$proc$constant_mutant_control.sv:216$59'.
+  created $adff cell `$procdff$216' with positive edge clock and positive level reset.
+Creating register for signal `\ct_clint_func.\msip0_reg' using process `\ct_clint_func.$proc$constant_mutant_control.sv:208$57'.
+  created $adff cell `$procdff$221' with positive edge clock and positive level reset.
+Creating register for signal `\ct_clint_func.\perr_clint' using process `\ct_clint_func.$proc$constant_mutant_control.sv:166$15'.
+  created $adff cell `$procdff$226' with positive edge clock and positive level reset.
+Creating register for signal `\ct_clint_func.\pready_clint' using process `\ct_clint_func.$proc$constant_mutant_control.sv:157$11'.
+  created $adff cell `$procdff$231' with positive edge clock and positive level reset.
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `ct_clint_func.$proc$constant_mutant_control.sv:356$92'.
+Found and cleaned up 1 empty switch in `\ct_clint_func.$proc$constant_mutant_control.sv:335$82'.
+Removing empty process `ct_clint_func.$proc$constant_mutant_control.sv:335$82'.
+Found and cleaned up 1 empty switch in `\ct_clint_func.$proc$constant_mutant_control.sv:304$81'.
+Removing empty process `ct_clint_func.$proc$constant_mutant_control.sv:304$81'.
+Found and cleaned up 1 empty switch in `\ct_clint_func.$proc$constant_mutant_control.sv:296$79'.
+Removing empty process `ct_clint_func.$proc$constant_mutant_control.sv:296$79'.
+Found and cleaned up 1 empty switch in `\ct_clint_func.$proc$constant_mutant_control.sv:288$77'.
+Removing empty process `ct_clint_func.$proc$constant_mutant_control.sv:288$77'.
+Found and cleaned up 1 empty switch in `\ct_clint_func.$proc$constant_mutant_control.sv:280$75'.
+Removing empty process `ct_clint_func.$proc$constant_mutant_control.sv:280$75'.
+Found and cleaned up 1 empty switch in `\ct_clint_func.$proc$constant_mutant_control.sv:272$73'.
+Removing empty process `ct_clint_func.$proc$constant_mutant_control.sv:272$73'.
+Found and cleaned up 1 empty switch in `\ct_clint_func.$proc$constant_mutant_control.sv:264$71'.
+Removing empty process `ct_clint_func.$proc$constant_mutant_control.sv:264$71'.
+Found and cleaned up 1 empty switch in `\ct_clint_func.$proc$constant_mutant_control.sv:256$69'.
+Removing empty process `ct_clint_func.$proc$constant_mutant_control.sv:256$69'.
+Found and cleaned up 1 empty switch in `\ct_clint_func.$proc$constant_mutant_control.sv:248$67'.
+Removing empty process `ct_clint_func.$proc$constant_mutant_control.sv:248$67'.
+Found and cleaned up 1 empty switch in `\ct_clint_func.$proc$constant_mutant_control.sv:240$65'.
+Removing empty process `ct_clint_func.$proc$constant_mutant_control.sv:240$65'.
+Found and cleaned up 1 empty switch in `\ct_clint_func.$proc$constant_mutant_control.sv:232$63'.
+Removing empty process `ct_clint_func.$proc$constant_mutant_control.sv:232$63'.
+Found and cleaned up 1 empty switch in `\ct_clint_func.$proc$constant_mutant_control.sv:224$61'.
+Removing empty process `ct_clint_func.$proc$constant_mutant_control.sv:224$61'.
+Found and cleaned up 1 empty switch in `\ct_clint_func.$proc$constant_mutant_control.sv:216$59'.
+Removing empty process `ct_clint_func.$proc$constant_mutant_control.sv:216$59'.
+Found and cleaned up 1 empty switch in `\ct_clint_func.$proc$constant_mutant_control.sv:208$57'.
+Removing empty process `ct_clint_func.$proc$constant_mutant_control.sv:208$57'.
+Found and cleaned up 1 empty switch in `\ct_clint_func.$proc$constant_mutant_control.sv:176$22'.
+Removing empty process `ct_clint_func.$proc$constant_mutant_control.sv:176$22'.
+Found and cleaned up 1 empty switch in `\ct_clint_func.$proc$constant_mutant_control.sv:166$15'.
+Removing empty process `ct_clint_func.$proc$constant_mutant_control.sv:166$15'.
+Found and cleaned up 1 empty switch in `\ct_clint_func.$proc$constant_mutant_control.sv:157$11'.
+Removing empty process `ct_clint_func.$proc$constant_mutant_control.sv:157$11'.
+Cleaned up 17 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_clint_func.
+<suppressed ~36 debug messages>
+
+3.3. Executing FUTURE pass.
+
+3.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_clint_func.
+
+3.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_clint_func..
+Removed 32 unused cells and 110 unused wires.
+<suppressed ~34 debug messages>
+
+3.6. Executing CHECK pass (checking for obvious problems).
+Checking module ct_clint_func...
+Found and reported 0 problems.
+
+3.7. Executing OPT pass (performing simple optimizations).
+
+3.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_clint_func.
+
+3.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ct_clint_func'.
+<suppressed ~78 debug messages>
+Removed a total of 26 cells.
+
+3.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ct_clint_func..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~17 debug messages>
+
+3.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ct_clint_func.
+    New ctrl vector for $pmux cell $procmux$138: $auto$opt_reduce.cc:137:opt_pmux$233
+  Optimizing cells in module \ct_clint_func.
+Performed a total of 1 changes.
+
+3.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ct_clint_func'.
+Removed a total of 0 cells.
+
+3.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_clint_func..
+Removed 0 unused cells and 26 unused wires.
+<suppressed ~1 debug messages>
+
+3.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_clint_func.
+
+3.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ct_clint_func..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~17 debug messages>
+
+3.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ct_clint_func.
+Performed a total of 0 changes.
+
+3.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ct_clint_func'.
+Removed a total of 0 cells.
+
+3.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_clint_func..
+
+3.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_clint_func.
+
+3.7.14. Finished OPT passes. (There is nothing left to do.)
+
+3.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 1 bits (of 2) from port B of cell ct_clint_func.$eq$constant_mutant_control.sv:153$6 ($eq).
+Removed top 1 bits (of 4) from port B of cell ct_clint_func.$eq$constant_mutant_control.sv:194$24 ($eq).
+Removed top 1 bits (of 16) from port B of cell ct_clint_func.$eq$constant_mutant_control.sv:197$35 ($eq).
+Removed top 1 bits (of 16) from port B of cell ct_clint_func.$eq$constant_mutant_control.sv:198$37 ($eq).
+Removed top 13 bits (of 16) from port B of cell ct_clint_func.$eq$constant_mutant_control.sv:202$45 ($eq).
+Removed top 1 bits (of 16) from port B of cell ct_clint_func.$eq$constant_mutant_control.sv:203$47 ($eq).
+Removed top 1 bits (of 16) from port B of cell ct_clint_func.$eq$constant_mutant_control.sv:204$49 ($eq).
+
+3.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_clint_func..
+
+3.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.11. Executing OPT pass (performing simple optimizations).
+
+3.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_clint_func.
+
+3.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ct_clint_func'.
+Removed a total of 0 cells.
+
+3.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_clint_func..
+
+3.11.4. Finished fast OPT passes.
+
+3.12. Printing statistics.
+
+=== ct_clint_func ===
+
+   Number of wires:                119
+   Number of wire bits:           1301
+   Number of public wires:          72
+   Number of public wire bits:     943
+   Number of ports:                 24
+   Number of port bits:            181
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 89
+     $adff                          15
+     $check                          1
+     $eq                            16
+     $gt                             4
+     $logic_and                     20
+     $logic_not                      9
+     $logic_or                       5
+     $mux                           16
+     $not                            1
+     $pmux                           1
+     $reduce_or                      1
+
+3.13. Executing CHECK pass (checking for obvious problems).
+Checking module ct_clint_func...
+Found and reported 0 problems.
+
+4. Executing FLATTEN pass (flatten design).
+
+5. Executing ASYNC2SYNC pass.
+Replacing ct_clint_func.$procdff$161 ($adff): ARST=\cpurst_b, D=$0\clint_mtime_reg[63:0], Q=\clint_mtime_reg
+Replacing ct_clint_func.$procdff$166 ($adff): ARST=\cpurst_b, D=$0\stimecmph1_reg[31:0], Q=\stimecmph1_reg
+Replacing ct_clint_func.$procdff$171 ($adff): ARST=\cpurst_b, D=$0\stimecmp1_reg[31:0], Q=\stimecmp1_reg
+Replacing ct_clint_func.$procdff$176 ($adff): ARST=\cpurst_b, D=$0\ssip1_reg[0:0], Q=\ssip1_reg
+Replacing ct_clint_func.$procdff$181 ($adff): ARST=\cpurst_b, D=$0\mtimecmph1_reg[31:0], Q=\mtimecmph1_reg
+Replacing ct_clint_func.$procdff$186 ($adff): ARST=\cpurst_b, D=$0\mtimecmp1_reg[31:0], Q=\mtimecmp1_reg
+Replacing ct_clint_func.$procdff$191 ($adff): ARST=\cpurst_b, D=$0\msip1_reg[0:0], Q=\msip1_reg
+Replacing ct_clint_func.$procdff$196 ($adff): ARST=\cpurst_b, D=$0\stimecmph0_reg[31:0], Q=\stimecmph0_reg
+Replacing ct_clint_func.$procdff$201 ($adff): ARST=\cpurst_b, D=$0\stimecmp0_reg[31:0], Q=\stimecmp0_reg
+Replacing ct_clint_func.$procdff$206 ($adff): ARST=\cpurst_b, D=$0\ssip0_reg[0:0], Q=\ssip0_reg
+Replacing ct_clint_func.$procdff$211 ($adff): ARST=\cpurst_b, D=$0\mtimecmph0_reg[31:0], Q=\mtimecmph0_reg
+Replacing ct_clint_func.$procdff$216 ($adff): ARST=\cpurst_b, D=$0\mtimecmp0_reg[31:0], Q=\mtimecmp0_reg
+Replacing ct_clint_func.$procdff$221 ($adff): ARST=\cpurst_b, D=$0\msip0_reg[0:0], Q=\msip0_reg
+Replacing ct_clint_func.$procdff$226 ($adff): ARST=\cpurst_b, D=$0\perr_clint[0:0], Q=\perr_clint
+Replacing ct_clint_func.$procdff$231 ($adff): ARST=\cpurst_b, D=$0\pready_clint[0:0], Q=\pready_clint
+
+6. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+7. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_clint_func..
+Removed 2 unused cells and 2 unused wires.
+<suppressed ~3 debug messages>
+
+9. Executing JSON backend.
+
+10. Executing SAT pass (solving SAT problems in the circuit).
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 119 cells to SAT database.
+No constraints for initial state found.
+
+Import proof for assert: 1'1 when 1'1.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 119 cells to SAT database.
+Import proof for assert: 1'1 when 1'1.
+Import show expression: \apb_clk_en
+Import show expression: \ciu_clint_icg_en
+Import show expression: \cpurst_b
+Import show expression: \forever_apbclk
+Import show expression: \forever_cpuclk
+Import show expression: \pad_yy_icg_scan_en
+Import show expression: \paddr
+Import show expression: \penable
+Import show expression: \pprot
+Import show expression: \psel_clint
+Import show expression: \pwdata
+Import show expression: \pwrite
+Import show expression: \sysio_clint_mtime
+Import show expression: \clint_core0_ms_int
+Import show expression: \clint_core0_mt_int
+Import show expression: \clint_core0_ss_int
+Import show expression: \clint_core0_st_int
+Import show expression: \clint_core1_ms_int
+Import show expression: \clint_core1_mt_int
+Import show expression: \clint_core1_ss_int
+Import show expression: \clint_core1_st_int
+Import show expression: \perr_clint
+Import show expression: \prdata_clint
+Import show expression: \pready_clint
+
+Solving problem with 22536 variables and 61123 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+

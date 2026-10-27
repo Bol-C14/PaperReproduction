@@ -1,0 +1,40 @@
+{
+  "id": "TBGen/L1/Text/Register",
+  "subset": "TBGen",
+  "input_files": [
+    {
+      "name": "Register.v",
+      "bytes": 305,
+      "sha256": "cd8ae5c9b13149fdded644dd056dd1b44f1227a2f079b2da35834477e09f3fef"
+    },
+    {
+      "name": "Register_spec.txt",
+      "bytes": 7621,
+      "sha256": "92fb22f1d5e895c9999766dab7d6cbff3bb6a7532c5b3754200828e18f348d7d"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": true,
+  "negative_control_detected": true,
+  "commands": 5,
+  "status": "pass",
+  "stimulus_contract": {
+    "seed": 13579,
+    "cycles": 64,
+    "clock": "clock",
+    "reset_polarities": {
+      "reset": 1
+    },
+    "unknown_handling": "any observed unknown prevents pass",
+    "oracle": "renamed copy of supplied RTL; self-consistency/calibration only"
+  },
+  "observed_checks": 64,
+  "observed_unknown": 0,
+  "reference_status": "pass",
+  "negative_status": "fail",
+  "reason": "reference/checker positive and perturbed-checker negative executed",
+  "seconds": 0.111
+}

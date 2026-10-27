@@ -1,0 +1,17 @@
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_bb00d99e139d/BM_lamda.v:51:25: Operator SUB expects 32 or 8 bits on the RHS, but RHS's SEL generates 1 bits.
+                                                                                                                            : ... note: In instance 'BM_lamda'
+   51 |      (div1)? add_1[7:0] - (add_1[8]) +1 :
+      |                         ^
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.032
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_bb00d99e139d/BM_lamda.v:52:17: Operator ADD expects 32 or 8 bits on the RHS, but RHS's SEL generates 1 bits.
+                                                                                                                            : ... note: In instance 'BM_lamda'
+   52 |      add_1[7:0] +add_1[8] +1 ;
+      |                 ^
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_bb00d99e139d/BM_lamda.v:189:11: Operator ASSIGNDLY expects 4 bits on the Assign RHS, but Assign RHS's SUB generates 5 bits.
+                                                                                                                            : ... note: In instance 'BM_lamda'
+  189 |         N <= K - N;
+      |           ^~
+- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev (Debian 5.032-1+b2)
+- Verilator: Built from 0.032 MB sources in 2 modules, into 0.000 MB in 0 C++ files needing 0.000 MB
+- Verilator: Walltime 0.008 s (elab=0.002, cvt=0.001, bld=0.000); cpu 0.008 s on 1 threads; alloced 9.258 MB

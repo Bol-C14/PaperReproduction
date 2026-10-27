@@ -1,0 +1,447 @@
+<?xml version="1.0" ?>
+<!-- DESCRIPTION: Verilator output: XML representation of netlist -->
+<verilator_xml>
+  <files>
+    <file id="d" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std.sv" language="1800-2023"/>
+    <file id="c" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std_waiver.vlt" language="1800-2023"/>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_3fbd3ba63c0f/loopback_adapter_fifo.v" language="1800-2023"/>
+    <file id="a" filename="&lt;built-in&gt;" language="1800-2023"/>
+    <file id="b" filename="&lt;command-line&gt;" language="1800-2023"/>
+  </files>
+  <module_files>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_3fbd3ba63c0f/loopback_adapter_fifo.v" language="1800-2023"/>
+  </module_files>
+  <cells>
+    <cell loc="e,3,8,3,29" name="loopback_adapter_fifo" submodname="loopback_adapter_fifo" hier="loopback_adapter_fifo"/>
+  </cells>
+  <netlist>
+    <module loc="e,3,8,3,29" name="loopback_adapter_fifo" origName="loopback_adapter_fifo" topModule="1">
+      <var loc="e,4,24,4,34" name="fill_level" dtype_id="1" dir="output" pinIndex="1" vartype="logic" origName="fill_level"/>
+      <var loc="e,5,23,5,26" name="clk" dtype_id="2" dir="input" pinIndex="2" vartype="logic" origName="clk"/>
+      <var loc="e,6,23,6,28" name="reset" dtype_id="2" dir="input" pinIndex="3" vartype="logic" origName="reset"/>
+      <var loc="e,7,23,7,31" name="in_ready" dtype_id="2" dir="output" pinIndex="4" vartype="logic" origName="in_ready"/>
+      <var loc="e,8,23,8,31" name="in_valid" dtype_id="2" dir="input" pinIndex="5" vartype="logic" origName="in_valid"/>
+      <var loc="e,9,23,9,30" name="in_data" dtype_id="3" dir="input" pinIndex="6" vartype="logic" origName="in_data"/>
+      <var loc="e,10,23,10,32" name="out_ready" dtype_id="2" dir="input" pinIndex="7" vartype="logic" origName="out_ready"/>
+      <var loc="e,11,23,11,32" name="out_valid" dtype_id="2" dir="output" pinIndex="8" vartype="logic" origName="out_valid"/>
+      <var loc="e,12,23,12,31" name="out_data" dtype_id="3" dir="output" pinIndex="9" vartype="logic" origName="out_data"/>
+      <var loc="e,14,14,14,19" name="DEPTH" dtype_id="4" vartype="logic" origName="DEPTH" param="true">
+        <const loc="e,14,22,14,26" name="32&apos;sh800" dtype_id="4"/>
+      </var>
+      <var loc="e,15,14,15,24" name="DATA_WIDTH" dtype_id="4" vartype="logic" origName="DATA_WIDTH" param="true">
+        <const loc="e,15,27,15,29" name="32&apos;shb" dtype_id="4"/>
+      </var>
+      <var loc="e,16,14,16,24" name="ADDR_WIDTH" dtype_id="4" vartype="logic" origName="ADDR_WIDTH" param="true">
+        <const loc="e,16,27,16,29" name="32&apos;shb" dtype_id="4"/>
+      </var>
+      <var loc="e,17,25,17,32" name="wr_addr" dtype_id="3" vartype="logic" origName="wr_addr"/>
+      <var loc="e,18,25,18,32" name="rd_addr" dtype_id="3" vartype="logic" origName="rd_addr"/>
+      <var loc="e,19,25,19,37" name="next_wr_addr" dtype_id="3" vartype="logic" origName="next_wr_addr"/>
+      <var loc="e,20,25,20,37" name="next_rd_addr" dtype_id="3" vartype="logic" origName="next_rd_addr"/>
+      <var loc="e,21,25,21,36" name="mem_rd_addr" dtype_id="3" vartype="logic" origName="mem_rd_addr"/>
+      <var loc="e,22,25,22,28" name="mem" dtype_id="5" vartype="" origName="mem"/>
+      <var loc="e,23,17,23,22" name="empty" dtype_id="2" vartype="logic" origName="empty"/>
+      <var loc="e,24,17,24,21" name="full" dtype_id="2" vartype="logic" origName="full"/>
+      <var loc="e,25,8,25,24" name="out_ready_vector" dtype_id="2" vartype="logic" origName="out_ready_vector"/>
+      <var loc="e,26,12,26,13" name="j" dtype_id="6" vartype="integer" origName="j"/>
+      <var loc="e,27,8,27,22" name="enable_reading" dtype_id="2" vartype="logic" origName="enable_reading"/>
+      <always loc="e,28,4,28,10">
+        <sentree loc="e,28,11,28,12">
+          <senitem loc="e,28,48,28,52" edgeType="CHANGED">
+            <varref loc="e,28,48,28,52" name="full" dtype_id="2"/>
+          </senitem>
+          <senitem loc="e,28,13,28,22" edgeType="CHANGED">
+            <varref loc="e,28,13,28,22" name="out_ready" dtype_id="2"/>
+          </senitem>
+          <senitem loc="e,28,37,28,44" edgeType="CHANGED">
+            <varref loc="e,28,37,28,44" name="rd_addr" dtype_id="3"/>
+          </senitem>
+          <senitem loc="e,28,26,28,33" edgeType="CHANGED">
+            <varref loc="e,28,26,28,33" name="wr_addr" dtype_id="3"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,29,4,29,9">
+          <assign loc="e,30,24,30,25" dtype_id="2">
+            <varref loc="e,30,26,30,35" name="out_ready" dtype_id="2"/>
+            <varref loc="e,30,7,30,23" name="out_ready_vector" dtype_id="2"/>
+          </assign>
+          <assign loc="e,31,17,31,18" dtype_id="2">
+            <not loc="e,31,19,31,20" dtype_id="2">
+              <varref loc="e,31,20,31,24" name="full" dtype_id="2"/>
+            </not>
+            <varref loc="e,31,7,31,15" name="in_ready" dtype_id="2"/>
+          </assign>
+          <assign loc="e,32,20,32,21" dtype_id="3">
+            <add loc="e,32,30,32,31" dtype_id="3">
+              <const loc="e,32,30,32,31" name="11&apos;h1" dtype_id="3"/>
+              <varref loc="e,32,22,32,29" name="wr_addr" dtype_id="3"/>
+            </add>
+            <varref loc="e,32,7,32,19" name="next_wr_addr" dtype_id="3"/>
+          </assign>
+          <assign loc="e,33,20,33,21" dtype_id="3">
+            <add loc="e,33,30,33,31" dtype_id="3">
+              <const loc="e,33,30,33,31" name="11&apos;h1" dtype_id="3"/>
+              <varref loc="e,33,22,33,29" name="rd_addr" dtype_id="3"/>
+            </add>
+            <varref loc="e,33,7,33,19" name="next_rd_addr" dtype_id="3"/>
+          </assign>
+          <assign loc="e,34,36,34,37" dtype_id="1">
+            <extend loc="e,34,46,34,47" dtype_id="1" width="12" widthminv="11">
+              <sub loc="e,34,46,34,47" dtype_id="3">
+                <varref loc="e,34,38,34,45" name="wr_addr" dtype_id="3"/>
+                <varref loc="e,34,48,34,55" name="rd_addr" dtype_id="3"/>
+              </sub>
+            </extend>
+            <varref loc="e,34,9,34,19" name="fill_level" dtype_id="1"/>
+          </assign>
+          <if loc="e,36,9,36,11">
+            <varref loc="e,36,13,36,17" name="full" dtype_id="2"/>
+            <begin>
+              <assign loc="e,37,23,37,24" dtype_id="1">
+                <const loc="e,37,25,37,30" name="12&apos;h800" dtype_id="1"/>
+                <varref loc="e,37,12,37,22" name="fill_level" dtype_id="1"/>
+              </assign>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <always loc="e,39,4,39,10">
+        <sentree loc="e,39,11,39,12">
+          <senitem loc="e,39,31,39,38" edgeType="POS">
+            <varref loc="e,39,39,39,42" name="clk" dtype_id="2"/>
+          </senitem>
+          <senitem loc="e,39,14,39,21" edgeType="POS">
+            <varref loc="e,39,22,39,27" name="reset" dtype_id="2"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,40,4,40,9">
+          <if loc="e,41,4,41,6">
+            <varref loc="e,41,8,41,13" name="reset" dtype_id="2"/>
+            <begin>
+              <begin loc="e,42,5,42,10">
+                <assigndly loc="e,43,19,43,21" dtype_id="2">
+                  <const loc="e,43,22,43,26" name="1&apos;h0" dtype_id="2"/>
+                  <varref loc="e,43,4,43,18" name="enable_reading" dtype_id="2"/>
+                </assigndly>
+              </begin>
+            </begin>
+            <begin>
+              <begin loc="e,46,5,46,10">
+                <if loc="e,47,4,47,6">
+                  <varref loc="e,47,8,47,13" name="empty" dtype_id="2"/>
+                  <begin>
+                    <begin loc="e,48,5,48,10">
+                      <assigndly loc="e,49,19,49,21" dtype_id="2">
+                        <const loc="e,49,22,49,26" name="1&apos;h0" dtype_id="2"/>
+                        <varref loc="e,49,4,49,18" name="enable_reading" dtype_id="2"/>
+                      </assigndly>
+                    </begin>
+                  </begin>
+                  <begin>
+                    <begin loc="e,52,5,52,10">
+                      <if loc="e,53,11,53,13">
+                        <and loc="e,53,26,53,27" dtype_id="2">
+                          <sel loc="e,53,22,53,23" dtype_id="2">
+                            <varref loc="e,53,15,53,22" name="in_data" dtype_id="3"/>
+                            <const loc="e,53,23,53,24" name="4&apos;h1" dtype_id="7"/>
+                            <const loc="e,53,22,53,23" name="32&apos;h1" dtype_id="8"/>
+                          </sel>
+                          <varref loc="e,53,28,53,36" name="in_valid" dtype_id="2"/>
+                        </and>
+                        <begin>
+                          <assigndly loc="e,54,27,54,29" dtype_id="2">
+                            <const loc="e,54,30,54,34" name="1&apos;h1" dtype_id="2"/>
+                            <varref loc="e,54,12,54,26" name="enable_reading" dtype_id="2"/>
+                          </assigndly>
+                        </begin>
+                      </if>
+                    </begin>
+                  </begin>
+                </if>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <always loc="e,58,4,58,10">
+        <sentree loc="e,58,11,58,12">
+          <senitem loc="e,58,31,58,38" edgeType="POS">
+            <varref loc="e,58,39,58,42" name="clk" dtype_id="2"/>
+          </senitem>
+          <senitem loc="e,58,14,58,21" edgeType="POS">
+            <varref loc="e,58,22,58,27" name="reset" dtype_id="2"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,59,4,59,9">
+          <if loc="e,60,7,60,9">
+            <varref loc="e,60,11,60,16" name="reset" dtype_id="2"/>
+            <begin>
+              <begin loc="e,61,9,61,14">
+                <assigndly loc="e,62,19,62,21" dtype_id="3">
+                  <const loc="e,62,22,62,23" name="11&apos;h0" dtype_id="3"/>
+                  <varref loc="e,62,10,62,17" name="wr_addr" dtype_id="3"/>
+                </assigndly>
+                <assigndly loc="e,63,19,63,21" dtype_id="3">
+                  <const loc="e,63,22,63,23" name="11&apos;h0" dtype_id="3"/>
+                  <varref loc="e,63,10,63,17" name="rd_addr" dtype_id="3"/>
+                </assigndly>
+                <assigndly loc="e,64,19,64,21" dtype_id="2">
+                  <const loc="e,64,22,64,23" name="1&apos;h1" dtype_id="2"/>
+                  <varref loc="e,64,10,64,15" name="empty" dtype_id="2"/>
+                </assigndly>
+                <assigndly loc="e,65,19,65,21" dtype_id="3">
+                  <const loc="e,65,22,65,23" name="11&apos;h0" dtype_id="3"/>
+                  <varref loc="e,65,10,65,17" name="rd_addr" dtype_id="3"/>
+                </assigndly>
+                <assigndly loc="e,66,19,66,21" dtype_id="2">
+                  <const loc="e,66,22,66,23" name="1&apos;h0" dtype_id="2"/>
+                  <varref loc="e,66,10,66,14" name="full" dtype_id="2"/>
+                </assigndly>
+                <assigndly loc="e,67,19,67,21" dtype_id="2">
+                  <const loc="e,67,22,67,23" name="1&apos;h0" dtype_id="2"/>
+                  <varref loc="e,67,10,67,19" name="out_valid" dtype_id="2"/>
+                </assigndly>
+              </begin>
+            </begin>
+            <begin>
+              <begin loc="e,70,7,70,12">
+                <assigndly loc="e,71,20,71,22" dtype_id="2">
+                  <varref loc="e,71,23,71,37" name="enable_reading" dtype_id="2"/>
+                  <varref loc="e,71,10,71,19" name="out_valid" dtype_id="2"/>
+                </assigndly>
+                <if loc="e,72,10,72,12">
+                  <and loc="e,72,23,72,25" dtype_id="2">
+                    <varref loc="e,72,14,72,22" name="in_ready" dtype_id="2"/>
+                    <varref loc="e,72,26,72,34" name="in_valid" dtype_id="2"/>
+                  </and>
+                  <begin>
+                    <begin loc="e,73,11,73,16">
+                      <assigndly loc="e,74,21,74,23" dtype_id="3">
+                        <varref loc="e,74,24,74,36" name="next_wr_addr" dtype_id="3"/>
+                        <varref loc="e,74,13,74,20" name="wr_addr" dtype_id="3"/>
+                      </assigndly>
+                      <assigndly loc="e,75,21,75,23" dtype_id="2">
+                        <const loc="e,75,24,75,25" name="1&apos;h0" dtype_id="2"/>
+                        <varref loc="e,75,13,75,18" name="empty" dtype_id="2"/>
+                      </assigndly>
+                      <if loc="e,76,11,76,13">
+                        <eq loc="e,76,28,76,30" dtype_id="2">
+                          <varref loc="e,76,15,76,27" name="next_wr_addr" dtype_id="3"/>
+                          <varref loc="e,76,31,76,38" name="rd_addr" dtype_id="3"/>
+                        </eq>
+                        <begin>
+                          <assigndly loc="e,77,18,77,20" dtype_id="2">
+                            <const loc="e,77,21,77,22" name="1&apos;h1" dtype_id="2"/>
+                            <varref loc="e,77,13,77,17" name="full" dtype_id="2"/>
+                          </assigndly>
+                        </begin>
+                      </if>
+                    </begin>
+                  </begin>
+                </if>
+                <if loc="e,79,10,79,12">
+                  <and loc="e,79,31,79,33" dtype_id="2">
+                    <varref loc="e,79,14,79,30" name="out_ready_vector" dtype_id="2"/>
+                    <varref loc="e,79,34,79,43" name="out_valid" dtype_id="2"/>
+                  </and>
+                  <begin>
+                    <begin loc="e,80,11,80,16">
+                      <assigndly loc="e,81,20,81,22" dtype_id="3">
+                        <varref loc="e,81,23,81,35" name="next_rd_addr" dtype_id="3"/>
+                        <varref loc="e,81,12,81,19" name="rd_addr" dtype_id="3"/>
+                      </assigndly>
+                      <assigndly loc="e,82,20,82,22" dtype_id="2">
+                        <const loc="e,82,23,82,24" name="1&apos;h0" dtype_id="2"/>
+                        <varref loc="e,82,12,82,16" name="full" dtype_id="2"/>
+                      </assigndly>
+                      <if loc="e,83,16,83,18">
+                        <eq loc="e,83,33,83,35" dtype_id="2">
+                          <varref loc="e,83,20,83,32" name="next_rd_addr" dtype_id="3"/>
+                          <varref loc="e,83,36,83,43" name="wr_addr" dtype_id="3"/>
+                        </eq>
+                        <begin>
+                          <begin loc="e,84,17,84,22">
+                            <assigndly loc="e,85,24,85,26" dtype_id="2">
+                              <const loc="e,85,27,85,28" name="1&apos;h1" dtype_id="2"/>
+                              <varref loc="e,85,18,85,23" name="empty" dtype_id="2"/>
+                            </assigndly>
+                            <assigndly loc="e,86,28,86,30" dtype_id="2">
+                              <const loc="e,86,31,86,32" name="1&apos;h0" dtype_id="2"/>
+                              <varref loc="e,86,18,86,27" name="out_valid" dtype_id="2"/>
+                            </assigndly>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </begin>
+                </if>
+                <if loc="e,89,10,89,12">
+                  <and loc="e,89,56,89,58" dtype_id="2">
+                    <and loc="e,89,44,89,46" dtype_id="2">
+                      <and loc="e,89,31,89,33" dtype_id="2">
+                        <varref loc="e,89,14,89,30" name="out_ready_vector" dtype_id="2"/>
+                        <varref loc="e,89,34,89,43" name="out_valid" dtype_id="2"/>
+                      </and>
+                      <varref loc="e,89,47,89,55" name="in_ready" dtype_id="2"/>
+                    </and>
+                    <varref loc="e,89,59,89,67" name="in_valid" dtype_id="2"/>
+                  </and>
+                  <begin>
+                    <begin loc="e,90,11,90,16">
+                      <assigndly loc="e,91,18,91,20" dtype_id="2">
+                        <varref loc="e,91,21,91,25" name="full" dtype_id="2"/>
+                        <varref loc="e,91,12,91,16" name="full" dtype_id="2"/>
+                      </assigndly>
+                      <assigndly loc="e,92,18,92,20" dtype_id="2">
+                        <varref loc="e,92,21,92,26" name="empty" dtype_id="2"/>
+                        <varref loc="e,92,12,92,17" name="empty" dtype_id="2"/>
+                      </assigndly>
+                    </begin>
+                  </begin>
+                </if>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <always loc="e,96,4,96,10">
+        <sentree loc="e,96,11,96,12">
+          <senitem loc="e,96,51,96,63" edgeType="CHANGED">
+            <varref loc="e,96,51,96,63" name="next_rd_addr" dtype_id="3"/>
+          </senitem>
+          <senitem loc="e,96,25,96,34" edgeType="CHANGED">
+            <varref loc="e,96,25,96,34" name="out_ready" dtype_id="2"/>
+          </senitem>
+          <senitem loc="e,96,38,96,47" edgeType="CHANGED">
+            <varref loc="e,96,38,96,47" name="out_valid" dtype_id="2"/>
+          </senitem>
+          <senitem loc="e,96,14,96,21" edgeType="CHANGED">
+            <varref loc="e,96,14,96,21" name="rd_addr" dtype_id="3"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,97,4,97,9">
+          <assign loc="e,98,19,98,20" dtype_id="3">
+            <varref loc="e,98,21,98,28" name="rd_addr" dtype_id="3"/>
+            <varref loc="e,98,7,98,18" name="mem_rd_addr" dtype_id="3"/>
+          </assign>
+          <if loc="e,99,7,99,9">
+            <and loc="e,99,21,99,23" dtype_id="2">
+              <varref loc="e,99,11,99,20" name="out_ready" dtype_id="2"/>
+              <varref loc="e,99,24,99,33" name="out_valid" dtype_id="2"/>
+            </and>
+            <begin>
+              <begin loc="e,100,7,100,12">
+                <assign loc="e,101,21,101,22" dtype_id="3">
+                  <varref loc="e,101,23,101,35" name="next_rd_addr" dtype_id="3"/>
+                  <varref loc="e,101,9,101,20" name="mem_rd_addr" dtype_id="3"/>
+                </assign>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <always loc="e,104,4,104,10">
+        <sentree loc="e,104,11,104,12">
+          <senitem loc="e,104,31,104,38" edgeType="POS">
+            <varref loc="e,104,39,104,42" name="clk" dtype_id="2"/>
+          </senitem>
+          <senitem loc="e,104,14,104,21" edgeType="POS">
+            <varref loc="e,104,22,104,27" name="reset" dtype_id="2"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,105,4,105,9">
+          <if loc="e,106,7,106,9">
+            <varref loc="e,106,11,106,16" name="reset" dtype_id="2"/>
+            <begin>
+              <begin loc="e,107,5,107,10">
+                <begin loc="e,108,6,108,9">
+                  <assign loc="e,108,13,108,14" dtype_id="6">
+                    <const loc="e,108,15,108,16" name="32&apos;sh0" dtype_id="4"/>
+                    <varref loc="e,108,11,108,12" name="j" dtype_id="6"/>
+                  </assign>
+                  <while loc="e,108,6,108,9">
+                    <begin>
+                    </begin>
+                    <begin>
+                      <gts loc="e,108,20,108,21" dtype_id="2">
+                        <const loc="e,108,22,108,27" name="32&apos;sh800" dtype_id="4"/>
+                        <varref loc="e,108,18,108,19" name="j" dtype_id="6"/>
+                      </gts>
+                    </begin>
+                    <begin>
+                      <begin loc="e,109,7,109,12">
+                        <assigndly loc="e,110,15,110,17" dtype_id="3">
+                          <const loc="e,110,18,110,23" name="11&apos;h0" dtype_id="3"/>
+                          <arraysel loc="e,110,11,110,12" dtype_id="3">
+                            <varref loc="e,110,8,110,11" name="mem" dtype_id="5"/>
+                            <sel loc="e,110,12,110,13" dtype_id="9">
+                              <varref loc="e,110,12,110,13" name="j" dtype_id="6"/>
+                              <const loc="e,110,12,110,13" name="32&apos;h0" dtype_id="8"/>
+                              <const loc="e,110,12,110,13" name="32&apos;hb" dtype_id="8"/>
+                            </sel>
+                          </arraysel>
+                        </assigndly>
+                      </begin>
+                    </begin>
+                    <begin>
+                      <assign loc="e,108,30,108,31" dtype_id="6">
+                        <add loc="e,108,32,108,33" dtype_id="6">
+                          <const loc="e,108,33,108,34" name="32&apos;sh1" dtype_id="4"/>
+                          <varref loc="e,108,31,108,32" name="j" dtype_id="6"/>
+                        </add>
+                        <varref loc="e,108,29,108,30" name="j" dtype_id="6"/>
+                      </assign>
+                    </begin>
+                  </while>
+                </begin>
+              </begin>
+            </begin>
+            <begin>
+              <begin loc="e,114,8,114,13">
+                <if loc="e,115,10,115,12">
+                  <and loc="e,115,23,115,25" dtype_id="2">
+                    <varref loc="e,115,14,115,22" name="in_ready" dtype_id="2"/>
+                    <varref loc="e,115,26,115,34" name="in_valid" dtype_id="2"/>
+                  </and>
+                  <begin>
+                    <assigndly loc="e,116,25,116,27" dtype_id="3">
+                      <varref loc="e,116,28,116,35" name="in_data" dtype_id="3"/>
+                      <arraysel loc="e,116,15,116,16" dtype_id="3">
+                        <varref loc="e,116,12,116,15" name="mem" dtype_id="5"/>
+                        <varref loc="e,116,16,116,23" name="wr_addr" dtype_id="3"/>
+                      </arraysel>
+                    </assigndly>
+                  </begin>
+                </if>
+              </begin>
+            </begin>
+          </if>
+          <assign loc="e,118,17,118,18" dtype_id="3">
+            <arraysel loc="e,118,22,118,23" dtype_id="3">
+              <varref loc="e,118,19,118,22" name="mem" dtype_id="5"/>
+              <varref loc="e,118,23,118,34" name="mem_rd_addr" dtype_id="3"/>
+            </arraysel>
+            <varref loc="e,118,8,118,16" name="out_data" dtype_id="3"/>
+          </assign>
+        </begin>
+      </always>
+    </module>
+    <typetable loc="a,0,0,0,0">
+      <basicdtype loc="d,46,25,46,27" id="2" name="logic"/>
+      <voiddtype loc="d,48,18,48,27" id="10"/>
+      <basicdtype loc="e,4,11,4,14" id="1" name="logic" left="11" right="0"/>
+      <basicdtype loc="e,9,15,9,16" id="3" name="logic" left="10" right="0"/>
+      <unpackarraydtype loc="e,22,28,22,29" id="5" sub_dtype_id="3">
+        <range loc="e,22,28,22,29">
+          <const loc="e,22,34,22,35" name="32&apos;h7ff" dtype_id="4"/>
+          <const loc="e,22,37,22,38" name="32&apos;sh0" dtype_id="4"/>
+        </range>
+      </unpackarraydtype>
+      <basicdtype loc="e,26,4,26,11" id="6" name="integer" left="31" right="0" signed="true"/>
+      <basicdtype loc="e,32,30,32,31" id="8" name="logic" left="31" right="0"/>
+      <basicdtype loc="e,34,19,34,20" id="7" name="logic" left="3" right="0" signed="true"/>
+      <basicdtype loc="e,110,11,110,12" id="9" name="logic" left="10" right="0" signed="true"/>
+      <basicdtype loc="e,14,22,14,26" id="4" name="logic" left="31" right="0" signed="true"/>
+    </typetable>
+  </netlist>
+</verilator_xml>

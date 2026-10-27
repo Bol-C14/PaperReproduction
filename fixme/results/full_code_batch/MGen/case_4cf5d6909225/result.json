@@ -1,0 +1,42 @@
+{
+  "id": "MGen/L1/Text/Mux using case",
+  "subset": "MGen",
+  "input_files": [
+    {
+      "name": "mux_case.v",
+      "bytes": 821,
+      "sha256": "e0b69faf8f892352155abb43a0dd5729d48da9a5f608fe5d6d3dc013ffaed792"
+    },
+    {
+      "name": "mux_case_tb.v",
+      "bytes": 1220,
+      "sha256": "b29e8a1321bd968fcebb7ca0405c7e234b10c6c317c3ae01936f75f1b40dcbab"
+    }
+  ],
+  "overlays": [
+    {
+      "field": "spec_text",
+      "source": "data/SpeCom/L1/Text/Mux using case/mux_case_spec.txt",
+      "sha256": "2d50cf0cb93ec7d79a96c143c5521f00c7ec88a8ac1ff02f4073935b3b0c2452",
+      "reason": "same case name and byte-identical RTL in SpeCom; explicit cross-subset reuse",
+      "fidelity": "structural-input-overlay",
+      "matched_rtl_sha256": "e0b69faf8f892352155abb43a0dd5729d48da9a5f608fe5d6d3dc013ffaed792"
+    }
+  ],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": null,
+  "negative_control_detected": null,
+  "commands": 4,
+  "status": "unknown",
+  "wrapper_mode": "dut_replacement",
+  "reference_source": "mux_case.v",
+  "reference_source_sha256": "e0b69faf8f892352155abb43a0dd5729d48da9a5f608fe5d6d3dc013ffaed792",
+  "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+  "resolved_tb_parameters": {},
+  "observed_checks": 0,
+  "reference_status": "unknown",
+  "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
+  "seconds": 96.775
+}

@@ -1,0 +1,42 @@
+{
+  "id": "MGen/L1/Text/Clock Divider",
+  "subset": "MGen",
+  "input_files": [
+    {
+      "name": "clkdivider.v",
+      "bytes": 1021,
+      "sha256": "28874172bb1a9eefc0acfe1dee7e1d7b235e0b507b598e22cd8935cba927f25c"
+    },
+    {
+      "name": "clkdivider_tb.v",
+      "bytes": 2454,
+      "sha256": "1fd6303e2ad88cb24ac6fa6ab2e0169ad13acd0f5046a01e273ddc1f27427bef"
+    }
+  ],
+  "overlays": [
+    {
+      "field": "spec_text",
+      "source": "data/SpeCom/L1/Text/Clock Divider/clkdivider_spec.txt",
+      "sha256": "28f7ee47304e0ed66924cd76775c45dd68f47904f9f0a7ccd4986dbda1b86be6",
+      "reason": "same case name and byte-identical RTL in SpeCom; explicit cross-subset reuse",
+      "fidelity": "structural-input-overlay",
+      "matched_rtl_sha256": "28874172bb1a9eefc0acfe1dee7e1d7b235e0b507b598e22cd8935cba927f25c"
+    }
+  ],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": null,
+  "negative_control_detected": null,
+  "commands": 4,
+  "status": "unknown",
+  "wrapper_mode": "dut_replacement",
+  "reference_source": "clkdivider.v",
+  "reference_source_sha256": "28874172bb1a9eefc0acfe1dee7e1d7b235e0b507b598e22cd8935cba927f25c",
+  "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+  "resolved_tb_parameters": {},
+  "observed_checks": 0,
+  "reference_status": "unknown",
+  "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
+  "seconds": 12.81
+}

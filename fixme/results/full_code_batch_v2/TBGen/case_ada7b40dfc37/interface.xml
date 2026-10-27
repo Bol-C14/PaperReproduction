@@ -1,0 +1,193 @@
+<?xml version="1.0" ?>
+<!-- DESCRIPTION: Verilator output: XML representation of netlist -->
+<verilator_xml>
+  <files>
+    <file id="d" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std.sv" language="1800-2023"/>
+    <file id="c" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std_waiver.vlt" language="1800-2023"/>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ada7b40dfc37/dbg_crc8_d1.v" language="1800-2023"/>
+    <file id="a" filename="&lt;built-in&gt;" language="1800-2023"/>
+    <file id="b" filename="&lt;command-line&gt;" language="1800-2023"/>
+  </files>
+  <module_files>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ada7b40dfc37/dbg_crc8_d1.v" language="1800-2023"/>
+  </module_files>
+  <cells>
+    <cell loc="e,3,8,3,19" name="dbg_crc8_d1" submodname="dbg_crc8_d1" hier="dbg_crc8_d1"/>
+  </cells>
+  <netlist>
+    <module loc="e,3,8,3,19" name="dbg_crc8_d1" origName="dbg_crc8_d1" topModule="1">
+      <var loc="e,5,7,5,11" name="Data" dtype_id="1" dir="input" pinIndex="1" vartype="logic" origName="Data"/>
+      <var loc="e,6,7,6,16" name="EnableCrc" dtype_id="1" dir="input" pinIndex="2" vartype="logic" origName="EnableCrc"/>
+      <var loc="e,7,7,7,12" name="Reset" dtype_id="1" dir="input" pinIndex="3" vartype="logic" origName="Reset"/>
+      <var loc="e,8,7,8,19" name="SyncResetCrc" dtype_id="1" dir="input" pinIndex="4" vartype="logic" origName="SyncResetCrc"/>
+      <var loc="e,10,14,10,20" name="CrcOut" dtype_id="2" dir="output" pinIndex="5" vartype="logic" origName="CrcOut"/>
+      <var loc="e,9,7,9,10" name="Clk" dtype_id="1" dir="input" pinIndex="6" vartype="logic" origName="Clk"/>
+      <var loc="e,4,11,4,13" name="Tp" dtype_id="3" vartype="logic" origName="Tp" param="true">
+        <const loc="e,4,16,4,17" name="32&apos;sh1" dtype_id="3"/>
+      </var>
+      <func loc="e,12,16,12,27" name="nextCRC8_D1" dtype_id="2">
+        <var loc="e,12,16,12,27" name="nextCRC8_D1" dtype_id="2" dir="output" vartype="logic" origName="nextCRC8_D1"/>
+        <var loc="e,13,9,13,13" name="Data" dtype_id="1" dir="input" vartype="logic" origName="Data"/>
+        <var loc="e,14,15,14,18" name="Crc" dtype_id="2" dir="input" vartype="logic" origName="Crc"/>
+        <var loc="e,15,13,15,14" name="D" dtype_id="4" vartype="logic" origName="D"/>
+        <var loc="e,16,13,16,14" name="C" dtype_id="2" vartype="logic" origName="C"/>
+        <var loc="e,17,13,17,19" name="NewCRC" dtype_id="2" vartype="logic" origName="NewCRC"/>
+        <begin loc="e,18,3,18,8">
+          <assign loc="e,19,10,19,11" dtype_id="1">
+            <varref loc="e,19,12,19,16" name="Data" dtype_id="1"/>
+            <varref loc="e,19,5,19,6" name="D" dtype_id="1"/>
+          </assign>
+          <assign loc="e,20,7,20,8" dtype_id="2">
+            <varref loc="e,20,9,20,12" name="Crc" dtype_id="2"/>
+            <varref loc="e,20,5,20,6" name="C" dtype_id="2"/>
+          </assign>
+          <assign loc="e,21,15,21,16" dtype_id="1">
+            <xor loc="e,21,22,21,23" dtype_id="1">
+              <varref loc="e,21,17,21,18" name="D" dtype_id="1"/>
+              <sel loc="e,21,25,21,26" dtype_id="1">
+                <varref loc="e,21,24,21,25" name="C" dtype_id="2"/>
+                <const loc="e,21,26,21,27" name="3&apos;h7" dtype_id="5"/>
+                <const loc="e,21,25,21,26" name="32&apos;h1" dtype_id="6"/>
+              </sel>
+            </xor>
+            <sel loc="e,21,11,21,12" dtype_id="1">
+              <varref loc="e,21,5,21,11" name="NewCRC" dtype_id="2"/>
+              <const loc="e,21,12,21,13" name="3&apos;h0" dtype_id="5"/>
+              <const loc="e,21,11,21,12" name="32&apos;h1" dtype_id="6"/>
+            </sel>
+          </assign>
+          <assign loc="e,22,15,22,16" dtype_id="1">
+            <xor loc="e,22,29,22,30" dtype_id="1">
+              <xor loc="e,22,22,22,23" dtype_id="1">
+                <varref loc="e,22,17,22,18" name="D" dtype_id="1"/>
+                <sel loc="e,22,25,22,26" dtype_id="1">
+                  <varref loc="e,22,24,22,25" name="C" dtype_id="2"/>
+                  <const loc="e,22,26,22,27" name="3&apos;h0" dtype_id="5"/>
+                  <const loc="e,22,25,22,26" name="32&apos;h1" dtype_id="6"/>
+                </sel>
+              </xor>
+              <sel loc="e,22,32,22,33" dtype_id="1">
+                <varref loc="e,22,31,22,32" name="C" dtype_id="2"/>
+                <const loc="e,22,33,22,34" name="3&apos;h7" dtype_id="5"/>
+                <const loc="e,22,32,22,33" name="32&apos;h1" dtype_id="6"/>
+              </sel>
+            </xor>
+            <sel loc="e,22,11,22,12" dtype_id="1">
+              <varref loc="e,22,5,22,11" name="NewCRC" dtype_id="2"/>
+              <const loc="e,22,12,22,13" name="3&apos;h1" dtype_id="5"/>
+              <const loc="e,22,11,22,12" name="32&apos;h1" dtype_id="6"/>
+            </sel>
+          </assign>
+          <assign loc="e,23,15,23,16" dtype_id="1">
+            <xor loc="e,23,29,23,30" dtype_id="1">
+              <xor loc="e,23,22,23,23" dtype_id="1">
+                <varref loc="e,23,17,23,18" name="D" dtype_id="1"/>
+                <sel loc="e,23,25,23,26" dtype_id="1">
+                  <varref loc="e,23,24,23,25" name="C" dtype_id="2"/>
+                  <const loc="e,23,26,23,27" name="3&apos;h1" dtype_id="5"/>
+                  <const loc="e,23,25,23,26" name="32&apos;h1" dtype_id="6"/>
+                </sel>
+              </xor>
+              <sel loc="e,23,32,23,33" dtype_id="1">
+                <varref loc="e,23,31,23,32" name="C" dtype_id="2"/>
+                <const loc="e,23,33,23,34" name="3&apos;h7" dtype_id="5"/>
+                <const loc="e,23,32,23,33" name="32&apos;h1" dtype_id="6"/>
+              </sel>
+            </xor>
+            <sel loc="e,23,11,23,12" dtype_id="1">
+              <varref loc="e,23,5,23,11" name="NewCRC" dtype_id="2"/>
+              <const loc="e,23,12,23,13" name="3&apos;h2" dtype_id="5"/>
+              <const loc="e,23,11,23,12" name="32&apos;h1" dtype_id="6"/>
+            </sel>
+          </assign>
+          <assign loc="e,24,15,24,16" dtype_id="7">
+            <sel loc="e,28,17,28,18" dtype_id="7">
+              <varref loc="e,24,17,24,18" name="C" dtype_id="2"/>
+              <const loc="e,28,17,28,18" name="32&apos;h2" dtype_id="6"/>
+              <const loc="e,28,17,28,18" name="32&apos;h5" dtype_id="6"/>
+            </sel>
+            <sel loc="e,24,11,24,12" dtype_id="7">
+              <varref loc="e,24,5,24,11" name="NewCRC" dtype_id="2"/>
+              <const loc="e,24,11,24,12" name="32&apos;h3" dtype_id="6"/>
+              <const loc="e,24,11,24,12" name="32&apos;h5" dtype_id="6"/>
+            </sel>
+          </assign>
+          <assign loc="e,29,17,29,18" dtype_id="2">
+            <varref loc="e,29,19,29,25" name="NewCRC" dtype_id="2"/>
+            <varref loc="e,29,5,29,16" name="nextCRC8_D1" dtype_id="2"/>
+          </assign>
+        </begin>
+      </func>
+      <always loc="e,32,1,32,7">
+        <sentree loc="e,32,8,32,9">
+          <senitem loc="e,32,11,32,18" edgeType="POS">
+            <varref loc="e,32,19,32,22" name="Clk" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,32,26,32,33" edgeType="POS">
+            <varref loc="e,32,34,32,39" name="Reset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,33,1,33,6">
+          <if loc="e,34,3,34,5">
+            <varref loc="e,34,6,34,11" name="Reset" dtype_id="1"/>
+            <begin>
+              <assigndly loc="e,35,17,35,19" dtype_id="2">
+                <const loc="e,35,24,35,25" name="8&apos;h0" dtype_id="2"/>
+                <varref loc="e,35,5,35,11" name="CrcOut" dtype_id="2"/>
+                <delay loc="e,35,20,35,21">
+                  <const loc="e,35,21,35,23" name="64&apos;h1" dtype_id="8"/>
+                </delay>
+              </assigndly>
+            </begin>
+            <begin>
+              <if loc="e,37,3,37,5">
+                <varref loc="e,37,6,37,18" name="SyncResetCrc" dtype_id="1"/>
+                <begin>
+                  <assigndly loc="e,38,17,38,19" dtype_id="2">
+                    <const loc="e,38,24,38,25" name="8&apos;h0" dtype_id="2"/>
+                    <varref loc="e,38,5,38,11" name="CrcOut" dtype_id="2"/>
+                    <delay loc="e,38,20,38,21">
+                      <const loc="e,38,21,38,23" name="64&apos;h1" dtype_id="8"/>
+                    </delay>
+                  </assigndly>
+                </begin>
+                <begin>
+                  <if loc="e,40,3,40,5">
+                    <varref loc="e,40,6,40,15" name="EnableCrc" dtype_id="1"/>
+                    <begin>
+                      <assigndly loc="e,41,17,41,19" dtype_id="2">
+                        <funcref loc="e,41,24,41,35" name="nextCRC8_D1" dtype_id="2">
+                          <arg loc="e,41,36,41,40">
+                            <varref loc="e,41,36,41,40" name="Data" dtype_id="1"/>
+                          </arg>
+                          <arg loc="e,41,42,41,48">
+                            <varref loc="e,41,42,41,48" name="CrcOut" dtype_id="2"/>
+                          </arg>
+                        </funcref>
+                        <varref loc="e,41,5,41,11" name="CrcOut" dtype_id="2"/>
+                        <delay loc="e,41,20,41,21">
+                          <const loc="e,41,21,41,23" name="64&apos;h1" dtype_id="8"/>
+                        </delay>
+                      </assigndly>
+                    </begin>
+                  </if>
+                </begin>
+              </if>
+            </begin>
+          </if>
+        </begin>
+      </always>
+    </module>
+    <typetable loc="a,0,0,0,0">
+      <basicdtype loc="d,46,25,46,27" id="1" name="logic"/>
+      <voiddtype loc="d,48,18,48,27" id="9"/>
+      <basicdtype loc="e,10,8,10,9" id="2" name="logic" left="7" right="0"/>
+      <basicdtype loc="e,15,3,15,6" id="4" name="logic" left="0" right="0"/>
+      <basicdtype loc="e,21,11,21,12" id="5" name="logic" left="2" right="0" signed="true"/>
+      <basicdtype loc="e,35,20,35,21" id="8" name="logic" left="63" right="0"/>
+      <basicdtype loc="e,4,16,4,17" id="3" name="logic" left="31" right="0" signed="true"/>
+      <basicdtype loc="e,19,6,19,7" id="6" name="logic" left="31" right="0"/>
+      <basicdtype loc="e,27,17,27,18" id="7" name="logic" left="4" right="0"/>
+    </typetable>
+  </netlist>
+</verilator_xml>

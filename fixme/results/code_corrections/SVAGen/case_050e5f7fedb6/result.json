@@ -1,0 +1,39 @@
+{
+  "id": "SVAGen/L3/Text/6",
+  "subset": "SVAGen",
+  "input_files": [
+    {
+      "name": "ct_had_regs_761.txt",
+      "bytes": 35149,
+      "sha256": "86a76fe562d8c4aae56c080d47a59792e9eac61d4a6a64992051da3cb89eae0d"
+    },
+    {
+      "name": "ct_had_regs_761.v",
+      "bytes": 22665,
+      "sha256": "673ba5efe60a24bb2a5d15ad602cd61d1d79d2a5ccc1e1e3602beafa1621db86"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": true,
+  "negative_control_detected": true,
+  "commands": 4,
+  "status": "pass",
+  "assignment_target_width": 32,
+  "assertion": "always @* assert((had_ifu_ir[31:0]) == 32'(ir_reg[31:0]));",
+  "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+  "relation_lhs": "had_ifu_ir[31:0]",
+  "property_counts": {
+    "assert": 1,
+    "assume": 0,
+    "cover": 0
+  },
+  "constant_mutation_status": "completed",
+  "constant_mutation_killed": false,
+  "negative_status": "fail",
+  "constant_control_status": "unknown",
+  "reason": "nonzero properties proven and selected output mutant falsified",
+  "seconds": 1.102
+}

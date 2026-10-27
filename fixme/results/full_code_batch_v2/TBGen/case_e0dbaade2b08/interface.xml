@@ -1,0 +1,2500 @@
+<?xml version="1.0" ?>
+<!-- DESCRIPTION: Verilator output: XML representation of netlist -->
+<verilator_xml>
+  <files>
+    <file id="d" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std.sv" language="1800-2023"/>
+    <file id="c" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std_waiver.vlt" language="1800-2023"/>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_e0dbaade2b08/altfp_mult.v" language="1800-2023"/>
+    <file id="a" filename="&lt;built-in&gt;" language="1800-2023"/>
+    <file id="b" filename="&lt;command-line&gt;" language="1800-2023"/>
+  </files>
+  <module_files>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_e0dbaade2b08/altfp_mult.v" language="1800-2023"/>
+  </module_files>
+  <cells>
+    <cell loc="e,3,8,3,18" name="altfp_mult" submodname="altfp_mult" hier="altfp_mult"/>
+  </cells>
+  <netlist>
+    <module loc="e,3,8,3,18" name="altfp_mult" origName="altfp_mult" topModule="1">
+      <var loc="e,28,11,28,16" name="clock" dtype_id="1" dir="input" pinIndex="1" vartype="logic" origName="clock"/>
+      <var loc="e,29,11,29,17" name="clk_en" dtype_id="1" dir="input" pinIndex="2" vartype="logic" origName="clk_en"/>
+      <var loc="e,30,11,30,15" name="aclr" dtype_id="1" dir="input" pinIndex="3" vartype="logic" origName="aclr"/>
+      <var loc="e,26,31,26,36" name="dataa" dtype_id="2" dir="input" pinIndex="4" vartype="logic" origName="dataa"/>
+      <var loc="e,27,31,27,36" name="datab" dtype_id="2" dir="input" pinIndex="5" vartype="logic" origName="datab"/>
+      <var loc="e,31,32,31,38" name="result" dtype_id="2" dir="output" pinIndex="6" vartype="logic" origName="result"/>
+      <var loc="e,32,12,32,20" name="overflow" dtype_id="1" dir="output" pinIndex="7" vartype="logic" origName="overflow"/>
+      <var loc="e,33,12,33,21" name="underflow" dtype_id="1" dir="output" pinIndex="8" vartype="logic" origName="underflow"/>
+      <var loc="e,34,12,34,16" name="zero" dtype_id="1" dir="output" pinIndex="9" vartype="logic" origName="zero"/>
+      <var loc="e,35,12,35,20" name="denormal" dtype_id="1" dir="output" pinIndex="10" vartype="logic" origName="denormal"/>
+      <var loc="e,36,12,36,22" name="indefinite" dtype_id="1" dir="output" pinIndex="11" vartype="logic" origName="indefinite"/>
+      <var loc="e,37,12,37,15" name="nan" dtype_id="1" dir="output" pinIndex="12" vartype="logic" origName="nan"/>
+      <var loc="e,17,15,17,24" name="width_exp" dtype_id="3" vartype="logic" origName="width_exp" param="true">
+        <const loc="e,17,27,17,28" name="32&apos;sh8" dtype_id="3"/>
+      </var>
+      <var loc="e,18,15,18,24" name="width_man" dtype_id="3" vartype="logic" origName="width_man" param="true">
+        <const loc="e,18,27,18,29" name="32&apos;sh17" dtype_id="3"/>
+      </var>
+      <var loc="e,19,15,19,45" name="dedicated_multiplier_circuitry" dtype_id="2" vartype="logic" origName="dedicated_multiplier_circuitry" param="true">
+        <const loc="e,19,48,19,54" name="32&apos;h4155544f" dtype_id="2"/>
+      </var>
+      <var loc="e,20,15,20,36" name="reduced_functionality" dtype_id="4" vartype="logic" origName="reduced_functionality" param="true">
+        <const loc="e,20,39,20,43" name="16&apos;h4e4f" dtype_id="4"/>
+      </var>
+      <var loc="e,21,15,21,23" name="pipeline" dtype_id="3" vartype="logic" origName="pipeline" param="true">
+        <const loc="e,21,26,21,27" name="32&apos;sh5" dtype_id="3"/>
+      </var>
+      <var loc="e,22,15,22,23" name="lpm_hint" dtype_id="5" vartype="logic" origName="lpm_hint" param="true">
+        <const loc="e,22,26,22,34" name="48&apos;h554e55534544" dtype_id="5"/>
+      </var>
+      <var loc="e,23,15,23,23" name="lpm_type" dtype_id="6" vartype="logic" origName="lpm_type" param="true">
+        <const loc="e,23,26,23,38" name="80&apos;h616c7466705f6d756c74" dtype_id="6"/>
+      </var>
+      <var loc="e,24,15,24,22" name="LATENCY" dtype_id="3" vartype="logic" origName="LATENCY" param="true">
+        <const loc="e,24,34,24,35" name="32&apos;h4" dtype_id="3"/>
+      </var>
+      <var loc="e,25,15,25,28" name="WIDTH_MAN_EXP" dtype_id="3" vartype="logic" origName="WIDTH_MAN_EXP" param="true">
+        <const loc="e,25,41,25,42" name="32&apos;h1f" dtype_id="3"/>
+      </var>
+      <var loc="e,38,24,38,34" name="mant_dataa" dtype_id="7" vartype="logic" origName="mant_dataa"/>
+      <var loc="e,39,24,39,34" name="mant_datab" dtype_id="7" vartype="logic" origName="mant_datab"/>
+      <var loc="e,40,34,40,45" name="mant_result" dtype_id="5" vartype="logic" origName="mant_result"/>
+      <var loc="e,41,9,41,13" name="cout" dtype_id="1" vartype="logic" origName="cout"/>
+      <var loc="e,42,9,42,24" name="zero_mant_dataa" dtype_id="1" vartype="logic" origName="zero_mant_dataa"/>
+      <var loc="e,43,9,43,24" name="zero_mant_datab" dtype_id="1" vartype="logic" origName="zero_mant_datab"/>
+      <var loc="e,44,9,44,19" name="zero_dataa" dtype_id="1" vartype="logic" origName="zero_dataa"/>
+      <var loc="e,45,9,45,19" name="zero_datab" dtype_id="1" vartype="logic" origName="zero_datab"/>
+      <var loc="e,46,9,46,18" name="inf_dataa" dtype_id="1" vartype="logic" origName="inf_dataa"/>
+      <var loc="e,47,9,47,18" name="inf_datab" dtype_id="1" vartype="logic" origName="inf_datab"/>
+      <var loc="e,48,9,48,18" name="nan_dataa" dtype_id="1" vartype="logic" origName="nan_dataa"/>
+      <var loc="e,49,9,49,18" name="nan_datab" dtype_id="1" vartype="logic" origName="nan_datab"/>
+      <var loc="e,50,9,50,18" name="den_dataa" dtype_id="1" vartype="logic" origName="den_dataa"/>
+      <var loc="e,51,9,51,18" name="den_datab" dtype_id="1" vartype="logic" origName="den_datab"/>
+      <var loc="e,52,9,52,20" name="no_multiply" dtype_id="1" vartype="logic" origName="no_multiply"/>
+      <var loc="e,53,9,53,24" name="mant_result_msb" dtype_id="1" vartype="logic" origName="mant_result_msb"/>
+      <var loc="e,54,9,54,20" name="no_rounding" dtype_id="1" vartype="logic" origName="no_rounding"/>
+      <var loc="e,55,9,55,19" name="sticky_bit" dtype_id="1" vartype="logic" origName="sticky_bit"/>
+      <var loc="e,56,9,56,18" name="round_bit" dtype_id="1" vartype="logic" origName="round_bit"/>
+      <var loc="e,57,9,57,18" name="guard_bit" dtype_id="1" vartype="logic" origName="guard_bit"/>
+      <var loc="e,58,9,58,14" name="carry" dtype_id="1" vartype="logic" origName="carry"/>
+      <var loc="e,59,28,59,39" name="result_pipe" dtype_id="8" vartype="" origName="result_pipe"/>
+      <var loc="e,60,22,60,35" name="overflow_pipe" dtype_id="9" vartype="logic" origName="overflow_pipe"/>
+      <var loc="e,61,22,61,36" name="underflow_pipe" dtype_id="9" vartype="logic" origName="underflow_pipe"/>
+      <var loc="e,62,22,62,31" name="zero_pipe" dtype_id="9" vartype="logic" origName="zero_pipe"/>
+      <var loc="e,63,22,63,35" name="denormal_pipe" dtype_id="9" vartype="logic" origName="denormal_pipe"/>
+      <var loc="e,64,22,64,37" name="indefinite_pipe" dtype_id="9" vartype="logic" origName="indefinite_pipe"/>
+      <var loc="e,65,22,65,30" name="nan_pipe" dtype_id="9" vartype="logic" origName="nan_pipe"/>
+      <var loc="e,66,28,66,39" name="temp_result" dtype_id="2" vartype="logic" origName="temp_result"/>
+      <var loc="e,67,9,67,21" name="overflow_bit" dtype_id="1" vartype="logic" origName="overflow_bit"/>
+      <var loc="e,68,9,68,22" name="underflow_bit" dtype_id="1" vartype="logic" origName="underflow_bit"/>
+      <var loc="e,69,9,69,17" name="zero_bit" dtype_id="1" vartype="logic" origName="zero_bit"/>
+      <var loc="e,70,9,70,21" name="denormal_bit" dtype_id="1" vartype="logic" origName="denormal_bit"/>
+      <var loc="e,71,9,71,23" name="indefinite_bit" dtype_id="1" vartype="logic" origName="indefinite_bit"/>
+      <var loc="e,72,9,72,16" name="nan_bit" dtype_id="1" vartype="logic" origName="nan_bit"/>
+      <var loc="e,75,13,75,22" name="exp_dataa" dtype_id="10" vartype="integer" origName="exp_dataa"/>
+      <var loc="e,76,13,76,22" name="exp_datab" dtype_id="10" vartype="integer" origName="exp_datab"/>
+      <var loc="e,77,13,77,23" name="exp_result" dtype_id="10" vartype="integer" origName="exp_result"/>
+      <var loc="e,78,13,78,15" name="i0" dtype_id="10" vartype="integer" origName="i0"/>
+      <var loc="e,79,13,79,15" name="i1" dtype_id="10" vartype="integer" origName="i1"/>
+      <var loc="e,80,13,80,15" name="i2" dtype_id="10" vartype="integer" origName="i2"/>
+      <var loc="e,81,13,81,15" name="i3" dtype_id="10" vartype="integer" origName="i3"/>
+      <var loc="e,82,13,82,15" name="i4" dtype_id="10" vartype="integer" origName="i4"/>
+      <var loc="e,83,13,83,15" name="i5" dtype_id="10" vartype="integer" origName="i5"/>
+      <task loc="e,84,10,84,18" name="add_bits">
+        <var loc="e,85,32,85,36" name="val1" dtype_id="7" dir="input" vartype="logic" origName="val1"/>
+        <var loc="e,86,42,86,58" name="temp_mant_result" dtype_id="5" dir="inout" vartype="logic" origName="temp_mant_result"/>
+        <var loc="e,87,16,87,20" name="cout" dtype_id="1" dir="output" vartype="logic" origName="cout"/>
+        <var loc="e,88,13,88,15" name="co" dtype_id="1" vartype="logic" origName="co"/>
+        <begin loc="e,89,9,89,14">
+          <assign loc="e,90,16,90,17" dtype_id="1">
+            <const loc="e,90,18,90,22" name="1&apos;h0" dtype_id="1"/>
+            <varref loc="e,90,13,90,15" name="co" dtype_id="1"/>
+          </assign>
+          <begin loc="e,91,13,91,16">
+            <assign loc="e,91,20,91,21" dtype_id="10">
+              <const loc="e,91,22,91,23" name="32&apos;sh0" dtype_id="3"/>
+              <varref loc="e,91,17,91,19" name="i0" dtype_id="10"/>
+            </assign>
+            <while loc="e,91,13,91,16">
+              <begin>
+              </begin>
+              <begin>
+                <gtes loc="e,91,28,91,30" dtype_id="1">
+                  <const loc="e,91,31,91,40" name="32&apos;sh17" dtype_id="3"/>
+                  <varref loc="e,91,25,91,27" name="i0" dtype_id="10"/>
+                </gtes>
+              </begin>
+              <begin>
+                <begin loc="e,92,13,92,18">
+                  <if loc="e,93,17,93,19">
+                    <varref loc="e,93,21,93,23" name="co" dtype_id="1"/>
+                    <begin>
+                      <begin loc="e,106,17,106,22">
+                        <assign loc="e,107,24,107,25" dtype_id="1">
+                          <or loc="e,107,35,107,36" dtype_id="1">
+                            <sel loc="e,107,30,107,31" dtype_id="1">
+                              <varref loc="e,107,26,107,30" name="val1" dtype_id="7"/>
+                              <sel loc="e,107,31,107,33" dtype_id="11">
+                                <varref loc="e,107,31,107,33" name="i0" dtype_id="10"/>
+                                <const loc="e,107,31,107,33" name="32&apos;h0" dtype_id="2"/>
+                                <const loc="e,107,31,107,33" name="32&apos;h5" dtype_id="2"/>
+                              </sel>
+                              <const loc="e,107,30,107,31" name="32&apos;h1" dtype_id="2"/>
+                            </sel>
+                            <sel loc="e,107,53,107,54" dtype_id="1">
+                              <varref loc="e,107,37,107,53" name="temp_mant_result" dtype_id="5"/>
+                              <add loc="e,107,69,107,70" dtype_id="12">
+                                <const loc="e,107,69,107,70" name="6&apos;h18" dtype_id="13"/>
+                                <sel loc="e,107,69,107,70" dtype_id="13">
+                                  <varref loc="e,107,54,107,56" name="i0" dtype_id="10"/>
+                                  <const loc="e,107,69,107,70" name="32&apos;h0" dtype_id="2"/>
+                                  <const loc="e,107,69,107,70" name="32&apos;h6" dtype_id="2"/>
+                                </sel>
+                              </add>
+                              <const loc="e,107,53,107,54" name="32&apos;h1" dtype_id="2"/>
+                            </sel>
+                          </or>
+                          <varref loc="e,107,21,107,23" name="co" dtype_id="1"/>
+                        </assign>
+                        <if loc="e,108,21,108,23">
+                          <neq loc="e,108,34,108,36" dtype_id="1">
+                            <sel loc="e,108,29,108,30" dtype_id="1">
+                              <varref loc="e,108,25,108,29" name="val1" dtype_id="7"/>
+                              <sel loc="e,108,30,108,32" dtype_id="11">
+                                <varref loc="e,108,30,108,32" name="i0" dtype_id="10"/>
+                                <const loc="e,108,30,108,32" name="32&apos;h0" dtype_id="2"/>
+                                <const loc="e,108,30,108,32" name="32&apos;h5" dtype_id="2"/>
+                              </sel>
+                              <const loc="e,108,29,108,30" name="32&apos;h1" dtype_id="2"/>
+                            </sel>
+                            <sel loc="e,108,53,108,54" dtype_id="1">
+                              <varref loc="e,108,37,108,53" name="temp_mant_result" dtype_id="5"/>
+                              <add loc="e,108,69,108,70" dtype_id="12">
+                                <const loc="e,108,69,108,70" name="6&apos;h18" dtype_id="13"/>
+                                <sel loc="e,108,69,108,70" dtype_id="13">
+                                  <varref loc="e,108,54,108,56" name="i0" dtype_id="10"/>
+                                  <const loc="e,108,69,108,70" name="32&apos;h0" dtype_id="2"/>
+                                  <const loc="e,108,69,108,70" name="32&apos;h6" dtype_id="2"/>
+                                </sel>
+                              </add>
+                              <const loc="e,108,53,108,54" name="32&apos;h1" dtype_id="2"/>
+                            </sel>
+                          </neq>
+                          <begin>
+                            <begin loc="e,109,21,109,26">
+                              <assign loc="e,110,62,110,63" dtype_id="1">
+                                <const loc="e,110,64,110,68" name="1&apos;h0" dtype_id="1"/>
+                                <sel loc="e,110,41,110,42" dtype_id="1">
+                                  <varref loc="e,110,25,110,41" name="temp_mant_result" dtype_id="5"/>
+                                  <add loc="e,110,57,110,58" dtype_id="12">
+                                    <const loc="e,110,57,110,58" name="6&apos;h18" dtype_id="13"/>
+                                    <sel loc="e,110,57,110,58" dtype_id="13">
+                                      <varref loc="e,110,42,110,44" name="i0" dtype_id="10"/>
+                                      <const loc="e,110,57,110,58" name="32&apos;h0" dtype_id="2"/>
+                                      <const loc="e,110,57,110,58" name="32&apos;h6" dtype_id="2"/>
+                                    </sel>
+                                  </add>
+                                  <const loc="e,110,41,110,42" name="32&apos;h1" dtype_id="2"/>
+                                </sel>
+                              </assign>
+                            </begin>
+                          </begin>
+                          <begin>
+                            <begin loc="e,113,21,113,26">
+                              <assign loc="e,114,62,114,63" dtype_id="1">
+                                <const loc="e,114,64,114,68" name="1&apos;h1" dtype_id="1"/>
+                                <sel loc="e,114,41,114,42" dtype_id="1">
+                                  <varref loc="e,114,25,114,41" name="temp_mant_result" dtype_id="5"/>
+                                  <add loc="e,114,57,114,58" dtype_id="12">
+                                    <const loc="e,114,57,114,58" name="6&apos;h18" dtype_id="13"/>
+                                    <sel loc="e,114,57,114,58" dtype_id="13">
+                                      <varref loc="e,114,42,114,44" name="i0" dtype_id="10"/>
+                                      <const loc="e,114,57,114,58" name="32&apos;h0" dtype_id="2"/>
+                                      <const loc="e,114,57,114,58" name="32&apos;h6" dtype_id="2"/>
+                                    </sel>
+                                  </add>
+                                  <const loc="e,114,41,114,42" name="32&apos;h1" dtype_id="2"/>
+                                </sel>
+                              </assign>
+                            </begin>
+                          </begin>
+                        </if>
+                      </begin>
+                    </begin>
+                    <begin>
+                      <begin loc="e,94,17,94,22">
+                        <if loc="e,95,21,95,23">
+                          <neq loc="e,95,34,95,36" dtype_id="1">
+                            <sel loc="e,95,29,95,30" dtype_id="1">
+                              <varref loc="e,95,25,95,29" name="val1" dtype_id="7"/>
+                              <sel loc="e,95,30,95,32" dtype_id="11">
+                                <varref loc="e,95,30,95,32" name="i0" dtype_id="10"/>
+                                <const loc="e,95,30,95,32" name="32&apos;h0" dtype_id="2"/>
+                                <const loc="e,95,30,95,32" name="32&apos;h5" dtype_id="2"/>
+                              </sel>
+                              <const loc="e,95,29,95,30" name="32&apos;h1" dtype_id="2"/>
+                            </sel>
+                            <sel loc="e,95,53,95,54" dtype_id="1">
+                              <varref loc="e,95,37,95,53" name="temp_mant_result" dtype_id="5"/>
+                              <add loc="e,95,69,95,70" dtype_id="12">
+                                <const loc="e,95,69,95,70" name="6&apos;h18" dtype_id="13"/>
+                                <sel loc="e,95,69,95,70" dtype_id="13">
+                                  <varref loc="e,95,54,95,56" name="i0" dtype_id="10"/>
+                                  <const loc="e,95,69,95,70" name="32&apos;h0" dtype_id="2"/>
+                                  <const loc="e,95,69,95,70" name="32&apos;h6" dtype_id="2"/>
+                                </sel>
+                              </add>
+                              <const loc="e,95,53,95,54" name="32&apos;h1" dtype_id="2"/>
+                            </sel>
+                          </neq>
+                          <begin>
+                            <begin loc="e,96,21,96,26">
+                              <assign loc="e,97,62,97,63" dtype_id="1">
+                                <const loc="e,97,64,97,68" name="1&apos;h1" dtype_id="1"/>
+                                <sel loc="e,97,41,97,42" dtype_id="1">
+                                  <varref loc="e,97,25,97,41" name="temp_mant_result" dtype_id="5"/>
+                                  <add loc="e,97,57,97,58" dtype_id="12">
+                                    <const loc="e,97,57,97,58" name="6&apos;h18" dtype_id="13"/>
+                                    <sel loc="e,97,57,97,58" dtype_id="13">
+                                      <varref loc="e,97,42,97,44" name="i0" dtype_id="10"/>
+                                      <const loc="e,97,57,97,58" name="32&apos;h0" dtype_id="2"/>
+                                      <const loc="e,97,57,97,58" name="32&apos;h6" dtype_id="2"/>
+                                    </sel>
+                                  </add>
+                                  <const loc="e,97,41,97,42" name="32&apos;h1" dtype_id="2"/>
+                                </sel>
+                              </assign>
+                            </begin>
+                          </begin>
+                          <begin>
+                            <begin loc="e,100,21,100,26">
+                              <assign loc="e,101,28,101,29" dtype_id="1">
+                                <and loc="e,101,39,101,40" dtype_id="1">
+                                  <sel loc="e,101,34,101,35" dtype_id="1">
+                                    <varref loc="e,101,30,101,34" name="val1" dtype_id="7"/>
+                                    <sel loc="e,101,35,101,37" dtype_id="11">
+                                      <varref loc="e,101,35,101,37" name="i0" dtype_id="10"/>
+                                      <const loc="e,101,35,101,37" name="32&apos;h0" dtype_id="2"/>
+                                      <const loc="e,101,35,101,37" name="32&apos;h5" dtype_id="2"/>
+                                    </sel>
+                                    <const loc="e,101,34,101,35" name="32&apos;h1" dtype_id="2"/>
+                                  </sel>
+                                  <sel loc="e,101,57,101,58" dtype_id="1">
+                                    <varref loc="e,101,41,101,57" name="temp_mant_result" dtype_id="5"/>
+                                    <add loc="e,101,73,101,74" dtype_id="12">
+                                      <const loc="e,101,73,101,74" name="6&apos;h18" dtype_id="13"/>
+                                      <sel loc="e,101,73,101,74" dtype_id="13">
+                                        <varref loc="e,101,58,101,60" name="i0" dtype_id="10"/>
+                                        <const loc="e,101,73,101,74" name="32&apos;h0" dtype_id="2"/>
+                                        <const loc="e,101,73,101,74" name="32&apos;h6" dtype_id="2"/>
+                                      </sel>
+                                    </add>
+                                    <const loc="e,101,57,101,58" name="32&apos;h1" dtype_id="2"/>
+                                  </sel>
+                                </and>
+                                <varref loc="e,101,25,101,27" name="co" dtype_id="1"/>
+                              </assign>
+                              <assign loc="e,102,62,102,63" dtype_id="1">
+                                <const loc="e,102,64,102,68" name="1&apos;h0" dtype_id="1"/>
+                                <sel loc="e,102,41,102,42" dtype_id="1">
+                                  <varref loc="e,102,25,102,41" name="temp_mant_result" dtype_id="5"/>
+                                  <add loc="e,102,57,102,58" dtype_id="12">
+                                    <const loc="e,102,57,102,58" name="6&apos;h18" dtype_id="13"/>
+                                    <sel loc="e,102,57,102,58" dtype_id="13">
+                                      <varref loc="e,102,42,102,44" name="i0" dtype_id="10"/>
+                                      <const loc="e,102,57,102,58" name="32&apos;h0" dtype_id="2"/>
+                                      <const loc="e,102,57,102,58" name="32&apos;h6" dtype_id="2"/>
+                                    </sel>
+                                  </add>
+                                  <const loc="e,102,41,102,42" name="32&apos;h1" dtype_id="2"/>
+                                </sel>
+                              </assign>
+                            </begin>
+                          </begin>
+                        </if>
+                      </begin>
+                    </begin>
+                  </if>
+                </begin>
+              </begin>
+              <begin>
+                <assign loc="e,91,45,91,46" dtype_id="10">
+                  <add loc="e,91,50,91,51" dtype_id="10">
+                    <const loc="e,91,52,91,53" name="32&apos;sh1" dtype_id="3"/>
+                    <varref loc="e,91,47,91,49" name="i0" dtype_id="10"/>
+                  </add>
+                  <varref loc="e,91,42,91,44" name="i0" dtype_id="10"/>
+                </assign>
+              </begin>
+            </while>
+          </begin>
+          <assign loc="e,118,18,118,19" dtype_id="1">
+            <varref loc="e,118,20,118,22" name="co" dtype_id="1"/>
+            <varref loc="e,118,13,118,17" name="cout" dtype_id="1"/>
+          </assign>
+        </begin>
+      </task>
+      <func loc="e,121,14,121,23" name="bit_all_0" dtype_id="1">
+        <var loc="e,121,14,121,23" name="bit_all_0" dtype_id="1" dir="output" vartype="logic" origName="bit_all_0"/>
+        <var loc="e,122,40,122,43" name="val" dtype_id="5" dir="input" vartype="logic" origName="val"/>
+        <var loc="e,123,15,123,21" name="index1" dtype_id="10" dir="input" vartype="integer" origName="index1"/>
+        <var loc="e,125,15,125,21" name="index2" dtype_id="10" dir="input" vartype="integer" origName="index2"/>
+        <var loc="e,127,13,127,18" name="all_0" dtype_id="1" vartype="logic" origName="all_0"/>
+        <begin loc="e,128,9,128,14">
+          <begin loc="e,129,21,129,27" name="LOOP_1">
+            <jumpblock loc="e,129,21,129,27">
+              <assign loc="e,130,23,130,24" dtype_id="1">
+                <const loc="e,130,25,130,29" name="1&apos;h1" dtype_id="1"/>
+                <varref loc="e,130,17,130,22" name="all_0" dtype_id="1"/>
+              </assign>
+              <begin loc="e,131,17,131,20">
+                <assign loc="e,131,25,131,26" dtype_id="10">
+                  <varref loc="e,131,27,131,33" name="index1" dtype_id="10"/>
+                  <varref loc="e,131,22,131,24" name="i1" dtype_id="10"/>
+                </assign>
+                <while loc="e,131,17,131,20">
+                  <begin>
+                  </begin>
+                  <begin>
+                    <ltes loc="e,131,38,131,40" dtype_id="1">
+                      <varref loc="e,131,35,131,37" name="i1" dtype_id="10"/>
+                      <varref loc="e,131,41,131,47" name="index2" dtype_id="10"/>
+                    </ltes>
+                  </begin>
+                  <begin>
+                    <begin loc="e,132,17,132,22">
+                      <if loc="e,133,21,133,23">
+                        <sel loc="e,133,29,133,30" dtype_id="1">
+                          <varref loc="e,133,26,133,29" name="val" dtype_id="5"/>
+                          <sel loc="e,133,30,133,32" dtype_id="12">
+                            <varref loc="e,133,30,133,32" name="i1" dtype_id="10"/>
+                            <const loc="e,133,30,133,32" name="32&apos;h0" dtype_id="2"/>
+                            <const loc="e,133,30,133,32" name="32&apos;h6" dtype_id="2"/>
+                          </sel>
+                          <const loc="e,133,29,133,30" name="32&apos;h1" dtype_id="2"/>
+                        </sel>
+                        <begin>
+                          <begin loc="e,134,21,134,26">
+                            <assign loc="e,135,31,135,32" dtype_id="1">
+                              <const loc="e,135,33,135,37" name="1&apos;h0" dtype_id="1"/>
+                              <varref loc="e,135,25,135,30" name="all_0" dtype_id="1"/>
+                            </assign>
+                            <jumpgo loc="e,136,25,136,32"/>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </begin>
+                  <begin>
+                    <assign loc="e,131,52,131,53" dtype_id="10">
+                      <add loc="e,131,57,131,58" dtype_id="10">
+                        <const loc="e,131,59,131,60" name="32&apos;sh1" dtype_id="3"/>
+                        <varref loc="e,131,54,131,56" name="i1" dtype_id="10"/>
+                      </add>
+                      <varref loc="e,131,49,131,51" name="i1" dtype_id="10"/>
+                    </assign>
+                  </begin>
+                </while>
+              </begin>
+              <jumplabel loc="e,129,21,129,27"/>
+            </jumpblock>
+          </begin>
+          <assign loc="e,140,23,140,24" dtype_id="1">
+            <varref loc="e,140,25,140,30" name="all_0" dtype_id="1"/>
+            <varref loc="e,140,13,140,22" name="bit_all_0" dtype_id="1"/>
+          </assign>
+        </begin>
+      </func>
+      <func loc="e,143,22,143,39" name="exponential_value" dtype_id="10">
+        <var loc="e,143,22,143,39" name="exponential_value" dtype_id="10" dir="output" vartype="integer" origName="exponential_value"/>
+        <var loc="e,144,15,144,26" name="base_number" dtype_id="10" dir="input" vartype="integer" origName="base_number"/>
+        <var loc="e,145,15,145,30" name="exponent_number" dtype_id="10" dir="input" vartype="integer" origName="exponent_number"/>
+        <var loc="e,148,17,148,22" name="value" dtype_id="10" vartype="integer" origName="value"/>
+        <begin loc="e,149,9,149,14">
+          <assign loc="e,150,19,150,20" dtype_id="10">
+            <const loc="e,150,21,150,22" name="32&apos;sh1" dtype_id="3"/>
+            <varref loc="e,150,13,150,18" name="value" dtype_id="10"/>
+          </assign>
+          <begin loc="e,151,13,151,16">
+            <assign loc="e,151,21,151,22" dtype_id="10">
+              <const loc="e,151,23,151,24" name="32&apos;sh0" dtype_id="3"/>
+              <varref loc="e,151,18,151,20" name="i2" dtype_id="10"/>
+            </assign>
+            <while loc="e,151,13,151,16">
+              <begin>
+              </begin>
+              <begin>
+                <lts loc="e,151,29,151,30" dtype_id="1">
+                  <varref loc="e,151,26,151,28" name="i2" dtype_id="10"/>
+                  <varref loc="e,151,31,151,46" name="exponent_number" dtype_id="10"/>
+                </lts>
+              </begin>
+              <begin>
+                <begin loc="e,152,13,152,18">
+                  <assign loc="e,153,23,153,24" dtype_id="10">
+                    <muls loc="e,153,37,153,38" dtype_id="10">
+                      <varref loc="e,153,25,153,36" name="base_number" dtype_id="10"/>
+                      <varref loc="e,153,39,153,44" name="value" dtype_id="10"/>
+                    </muls>
+                    <varref loc="e,153,17,153,22" name="value" dtype_id="10"/>
+                  </assign>
+                </begin>
+              </begin>
+              <begin>
+                <assign loc="e,151,51,151,52" dtype_id="10">
+                  <add loc="e,151,56,151,57" dtype_id="10">
+                    <const loc="e,151,58,151,59" name="32&apos;sh1" dtype_id="3"/>
+                    <varref loc="e,151,53,151,55" name="i2" dtype_id="10"/>
+                  </add>
+                  <varref loc="e,151,48,151,50" name="i2" dtype_id="10"/>
+                </assign>
+              </begin>
+            </while>
+          </begin>
+          <assign loc="e,155,31,155,32" dtype_id="10">
+            <varref loc="e,155,33,155,38" name="value" dtype_id="10"/>
+            <varref loc="e,155,13,155,30" name="exponential_value" dtype_id="10"/>
+          </assign>
+        </begin>
+      </func>
+      <initial loc="e,158,5,158,12">
+        <begin loc="e,159,13,159,27" name="INITIALIZATION">
+          <begin loc="e,160,9,160,12">
+            <assign loc="e,160,16,160,17" dtype_id="10">
+              <const loc="e,160,18,160,25" name="32&apos;h4" dtype_id="3"/>
+              <varref loc="e,160,13,160,15" name="i3" dtype_id="10"/>
+            </assign>
+            <while loc="e,160,9,160,12">
+              <begin>
+              </begin>
+              <begin>
+                <ltes loc="e,160,30,160,32" dtype_id="1">
+                  <const loc="e,160,33,160,34" name="32&apos;sh0" dtype_id="3"/>
+                  <varref loc="e,160,27,160,29" name="i3" dtype_id="10"/>
+                </ltes>
+              </begin>
+              <begin>
+                <begin loc="e,161,9,161,14">
+                  <assign loc="e,162,29,162,30" dtype_id="2">
+                    <const loc="e,162,31,162,32" name="32&apos;sh0" dtype_id="3"/>
+                    <arraysel loc="e,162,24,162,25" dtype_id="2">
+                      <varref loc="e,162,13,162,24" name="result_pipe" dtype_id="8"/>
+                      <sel loc="e,162,25,162,27" dtype_id="14">
+                        <varref loc="e,162,25,162,27" name="i3" dtype_id="10"/>
+                        <const loc="e,162,25,162,27" name="32&apos;h0" dtype_id="2"/>
+                        <const loc="e,162,25,162,27" name="32&apos;h3" dtype_id="2"/>
+                      </sel>
+                    </arraysel>
+                  </assign>
+                  <assign loc="e,163,31,163,32" dtype_id="1">
+                    <const loc="e,163,33,163,37" name="1&apos;h0" dtype_id="1"/>
+                    <sel loc="e,163,26,163,27" dtype_id="1">
+                      <varref loc="e,163,13,163,26" name="overflow_pipe" dtype_id="9"/>
+                      <sel loc="e,163,27,163,29" dtype_id="14">
+                        <varref loc="e,163,27,163,29" name="i3" dtype_id="10"/>
+                        <const loc="e,163,27,163,29" name="32&apos;h0" dtype_id="2"/>
+                        <const loc="e,163,27,163,29" name="32&apos;h3" dtype_id="2"/>
+                      </sel>
+                      <const loc="e,163,26,163,27" name="32&apos;h1" dtype_id="2"/>
+                    </sel>
+                  </assign>
+                  <assign loc="e,164,32,164,33" dtype_id="1">
+                    <const loc="e,164,34,164,38" name="1&apos;h0" dtype_id="1"/>
+                    <sel loc="e,164,27,164,28" dtype_id="1">
+                      <varref loc="e,164,13,164,27" name="underflow_pipe" dtype_id="9"/>
+                      <sel loc="e,164,28,164,30" dtype_id="14">
+                        <varref loc="e,164,28,164,30" name="i3" dtype_id="10"/>
+                        <const loc="e,164,28,164,30" name="32&apos;h0" dtype_id="2"/>
+                        <const loc="e,164,28,164,30" name="32&apos;h3" dtype_id="2"/>
+                      </sel>
+                      <const loc="e,164,27,164,28" name="32&apos;h1" dtype_id="2"/>
+                    </sel>
+                  </assign>
+                  <assign loc="e,165,27,165,28" dtype_id="1">
+                    <const loc="e,165,29,165,33" name="1&apos;h0" dtype_id="1"/>
+                    <sel loc="e,165,22,165,23" dtype_id="1">
+                      <varref loc="e,165,13,165,22" name="zero_pipe" dtype_id="9"/>
+                      <sel loc="e,165,23,165,25" dtype_id="14">
+                        <varref loc="e,165,23,165,25" name="i3" dtype_id="10"/>
+                        <const loc="e,165,23,165,25" name="32&apos;h0" dtype_id="2"/>
+                        <const loc="e,165,23,165,25" name="32&apos;h3" dtype_id="2"/>
+                      </sel>
+                      <const loc="e,165,22,165,23" name="32&apos;h1" dtype_id="2"/>
+                    </sel>
+                  </assign>
+                  <assign loc="e,166,31,166,32" dtype_id="1">
+                    <const loc="e,166,33,166,37" name="1&apos;h0" dtype_id="1"/>
+                    <sel loc="e,166,26,166,27" dtype_id="1">
+                      <varref loc="e,166,13,166,26" name="denormal_pipe" dtype_id="9"/>
+                      <sel loc="e,166,27,166,29" dtype_id="14">
+                        <varref loc="e,166,27,166,29" name="i3" dtype_id="10"/>
+                        <const loc="e,166,27,166,29" name="32&apos;h0" dtype_id="2"/>
+                        <const loc="e,166,27,166,29" name="32&apos;h3" dtype_id="2"/>
+                      </sel>
+                      <const loc="e,166,26,166,27" name="32&apos;h1" dtype_id="2"/>
+                    </sel>
+                  </assign>
+                  <assign loc="e,167,33,167,34" dtype_id="1">
+                    <const loc="e,167,35,167,39" name="1&apos;h0" dtype_id="1"/>
+                    <sel loc="e,167,28,167,29" dtype_id="1">
+                      <varref loc="e,167,13,167,28" name="indefinite_pipe" dtype_id="9"/>
+                      <sel loc="e,167,29,167,31" dtype_id="14">
+                        <varref loc="e,167,29,167,31" name="i3" dtype_id="10"/>
+                        <const loc="e,167,29,167,31" name="32&apos;h0" dtype_id="2"/>
+                        <const loc="e,167,29,167,31" name="32&apos;h3" dtype_id="2"/>
+                      </sel>
+                      <const loc="e,167,28,167,29" name="32&apos;h1" dtype_id="2"/>
+                    </sel>
+                  </assign>
+                  <assign loc="e,168,26,168,27" dtype_id="1">
+                    <const loc="e,168,28,168,32" name="1&apos;h0" dtype_id="1"/>
+                    <sel loc="e,168,21,168,22" dtype_id="1">
+                      <varref loc="e,168,13,168,21" name="nan_pipe" dtype_id="9"/>
+                      <sel loc="e,168,22,168,24" dtype_id="14">
+                        <varref loc="e,168,22,168,24" name="i3" dtype_id="10"/>
+                        <const loc="e,168,22,168,24" name="32&apos;h0" dtype_id="2"/>
+                        <const loc="e,168,22,168,24" name="32&apos;h3" dtype_id="2"/>
+                      </sel>
+                      <const loc="e,168,21,168,22" name="32&apos;h1" dtype_id="2"/>
+                    </sel>
+                  </assign>
+                </begin>
+              </begin>
+              <begin>
+                <assign loc="e,160,39,160,40" dtype_id="10">
+                  <sub loc="e,160,44,160,45" dtype_id="10">
+                    <varref loc="e,160,41,160,43" name="i3" dtype_id="10"/>
+                    <const loc="e,160,46,160,47" name="32&apos;sh1" dtype_id="3"/>
+                  </sub>
+                  <varref loc="e,160,36,160,38" name="i3" dtype_id="10"/>
+                </assign>
+              </begin>
+            </while>
+          </begin>
+        </begin>
+      </initial>
+      <always loc="e,215,5,215,11">
+        <sentree loc="e,215,12,215,13">
+          <senitem loc="e,215,14,215,19" edgeType="CHANGED">
+            <varref loc="e,215,14,215,19" name="dataa" dtype_id="2"/>
+          </senitem>
+          <senitem loc="e,215,23,215,28" edgeType="CHANGED">
+            <varref loc="e,215,23,215,28" name="datab" dtype_id="2"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,216,13,216,24" name="MULTIPLY_FP">
+          <assign loc="e,217,21,217,22" dtype_id="2">
+            <const loc="e,217,43,217,44" name="32&apos;h0" dtype_id="2"/>
+            <varref loc="e,217,9,217,20" name="temp_result" dtype_id="2"/>
+          </assign>
+          <assign loc="e,218,22,218,23" dtype_id="1">
+            <const loc="e,218,24,218,28" name="1&apos;h0" dtype_id="1"/>
+            <varref loc="e,218,9,218,21" name="overflow_bit" dtype_id="1"/>
+          </assign>
+          <assign loc="e,219,23,219,24" dtype_id="1">
+            <const loc="e,219,25,219,29" name="1&apos;h0" dtype_id="1"/>
+            <varref loc="e,219,9,219,22" name="underflow_bit" dtype_id="1"/>
+          </assign>
+          <assign loc="e,220,18,220,19" dtype_id="1">
+            <const loc="e,220,20,220,24" name="1&apos;h0" dtype_id="1"/>
+            <varref loc="e,220,9,220,17" name="zero_bit" dtype_id="1"/>
+          </assign>
+          <assign loc="e,221,22,221,23" dtype_id="1">
+            <const loc="e,221,24,221,28" name="1&apos;h0" dtype_id="1"/>
+            <varref loc="e,221,9,221,21" name="denormal_bit" dtype_id="1"/>
+          </assign>
+          <assign loc="e,222,24,222,25" dtype_id="1">
+            <const loc="e,222,26,222,30" name="1&apos;h0" dtype_id="1"/>
+            <varref loc="e,222,9,222,23" name="indefinite_bit" dtype_id="1"/>
+          </assign>
+          <assign loc="e,223,17,223,18" dtype_id="1">
+            <const loc="e,223,19,223,23" name="1&apos;h0" dtype_id="1"/>
+            <varref loc="e,223,9,223,16" name="nan_bit" dtype_id="1"/>
+          </assign>
+          <assign loc="e,224,21,224,22" dtype_id="5">
+            <const loc="e,224,45,224,46" name="48&apos;h0" dtype_id="5"/>
+            <varref loc="e,224,9,224,20" name="mant_result" dtype_id="5"/>
+          </assign>
+          <assign loc="e,225,19,225,20" dtype_id="10">
+            <const loc="e,225,21,225,22" name="32&apos;sh0" dtype_id="3"/>
+            <varref loc="e,225,9,225,18" name="exp_dataa" dtype_id="10"/>
+          </assign>
+          <assign loc="e,226,19,226,20" dtype_id="10">
+            <const loc="e,226,21,226,22" name="32&apos;sh0" dtype_id="3"/>
+            <varref loc="e,226,9,226,18" name="exp_datab" dtype_id="10"/>
+          </assign>
+          <assign loc="e,227,19,227,20" dtype_id="10">
+            <extend loc="e,227,26,227,27" dtype_id="10" width="32" widthminv="8">
+              <sel loc="e,227,26,227,27" dtype_id="15">
+                <varref loc="e,227,21,227,26" name="dataa" dtype_id="2"/>
+                <const loc="e,227,52,227,61" name="5&apos;h17" dtype_id="11"/>
+                <const loc="e,227,49,227,50" name="32&apos;h8" dtype_id="2"/>
+              </sel>
+            </extend>
+            <varref loc="e,227,9,227,18" name="exp_dataa" dtype_id="10"/>
+          </assign>
+          <assign loc="e,228,19,228,20" dtype_id="10">
+            <extend loc="e,228,26,228,27" dtype_id="10" width="32" widthminv="8">
+              <sel loc="e,228,26,228,27" dtype_id="15">
+                <varref loc="e,228,21,228,26" name="datab" dtype_id="2"/>
+                <const loc="e,228,52,228,61" name="5&apos;h17" dtype_id="11"/>
+                <const loc="e,228,49,228,50" name="32&apos;h8" dtype_id="2"/>
+              </sel>
+            </extend>
+            <varref loc="e,228,9,228,18" name="exp_datab" dtype_id="10"/>
+          </assign>
+          <assign loc="e,229,25,229,26" dtype_id="1">
+            <const loc="e,229,27,229,31" name="1&apos;h1" dtype_id="1"/>
+            <varref loc="e,229,9,229,24" name="zero_mant_dataa" dtype_id="1"/>
+          </assign>
+          <begin loc="e,230,17,230,23" name="LOOP_3">
+            <jumpblock loc="e,230,17,230,23">
+              <begin loc="e,231,13,231,16">
+                <assign loc="e,231,21,231,22" dtype_id="10">
+                  <const loc="e,231,23,231,24" name="32&apos;sh0" dtype_id="3"/>
+                  <varref loc="e,231,18,231,20" name="i4" dtype_id="10"/>
+                </assign>
+                <while loc="e,231,13,231,16">
+                  <begin>
+                  </begin>
+                  <begin>
+                    <gtes loc="e,231,29,231,31" dtype_id="1">
+                      <const loc="e,231,42,231,43" name="32&apos;h16" dtype_id="3"/>
+                      <varref loc="e,231,26,231,28" name="i4" dtype_id="10"/>
+                    </gtes>
+                  </begin>
+                  <begin>
+                    <begin loc="e,232,13,232,18">
+                      <if loc="e,233,17,233,19">
+                        <sel loc="e,233,27,233,28" dtype_id="1">
+                          <varref loc="e,233,22,233,27" name="dataa" dtype_id="2"/>
+                          <sel loc="e,233,28,233,30" dtype_id="11">
+                            <varref loc="e,233,28,233,30" name="i4" dtype_id="10"/>
+                            <const loc="e,233,28,233,30" name="32&apos;h0" dtype_id="2"/>
+                            <const loc="e,233,28,233,30" name="32&apos;h5" dtype_id="2"/>
+                          </sel>
+                          <const loc="e,233,27,233,28" name="32&apos;h1" dtype_id="2"/>
+                        </sel>
+                        <begin>
+                          <begin loc="e,234,17,234,22">
+                            <assign loc="e,235,37,235,38" dtype_id="1">
+                              <const loc="e,235,39,235,43" name="1&apos;h0" dtype_id="1"/>
+                              <varref loc="e,235,21,235,36" name="zero_mant_dataa" dtype_id="1"/>
+                            </assign>
+                            <jumpgo loc="e,236,21,236,28"/>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </begin>
+                  <begin>
+                    <assign loc="e,231,50,231,51" dtype_id="10">
+                      <add loc="e,231,55,231,56" dtype_id="10">
+                        <const loc="e,231,57,231,58" name="32&apos;sh1" dtype_id="3"/>
+                        <varref loc="e,231,52,231,54" name="i4" dtype_id="10"/>
+                      </add>
+                      <varref loc="e,231,47,231,49" name="i4" dtype_id="10"/>
+                    </assign>
+                  </begin>
+                </while>
+              </begin>
+              <jumplabel loc="e,230,17,230,23"/>
+            </jumpblock>
+          </begin>
+          <assign loc="e,240,25,240,26" dtype_id="1">
+            <const loc="e,240,27,240,31" name="1&apos;h1" dtype_id="1"/>
+            <varref loc="e,240,9,240,24" name="zero_mant_datab" dtype_id="1"/>
+          </assign>
+          <begin loc="e,241,17,241,23" name="LOOP_4">
+            <jumpblock loc="e,241,17,241,23">
+              <begin loc="e,242,13,242,16">
+                <assign loc="e,242,21,242,22" dtype_id="10">
+                  <const loc="e,242,23,242,24" name="32&apos;sh0" dtype_id="3"/>
+                  <varref loc="e,242,18,242,20" name="i4" dtype_id="10"/>
+                </assign>
+                <while loc="e,242,13,242,16">
+                  <begin>
+                  </begin>
+                  <begin>
+                    <gtes loc="e,242,29,242,31" dtype_id="1">
+                      <const loc="e,242,42,242,43" name="32&apos;h16" dtype_id="3"/>
+                      <varref loc="e,242,26,242,28" name="i4" dtype_id="10"/>
+                    </gtes>
+                  </begin>
+                  <begin>
+                    <begin loc="e,243,13,243,18">
+                      <if loc="e,244,17,244,19">
+                        <sel loc="e,244,27,244,28" dtype_id="1">
+                          <varref loc="e,244,22,244,27" name="datab" dtype_id="2"/>
+                          <sel loc="e,244,28,244,30" dtype_id="11">
+                            <varref loc="e,244,28,244,30" name="i4" dtype_id="10"/>
+                            <const loc="e,244,28,244,30" name="32&apos;h0" dtype_id="2"/>
+                            <const loc="e,244,28,244,30" name="32&apos;h5" dtype_id="2"/>
+                          </sel>
+                          <const loc="e,244,27,244,28" name="32&apos;h1" dtype_id="2"/>
+                        </sel>
+                        <begin>
+                          <begin loc="e,245,17,245,22">
+                            <assign loc="e,246,37,246,38" dtype_id="1">
+                              <const loc="e,246,39,246,43" name="1&apos;h0" dtype_id="1"/>
+                              <varref loc="e,246,21,246,36" name="zero_mant_datab" dtype_id="1"/>
+                            </assign>
+                            <jumpgo loc="e,247,21,247,28"/>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </begin>
+                  <begin>
+                    <assign loc="e,242,49,242,50" dtype_id="10">
+                      <add loc="e,242,54,242,55" dtype_id="10">
+                        <const loc="e,242,56,242,57" name="32&apos;sh1" dtype_id="3"/>
+                        <varref loc="e,242,51,242,53" name="i4" dtype_id="10"/>
+                      </add>
+                      <varref loc="e,242,46,242,48" name="i4" dtype_id="10"/>
+                    </assign>
+                  </begin>
+                </while>
+              </begin>
+              <jumplabel loc="e,241,17,241,23"/>
+            </jumpblock>
+          </begin>
+          <assign loc="e,251,20,251,21" dtype_id="1">
+            <const loc="e,251,22,251,26" name="1&apos;h0" dtype_id="1"/>
+            <varref loc="e,251,9,251,19" name="zero_dataa" dtype_id="1"/>
+          </assign>
+          <assign loc="e,252,19,252,20" dtype_id="1">
+            <const loc="e,252,21,252,25" name="1&apos;h0" dtype_id="1"/>
+            <varref loc="e,252,9,252,18" name="den_dataa" dtype_id="1"/>
+          </assign>
+          <assign loc="e,253,19,253,20" dtype_id="1">
+            <const loc="e,253,21,253,25" name="1&apos;h0" dtype_id="1"/>
+            <varref loc="e,253,9,253,18" name="inf_dataa" dtype_id="1"/>
+          </assign>
+          <assign loc="e,254,19,254,20" dtype_id="1">
+            <const loc="e,254,21,254,25" name="1&apos;h0" dtype_id="1"/>
+            <varref loc="e,254,9,254,18" name="nan_dataa" dtype_id="1"/>
+          </assign>
+          <if loc="e,255,9,255,11">
+            <eq loc="e,255,23,255,25" dtype_id="1">
+              <const loc="e,255,26,255,27" name="32&apos;sh0" dtype_id="3"/>
+              <varref loc="e,255,13,255,22" name="exp_dataa" dtype_id="10"/>
+            </eq>
+            <begin>
+              <begin loc="e,256,9,256,14">
+                <if loc="e,257,13,257,15">
+                  <varref loc="e,257,18,257,33" name="zero_mant_dataa" dtype_id="1"/>
+                  <begin>
+                    <begin loc="e,259,13,259,18">
+                      <assign loc="e,260,28,260,29" dtype_id="1">
+                        <const loc="e,260,30,260,34" name="1&apos;h1" dtype_id="1"/>
+                        <varref loc="e,260,17,260,27" name="zero_dataa" dtype_id="1"/>
+                      </assign>
+                    </begin>
+                  </begin>
+                  <begin>
+                    <begin loc="e,263,13,263,18">
+                      <assign loc="e,264,27,264,28" dtype_id="1">
+                        <const loc="e,264,29,264,33" name="1&apos;h1" dtype_id="1"/>
+                        <varref loc="e,264,17,264,26" name="den_dataa" dtype_id="1"/>
+                      </assign>
+                    </begin>
+                  </begin>
+                </if>
+              </begin>
+            </begin>
+            <begin>
+              <if loc="e,267,14,267,16">
+                <eq loc="e,267,28,267,30" dtype_id="1">
+                  <varref loc="e,267,18,267,27" name="exp_dataa" dtype_id="10"/>
+                  <sub loc="e,267,64,267,65" dtype_id="3">
+                    <funcref loc="e,267,32,267,49" name="exponential_value" dtype_id="10">
+                      <arg loc="e,267,50,267,51">
+                        <const loc="e,267,50,267,51" name="32&apos;sh2" dtype_id="3"/>
+                      </arg>
+                      <arg loc="e,267,53,267,62">
+                        <const loc="e,267,53,267,62" name="32&apos;sh8" dtype_id="3"/>
+                      </arg>
+                    </funcref>
+                    <const loc="e,267,66,267,67" name="32&apos;sh1" dtype_id="3"/>
+                  </sub>
+                </eq>
+                <begin>
+                  <begin loc="e,268,9,268,14">
+                    <if loc="e,269,13,269,15">
+                      <varref loc="e,269,17,269,32" name="zero_mant_dataa" dtype_id="1"/>
+                      <begin>
+                        <begin loc="e,270,13,270,18">
+                          <assign loc="e,271,27,271,28" dtype_id="1">
+                            <const loc="e,271,29,271,33" name="1&apos;h1" dtype_id="1"/>
+                            <varref loc="e,271,17,271,26" name="inf_dataa" dtype_id="1"/>
+                          </assign>
+                        </begin>
+                      </begin>
+                      <begin>
+                        <begin loc="e,274,13,274,18">
+                          <assign loc="e,275,27,275,28" dtype_id="1">
+                            <const loc="e,275,29,275,33" name="1&apos;h1" dtype_id="1"/>
+                            <varref loc="e,275,17,275,26" name="nan_dataa" dtype_id="1"/>
+                          </assign>
+                        </begin>
+                      </begin>
+                    </if>
+                  </begin>
+                </begin>
+              </if>
+            </begin>
+          </if>
+          <assign loc="e,278,20,278,21" dtype_id="1">
+            <const loc="e,278,22,278,26" name="1&apos;h0" dtype_id="1"/>
+            <varref loc="e,278,9,278,19" name="zero_datab" dtype_id="1"/>
+          </assign>
+          <assign loc="e,279,19,279,20" dtype_id="1">
+            <const loc="e,279,21,279,25" name="1&apos;h0" dtype_id="1"/>
+            <varref loc="e,279,9,279,18" name="den_datab" dtype_id="1"/>
+          </assign>
+          <assign loc="e,280,19,280,20" dtype_id="1">
+            <const loc="e,280,21,280,25" name="1&apos;h0" dtype_id="1"/>
+            <varref loc="e,280,9,280,18" name="inf_datab" dtype_id="1"/>
+          </assign>
+          <assign loc="e,281,19,281,20" dtype_id="1">
+            <const loc="e,281,21,281,25" name="1&apos;h0" dtype_id="1"/>
+            <varref loc="e,281,9,281,18" name="nan_datab" dtype_id="1"/>
+          </assign>
+          <if loc="e,282,9,282,11">
+            <eq loc="e,282,23,282,25" dtype_id="1">
+              <const loc="e,282,26,282,27" name="32&apos;sh0" dtype_id="3"/>
+              <varref loc="e,282,13,282,22" name="exp_datab" dtype_id="10"/>
+            </eq>
+            <begin>
+              <begin loc="e,283,9,283,14">
+                <if loc="e,284,13,284,15">
+                  <varref loc="e,284,18,284,33" name="zero_mant_datab" dtype_id="1"/>
+                  <begin>
+                    <begin loc="e,286,13,286,18">
+                      <assign loc="e,287,28,287,29" dtype_id="1">
+                        <const loc="e,287,30,287,34" name="1&apos;h1" dtype_id="1"/>
+                        <varref loc="e,287,17,287,27" name="zero_datab" dtype_id="1"/>
+                      </assign>
+                    </begin>
+                  </begin>
+                  <begin>
+                    <begin loc="e,290,13,290,18">
+                      <assign loc="e,291,27,291,28" dtype_id="1">
+                        <const loc="e,291,29,291,33" name="1&apos;h1" dtype_id="1"/>
+                        <varref loc="e,291,17,291,26" name="den_datab" dtype_id="1"/>
+                      </assign>
+                    </begin>
+                  </begin>
+                </if>
+              </begin>
+            </begin>
+            <begin>
+              <if loc="e,294,14,294,16">
+                <eq loc="e,294,28,294,30" dtype_id="1">
+                  <varref loc="e,294,18,294,27" name="exp_datab" dtype_id="10"/>
+                  <sub loc="e,294,64,294,65" dtype_id="3">
+                    <funcref loc="e,294,32,294,49" name="exponential_value" dtype_id="10">
+                      <arg loc="e,294,50,294,51">
+                        <const loc="e,294,50,294,51" name="32&apos;sh2" dtype_id="3"/>
+                      </arg>
+                      <arg loc="e,294,53,294,62">
+                        <const loc="e,294,53,294,62" name="32&apos;sh8" dtype_id="3"/>
+                      </arg>
+                    </funcref>
+                    <const loc="e,294,66,294,67" name="32&apos;sh1" dtype_id="3"/>
+                  </sub>
+                </eq>
+                <begin>
+                  <begin loc="e,295,9,295,14">
+                    <if loc="e,296,13,296,15">
+                      <varref loc="e,296,17,296,32" name="zero_mant_datab" dtype_id="1"/>
+                      <begin>
+                        <begin loc="e,297,13,297,18">
+                          <assign loc="e,298,27,298,28" dtype_id="1">
+                            <const loc="e,298,29,298,33" name="1&apos;h1" dtype_id="1"/>
+                            <varref loc="e,298,17,298,26" name="inf_datab" dtype_id="1"/>
+                          </assign>
+                        </begin>
+                      </begin>
+                      <begin>
+                        <begin loc="e,301,13,301,18">
+                          <assign loc="e,302,27,302,28" dtype_id="1">
+                            <const loc="e,302,29,302,33" name="1&apos;h1" dtype_id="1"/>
+                            <varref loc="e,302,17,302,26" name="nan_datab" dtype_id="1"/>
+                          </assign>
+                        </begin>
+                      </begin>
+                    </if>
+                  </begin>
+                </begin>
+              </if>
+            </begin>
+          </if>
+          <assign loc="e,305,21,305,22" dtype_id="1">
+            <const loc="e,305,23,305,27" name="1&apos;h0" dtype_id="1"/>
+            <varref loc="e,305,9,305,20" name="no_multiply" dtype_id="1"/>
+          </assign>
+          <if loc="e,306,9,306,11">
+            <or loc="e,306,65,306,67" dtype_id="1">
+              <or loc="e,306,36,306,38" dtype_id="1">
+                <or loc="e,306,23,306,25" dtype_id="1">
+                  <varref loc="e,306,13,306,22" name="nan_dataa" dtype_id="1"/>
+                  <varref loc="e,306,26,306,35" name="nan_datab" dtype_id="1"/>
+                </or>
+                <and loc="e,306,50,306,52" dtype_id="1">
+                  <varref loc="e,306,40,306,49" name="inf_dataa" dtype_id="1"/>
+                  <varref loc="e,306,53,306,63" name="zero_datab" dtype_id="1"/>
+                </and>
+              </or>
+              <and loc="e,307,24,307,26" dtype_id="1">
+                <varref loc="e,307,14,307,23" name="inf_datab" dtype_id="1"/>
+                <varref loc="e,307,27,307,37" name="zero_dataa" dtype_id="1"/>
+              </and>
+            </or>
+            <begin>
+              <begin loc="e,308,9,308,14">
+                <assign loc="e,309,21,309,22" dtype_id="1">
+                  <const loc="e,309,23,309,27" name="1&apos;h1" dtype_id="1"/>
+                  <varref loc="e,309,13,309,20" name="nan_bit" dtype_id="1"/>
+                </assign>
+                <begin loc="e,310,13,310,16">
+                  <assign loc="e,310,21,310,22" dtype_id="10">
+                    <const loc="e,310,33,310,34" name="32&apos;h16" dtype_id="10"/>
+                    <varref loc="e,310,18,310,20" name="i4" dtype_id="10"/>
+                  </assign>
+                  <while loc="e,310,13,310,16">
+                    <begin>
+                    </begin>
+                    <begin>
+                      <gtes loc="e,310,41,310,43" dtype_id="1">
+                        <const loc="e,310,58,310,59" name="32&apos;h1e" dtype_id="3"/>
+                        <varref loc="e,310,38,310,40" name="i4" dtype_id="10"/>
+                      </gtes>
+                    </begin>
+                    <begin>
+                      <begin loc="e,311,13,311,18">
+                        <assign loc="e,312,33,312,34" dtype_id="1">
+                          <const loc="e,312,35,312,39" name="1&apos;h1" dtype_id="1"/>
+                          <sel loc="e,312,28,312,29" dtype_id="1">
+                            <varref loc="e,312,17,312,28" name="temp_result" dtype_id="2"/>
+                            <sel loc="e,312,29,312,31" dtype_id="11">
+                              <varref loc="e,312,29,312,31" name="i4" dtype_id="10"/>
+                              <const loc="e,312,29,312,31" name="32&apos;h0" dtype_id="2"/>
+                              <const loc="e,312,29,312,31" name="32&apos;h5" dtype_id="2"/>
+                            </sel>
+                            <const loc="e,312,28,312,29" name="32&apos;h1" dtype_id="2"/>
+                          </sel>
+                        </assign>
+                      </begin>
+                    </begin>
+                    <begin>
+                      <assign loc="e,310,66,310,67" dtype_id="10">
+                        <add loc="e,310,71,310,72" dtype_id="10">
+                          <const loc="e,310,73,310,74" name="32&apos;sh1" dtype_id="3"/>
+                          <varref loc="e,310,68,310,70" name="i4" dtype_id="10"/>
+                        </add>
+                        <varref loc="e,310,63,310,65" name="i4" dtype_id="10"/>
+                      </assign>
+                    </begin>
+                  </while>
+                </begin>
+                <assign loc="e,314,25,314,26" dtype_id="1">
+                  <const loc="e,314,27,314,31" name="1&apos;h1" dtype_id="1"/>
+                  <varref loc="e,314,13,314,24" name="no_multiply" dtype_id="1"/>
+                </assign>
+              </begin>
+            </begin>
+            <begin>
+              <if loc="e,316,14,316,16">
+                <varref loc="e,316,18,316,28" name="zero_dataa" dtype_id="1"/>
+                <begin>
+                  <begin loc="e,317,9,317,14">
+                    <assign loc="e,318,22,318,23" dtype_id="1">
+                      <const loc="e,318,24,318,28" name="1&apos;h1" dtype_id="1"/>
+                      <varref loc="e,318,13,318,21" name="zero_bit" dtype_id="1"/>
+                    </assign>
+                    <assign loc="e,319,44,319,45" dtype_id="2">
+                      <const loc="e,319,46,319,47" name="32&apos;sh0" dtype_id="3"/>
+                      <varref loc="e,319,13,319,24" name="temp_result" dtype_id="2"/>
+                    </assign>
+                    <assign loc="e,320,25,320,26" dtype_id="1">
+                      <const loc="e,320,27,320,31" name="1&apos;h1" dtype_id="1"/>
+                      <varref loc="e,320,13,320,24" name="no_multiply" dtype_id="1"/>
+                    </assign>
+                  </begin>
+                </begin>
+                <begin>
+                  <if loc="e,322,14,322,16">
+                    <varref loc="e,322,18,322,28" name="zero_datab" dtype_id="1"/>
+                    <begin>
+                      <begin loc="e,323,9,323,14">
+                        <assign loc="e,324,22,324,23" dtype_id="1">
+                          <const loc="e,324,24,324,28" name="1&apos;h1" dtype_id="1"/>
+                          <varref loc="e,324,13,324,21" name="zero_bit" dtype_id="1"/>
+                        </assign>
+                        <assign loc="e,325,44,325,45" dtype_id="2">
+                          <const loc="e,325,46,325,47" name="32&apos;sh0" dtype_id="3"/>
+                          <varref loc="e,325,13,325,24" name="temp_result" dtype_id="2"/>
+                        </assign>
+                        <assign loc="e,326,25,326,26" dtype_id="1">
+                          <const loc="e,326,27,326,31" name="1&apos;h1" dtype_id="1"/>
+                          <varref loc="e,326,13,326,24" name="no_multiply" dtype_id="1"/>
+                        </assign>
+                      </begin>
+                    </begin>
+                    <begin>
+                      <if loc="e,328,14,328,16">
+                        <varref loc="e,328,18,328,27" name="inf_dataa" dtype_id="1"/>
+                        <begin>
+                          <begin loc="e,329,9,329,14">
+                            <assign loc="e,330,26,330,27" dtype_id="1">
+                              <const loc="e,330,28,330,32" name="1&apos;h1" dtype_id="1"/>
+                              <varref loc="e,330,13,330,25" name="overflow_bit" dtype_id="1"/>
+                            </assign>
+                            <assign loc="e,331,44,331,45" dtype_id="2">
+                              <varref loc="e,331,46,331,51" name="dataa" dtype_id="2"/>
+                              <varref loc="e,331,13,331,24" name="temp_result" dtype_id="2"/>
+                            </assign>
+                            <assign loc="e,332,25,332,26" dtype_id="1">
+                              <const loc="e,332,27,332,31" name="1&apos;h1" dtype_id="1"/>
+                              <varref loc="e,332,13,332,24" name="no_multiply" dtype_id="1"/>
+                            </assign>
+                          </begin>
+                        </begin>
+                        <begin>
+                          <if loc="e,334,14,334,16">
+                            <varref loc="e,334,18,334,27" name="inf_datab" dtype_id="1"/>
+                            <begin>
+                              <begin loc="e,335,9,335,14">
+                                <assign loc="e,336,26,336,27" dtype_id="1">
+                                  <const loc="e,336,28,336,32" name="1&apos;h1" dtype_id="1"/>
+                                  <varref loc="e,336,13,336,25" name="overflow_bit" dtype_id="1"/>
+                                </assign>
+                                <assign loc="e,337,44,337,45" dtype_id="2">
+                                  <varref loc="e,337,46,337,51" name="datab" dtype_id="2"/>
+                                  <varref loc="e,337,13,337,24" name="temp_result" dtype_id="2"/>
+                                </assign>
+                                <assign loc="e,338,25,338,26" dtype_id="1">
+                                  <const loc="e,338,27,338,31" name="1&apos;h1" dtype_id="1"/>
+                                  <varref loc="e,338,13,338,24" name="no_multiply" dtype_id="1"/>
+                                </assign>
+                              </begin>
+                            </begin>
+                          </if>
+                        </begin>
+                      </if>
+                    </begin>
+                  </if>
+                </begin>
+              </if>
+            </begin>
+          </if>
+          <if loc="e,340,9,340,11">
+            <not loc="e,340,25,340,27" dtype_id="1">
+              <varref loc="e,340,13,340,24" name="no_multiply" dtype_id="1"/>
+            </not>
+            <begin>
+              <begin loc="e,341,9,341,14">
+                <assign loc="e,342,24,342,25" dtype_id="10">
+                  <sub loc="e,342,48,342,49" dtype_id="10">
+                    <add loc="e,342,36,342,37" dtype_id="10">
+                      <varref loc="e,342,26,342,35" name="exp_dataa" dtype_id="10"/>
+                      <varref loc="e,342,38,342,47" name="exp_datab" dtype_id="10"/>
+                    </add>
+                    <sub loc="e,342,86,342,87" dtype_id="10">
+                      <funcref loc="e,342,51,342,68" name="exponential_value" dtype_id="10">
+                        <arg loc="e,342,69,342,70">
+                          <const loc="e,342,69,342,70" name="32&apos;sh2" dtype_id="3"/>
+                        </arg>
+                        <arg loc="e,342,82,342,83">
+                          <const loc="e,342,82,342,83" name="32&apos;h7" dtype_id="10"/>
+                        </arg>
+                      </funcref>
+                      <const loc="e,342,87,342,88" name="32&apos;sh1" dtype_id="3"/>
+                    </sub>
+                  </sub>
+                  <varref loc="e,342,13,342,23" name="exp_result" dtype_id="10"/>
+                </assign>
+                <assign loc="e,343,39,343,40" dtype_id="7">
+                  <concat loc="e,343,46,343,47" dtype_id="7">
+                    <const loc="e,343,42,343,46" name="1&apos;h1" dtype_id="1"/>
+                    <sel loc="e,343,53,343,54" dtype_id="16">
+                      <varref loc="e,343,48,343,53" name="dataa" dtype_id="2"/>
+                      <const loc="e,343,69,343,70" name="5&apos;h0" dtype_id="11"/>
+                      <const loc="e,343,64,343,65" name="32&apos;h17" dtype_id="2"/>
+                    </sel>
+                  </concat>
+                  <varref loc="e,343,13,343,23" name="mant_dataa" dtype_id="7"/>
+                </assign>
+                <assign loc="e,344,39,344,40" dtype_id="7">
+                  <concat loc="e,344,46,344,47" dtype_id="7">
+                    <const loc="e,344,42,344,46" name="1&apos;h1" dtype_id="1"/>
+                    <sel loc="e,344,53,344,54" dtype_id="16">
+                      <varref loc="e,344,48,344,53" name="datab" dtype_id="2"/>
+                      <const loc="e,344,69,344,70" name="5&apos;h0" dtype_id="11"/>
+                      <const loc="e,344,64,344,65" name="32&apos;h17" dtype_id="2"/>
+                    </sel>
+                  </concat>
+                  <varref loc="e,344,13,344,23" name="mant_datab" dtype_id="7"/>
+                </assign>
+                <begin loc="e,345,13,345,16">
+                  <assign loc="e,345,21,345,22" dtype_id="10">
+                    <const loc="e,345,23,345,24" name="32&apos;sh0" dtype_id="3"/>
+                    <varref loc="e,345,18,345,20" name="i4" dtype_id="10"/>
+                  </assign>
+                  <while loc="e,345,13,345,16">
+                    <begin>
+                    </begin>
+                    <begin>
+                      <gtes loc="e,345,29,345,31" dtype_id="1">
+                        <const loc="e,345,32,345,41" name="32&apos;sh17" dtype_id="3"/>
+                        <varref loc="e,345,26,345,28" name="i4" dtype_id="10"/>
+                      </gtes>
+                    </begin>
+                    <begin>
+                      <begin loc="e,346,13,346,18">
+                        <assign loc="e,347,22,347,23" dtype_id="1">
+                          <const loc="e,347,24,347,28" name="1&apos;h0" dtype_id="1"/>
+                          <varref loc="e,347,17,347,21" name="cout" dtype_id="1"/>
+                        </assign>
+                        <if loc="e,348,17,348,19">
+                          <sel loc="e,348,32,348,33" dtype_id="1">
+                            <varref loc="e,348,22,348,32" name="mant_dataa" dtype_id="7"/>
+                            <sel loc="e,348,33,348,35" dtype_id="11">
+                              <varref loc="e,348,33,348,35" name="i4" dtype_id="10"/>
+                              <const loc="e,348,33,348,35" name="32&apos;h0" dtype_id="2"/>
+                              <const loc="e,348,33,348,35" name="32&apos;h5" dtype_id="2"/>
+                            </sel>
+                            <const loc="e,348,32,348,33" name="32&apos;h1" dtype_id="2"/>
+                          </sel>
+                          <begin>
+                            <begin loc="e,349,17,349,22">
+                              <stmtexpr loc="e,350,21,350,29">
+                                <taskref loc="e,350,21,350,29" name="add_bits" dtype_id="17">
+                                  <arg loc="e,350,30,350,40">
+                                    <varref loc="e,350,30,350,40" name="mant_datab" dtype_id="7"/>
+                                  </arg>
+                                  <arg loc="e,350,42,350,53">
+                                    <varref loc="e,350,42,350,53" name="mant_result" dtype_id="5"/>
+                                  </arg>
+                                  <arg loc="e,350,55,350,59">
+                                    <varref loc="e,350,55,350,59" name="cout" dtype_id="1"/>
+                                  </arg>
+                                </taskref>
+                              </stmtexpr>
+                            </begin>
+                          </begin>
+                        </if>
+                        <assign loc="e,352,29,352,30" dtype_id="5">
+                          <shiftr loc="e,352,43,352,45" dtype_id="5">
+                            <varref loc="e,352,31,352,42" name="mant_result" dtype_id="5"/>
+                            <const loc="e,352,46,352,47" name="32&apos;sh1" dtype_id="3"/>
+                          </shiftr>
+                          <varref loc="e,352,17,352,28" name="mant_result" dtype_id="5"/>
+                        </assign>
+                        <assign loc="e,353,46,353,47" dtype_id="1">
+                          <varref loc="e,353,48,353,52" name="cout" dtype_id="1"/>
+                          <sel loc="e,353,28,353,29" dtype_id="1">
+                            <varref loc="e,353,17,353,28" name="mant_result" dtype_id="5"/>
+                            <const loc="e,353,41,353,42" name="6&apos;h2f" dtype_id="12"/>
+                            <const loc="e,353,28,353,29" name="32&apos;h1" dtype_id="2"/>
+                          </sel>
+                        </assign>
+                      </begin>
+                    </begin>
+                    <begin>
+                      <assign loc="e,345,46,345,47" dtype_id="10">
+                        <add loc="e,345,51,345,52" dtype_id="10">
+                          <const loc="e,345,53,345,54" name="32&apos;sh1" dtype_id="3"/>
+                          <varref loc="e,345,48,345,50" name="i4" dtype_id="10"/>
+                        </add>
+                        <varref loc="e,345,43,345,45" name="i4" dtype_id="10"/>
+                      </assign>
+                    </begin>
+                  </while>
+                </begin>
+                <assign loc="e,355,24,355,25" dtype_id="1">
+                  <const loc="e,355,26,355,30" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,355,13,355,23" name="sticky_bit" dtype_id="1"/>
+                </assign>
+                <assign loc="e,356,29,356,30" dtype_id="1">
+                  <sel loc="e,356,42,356,43" dtype_id="1">
+                    <varref loc="e,356,31,356,42" name="mant_result" dtype_id="5"/>
+                    <const loc="e,356,55,356,56" name="6&apos;h2f" dtype_id="12"/>
+                    <const loc="e,356,42,356,43" name="32&apos;h1" dtype_id="2"/>
+                  </sel>
+                  <varref loc="e,356,13,356,28" name="mant_result_msb" dtype_id="1"/>
+                </assign>
+                <if loc="e,357,13,357,15">
+                  <varref loc="e,357,17,357,32" name="mant_result_msb" dtype_id="1"/>
+                  <begin>
+                    <begin loc="e,358,13,358,18">
+                      <assign loc="e,359,28,359,29" dtype_id="1">
+                        <sel loc="e,359,41,359,42" dtype_id="1">
+                          <varref loc="e,359,30,359,41" name="mant_result" dtype_id="5"/>
+                          <const loc="e,359,42,359,43" name="6&apos;h0" dtype_id="12"/>
+                          <const loc="e,359,41,359,42" name="32&apos;h1" dtype_id="2"/>
+                        </sel>
+                        <varref loc="e,359,17,359,27" name="sticky_bit" dtype_id="1"/>
+                      </assign>
+                      <assign loc="e,360,29,360,30" dtype_id="5">
+                        <shiftr loc="e,360,43,360,45" dtype_id="5">
+                          <varref loc="e,360,31,360,42" name="mant_result" dtype_id="5"/>
+                          <const loc="e,360,46,360,47" name="32&apos;sh1" dtype_id="3"/>
+                        </shiftr>
+                        <varref loc="e,360,17,360,28" name="mant_result" dtype_id="5"/>
+                      </assign>
+                      <assign loc="e,361,28,361,29" dtype_id="10">
+                        <add loc="e,361,41,361,42" dtype_id="10">
+                          <const loc="e,361,43,361,44" name="32&apos;sh1" dtype_id="3"/>
+                          <varref loc="e,361,30,361,40" name="exp_result" dtype_id="10"/>
+                        </add>
+                        <varref loc="e,361,17,361,27" name="exp_result" dtype_id="10"/>
+                      </assign>
+                    </begin>
+                  </begin>
+                </if>
+                <assign loc="e,363,23,363,24" dtype_id="1">
+                  <sel loc="e,363,36,363,37" dtype_id="1">
+                    <varref loc="e,363,25,363,36" name="mant_result" dtype_id="5"/>
+                    <const loc="e,363,47,363,48" name="6&apos;h16" dtype_id="12"/>
+                    <const loc="e,363,36,363,37" name="32&apos;h1" dtype_id="2"/>
+                  </sel>
+                  <varref loc="e,363,13,363,22" name="round_bit" dtype_id="1"/>
+                </assign>
+                <assign loc="e,364,23,364,24" dtype_id="1">
+                  <sel loc="e,364,36,364,37" dtype_id="1">
+                    <varref loc="e,364,25,364,36" name="mant_result" dtype_id="5"/>
+                    <const loc="e,364,37,364,46" name="6&apos;h17" dtype_id="12"/>
+                    <const loc="e,364,36,364,37" name="32&apos;h1" dtype_id="2"/>
+                  </sel>
+                  <varref loc="e,364,13,364,22" name="guard_bit" dtype_id="1"/>
+                </assign>
+                <assign loc="e,365,25,365,26" dtype_id="1">
+                  <const loc="e,365,27,365,31" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,365,13,365,24" name="no_rounding" dtype_id="1"/>
+                </assign>
+                <if loc="e,366,13,366,15">
+                  <varref loc="e,366,17,366,26" name="round_bit" dtype_id="1"/>
+                  <begin>
+                    <begin loc="e,371,13,371,18">
+                      <begin loc="e,373,17,373,22">
+                        <begin loc="e,374,21,374,24">
+                          <assign loc="e,374,28,374,29" dtype_id="10">
+                            <const loc="e,374,30,374,31" name="32&apos;sh0" dtype_id="3"/>
+                            <varref loc="e,374,25,374,27" name="i4" dtype_id="10"/>
+                          </assign>
+                          <while loc="e,374,21,374,24">
+                            <begin>
+                            </begin>
+                            <begin>
+                              <gtes loc="e,374,36,374,38" dtype_id="1">
+                                <const loc="e,374,49,374,50" name="32&apos;h15" dtype_id="3"/>
+                                <varref loc="e,374,33,374,35" name="i4" dtype_id="10"/>
+                              </gtes>
+                            </begin>
+                            <begin>
+                              <begin loc="e,375,21,375,26">
+                                <assign loc="e,376,36,376,37" dtype_id="1">
+                                  <or loc="e,376,49,376,50" dtype_id="1">
+                                    <varref loc="e,376,38,376,48" name="sticky_bit" dtype_id="1"/>
+                                    <sel loc="e,376,62,376,63" dtype_id="1">
+                                      <varref loc="e,376,51,376,62" name="mant_result" dtype_id="5"/>
+                                      <sel loc="e,376,63,376,65" dtype_id="12">
+                                        <varref loc="e,376,63,376,65" name="i4" dtype_id="10"/>
+                                        <const loc="e,376,63,376,65" name="32&apos;h0" dtype_id="2"/>
+                                        <const loc="e,376,63,376,65" name="32&apos;h6" dtype_id="2"/>
+                                      </sel>
+                                      <const loc="e,376,62,376,63" name="32&apos;h1" dtype_id="2"/>
+                                    </sel>
+                                  </or>
+                                  <varref loc="e,376,25,376,35" name="sticky_bit" dtype_id="1"/>
+                                </assign>
+                              </begin>
+                            </begin>
+                            <begin>
+                              <assign loc="e,374,57,374,58" dtype_id="10">
+                                <add loc="e,374,62,374,63" dtype_id="10">
+                                  <const loc="e,374,64,374,65" name="32&apos;sh1" dtype_id="3"/>
+                                  <varref loc="e,374,59,374,61" name="i4" dtype_id="10"/>
+                                </add>
+                                <varref loc="e,374,54,374,56" name="i4" dtype_id="10"/>
+                              </assign>
+                            </begin>
+                          </while>
+                        </begin>
+                      </begin>
+                      <if loc="e,384,17,384,19">
+                        <and loc="e,384,42,384,44" dtype_id="1">
+                          <not loc="e,384,33,384,35" dtype_id="1">
+                            <varref loc="e,384,22,384,32" name="sticky_bit" dtype_id="1"/>
+                          </not>
+                          <not loc="e,384,56,384,58" dtype_id="1">
+                            <varref loc="e,384,46,384,55" name="guard_bit" dtype_id="1"/>
+                          </not>
+                        </and>
+                        <begin>
+                          <begin loc="e,385,17,385,22">
+                            <assign loc="e,386,33,386,34" dtype_id="1">
+                              <const loc="e,386,35,386,39" name="1&apos;h1" dtype_id="1"/>
+                              <varref loc="e,386,21,386,32" name="no_rounding" dtype_id="1"/>
+                            </assign>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </begin>
+                  <begin>
+                    <begin loc="e,367,13,367,18">
+                      <assign loc="e,368,29,368,30" dtype_id="1">
+                        <const loc="e,368,31,368,35" name="1&apos;h1" dtype_id="1"/>
+                        <varref loc="e,368,17,368,28" name="no_rounding" dtype_id="1"/>
+                      </assign>
+                    </begin>
+                  </begin>
+                </if>
+                <if loc="e,389,13,389,15">
+                  <not loc="e,389,29,389,31" dtype_id="1">
+                    <varref loc="e,389,17,389,28" name="no_rounding" dtype_id="1"/>
+                  </not>
+                  <begin>
+                    <begin loc="e,390,13,390,18">
+                      <assign loc="e,391,23,391,24" dtype_id="1">
+                        <const loc="e,391,25,391,29" name="1&apos;h1" dtype_id="1"/>
+                        <varref loc="e,391,17,391,22" name="carry" dtype_id="1"/>
+                      </assign>
+                      <begin loc="e,392,17,392,20">
+                        <assign loc="e,392,24,392,25" dtype_id="10">
+                          <const loc="e,392,26,392,35" name="32&apos;sh17" dtype_id="3"/>
+                          <varref loc="e,392,21,392,23" name="i4" dtype_id="10"/>
+                        </assign>
+                        <while loc="e,392,17,392,20">
+                          <begin>
+                          </begin>
+                          <begin>
+                            <gtes loc="e,392,40,392,42" dtype_id="1">
+                              <const loc="e,392,57,392,58" name="32&apos;h2f" dtype_id="3"/>
+                              <varref loc="e,392,37,392,39" name="i4" dtype_id="10"/>
+                            </gtes>
+                          </begin>
+                          <begin>
+                            <begin loc="e,393,17,393,22">
+                              <if loc="e,394,21,394,23">
+                                <varref loc="e,394,25,394,30" name="carry" dtype_id="1"/>
+                                <begin>
+                                  <begin loc="e,395,21,395,26">
+                                    <if loc="e,396,25,396,27">
+                                      <sel loc="e,396,40,396,41" dtype_id="1">
+                                        <varref loc="e,396,29,396,40" name="mant_result" dtype_id="5"/>
+                                        <sel loc="e,396,41,396,43" dtype_id="12">
+                                          <varref loc="e,396,41,396,43" name="i4" dtype_id="10"/>
+                                          <const loc="e,396,41,396,43" name="32&apos;h0" dtype_id="2"/>
+                                          <const loc="e,396,41,396,43" name="32&apos;h6" dtype_id="2"/>
+                                        </sel>
+                                        <const loc="e,396,40,396,41" name="32&apos;h1" dtype_id="2"/>
+                                      </sel>
+                                      <begin>
+                                        <begin loc="e,402,25,402,30">
+                                          <assign loc="e,403,45,403,46" dtype_id="1">
+                                            <const loc="e,403,47,403,51" name="1&apos;h0" dtype_id="1"/>
+                                            <sel loc="e,403,40,403,41" dtype_id="1">
+                                              <varref loc="e,403,29,403,40" name="mant_result" dtype_id="5"/>
+                                              <sel loc="e,403,41,403,43" dtype_id="12">
+                                                <varref loc="e,403,41,403,43" name="i4" dtype_id="10"/>
+                                                <const loc="e,403,41,403,43" name="32&apos;h0" dtype_id="2"/>
+                                                <const loc="e,403,41,403,43" name="32&apos;h6" dtype_id="2"/>
+                                              </sel>
+                                              <const loc="e,403,40,403,41" name="32&apos;h1" dtype_id="2"/>
+                                            </sel>
+                                          </assign>
+                                        </begin>
+                                      </begin>
+                                      <begin>
+                                        <begin loc="e,397,25,397,30">
+                                          <assign loc="e,398,45,398,46" dtype_id="1">
+                                            <const loc="e,398,47,398,51" name="1&apos;h1" dtype_id="1"/>
+                                            <sel loc="e,398,40,398,41" dtype_id="1">
+                                              <varref loc="e,398,29,398,40" name="mant_result" dtype_id="5"/>
+                                              <sel loc="e,398,41,398,43" dtype_id="12">
+                                                <varref loc="e,398,41,398,43" name="i4" dtype_id="10"/>
+                                                <const loc="e,398,41,398,43" name="32&apos;h0" dtype_id="2"/>
+                                                <const loc="e,398,41,398,43" name="32&apos;h6" dtype_id="2"/>
+                                              </sel>
+                                              <const loc="e,398,40,398,41" name="32&apos;h1" dtype_id="2"/>
+                                            </sel>
+                                          </assign>
+                                          <assign loc="e,399,35,399,36" dtype_id="1">
+                                            <const loc="e,399,37,399,41" name="1&apos;h0" dtype_id="1"/>
+                                            <varref loc="e,399,29,399,34" name="carry" dtype_id="1"/>
+                                          </assign>
+                                        </begin>
+                                      </begin>
+                                    </if>
+                                  </begin>
+                                </begin>
+                              </if>
+                            </begin>
+                          </begin>
+                          <begin>
+                            <assign loc="e,392,65,392,66" dtype_id="10">
+                              <add loc="e,392,70,392,71" dtype_id="10">
+                                <const loc="e,392,72,392,73" name="32&apos;sh1" dtype_id="3"/>
+                                <varref loc="e,392,67,392,69" name="i4" dtype_id="10"/>
+                              </add>
+                              <varref loc="e,392,62,392,64" name="i4" dtype_id="10"/>
+                            </assign>
+                          </begin>
+                        </while>
+                      </begin>
+                      <if loc="e,407,17,407,19">
+                        <sel loc="e,407,32,407,33" dtype_id="1">
+                          <varref loc="e,407,21,407,32" name="mant_result" dtype_id="5"/>
+                          <const loc="e,407,49,407,50" name="6&apos;h2f" dtype_id="12"/>
+                          <const loc="e,407,32,407,33" name="32&apos;h1" dtype_id="2"/>
+                        </sel>
+                        <begin>
+                          <begin loc="e,408,17,408,22">
+                            <assign loc="e,409,33,409,34" dtype_id="5">
+                              <shiftr loc="e,409,47,409,49" dtype_id="5">
+                                <varref loc="e,409,35,409,46" name="mant_result" dtype_id="5"/>
+                                <const loc="e,409,50,409,51" name="32&apos;sh1" dtype_id="3"/>
+                              </shiftr>
+                              <varref loc="e,409,21,409,32" name="mant_result" dtype_id="5"/>
+                            </assign>
+                            <assign loc="e,410,32,410,33" dtype_id="10">
+                              <add loc="e,410,45,410,46" dtype_id="10">
+                                <const loc="e,410,47,410,48" name="32&apos;sh1" dtype_id="3"/>
+                                <varref loc="e,410,34,410,44" name="exp_result" dtype_id="10"/>
+                              </add>
+                              <varref loc="e,410,21,410,31" name="exp_result" dtype_id="10"/>
+                            </assign>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </begin>
+                </if>
+                <if loc="e,413,13,413,15">
+                  <logand loc="e,413,67,413,69" dtype_id="1">
+                    <not loc="e,413,18,413,19" dtype_id="1">
+                      <funcref loc="e,413,19,413,28" name="bit_all_0" dtype_id="1">
+                        <arg loc="e,413,29,413,40">
+                          <varref loc="e,413,29,413,40" name="mant_result" dtype_id="5"/>
+                        </arg>
+                        <arg loc="e,413,42,413,43">
+                          <const loc="e,413,42,413,43" name="32&apos;sh0" dtype_id="3"/>
+                        </arg>
+                        <arg loc="e,413,61,413,62">
+                          <const loc="e,413,61,413,62" name="32&apos;h2f" dtype_id="10"/>
+                        </arg>
+                      </funcref>
+                    </not>
+                    <not loc="e,414,45,414,47" dtype_id="1">
+                      <sel loc="e,414,29,414,30" dtype_id="1">
+                        <varref loc="e,414,18,414,29" name="mant_result" dtype_id="5"/>
+                        <const loc="e,414,32,414,33" name="6&apos;h2e" dtype_id="12"/>
+                        <const loc="e,414,29,414,30" name="32&apos;h1" dtype_id="2"/>
+                      </sel>
+                    </not>
+                  </logand>
+                  <begin>
+                    <begin loc="e,415,13,415,18">
+                      <while loc="e,416,17,416,22">
+                        <begin>
+                        </begin>
+                        <begin>
+                          <and loc="e,416,61,416,63" dtype_id="1">
+                            <not loc="e,416,52,416,54" dtype_id="1">
+                              <sel loc="e,416,36,416,37" dtype_id="1">
+                                <varref loc="e,416,25,416,36" name="mant_result" dtype_id="5"/>
+                                <const loc="e,416,39,416,40" name="6&apos;h2e" dtype_id="12"/>
+                                <const loc="e,416,36,416,37" name="32&apos;h1" dtype_id="2"/>
+                              </sel>
+                            </not>
+                            <neq loc="e,417,37,417,39" dtype_id="1">
+                              <const loc="e,417,40,417,41" name="32&apos;sh0" dtype_id="3"/>
+                              <varref loc="e,417,26,417,36" name="exp_result" dtype_id="10"/>
+                            </neq>
+                          </and>
+                        </begin>
+                        <begin>
+                          <begin loc="e,418,17,418,22">
+                            <assign loc="e,419,33,419,34" dtype_id="5">
+                              <shiftl loc="e,419,47,419,49" dtype_id="5">
+                                <varref loc="e,419,35,419,46" name="mant_result" dtype_id="5"/>
+                                <const loc="e,419,50,419,51" name="32&apos;sh1" dtype_id="3"/>
+                              </shiftl>
+                              <varref loc="e,419,21,419,32" name="mant_result" dtype_id="5"/>
+                            </assign>
+                            <assign loc="e,420,32,420,33" dtype_id="10">
+                              <sub loc="e,420,45,420,46" dtype_id="10">
+                                <varref loc="e,420,34,420,44" name="exp_result" dtype_id="10"/>
+                                <const loc="e,420,47,420,48" name="32&apos;sh1" dtype_id="3"/>
+                              </sub>
+                              <varref loc="e,420,21,420,31" name="exp_result" dtype_id="10"/>
+                            </assign>
+                          </begin>
+                        </begin>
+                      </while>
+                    </begin>
+                  </begin>
+                  <begin>
+                    <if loc="e,423,18,423,20">
+                      <and loc="e,423,39,423,41" dtype_id="1">
+                        <gts loc="e,423,34,423,35" dtype_id="1">
+                          <const loc="e,423,36,423,37" name="32&apos;sh0" dtype_id="3"/>
+                          <varref loc="e,423,23,423,33" name="exp_result" dtype_id="10"/>
+                        </gts>
+                        <ltes loc="e,423,54,423,56" dtype_id="1">
+                          <const loc="e,423,57,423,58" name="32&apos;hffffffd2" dtype_id="3"/>
+                          <varref loc="e,423,43,423,53" name="exp_result" dtype_id="10"/>
+                        </ltes>
+                      </and>
+                      <begin>
+                        <begin loc="e,424,13,424,18">
+                          <while loc="e,425,17,425,22">
+                            <begin>
+                            </begin>
+                            <begin>
+                              <neq loc="e,425,34,425,36" dtype_id="1">
+                                <const loc="e,425,37,425,38" name="32&apos;sh0" dtype_id="3"/>
+                                <varref loc="e,425,23,425,33" name="exp_result" dtype_id="10"/>
+                              </neq>
+                            </begin>
+                            <begin>
+                              <begin loc="e,426,17,426,22">
+                                <assign loc="e,427,33,427,34" dtype_id="5">
+                                  <shiftr loc="e,427,47,427,49" dtype_id="5">
+                                    <varref loc="e,427,35,427,46" name="mant_result" dtype_id="5"/>
+                                    <const loc="e,427,50,427,51" name="32&apos;sh1" dtype_id="3"/>
+                                  </shiftr>
+                                  <varref loc="e,427,21,427,32" name="mant_result" dtype_id="5"/>
+                                </assign>
+                                <assign loc="e,428,32,428,33" dtype_id="10">
+                                  <add loc="e,428,45,428,46" dtype_id="10">
+                                    <const loc="e,428,47,428,48" name="32&apos;sh1" dtype_id="3"/>
+                                    <varref loc="e,428,34,428,44" name="exp_result" dtype_id="10"/>
+                                  </add>
+                                  <varref loc="e,428,21,428,31" name="exp_result" dtype_id="10"/>
+                                </assign>
+                              </begin>
+                            </begin>
+                          </while>
+                        </begin>
+                      </begin>
+                    </if>
+                  </begin>
+                </if>
+                <if loc="e,431,13,431,15">
+                  <or loc="e,431,27,431,29" dtype_id="1">
+                    <varref loc="e,431,17,431,26" name="den_dataa" dtype_id="1"/>
+                    <varref loc="e,431,30,431,39" name="den_datab" dtype_id="1"/>
+                  </or>
+                  <begin>
+                    <begin loc="e,432,13,432,18">
+                      <assign loc="e,433,32,433,33" dtype_id="1">
+                        <const loc="e,433,34,433,38" name="1&apos;h1" dtype_id="1"/>
+                        <varref loc="e,433,17,433,31" name="indefinite_bit" dtype_id="1"/>
+                      </assign>
+                    </begin>
+                  </begin>
+                  <begin>
+                    <if loc="e,435,18,435,20">
+                      <gtes loc="e,435,33,435,35" dtype_id="1">
+                        <varref loc="e,435,22,435,32" name="exp_result" dtype_id="10"/>
+                        <sub loc="e,435,69,435,70" dtype_id="3">
+                          <funcref loc="e,435,37,435,54" name="exponential_value" dtype_id="10">
+                            <arg loc="e,435,55,435,56">
+                              <const loc="e,435,55,435,56" name="32&apos;sh2" dtype_id="3"/>
+                            </arg>
+                            <arg loc="e,435,58,435,67">
+                              <const loc="e,435,58,435,67" name="32&apos;sh8" dtype_id="3"/>
+                            </arg>
+                          </funcref>
+                          <const loc="e,435,70,435,71" name="32&apos;sh1" dtype_id="3"/>
+                        </sub>
+                      </gtes>
+                      <begin>
+                        <begin loc="e,436,13,436,18">
+                          <assign loc="e,437,30,437,31" dtype_id="1">
+                            <const loc="e,437,32,437,36" name="1&apos;h1" dtype_id="1"/>
+                            <varref loc="e,437,17,437,29" name="overflow_bit" dtype_id="1"/>
+                          </assign>
+                        </begin>
+                      </begin>
+                      <begin>
+                        <if loc="e,439,18,439,20">
+                          <gts loc="e,439,33,439,34" dtype_id="1">
+                            <const loc="e,439,35,439,36" name="32&apos;sh0" dtype_id="3"/>
+                            <varref loc="e,439,22,439,32" name="exp_result" dtype_id="10"/>
+                          </gts>
+                          <begin>
+                            <begin loc="e,440,13,440,18">
+                              <assign loc="e,441,31,441,32" dtype_id="1">
+                                <const loc="e,441,33,441,37" name="1&apos;h1" dtype_id="1"/>
+                                <varref loc="e,441,17,441,30" name="underflow_bit" dtype_id="1"/>
+                              </assign>
+                              <assign loc="e,442,26,442,27" dtype_id="1">
+                                <const loc="e,442,28,442,32" name="1&apos;h1" dtype_id="1"/>
+                                <varref loc="e,442,17,442,25" name="zero_bit" dtype_id="1"/>
+                              </assign>
+                            </begin>
+                          </begin>
+                          <begin>
+                            <if loc="e,444,18,444,20">
+                              <eq loc="e,444,33,444,35" dtype_id="1">
+                                <const loc="e,444,36,444,37" name="32&apos;sh0" dtype_id="3"/>
+                                <varref loc="e,444,22,444,32" name="exp_result" dtype_id="10"/>
+                              </eq>
+                              <begin>
+                                <begin loc="e,445,13,445,18">
+                                  <assign loc="e,446,31,446,32" dtype_id="1">
+                                    <const loc="e,446,33,446,37" name="1&apos;h1" dtype_id="1"/>
+                                    <varref loc="e,446,17,446,30" name="underflow_bit" dtype_id="1"/>
+                                  </assign>
+                                  <if loc="e,447,17,447,19">
+                                    <funcref loc="e,447,21,447,30" name="bit_all_0" dtype_id="1">
+                                      <arg loc="e,447,31,447,42">
+                                        <varref loc="e,447,31,447,42" name="mant_result" dtype_id="5"/>
+                                      </arg>
+                                      <arg loc="e,447,54,447,55">
+                                        <const loc="e,447,54,447,55" name="32&apos;h18" dtype_id="10"/>
+                                      </arg>
+                                      <arg loc="e,447,61,447,62">
+                                        <const loc="e,447,61,447,62" name="32&apos;h2e" dtype_id="10"/>
+                                      </arg>
+                                    </funcref>
+                                    <begin>
+                                      <begin loc="e,448,17,448,22">
+                                        <assign loc="e,449,30,449,31" dtype_id="1">
+                                          <const loc="e,449,32,449,36" name="1&apos;h1" dtype_id="1"/>
+                                          <varref loc="e,449,21,449,29" name="zero_bit" dtype_id="1"/>
+                                        </assign>
+                                      </begin>
+                                    </begin>
+                                    <begin>
+                                      <begin loc="e,452,17,452,22">
+                                        <assign loc="e,453,34,453,35" dtype_id="1">
+                                          <const loc="e,453,36,453,40" name="1&apos;h1" dtype_id="1"/>
+                                          <varref loc="e,453,21,453,33" name="denormal_bit" dtype_id="1"/>
+                                        </assign>
+                                      </begin>
+                                    </begin>
+                                  </if>
+                                </begin>
+                              </begin>
+                            </if>
+                          </begin>
+                        </if>
+                      </begin>
+                    </if>
+                  </begin>
+                </if>
+                <if loc="e,456,13,456,15">
+                  <gts loc="e,456,28,456,29" dtype_id="1">
+                    <const loc="e,456,30,456,31" name="32&apos;sh0" dtype_id="3"/>
+                    <varref loc="e,456,17,456,27" name="exp_result" dtype_id="10"/>
+                  </gts>
+                  <begin>
+                    <begin loc="e,457,13,457,18">
+                      <begin loc="e,458,17,458,20">
+                        <assign loc="e,458,24,458,25" dtype_id="10">
+                          <const loc="e,458,26,458,27" name="32&apos;sh0" dtype_id="3"/>
+                          <varref loc="e,458,21,458,23" name="i4" dtype_id="10"/>
+                        </assign>
+                        <while loc="e,458,17,458,20">
+                          <begin>
+                          </begin>
+                          <begin>
+                            <gtes loc="e,458,32,458,34" dtype_id="1">
+                              <const loc="e,458,45,458,46" name="32&apos;h16" dtype_id="3"/>
+                              <varref loc="e,458,29,458,31" name="i4" dtype_id="10"/>
+                            </gtes>
+                          </begin>
+                          <begin>
+                            <begin loc="e,459,17,459,22">
+                              <assign loc="e,460,37,460,38" dtype_id="1">
+                                <const loc="e,460,39,460,43" name="1&apos;h0" dtype_id="1"/>
+                                <sel loc="e,460,32,460,33" dtype_id="1">
+                                  <varref loc="e,460,21,460,32" name="temp_result" dtype_id="2"/>
+                                  <sel loc="e,460,33,460,35" dtype_id="11">
+                                    <varref loc="e,460,33,460,35" name="i4" dtype_id="10"/>
+                                    <const loc="e,460,33,460,35" name="32&apos;h0" dtype_id="2"/>
+                                    <const loc="e,460,33,460,35" name="32&apos;h5" dtype_id="2"/>
+                                  </sel>
+                                  <const loc="e,460,32,460,33" name="32&apos;h1" dtype_id="2"/>
+                                </sel>
+                              </assign>
+                            </begin>
+                          </begin>
+                          <begin>
+                            <assign loc="e,458,53,458,54" dtype_id="10">
+                              <add loc="e,458,58,458,59" dtype_id="10">
+                                <const loc="e,458,60,458,61" name="32&apos;sh1" dtype_id="3"/>
+                                <varref loc="e,458,55,458,57" name="i4" dtype_id="10"/>
+                              </add>
+                              <varref loc="e,458,50,458,52" name="i4" dtype_id="10"/>
+                            </assign>
+                          </begin>
+                        </while>
+                      </begin>
+                    </begin>
+                  </begin>
+                  <begin>
+                    <if loc="e,463,18,463,20">
+                      <eq loc="e,463,33,463,35" dtype_id="1">
+                        <const loc="e,463,36,463,37" name="32&apos;sh0" dtype_id="3"/>
+                        <varref loc="e,463,22,463,32" name="exp_result" dtype_id="10"/>
+                      </eq>
+                      <begin>
+                        <begin loc="e,464,13,464,18">
+                          <begin loc="e,466,17,466,22">
+                            <assign loc="e,467,52,467,53" dtype_id="16">
+                              <sel loc="e,467,65,467,66" dtype_id="16">
+                                <varref loc="e,467,54,467,65" name="mant_result" dtype_id="5"/>
+                                <const loc="e,467,92,467,93" name="6&apos;h18" dtype_id="12"/>
+                                <const loc="e,467,68,467,69" name="32&apos;h17" dtype_id="2"/>
+                              </sel>
+                              <sel loc="e,467,32,467,33" dtype_id="16">
+                                <varref loc="e,467,21,467,32" name="temp_result" dtype_id="2"/>
+                                <const loc="e,467,49,467,50" name="5&apos;h0" dtype_id="11"/>
+                                <const loc="e,467,43,467,44" name="32&apos;h17" dtype_id="2"/>
+                              </sel>
+                            </assign>
+                          </begin>
+                        </begin>
+                      </begin>
+                      <begin>
+                        <if loc="e,474,18,474,20">
+                          <gtes loc="e,474,33,474,35" dtype_id="1">
+                            <varref loc="e,474,22,474,32" name="exp_result" dtype_id="10"/>
+                            <sub loc="e,474,68,474,69" dtype_id="3">
+                              <funcref loc="e,474,36,474,53" name="exponential_value" dtype_id="10">
+                                <arg loc="e,474,54,474,55">
+                                  <const loc="e,474,54,474,55" name="32&apos;sh2" dtype_id="3"/>
+                                </arg>
+                                <arg loc="e,474,57,474,66">
+                                  <const loc="e,474,57,474,66" name="32&apos;sh8" dtype_id="3"/>
+                                </arg>
+                              </funcref>
+                              <const loc="e,474,69,474,70" name="32&apos;sh1" dtype_id="3"/>
+                            </sub>
+                          </gtes>
+                          <begin>
+                            <begin loc="e,475,13,475,18">
+                              <assign loc="e,476,48,476,49" dtype_id="16">
+                                <const loc="e,476,60,476,61" name="23&apos;h0" dtype_id="16"/>
+                                <sel loc="e,476,28,476,29" dtype_id="16">
+                                  <varref loc="e,476,17,476,28" name="temp_result" dtype_id="2"/>
+                                  <const loc="e,476,45,476,46" name="5&apos;h0" dtype_id="11"/>
+                                  <const loc="e,476,39,476,40" name="32&apos;h17" dtype_id="2"/>
+                                </sel>
+                              </assign>
+                            </begin>
+                          </begin>
+                          <begin>
+                            <begin loc="e,479,13,479,18">
+                              <assign loc="e,480,48,480,49" dtype_id="16">
+                                <sel loc="e,480,61,480,62" dtype_id="16">
+                                  <varref loc="e,480,50,480,61" name="mant_result" dtype_id="5"/>
+                                  <const loc="e,480,84,480,93" name="6&apos;h17" dtype_id="12"/>
+                                  <const loc="e,480,77,480,78" name="32&apos;h17" dtype_id="2"/>
+                                </sel>
+                                <sel loc="e,480,28,480,29" dtype_id="16">
+                                  <varref loc="e,480,17,480,28" name="temp_result" dtype_id="2"/>
+                                  <const loc="e,480,45,480,46" name="5&apos;h0" dtype_id="11"/>
+                                  <const loc="e,480,39,480,40" name="32&apos;h17" dtype_id="2"/>
+                                </sel>
+                              </assign>
+                            </begin>
+                          </begin>
+                        </if>
+                      </begin>
+                    </if>
+                  </begin>
+                </if>
+                <if loc="e,482,13,482,15">
+                  <eq loc="e,482,28,482,30" dtype_id="1">
+                    <const loc="e,482,31,482,32" name="32&apos;sh0" dtype_id="3"/>
+                    <varref loc="e,482,17,482,27" name="exp_result" dtype_id="10"/>
+                  </eq>
+                  <begin>
+                    <begin loc="e,483,13,483,18">
+                      <begin loc="e,484,17,484,20">
+                        <assign loc="e,484,24,484,25" dtype_id="10">
+                          <const loc="e,484,26,484,35" name="32&apos;sh17" dtype_id="3"/>
+                          <varref loc="e,484,21,484,23" name="i4" dtype_id="10"/>
+                        </assign>
+                        <while loc="e,484,17,484,20">
+                          <begin>
+                          </begin>
+                          <begin>
+                            <gtes loc="e,484,40,484,42" dtype_id="1">
+                              <const loc="e,484,57,484,58" name="32&apos;h1e" dtype_id="3"/>
+                              <varref loc="e,484,37,484,39" name="i4" dtype_id="10"/>
+                            </gtes>
+                          </begin>
+                          <begin>
+                            <begin loc="e,485,17,485,22">
+                              <assign loc="e,486,37,486,38" dtype_id="1">
+                                <const loc="e,486,39,486,43" name="1&apos;h0" dtype_id="1"/>
+                                <sel loc="e,486,32,486,33" dtype_id="1">
+                                  <varref loc="e,486,21,486,32" name="temp_result" dtype_id="2"/>
+                                  <sel loc="e,486,33,486,35" dtype_id="11">
+                                    <varref loc="e,486,33,486,35" name="i4" dtype_id="10"/>
+                                    <const loc="e,486,33,486,35" name="32&apos;h0" dtype_id="2"/>
+                                    <const loc="e,486,33,486,35" name="32&apos;h5" dtype_id="2"/>
+                                  </sel>
+                                  <const loc="e,486,32,486,33" name="32&apos;h1" dtype_id="2"/>
+                                </sel>
+                              </assign>
+                            </begin>
+                          </begin>
+                          <begin>
+                            <assign loc="e,484,65,484,66" dtype_id="10">
+                              <add loc="e,484,70,484,71" dtype_id="10">
+                                <const loc="e,484,72,484,73" name="32&apos;sh1" dtype_id="3"/>
+                                <varref loc="e,484,67,484,69" name="i4" dtype_id="10"/>
+                              </add>
+                              <varref loc="e,484,62,484,64" name="i4" dtype_id="10"/>
+                            </assign>
+                          </begin>
+                        </while>
+                      </begin>
+                    </begin>
+                  </begin>
+                  <begin>
+                    <if loc="e,489,18,489,20">
+                      <gtes loc="e,489,33,489,35" dtype_id="1">
+                        <varref loc="e,489,22,489,32" name="exp_result" dtype_id="10"/>
+                        <sub loc="e,489,69,489,70" dtype_id="3">
+                          <funcref loc="e,489,37,489,54" name="exponential_value" dtype_id="10">
+                            <arg loc="e,489,55,489,56">
+                              <const loc="e,489,55,489,56" name="32&apos;sh2" dtype_id="3"/>
+                            </arg>
+                            <arg loc="e,489,58,489,67">
+                              <const loc="e,489,58,489,67" name="32&apos;sh8" dtype_id="3"/>
+                            </arg>
+                          </funcref>
+                          <const loc="e,489,70,489,71" name="32&apos;sh1" dtype_id="3"/>
+                        </sub>
+                      </gtes>
+                      <begin>
+                        <begin loc="e,490,13,490,18">
+                          <begin loc="e,491,17,491,20">
+                            <assign loc="e,491,24,491,25" dtype_id="10">
+                              <const loc="e,491,26,491,35" name="32&apos;sh17" dtype_id="3"/>
+                              <varref loc="e,491,21,491,23" name="i4" dtype_id="10"/>
+                            </assign>
+                            <while loc="e,491,17,491,20">
+                              <begin>
+                              </begin>
+                              <begin>
+                                <gtes loc="e,491,40,491,42" dtype_id="1">
+                                  <const loc="e,491,57,491,58" name="32&apos;h1e" dtype_id="3"/>
+                                  <varref loc="e,491,37,491,39" name="i4" dtype_id="10"/>
+                                </gtes>
+                              </begin>
+                              <begin>
+                                <begin loc="e,492,17,492,22">
+                                  <assign loc="e,493,37,493,38" dtype_id="1">
+                                    <const loc="e,493,39,493,43" name="1&apos;h1" dtype_id="1"/>
+                                    <sel loc="e,493,32,493,33" dtype_id="1">
+                                      <varref loc="e,493,21,493,32" name="temp_result" dtype_id="2"/>
+                                      <sel loc="e,493,33,493,35" dtype_id="11">
+                                        <varref loc="e,493,33,493,35" name="i4" dtype_id="10"/>
+                                        <const loc="e,493,33,493,35" name="32&apos;h0" dtype_id="2"/>
+                                        <const loc="e,493,33,493,35" name="32&apos;h5" dtype_id="2"/>
+                                      </sel>
+                                      <const loc="e,493,32,493,33" name="32&apos;h1" dtype_id="2"/>
+                                    </sel>
+                                  </assign>
+                                </begin>
+                              </begin>
+                              <begin>
+                                <assign loc="e,491,65,491,66" dtype_id="10">
+                                  <add loc="e,491,70,491,71" dtype_id="10">
+                                    <const loc="e,491,72,491,73" name="32&apos;sh1" dtype_id="3"/>
+                                    <varref loc="e,491,67,491,69" name="i4" dtype_id="10"/>
+                                  </add>
+                                  <varref loc="e,491,62,491,64" name="i4" dtype_id="10"/>
+                                </assign>
+                              </begin>
+                            </while>
+                          </begin>
+                        </begin>
+                      </begin>
+                      <begin>
+                        <begin loc="e,497,13,497,18">
+                          <begin loc="e,498,17,498,20">
+                            <assign loc="e,498,24,498,25" dtype_id="10">
+                              <const loc="e,498,26,498,35" name="32&apos;sh17" dtype_id="3"/>
+                              <varref loc="e,498,21,498,23" name="i4" dtype_id="10"/>
+                            </assign>
+                            <while loc="e,498,17,498,20">
+                              <begin>
+                              </begin>
+                              <begin>
+                                <gtes loc="e,498,40,498,42" dtype_id="1">
+                                  <const loc="e,498,57,498,58" name="32&apos;h1e" dtype_id="3"/>
+                                  <varref loc="e,498,37,498,39" name="i4" dtype_id="10"/>
+                                </gtes>
+                              </begin>
+                              <begin>
+                                <begin loc="e,499,17,499,22">
+                                  <if loc="e,500,21,500,23">
+                                    <eq loc="e,500,42,500,44" dtype_id="1">
+                                      <const loc="e,500,45,500,46" name="32&apos;sh1" dtype_id="3"/>
+                                      <moddivs loc="e,500,37,500,38" dtype_id="3">
+                                        <varref loc="e,500,26,500,36" name="exp_result" dtype_id="10"/>
+                                        <const loc="e,500,39,500,40" name="32&apos;sh2" dtype_id="3"/>
+                                      </moddivs>
+                                    </eq>
+                                    <begin>
+                                      <begin loc="e,501,21,501,26">
+                                        <assign loc="e,502,41,502,42" dtype_id="1">
+                                          <const loc="e,502,43,502,47" name="1&apos;h1" dtype_id="1"/>
+                                          <sel loc="e,502,36,502,37" dtype_id="1">
+                                            <varref loc="e,502,25,502,36" name="temp_result" dtype_id="2"/>
+                                            <sel loc="e,502,37,502,39" dtype_id="11">
+                                              <varref loc="e,502,37,502,39" name="i4" dtype_id="10"/>
+                                              <const loc="e,502,37,502,39" name="32&apos;h0" dtype_id="2"/>
+                                              <const loc="e,502,37,502,39" name="32&apos;h5" dtype_id="2"/>
+                                            </sel>
+                                            <const loc="e,502,36,502,37" name="32&apos;h1" dtype_id="2"/>
+                                          </sel>
+                                        </assign>
+                                      </begin>
+                                    </begin>
+                                    <begin>
+                                      <begin loc="e,505,21,505,26">
+                                        <assign loc="e,506,41,506,42" dtype_id="1">
+                                          <const loc="e,506,43,506,47" name="1&apos;h0" dtype_id="1"/>
+                                          <sel loc="e,506,36,506,37" dtype_id="1">
+                                            <varref loc="e,506,25,506,36" name="temp_result" dtype_id="2"/>
+                                            <sel loc="e,506,37,506,39" dtype_id="11">
+                                              <varref loc="e,506,37,506,39" name="i4" dtype_id="10"/>
+                                              <const loc="e,506,37,506,39" name="32&apos;h0" dtype_id="2"/>
+                                              <const loc="e,506,37,506,39" name="32&apos;h5" dtype_id="2"/>
+                                            </sel>
+                                            <const loc="e,506,36,506,37" name="32&apos;h1" dtype_id="2"/>
+                                          </sel>
+                                        </assign>
+                                      </begin>
+                                    </begin>
+                                  </if>
+                                  <assign loc="e,508,32,508,33" dtype_id="10">
+                                    <divs loc="e,508,45,508,46" dtype_id="10">
+                                      <varref loc="e,508,34,508,44" name="exp_result" dtype_id="10"/>
+                                      <const loc="e,508,47,508,48" name="32&apos;sh2" dtype_id="3"/>
+                                    </divs>
+                                    <varref loc="e,508,21,508,31" name="exp_result" dtype_id="10"/>
+                                  </assign>
+                                </begin>
+                              </begin>
+                              <begin>
+                                <assign loc="e,498,65,498,66" dtype_id="10">
+                                  <add loc="e,498,70,498,71" dtype_id="10">
+                                    <const loc="e,498,72,498,73" name="32&apos;sh1" dtype_id="3"/>
+                                    <varref loc="e,498,67,498,69" name="i4" dtype_id="10"/>
+                                  </add>
+                                  <varref loc="e,498,62,498,64" name="i4" dtype_id="10"/>
+                                </assign>
+                              </begin>
+                            </while>
+                          </begin>
+                        </begin>
+                      </begin>
+                    </if>
+                  </begin>
+                </if>
+              </begin>
+            </begin>
+          </if>
+          <assign loc="e,512,36,512,37" dtype_id="1">
+            <xor loc="e,512,59,512,60" dtype_id="1">
+              <sel loc="e,512,43,512,44" dtype_id="1">
+                <varref loc="e,512,38,512,43" name="dataa" dtype_id="2"/>
+                <const loc="e,512,44,512,57" name="5&apos;h1f" dtype_id="11"/>
+                <const loc="e,512,43,512,44" name="32&apos;h1" dtype_id="2"/>
+              </sel>
+              <sel loc="e,512,66,512,67" dtype_id="1">
+                <varref loc="e,512,61,512,66" name="datab" dtype_id="2"/>
+                <const loc="e,512,67,512,80" name="5&apos;h1f" dtype_id="11"/>
+                <const loc="e,512,66,512,67" name="32&apos;h1" dtype_id="2"/>
+              </sel>
+            </xor>
+            <sel loc="e,512,20,512,21" dtype_id="1">
+              <varref loc="e,512,9,512,20" name="temp_result" dtype_id="2"/>
+              <const loc="e,512,21,512,34" name="5&apos;h1f" dtype_id="11"/>
+              <const loc="e,512,20,512,21" name="32&apos;h1" dtype_id="2"/>
+            </sel>
+          </assign>
+        </begin>
+      </always>
+      <always loc="e,514,5,514,11">
+        <sentree loc="e,514,12,514,13">
+          <senitem loc="e,514,31,514,38" edgeType="POS">
+            <varref loc="e,514,39,514,43" name="aclr" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,514,14,514,21" edgeType="POS">
+            <varref loc="e,514,22,514,27" name="clock" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,515,13,515,26" name="PIPELINE_REGS">
+          <if loc="e,516,9,516,11">
+            <varref loc="e,516,13,516,17" name="aclr" dtype_id="1"/>
+            <begin>
+              <begin loc="e,517,9,517,14">
+                <begin loc="e,518,13,518,16">
+                  <assign loc="e,518,21,518,22" dtype_id="10">
+                    <const loc="e,518,23,518,30" name="32&apos;h4" dtype_id="3"/>
+                    <varref loc="e,518,18,518,20" name="i5" dtype_id="10"/>
+                  </assign>
+                  <while loc="e,518,13,518,16">
+                    <begin>
+                    </begin>
+                    <begin>
+                      <ltes loc="e,518,35,518,37" dtype_id="1">
+                        <const loc="e,518,38,518,39" name="32&apos;sh0" dtype_id="3"/>
+                        <varref loc="e,518,32,518,34" name="i5" dtype_id="10"/>
+                      </ltes>
+                    </begin>
+                    <begin>
+                      <begin loc="e,519,13,519,18">
+                        <assigndly loc="e,520,33,520,35" dtype_id="2">
+                          <const loc="e,520,50,520,51" name="32&apos;h0" dtype_id="2"/>
+                          <arraysel loc="e,520,28,520,29" dtype_id="2">
+                            <varref loc="e,520,17,520,28" name="result_pipe" dtype_id="8"/>
+                            <sel loc="e,520,29,520,31" dtype_id="14">
+                              <varref loc="e,520,29,520,31" name="i5" dtype_id="10"/>
+                              <const loc="e,520,29,520,31" name="32&apos;h0" dtype_id="2"/>
+                              <const loc="e,520,29,520,31" name="32&apos;h3" dtype_id="2"/>
+                            </sel>
+                          </arraysel>
+                        </assigndly>
+                        <assigndly loc="e,521,35,521,37" dtype_id="1">
+                          <const loc="e,521,38,521,42" name="1&apos;h0" dtype_id="1"/>
+                          <sel loc="e,521,30,521,31" dtype_id="1">
+                            <varref loc="e,521,17,521,30" name="overflow_pipe" dtype_id="9"/>
+                            <sel loc="e,521,31,521,33" dtype_id="14">
+                              <varref loc="e,521,31,521,33" name="i5" dtype_id="10"/>
+                              <const loc="e,521,31,521,33" name="32&apos;h0" dtype_id="2"/>
+                              <const loc="e,521,31,521,33" name="32&apos;h3" dtype_id="2"/>
+                            </sel>
+                            <const loc="e,521,30,521,31" name="32&apos;h1" dtype_id="2"/>
+                          </sel>
+                        </assigndly>
+                        <assigndly loc="e,522,36,522,38" dtype_id="1">
+                          <const loc="e,522,39,522,43" name="1&apos;h0" dtype_id="1"/>
+                          <sel loc="e,522,31,522,32" dtype_id="1">
+                            <varref loc="e,522,17,522,31" name="underflow_pipe" dtype_id="9"/>
+                            <sel loc="e,522,32,522,34" dtype_id="14">
+                              <varref loc="e,522,32,522,34" name="i5" dtype_id="10"/>
+                              <const loc="e,522,32,522,34" name="32&apos;h0" dtype_id="2"/>
+                              <const loc="e,522,32,522,34" name="32&apos;h3" dtype_id="2"/>
+                            </sel>
+                            <const loc="e,522,31,522,32" name="32&apos;h1" dtype_id="2"/>
+                          </sel>
+                        </assigndly>
+                        <assigndly loc="e,523,31,523,33" dtype_id="1">
+                          <const loc="e,523,34,523,38" name="1&apos;h1" dtype_id="1"/>
+                          <sel loc="e,523,26,523,27" dtype_id="1">
+                            <varref loc="e,523,17,523,26" name="zero_pipe" dtype_id="9"/>
+                            <sel loc="e,523,27,523,29" dtype_id="14">
+                              <varref loc="e,523,27,523,29" name="i5" dtype_id="10"/>
+                              <const loc="e,523,27,523,29" name="32&apos;h0" dtype_id="2"/>
+                              <const loc="e,523,27,523,29" name="32&apos;h3" dtype_id="2"/>
+                            </sel>
+                            <const loc="e,523,26,523,27" name="32&apos;h1" dtype_id="2"/>
+                          </sel>
+                        </assigndly>
+                        <assigndly loc="e,524,35,524,37" dtype_id="1">
+                          <const loc="e,524,38,524,42" name="1&apos;h0" dtype_id="1"/>
+                          <sel loc="e,524,30,524,31" dtype_id="1">
+                            <varref loc="e,524,17,524,30" name="denormal_pipe" dtype_id="9"/>
+                            <sel loc="e,524,31,524,33" dtype_id="14">
+                              <varref loc="e,524,31,524,33" name="i5" dtype_id="10"/>
+                              <const loc="e,524,31,524,33" name="32&apos;h0" dtype_id="2"/>
+                              <const loc="e,524,31,524,33" name="32&apos;h3" dtype_id="2"/>
+                            </sel>
+                            <const loc="e,524,30,524,31" name="32&apos;h1" dtype_id="2"/>
+                          </sel>
+                        </assigndly>
+                        <assigndly loc="e,525,37,525,39" dtype_id="1">
+                          <const loc="e,525,40,525,44" name="1&apos;h0" dtype_id="1"/>
+                          <sel loc="e,525,32,525,33" dtype_id="1">
+                            <varref loc="e,525,17,525,32" name="indefinite_pipe" dtype_id="9"/>
+                            <sel loc="e,525,33,525,35" dtype_id="14">
+                              <varref loc="e,525,33,525,35" name="i5" dtype_id="10"/>
+                              <const loc="e,525,33,525,35" name="32&apos;h0" dtype_id="2"/>
+                              <const loc="e,525,33,525,35" name="32&apos;h3" dtype_id="2"/>
+                            </sel>
+                            <const loc="e,525,32,525,33" name="32&apos;h1" dtype_id="2"/>
+                          </sel>
+                        </assigndly>
+                        <assigndly loc="e,526,30,526,32" dtype_id="1">
+                          <const loc="e,526,33,526,37" name="1&apos;h0" dtype_id="1"/>
+                          <sel loc="e,526,25,526,26" dtype_id="1">
+                            <varref loc="e,526,17,526,25" name="nan_pipe" dtype_id="9"/>
+                            <sel loc="e,526,26,526,28" dtype_id="14">
+                              <varref loc="e,526,26,526,28" name="i5" dtype_id="10"/>
+                              <const loc="e,526,26,526,28" name="32&apos;h0" dtype_id="2"/>
+                              <const loc="e,526,26,526,28" name="32&apos;h3" dtype_id="2"/>
+                            </sel>
+                            <const loc="e,526,25,526,26" name="32&apos;h1" dtype_id="2"/>
+                          </sel>
+                        </assigndly>
+                      </begin>
+                    </begin>
+                    <begin>
+                      <assign loc="e,518,44,518,45" dtype_id="10">
+                        <sub loc="e,518,49,518,50" dtype_id="10">
+                          <varref loc="e,518,46,518,48" name="i5" dtype_id="10"/>
+                          <const loc="e,518,51,518,52" name="32&apos;sh1" dtype_id="3"/>
+                        </sub>
+                        <varref loc="e,518,41,518,43" name="i5" dtype_id="10"/>
+                      </assign>
+                    </begin>
+                  </while>
+                </begin>
+              </begin>
+            </begin>
+            <begin>
+              <if loc="e,529,14,529,16">
+                <varref loc="e,529,18,529,24" name="clk_en" dtype_id="1"/>
+                <begin>
+                  <begin loc="e,530,9,530,14">
+                    <assigndly loc="e,531,28,531,30" dtype_id="2">
+                      <varref loc="e,531,31,531,42" name="temp_result" dtype_id="2"/>
+                      <arraysel loc="e,531,24,531,25" dtype_id="2">
+                        <varref loc="e,531,13,531,24" name="result_pipe" dtype_id="8"/>
+                        <const loc="e,531,25,531,26" name="3&apos;h0" dtype_id="14"/>
+                      </arraysel>
+                    </assigndly>
+                    <assigndly loc="e,532,30,532,32" dtype_id="1">
+                      <varref loc="e,532,33,532,45" name="overflow_bit" dtype_id="1"/>
+                      <sel loc="e,532,26,532,27" dtype_id="1">
+                        <varref loc="e,532,13,532,26" name="overflow_pipe" dtype_id="9"/>
+                        <const loc="e,532,27,532,28" name="3&apos;h0" dtype_id="14"/>
+                        <const loc="e,532,26,532,27" name="32&apos;h1" dtype_id="2"/>
+                      </sel>
+                    </assigndly>
+                    <assigndly loc="e,533,31,533,33" dtype_id="1">
+                      <varref loc="e,533,34,533,47" name="underflow_bit" dtype_id="1"/>
+                      <sel loc="e,533,27,533,28" dtype_id="1">
+                        <varref loc="e,533,13,533,27" name="underflow_pipe" dtype_id="9"/>
+                        <const loc="e,533,28,533,29" name="3&apos;h0" dtype_id="14"/>
+                        <const loc="e,533,27,533,28" name="32&apos;h1" dtype_id="2"/>
+                      </sel>
+                    </assigndly>
+                    <assigndly loc="e,534,26,534,28" dtype_id="1">
+                      <varref loc="e,534,29,534,37" name="zero_bit" dtype_id="1"/>
+                      <sel loc="e,534,22,534,23" dtype_id="1">
+                        <varref loc="e,534,13,534,22" name="zero_pipe" dtype_id="9"/>
+                        <const loc="e,534,23,534,24" name="3&apos;h0" dtype_id="14"/>
+                        <const loc="e,534,22,534,23" name="32&apos;h1" dtype_id="2"/>
+                      </sel>
+                    </assigndly>
+                    <assigndly loc="e,535,30,535,32" dtype_id="1">
+                      <varref loc="e,535,33,535,45" name="denormal_bit" dtype_id="1"/>
+                      <sel loc="e,535,26,535,27" dtype_id="1">
+                        <varref loc="e,535,13,535,26" name="denormal_pipe" dtype_id="9"/>
+                        <const loc="e,535,27,535,28" name="3&apos;h0" dtype_id="14"/>
+                        <const loc="e,535,26,535,27" name="32&apos;h1" dtype_id="2"/>
+                      </sel>
+                    </assigndly>
+                    <assigndly loc="e,536,32,536,34" dtype_id="1">
+                      <varref loc="e,536,35,536,49" name="indefinite_bit" dtype_id="1"/>
+                      <sel loc="e,536,28,536,29" dtype_id="1">
+                        <varref loc="e,536,13,536,28" name="indefinite_pipe" dtype_id="9"/>
+                        <const loc="e,536,29,536,30" name="3&apos;h0" dtype_id="14"/>
+                        <const loc="e,536,28,536,29" name="32&apos;h1" dtype_id="2"/>
+                      </sel>
+                    </assigndly>
+                    <assigndly loc="e,537,25,537,27" dtype_id="1">
+                      <varref loc="e,537,28,537,35" name="nan_bit" dtype_id="1"/>
+                      <sel loc="e,537,21,537,22" dtype_id="1">
+                        <varref loc="e,537,13,537,21" name="nan_pipe" dtype_id="9"/>
+                        <const loc="e,537,22,537,23" name="3&apos;h0" dtype_id="14"/>
+                        <const loc="e,537,21,537,22" name="32&apos;h1" dtype_id="2"/>
+                      </sel>
+                    </assigndly>
+                    <begin loc="e,538,13,538,16">
+                      <assign loc="e,538,19,538,20" dtype_id="10">
+                        <const loc="e,538,20,538,27" name="32&apos;h4" dtype_id="3"/>
+                        <varref loc="e,538,17,538,19" name="i5" dtype_id="10"/>
+                      </assign>
+                      <while loc="e,538,13,538,16">
+                        <begin>
+                        </begin>
+                        <begin>
+                          <ltes loc="e,538,32,538,34" dtype_id="1">
+                            <const loc="e,538,35,538,36" name="32&apos;sh1" dtype_id="3"/>
+                            <varref loc="e,538,29,538,31" name="i5" dtype_id="10"/>
+                          </ltes>
+                        </begin>
+                        <begin>
+                          <begin loc="e,539,13,539,18">
+                            <assigndly loc="e,540,33,540,35" dtype_id="2">
+                              <arraysel loc="e,540,47,540,48" dtype_id="2">
+                                <varref loc="e,540,36,540,47" name="result_pipe" dtype_id="8"/>
+                                <sub loc="e,540,51,540,52" dtype_id="14">
+                                  <sel loc="e,540,51,540,52" dtype_id="18">
+                                    <varref loc="e,540,48,540,50" name="i5" dtype_id="10"/>
+                                    <const loc="e,540,51,540,52" name="32&apos;h0" dtype_id="2"/>
+                                    <const loc="e,540,51,540,52" name="32&apos;h3" dtype_id="2"/>
+                                  </sel>
+                                  <const loc="e,540,51,540,52" name="3&apos;h1" dtype_id="18"/>
+                                </sub>
+                              </arraysel>
+                              <arraysel loc="e,540,28,540,29" dtype_id="2">
+                                <varref loc="e,540,17,540,28" name="result_pipe" dtype_id="8"/>
+                                <sel loc="e,540,29,540,31" dtype_id="14">
+                                  <varref loc="e,540,29,540,31" name="i5" dtype_id="10"/>
+                                  <const loc="e,540,29,540,31" name="32&apos;h0" dtype_id="2"/>
+                                  <const loc="e,540,29,540,31" name="32&apos;h3" dtype_id="2"/>
+                                </sel>
+                              </arraysel>
+                            </assigndly>
+                            <assigndly loc="e,541,35,541,37" dtype_id="1">
+                              <sel loc="e,541,51,541,52" dtype_id="1">
+                                <varref loc="e,541,38,541,51" name="overflow_pipe" dtype_id="9"/>
+                                <sub loc="e,541,55,541,56" dtype_id="14">
+                                  <sel loc="e,541,55,541,56" dtype_id="18">
+                                    <varref loc="e,541,52,541,54" name="i5" dtype_id="10"/>
+                                    <const loc="e,541,55,541,56" name="32&apos;h0" dtype_id="2"/>
+                                    <const loc="e,541,55,541,56" name="32&apos;h3" dtype_id="2"/>
+                                  </sel>
+                                  <const loc="e,541,55,541,56" name="3&apos;h1" dtype_id="18"/>
+                                </sub>
+                                <const loc="e,541,51,541,52" name="32&apos;h1" dtype_id="2"/>
+                              </sel>
+                              <sel loc="e,541,30,541,31" dtype_id="1">
+                                <varref loc="e,541,17,541,30" name="overflow_pipe" dtype_id="9"/>
+                                <sel loc="e,541,31,541,33" dtype_id="14">
+                                  <varref loc="e,541,31,541,33" name="i5" dtype_id="10"/>
+                                  <const loc="e,541,31,541,33" name="32&apos;h0" dtype_id="2"/>
+                                  <const loc="e,541,31,541,33" name="32&apos;h3" dtype_id="2"/>
+                                </sel>
+                                <const loc="e,541,30,541,31" name="32&apos;h1" dtype_id="2"/>
+                              </sel>
+                            </assigndly>
+                            <assigndly loc="e,542,36,542,38" dtype_id="1">
+                              <sel loc="e,542,53,542,54" dtype_id="1">
+                                <varref loc="e,542,39,542,53" name="underflow_pipe" dtype_id="9"/>
+                                <sub loc="e,542,57,542,58" dtype_id="14">
+                                  <sel loc="e,542,57,542,58" dtype_id="18">
+                                    <varref loc="e,542,54,542,56" name="i5" dtype_id="10"/>
+                                    <const loc="e,542,57,542,58" name="32&apos;h0" dtype_id="2"/>
+                                    <const loc="e,542,57,542,58" name="32&apos;h3" dtype_id="2"/>
+                                  </sel>
+                                  <const loc="e,542,57,542,58" name="3&apos;h1" dtype_id="18"/>
+                                </sub>
+                                <const loc="e,542,53,542,54" name="32&apos;h1" dtype_id="2"/>
+                              </sel>
+                              <sel loc="e,542,31,542,32" dtype_id="1">
+                                <varref loc="e,542,17,542,31" name="underflow_pipe" dtype_id="9"/>
+                                <sel loc="e,542,32,542,34" dtype_id="14">
+                                  <varref loc="e,542,32,542,34" name="i5" dtype_id="10"/>
+                                  <const loc="e,542,32,542,34" name="32&apos;h0" dtype_id="2"/>
+                                  <const loc="e,542,32,542,34" name="32&apos;h3" dtype_id="2"/>
+                                </sel>
+                                <const loc="e,542,31,542,32" name="32&apos;h1" dtype_id="2"/>
+                              </sel>
+                            </assigndly>
+                            <assigndly loc="e,543,31,543,33" dtype_id="1">
+                              <sel loc="e,543,43,543,44" dtype_id="1">
+                                <varref loc="e,543,34,543,43" name="zero_pipe" dtype_id="9"/>
+                                <sub loc="e,543,47,543,48" dtype_id="14">
+                                  <sel loc="e,543,47,543,48" dtype_id="18">
+                                    <varref loc="e,543,44,543,46" name="i5" dtype_id="10"/>
+                                    <const loc="e,543,47,543,48" name="32&apos;h0" dtype_id="2"/>
+                                    <const loc="e,543,47,543,48" name="32&apos;h3" dtype_id="2"/>
+                                  </sel>
+                                  <const loc="e,543,47,543,48" name="3&apos;h1" dtype_id="18"/>
+                                </sub>
+                                <const loc="e,543,43,543,44" name="32&apos;h1" dtype_id="2"/>
+                              </sel>
+                              <sel loc="e,543,26,543,27" dtype_id="1">
+                                <varref loc="e,543,17,543,26" name="zero_pipe" dtype_id="9"/>
+                                <sel loc="e,543,27,543,29" dtype_id="14">
+                                  <varref loc="e,543,27,543,29" name="i5" dtype_id="10"/>
+                                  <const loc="e,543,27,543,29" name="32&apos;h0" dtype_id="2"/>
+                                  <const loc="e,543,27,543,29" name="32&apos;h3" dtype_id="2"/>
+                                </sel>
+                                <const loc="e,543,26,543,27" name="32&apos;h1" dtype_id="2"/>
+                              </sel>
+                            </assigndly>
+                            <assigndly loc="e,544,35,544,37" dtype_id="1">
+                              <sel loc="e,544,51,544,52" dtype_id="1">
+                                <varref loc="e,544,38,544,51" name="denormal_pipe" dtype_id="9"/>
+                                <sub loc="e,544,55,544,56" dtype_id="14">
+                                  <sel loc="e,544,55,544,56" dtype_id="18">
+                                    <varref loc="e,544,52,544,54" name="i5" dtype_id="10"/>
+                                    <const loc="e,544,55,544,56" name="32&apos;h0" dtype_id="2"/>
+                                    <const loc="e,544,55,544,56" name="32&apos;h3" dtype_id="2"/>
+                                  </sel>
+                                  <const loc="e,544,55,544,56" name="3&apos;h1" dtype_id="18"/>
+                                </sub>
+                                <const loc="e,544,51,544,52" name="32&apos;h1" dtype_id="2"/>
+                              </sel>
+                              <sel loc="e,544,30,544,31" dtype_id="1">
+                                <varref loc="e,544,17,544,30" name="denormal_pipe" dtype_id="9"/>
+                                <sel loc="e,544,31,544,33" dtype_id="14">
+                                  <varref loc="e,544,31,544,33" name="i5" dtype_id="10"/>
+                                  <const loc="e,544,31,544,33" name="32&apos;h0" dtype_id="2"/>
+                                  <const loc="e,544,31,544,33" name="32&apos;h3" dtype_id="2"/>
+                                </sel>
+                                <const loc="e,544,30,544,31" name="32&apos;h1" dtype_id="2"/>
+                              </sel>
+                            </assigndly>
+                            <assigndly loc="e,545,37,545,39" dtype_id="1">
+                              <sel loc="e,545,55,545,56" dtype_id="1">
+                                <varref loc="e,545,40,545,55" name="indefinite_pipe" dtype_id="9"/>
+                                <sub loc="e,545,59,545,60" dtype_id="14">
+                                  <sel loc="e,545,59,545,60" dtype_id="18">
+                                    <varref loc="e,545,56,545,58" name="i5" dtype_id="10"/>
+                                    <const loc="e,545,59,545,60" name="32&apos;h0" dtype_id="2"/>
+                                    <const loc="e,545,59,545,60" name="32&apos;h3" dtype_id="2"/>
+                                  </sel>
+                                  <const loc="e,545,59,545,60" name="3&apos;h1" dtype_id="18"/>
+                                </sub>
+                                <const loc="e,545,55,545,56" name="32&apos;h1" dtype_id="2"/>
+                              </sel>
+                              <sel loc="e,545,32,545,33" dtype_id="1">
+                                <varref loc="e,545,17,545,32" name="indefinite_pipe" dtype_id="9"/>
+                                <sel loc="e,545,33,545,35" dtype_id="14">
+                                  <varref loc="e,545,33,545,35" name="i5" dtype_id="10"/>
+                                  <const loc="e,545,33,545,35" name="32&apos;h0" dtype_id="2"/>
+                                  <const loc="e,545,33,545,35" name="32&apos;h3" dtype_id="2"/>
+                                </sel>
+                                <const loc="e,545,32,545,33" name="32&apos;h1" dtype_id="2"/>
+                              </sel>
+                            </assigndly>
+                            <assigndly loc="e,546,30,546,32" dtype_id="1">
+                              <sel loc="e,546,41,546,42" dtype_id="1">
+                                <varref loc="e,546,33,546,41" name="nan_pipe" dtype_id="9"/>
+                                <sub loc="e,546,45,546,46" dtype_id="14">
+                                  <sel loc="e,546,45,546,46" dtype_id="18">
+                                    <varref loc="e,546,42,546,44" name="i5" dtype_id="10"/>
+                                    <const loc="e,546,45,546,46" name="32&apos;h0" dtype_id="2"/>
+                                    <const loc="e,546,45,546,46" name="32&apos;h3" dtype_id="2"/>
+                                  </sel>
+                                  <const loc="e,546,45,546,46" name="3&apos;h1" dtype_id="18"/>
+                                </sub>
+                                <const loc="e,546,41,546,42" name="32&apos;h1" dtype_id="2"/>
+                              </sel>
+                              <sel loc="e,546,25,546,26" dtype_id="1">
+                                <varref loc="e,546,17,546,25" name="nan_pipe" dtype_id="9"/>
+                                <sel loc="e,546,26,546,28" dtype_id="14">
+                                  <varref loc="e,546,26,546,28" name="i5" dtype_id="10"/>
+                                  <const loc="e,546,26,546,28" name="32&apos;h0" dtype_id="2"/>
+                                  <const loc="e,546,26,546,28" name="32&apos;h3" dtype_id="2"/>
+                                </sel>
+                                <const loc="e,546,25,546,26" name="32&apos;h1" dtype_id="2"/>
+                              </sel>
+                            </assigndly>
+                          </begin>
+                        </begin>
+                        <begin>
+                          <assign loc="e,538,41,538,42" dtype_id="10">
+                            <sub loc="e,538,46,538,47" dtype_id="10">
+                              <varref loc="e,538,43,538,45" name="i5" dtype_id="10"/>
+                              <const loc="e,538,48,538,49" name="32&apos;sh1" dtype_id="3"/>
+                            </sub>
+                            <varref loc="e,538,38,538,40" name="i5" dtype_id="10"/>
+                          </assign>
+                        </begin>
+                      </while>
+                    </begin>
+                  </begin>
+                </begin>
+              </if>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <contassign loc="e,550,15,550,16" dtype_id="2">
+        <arraysel loc="e,550,28,550,29" dtype_id="2">
+          <varref loc="e,59,28,59,39" name="result_pipe" dtype_id="8"/>
+          <const loc="e,550,29,550,36" name="3&apos;h4" dtype_id="18"/>
+        </arraysel>
+        <varref loc="e,550,15,550,16" name="result" dtype_id="2"/>
+      </contassign>
+      <contassign loc="e,551,17,551,18" dtype_id="1">
+        <sel loc="e,551,32,551,33" dtype_id="1">
+          <varref loc="e,60,22,60,35" name="overflow_pipe" dtype_id="9"/>
+          <const loc="e,551,32,551,33" name="32&apos;h4" dtype_id="2"/>
+          <const loc="e,551,32,551,33" name="32&apos;h1" dtype_id="2"/>
+        </sel>
+        <varref loc="e,551,17,551,18" name="overflow" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,552,18,552,19" dtype_id="1">
+        <sel loc="e,552,34,552,35" dtype_id="1">
+          <varref loc="e,61,22,61,36" name="underflow_pipe" dtype_id="9"/>
+          <const loc="e,552,34,552,35" name="32&apos;h4" dtype_id="2"/>
+          <const loc="e,552,34,552,35" name="32&apos;h1" dtype_id="2"/>
+        </sel>
+        <varref loc="e,552,18,552,19" name="underflow" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,553,13,553,14" dtype_id="1">
+        <sel loc="e,553,58,553,59" dtype_id="1">
+          <varref loc="e,62,22,62,31" name="zero_pipe" dtype_id="9"/>
+          <const loc="e,553,58,553,59" name="32&apos;h4" dtype_id="2"/>
+          <const loc="e,553,58,553,59" name="32&apos;h1" dtype_id="2"/>
+        </sel>
+        <varref loc="e,553,13,553,14" name="zero" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,554,17,554,18" dtype_id="1">
+        <sel loc="e,554,66,554,67" dtype_id="1">
+          <varref loc="e,63,22,63,35" name="denormal_pipe" dtype_id="9"/>
+          <const loc="e,554,66,554,67" name="32&apos;h4" dtype_id="2"/>
+          <const loc="e,554,66,554,67" name="32&apos;h1" dtype_id="2"/>
+        </sel>
+        <varref loc="e,554,17,554,18" name="denormal" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,555,19,555,20" dtype_id="1">
+        <sel loc="e,555,70,555,71" dtype_id="1">
+          <varref loc="e,64,22,64,37" name="indefinite_pipe" dtype_id="9"/>
+          <const loc="e,555,70,555,71" name="32&apos;h4" dtype_id="2"/>
+          <const loc="e,555,70,555,71" name="32&apos;h1" dtype_id="2"/>
+        </sel>
+        <varref loc="e,555,19,555,20" name="indefinite" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,556,12,556,13" dtype_id="1">
+        <sel loc="e,556,22,556,23" dtype_id="1">
+          <varref loc="e,65,22,65,30" name="nan_pipe" dtype_id="9"/>
+          <const loc="e,556,22,556,23" name="32&apos;h4" dtype_id="2"/>
+          <const loc="e,556,22,556,23" name="32&apos;h1" dtype_id="2"/>
+        </sel>
+        <varref loc="e,556,12,556,13" name="nan" dtype_id="1"/>
+      </contassign>
+    </module>
+    <typetable loc="a,0,0,0,0">
+      <basicdtype loc="d,46,25,46,27" id="1" name="logic"/>
+      <voiddtype loc="d,48,18,48,27" id="17"/>
+      <basicdtype loc="e,20,39,20,43" id="4" name="logic" left="15" right="0"/>
+      <basicdtype loc="e,22,26,22,34" id="5" name="logic" left="47" right="0"/>
+      <basicdtype loc="e,23,26,23,38" id="6" name="logic" left="79" right="0"/>
+      <basicdtype loc="e,26,11,26,12" id="2" name="logic" left="31" right="0"/>
+      <basicdtype loc="e,38,5,38,8" id="7" name="logic" left="23" right="0"/>
+      <unpackarraydtype loc="e,59,39,59,40" id="8" sub_dtype_id="2">
+        <range loc="e,59,39,59,40">
+          <const loc="e,59,40,59,47" name="32&apos;h4" dtype_id="3"/>
+          <const loc="e,59,50,59,51" name="32&apos;sh0" dtype_id="3"/>
+        </range>
+      </unpackarraydtype>
+      <basicdtype loc="e,60,5,60,8" id="9" name="logic" left="4" right="0"/>
+      <basicdtype loc="e,75,5,75,12" id="10" name="integer" left="31" right="0" signed="true"/>
+      <basicdtype loc="e,97,41,97,42" id="12" name="logic" left="5" right="0" signed="true"/>
+      <basicdtype loc="e,101,34,101,35" id="11" name="logic" left="4" right="0" signed="true"/>
+      <basicdtype loc="e,162,24,162,25" id="14" name="logic" left="2" right="0" signed="true"/>
+      <basicdtype loc="e,227,26,227,27" id="15" name="logic" left="7" right="0"/>
+      <basicdtype loc="e,343,53,343,54" id="16" name="logic" left="22" right="0"/>
+      <basicdtype loc="e,17,27,17,28" id="3" name="logic" left="31" right="0" signed="true"/>
+      <basicdtype loc="e,95,69,95,70" id="13" name="logic" left="5" right="0"/>
+      <basicdtype loc="e,540,51,540,52" id="18" name="logic" left="2" right="0"/>
+    </typetable>
+  </netlist>
+</verilator_xml>

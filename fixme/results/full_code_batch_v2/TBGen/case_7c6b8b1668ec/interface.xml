@@ -1,0 +1,78 @@
+<?xml version="1.0" ?>
+<!-- DESCRIPTION: Verilator output: XML representation of netlist -->
+<verilator_xml>
+  <files>
+    <file id="d" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std.sv" language="1800-2023"/>
+    <file id="c" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std_waiver.vlt" language="1800-2023"/>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_7c6b8b1668ec/raminfr.v" language="1800-2023"/>
+    <file id="a" filename="&lt;built-in&gt;" language="1800-2023"/>
+    <file id="b" filename="&lt;command-line&gt;" language="1800-2023"/>
+  </files>
+  <module_files>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_7c6b8b1668ec/raminfr.v" language="1800-2023"/>
+  </module_files>
+  <cells>
+    <cell loc="e,3,8,3,15" name="raminfr" submodname="raminfr" hier="raminfr"/>
+  </cells>
+  <netlist>
+    <module loc="e,3,8,3,15" name="raminfr" origName="raminfr" topModule="1">
+      <var loc="e,8,7,8,10" name="clk" dtype_id="1" dir="input" pinIndex="1" vartype="logic" origName="clk"/>
+      <var loc="e,9,7,9,9" name="we" dtype_id="1" dir="input" pinIndex="2" vartype="logic" origName="we"/>
+      <var loc="e,10,25,10,26" name="a" dtype_id="2" dir="input" pinIndex="3" vartype="logic" origName="a"/>
+      <var loc="e,11,25,11,29" name="dpra" dtype_id="2" dir="input" pinIndex="4" vartype="logic" origName="dpra"/>
+      <var loc="e,12,25,12,27" name="di" dtype_id="3" dir="input" pinIndex="5" vartype="logic" origName="di"/>
+      <var loc="e,13,25,13,28" name="dpo" dtype_id="3" dir="output" pinIndex="6" vartype="logic" origName="dpo"/>
+      <var loc="e,5,11,5,21" name="addr_width" dtype_id="4" vartype="logic" origName="addr_width" param="true">
+        <const loc="e,5,24,5,25" name="32&apos;sh4" dtype_id="4"/>
+      </var>
+      <var loc="e,6,11,6,21" name="data_width" dtype_id="4" vartype="logic" origName="data_width" param="true">
+        <const loc="e,6,24,6,25" name="32&apos;sh8" dtype_id="4"/>
+      </var>
+      <var loc="e,7,11,7,16" name="depth" dtype_id="4" vartype="logic" origName="depth" param="true">
+        <const loc="e,7,19,7,21" name="32&apos;sh10" dtype_id="4"/>
+      </var>
+      <var loc="e,14,25,14,28" name="ram" dtype_id="5" vartype="" origName="ram"/>
+      <always loc="e,19,3,19,9">
+        <sentree loc="e,19,10,19,11">
+          <senitem loc="e,19,12,19,19" edgeType="POS">
+            <varref loc="e,19,20,19,23" name="clk" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,19,25,19,30">
+          <if loc="e,20,5,20,7">
+            <varref loc="e,20,9,20,11" name="we" dtype_id="1"/>
+            <begin>
+              <assigndly loc="e,21,14,21,16" dtype_id="3">
+                <varref loc="e,21,17,21,19" name="di" dtype_id="3"/>
+                <arraysel loc="e,21,10,21,11" dtype_id="3">
+                  <varref loc="e,21,7,21,10" name="ram" dtype_id="5"/>
+                  <varref loc="e,21,11,21,12" name="a" dtype_id="2"/>
+                </arraysel>
+              </assigndly>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <contassign loc="e,23,14,23,15" dtype_id="3">
+        <arraysel loc="e,23,19,23,20" dtype_id="3">
+          <varref loc="e,14,25,14,28" name="ram" dtype_id="5"/>
+          <varref loc="e,11,25,11,29" name="dpra" dtype_id="2"/>
+        </arraysel>
+        <varref loc="e,23,14,23,15" name="dpo" dtype_id="3"/>
+      </contassign>
+    </module>
+    <typetable loc="a,0,0,0,0">
+      <basicdtype loc="d,46,25,46,27" id="1" name="logic"/>
+      <voiddtype loc="d,48,18,48,27" id="6"/>
+      <basicdtype loc="e,10,8,10,9" id="2" name="logic" left="3" right="0"/>
+      <basicdtype loc="e,12,8,12,9" id="3" name="logic" left="7" right="0"/>
+      <unpackarraydtype loc="e,14,29,14,30" id="5" sub_dtype_id="3">
+        <range loc="e,14,29,14,30">
+          <const loc="e,14,35,14,36" name="32&apos;hf" dtype_id="4"/>
+          <const loc="e,14,38,14,39" name="32&apos;sh0" dtype_id="4"/>
+        </range>
+      </unpackarraydtype>
+      <basicdtype loc="e,5,24,5,25" id="4" name="logic" left="31" right="0" signed="true"/>
+    </typetable>
+  </netlist>
+</verilator_xml>

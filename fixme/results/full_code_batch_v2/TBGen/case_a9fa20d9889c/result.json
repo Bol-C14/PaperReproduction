@@ -1,0 +1,40 @@
+{
+  "id": "TBGen/L1/Text/dffr_async",
+  "subset": "TBGen",
+  "input_files": [
+    {
+      "name": "dffr_async.v",
+      "bytes": 613,
+      "sha256": "d2dabada26422cf086d6ad96f97458e1249e4d5af03bc247ff95d187ebf827b5"
+    },
+    {
+      "name": "dffr_async_spec.txt",
+      "bytes": 7226,
+      "sha256": "f0d1b1920149206b1c835581403c3896b4cb5aa6f40b5d1b1db69af9473d2391"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": true,
+  "negative_control_detected": true,
+  "commands": 5,
+  "status": "pass",
+  "stimulus_contract": {
+    "seed": 13579,
+    "cycles": 64,
+    "clock": "clk",
+    "reset_polarities": {
+      "rst": 1
+    },
+    "unknown_handling": "any observed unknown prevents pass",
+    "oracle": "renamed copy of supplied RTL; self-consistency/calibration only"
+  },
+  "observed_checks": 64,
+  "observed_unknown": 0,
+  "reference_status": "pass",
+  "negative_status": "fail",
+  "reason": "reference/checker positive and perturbed-checker negative executed",
+  "seconds": 0.108
+}

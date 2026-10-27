@@ -1,0 +1,413 @@
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:28:3: Operator VAR 'FSM_RUN' expects 3 bits on the Initial value, but Initial value's CONST '4'h0' generates 4 bits.
+                                                                                                                           : ... note: In instance 'ae18_core'
+   28 |   FSM_RUN = 4'h0,
+      |   ^~~~~~~
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.032
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:29:3: Operator VAR 'FSM_ISRL' expects 3 bits on the Initial value, but Initial value's CONST '4'h1' generates 4 bits.
+                                                                                                                           : ... note: In instance 'ae18_core'
+   29 |   FSM_ISRL = 4'h1,
+      |   ^~~~~~~~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:30:3: Operator VAR 'FSM_ISRH' expects 3 bits on the Initial value, but Initial value's CONST '4'h2' generates 4 bits.
+                                                                                                                           : ... note: In instance 'ae18_core'
+   30 |   FSM_ISRH = 4'h2,
+      |   ^~~~~~~~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:31:3: Operator VAR 'FSM_SLEEP' expects 3 bits on the Initial value, but Initial value's CONST '4'h3' generates 4 bits.
+                                                                                                                           : ... note: In instance 'ae18_core'
+   31 |   FSM_SLEEP = 4'h3;
+      |   ^~~~~~~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:168:28: Operator NEQ expects 3 bits on the LHS, but LHS's VARREF 'rFSM' generates 2 bits.
+                                                                                                                              : ... note: In instance 'ae18_core'
+  168 |    wire       qrun = (rFSM != FSM_SLEEP);   
+      |                            ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:211:23: Operator ASSIGNDLY expects 2 bits on the Assign RHS, but Assign RHS's VARREF 'FSM_RUN' generates 3 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  211 |        FSM_ISRH: rNXT <= FSM_RUN;
+      |                       ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:212:23: Operator ASSIGNDLY expects 2 bits on the Assign RHS, but Assign RHS's VARREF 'FSM_RUN' generates 3 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  212 |        FSM_ISRL: rNXT <= FSM_RUN;
+      |                       ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:214:19: Operator ASSIGNDLY expects 2 bits on the Assign RHS, but Assign RHS's VARREF 'FSM_ISRH' generates 3 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  214 |    if (inth) rNXT <= FSM_ISRH;
+      |                   ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:215:24: Operator ASSIGNDLY expects 2 bits on the Assign RHS, but Assign RHS's VARREF 'FSM_ISRL' generates 3 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  215 |    else if (intl) rNXT <= FSM_ISRL;
+      |                        ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:216:14: Operator ASSIGNDLY expects 2 bits on the Assign RHS, but Assign RHS's VARREF 'FSM_SLEEP' generates 3 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  216 |    else rNXT <= FSM_SLEEP;   
+      |              ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:219:19: Operator ASSIGNDLY expects 2 bits on the Assign RHS, but Assign RHS's VARREF 'FSM_ISRH' generates 3 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  219 |    if (isrh) rNXT <= FSM_ISRH;
+      |                   ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:220:24: Operator ASSIGNDLY expects 2 bits on the Assign RHS, but Assign RHS's VARREF 'FSM_ISRL' generates 3 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  220 |    else if (isrl) rNXT <= FSM_ISRL;   
+      |                        ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:221:26: Operator ASSIGNDLY expects 2 bits on the Assign RHS, but Assign RHS's VARREF 'FSM_SLEEP' generates 3 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  221 |    else if (rSLEEP) rNXT <= FSM_SLEEP;   
+      |                          ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:222:14: Operator ASSIGNDLY expects 2 bits on the Assign RHS, but Assign RHS's VARREF 'FSM_RUN' generates 3 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  222 |    else rNXT <= FSM_RUN;   
+      |              ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:210:6: Operator CASE expects 3 bits on the Case expression, but Case expression's VARREF 'rFSM' generates 2 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  210 |      case (rFSM)
+      |      ^~~~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:228:27: Operator ASSIGNW expects 20 bits on the Assign RHS, but Assign RHS's REPLICATE generates 25 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  228 |    assign       iwb_adr_o = {rIWBADR,1'b0};
+      |                           ^
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:236:29: Operator ASSIGNW expects 19 bits on the Assign RHS, but Assign RHS's REPLICATE generates 20 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  236 |    wire [ISIZ-2:0]   wPCLAT = {rPCU,rPCH,rPCL[7:1]};
+      |                             ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:244:26: Operator ASSIGNDLY expects 24 bits on the Assign RHS, but Assign RHS's CONST '23'h4' generates 23 bits.
+                                                                                                                              : ... note: In instance 'ae18_core'
+  244 |        FSM_ISRH: rIWBADR <= #1 23'h000004;
+      |                          ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:245:26: Operator ASSIGNDLY expects 24 bits on the Assign RHS, but Assign RHS's CONST '23'hc' generates 23 bits.
+                                                                                                                              : ... note: In instance 'ae18_core'
+  245 |        FSM_ISRL: rIWBADR <= #1 23'h00000C;    
+      |                          ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:246:25: Operator ASSIGNDLY expects 24 bits on the Assign RHS, but Assign RHS's VARREF 'rPCNXT' generates 19 bits.
+                                                                                                                              : ... note: In instance 'ae18_core'
+  246 |        default: rIWBADR <= #1 rPCNXT;       
+      |                         ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:243:6: Operator CASE expects 3 bits on the Case expression, but Case expression's VARREF 'rINTF' generates 2 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  243 |      case (rINTF)
+      |      ^~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:250:42: Operator COND expects 24 bits on the Conditional False, but Conditional False's REPLICATE generates 23 bits.
+                                                                                                                              : ... note: In instance 'ae18_core'
+  250 |      rIWBADR <= #1 (rMXTBL == MXTBL_NOP) ? rIWBADR : {rTBLPTRU,rTBLPTRH,rTBLPTRL[7:1]};
+      |                                          ^
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:253:29: Operator ASSIGNW expects 19 bits on the Assign RHS, but Assign RHS's ADD generates 32 or 24 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  253 |    wire [ISIZ-2:0]   wPCINC = rIWBADR + 1;
+      |                             ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:254:40: Operator COND expects 24 bits on the Conditional True, but Conditional True's VARREF 'wPCINC' generates 19 bits.
+                                                                                                                              : ... note: In instance 'ae18_core'
+  254 |    wire [ISIZ-2:0]   wPCBCC = (!rNSKP) ? wPCINC : 
+      |                                        ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:255:25: Operator ADD expects 24 bits on the RHS, but RHS's REPLICATE generates 20 bits.
+                                                                                                                              : ... note: In instance 'ae18_core'
+  255 |        (rBCC) ? rIWBADR + {{(ISIZ-8){rIREG[7]}},rIREG[7:0]} : wPCINC;      
+      |                         ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:255:15: Operator COND expects 24 bits on the Conditional False, but Conditional False's VARREF 'wPCINC' generates 19 bits.
+                                                                                                                              : ... note: In instance 'ae18_core'
+  255 |        (rBCC) ? rIWBADR + {{(ISIZ-8){rIREG[7]}},rIREG[7:0]} : wPCINC;      
+      |               ^
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:254:29: Operator ASSIGNW expects 19 bits on the Assign RHS, but Assign RHS's COND generates 24 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  254 |    wire [ISIZ-2:0]   wPCBCC = (!rNSKP) ? wPCINC : 
+      |                             ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:256:41: Operator COND expects 24 bits on the Conditional True, but Conditional True's VARREF 'wPCINC' generates 19 bits.
+                                                                                                                              : ... note: In instance 'ae18_core'
+  256 |    wire [ISIZ-2:0]   wPCNEAR = (!rNSKP) ? wPCINC : rIWBADR + {{(ISIZ-11){rIREG[10]}},rIREG[10:0]};      
+      |                                         ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:256:60: Operator ADD expects 24 bits on the RHS, but RHS's REPLICATE generates 20 bits.
+                                                                                                                              : ... note: In instance 'ae18_core'
+  256 |    wire [ISIZ-2:0]   wPCNEAR = (!rNSKP) ? wPCINC : rIWBADR + {{(ISIZ-11){rIREG[10]}},rIREG[10:0]};      
+      |                                                            ^
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:256:30: Operator ASSIGNW expects 19 bits on the Assign RHS, but Assign RHS's COND generates 24 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  256 |    wire [ISIZ-2:0]   wPCNEAR = (!rNSKP) ? wPCINC : rIWBADR + {{(ISIZ-11){rIREG[10]}},rIREG[10:0]};      
+      |                              ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:257:40: Operator COND expects 20 bits on the Conditional True, but Conditional True's VARREF 'wPCINC' generates 19 bits.
+                                                                                                                              : ... note: In instance 'ae18_core'
+  257 |    wire [ISIZ-2:0]   wPCFAR = (!rNSKP) ? wPCINC : {rROMLAT[11:0],rIREG[7:0]};   
+      |                                        ^
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:257:29: Operator ASSIGNW expects 19 bits on the Assign RHS, but Assign RHS's COND generates 20 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  257 |    wire [ISIZ-2:0]   wPCFAR = (!rNSKP) ? wPCINC : {rROMLAT[11:0],rIREG[7:0]};   
+      |                             ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:258:40: Operator COND expects 23 bits on the Conditional True, but Conditional True's VARREF 'wPCINC' generates 19 bits.
+                                                                                                                              : ... note: In instance 'ae18_core'
+  258 |    wire [ISIZ-2:0]   wPCSTK = (!rNSKP) ? wPCINC : {rTOSU, rTOSH, rTOSL[7:1]};
+      |                                        ^
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:258:29: Operator ASSIGNW expects 19 bits on the Assign RHS, but Assign RHS's COND generates 23 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  258 |    wire [ISIZ-2:0]   wPCSTK = (!rNSKP) ? wPCINC : {rTOSU, rTOSH, rTOSL[7:1]};
+      |                             ^
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:265:23: Operator ASSIGNDLY expects 19 bits on the Assign RHS, but Assign RHS's CONST '24'h8' generates 24 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  265 |    MXNPC_ISRH: rPCNXT <= #1 24'h08;
+      |                       ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:266:23: Operator ASSIGNDLY expects 19 bits on the Assign RHS, but Assign RHS's CONST '24'h18' generates 24 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  266 |    MXNPC_ISRL: rPCNXT <= #1 24'h18;   
+      |                       ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:542:23: Operator COND expects 2 bits on the Conditional False, but Conditional False's CONST '1'h0' generates 1 bits.
+                                                                                                                              : ... note: In instance 'ae18_core'
+  542 |     (fRETURN|fRETFIE) ? {1'b0,fOPCK[0]} :
+      |                       ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:703:31: Operator ADD expects 9 bits on the RHS, but RHS's VARREF 'rC' generates 1 bits.
+                                                                                                                              : ... note: In instance 'ae18_core'
+  703 |    wire [8:0]    wADDC = wADD + rC;
+      |                               ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:705:33: Operator NOT expects 9 bits on the LHS, but LHS's VARREF 'rC' generates 1 bits.
+                                                                                                                              : ... note: In instance 'ae18_core'
+  705 |    wire [8:0]    wSUBC = wSUB - ~rC;   
+      |                                 ^
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:722:23: Operator ASSIGNDLY expects 8 bits on the Assign RHS, but Assign RHS's VARREF 'wAND' generates 9 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  722 |    MXALU_AND: rRESULT <= #1 wAND;
+      |                       ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:723:23: Operator ASSIGNDLY expects 8 bits on the Assign RHS, but Assign RHS's VARREF 'wIOR' generates 9 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  723 |    MXALU_IOR: rRESULT <= #1 wIOR;
+      |                       ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:724:24: Operator ASSIGNDLY expects 8 bits on the Assign RHS, but Assign RHS's VARREF 'wSWAP' generates 9 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  724 |    MXALU_SWAP: rRESULT <= #1 wSWAP;
+      |                        ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:725:23: Operator ASSIGNDLY expects 8 bits on the Assign RHS, but Assign RHS's VARREF 'wRRC' generates 9 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  725 |    MXALU_RRC: rRESULT <= #1 wRRC;
+      |                       ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:726:23: Operator ASSIGNDLY expects 8 bits on the Assign RHS, but Assign RHS's VARREF 'wRLC' generates 9 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  726 |    MXALU_RLC: rRESULT <= #1 wRLC;
+      |                       ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:727:24: Operator ASSIGNDLY expects 8 bits on the Assign RHS, but Assign RHS's VARREF 'wRRNC' generates 9 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  727 |    MXALU_RRNC: rRESULT <= #1 wRRNC;
+      |                        ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:728:24: Operator ASSIGNDLY expects 8 bits on the Assign RHS, but Assign RHS's VARREF 'wRLNC' generates 9 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  728 |    MXALU_RLNC: rRESULT <= #1 wRLNC;
+      |                        ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:729:23: Operator ASSIGNDLY expects 8 bits on the Assign RHS, but Assign RHS's VARREF 'wADD' generates 9 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  729 |    MXALU_ADD: rRESULT <= #1 wADD;
+      |                       ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:730:24: Operator ASSIGNDLY expects 8 bits on the Assign RHS, but Assign RHS's VARREF 'wADDC' generates 9 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  730 |    MXALU_ADDC: rRESULT <= #1 wADDC;
+      |                        ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:731:23: Operator ASSIGNDLY expects 8 bits on the Assign RHS, but Assign RHS's VARREF 'wSUB' generates 9 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  731 |    MXALU_SUB: rRESULT <= #1 wSUB;
+      |                       ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:732:24: Operator ASSIGNDLY expects 8 bits on the Assign RHS, but Assign RHS's VARREF 'wSUBC' generates 9 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  732 |    MXALU_SUBC: rRESULT <= #1 wSUBC;
+      |                        ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:733:23: Operator ASSIGNDLY expects 8 bits on the Assign RHS, but Assign RHS's VARREF 'wNEG' generates 9 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  733 |    MXALU_NEG: rRESULT <= #1 wNEG;   
+      |                       ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:721:21: Operator ASSIGNDLY expects 8 bits on the Assign RHS, but Assign RHS's VARREF 'wXOR' generates 9 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  721 |    default: rRESULT <= #1 wXOR;
+      |                     ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:796:25: Operator ASSIGNW expects 12 bits on the Assign RHS, but Assign RHS's VARREF 'rDWBADR' generates 16 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  796 |    assign     dwb_adr_o = rDWBADR;
+      |                         ^
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:800:29: Operator ASSIGNW expects 12 bits on the Assign RHS, but Assign RHS's ADD generates 32 or 16 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  800 |    wire [DSIZ-1:0] wFSRINC0 = {rFSR0H,rFSR0L} + 1;
+      |                             ^
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:801:29: Operator ASSIGNW expects 12 bits on the Assign RHS, but Assign RHS's ADD generates 32 or 16 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  801 |    wire [DSIZ-1:0] wFSRINC1 = {rFSR1H,rFSR1L} + 1;
+      |                             ^
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:802:29: Operator ASSIGNW expects 12 bits on the Assign RHS, but Assign RHS's ADD generates 32 or 16 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  802 |    wire [DSIZ-1:0] wFSRINC2 = {rFSR2H,rFSR2L} + 1;
+      |                             ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:803:49: Operator ADD expects 16 bits on the RHS, but RHS's VARREF 'rWREG' generates 8 bits.
+                                                                                                                              : ... note: In instance 'ae18_core'
+  803 |    wire [DSIZ-1:0] wFSRPLUSW0 = {rFSR0H,rFSR0L} + rWREG;
+      |                                                 ^
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:803:31: Operator ASSIGNW expects 12 bits on the Assign RHS, but Assign RHS's ADD generates 16 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  803 |    wire [DSIZ-1:0] wFSRPLUSW0 = {rFSR0H,rFSR0L} + rWREG;
+      |                               ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:804:49: Operator ADD expects 16 bits on the RHS, but RHS's VARREF 'rWREG' generates 8 bits.
+                                                                                                                              : ... note: In instance 'ae18_core'
+  804 |    wire [DSIZ-1:0] wFSRPLUSW1 = {rFSR1H,rFSR1L} + rWREG;
+      |                                                 ^
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:804:31: Operator ASSIGNW expects 12 bits on the Assign RHS, but Assign RHS's ADD generates 16 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  804 |    wire [DSIZ-1:0] wFSRPLUSW1 = {rFSR1H,rFSR1L} + rWREG;
+      |                               ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:805:49: Operator ADD expects 16 bits on the RHS, but RHS's VARREF 'rWREG' generates 8 bits.
+                                                                                                                              : ... note: In instance 'ae18_core'
+  805 |    wire [DSIZ-1:0] wFSRPLUSW2 = {rFSR2H,rFSR2L} + rWREG;
+      |                                                 ^
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:805:31: Operator ASSIGNW expects 12 bits on the Assign RHS, but Assign RHS's ADD generates 16 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  805 |    wire [DSIZ-1:0] wFSRPLUSW2 = {rFSR2H,rFSR2L} + rWREG;
+      |                               ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:816:30: Operator ASSIGNDLY expects 16 bits on the Assign RHS, but Assign RHS's VARREF 'wFSRINC0' generates 12 bits.
+                                                                                                                              : ... note: In instance 'ae18_core'
+  816 |       MXFSR_PREINC0: rDWBADR <= #1 wFSRINC0;
+      |                              ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:817:30: Operator ASSIGNDLY expects 16 bits on the Assign RHS, but Assign RHS's VARREF 'wFSRINC1' generates 12 bits.
+                                                                                                                              : ... note: In instance 'ae18_core'
+  817 |       MXFSR_PREINC1: rDWBADR <= #1 wFSRINC1;
+      |                              ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:818:30: Operator ASSIGNDLY expects 16 bits on the Assign RHS, but Assign RHS's VARREF 'wFSRINC2' generates 12 bits.
+                                                                                                                              : ... note: In instance 'ae18_core'
+  818 |       MXFSR_PREINC2: rDWBADR <= #1 wFSRINC2;
+      |                              ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:819:29: Operator ASSIGNDLY expects 16 bits on the Assign RHS, but Assign RHS's VARREF 'wFSRPLUSW2' generates 12 bits.
+                                                                                                                              : ... note: In instance 'ae18_core'
+  819 |       MXFSR_PLUSW2: rDWBADR <= #1 wFSRPLUSW2;
+      |                             ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:820:29: Operator ASSIGNDLY expects 16 bits on the Assign RHS, but Assign RHS's VARREF 'wFSRPLUSW1' generates 12 bits.
+                                                                                                                              : ... note: In instance 'ae18_core'
+  820 |       MXFSR_PLUSW1: rDWBADR <= #1 wFSRPLUSW1;
+      |                             ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:821:29: Operator ASSIGNDLY expects 16 bits on the Assign RHS, but Assign RHS's VARREF 'wFSRPLUSW0' generates 12 bits.
+                                                                                                                              : ... note: In instance 'ae18_core'
+  821 |       MXFSR_PLUSW0: rDWBADR <= #1 wFSRPLUSW0;            
+      |                             ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:824:47: Operator COND expects 16 bits on the Conditional True, but Conditional True's REPLICATE generates 12 bits.
+                                                                                                                              : ... note: In instance 'ae18_core'
+  824 |   FSM_Q1: rDWBADR <= #1 (rMXBSR == MXBSR_LIT) ? {rROMLAT[11:0]} : rDWBADR;
+      |                                               ^
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:844:26: Operator ASSIGNW expects 20 bits on the Assign RHS, but Assign RHS's REPLICATE generates 24 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  844 |    wire [ISIZ-1:0] wSTKW = {rTOSU,rTOSH,rTOSL};
+      |                          ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:947:52: Operator COND expects 8 bits on the Conditional False, but Conditional False's VARREF 'rSTKPTR' generates 6 bits.
+                                                                                                                              : ... note: In instance 'ae18_core'
+  947 |      rSTKPTR <= #1 ((rDWBADR == aSTKPTR) & rDWBWE) ? rRESULT : rSTKPTR;     
+      |                                                    ^
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:947:14: Operator ASSIGNDLY expects 6 bits on the Assign RHS, but Assign RHS's COND generates 8 bits.
+                                                                                                                             : ... note: In instance 'ae18_core'
+  947 |      rSTKPTR <= #1 ((rDWBADR == aSTKPTR) & rDWBWE) ? rRESULT : rSTKPTR;     
+      |              ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:982:24: Operator ASSIGNDLY expects 24 bits on the Assign RHS, but Assign RHS's REPLICATE generates 20 bits.
+                                                                                                                              : ... note: In instance 'ae18_core'
+  982 |    {rTOSU,rTOSH,rTOSL} <= #1 {wPCLAT,1'b0};   
+      |                        ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:985:24: Operator ASSIGNDLY expects 24 bits on the Assign RHS, but Assign RHS's VARREF 'wSTKR' generates 20 bits.
+                                                                                                                              : ... note: In instance 'ae18_core'
+  985 |    {rTOSU,rTOSH,rTOSL} <= #1 wSTKR;   
+      |                        ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:1025:70: Operator COND expects 8 bits on the Conditional False, but Conditional False's REPLICATE generates 5 bits.
+                                                                                                                               : ... note: In instance 'ae18_core'
+ 1025 |    default: {rN,rOV,rZ,rDC,rC} <= #1 ((rDWBADR == aSTATUS) & rDWBWE) ? rRESULT : {rN,rOV,rZ,rDC,rC};
+      |                                                                      ^
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:1025:32: Operator ASSIGNDLY expects 5 bits on the Assign RHS, but Assign RHS's COND generates 8 bits.
+                                                                                                                              : ... note: In instance 'ae18_core'
+ 1025 |    default: {rN,rOV,rZ,rDC,rC} <= #1 ((rDWBADR == aSTATUS) & rDWBWE) ? rRESULT : {rN,rOV,rZ,rDC,rC};
+      |                                ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:1056:29: Operator ASSIGNW expects 12 bits on the Assign RHS, but Assign RHS's SUB generates 32 or 16 bits.
+                                                                                                                              : ... note: In instance 'ae18_core'
+ 1056 |    wire [DSIZ-1:0] wFSRDEC0 = {rFSR0H,rFSR0L} - 1;
+      |                             ^
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:1057:29: Operator ASSIGNW expects 12 bits on the Assign RHS, but Assign RHS's SUB generates 32 or 16 bits.
+                                                                                                                              : ... note: In instance 'ae18_core'
+ 1057 |    wire [DSIZ-1:0] wFSRDEC1 = {rFSR1H,rFSR1L} - 1;
+      |                             ^
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:1058:29: Operator ASSIGNW expects 12 bits on the Assign RHS, but Assign RHS's SUB generates 32 or 16 bits.
+                                                                                                                              : ... note: In instance 'ae18_core'
+ 1058 |    wire [DSIZ-1:0] wFSRDEC2 = {rFSR2H,rFSR2L} - 1;
+      |                             ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:1079:40: Operator ASSIGNDLY expects 16 bits on the Assign RHS, but Assign RHS's VARREF 'wFSRINC0' generates 12 bits.
+                                                                                                                               : ... note: In instance 'ae18_core'
+ 1079 |        MXFSR_POSTINC0: {rFSR0H,rFSR0L} <= #1 wFSRINC0;
+      |                                        ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:1080:40: Operator ASSIGNDLY expects 16 bits on the Assign RHS, but Assign RHS's VARREF 'wFSRINC1' generates 12 bits.
+                                                                                                                               : ... note: In instance 'ae18_core'
+ 1080 |        MXFSR_POSTINC1: {rFSR1H,rFSR1L} <= #1 wFSRINC1;
+      |                                        ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:1081:40: Operator ASSIGNDLY expects 16 bits on the Assign RHS, but Assign RHS's VARREF 'wFSRINC2' generates 12 bits.
+                                                                                                                               : ... note: In instance 'ae18_core'
+ 1081 |        MXFSR_POSTINC2: {rFSR2H,rFSR2L} <= #1 wFSRINC2;
+      |                                        ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:1082:40: Operator ASSIGNDLY expects 16 bits on the Assign RHS, but Assign RHS's VARREF 'wFSRDEC0' generates 12 bits.
+                                                                                                                               : ... note: In instance 'ae18_core'
+ 1082 |        MXFSR_POSTDEC0: {rFSR0H,rFSR0L} <= #1 wFSRDEC0;
+      |                                        ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:1083:40: Operator ASSIGNDLY expects 16 bits on the Assign RHS, but Assign RHS's VARREF 'wFSRDEC1' generates 12 bits.
+                                                                                                                               : ... note: In instance 'ae18_core'
+ 1083 |        MXFSR_POSTDEC1: {rFSR1H,rFSR1L} <= #1 wFSRDEC1;       
+      |                                        ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:1084:40: Operator ASSIGNDLY expects 16 bits on the Assign RHS, but Assign RHS's VARREF 'wFSRDEC2' generates 12 bits.
+                                                                                                                               : ... note: In instance 'ae18_core'
+ 1084 |        MXFSR_POSTDEC2: {rFSR2H,rFSR2L} <= #1 wFSRDEC2;       
+      |                                        ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:1090:25: Operator ASSIGNDLY expects 16 bits on the Assign RHS, but Assign RHS's REPLICATE generates 12 bits.
+                                                                                                                               : ... note: In instance 'ae18_core'
+ 1090 |   2'o0: {rFSR0H,rFSR0L} <= #1 {rIREG[3:0],rROMLAT[7:0]};  
+      |                         ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:1091:25: Operator ASSIGNDLY expects 16 bits on the Assign RHS, but Assign RHS's REPLICATE generates 12 bits.
+                                                                                                                               : ... note: In instance 'ae18_core'
+ 1091 |   2'o1: {rFSR1H,rFSR1L} <= #1 {rIREG[3:0],rROMLAT[7:0]};  
+      |                         ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:1092:25: Operator ASSIGNDLY expects 16 bits on the Assign RHS, but Assign RHS's REPLICATE generates 12 bits.
+                                                                                                                               : ... note: In instance 'ae18_core'
+ 1092 |   2'o2: {rFSR2H,rFSR2L} <= #1 {rIREG[3:0],rROMLAT[7:0]};  
+      |                         ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:1097:39: Operator ASSIGNDLY expects 16 bits on the Assign RHS, but Assign RHS's VARREF 'wFSRINC0' generates 12 bits.
+                                                                                                                               : ... note: In instance 'ae18_core'
+ 1097 |        MXFSR_PREINC0: {rFSR0H,rFSR0L} <= #1 wFSRINC0;
+      |                                       ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:1098:39: Operator ASSIGNDLY expects 16 bits on the Assign RHS, but Assign RHS's VARREF 'wFSRINC1' generates 12 bits.
+                                                                                                                               : ... note: In instance 'ae18_core'
+ 1098 |        MXFSR_PREINC1: {rFSR1H,rFSR1L} <= #1 wFSRINC1;
+      |                                       ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:1099:39: Operator ASSIGNDLY expects 16 bits on the Assign RHS, but Assign RHS's VARREF 'wFSRINC2' generates 12 bits.
+                                                                                                                               : ... note: In instance 'ae18_core'
+ 1099 |        MXFSR_PREINC2: {rFSR2H,rFSR2L} <= #1 wFSRINC2;       
+      |                                       ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:1112:28: Operator ASSIGNW expects 20 bits on the Assign RHS, but Assign RHS's ADD generates 32 or 24 bits.
+                                                                                                                              : ... note: In instance 'ae18_core'
+ 1112 |    wire [ISIZ-1:0] wTBLINC = {rTBLPTRU,rTBLPTRH,rTBLPTRL} + 1;
+      |                            ^
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:1113:27: Operator ASSIGNW expects 20 bits on the Assign RHS, but Assign RHS's REPLICATE generates 24 bits.
+                                                                                                                              : ... note: In instance 'ae18_core'
+ 1113 |    wire [ISIZ-1:0] wTBLAT =  {rTBLPTRU,rTBLPTRH,rTBLPTRL};
+      |                           ^
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:1114:28: Operator ASSIGNW expects 20 bits on the Assign RHS, but Assign RHS's SUB generates 32 or 24 bits.
+                                                                                                                              : ... note: In instance 'ae18_core'
+ 1114 |    wire [ISIZ-1:0] wTBLDEC = {rTBLPTRU,rTBLPTRH,rTBLPTRL} - 1;   
+      |                            ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:1122:98: Operator COND expects 24 bits on the Conditional True, but Conditional True's VARREF 'wTBLINC' generates 20 bits.
+                                                                                                                               : ... note: In instance 'ae18_core'
+ 1122 |   FSM_Q0: {rTBLPTRU,rTBLPTRH,rTBLPTRL} <= #1 ((rMXTBL == MXTBL_WTPRE) | (rMXTBL == MXTBL_RDPRE)) ? wTBLINC : wTBLAT;
+      |                                                                                                  ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:1122:98: Operator COND expects 24 bits on the Conditional False, but Conditional False's VARREF 'wTBLAT' generates 20 bits.
+                                                                                                                               : ... note: In instance 'ae18_core'
+ 1122 |   FSM_Q0: {rTBLPTRU,rTBLPTRH,rTBLPTRL} <= #1 ((rMXTBL == MXTBL_WTPRE) | (rMXTBL == MXTBL_RDPRE)) ? wTBLINC : wTBLAT;
+      |                                                                                                  ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:1123:98: Operator COND expects 24 bits on the Conditional True, but Conditional True's VARREF 'wTBLINC' generates 20 bits.
+                                                                                                                               : ... note: In instance 'ae18_core'
+ 1123 |   FSM_Q2: {rTBLPTRU,rTBLPTRH,rTBLPTRL} <= #1 ((rMXTBL == MXTBL_WTINC) | (rMXTBL == MXTBL_RDINC)) ? wTBLINC :
+      |                                                                                                  ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:1124:64: Operator COND expects 24 bits on the Conditional True, but Conditional True's VARREF 'wTBLDEC' generates 20 bits.
+                                                                                                                               : ... note: In instance 'ae18_core'
+ 1124 |            ((rMXTBL == MXTBL_WTDEC) | (rMXTBL == MXTBL_RDDEC)) ? wTBLDEC : wTBLAT;
+      |                                                                ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:1124:64: Operator COND expects 24 bits on the Conditional False, but Conditional False's VARREF 'wTBLAT' generates 20 bits.
+                                                                                                                               : ... note: In instance 'ae18_core'
+ 1124 |            ((rMXTBL == MXTBL_WTDEC) | (rMXTBL == MXTBL_RDDEC)) ? wTBLDEC : wTBLAT;
+      |                                                                ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:1146:36: Operator COND expects 8 bits on the Conditional True, but Conditional True's VARREF 'rPCU' generates 5 bits.
+                                                                                                                               : ... note: In instance 'ae18_core'
+ 1146 |      ((rDWBADR == aPCL) & ~rDWBWE) ? rPCU :
+      |                                    ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:1158:54: Operator COND expects 24 bits on the Conditional False, but Conditional False's REPLICATE generates 20 bits.
+                                                                                                                               : ... note: In instance 'ae18_core'
+ 1158 |  {rPCU,rPCH,rPCL} <= #1 ((rDWBADR == aPCL) & rDWBWE) ? {rPCLATU,rPCLATH,rRESULT} :
+      |                                                      ^
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_725addadf215/ae18_core.v:1158:19: Operator ASSIGNDLY expects 21 bits on the Assign RHS, but Assign RHS's COND generates 24 bits.
+                                                                                                                              : ... note: In instance 'ae18_core'
+ 1158 |  {rPCU,rPCH,rPCL} <= #1 ((rDWBADR == aPCL) & rDWBWE) ? {rPCLATU,rPCLATH,rRESULT} :
+      |                   ^~
+- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev (Debian 5.032-1+b2)
+- Verilator: Built from 0.063 MB sources in 2 modules, into 0.000 MB in 0 C++ files needing 0.000 MB
+- Verilator: Walltime 0.032 s (elab=0.010, cvt=0.005, bld=0.000); cpu 0.000 s on 1 threads; alloced 11.688 MB

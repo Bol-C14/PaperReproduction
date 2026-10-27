@@ -1,0 +1,322 @@
+
+-- Running command `read_verilog -formal -sv constant_control.sv; hierarchy -top M65C02_MPCv3; prep -top M65C02_MPCv3; flatten; async2sync; dffunmap; memory_map; opt_clean; chformal -lower; write_json constant_control.json; sat -seq 2 -timeout 5 -prove-asserts -verify -show-inputs -show-outputs' --
+
+1. Executing Verilog-2005 frontend: constant_control.sv
+Parsing formal SystemVerilog input from `constant_control.sv' to AST representation.
+Generating RTLIL representation for module `\M65C02_MPCv3'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \M65C02_MPCv3
+
+2.2. Analyzing design hierarchy..
+Top module:  \M65C02_MPCv3
+Removed 0 unused modules.
+Module M65C02_MPCv3 directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \M65C02_MPCv3
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \M65C02_MPCv3
+Removed 0 unused modules.
+Module M65C02_MPCv3 directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$constant_control.sv:110$36 in module M65C02_MPCv3.
+Marked 1 switch rules as full_case in process $proc$constant_control.sv:88$27 in module M65C02_MPCv3.
+Marked 2 switch rules as full_case in process $proc$constant_control.sv:76$17 in module M65C02_MPCv3.
+Marked 2 switch rules as full_case in process $proc$constant_control.sv:64$12 in module M65C02_MPCv3.
+Marked 2 switch rules as full_case in process $proc$constant_control.sv:51$3 in module M65C02_MPCv3.
+Marked 1 switch rules as full_case in process $proc$constant_control.sv:43$1 in module M65C02_MPCv3.
+Removed a total of 0 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 5 redundant assignments.
+Promoted 2 assignments to connections.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~12 debug messages>
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\M65C02_MPCv3.$proc$constant_control.sv:121$38'.
+Creating decoders for process `\M65C02_MPCv3.$proc$constant_control.sv:117$37'.
+Creating decoders for process `\M65C02_MPCv3.$proc$constant_control.sv:110$36'.
+     1/1: $0\PC[9:0]
+Creating decoders for process `\M65C02_MPCv3.$proc$constant_control.sv:88$27'.
+     1/1: $0\PC_In[9:0]
+Creating decoders for process `\M65C02_MPCv3.$proc$constant_control.sv:76$17'.
+     1/1: $0\A[9:0]
+Creating decoders for process `\M65C02_MPCv3.$proc$constant_control.sv:64$12'.
+     1/1: $0\MPC_En[0:0]
+Creating decoders for process `\M65C02_MPCv3.$proc$constant_control.sv:51$3'.
+     1/1: $0\MC[1:0]
+Creating decoders for process `\M65C02_MPCv3.$proc$constant_control.sv:43$1'.
+     1/1: $0\dRst[0:0]
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\M65C02_MPCv3.\MA' from process `\M65C02_MPCv3.$proc$constant_control.sv:117$37'.
+No latch inferred for signal `\M65C02_MPCv3.\PC_In' from process `\M65C02_MPCv3.$proc$constant_control.sv:88$27'.
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\M65C02_MPCv3.\PC' using process `\M65C02_MPCv3.$proc$constant_control.sv:110$36'.
+  created $dff cell `$procdff$94' with positive edge clock.
+Creating register for signal `\M65C02_MPCv3.\A' using process `\M65C02_MPCv3.$proc$constant_control.sv:76$17'.
+  created $dff cell `$procdff$95' with positive edge clock.
+Creating register for signal `\M65C02_MPCv3.\MPC_En' using process `\M65C02_MPCv3.$proc$constant_control.sv:64$12'.
+  created $dff cell `$procdff$96' with positive edge clock.
+Creating register for signal `\M65C02_MPCv3.\MC' using process `\M65C02_MPCv3.$proc$constant_control.sv:51$3'.
+  created $dff cell `$procdff$97' with positive edge clock.
+Creating register for signal `\M65C02_MPCv3.\dRst' using process `\M65C02_MPCv3.$proc$constant_control.sv:43$1'.
+  created $dff cell `$procdff$98' with positive edge clock.
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `M65C02_MPCv3.$proc$constant_control.sv:121$38'.
+Removing empty process `M65C02_MPCv3.$proc$constant_control.sv:117$37'.
+Found and cleaned up 2 empty switches in `\M65C02_MPCv3.$proc$constant_control.sv:110$36'.
+Removing empty process `M65C02_MPCv3.$proc$constant_control.sv:110$36'.
+Found and cleaned up 1 empty switch in `\M65C02_MPCv3.$proc$constant_control.sv:88$27'.
+Removing empty process `M65C02_MPCv3.$proc$constant_control.sv:88$27'.
+Found and cleaned up 4 empty switches in `\M65C02_MPCv3.$proc$constant_control.sv:76$17'.
+Removing empty process `M65C02_MPCv3.$proc$constant_control.sv:76$17'.
+Found and cleaned up 2 empty switches in `\M65C02_MPCv3.$proc$constant_control.sv:64$12'.
+Removing empty process `M65C02_MPCv3.$proc$constant_control.sv:64$12'.
+Found and cleaned up 2 empty switches in `\M65C02_MPCv3.$proc$constant_control.sv:51$3'.
+Removing empty process `M65C02_MPCv3.$proc$constant_control.sv:51$3'.
+Found and cleaned up 1 empty switch in `\M65C02_MPCv3.$proc$constant_control.sv:43$1'.
+Removing empty process `M65C02_MPCv3.$proc$constant_control.sv:43$1'.
+Cleaned up 12 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module M65C02_MPCv3.
+<suppressed ~6 debug messages>
+
+3.3. Executing FUTURE pass.
+
+3.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module M65C02_MPCv3.
+
+3.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \M65C02_MPCv3..
+Removed 0 unused cells and 23 unused wires.
+<suppressed ~1 debug messages>
+
+3.6. Executing CHECK pass (checking for obvious problems).
+Checking module M65C02_MPCv3...
+Found and reported 0 problems.
+
+3.7. Executing OPT pass (performing simple optimizations).
+
+3.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module M65C02_MPCv3.
+
+3.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\M65C02_MPCv3'.
+<suppressed ~21 debug messages>
+Removed a total of 7 cells.
+
+3.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \M65C02_MPCv3..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~6 debug messages>
+
+3.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \M65C02_MPCv3.
+    New ctrl vector for $pmux cell $procmux$48: { $procmux$64_CMP $procmux$62_CMP $procmux$61_CMP $auto$opt_reduce.cc:137:opt_pmux$100 $procmux$56_CMP $procmux$55_CMP $procmux$54_CMP $procmux$53_CMP $procmux$52_CMP $procmux$51_CMP $procmux$50_CMP $procmux$49_CMP }
+  Optimizing cells in module \M65C02_MPCv3.
+Performed a total of 1 changes.
+
+3.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\M65C02_MPCv3'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+3.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \M65C02_MPCv3..
+Removed 0 unused cells and 8 unused wires.
+<suppressed ~1 debug messages>
+
+3.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module M65C02_MPCv3.
+
+3.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \M65C02_MPCv3..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~7 debug messages>
+
+3.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \M65C02_MPCv3.
+Performed a total of 0 changes.
+
+3.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\M65C02_MPCv3'.
+Removed a total of 0 cells.
+
+3.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \M65C02_MPCv3..
+
+3.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module M65C02_MPCv3.
+
+3.7.14. Finished OPT passes. (There is nothing left to do.)
+
+3.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 30 bits (of 32) from mux cell M65C02_MPCv3.$ternary$constant_control.sv:54$5 ($mux).
+Removed top 30 bits (of 32) from mux cell M65C02_MPCv3.$ternary$constant_control.sv:57$6 ($mux).
+Removed top 30 bits (of 32) from mux cell M65C02_MPCv3.$ternary$constant_control.sv:58$7 ($mux).
+Removed top 31 bits (of 32) from mux cell M65C02_MPCv3.$ternary$constant_control.sv:59$8 ($mux).
+Removed top 31 bits (of 32) from mux cell M65C02_MPCv3.$ternary$constant_control.sv:70$15 ($mux).
+Removed top 3 bits (of 4) from port B of cell M65C02_MPCv3.$eq$constant_control.sv:81$18 ($eq).
+Removed top 31 bits (of 32) from port B of cell M65C02_MPCv3.$add$constant_control.sv:86$20 ($add).
+Removed top 22 bits (of 32) from port Y of cell M65C02_MPCv3.$add$constant_control.sv:86$20 ($add).
+Removed top 1 bits (of 4) from port B of cell M65C02_MPCv3.$eq$constant_control.sv:87$21 ($eq).
+Removed top 1 bits (of 4) from port B of cell M65C02_MPCv3.$eq$constant_control.sv:87$22 ($eq).
+Removed top 1 bits (of 4) from port B of cell M65C02_MPCv3.$eq$constant_control.sv:87$24 ($eq).
+Removed top 1 bits (of 5) from port B of cell M65C02_MPCv3.$procmux$49_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell M65C02_MPCv3.$procmux$50_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell M65C02_MPCv3.$procmux$51_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell M65C02_MPCv3.$procmux$52_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell M65C02_MPCv3.$procmux$53_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell M65C02_MPCv3.$procmux$54_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell M65C02_MPCv3.$procmux$55_CMP0 ($eq).
+Removed top 1 bits (of 5) from port B of cell M65C02_MPCv3.$procmux$56_CMP0 ($eq).
+Removed top 2 bits (of 5) from port B of cell M65C02_MPCv3.$procmux$57_CMP0 ($eq).
+Removed top 2 bits (of 5) from port B of cell M65C02_MPCv3.$procmux$58_CMP0 ($eq).
+Removed top 2 bits (of 5) from port B of cell M65C02_MPCv3.$procmux$59_CMP0 ($eq).
+Removed top 2 bits (of 5) from port B of cell M65C02_MPCv3.$procmux$60_CMP0 ($eq).
+Removed top 3 bits (of 5) from port B of cell M65C02_MPCv3.$procmux$61_CMP0 ($eq).
+Removed top 3 bits (of 5) from port B of cell M65C02_MPCv3.$procmux$62_CMP0 ($eq).
+Removed top 4 bits (of 5) from port B of cell M65C02_MPCv3.$procmux$63_CMP0 ($eq).
+Removed top 1 bits (of 2) from port B of cell M65C02_MPCv3.$procmux$77_CMP0 ($eq).
+Removed top 30 bits (of 32) from wire M65C02_MPCv3.$ternary$constant_control.sv:54$5_Y.
+Removed top 30 bits (of 32) from wire M65C02_MPCv3.$ternary$constant_control.sv:57$6_Y.
+
+3.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \M65C02_MPCv3..
+Removed 0 unused cells and 3 unused wires.
+<suppressed ~1 debug messages>
+
+3.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.11. Executing OPT pass (performing simple optimizations).
+
+3.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module M65C02_MPCv3.
+
+3.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\M65C02_MPCv3'.
+Removed a total of 0 cells.
+
+3.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \M65C02_MPCv3..
+
+3.11.4. Finished fast OPT passes.
+
+3.12. Printing statistics.
+
+=== M65C02_MPCv3 ===
+
+   Number of wires:                 72
+   Number of wire bits:            420
+   Number of public wires:          19
+   Number of public wire bits:      84
+   Number of ports:                 11
+   Number of port bits:             40
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 65
+     $add                            1
+     $check                          1
+     $dff                            5
+     $eq                            22
+     $logic_not                      5
+     $mux                           22
+     $not                            1
+     $or                             3
+     $pmux                           3
+     $reduce_or                      2
+
+3.13. Executing CHECK pass (checking for obvious problems).
+Checking module M65C02_MPCv3...
+Found and reported 0 problems.
+
+4. Executing FLATTEN pass (flatten design).
+
+5. Executing ASYNC2SYNC pass.
+
+6. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+7. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \M65C02_MPCv3..
+Removed 2 unused cells and 2 unused wires.
+<suppressed ~3 debug messages>
+
+9. Executing JSON backend.
+
+10. Executing SAT pass (solving SAT problems in the circuit).
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 65 cells to SAT database.
+No constraints for initial state found.
+
+Import proof for assert: 1'1 when 1'1.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 65 cells to SAT database.
+Import proof for assert: 1'1 when 1'1.
+Import show expression: \BA
+Import show expression: \Clk
+Import show expression: \I
+Import show expression: \MW
+Import show expression: \Rst
+Import show expression: \T
+Import show expression: \Wait
+Import show expression: \uLen
+Import show expression: \MA
+Import show expression: \MC
+Import show expression: \Via
+
+Solving problem with 3652 variables and 9969 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+

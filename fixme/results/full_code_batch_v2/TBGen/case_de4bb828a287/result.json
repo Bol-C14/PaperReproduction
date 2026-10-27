@@ -1,0 +1,40 @@
+{
+  "id": "TBGen/L1/Text/ziptimer",
+  "subset": "TBGen",
+  "input_files": [
+    {
+      "name": "ziptimer.v",
+      "bytes": 1980,
+      "sha256": "96a456575def633087f6a4d5c24665bd876b540219576a576d490da4c1ef24d8"
+    },
+    {
+      "name": "ziptimer_spec.txt",
+      "bytes": 7530,
+      "sha256": "90114be8fc78cd191e3fc6ff8c1570dd7ff6b743fa0f96f2fa41470760bbda04"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": true,
+  "negative_control_detected": true,
+  "commands": 5,
+  "status": "pass",
+  "stimulus_contract": {
+    "seed": 13579,
+    "cycles": 64,
+    "clock": "i_clk",
+    "reset_polarities": {
+      "i_rst": 1
+    },
+    "unknown_handling": "any observed unknown prevents pass",
+    "oracle": "renamed copy of supplied RTL; self-consistency/calibration only"
+  },
+  "observed_checks": 64,
+  "observed_unknown": 0,
+  "reference_status": "pass",
+  "negative_status": "fail",
+  "reason": "reference/checker positive and perturbed-checker negative executed",
+  "seconds": 0.13
+}

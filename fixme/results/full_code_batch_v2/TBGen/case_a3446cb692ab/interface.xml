@@ -1,0 +1,388 @@
+<?xml version="1.0" ?>
+<!-- DESCRIPTION: Verilator output: XML representation of netlist -->
+<verilator_xml>
+  <files>
+    <file id="d" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std.sv" language="1800-2023"/>
+    <file id="c" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std_waiver.vlt" language="1800-2023"/>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_a3446cb692ab/clock_switch4_basic.v" language="1800-2023"/>
+    <file id="a" filename="&lt;built-in&gt;" language="1800-2023"/>
+    <file id="b" filename="&lt;command-line&gt;" language="1800-2023"/>
+  </files>
+  <module_files>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_a3446cb692ab/clock_switch4_basic.v" language="1800-2023"/>
+  </module_files>
+  <cells>
+    <cell loc="e,3,8,3,27" name="clock_switch4_basic" submodname="clock_switch4_basic" hier="clock_switch4_basic"/>
+  </cells>
+  <netlist>
+    <module loc="e,3,8,3,27" name="clock_switch4_basic" origName="clock_switch4_basic" topModule="1">
+      <var loc="e,18,14,18,19" name="clk_o" dtype_id="1" dir="output" pinIndex="1" vartype="logic" origName="clk_o"/>
+      <var loc="e,8,14,8,20" name="rst0_i" dtype_id="1" dir="input" pinIndex="2" vartype="logic" origName="rst0_i"/>
+      <var loc="e,9,14,9,20" name="clk0_i" dtype_id="1" dir="input" pinIndex="3" vartype="logic" origName="clk0_i"/>
+      <var loc="e,10,14,10,20" name="rst1_i" dtype_id="1" dir="input" pinIndex="4" vartype="logic" origName="rst1_i"/>
+      <var loc="e,11,14,11,20" name="clk1_i" dtype_id="1" dir="input" pinIndex="5" vartype="logic" origName="clk1_i"/>
+      <var loc="e,12,14,12,20" name="rst2_i" dtype_id="1" dir="input" pinIndex="6" vartype="logic" origName="rst2_i"/>
+      <var loc="e,13,14,13,20" name="clk2_i" dtype_id="1" dir="input" pinIndex="7" vartype="logic" origName="clk2_i"/>
+      <var loc="e,14,14,14,20" name="rst3_i" dtype_id="1" dir="input" pinIndex="8" vartype="logic" origName="rst3_i"/>
+      <var loc="e,15,14,15,20" name="clk3_i" dtype_id="1" dir="input" pinIndex="9" vartype="logic" origName="clk3_i"/>
+      <var loc="e,16,14,16,20" name="enable" dtype_id="1" dir="input" pinIndex="10" vartype="logic" origName="enable"/>
+      <var loc="e,17,14,17,20" name="select" dtype_id="2" dir="input" pinIndex="11" vartype="logic" origName="select"/>
+      <var loc="e,19,14,19,20" name="ssync0" dtype_id="2" vartype="logic" origName="ssync0"/>
+      <var loc="e,20,14,20,20" name="ssync1" dtype_id="2" vartype="logic" origName="ssync1"/>
+      <var loc="e,21,14,21,20" name="ssync2" dtype_id="2" vartype="logic" origName="ssync2"/>
+      <var loc="e,22,14,22,20" name="ssync3" dtype_id="2" vartype="logic" origName="ssync3"/>
+      <var loc="e,23,14,23,20" name="decode" dtype_id="3" vartype="logic" origName="decode"/>
+      <always loc="e,24,1,24,7">
+        <sentree loc="e,24,8,24,9">
+          <senitem loc="e,24,21,24,27" edgeType="CHANGED">
+            <varref loc="e,24,21,24,27" name="enable" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,24,11,24,17" edgeType="CHANGED">
+            <varref loc="e,24,11,24,17" name="select" dtype_id="2"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,25,1,25,6">
+          <assign loc="e,26,21,26,22" dtype_id="3">
+            <const loc="e,26,23,26,27" name="4&apos;h0" dtype_id="3"/>
+            <varref loc="e,26,11,26,17" name="decode" dtype_id="3"/>
+          </assign>
+          <case loc="e,27,2,27,6">
+            <varref loc="e,27,8,27,14" name="select" dtype_id="2"/>
+            <caseitem loc="e,28,7,28,8">
+              <const loc="e,28,2,28,7" name="2&apos;h0" dtype_id="2"/>
+              <assign loc="e,28,21,28,22" dtype_id="1">
+                <varref loc="e,28,23,28,29" name="enable" dtype_id="1"/>
+                <sel loc="e,28,17,28,18" dtype_id="1">
+                  <varref loc="e,28,11,28,17" name="decode" dtype_id="3"/>
+                  <const loc="e,28,18,28,19" name="2&apos;h0" dtype_id="4"/>
+                  <const loc="e,28,17,28,18" name="32&apos;h1" dtype_id="5"/>
+                </sel>
+              </assign>
+            </caseitem>
+            <caseitem loc="e,29,7,29,8">
+              <const loc="e,29,2,29,7" name="2&apos;h1" dtype_id="2"/>
+              <assign loc="e,29,21,29,22" dtype_id="1">
+                <varref loc="e,29,23,29,29" name="enable" dtype_id="1"/>
+                <sel loc="e,29,17,29,18" dtype_id="1">
+                  <varref loc="e,29,11,29,17" name="decode" dtype_id="3"/>
+                  <const loc="e,29,18,29,19" name="2&apos;h1" dtype_id="4"/>
+                  <const loc="e,29,17,29,18" name="32&apos;h1" dtype_id="5"/>
+                </sel>
+              </assign>
+            </caseitem>
+            <caseitem loc="e,30,7,30,8">
+              <const loc="e,30,2,30,7" name="2&apos;h2" dtype_id="2"/>
+              <assign loc="e,30,21,30,22" dtype_id="1">
+                <varref loc="e,30,23,30,29" name="enable" dtype_id="1"/>
+                <sel loc="e,30,17,30,18" dtype_id="1">
+                  <varref loc="e,30,11,30,17" name="decode" dtype_id="3"/>
+                  <const loc="e,30,18,30,19" name="2&apos;h2" dtype_id="4"/>
+                  <const loc="e,30,17,30,18" name="32&apos;h1" dtype_id="5"/>
+                </sel>
+              </assign>
+            </caseitem>
+            <caseitem loc="e,31,7,31,8">
+              <const loc="e,31,2,31,7" name="2&apos;h3" dtype_id="2"/>
+              <assign loc="e,31,21,31,22" dtype_id="1">
+                <varref loc="e,31,23,31,29" name="enable" dtype_id="1"/>
+                <sel loc="e,31,17,31,18" dtype_id="1">
+                  <varref loc="e,31,11,31,17" name="decode" dtype_id="3"/>
+                  <const loc="e,31,18,31,19" name="2&apos;h3" dtype_id="4"/>
+                  <const loc="e,31,17,31,18" name="32&apos;h1" dtype_id="5"/>
+                </sel>
+              </assign>
+            </caseitem>
+            <caseitem loc="e,32,2,32,9">
+              <assign loc="e,32,21,32,22" dtype_id="3">
+                <const loc="e,32,23,32,27" name="4&apos;h0" dtype_id="3"/>
+                <varref loc="e,32,11,32,17" name="decode" dtype_id="3"/>
+              </assign>
+            </caseitem>
+          </case>
+        </begin>
+      </always>
+      <always loc="e,35,1,35,7">
+        <sentree loc="e,35,8,35,9">
+          <senitem loc="e,35,11,35,18" edgeType="POS">
+            <varref loc="e,35,19,35,25" name="clk0_i" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,35,29,35,36" edgeType="POS">
+            <varref loc="e,35,37,35,43" name="rst0_i" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <assigndly loc="e,37,13,37,15" dtype_id="2">
+          <cond loc="e,37,18,37,22" dtype_id="2">
+            <varref loc="e,36,5,36,11" name="rst0_i" dtype_id="1"/>
+            <const loc="e,37,18,37,22" name="2&apos;h0" dtype_id="2"/>
+            <concat loc="e,38,27,38,28" dtype_id="2">
+              <sel loc="e,38,24,38,25" dtype_id="1">
+                <varref loc="e,38,18,38,24" name="ssync0" dtype_id="2"/>
+                <const loc="e,38,25,38,26" name="1&apos;h0" dtype_id="6"/>
+                <const loc="e,38,24,38,25" name="32&apos;h1" dtype_id="5"/>
+              </sel>
+              <and loc="e,38,67,38,68" dtype_id="1">
+                <and loc="e,38,54,38,55" dtype_id="1">
+                  <and loc="e,38,41,38,42" dtype_id="1">
+                    <sel loc="e,38,37,38,38" dtype_id="1">
+                      <varref loc="e,38,31,38,37" name="decode" dtype_id="3"/>
+                      <const loc="e,38,38,38,39" name="2&apos;h0" dtype_id="4"/>
+                      <const loc="e,38,37,38,38" name="32&apos;h1" dtype_id="5"/>
+                    </sel>
+                    <not loc="e,38,43,38,44" dtype_id="1">
+                      <sel loc="e,38,50,38,51" dtype_id="1">
+                        <varref loc="e,38,44,38,50" name="ssync1" dtype_id="2"/>
+                        <const loc="e,38,51,38,52" name="1&apos;h1" dtype_id="6"/>
+                        <const loc="e,38,50,38,51" name="32&apos;h1" dtype_id="5"/>
+                      </sel>
+                    </not>
+                  </and>
+                  <not loc="e,38,56,38,57" dtype_id="1">
+                    <sel loc="e,38,63,38,64" dtype_id="1">
+                      <varref loc="e,38,57,38,63" name="ssync2" dtype_id="2"/>
+                      <const loc="e,38,64,38,65" name="1&apos;h1" dtype_id="6"/>
+                      <const loc="e,38,63,38,64" name="32&apos;h1" dtype_id="5"/>
+                    </sel>
+                  </not>
+                </and>
+                <not loc="e,38,69,38,70" dtype_id="1">
+                  <sel loc="e,38,76,38,77" dtype_id="1">
+                    <varref loc="e,38,70,38,76" name="ssync3" dtype_id="2"/>
+                    <const loc="e,38,77,38,78" name="1&apos;h1" dtype_id="6"/>
+                    <const loc="e,38,76,38,77" name="32&apos;h1" dtype_id="5"/>
+                  </sel>
+                </not>
+              </and>
+            </concat>
+          </cond>
+          <varref loc="e,37,6,37,12" name="ssync0" dtype_id="2"/>
+        </assigndly>
+      </always>
+      <always loc="e,39,1,39,7">
+        <sentree loc="e,39,8,39,9">
+          <senitem loc="e,39,11,39,18" edgeType="POS">
+            <varref loc="e,39,19,39,25" name="clk1_i" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,39,29,39,36" edgeType="POS">
+            <varref loc="e,39,37,39,43" name="rst1_i" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <assigndly loc="e,41,13,41,15" dtype_id="2">
+          <cond loc="e,41,18,41,22" dtype_id="2">
+            <varref loc="e,40,5,40,11" name="rst1_i" dtype_id="1"/>
+            <const loc="e,41,18,41,22" name="2&apos;h0" dtype_id="2"/>
+            <concat loc="e,42,27,42,28" dtype_id="2">
+              <sel loc="e,42,24,42,25" dtype_id="1">
+                <varref loc="e,42,18,42,24" name="ssync1" dtype_id="2"/>
+                <const loc="e,42,25,42,26" name="1&apos;h0" dtype_id="6"/>
+                <const loc="e,42,24,42,25" name="32&apos;h1" dtype_id="5"/>
+              </sel>
+              <and loc="e,42,67,42,68" dtype_id="1">
+                <and loc="e,42,54,42,55" dtype_id="1">
+                  <and loc="e,42,41,42,42" dtype_id="1">
+                    <not loc="e,42,30,42,31" dtype_id="1">
+                      <sel loc="e,42,37,42,38" dtype_id="1">
+                        <varref loc="e,42,31,42,37" name="ssync0" dtype_id="2"/>
+                        <const loc="e,42,38,42,39" name="1&apos;h1" dtype_id="6"/>
+                        <const loc="e,42,37,42,38" name="32&apos;h1" dtype_id="5"/>
+                      </sel>
+                    </not>
+                    <sel loc="e,42,50,42,51" dtype_id="1">
+                      <varref loc="e,42,44,42,50" name="decode" dtype_id="3"/>
+                      <const loc="e,42,51,42,52" name="2&apos;h1" dtype_id="4"/>
+                      <const loc="e,42,50,42,51" name="32&apos;h1" dtype_id="5"/>
+                    </sel>
+                  </and>
+                  <not loc="e,42,56,42,57" dtype_id="1">
+                    <sel loc="e,42,63,42,64" dtype_id="1">
+                      <varref loc="e,42,57,42,63" name="ssync2" dtype_id="2"/>
+                      <const loc="e,42,64,42,65" name="1&apos;h1" dtype_id="6"/>
+                      <const loc="e,42,63,42,64" name="32&apos;h1" dtype_id="5"/>
+                    </sel>
+                  </not>
+                </and>
+                <not loc="e,42,69,42,70" dtype_id="1">
+                  <sel loc="e,42,76,42,77" dtype_id="1">
+                    <varref loc="e,42,70,42,76" name="ssync3" dtype_id="2"/>
+                    <const loc="e,42,77,42,78" name="1&apos;h1" dtype_id="6"/>
+                    <const loc="e,42,76,42,77" name="32&apos;h1" dtype_id="5"/>
+                  </sel>
+                </not>
+              </and>
+            </concat>
+          </cond>
+          <varref loc="e,41,6,41,12" name="ssync1" dtype_id="2"/>
+        </assigndly>
+      </always>
+      <always loc="e,43,1,43,7">
+        <sentree loc="e,43,8,43,9">
+          <senitem loc="e,43,11,43,18" edgeType="POS">
+            <varref loc="e,43,19,43,25" name="clk2_i" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,43,29,43,36" edgeType="POS">
+            <varref loc="e,43,37,43,43" name="rst2_i" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <assigndly loc="e,45,13,45,15" dtype_id="2">
+          <cond loc="e,45,18,45,22" dtype_id="2">
+            <varref loc="e,44,5,44,11" name="rst2_i" dtype_id="1"/>
+            <const loc="e,45,18,45,22" name="2&apos;h0" dtype_id="2"/>
+            <concat loc="e,46,27,46,28" dtype_id="2">
+              <sel loc="e,46,24,46,25" dtype_id="1">
+                <varref loc="e,46,18,46,24" name="ssync2" dtype_id="2"/>
+                <const loc="e,46,25,46,26" name="1&apos;h0" dtype_id="6"/>
+                <const loc="e,46,24,46,25" name="32&apos;h1" dtype_id="5"/>
+              </sel>
+              <and loc="e,46,67,46,68" dtype_id="1">
+                <and loc="e,46,54,46,55" dtype_id="1">
+                  <and loc="e,46,41,46,42" dtype_id="1">
+                    <not loc="e,46,30,46,31" dtype_id="1">
+                      <sel loc="e,46,37,46,38" dtype_id="1">
+                        <varref loc="e,46,31,46,37" name="ssync0" dtype_id="2"/>
+                        <const loc="e,46,38,46,39" name="1&apos;h1" dtype_id="6"/>
+                        <const loc="e,46,37,46,38" name="32&apos;h1" dtype_id="5"/>
+                      </sel>
+                    </not>
+                    <not loc="e,46,43,46,44" dtype_id="1">
+                      <sel loc="e,46,50,46,51" dtype_id="1">
+                        <varref loc="e,46,44,46,50" name="ssync1" dtype_id="2"/>
+                        <const loc="e,46,51,46,52" name="1&apos;h1" dtype_id="6"/>
+                        <const loc="e,46,50,46,51" name="32&apos;h1" dtype_id="5"/>
+                      </sel>
+                    </not>
+                  </and>
+                  <sel loc="e,46,63,46,64" dtype_id="1">
+                    <varref loc="e,46,57,46,63" name="decode" dtype_id="3"/>
+                    <const loc="e,46,64,46,65" name="2&apos;h2" dtype_id="4"/>
+                    <const loc="e,46,63,46,64" name="32&apos;h1" dtype_id="5"/>
+                  </sel>
+                </and>
+                <not loc="e,46,69,46,70" dtype_id="1">
+                  <sel loc="e,46,76,46,77" dtype_id="1">
+                    <varref loc="e,46,70,46,76" name="ssync3" dtype_id="2"/>
+                    <const loc="e,46,77,46,78" name="1&apos;h1" dtype_id="6"/>
+                    <const loc="e,46,76,46,77" name="32&apos;h1" dtype_id="5"/>
+                  </sel>
+                </not>
+              </and>
+            </concat>
+          </cond>
+          <varref loc="e,45,6,45,12" name="ssync2" dtype_id="2"/>
+        </assigndly>
+      </always>
+      <always loc="e,47,1,47,7">
+        <sentree loc="e,47,8,47,9">
+          <senitem loc="e,47,11,47,18" edgeType="POS">
+            <varref loc="e,47,19,47,25" name="clk3_i" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,47,29,47,36" edgeType="POS">
+            <varref loc="e,47,37,47,43" name="rst3_i" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <assigndly loc="e,49,13,49,15" dtype_id="2">
+          <cond loc="e,49,18,49,22" dtype_id="2">
+            <varref loc="e,48,5,48,11" name="rst3_i" dtype_id="1"/>
+            <const loc="e,49,18,49,22" name="2&apos;h0" dtype_id="2"/>
+            <concat loc="e,50,27,50,28" dtype_id="2">
+              <sel loc="e,50,24,50,25" dtype_id="1">
+                <varref loc="e,50,18,50,24" name="ssync3" dtype_id="2"/>
+                <const loc="e,50,25,50,26" name="1&apos;h0" dtype_id="6"/>
+                <const loc="e,50,24,50,25" name="32&apos;h1" dtype_id="5"/>
+              </sel>
+              <and loc="e,50,67,50,68" dtype_id="1">
+                <and loc="e,50,54,50,55" dtype_id="1">
+                  <and loc="e,50,41,50,42" dtype_id="1">
+                    <not loc="e,50,30,50,31" dtype_id="1">
+                      <sel loc="e,50,37,50,38" dtype_id="1">
+                        <varref loc="e,50,31,50,37" name="ssync0" dtype_id="2"/>
+                        <const loc="e,50,38,50,39" name="1&apos;h1" dtype_id="6"/>
+                        <const loc="e,50,37,50,38" name="32&apos;h1" dtype_id="5"/>
+                      </sel>
+                    </not>
+                    <not loc="e,50,43,50,44" dtype_id="1">
+                      <sel loc="e,50,50,50,51" dtype_id="1">
+                        <varref loc="e,50,44,50,50" name="ssync1" dtype_id="2"/>
+                        <const loc="e,50,51,50,52" name="1&apos;h1" dtype_id="6"/>
+                        <const loc="e,50,50,50,51" name="32&apos;h1" dtype_id="5"/>
+                      </sel>
+                    </not>
+                  </and>
+                  <not loc="e,50,56,50,57" dtype_id="1">
+                    <sel loc="e,50,63,50,64" dtype_id="1">
+                      <varref loc="e,50,57,50,63" name="ssync2" dtype_id="2"/>
+                      <const loc="e,50,64,50,65" name="1&apos;h1" dtype_id="6"/>
+                      <const loc="e,50,63,50,64" name="32&apos;h1" dtype_id="5"/>
+                    </sel>
+                  </not>
+                </and>
+                <sel loc="e,50,76,50,77" dtype_id="1">
+                  <varref loc="e,50,70,50,76" name="decode" dtype_id="3"/>
+                  <const loc="e,50,77,50,78" name="2&apos;h3" dtype_id="4"/>
+                  <const loc="e,50,76,50,77" name="32&apos;h1" dtype_id="5"/>
+                </sel>
+              </and>
+            </concat>
+          </cond>
+          <varref loc="e,49,6,49,12" name="ssync3" dtype_id="2"/>
+        </assigndly>
+      </always>
+      <contassign loc="e,55,12,55,13" dtype_id="1">
+        <and loc="e,55,21,55,22" dtype_id="1">
+          <or loc="e,51,25,51,26" dtype_id="1">
+            <not loc="e,51,14,51,15" dtype_id="1">
+              <sel loc="e,51,21,51,22" dtype_id="1">
+                <varref loc="e,19,14,19,20" name="ssync0" dtype_id="2"/>
+                <const loc="e,51,21,51,22" name="32&apos;h1" dtype_id="5"/>
+                <const loc="e,51,21,51,22" name="32&apos;h1" dtype_id="5"/>
+              </sel>
+            </not>
+            <varref loc="e,9,14,9,20" name="clk0_i" dtype_id="1"/>
+          </or>
+          <and loc="e,55,29,55,30" dtype_id="1">
+            <or loc="e,52,25,52,26" dtype_id="1">
+              <not loc="e,52,14,52,15" dtype_id="1">
+                <sel loc="e,52,21,52,22" dtype_id="1">
+                  <varref loc="e,20,14,20,20" name="ssync1" dtype_id="2"/>
+                  <const loc="e,52,21,52,22" name="32&apos;h1" dtype_id="5"/>
+                  <const loc="e,52,21,52,22" name="32&apos;h1" dtype_id="5"/>
+                </sel>
+              </not>
+              <varref loc="e,11,14,11,20" name="clk1_i" dtype_id="1"/>
+            </or>
+            <and loc="e,55,37,55,38" dtype_id="1">
+              <or loc="e,53,25,53,26" dtype_id="1">
+                <not loc="e,53,14,53,15" dtype_id="1">
+                  <sel loc="e,53,21,53,22" dtype_id="1">
+                    <varref loc="e,21,14,21,20" name="ssync2" dtype_id="2"/>
+                    <const loc="e,53,21,53,22" name="32&apos;h1" dtype_id="5"/>
+                    <const loc="e,53,21,53,22" name="32&apos;h1" dtype_id="5"/>
+                  </sel>
+                </not>
+                <varref loc="e,13,14,13,20" name="clk2_i" dtype_id="1"/>
+              </or>
+              <or loc="e,54,25,54,26" dtype_id="1">
+                <not loc="e,54,14,54,15" dtype_id="1">
+                  <sel loc="e,54,21,54,22" dtype_id="1">
+                    <varref loc="e,22,14,22,20" name="ssync3" dtype_id="2"/>
+                    <const loc="e,54,21,54,22" name="32&apos;h1" dtype_id="5"/>
+                    <const loc="e,54,21,54,22" name="32&apos;h1" dtype_id="5"/>
+                  </sel>
+                </not>
+                <varref loc="e,15,14,15,20" name="clk3_i" dtype_id="1"/>
+              </or>
+            </and>
+          </and>
+        </and>
+        <varref loc="e,55,12,55,13" name="clk_o" dtype_id="1"/>
+      </contassign>
+    </module>
+    <typetable loc="a,0,0,0,0">
+      <voiddtype loc="d,48,18,48,27" id="7"/>
+      <basicdtype loc="e,55,6,55,11" id="1" name="logic"/>
+      <basicdtype loc="e,17,8,17,9" id="2" name="logic" left="1" right="0"/>
+      <basicdtype loc="e,23,1,23,4" id="3" name="logic" left="3" right="0"/>
+      <basicdtype loc="e,28,17,28,18" id="4" name="logic" left="1" right="0" signed="true"/>
+      <basicdtype loc="e,38,24,38,25" id="6" name="logic" signed="true"/>
+      <basicdtype loc="e,28,17,28,18" id="5" name="logic" left="31" right="0"/>
+    </typetable>
+  </netlist>
+</verilator_xml>

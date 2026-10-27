@@ -1,0 +1,139 @@
+<?xml version="1.0" ?>
+<!-- DESCRIPTION: Verilator output: XML representation of netlist -->
+<verilator_xml>
+  <files>
+    <file id="d" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std.sv" language="1800-2023"/>
+    <file id="c" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std_waiver.vlt" language="1800-2023"/>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_be8eb892f86e/test_stub_scan.v" language="1800-2023"/>
+    <file id="a" filename="&lt;built-in&gt;" language="1800-2023"/>
+    <file id="b" filename="&lt;command-line&gt;" language="1800-2023"/>
+  </files>
+  <module_files>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_be8eb892f86e/test_stub_scan.v" language="1800-2023"/>
+  </module_files>
+  <cells>
+    <cell loc="e,3,8,3,22" name="test_stub_scan" submodname="test_stub_scan" hier="test_stub_scan"/>
+  </cells>
+  <netlist>
+    <module loc="e,3,8,3,22" name="test_stub_scan" origName="test_stub_scan" topModule="1">
+      <var loc="e,24,12,24,29" name="mux_drive_disable" dtype_id="1" dir="output" pinIndex="1" vartype="logic" origName="mux_drive_disable"/>
+      <var loc="e,25,12,25,29" name="mem_write_disable" dtype_id="1" dir="output" pinIndex="2" vartype="logic" origName="mem_write_disable"/>
+      <var loc="e,26,12,26,18" name="sehold" dtype_id="1" dir="output" pinIndex="3" vartype="logic" origName="sehold"/>
+      <var loc="e,27,12,27,14" name="se" dtype_id="1" dir="output" pinIndex="4" vartype="logic" origName="se"/>
+      <var loc="e,28,12,28,22" name="testmode_l" dtype_id="1" dir="output" pinIndex="5" vartype="logic" origName="testmode_l"/>
+      <var loc="e,29,12,29,22" name="mem_bypass" dtype_id="1" dir="output" pinIndex="6" vartype="logic" origName="mem_bypass"/>
+      <var loc="e,30,12,30,16" name="so_0" dtype_id="1" dir="output" pinIndex="7" vartype="logic" origName="so_0"/>
+      <var loc="e,31,12,31,16" name="so_1" dtype_id="1" dir="output" pinIndex="8" vartype="logic" origName="so_1"/>
+      <var loc="e,32,12,32,16" name="so_2" dtype_id="1" dir="output" pinIndex="9" vartype="logic" origName="so_2"/>
+      <var loc="e,11,17,11,35" name="ctu_tst_pre_grst_l" dtype_id="1" dir="input" pinIndex="10" vartype="logic" origName="ctu_tst_pre_grst_l"/>
+      <var loc="e,12,17,12,23" name="arst_l" dtype_id="1" dir="input" pinIndex="11" vartype="logic" origName="arst_l"/>
+      <var loc="e,13,17,13,36" name="global_shift_enable" dtype_id="1" dir="input" pinIndex="12" vartype="logic" origName="global_shift_enable"/>
+      <var loc="e,14,17,14,37" name="ctu_tst_scan_disable" dtype_id="1" dir="input" pinIndex="13" vartype="logic" origName="ctu_tst_scan_disable"/>
+      <var loc="e,15,17,15,33" name="ctu_tst_scanmode" dtype_id="1" dir="input" pinIndex="14" vartype="logic" origName="ctu_tst_scanmode"/>
+      <var loc="e,16,11,16,28" name="ctu_tst_macrotest" dtype_id="1" dir="input" pinIndex="15" vartype="logic" origName="ctu_tst_macrotest"/>
+      <var loc="e,17,11,17,30" name="ctu_tst_short_chain" dtype_id="1" dir="input" pinIndex="16" vartype="logic" origName="ctu_tst_short_chain"/>
+      <var loc="e,18,11,18,26" name="long_chain_so_0" dtype_id="1" dir="input" pinIndex="17" vartype="logic" origName="long_chain_so_0"/>
+      <var loc="e,19,11,19,27" name="short_chain_so_0" dtype_id="1" dir="input" pinIndex="18" vartype="logic" origName="short_chain_so_0"/>
+      <var loc="e,20,11,20,26" name="long_chain_so_1" dtype_id="1" dir="input" pinIndex="19" vartype="logic" origName="long_chain_so_1"/>
+      <var loc="e,21,11,21,27" name="short_chain_so_1" dtype_id="1" dir="input" pinIndex="20" vartype="logic" origName="short_chain_so_1"/>
+      <var loc="e,22,11,22,26" name="long_chain_so_2" dtype_id="1" dir="input" pinIndex="21" vartype="logic" origName="long_chain_so_2"/>
+      <var loc="e,23,11,23,27" name="short_chain_so_2" dtype_id="1" dir="input" pinIndex="22" vartype="logic" origName="short_chain_so_2"/>
+      <var loc="e,35,17,35,35" name="short_chain_select" dtype_id="1" vartype="logic" origName="short_chain_select"/>
+      <var loc="e,36,33,36,34" name="__VdfgRegularize_hcb71d516_0_0" dtype_id="1" vartype="logic" origName="__VdfgRegularize_hcb71d516_0_0"/>
+      <contassign loc="e,36,31,36,32" dtype_id="1">
+        <or loc="e,36,53,36,54" dtype_id="1">
+          <varref loc="e,36,33,36,34" name="__VdfgRegularize_hcb71d516_0_0" dtype_id="1"/>
+          <or loc="e,36,74,36,75" dtype_id="1">
+            <varref loc="e,35,17,35,35" name="short_chain_select" dtype_id="1"/>
+            <varref loc="e,13,17,13,36" name="global_shift_enable" dtype_id="1"/>
+          </or>
+        </or>
+        <varref loc="e,36,31,36,32" name="mux_drive_disable" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,37,31,37,32" dtype_id="1">
+        <or loc="e,37,53,37,54" dtype_id="1">
+          <varref loc="e,36,33,36,34" name="__VdfgRegularize_hcb71d516_0_0" dtype_id="1"/>
+          <varref loc="e,13,17,13,36" name="global_shift_enable" dtype_id="1"/>
+        </or>
+        <varref loc="e,37,31,37,32" name="mem_write_disable" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,38,31,38,32" dtype_id="1">
+        <and loc="e,38,51,38,52" dtype_id="1">
+          <not loc="e,38,53,38,54" dtype_id="1">
+            <varref loc="e,13,17,13,36" name="global_shift_enable" dtype_id="1"/>
+          </not>
+          <varref loc="e,16,11,16,28" name="ctu_tst_macrotest" dtype_id="1"/>
+        </and>
+        <varref loc="e,38,31,38,32" name="sehold" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,39,31,39,32" dtype_id="1">
+        <varref loc="e,13,17,13,36" name="global_shift_enable" dtype_id="1"/>
+        <varref loc="e,39,31,39,32" name="se" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,40,31,40,32" dtype_id="1">
+        <not loc="e,40,33,40,34" dtype_id="1">
+          <varref loc="e,15,17,15,33" name="ctu_tst_scanmode" dtype_id="1"/>
+        </not>
+        <varref loc="e,40,31,40,32" name="testmode_l" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,41,31,41,32" dtype_id="1">
+        <and loc="e,41,52,41,53" dtype_id="1">
+          <not loc="e,41,33,41,34" dtype_id="1">
+            <varref loc="e,16,11,16,28" name="ctu_tst_macrotest" dtype_id="1"/>
+          </not>
+          <varref loc="e,15,17,15,33" name="ctu_tst_scanmode" dtype_id="1"/>
+        </and>
+        <varref loc="e,41,31,41,32" name="mem_bypass" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,45,31,45,32" dtype_id="1">
+        <cond loc="e,45,52,45,53" dtype_id="1">
+          <varref loc="e,35,17,35,35" name="short_chain_select" dtype_id="1"/>
+          <varref loc="e,19,11,19,27" name="short_chain_so_0" dtype_id="1"/>
+          <varref loc="e,18,11,18,26" name="long_chain_so_0" dtype_id="1"/>
+        </cond>
+        <varref loc="e,45,31,45,32" name="so_0" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,46,31,46,32" dtype_id="1">
+        <cond loc="e,46,52,46,53" dtype_id="1">
+          <varref loc="e,35,17,35,35" name="short_chain_select" dtype_id="1"/>
+          <varref loc="e,21,11,21,27" name="short_chain_so_1" dtype_id="1"/>
+          <varref loc="e,20,11,20,26" name="long_chain_so_1" dtype_id="1"/>
+        </cond>
+        <varref loc="e,46,31,46,32" name="so_1" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,47,31,47,32" dtype_id="1">
+        <cond loc="e,47,52,47,53" dtype_id="1">
+          <varref loc="e,35,17,35,35" name="short_chain_select" dtype_id="1"/>
+          <varref loc="e,23,11,23,27" name="short_chain_so_2" dtype_id="1"/>
+          <varref loc="e,22,11,22,26" name="long_chain_so_2" dtype_id="1"/>
+        </cond>
+        <varref loc="e,47,31,47,32" name="so_2" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,36,33,36,34" dtype_id="1">
+        <not loc="e,36,33,36,34" dtype_id="1">
+          <varref loc="e,11,17,11,35" name="ctu_tst_pre_grst_l" dtype_id="1"/>
+        </not>
+        <varref loc="e,36,33,36,34" name="__VdfgRegularize_hcb71d516_0_0" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,44,31,44,32" dtype_id="1">
+        <and loc="e,44,53,44,54" dtype_id="1">
+          <varref loc="e,17,11,17,30" name="ctu_tst_short_chain" dtype_id="1"/>
+          <and loc="e,44,67,44,68" dtype_id="1">
+            <not loc="e,43,33,43,34" dtype_id="1">
+              <and loc="e,43,50,43,51" dtype_id="1">
+                <varref loc="e,14,17,14,37" name="ctu_tst_scan_disable" dtype_id="1"/>
+                <varref loc="e,13,17,13,36" name="global_shift_enable" dtype_id="1"/>
+              </and>
+            </not>
+            <varref loc="e,15,17,15,33" name="ctu_tst_scanmode" dtype_id="1"/>
+          </and>
+        </and>
+        <varref loc="e,44,31,44,32" name="short_chain_select" dtype_id="1"/>
+      </contassign>
+    </module>
+    <typetable loc="a,0,0,0,0">
+      <basicdtype loc="d,46,25,46,27" id="1" name="logic"/>
+      <voiddtype loc="d,48,18,48,27" id="2"/>
+    </typetable>
+  </netlist>
+</verilator_xml>

@@ -1,0 +1,61 @@
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ceecd359a02c/sync_check.v:39:29: Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'thsync' generates 8 bits.
+                                                                                                                              : ... note: In instance 'sync_check'
+   39 | assign hhtime_exp = (thsync +1) * clk_time;
+      |                             ^
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.032
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ceecd359a02c/sync_check.v:40:28: Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'thlen' generates 16 bits.
+                                                                                                                              : ... note: In instance 'sync_check'
+   40 | assign htime_exp  = (thlen +1) * clk_time;
+      |                            ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ceecd359a02c/sync_check.v:41:42: Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'tvsync' generates 8 bits.
+                                                                                                                              : ... note: In instance 'sync_check'
+   41 | assign vhtime_exp = (htime_exp * (tvsync +1));
+      |                                          ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ceecd359a02c/sync_check.v:42:40: Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'tvlen' generates 16 bits.
+                                                                                                                              : ... note: In instance 'sync_check'
+   42 | assign vtime_exp  = htime_exp * (tvlen +1);
+      |                                        ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ceecd359a02c/sync_check.v:55:22: Operator NEQ expects 64 bits on the RHS, but RHS's VARREF 'htime_exp' generates 32 bits.
+                                                                                                                              : ... note: In instance 'sync_check'
+   55 |   if(hvalid & (htime != htime_exp))
+      |                      ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ceecd359a02c/sync_check.v:64:23: Operator NEQ expects 64 bits on the RHS, but RHS's VARREF 'hhtime_exp' generates 32 bits.
+                                                                                                                              : ... note: In instance 'sync_check'
+   64 |   if(hvalid & (hhtime != hhtime_exp))
+      |                       ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ceecd359a02c/sync_check.v:75:22: Operator NEQ expects 64 bits on the RHS, but RHS's VARREF 'vtime_exp' generates 32 bits.
+                                                                                                                              : ... note: In instance 'sync_check'
+   75 |   if(vvalid & (vtime != vtime_exp))
+      |                      ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ceecd359a02c/sync_check.v:84:23: Operator NEQ expects 64 bits on the RHS, but RHS's VARREF 'vhtime_exp' generates 32 bits.
+                                                                                                                              : ... note: In instance 'sync_check'
+   84 |   if(vvalid & (vhtime != vhtime_exp))
+      |                       ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ceecd359a02c/sync_check.v:91:28: Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'tvsync' generates 8 bits.
+                                                                                                                              : ... note: In instance 'sync_check'
+   91 | assign bv_start = tvsync   + tvgdel + 1;
+      |                            ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ceecd359a02c/sync_check.v:91:28: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'tvgdel' generates 8 bits.
+                                                                                                                              : ... note: In instance 'sync_check'
+   91 | assign bv_start = tvsync   + tvgdel + 1;
+      |                            ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ceecd359a02c/sync_check.v:92:28: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'tvgate' generates 16 bits.
+                                                                                                                              : ... note: In instance 'sync_check'
+   92 | assign bv_end   = bv_start + tvgate + 2;
+      |                            ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ceecd359a02c/sync_check.v:93:28: Operator ADD expects 32 bits on the LHS, but LHS's VARREF 'thsync' generates 8 bits.
+                                                                                                                              : ... note: In instance 'sync_check'
+   93 | assign bh_start = thsync   + thgdel + 1;
+      |                            ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ceecd359a02c/sync_check.v:93:28: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'thgdel' generates 8 bits.
+                                                                                                                              : ... note: In instance 'sync_check'
+   93 | assign bh_start = thsync   + thgdel + 1;
+      |                            ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ceecd359a02c/sync_check.v:94:28: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 'thgate' generates 16 bits.
+                                                                                                                              : ... note: In instance 'sync_check'
+   94 | assign bh_end   = bh_start + thgate + 2;
+      |                            ^
+- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev (Debian 5.032-1+b2)
+- Verilator: Built from 0.030 MB sources in 2 modules, into 0.000 MB in 0 C++ files needing 0.000 MB
+- Verilator: Walltime 0.005 s (elab=0.001, cvt=0.000, bld=0.000); cpu 0.004 s on 1 threads; alloced 8.879 MB

@@ -1,0 +1,2 @@
+#include "RefModel.h"
+extern "C" void ref_model_eval(unsigned long long clk_i,unsigned long long rst_i,unsigned long long draw_line_i,unsigned long long read_pixel_i,unsigned long long* ref_busy_o,unsigned long long* ref_x_major_o,unsigned long long* ref_valid_o){static VerilatedContext context;static RefModel model(&context);model.clk_i=clk_i;model.rst_i=rst_i;model.draw_line_i=draw_line_i;model.read_pixel_i=read_pixel_i;model.eval();*ref_busy_o=model.ref_busy_o;*ref_x_major_o=model.ref_x_major_o;*ref_valid_o=model.ref_valid_o;}

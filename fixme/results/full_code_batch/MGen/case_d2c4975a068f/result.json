@@ -1,0 +1,35 @@
+{
+  "id": "MGen/L1/Text/Sequential Multiplier",
+  "subset": "MGen",
+  "input_files": [
+    {
+      "name": "seqmult.v",
+      "bytes": 4284,
+      "sha256": "164d555cf02f829ca3be804debe8adafa8125200f4b0517a7282737922b83995"
+    },
+    {
+      "name": "seqmult_tb.v",
+      "bytes": 3455,
+      "sha256": "79452e84dfdf1b18835c81a81442b8afe414325fc6af9b920f31fcf5e33d6bdb"
+    }
+  ],
+  "overlays": [
+    {
+      "field": "spec_text",
+      "source": "data/SpeCom/L1/Text/Sequential Multiplier/seqmult_spec.txt",
+      "sha256": "36b4bae90500464a5741fe6fe1788cda582fac24aa3c5d1c2c3479157f223ed4",
+      "reason": "same case name and byte-identical RTL in SpeCom; explicit cross-subset reuse",
+      "fidelity": "structural-input-overlay",
+      "matched_rtl_sha256": "164d555cf02f829ca3be804debe8adafa8125200f4b0517a7282737922b83995"
+    }
+  ],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": null,
+  "negative_control_detected": null,
+  "commands": 0,
+  "status": "adapter_unsupported",
+  "reason": "explicit X/Z source semantics outside two-state compiled reference contract",
+  "seconds": 109.01
+}

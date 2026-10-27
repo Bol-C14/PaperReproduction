@@ -1,0 +1,35 @@
+{
+  "id": "MGen/L1/Text/Async FIFO",
+  "subset": "MGen",
+  "input_files": [
+    {
+      "name": "asyncfifo.v",
+      "bytes": 3386,
+      "sha256": "eb8b30ca3cc591957f4671541d887d4da7fccfd50d34cd804c5acc9a2dc5ca0b"
+    },
+    {
+      "name": "asyncfifo_tb.v",
+      "bytes": 2776,
+      "sha256": "013b882bb289af3975514b95a974795e940079f2a965602639471044e89ebc2b"
+    }
+  ],
+  "overlays": [
+    {
+      "field": "spec_text",
+      "source": "data/SpeCom/L1/Text/Async FIFO/asyncfifo _spec.txt",
+      "sha256": "9dc4bebdca28d4b73d6204142843e09941fee1aaa0719e8793ff3ebcb5bc90ae",
+      "reason": "same case name and byte-identical RTL in SpeCom; explicit cross-subset reuse",
+      "fidelity": "structural-input-overlay",
+      "matched_rtl_sha256": "eb8b30ca3cc591957f4671541d887d4da7fccfd50d34cd804c5acc9a2dc5ca0b"
+    }
+  ],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": null,
+  "negative_control_detected": null,
+  "commands": 0,
+  "status": "adapter_unsupported",
+  "reason": "explicit X/Z source semantics outside two-state compiled reference contract",
+  "seconds": 30.609
+}

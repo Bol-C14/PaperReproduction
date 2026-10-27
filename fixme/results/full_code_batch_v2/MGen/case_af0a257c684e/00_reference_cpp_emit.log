@@ -1,0 +1,21 @@
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/MGen/case_af0a257c684e/ref.v:205:71: Operator NEQ expects 24 bits on the LHS, but LHS's VARREF 'reduced_functionality' generates 16 bits.
+                                                                                                                       : ... note: In instance 'ref_altfp_mult'
+  205 |         if ((reduced_functionality != "NO") && (reduced_functionality != "YES"))
+      |                                                                       ^~
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.032
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/MGen/case_af0a257c684e/ref.v:227:19: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's SEL generates 8 bits.
+                                                                                                                       : ... note: In instance 'ref_altfp_mult'
+  227 |         exp_dataa = dataa[width_exp + width_man -1:width_man];
+      |                   ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/MGen/case_af0a257c684e/ref.v:228:19: Operator ASSIGN expects 32 bits on the Assign RHS, but Assign RHS's SEL generates 8 bits.
+                                                                                                                       : ... note: In instance 'ref_altfp_mult'
+  228 |         exp_datab = datab[width_exp + width_man -1:width_man];
+      |                   ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/MGen/case_af0a257c684e/ref.v:520:37: Operator ASSIGNDLY expects 32 bits on the Assign RHS, but Assign RHS's REPLICATE generates 31 bits.
+                                                                                                                       : ... note: In instance 'ref_altfp_mult'
+  520 |                 ref_result_pipe[i5] <= {WIDTH_MAN_EXP{1'b0}};
+      |                                     ^~
+- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev (Debian 5.032-1+b2)
+- Verilator: Built from 0.045 MB sources in 2 modules, into 0.168 MB in 7 C++ files needing 0.000 MB
+- Verilator: Walltime 0.027 s (elab=0.003, cvt=0.017, bld=0.000); cpu 0.000 s on 1 threads; alloced 12.402 MB

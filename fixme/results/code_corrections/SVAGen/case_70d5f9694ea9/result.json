@@ -1,0 +1,39 @@
+{
+  "id": "SVAGen/L1/Text/WB_stage",
+  "subset": "SVAGen",
+  "input_files": [
+    {
+      "name": "WB_stage.v",
+      "bytes": 639,
+      "sha256": "64882b128755b80058d1bc00daf23bce9152bca52697cb17d4045c9c99f4919d"
+    },
+    {
+      "name": "WB_stage_spec.txt",
+      "bytes": 8127,
+      "sha256": "557abb9ed135d25631671695f57a76963bab2f4e67c43a9e5b6f77757da93858"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": true,
+  "negative_control_detected": true,
+  "commands": 4,
+  "status": "pass",
+  "assignment_target_width": 1,
+  "assertion": "always @* assert((reg_write_en) == 1'(write_back_en));",
+  "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+  "relation_lhs": "reg_write_en",
+  "property_counts": {
+    "assert": 1,
+    "assume": 0,
+    "cover": 0
+  },
+  "constant_mutation_status": "completed",
+  "constant_mutation_killed": false,
+  "negative_status": "fail",
+  "constant_control_status": "unknown",
+  "reason": "nonzero properties proven and selected output mutant falsified",
+  "seconds": 0.092
+}

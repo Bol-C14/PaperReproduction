@@ -1,0 +1,759 @@
+<?xml version="1.0" ?>
+<!-- DESCRIPTION: Verilator output: XML representation of netlist -->
+<verilator_xml>
+  <files>
+    <file id="d" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std.sv" language="1800-2023"/>
+    <file id="c" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std_waiver.vlt" language="1800-2023"/>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_7ac01a5bf744/wb_regfile.v" language="1800-2023"/>
+    <file id="a" filename="&lt;built-in&gt;" language="1800-2023"/>
+    <file id="b" filename="&lt;command-line&gt;" language="1800-2023"/>
+  </files>
+  <module_files>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_7ac01a5bf744/wb_regfile.v" language="1800-2023"/>
+  </module_files>
+  <cells>
+    <cell loc="e,3,8,3,18" name="wb_regfile" submodname="wb_regfile" hier="wb_regfile"/>
+  </cells>
+  <netlist>
+    <module loc="e,3,8,3,18" name="wb_regfile" origName="wb_regfile" topModule="1">
+      <var loc="e,5,20,5,25" name="clk_i" dtype_id="1" dir="input" pinIndex="1" vartype="logic" origName="clk_i"/>
+      <var loc="e,6,20,6,26" name="nrst_i" dtype_id="1" dir="input" pinIndex="2" vartype="logic" origName="nrst_i"/>
+      <var loc="e,7,20,7,28" name="wb_adr_i" dtype_id="2" dir="input" pinIndex="3" vartype="logic" origName="wb_adr_i"/>
+      <var loc="e,8,23,8,31" name="wb_dat_o" dtype_id="3" dir="output" pinIndex="4" vartype="logic" origName="wb_dat_o"/>
+      <var loc="e,9,20,9,28" name="wb_dat_i" dtype_id="3" dir="input" pinIndex="5" vartype="logic" origName="wb_dat_i"/>
+      <var loc="e,10,20,10,28" name="wb_sel_i" dtype_id="2" dir="input" pinIndex="6" vartype="logic" origName="wb_sel_i"/>
+      <var loc="e,11,20,11,27" name="wb_we_i" dtype_id="1" dir="input" pinIndex="7" vartype="logic" origName="wb_we_i"/>
+      <var loc="e,12,20,12,28" name="wb_stb_i" dtype_id="1" dir="input" pinIndex="8" vartype="logic" origName="wb_stb_i"/>
+      <var loc="e,13,20,13,28" name="wb_cyc_i" dtype_id="1" dir="input" pinIndex="9" vartype="logic" origName="wb_cyc_i"/>
+      <var loc="e,14,20,14,28" name="wb_ack_o" dtype_id="1" dir="output" pinIndex="10" vartype="logic" origName="wb_ack_o"/>
+      <var loc="e,15,20,15,28" name="wb_err_o" dtype_id="1" dir="output" pinIndex="11" vartype="logic" origName="wb_err_o"/>
+      <var loc="e,16,20,16,24" name="ws_i" dtype_id="4" dir="input" pinIndex="12" vartype="logic" origName="ws_i"/>
+      <var loc="e,17,20,17,28" name="datareg0" dtype_id="3" dir="output" pinIndex="13" vartype="logic" origName="datareg0"/>
+      <var loc="e,18,20,18,28" name="datareg1" dtype_id="3" dir="output" pinIndex="14" vartype="logic" origName="datareg1"/>
+      <var loc="e,19,20,19,29" name="waitstate" dtype_id="4" vartype="logic" origName="waitstate"/>
+      <var loc="e,20,10,20,16" name="wb_acc" dtype_id="1" vartype="logic" origName="wb_acc"/>
+      <var loc="e,21,10,21,15" name="wb_wr" dtype_id="1" vartype="logic" origName="wb_wr"/>
+      <var loc="e,22,17,22,27" name="datareg0_0" dtype_id="4" vartype="logic" origName="datareg0_0"/>
+      <var loc="e,23,17,23,27" name="datareg0_1" dtype_id="4" vartype="logic" origName="datareg0_1"/>
+      <var loc="e,24,17,24,27" name="datareg0_2" dtype_id="4" vartype="logic" origName="datareg0_2"/>
+      <var loc="e,25,17,25,27" name="datareg0_3" dtype_id="4" vartype="logic" origName="datareg0_3"/>
+      <var loc="e,26,17,26,27" name="datareg1_0" dtype_id="4" vartype="logic" origName="datareg1_0"/>
+      <var loc="e,27,17,27,27" name="datareg1_1" dtype_id="4" vartype="logic" origName="datareg1_1"/>
+      <var loc="e,28,17,28,27" name="datareg1_2" dtype_id="4" vartype="logic" origName="datareg1_2"/>
+      <var loc="e,29,17,29,27" name="datareg1_3" dtype_id="4" vartype="logic" origName="datareg1_3"/>
+      <always loc="e,30,5,30,11">
+        <sentree loc="e,30,12,30,13">
+          <senitem loc="e,30,14,30,21" edgeType="POS">
+            <varref loc="e,30,22,30,27" name="clk_i" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,30,31,30,38" edgeType="NEG">
+            <varref loc="e,30,39,30,45" name="nrst_i" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <if loc="e,31,9,31,11">
+          <varref loc="e,31,14,31,20" name="nrst_i" dtype_id="1"/>
+          <begin>
+            <if loc="e,45,14,45,16">
+              <varref loc="e,45,17,45,22" name="wb_wr" dtype_id="1"/>
+              <begin>
+                <case loc="e,46,13,46,17">
+                  <varref loc="e,46,19,46,27" name="wb_sel_i" dtype_id="2"/>
+                  <caseitem loc="e,47,24,47,25">
+                    <const loc="e,47,17,47,24" name="4&apos;h0" dtype_id="2"/>
+                    <case loc="e,48,21,48,25">
+                      <varref loc="e,48,27,48,35" name="wb_adr_i" dtype_id="2"/>
+                      <caseitem loc="e,49,32,49,33">
+                        <const loc="e,49,25,49,32" name="4&apos;h0" dtype_id="2"/>
+                        <assigndly loc="e,49,45,49,47" dtype_id="4">
+                          <sel loc="e,49,56,49,57" dtype_id="4">
+                            <varref loc="e,49,48,49,56" name="wb_dat_i" dtype_id="3"/>
+                            <const loc="e,49,59,49,60" name="5&apos;h0" dtype_id="5"/>
+                            <const loc="e,49,57,49,58" name="32&apos;h8" dtype_id="3"/>
+                          </sel>
+                          <varref loc="e,49,34,49,44" name="datareg0_0" dtype_id="4"/>
+                        </assigndly>
+                      </caseitem>
+                      <caseitem loc="e,50,32,50,33">
+                        <const loc="e,50,25,50,32" name="4&apos;h1" dtype_id="2"/>
+                        <assigndly loc="e,50,45,50,47" dtype_id="4">
+                          <sel loc="e,50,56,50,57" dtype_id="4">
+                            <varref loc="e,50,48,50,56" name="wb_dat_i" dtype_id="3"/>
+                            <const loc="e,50,59,50,60" name="5&apos;h0" dtype_id="5"/>
+                            <const loc="e,50,57,50,58" name="32&apos;h8" dtype_id="3"/>
+                          </sel>
+                          <varref loc="e,50,34,50,44" name="datareg0_1" dtype_id="4"/>
+                        </assigndly>
+                      </caseitem>
+                      <caseitem loc="e,51,32,51,33">
+                        <const loc="e,51,25,51,32" name="4&apos;h2" dtype_id="2"/>
+                        <assigndly loc="e,51,45,51,47" dtype_id="4">
+                          <sel loc="e,51,56,51,57" dtype_id="4">
+                            <varref loc="e,51,48,51,56" name="wb_dat_i" dtype_id="3"/>
+                            <const loc="e,51,59,51,60" name="5&apos;h0" dtype_id="5"/>
+                            <const loc="e,51,57,51,58" name="32&apos;h8" dtype_id="3"/>
+                          </sel>
+                          <varref loc="e,51,34,51,44" name="datareg0_2" dtype_id="4"/>
+                        </assigndly>
+                      </caseitem>
+                      <caseitem loc="e,52,32,52,33">
+                        <const loc="e,52,25,52,32" name="4&apos;h3" dtype_id="2"/>
+                        <assigndly loc="e,52,45,52,47" dtype_id="4">
+                          <sel loc="e,52,56,52,57" dtype_id="4">
+                            <varref loc="e,52,48,52,56" name="wb_dat_i" dtype_id="3"/>
+                            <const loc="e,52,59,52,60" name="5&apos;h0" dtype_id="5"/>
+                            <const loc="e,52,57,52,58" name="32&apos;h8" dtype_id="3"/>
+                          </sel>
+                          <varref loc="e,52,34,52,44" name="datareg0_3" dtype_id="4"/>
+                        </assigndly>
+                      </caseitem>
+                      <caseitem loc="e,53,32,53,33">
+                        <const loc="e,53,25,53,32" name="4&apos;h4" dtype_id="2"/>
+                        <assigndly loc="e,53,45,53,47" dtype_id="4">
+                          <sel loc="e,53,56,53,57" dtype_id="4">
+                            <varref loc="e,53,48,53,56" name="wb_dat_i" dtype_id="3"/>
+                            <const loc="e,53,59,53,60" name="5&apos;h0" dtype_id="5"/>
+                            <const loc="e,53,57,53,58" name="32&apos;h8" dtype_id="3"/>
+                          </sel>
+                          <varref loc="e,53,34,53,44" name="datareg1_0" dtype_id="4"/>
+                        </assigndly>
+                      </caseitem>
+                      <caseitem loc="e,54,32,54,33">
+                        <const loc="e,54,25,54,32" name="4&apos;h5" dtype_id="2"/>
+                        <assigndly loc="e,54,45,54,47" dtype_id="4">
+                          <sel loc="e,54,56,54,57" dtype_id="4">
+                            <varref loc="e,54,48,54,56" name="wb_dat_i" dtype_id="3"/>
+                            <const loc="e,54,59,54,60" name="5&apos;h0" dtype_id="5"/>
+                            <const loc="e,54,57,54,58" name="32&apos;h8" dtype_id="3"/>
+                          </sel>
+                          <varref loc="e,54,34,54,44" name="datareg1_1" dtype_id="4"/>
+                        </assigndly>
+                      </caseitem>
+                      <caseitem loc="e,55,32,55,33">
+                        <const loc="e,55,25,55,32" name="4&apos;h6" dtype_id="2"/>
+                        <assigndly loc="e,55,45,55,47" dtype_id="4">
+                          <sel loc="e,55,56,55,57" dtype_id="4">
+                            <varref loc="e,55,48,55,56" name="wb_dat_i" dtype_id="3"/>
+                            <const loc="e,55,59,55,60" name="5&apos;h0" dtype_id="5"/>
+                            <const loc="e,55,57,55,58" name="32&apos;h8" dtype_id="3"/>
+                          </sel>
+                          <varref loc="e,55,34,55,44" name="datareg1_2" dtype_id="4"/>
+                        </assigndly>
+                      </caseitem>
+                      <caseitem loc="e,56,32,56,33">
+                        <const loc="e,56,25,56,32" name="4&apos;h7" dtype_id="2"/>
+                        <assigndly loc="e,56,45,56,47" dtype_id="4">
+                          <sel loc="e,56,56,56,57" dtype_id="4">
+                            <varref loc="e,56,48,56,56" name="wb_dat_i" dtype_id="3"/>
+                            <const loc="e,56,59,56,60" name="5&apos;h0" dtype_id="5"/>
+                            <const loc="e,56,57,56,58" name="32&apos;h8" dtype_id="3"/>
+                          </sel>
+                          <varref loc="e,56,34,56,44" name="datareg1_3" dtype_id="4"/>
+                        </assigndly>
+                      </caseitem>
+                    </case>
+                  </caseitem>
+                  <caseitem loc="e,58,24,58,25">
+                    <const loc="e,58,17,58,24" name="4&apos;h1" dtype_id="2"/>
+                    <case loc="e,59,21,59,25">
+                      <varref loc="e,59,27,59,35" name="wb_adr_i" dtype_id="2"/>
+                      <caseitem loc="e,60,32,60,33">
+                        <const loc="e,60,25,60,32" name="4&apos;h0" dtype_id="2"/>
+                        <assigndly loc="e,60,45,60,47" dtype_id="4">
+                          <sel loc="e,60,56,60,57" dtype_id="4">
+                            <varref loc="e,60,48,60,56" name="wb_dat_i" dtype_id="3"/>
+                            <const loc="e,60,59,60,60" name="5&apos;h0" dtype_id="5"/>
+                            <const loc="e,60,57,60,58" name="32&apos;h8" dtype_id="3"/>
+                          </sel>
+                          <varref loc="e,60,34,60,44" name="datareg0_0" dtype_id="4"/>
+                        </assigndly>
+                      </caseitem>
+                      <caseitem loc="e,61,32,61,33">
+                        <const loc="e,61,25,61,32" name="4&apos;h1" dtype_id="2"/>
+                        <assigndly loc="e,61,45,61,47" dtype_id="4">
+                          <sel loc="e,61,56,61,57" dtype_id="4">
+                            <varref loc="e,61,48,61,56" name="wb_dat_i" dtype_id="3"/>
+                            <const loc="e,61,59,61,60" name="5&apos;h0" dtype_id="5"/>
+                            <const loc="e,61,57,61,58" name="32&apos;h8" dtype_id="3"/>
+                          </sel>
+                          <varref loc="e,61,34,61,44" name="datareg0_1" dtype_id="4"/>
+                        </assigndly>
+                      </caseitem>
+                      <caseitem loc="e,62,32,62,33">
+                        <const loc="e,62,25,62,32" name="4&apos;h2" dtype_id="2"/>
+                        <assigndly loc="e,62,45,62,47" dtype_id="4">
+                          <sel loc="e,62,56,62,57" dtype_id="4">
+                            <varref loc="e,62,48,62,56" name="wb_dat_i" dtype_id="3"/>
+                            <const loc="e,62,59,62,60" name="5&apos;h0" dtype_id="5"/>
+                            <const loc="e,62,57,62,58" name="32&apos;h8" dtype_id="3"/>
+                          </sel>
+                          <varref loc="e,62,34,62,44" name="datareg0_2" dtype_id="4"/>
+                        </assigndly>
+                      </caseitem>
+                      <caseitem loc="e,63,32,63,33">
+                        <const loc="e,63,25,63,32" name="4&apos;h3" dtype_id="2"/>
+                        <assigndly loc="e,63,45,63,47" dtype_id="4">
+                          <sel loc="e,63,56,63,57" dtype_id="4">
+                            <varref loc="e,63,48,63,56" name="wb_dat_i" dtype_id="3"/>
+                            <const loc="e,63,59,63,60" name="5&apos;h0" dtype_id="5"/>
+                            <const loc="e,63,57,63,58" name="32&apos;h8" dtype_id="3"/>
+                          </sel>
+                          <varref loc="e,63,34,63,44" name="datareg0_3" dtype_id="4"/>
+                        </assigndly>
+                      </caseitem>
+                      <caseitem loc="e,64,32,64,33">
+                        <const loc="e,64,25,64,32" name="4&apos;h4" dtype_id="2"/>
+                        <assigndly loc="e,64,45,64,47" dtype_id="4">
+                          <sel loc="e,64,56,64,57" dtype_id="4">
+                            <varref loc="e,64,48,64,56" name="wb_dat_i" dtype_id="3"/>
+                            <const loc="e,64,59,64,60" name="5&apos;h0" dtype_id="5"/>
+                            <const loc="e,64,57,64,58" name="32&apos;h8" dtype_id="3"/>
+                          </sel>
+                          <varref loc="e,64,34,64,44" name="datareg1_0" dtype_id="4"/>
+                        </assigndly>
+                      </caseitem>
+                      <caseitem loc="e,65,32,65,33">
+                        <const loc="e,65,25,65,32" name="4&apos;h5" dtype_id="2"/>
+                        <assigndly loc="e,65,45,65,47" dtype_id="4">
+                          <sel loc="e,65,56,65,57" dtype_id="4">
+                            <varref loc="e,65,48,65,56" name="wb_dat_i" dtype_id="3"/>
+                            <const loc="e,65,59,65,60" name="5&apos;h0" dtype_id="5"/>
+                            <const loc="e,65,57,65,58" name="32&apos;h8" dtype_id="3"/>
+                          </sel>
+                          <varref loc="e,65,34,65,44" name="datareg1_1" dtype_id="4"/>
+                        </assigndly>
+                      </caseitem>
+                      <caseitem loc="e,66,32,66,33">
+                        <const loc="e,66,25,66,32" name="4&apos;h6" dtype_id="2"/>
+                        <assigndly loc="e,66,45,66,47" dtype_id="4">
+                          <sel loc="e,66,56,66,57" dtype_id="4">
+                            <varref loc="e,66,48,66,56" name="wb_dat_i" dtype_id="3"/>
+                            <const loc="e,66,59,66,60" name="5&apos;h0" dtype_id="5"/>
+                            <const loc="e,66,57,66,58" name="32&apos;h8" dtype_id="3"/>
+                          </sel>
+                          <varref loc="e,66,34,66,44" name="datareg1_2" dtype_id="4"/>
+                        </assigndly>
+                      </caseitem>
+                      <caseitem loc="e,67,32,67,33">
+                        <const loc="e,67,25,67,32" name="4&apos;h7" dtype_id="2"/>
+                        <assigndly loc="e,67,45,67,47" dtype_id="4">
+                          <sel loc="e,67,56,67,57" dtype_id="4">
+                            <varref loc="e,67,48,67,56" name="wb_dat_i" dtype_id="3"/>
+                            <const loc="e,67,59,67,60" name="5&apos;h0" dtype_id="5"/>
+                            <const loc="e,67,57,67,58" name="32&apos;h8" dtype_id="3"/>
+                          </sel>
+                          <varref loc="e,67,34,67,44" name="datareg1_3" dtype_id="4"/>
+                        </assigndly>
+                      </caseitem>
+                    </case>
+                  </caseitem>
+                  <caseitem loc="e,69,24,69,25">
+                    <const loc="e,69,17,69,24" name="4&apos;h3" dtype_id="2"/>
+                    <assigndly loc="e,70,46,70,48" dtype_id="4">
+                      <sel loc="e,70,32,70,33" dtype_id="4">
+                        <varref loc="e,70,49,70,57" name="wb_dat_i" dtype_id="3"/>
+                        <const loc="e,70,32,70,33" name="32&apos;h8" dtype_id="3"/>
+                        <const loc="e,70,32,70,33" name="32&apos;h8" dtype_id="3"/>
+                      </sel>
+                      <varref loc="e,70,22,70,32" name="datareg0_1" dtype_id="4"/>
+                    </assigndly>
+                    <assigndly loc="e,70,46,70,48" dtype_id="4">
+                      <sel loc="e,70,32,70,33" dtype_id="4">
+                        <varref loc="e,70,49,70,57" name="wb_dat_i" dtype_id="3"/>
+                        <const loc="e,70,32,70,33" name="32&apos;h0" dtype_id="3"/>
+                        <const loc="e,70,32,70,33" name="32&apos;h8" dtype_id="3"/>
+                      </sel>
+                      <varref loc="e,70,34,70,44" name="datareg0_0" dtype_id="4"/>
+                    </assigndly>
+                  </caseitem>
+                  <caseitem loc="e,71,24,71,25">
+                    <const loc="e,71,17,71,24" name="4&apos;hf" dtype_id="2"/>
+                    <assigndly loc="e,72,70,72,72" dtype_id="4">
+                      <sel loc="e,72,56,72,57" dtype_id="4">
+                        <varref loc="e,72,73,72,81" name="wb_dat_i" dtype_id="3"/>
+                        <const loc="e,72,56,72,57" name="32&apos;h18" dtype_id="3"/>
+                        <const loc="e,72,56,72,57" name="32&apos;h8" dtype_id="3"/>
+                      </sel>
+                      <varref loc="e,72,22,72,32" name="datareg0_3" dtype_id="4"/>
+                    </assigndly>
+                    <assigndly loc="e,72,70,72,72" dtype_id="4">
+                      <sel loc="e,72,44,72,45" dtype_id="4">
+                        <varref loc="e,72,73,72,81" name="wb_dat_i" dtype_id="3"/>
+                        <const loc="e,72,44,72,45" name="32&apos;h10" dtype_id="3"/>
+                        <const loc="e,72,44,72,45" name="32&apos;h8" dtype_id="3"/>
+                      </sel>
+                      <varref loc="e,72,34,72,44" name="datareg0_2" dtype_id="4"/>
+                    </assigndly>
+                    <assigndly loc="e,72,70,72,72" dtype_id="4">
+                      <sel loc="e,72,32,72,33" dtype_id="4">
+                        <varref loc="e,72,73,72,81" name="wb_dat_i" dtype_id="3"/>
+                        <const loc="e,72,32,72,33" name="32&apos;h8" dtype_id="3"/>
+                        <const loc="e,72,32,72,33" name="32&apos;h8" dtype_id="3"/>
+                      </sel>
+                      <varref loc="e,72,46,72,56" name="datareg0_1" dtype_id="4"/>
+                    </assigndly>
+                    <assigndly loc="e,72,70,72,72" dtype_id="4">
+                      <sel loc="e,72,32,72,33" dtype_id="4">
+                        <varref loc="e,72,73,72,81" name="wb_dat_i" dtype_id="3"/>
+                        <const loc="e,72,32,72,33" name="32&apos;h0" dtype_id="3"/>
+                        <const loc="e,72,32,72,33" name="32&apos;h8" dtype_id="3"/>
+                      </sel>
+                      <varref loc="e,72,58,72,68" name="datareg0_0" dtype_id="4"/>
+                    </assigndly>
+                  </caseitem>
+                </case>
+              </begin>
+            </if>
+          </begin>
+          <begin>
+            <begin loc="e,32,13,32,18">
+              <assigndly loc="e,33,28,33,30" dtype_id="4">
+                <const loc="e,33,31,33,36" name="8&apos;h0" dtype_id="4"/>
+                <varref loc="e,33,17,33,27" name="datareg0_0" dtype_id="4"/>
+              </assigndly>
+              <assigndly loc="e,34,28,34,30" dtype_id="4">
+                <const loc="e,34,31,34,36" name="8&apos;h1" dtype_id="4"/>
+                <varref loc="e,34,17,34,27" name="datareg0_1" dtype_id="4"/>
+              </assigndly>
+              <assigndly loc="e,35,28,35,30" dtype_id="4">
+                <const loc="e,35,31,35,36" name="8&apos;h2" dtype_id="4"/>
+                <varref loc="e,35,17,35,27" name="datareg0_2" dtype_id="4"/>
+              </assigndly>
+              <assigndly loc="e,36,28,36,30" dtype_id="4">
+                <const loc="e,36,31,36,36" name="8&apos;h3" dtype_id="4"/>
+                <varref loc="e,36,17,36,27" name="datareg0_3" dtype_id="4"/>
+              </assigndly>
+              <assigndly loc="e,37,28,37,30" dtype_id="4">
+                <const loc="e,37,31,37,36" name="8&apos;h10" dtype_id="4"/>
+                <varref loc="e,37,17,37,27" name="datareg1_0" dtype_id="4"/>
+              </assigndly>
+              <assigndly loc="e,38,28,38,30" dtype_id="4">
+                <const loc="e,38,31,38,36" name="8&apos;h11" dtype_id="4"/>
+                <varref loc="e,38,17,38,27" name="datareg1_1" dtype_id="4"/>
+              </assigndly>
+              <assigndly loc="e,39,28,39,30" dtype_id="4">
+                <const loc="e,39,31,39,36" name="8&apos;h12" dtype_id="4"/>
+                <varref loc="e,39,17,39,27" name="datareg1_2" dtype_id="4"/>
+              </assigndly>
+              <assigndly loc="e,40,28,40,30" dtype_id="4">
+                <const loc="e,40,31,40,36" name="8&apos;h13" dtype_id="4"/>
+                <varref loc="e,40,17,40,27" name="datareg1_3" dtype_id="4"/>
+              </assigndly>
+              <assigndly loc="e,41,26,41,28" dtype_id="1">
+                <const loc="e,41,29,41,33" name="1&apos;h0" dtype_id="1"/>
+                <varref loc="e,41,17,41,25" name="wb_ack_o" dtype_id="1"/>
+              </assigndly>
+              <assigndly loc="e,42,27,42,29" dtype_id="4">
+                <const loc="e,42,30,42,34" name="8&apos;h0" dtype_id="4"/>
+                <varref loc="e,42,17,42,26" name="waitstate" dtype_id="4"/>
+              </assigndly>
+              <assigndly loc="e,43,16,43,18" dtype_id="3">
+                <const loc="e,43,19,43,31" name="32&apos;h0" dtype_id="3"/>
+                <varref loc="e,43,7,43,15" name="wb_dat_o" dtype_id="3"/>
+              </assigndly>
+            </begin>
+          </begin>
+        </if>
+      </always>
+      <always loc="e,74,5,74,11">
+        <sentree loc="e,74,12,74,13">
+          <senitem loc="e,74,14,74,21" edgeType="POS">
+            <varref loc="e,74,22,74,27" name="clk_i" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <case loc="e,75,9,75,13">
+          <varref loc="e,75,15,75,23" name="wb_sel_i" dtype_id="2"/>
+          <caseitem loc="e,76,20,76,21">
+            <const loc="e,76,13,76,20" name="4&apos;h0" dtype_id="2"/>
+            <case loc="e,77,17,77,21">
+              <varref loc="e,77,23,77,31" name="wb_adr_i" dtype_id="2"/>
+              <caseitem loc="e,78,28,78,29">
+                <const loc="e,78,21,78,28" name="4&apos;h0" dtype_id="2"/>
+                <assigndly loc="e,78,44,78,46" dtype_id="4">
+                  <varref loc="e,78,47,78,57" name="datareg0_0" dtype_id="4"/>
+                  <sel loc="e,78,38,78,39" dtype_id="4">
+                    <varref loc="e,78,30,78,38" name="wb_dat_o" dtype_id="3"/>
+                    <const loc="e,78,41,78,42" name="5&apos;h0" dtype_id="5"/>
+                    <const loc="e,78,39,78,40" name="32&apos;h8" dtype_id="3"/>
+                  </sel>
+                </assigndly>
+              </caseitem>
+              <caseitem loc="e,79,28,79,29">
+                <const loc="e,79,21,79,28" name="4&apos;h1" dtype_id="2"/>
+                <assigndly loc="e,79,44,79,46" dtype_id="4">
+                  <varref loc="e,79,47,79,57" name="datareg0_1" dtype_id="4"/>
+                  <sel loc="e,79,38,79,39" dtype_id="4">
+                    <varref loc="e,79,30,79,38" name="wb_dat_o" dtype_id="3"/>
+                    <const loc="e,79,41,79,42" name="5&apos;h0" dtype_id="5"/>
+                    <const loc="e,79,39,79,40" name="32&apos;h8" dtype_id="3"/>
+                  </sel>
+                </assigndly>
+              </caseitem>
+              <caseitem loc="e,80,28,80,29">
+                <const loc="e,80,21,80,28" name="4&apos;h2" dtype_id="2"/>
+                <assigndly loc="e,80,44,80,46" dtype_id="4">
+                  <varref loc="e,80,47,80,57" name="datareg0_2" dtype_id="4"/>
+                  <sel loc="e,80,38,80,39" dtype_id="4">
+                    <varref loc="e,80,30,80,38" name="wb_dat_o" dtype_id="3"/>
+                    <const loc="e,80,41,80,42" name="5&apos;h0" dtype_id="5"/>
+                    <const loc="e,80,39,80,40" name="32&apos;h8" dtype_id="3"/>
+                  </sel>
+                </assigndly>
+              </caseitem>
+              <caseitem loc="e,81,28,81,29">
+                <const loc="e,81,21,81,28" name="4&apos;h3" dtype_id="2"/>
+                <assigndly loc="e,81,44,81,46" dtype_id="4">
+                  <varref loc="e,81,47,81,57" name="datareg0_3" dtype_id="4"/>
+                  <sel loc="e,81,38,81,39" dtype_id="4">
+                    <varref loc="e,81,30,81,38" name="wb_dat_o" dtype_id="3"/>
+                    <const loc="e,81,41,81,42" name="5&apos;h0" dtype_id="5"/>
+                    <const loc="e,81,39,81,40" name="32&apos;h8" dtype_id="3"/>
+                  </sel>
+                </assigndly>
+              </caseitem>
+              <caseitem loc="e,82,28,82,29">
+                <const loc="e,82,21,82,28" name="4&apos;h4" dtype_id="2"/>
+                <assigndly loc="e,82,44,82,46" dtype_id="4">
+                  <varref loc="e,82,47,82,57" name="datareg1_0" dtype_id="4"/>
+                  <sel loc="e,82,38,82,39" dtype_id="4">
+                    <varref loc="e,82,30,82,38" name="wb_dat_o" dtype_id="3"/>
+                    <const loc="e,82,41,82,42" name="5&apos;h0" dtype_id="5"/>
+                    <const loc="e,82,39,82,40" name="32&apos;h8" dtype_id="3"/>
+                  </sel>
+                </assigndly>
+              </caseitem>
+              <caseitem loc="e,83,28,83,29">
+                <const loc="e,83,21,83,28" name="4&apos;h5" dtype_id="2"/>
+                <assigndly loc="e,83,44,83,46" dtype_id="4">
+                  <varref loc="e,83,47,83,57" name="datareg1_1" dtype_id="4"/>
+                  <sel loc="e,83,38,83,39" dtype_id="4">
+                    <varref loc="e,83,30,83,38" name="wb_dat_o" dtype_id="3"/>
+                    <const loc="e,83,41,83,42" name="5&apos;h0" dtype_id="5"/>
+                    <const loc="e,83,39,83,40" name="32&apos;h8" dtype_id="3"/>
+                  </sel>
+                </assigndly>
+              </caseitem>
+              <caseitem loc="e,84,28,84,29">
+                <const loc="e,84,21,84,28" name="4&apos;h6" dtype_id="2"/>
+                <assigndly loc="e,84,44,84,46" dtype_id="4">
+                  <varref loc="e,84,47,84,57" name="datareg1_2" dtype_id="4"/>
+                  <sel loc="e,84,38,84,39" dtype_id="4">
+                    <varref loc="e,84,30,84,38" name="wb_dat_o" dtype_id="3"/>
+                    <const loc="e,84,41,84,42" name="5&apos;h0" dtype_id="5"/>
+                    <const loc="e,84,39,84,40" name="32&apos;h8" dtype_id="3"/>
+                  </sel>
+                </assigndly>
+              </caseitem>
+              <caseitem loc="e,85,28,85,29">
+                <const loc="e,85,21,85,28" name="4&apos;h7" dtype_id="2"/>
+                <assigndly loc="e,85,44,85,46" dtype_id="4">
+                  <varref loc="e,85,47,85,57" name="datareg1_3" dtype_id="4"/>
+                  <sel loc="e,85,38,85,39" dtype_id="4">
+                    <varref loc="e,85,30,85,38" name="wb_dat_o" dtype_id="3"/>
+                    <const loc="e,85,41,85,42" name="5&apos;h0" dtype_id="5"/>
+                    <const loc="e,85,39,85,40" name="32&apos;h8" dtype_id="3"/>
+                  </sel>
+                </assigndly>
+              </caseitem>
+            </case>
+          </caseitem>
+          <caseitem loc="e,87,20,87,21">
+            <const loc="e,87,13,87,20" name="4&apos;h1" dtype_id="2"/>
+            <case loc="e,88,17,88,21">
+              <varref loc="e,88,23,88,31" name="wb_adr_i" dtype_id="2"/>
+              <caseitem loc="e,89,28,89,29">
+                <const loc="e,89,21,89,28" name="4&apos;h0" dtype_id="2"/>
+                <assigndly loc="e,89,44,89,46" dtype_id="4">
+                  <varref loc="e,89,47,89,57" name="datareg0_0" dtype_id="4"/>
+                  <sel loc="e,89,38,89,39" dtype_id="4">
+                    <varref loc="e,89,30,89,38" name="wb_dat_o" dtype_id="3"/>
+                    <const loc="e,89,41,89,42" name="5&apos;h0" dtype_id="5"/>
+                    <const loc="e,89,39,89,40" name="32&apos;h8" dtype_id="3"/>
+                  </sel>
+                </assigndly>
+              </caseitem>
+              <caseitem loc="e,90,28,90,29">
+                <const loc="e,90,21,90,28" name="4&apos;h1" dtype_id="2"/>
+                <assigndly loc="e,90,44,90,46" dtype_id="4">
+                  <varref loc="e,90,47,90,57" name="datareg0_1" dtype_id="4"/>
+                  <sel loc="e,90,38,90,39" dtype_id="4">
+                    <varref loc="e,90,30,90,38" name="wb_dat_o" dtype_id="3"/>
+                    <const loc="e,90,41,90,42" name="5&apos;h0" dtype_id="5"/>
+                    <const loc="e,90,39,90,40" name="32&apos;h8" dtype_id="3"/>
+                  </sel>
+                </assigndly>
+              </caseitem>
+              <caseitem loc="e,91,28,91,29">
+                <const loc="e,91,21,91,28" name="4&apos;h2" dtype_id="2"/>
+                <assigndly loc="e,91,44,91,46" dtype_id="4">
+                  <varref loc="e,91,47,91,57" name="datareg0_2" dtype_id="4"/>
+                  <sel loc="e,91,38,91,39" dtype_id="4">
+                    <varref loc="e,91,30,91,38" name="wb_dat_o" dtype_id="3"/>
+                    <const loc="e,91,41,91,42" name="5&apos;h0" dtype_id="5"/>
+                    <const loc="e,91,39,91,40" name="32&apos;h8" dtype_id="3"/>
+                  </sel>
+                </assigndly>
+              </caseitem>
+              <caseitem loc="e,92,28,92,29">
+                <const loc="e,92,21,92,28" name="4&apos;h3" dtype_id="2"/>
+                <assigndly loc="e,92,44,92,46" dtype_id="4">
+                  <varref loc="e,92,47,92,57" name="datareg0_3" dtype_id="4"/>
+                  <sel loc="e,92,38,92,39" dtype_id="4">
+                    <varref loc="e,92,30,92,38" name="wb_dat_o" dtype_id="3"/>
+                    <const loc="e,92,41,92,42" name="5&apos;h0" dtype_id="5"/>
+                    <const loc="e,92,39,92,40" name="32&apos;h8" dtype_id="3"/>
+                  </sel>
+                </assigndly>
+              </caseitem>
+              <caseitem loc="e,93,28,93,29">
+                <const loc="e,93,21,93,28" name="4&apos;h4" dtype_id="2"/>
+                <assigndly loc="e,93,44,93,46" dtype_id="4">
+                  <varref loc="e,93,47,93,57" name="datareg1_0" dtype_id="4"/>
+                  <sel loc="e,93,38,93,39" dtype_id="4">
+                    <varref loc="e,93,30,93,38" name="wb_dat_o" dtype_id="3"/>
+                    <const loc="e,93,41,93,42" name="5&apos;h0" dtype_id="5"/>
+                    <const loc="e,93,39,93,40" name="32&apos;h8" dtype_id="3"/>
+                  </sel>
+                </assigndly>
+              </caseitem>
+              <caseitem loc="e,94,28,94,29">
+                <const loc="e,94,21,94,28" name="4&apos;h5" dtype_id="2"/>
+                <assigndly loc="e,94,44,94,46" dtype_id="4">
+                  <varref loc="e,94,47,94,57" name="datareg1_1" dtype_id="4"/>
+                  <sel loc="e,94,38,94,39" dtype_id="4">
+                    <varref loc="e,94,30,94,38" name="wb_dat_o" dtype_id="3"/>
+                    <const loc="e,94,41,94,42" name="5&apos;h0" dtype_id="5"/>
+                    <const loc="e,94,39,94,40" name="32&apos;h8" dtype_id="3"/>
+                  </sel>
+                </assigndly>
+              </caseitem>
+              <caseitem loc="e,95,28,95,29">
+                <const loc="e,95,21,95,28" name="4&apos;h6" dtype_id="2"/>
+                <assigndly loc="e,95,44,95,46" dtype_id="4">
+                  <varref loc="e,95,47,95,57" name="datareg1_2" dtype_id="4"/>
+                  <sel loc="e,95,38,95,39" dtype_id="4">
+                    <varref loc="e,95,30,95,38" name="wb_dat_o" dtype_id="3"/>
+                    <const loc="e,95,41,95,42" name="5&apos;h0" dtype_id="5"/>
+                    <const loc="e,95,39,95,40" name="32&apos;h8" dtype_id="3"/>
+                  </sel>
+                </assigndly>
+              </caseitem>
+              <caseitem loc="e,96,28,96,29">
+                <const loc="e,96,21,96,28" name="4&apos;h7" dtype_id="2"/>
+                <assigndly loc="e,96,44,96,46" dtype_id="4">
+                  <varref loc="e,96,47,96,57" name="datareg1_3" dtype_id="4"/>
+                  <sel loc="e,96,38,96,39" dtype_id="4">
+                    <varref loc="e,96,30,96,38" name="wb_dat_o" dtype_id="3"/>
+                    <const loc="e,96,41,96,42" name="5&apos;h0" dtype_id="5"/>
+                    <const loc="e,96,39,96,40" name="32&apos;h8" dtype_id="3"/>
+                  </sel>
+                </assigndly>
+              </caseitem>
+            </case>
+          </caseitem>
+          <caseitem loc="e,98,20,98,21">
+            <const loc="e,98,13,98,20" name="4&apos;h3" dtype_id="2"/>
+            <assigndly loc="e,99,36,99,38" dtype_id="6">
+              <concat loc="e,99,50,99,51" dtype_id="6">
+                <varref loc="e,99,40,99,50" name="datareg0_1" dtype_id="4"/>
+                <varref loc="e,99,52,99,62" name="datareg0_0" dtype_id="4"/>
+              </concat>
+              <sel loc="e,99,29,99,30" dtype_id="6">
+                <varref loc="e,99,21,99,29" name="wb_dat_o" dtype_id="3"/>
+                <const loc="e,99,33,99,34" name="5&apos;h0" dtype_id="5"/>
+                <const loc="e,99,30,99,32" name="32&apos;h10" dtype_id="3"/>
+              </sel>
+            </assigndly>
+          </caseitem>
+          <caseitem loc="e,100,20,100,21">
+            <const loc="e,100,13,100,20" name="4&apos;hf" dtype_id="2"/>
+            <assigndly loc="e,101,36,101,38" dtype_id="3">
+              <concat loc="e,101,74,101,75" dtype_id="3">
+                <varref loc="e,101,40,101,50" name="datareg0_3" dtype_id="4"/>
+                <concat loc="e,101,62,101,63" dtype_id="7">
+                  <varref loc="e,101,52,101,62" name="datareg0_2" dtype_id="4"/>
+                  <concat loc="e,101,50,101,51" dtype_id="6">
+                    <varref loc="e,101,64,101,74" name="datareg0_1" dtype_id="4"/>
+                    <varref loc="e,101,76,101,86" name="datareg0_0" dtype_id="4"/>
+                  </concat>
+                </concat>
+              </concat>
+              <varref loc="e,101,21,101,29" name="wb_dat_o" dtype_id="3"/>
+            </assigndly>
+          </caseitem>
+        </case>
+      </always>
+      <always loc="e,103,5,103,11">
+        <sentree loc="e,103,12,103,13">
+          <senitem loc="e,103,14,103,21" edgeType="POS">
+            <varref loc="e,103,22,103,27" name="clk_i" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,103,31,103,38" edgeType="NEG">
+            <varref loc="e,103,39,103,45" name="nrst_i" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <if loc="e,104,9,104,11">
+          <varref loc="e,104,13,104,19" name="nrst_i" dtype_id="1"/>
+          <begin>
+            <begin loc="e,104,21,104,26">
+              <if loc="e,105,13,105,15">
+                <eq loc="e,105,22,105,24" dtype_id="1">
+                  <const loc="e,105,25,105,26" name="8&apos;h0" dtype_id="4"/>
+                  <varref loc="e,105,17,105,21" name="ws_i" dtype_id="4"/>
+                </eq>
+                <begin>
+                  <begin loc="e,105,28,105,33">
+                    <assigndly loc="e,106,26,106,28" dtype_id="1">
+                      <and loc="e,106,36,106,37" dtype_id="1">
+                        <varref loc="e,106,29,106,35" name="wb_acc" dtype_id="1"/>
+                        <not loc="e,106,38,106,39" dtype_id="1">
+                          <varref loc="e,106,39,106,47" name="wb_ack_o" dtype_id="1"/>
+                        </not>
+                      </and>
+                      <varref loc="e,106,17,106,25" name="wb_ack_o" dtype_id="1"/>
+                    </assigndly>
+                  </begin>
+                </begin>
+                <begin>
+                  <if loc="e,108,13,108,15">
+                    <and loc="e,108,36,108,38" dtype_id="1">
+                      <eq loc="e,108,27,108,29" dtype_id="1">
+                        <const loc="e,108,30,108,34" name="8&apos;h0" dtype_id="4"/>
+                        <varref loc="e,108,17,108,26" name="waitstate" dtype_id="4"/>
+                      </eq>
+                      <neq loc="e,108,45,108,47" dtype_id="1">
+                        <const loc="e,108,48,108,49" name="8&apos;h0" dtype_id="4"/>
+                        <varref loc="e,108,40,108,44" name="ws_i" dtype_id="4"/>
+                      </neq>
+                    </and>
+                    <begin>
+                      <begin loc="e,108,52,108,57">
+                        <assigndly loc="e,109,26,109,28" dtype_id="1">
+                          <const loc="e,109,29,109,33" name="1&apos;h0" dtype_id="1"/>
+                          <varref loc="e,109,17,109,25" name="wb_ack_o" dtype_id="1"/>
+                        </assigndly>
+                        <if loc="e,110,17,110,19">
+                          <varref loc="e,110,20,110,26" name="wb_acc" dtype_id="1"/>
+                          <begin>
+                            <begin loc="e,110,28,110,33">
+                              <assigndly loc="e,111,31,111,33" dtype_id="4">
+                                <add loc="e,111,44,111,45" dtype_id="4">
+                                  <const loc="e,111,44,111,45" name="8&apos;h1" dtype_id="4"/>
+                                  <varref loc="e,111,34,111,43" name="waitstate" dtype_id="4"/>
+                                </add>
+                                <varref loc="e,111,21,111,30" name="waitstate" dtype_id="4"/>
+                              </assigndly>
+                            </begin>
+                          </begin>
+                        </if>
+                      </begin>
+                    </begin>
+                    <begin>
+                      <begin loc="e,114,18,114,23">
+                        <if loc="e,115,17,115,19">
+                          <varref loc="e,115,20,115,26" name="wb_acc" dtype_id="1"/>
+                          <begin>
+                            <assigndly loc="e,115,38,115,40" dtype_id="4">
+                              <add loc="e,115,51,115,52" dtype_id="4">
+                                <const loc="e,115,51,115,52" name="8&apos;h1" dtype_id="4"/>
+                                <varref loc="e,115,41,115,50" name="waitstate" dtype_id="4"/>
+                              </add>
+                              <varref loc="e,115,28,115,37" name="waitstate" dtype_id="4"/>
+                            </assigndly>
+                          </begin>
+                        </if>
+                        <if loc="e,116,17,116,19">
+                          <eq loc="e,116,30,116,32" dtype_id="1">
+                            <varref loc="e,116,20,116,29" name="waitstate" dtype_id="4"/>
+                            <varref loc="e,116,33,116,37" name="ws_i" dtype_id="4"/>
+                          </eq>
+                          <begin>
+                            <begin loc="e,116,39,116,44">
+                              <if loc="e,117,21,117,23">
+                                <varref loc="e,117,24,117,30" name="wb_acc" dtype_id="1"/>
+                                <begin>
+                                  <assigndly loc="e,117,41,117,43" dtype_id="1">
+                                    <const loc="e,117,44,117,48" name="1&apos;h1" dtype_id="1"/>
+                                    <varref loc="e,117,32,117,40" name="wb_ack_o" dtype_id="1"/>
+                                  </assigndly>
+                                </begin>
+                              </if>
+                              <assigndly loc="e,118,31,118,33" dtype_id="4">
+                                <const loc="e,118,34,118,38" name="8&apos;h0" dtype_id="4"/>
+                                <varref loc="e,118,21,118,30" name="waitstate" dtype_id="4"/>
+                              </assigndly>
+                            </begin>
+                          </begin>
+                        </if>
+                      </begin>
+                    </begin>
+                  </if>
+                </begin>
+              </if>
+            </begin>
+          </begin>
+        </if>
+      </always>
+      <contassign loc="e,124,21,124,22" dtype_id="1">
+        <and loc="e,124,32,124,33" dtype_id="1">
+          <varref loc="e,14,20,14,28" name="wb_ack_o" dtype_id="1"/>
+          <sel loc="e,124,42,124,43" dtype_id="1">
+            <varref loc="e,7,20,7,28" name="wb_adr_i" dtype_id="2"/>
+            <const loc="e,124,42,124,43" name="32&apos;h3" dtype_id="3"/>
+            <const loc="e,124,42,124,43" name="32&apos;h1" dtype_id="3"/>
+          </sel>
+        </and>
+        <varref loc="e,124,21,124,22" name="wb_err_o" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,21,17,21,18" dtype_id="1">
+        <and loc="e,21,26,21,27" dtype_id="1">
+          <varref loc="e,20,10,20,16" name="wb_acc" dtype_id="1"/>
+          <varref loc="e,11,20,11,27" name="wb_we_i" dtype_id="1"/>
+        </and>
+        <varref loc="e,21,17,21,18" name="wb_wr" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,20,17,20,18" dtype_id="1">
+        <and loc="e,20,28,20,29" dtype_id="1">
+          <varref loc="e,13,20,13,28" name="wb_cyc_i" dtype_id="1"/>
+          <varref loc="e,12,20,12,28" name="wb_stb_i" dtype_id="1"/>
+        </and>
+        <varref loc="e,20,17,20,18" name="wb_acc" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,22,17,22,27" dtype_id="3">
+        <concat loc="e,22,17,22,27" dtype_id="3">
+          <varref loc="e,25,17,25,27" name="datareg0_3" dtype_id="4"/>
+          <concat loc="e,22,17,22,27" dtype_id="7">
+            <varref loc="e,24,17,24,27" name="datareg0_2" dtype_id="4"/>
+            <concat loc="e,22,17,22,27" dtype_id="6">
+              <varref loc="e,23,17,23,27" name="datareg0_1" dtype_id="4"/>
+              <varref loc="e,22,17,22,27" name="datareg0_0" dtype_id="4"/>
+            </concat>
+          </concat>
+        </concat>
+        <varref loc="e,22,17,22,27" name="datareg0" dtype_id="3"/>
+      </contassign>
+      <contassign loc="e,26,17,26,27" dtype_id="3">
+        <concat loc="e,26,17,26,27" dtype_id="3">
+          <varref loc="e,29,17,29,27" name="datareg1_3" dtype_id="4"/>
+          <concat loc="e,26,17,26,27" dtype_id="7">
+            <varref loc="e,28,17,28,27" name="datareg1_2" dtype_id="4"/>
+            <concat loc="e,26,17,26,27" dtype_id="6">
+              <varref loc="e,27,17,27,27" name="datareg1_1" dtype_id="4"/>
+              <varref loc="e,26,17,26,27" name="datareg1_0" dtype_id="4"/>
+            </concat>
+          </concat>
+        </concat>
+        <varref loc="e,26,17,26,27" name="datareg1" dtype_id="3"/>
+      </contassign>
+    </module>
+    <typetable loc="a,0,0,0,0">
+      <basicdtype loc="d,46,25,46,27" id="1" name="logic"/>
+      <voiddtype loc="d,48,18,48,27" id="8"/>
+      <basicdtype loc="e,7,14,7,15" id="2" name="logic" left="3" right="0"/>
+      <basicdtype loc="e,8,12,8,15" id="3" name="logic" left="31" right="0"/>
+      <basicdtype loc="e,16,14,16,15" id="4" name="logic" left="7" right="0"/>
+      <basicdtype loc="e,49,56,49,57" id="5" name="logic" left="4" right="0" signed="true"/>
+      <basicdtype loc="e,70,32,70,33" id="6" name="logic" left="15" right="0"/>
+      <basicdtype loc="e,72,44,72,45" id="7" name="logic" left="23" right="0"/>
+    </typetable>
+  </netlist>
+</verilator_xml>

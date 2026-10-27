@@ -1,0 +1,40 @@
+{
+  "id": "TBGen/L2/Text/IDEX_Stage",
+  "subset": "TBGen",
+  "input_files": [
+    {
+      "name": "IDEX_Stage.v",
+      "bytes": 6401,
+      "sha256": "df5c624213e889853597a05b41fad867d41750747f9ac24dc042327a73caa8bc"
+    },
+    {
+      "name": "IDEX_Stage_spec.txt",
+      "bytes": 7279,
+      "sha256": "2a02865b97d6db4dd5be10c9eaded867d89cb692840b360510627e5d9e2c7067"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": true,
+  "negative_control_detected": true,
+  "commands": 5,
+  "status": "pass",
+  "stimulus_contract": {
+    "seed": 13579,
+    "cycles": 64,
+    "clock": "clock",
+    "reset_polarities": {
+      "reset": 1
+    },
+    "unknown_handling": "any observed unknown prevents pass",
+    "oracle": "renamed copy of supplied RTL; self-consistency/calibration only"
+  },
+  "observed_checks": 64,
+  "observed_unknown": 0,
+  "reference_status": "pass",
+  "negative_status": "fail",
+  "reason": "reference/checker positive and perturbed-checker negative executed",
+  "seconds": 0.175
+}

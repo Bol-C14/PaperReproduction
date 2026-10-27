@@ -1,0 +1,40 @@
+{
+  "id": "MGen/L1/Text/Mux Conditional",
+  "subset": "MGen",
+  "input_files": [
+    {
+      "name": "mux_condt.v",
+      "bytes": 517,
+      "sha256": "48268dba605bfff1d50f1c4692025d5c53f222973f8e294cf1054bb67b771a2b"
+    },
+    {
+      "name": "mux_condt_tb.v",
+      "bytes": 1346,
+      "sha256": "00069a8c5d526e3dec735ef82b00034020deced38fdc7bb68866f67e314413d5"
+    }
+  ],
+  "overlays": [
+    {
+      "field": "spec_text",
+      "source": "data/SpeCom/L1/Text/Mux Conditional/mux_condt_spec.txt",
+      "sha256": "920f934c7fbff6deb86e5a98a7feb7db7069c99dcf42b63dc10656b5c10ea8a0",
+      "reason": "same case name and byte-identical RTL in SpeCom; explicit cross-subset reuse",
+      "fidelity": "structural-input-overlay",
+      "matched_rtl_sha256": "48268dba605bfff1d50f1c4692025d5c53f222973f8e294cf1054bb67b771a2b"
+    }
+  ],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": null,
+  "negative_control_detected": null,
+  "commands": 3,
+  "status": "error",
+  "wrapper_mode": "dut_replacement",
+  "reference_source": "mux_condt.v",
+  "reference_source_sha256": "48268dba605bfff1d50f1c4692025d5c53f222973f8e294cf1054bb67b771a2b",
+  "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+  "resolved_tb_parameters": {},
+  "reason": "official reference/derived baseline diagnostic: candidate compilation diagnostic",
+  "seconds": 5.023
+}

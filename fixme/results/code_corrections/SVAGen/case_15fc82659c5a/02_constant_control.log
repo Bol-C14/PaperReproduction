@@ -1,0 +1,707 @@
+
+-- Running command `read_verilog -formal -sv constant_control.sv; hierarchy -top ct_ifu_btb; prep -top ct_ifu_btb; flatten; async2sync; dffunmap; memory_map; opt_clean; chformal -lower; write_json constant_control.json; sat -seq 2 -timeout 5 -prove-asserts -verify -show-inputs -show-outputs' --
+
+1. Executing Verilog-2005 frontend: constant_control.sv
+Parsing formal SystemVerilog input from `constant_control.sv' to AST representation.
+Generating RTLIL representation for module `\ct_ifu_btb'.
+Note: Assuming pure combinatorial block at constant_control.sv:221.1-232.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at constant_control.sv:256.1-264.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Note: Assuming pure combinatorial block at constant_control.sv:267.1-279.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \ct_ifu_btb
+
+2.2. Analyzing design hierarchy..
+Top module:  \ct_ifu_btb
+Removed 0 unused modules.
+Module ct_ifu_btb directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \ct_ifu_btb
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \ct_ifu_btb
+Removed 0 unused modules.
+Module ct_ifu_btb directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 3 switch rules as full_case in process $proc$constant_control.sv:541$184 in module ct_ifu_btb.
+Marked 3 switch rules as full_case in process $proc$constant_control.sv:530$180 in module ct_ifu_btb.
+Marked 5 switch rules as full_case in process $proc$constant_control.sv:510$169 in module ct_ifu_btb.
+Marked 4 switch rules as full_case in process $proc$constant_control.sv:497$165 in module ct_ifu_btb.
+Marked 4 switch rules as full_case in process $proc$constant_control.sv:484$159 in module ct_ifu_btb.
+Marked 4 switch rules as full_case in process $proc$constant_control.sv:471$153 in module ct_ifu_btb.
+Marked 4 switch rules as full_case in process $proc$constant_control.sv:458$147 in module ct_ifu_btb.
+Marked 3 switch rules as full_case in process $proc$constant_control.sv:438$136 in module ct_ifu_btb.
+Marked 3 switch rules as full_case in process $proc$constant_control.sv:427$133 in module ct_ifu_btb.
+Marked 1 switch rules as full_case in process $proc$constant_control.sv:390$120 in module ct_ifu_btb.
+Marked 3 switch rules as full_case in process $proc$constant_control.sv:331$68 in module ct_ifu_btb.
+Marked 3 switch rules as full_case in process $proc$constant_control.sv:319$64 in module ct_ifu_btb.
+Marked 3 switch rules as full_case in process $proc$constant_control.sv:304$60 in module ct_ifu_btb.
+Marked 3 switch rules as full_case in process $proc$constant_control.sv:293$58 in module ct_ifu_btb.
+Marked 3 switch rules as full_case in process $proc$constant_control.sv:282$56 in module ct_ifu_btb.
+Marked 2 switch rules as full_case in process $proc$constant_control.sv:267$54 in module ct_ifu_btb.
+Marked 1 switch rules as full_case in process $proc$constant_control.sv:256$52 in module ct_ifu_btb.
+Marked 2 switch rules as full_case in process $proc$constant_control.sv:221$24 in module ct_ifu_btb.
+Removed a total of 0 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 16 redundant assignments.
+Promoted 4 assignments to connections.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \cpurst_b in `\ct_ifu_btb.$proc$constant_control.sv:541$184'.
+Found async reset \cpurst_b in `\ct_ifu_btb.$proc$constant_control.sv:530$180'.
+Found async reset \cpurst_b in `\ct_ifu_btb.$proc$constant_control.sv:510$169'.
+Found async reset \cpurst_b in `\ct_ifu_btb.$proc$constant_control.sv:497$165'.
+Found async reset \cpurst_b in `\ct_ifu_btb.$proc$constant_control.sv:484$159'.
+Found async reset \cpurst_b in `\ct_ifu_btb.$proc$constant_control.sv:471$153'.
+Found async reset \cpurst_b in `\ct_ifu_btb.$proc$constant_control.sv:458$147'.
+Found async reset \cpurst_b in `\ct_ifu_btb.$proc$constant_control.sv:438$136'.
+Found async reset \cpurst_b in `\ct_ifu_btb.$proc$constant_control.sv:427$133'.
+Found async reset \cpurst_b in `\ct_ifu_btb.$proc$constant_control.sv:390$120'.
+Found async reset \cpurst_b in `\ct_ifu_btb.$proc$constant_control.sv:331$68'.
+Found async reset \cpurst_b in `\ct_ifu_btb.$proc$constant_control.sv:319$64'.
+Found async reset \cpurst_b in `\ct_ifu_btb.$proc$constant_control.sv:304$60'.
+Found async reset \cpurst_b in `\ct_ifu_btb.$proc$constant_control.sv:293$58'.
+Found async reset \cpurst_b in `\ct_ifu_btb.$proc$constant_control.sv:282$56'.
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~39 debug messages>
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\ct_ifu_btb.$proc$constant_control.sv:557$190'.
+Creating decoders for process `\ct_ifu_btb.$proc$constant_control.sv:541$184'.
+     1/1: $0\after_addrgen_btb_chgflw_second[0:0]
+Creating decoders for process `\ct_ifu_btb.$proc$constant_control.sv:530$180'.
+     1/1: $0\after_addrgen_btb_chgflw_first[0:0]
+Creating decoders for process `\ct_ifu_btb.$proc$constant_control.sv:510$169'.
+     1/1: $0\refill_buf_valid[0:0]
+Creating decoders for process `\ct_ifu_btb.$proc$constant_control.sv:497$165'.
+     1/1: $0\refill_buf_way_pred[1:0]
+Creating decoders for process `\ct_ifu_btb.$proc$constant_control.sv:484$159'.
+     1/1: $0\refill_buf_tag[9:0]
+Creating decoders for process `\ct_ifu_btb.$proc$constant_control.sv:471$153'.
+     1/1: $0\refill_buf_target_pc[19:0]
+Creating decoders for process `\ct_ifu_btb.$proc$constant_control.sv:458$147'.
+     1/1: $0\refill_buf_index[9:0]
+Creating decoders for process `\ct_ifu_btb.$proc$constant_control.sv:438$136'.
+     1/1: $0\btb_inv_on_reg[0:0]
+Creating decoders for process `\ct_ifu_btb.$proc$constant_control.sv:427$133'.
+     1/1: $0\btb_inval_cnt[9:0]
+Creating decoders for process `\ct_ifu_btb.$proc$constant_control.sv:390$120'.
+     1/1: $0\btb_index_flop[9:0]
+Creating decoders for process `\ct_ifu_btb.$proc$constant_control.sv:331$68'.
+     1/1: $0\btb_data_dout_reg[87:0]
+Creating decoders for process `\ct_ifu_btb.$proc$constant_control.sv:319$64'.
+     1/1: $0\btb_tag_dout_reg[43:0]
+Creating decoders for process `\ct_ifu_btb.$proc$constant_control.sv:304$60'.
+     1/1: $0\btb_rd_flop[0:0]
+Creating decoders for process `\ct_ifu_btb.$proc$constant_control.sv:293$58'.
+     1/1: $0\btb_target_pc_record[19:0]
+Creating decoders for process `\ct_ifu_btb.$proc$constant_control.sv:282$56'.
+     1/1: $0\btb_index_pc_record[38:0]
+Creating decoders for process `\ct_ifu_btb.$proc$constant_control.sv:267$54'.
+     1/2: $2\btb_index[9:0]
+     2/2: $1\btb_index[9:0]
+Creating decoders for process `\ct_ifu_btb.$proc$constant_control.sv:256$52'.
+     1/1: $1\btb_data_wen[3:0]
+Creating decoders for process `\ct_ifu_btb.$proc$constant_control.sv:221$24'.
+     1/2: $2\btb_tag_wen[3:0]
+     2/2: $1\btb_tag_wen[3:0]
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\ct_ifu_btb.\btb_index' from process `\ct_ifu_btb.$proc$constant_control.sv:267$54'.
+No latch inferred for signal `\ct_ifu_btb.\btb_data_wen' from process `\ct_ifu_btb.$proc$constant_control.sv:256$52'.
+No latch inferred for signal `\ct_ifu_btb.\btb_tag_wen' from process `\ct_ifu_btb.$proc$constant_control.sv:221$24'.
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\ct_ifu_btb.\after_addrgen_btb_chgflw_second' using process `\ct_ifu_btb.$proc$constant_control.sv:541$184'.
+  created $adff cell `$procdff$321' with positive edge clock and positive level reset.
+Creating register for signal `\ct_ifu_btb.\after_addrgen_btb_chgflw_first' using process `\ct_ifu_btb.$proc$constant_control.sv:530$180'.
+  created $adff cell `$procdff$326' with positive edge clock and positive level reset.
+Creating register for signal `\ct_ifu_btb.\refill_buf_valid' using process `\ct_ifu_btb.$proc$constant_control.sv:510$169'.
+  created $adff cell `$procdff$331' with positive edge clock and positive level reset.
+Creating register for signal `\ct_ifu_btb.\refill_buf_way_pred' using process `\ct_ifu_btb.$proc$constant_control.sv:497$165'.
+  created $adff cell `$procdff$336' with positive edge clock and positive level reset.
+Creating register for signal `\ct_ifu_btb.\refill_buf_tag' using process `\ct_ifu_btb.$proc$constant_control.sv:484$159'.
+  created $adff cell `$procdff$341' with positive edge clock and positive level reset.
+Creating register for signal `\ct_ifu_btb.\refill_buf_target_pc' using process `\ct_ifu_btb.$proc$constant_control.sv:471$153'.
+  created $adff cell `$procdff$346' with positive edge clock and positive level reset.
+Creating register for signal `\ct_ifu_btb.\refill_buf_index' using process `\ct_ifu_btb.$proc$constant_control.sv:458$147'.
+  created $adff cell `$procdff$351' with positive edge clock and positive level reset.
+Creating register for signal `\ct_ifu_btb.\btb_inv_on_reg' using process `\ct_ifu_btb.$proc$constant_control.sv:438$136'.
+  created $adff cell `$procdff$356' with positive edge clock and positive level reset.
+Creating register for signal `\ct_ifu_btb.\btb_inval_cnt' using process `\ct_ifu_btb.$proc$constant_control.sv:427$133'.
+  created $adff cell `$procdff$361' with positive edge clock and positive level reset.
+Creating register for signal `\ct_ifu_btb.\btb_index_flop' using process `\ct_ifu_btb.$proc$constant_control.sv:390$120'.
+  created $adff cell `$procdff$366' with positive edge clock and positive level reset.
+Creating register for signal `\ct_ifu_btb.\btb_data_dout_reg' using process `\ct_ifu_btb.$proc$constant_control.sv:331$68'.
+  created $adff cell `$procdff$371' with positive edge clock and positive level reset.
+Creating register for signal `\ct_ifu_btb.\btb_tag_dout_reg' using process `\ct_ifu_btb.$proc$constant_control.sv:319$64'.
+  created $adff cell `$procdff$376' with positive edge clock and positive level reset.
+Creating register for signal `\ct_ifu_btb.\btb_rd_flop' using process `\ct_ifu_btb.$proc$constant_control.sv:304$60'.
+  created $adff cell `$procdff$381' with positive edge clock and positive level reset.
+Creating register for signal `\ct_ifu_btb.\btb_target_pc_record' using process `\ct_ifu_btb.$proc$constant_control.sv:293$58'.
+  created $adff cell `$procdff$386' with positive edge clock and positive level reset.
+Creating register for signal `\ct_ifu_btb.\btb_index_pc_record' using process `\ct_ifu_btb.$proc$constant_control.sv:282$56'.
+  created $adff cell `$procdff$391' with positive edge clock and positive level reset.
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `ct_ifu_btb.$proc$constant_control.sv:557$190'.
+Found and cleaned up 2 empty switches in `\ct_ifu_btb.$proc$constant_control.sv:541$184'.
+Removing empty process `ct_ifu_btb.$proc$constant_control.sv:541$184'.
+Found and cleaned up 2 empty switches in `\ct_ifu_btb.$proc$constant_control.sv:530$180'.
+Removing empty process `ct_ifu_btb.$proc$constant_control.sv:530$180'.
+Found and cleaned up 4 empty switches in `\ct_ifu_btb.$proc$constant_control.sv:510$169'.
+Removing empty process `ct_ifu_btb.$proc$constant_control.sv:510$169'.
+Found and cleaned up 3 empty switches in `\ct_ifu_btb.$proc$constant_control.sv:497$165'.
+Removing empty process `ct_ifu_btb.$proc$constant_control.sv:497$165'.
+Found and cleaned up 3 empty switches in `\ct_ifu_btb.$proc$constant_control.sv:484$159'.
+Removing empty process `ct_ifu_btb.$proc$constant_control.sv:484$159'.
+Found and cleaned up 3 empty switches in `\ct_ifu_btb.$proc$constant_control.sv:471$153'.
+Removing empty process `ct_ifu_btb.$proc$constant_control.sv:471$153'.
+Found and cleaned up 3 empty switches in `\ct_ifu_btb.$proc$constant_control.sv:458$147'.
+Removing empty process `ct_ifu_btb.$proc$constant_control.sv:458$147'.
+Found and cleaned up 2 empty switches in `\ct_ifu_btb.$proc$constant_control.sv:438$136'.
+Removing empty process `ct_ifu_btb.$proc$constant_control.sv:438$136'.
+Found and cleaned up 2 empty switches in `\ct_ifu_btb.$proc$constant_control.sv:427$133'.
+Removing empty process `ct_ifu_btb.$proc$constant_control.sv:427$133'.
+Removing empty process `ct_ifu_btb.$proc$constant_control.sv:390$120'.
+Found and cleaned up 2 empty switches in `\ct_ifu_btb.$proc$constant_control.sv:331$68'.
+Removing empty process `ct_ifu_btb.$proc$constant_control.sv:331$68'.
+Found and cleaned up 2 empty switches in `\ct_ifu_btb.$proc$constant_control.sv:319$64'.
+Removing empty process `ct_ifu_btb.$proc$constant_control.sv:319$64'.
+Found and cleaned up 2 empty switches in `\ct_ifu_btb.$proc$constant_control.sv:304$60'.
+Removing empty process `ct_ifu_btb.$proc$constant_control.sv:304$60'.
+Found and cleaned up 2 empty switches in `\ct_ifu_btb.$proc$constant_control.sv:293$58'.
+Removing empty process `ct_ifu_btb.$proc$constant_control.sv:293$58'.
+Found and cleaned up 2 empty switches in `\ct_ifu_btb.$proc$constant_control.sv:282$56'.
+Removing empty process `ct_ifu_btb.$proc$constant_control.sv:282$56'.
+Found and cleaned up 2 empty switches in `\ct_ifu_btb.$proc$constant_control.sv:267$54'.
+Removing empty process `ct_ifu_btb.$proc$constant_control.sv:267$54'.
+Found and cleaned up 1 empty switch in `\ct_ifu_btb.$proc$constant_control.sv:256$52'.
+Removing empty process `ct_ifu_btb.$proc$constant_control.sv:256$52'.
+Found and cleaned up 2 empty switches in `\ct_ifu_btb.$proc$constant_control.sv:221$24'.
+Removing empty process `ct_ifu_btb.$proc$constant_control.sv:221$24'.
+Cleaned up 39 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_ifu_btb.
+<suppressed ~32 debug messages>
+
+3.3. Executing FUTURE pass.
+
+3.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_ifu_btb.
+
+3.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_ifu_btb..
+Removed 85 unused cells and 207 unused wires.
+<suppressed ~99 debug messages>
+
+3.6. Executing CHECK pass (checking for obvious problems).
+Checking module ct_ifu_btb...
+Warning: Wire ct_ifu_btb.\btb_tag_dout [43] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [42] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [41] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [40] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [39] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [38] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [37] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [36] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [35] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [34] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [33] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [32] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [31] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [30] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [29] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [28] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [27] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [26] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [25] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [24] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [23] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [22] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [21] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [20] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [19] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [18] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [17] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [16] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [15] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [14] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [13] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [12] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [11] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [10] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [9] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [8] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [7] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [6] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [5] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [4] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [3] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [2] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [1] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [0] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [87] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [86] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [85] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [84] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [83] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [82] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [81] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [80] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [79] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [78] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [77] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [76] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [75] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [74] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [73] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [72] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [71] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [70] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [69] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [68] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [67] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [66] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [65] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [64] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [63] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [62] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [61] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [60] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [59] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [58] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [57] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [56] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [55] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [54] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [53] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [52] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [51] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [50] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [49] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [48] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [47] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [46] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [45] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [44] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [43] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [42] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [41] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [40] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [39] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [38] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [37] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [36] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [35] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [34] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [33] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [32] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [31] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [30] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [29] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [28] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [27] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [26] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [25] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [24] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [23] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [22] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [21] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [20] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [19] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [18] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [17] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [16] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [15] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [14] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [13] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [12] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [11] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [10] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [9] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [8] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [7] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [6] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [5] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [4] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [3] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [2] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [1] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [0] is used but has no driver.
+Found and reported 132 problems.
+
+3.7. Executing OPT pass (performing simple optimizations).
+
+3.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_ifu_btb.
+
+3.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ct_ifu_btb'.
+<suppressed ~156 debug messages>
+Removed a total of 52 cells.
+
+3.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ct_ifu_btb..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 1/2 on $mux $procmux$300.
+Removed 1 multiplexer ports.
+<suppressed ~31 debug messages>
+
+3.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ct_ifu_btb.
+Performed a total of 0 changes.
+
+3.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ct_ifu_btb'.
+Removed a total of 0 cells.
+
+3.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_ifu_btb..
+Removed 0 unused cells and 53 unused wires.
+<suppressed ~1 debug messages>
+
+3.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_ifu_btb.
+
+3.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ct_ifu_btb..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~31 debug messages>
+
+3.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ct_ifu_btb.
+Performed a total of 0 changes.
+
+3.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ct_ifu_btb'.
+Removed a total of 0 cells.
+
+3.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_ifu_btb..
+
+3.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_ifu_btb.
+
+3.7.14. Finished OPT passes. (There is nothing left to do.)
+
+3.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 9 bits (of 10) from port B of cell ct_ifu_btb.$sub$constant_control.sv:432$135 ($sub).
+Removed top 1 bits (of 22) from wire ct_ifu_btb.btb_tag_din.
+
+3.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_ifu_btb..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+3.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.11. Executing OPT pass (performing simple optimizations).
+
+3.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_ifu_btb.
+
+3.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ct_ifu_btb'.
+Removed a total of 0 cells.
+
+3.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_ifu_btb..
+
+3.11.4. Finished fast OPT passes.
+
+3.12. Printing statistics.
+
+=== ct_ifu_btb ===
+
+   Number of wires:                157
+   Number of wire bits:           1491
+   Number of public wires:          96
+   Number of public wire bits:     906
+   Number of ports:                 43
+   Number of port bits:            263
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                105
+     $adff                          15
+     $check                          1
+     $eq                             1
+     $logic_and                     18
+     $logic_not                      9
+     $logic_or                       4
+     $mux                           55
+     $reduce_or                      1
+     $sub                            1
+
+3.13. Executing CHECK pass (checking for obvious problems).
+Checking module ct_ifu_btb...
+Warning: Wire ct_ifu_btb.\btb_tag_dout [43] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [42] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [41] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [40] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [39] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [38] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [37] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [36] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [35] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [34] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [33] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [32] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [31] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [30] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [29] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [28] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [27] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [26] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [25] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [24] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [23] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [22] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [21] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [20] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [19] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [18] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [17] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [16] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [15] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [14] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [13] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [12] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [11] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [10] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [9] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [8] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [7] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [6] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [5] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [4] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [3] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [2] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [1] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_tag_dout [0] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [87] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [86] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [85] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [84] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [83] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [82] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [81] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [80] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [79] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [78] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [77] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [76] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [75] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [74] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [73] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [72] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [71] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [70] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [69] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [68] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [67] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [66] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [65] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [64] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [63] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [62] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [61] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [60] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [59] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [58] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [57] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [56] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [55] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [54] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [53] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [52] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [51] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [50] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [49] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [48] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [47] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [46] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [45] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [44] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [43] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [42] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [41] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [40] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [39] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [38] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [37] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [36] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [35] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [34] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [33] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [32] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [31] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [30] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [29] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [28] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [27] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [26] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [25] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [24] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [23] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [22] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [21] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [20] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [19] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [18] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [17] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [16] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [15] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [14] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [13] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [12] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [11] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [10] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [9] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [8] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [7] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [6] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [5] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [4] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [3] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [2] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [1] is used but has no driver.
+Warning: Wire ct_ifu_btb.\btb_data_dout [0] is used but has no driver.
+Found and reported 132 problems.
+
+4. Executing FLATTEN pass (flatten design).
+
+5. Executing ASYNC2SYNC pass.
+Replacing ct_ifu_btb.$procdff$321 ($adff): ARST=\cpurst_b, D=$0\after_addrgen_btb_chgflw_second[0:0], Q=\after_addrgen_btb_chgflw_second
+Replacing ct_ifu_btb.$procdff$326 ($adff): ARST=\cpurst_b, D=$0\after_addrgen_btb_chgflw_first[0:0], Q=\after_addrgen_btb_chgflw_first
+Replacing ct_ifu_btb.$procdff$331 ($adff): ARST=\cpurst_b, D=$0\refill_buf_valid[0:0], Q=\refill_buf_valid
+Replacing ct_ifu_btb.$procdff$336 ($adff): ARST=\cpurst_b, D=$0\refill_buf_way_pred[1:0], Q=\refill_buf_way_pred
+Replacing ct_ifu_btb.$procdff$341 ($adff): ARST=\cpurst_b, D=$0\refill_buf_tag[9:0], Q=\refill_buf_tag
+Replacing ct_ifu_btb.$procdff$346 ($adff): ARST=\cpurst_b, D=$0\refill_buf_target_pc[19:0], Q=\refill_buf_target_pc
+Replacing ct_ifu_btb.$procdff$351 ($adff): ARST=\cpurst_b, D=$0\refill_buf_index[9:0], Q=\refill_buf_index
+Replacing ct_ifu_btb.$procdff$356 ($adff): ARST=\cpurst_b, D=$0\btb_inv_on_reg[0:0], Q=\btb_inv_on_reg
+Replacing ct_ifu_btb.$procdff$361 ($adff): ARST=\cpurst_b, D=$0\btb_inval_cnt[9:0], Q=\btb_inval_cnt
+Replacing ct_ifu_btb.$procdff$366 ($adff): ARST=\cpurst_b, D=\btb_index, Q=\btb_index_flop
+Replacing ct_ifu_btb.$procdff$371 ($adff): ARST=\cpurst_b, D=$0\btb_data_dout_reg[87:0], Q=\btb_data_dout_reg
+Replacing ct_ifu_btb.$procdff$376 ($adff): ARST=\cpurst_b, D=$0\btb_tag_dout_reg[43:0], Q=\btb_tag_dout_reg
+Replacing ct_ifu_btb.$procdff$381 ($adff): ARST=\cpurst_b, D=$0\btb_rd_flop[0:0], Q=\btb_rd_flop
+Replacing ct_ifu_btb.$procdff$386 ($adff): ARST=\cpurst_b, D=$0\btb_target_pc_record[19:0], Q=\btb_target_pc_record
+Replacing ct_ifu_btb.$procdff$391 ($adff): ARST=\cpurst_b, D=$0\btb_index_pc_record[38:0], Q=\btb_index_pc_record
+
+6. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+7. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_ifu_btb..
+Removed 2 unused cells and 2 unused wires.
+<suppressed ~3 debug messages>
+
+9. Executing JSON backend.
+
+10. Executing SAT pass (solving SAT problems in the circuit).
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 135 cells to SAT database.
+No constraints for initial state found.
+
+Import proof for assert: 1'1 when 1'1.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 135 cells to SAT database.
+Import proof for assert: 1'1 when 1'1.
+Import show expression: \addrgen_btb_index
+Import show expression: \addrgen_btb_tag
+Import show expression: \addrgen_btb_target_pc
+Import show expression: \addrgen_btb_update_vld
+Import show expression: \cp0_ifu_btb_en
+Import show expression: \cp0_ifu_icg_en
+Import show expression: \cp0_yy_clk_en
+Import show expression: \cpurst_b
+Import show expression: \forever_cpuclk
+Import show expression: \ibdp_btb_miss
+Import show expression: \ifctrl_btb_inv
+Import show expression: \ipctrl_btb_chgflw_vld
+Import show expression: \ipctrl_btb_way_pred
+Import show expression: \ipctrl_btb_way_pred_error
+Import show expression: \ipdp_btb_index_pc
+Import show expression: \ipdp_btb_target_pc
+Import show expression: \pad_yy_icg_scan_en
+Import show expression: \pcgen_btb_chgflw
+Import show expression: \pcgen_btb_chgflw_higher_than_addrgen
+Import show expression: \pcgen_btb_chgflw_higher_than_if
+Import show expression: \pcgen_btb_chgflw_higher_than_ip
+Import show expression: \pcgen_btb_chgflw_short
+Import show expression: \pcgen_btb_index
+Import show expression: \pcgen_btb_stall
+Import show expression: \pcgen_btb_stall_short
+Import show expression: \btb_ifctrl_inv_done
+Import show expression: \btb_ifctrl_inv_on
+Import show expression: \btb_ifdp_way0_pred
+Import show expression: \btb_ifdp_way0_tag
+Import show expression: \btb_ifdp_way0_target
+Import show expression: \btb_ifdp_way0_vld
+Import show expression: \btb_ifdp_way1_pred
+Import show expression: \btb_ifdp_way1_tag
+Import show expression: \btb_ifdp_way1_target
+Import show expression: \btb_ifdp_way1_vld
+Import show expression: \btb_ifdp_way2_pred
+Import show expression: \btb_ifdp_way2_tag
+Import show expression: \btb_ifdp_way2_target
+Import show expression: \btb_ifdp_way2_vld
+Import show expression: \btb_ifdp_way3_pred
+Import show expression: \btb_ifdp_way3_tag
+Import show expression: \btb_ifdp_way3_target
+Import show expression: \btb_ifdp_way3_vld
+
+Solving problem with 17392 variables and 44219 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+

@@ -1,0 +1,38 @@
+{
+  "id": "SVAGen/L3/Text/11",
+  "subset": "SVAGen",
+  "input_files": [
+    {
+      "name": "ct_biu_other_io_sync_306.txt",
+      "bytes": 14628,
+      "sha256": "2aa00181fe138a81b937510a11bfbe9a793c9db29cfb56418b806e4eb055436d"
+    },
+    {
+      "name": "ct_biu_other_io_sync_306.v",
+      "bytes": 8674,
+      "sha256": "224be57a6aae31d18df2cf367e92e499cc74ef4c73229229c1eb6d7a4a67b012"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": true,
+  "negative_control_detected": true,
+  "commands": 4,
+  "status": "pass",
+  "assertion": "always @* assert((biu_cp0_coreid[2:0]) == (pad_core_hartid[2:0]));",
+  "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+  "relation_lhs": "biu_cp0_coreid[2:0]",
+  "property_counts": {
+    "assert": 1,
+    "assume": 0,
+    "cover": 0
+  },
+  "constant_mutation_status": "completed",
+  "constant_mutation_killed": false,
+  "negative_status": "fail",
+  "constant_control_status": "unknown",
+  "reason": "nonzero properties proven and selected output mutant falsified",
+  "seconds": 0.277
+}

@@ -1,0 +1,34 @@
+%Warning-IMPLICIT: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_536ca1160267/UART_RXSM.v:44:8: Signal definition not found, creating implicitly: 'RxSM_Wait'
+                                                                                                                         : ... Suggested alternative: 'RxWait'
+   44 | assign RxSM_Wait = (  (RxSM == pWaitMark)
+      |        ^~~~~~~~~
+                   ... For warning description see https://verilator.org/warn/IMPLICIT?v=5.032
+                   ... Use "/* verilator lint_off IMPLICIT */" and lint_on around source to disable this message.
+%Warning-IMPLICIT: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_536ca1160267/UART_RXSM.v:62:8: Signal definition not found, creating implicitly: 'Rst_BCnt'
+   62 | assign Rst_BCnt = Rst | RxSM_Wait;
+      |        ^~~~~~~~
+%Warning-IMPLICIT: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_536ca1160267/UART_RXSM.v:70:8: Signal definition not found, creating implicitly: 'TC_BCnt'
+                                                                                                                         : ... Suggested alternative: 'BCnt'
+   70 | assign TC_BCnt = CE_16x & (BCnt == 4'b1111);
+      |        ^~~~~~~
+%Warning-IMPLICIT: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_536ca1160267/UART_RXSM.v:71:8: Signal definition not found, creating implicitly: 'CE_RxSM'
+                                                                                                                         : ... Suggested alternative: 'RxSM'
+   71 | assign CE_RxSM = (RxSM_Wait ? CE_16x : TC_BCnt);
+      |        ^~~~~~~
+%Warning-IMPLICIT: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_536ca1160267/UART_RXSM.v:90:8: Signal definition not found, creating implicitly: 'OddPar'
+   90 | assign OddPar = ^{RxD, RSR};
+      |        ^~~~~~
+%Warning-IMPLICIT: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_536ca1160267/UART_RXSM.v:91:8: Signal definition not found, creating implicitly: 'EvnPar'
+   91 | assign EvnPar = ~OddPar;
+      |        ^~~~~~
+%Warning-IMPLICIT: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_536ca1160267/UART_RXSM.v:101:8: Signal definition not found, creating implicitly: 'ParErr'
+                                                                                                                          : ... Suggested alternative: 'ParEn'
+  101 | assign ParErr = Err & (RxSM == pChkParity);
+      |        ^~~~~~
+%Warning-IMPLICIT: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_536ca1160267/UART_RXSM.v:102:8: Signal definition not found, creating implicitly: 'CE_RD'
+                                                                                                                          : ... Suggested alternative: 'CE_RxSM'
+  102 | assign CE_RD = CE_RxSM & (((RxSM == pChkStop1) & RxD) | (RxSM == pRcvError));
+      |        ^~~~~
+- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev (Debian 5.032-1+b2)
+- Verilator: Built from 0.032 MB sources in 2 modules, into 0.000 MB in 0 C++ files needing 0.000 MB
+- Verilator: Walltime 0.005 s (elab=0.001, cvt=0.001, bld=0.000); cpu 0.004 s on 1 threads; alloced 9.004 MB

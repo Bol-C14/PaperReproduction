@@ -1,0 +1,38 @@
+{
+  "id": "SVAGen/L2/Text/6",
+  "subset": "SVAGen",
+  "input_files": [
+    {
+      "name": "ddr_cal_ctl_110.txt",
+      "bytes": 7846,
+      "sha256": "1fb92539d99d686bd4d6653caf68f45e02b16ba0b177ee85904a2ff639c72e6d"
+    },
+    {
+      "name": "ddr_cal_ctl_110.v",
+      "bytes": 3271,
+      "sha256": "1fe8d57237f6ea65c9c9a56b0176da3210545b09bf3e6fe4595421da8641c3f4"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": true,
+  "negative_control_detected": true,
+  "commands": 4,
+  "status": "pass",
+  "assertion": "always @* assert((dbg_phase_cnt) == (phase_cnt));",
+  "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+  "relation_lhs": "dbg_phase_cnt",
+  "property_counts": {
+    "assert": 1,
+    "assume": 0,
+    "cover": 0
+  },
+  "constant_mutation_status": "completed",
+  "constant_mutation_killed": false,
+  "negative_status": "fail",
+  "constant_control_status": "unknown",
+  "reason": "nonzero properties proven and selected output mutant falsified",
+  "seconds": 0.181
+}

@@ -1,0 +1,316 @@
+
+-- Running command `read_verilog -formal -sv positive.sv; hierarchy -top interrupts; prep -top interrupts; flatten; async2sync; dffunmap; memory_map; opt_clean; chformal -lower; write_json positive.json; sat -seq 2 -timeout 5 -prove-asserts -verify -show-inputs -show-outputs' --
+
+1. Executing Verilog-2005 frontend: positive.sv
+Parsing formal SystemVerilog input from `positive.sv' to AST representation.
+Generating RTLIL representation for module `\interrupts'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \interrupts
+
+2.2. Analyzing design hierarchy..
+Top module:  \interrupts
+Removed 0 unused modules.
+Module interrupts directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \interrupts
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \interrupts
+Removed 0 unused modules.
+Module interrupts directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$positive.sv:166$32 in module interrupts.
+Marked 1 switch rules as full_case in process $proc$positive.sv:154$30 in module interrupts.
+Marked 1 switch rules as full_case in process $proc$positive.sv:142$28 in module interrupts.
+Marked 1 switch rules as full_case in process $proc$positive.sv:130$26 in module interrupts.
+Marked 1 switch rules as full_case in process $proc$positive.sv:117$22 in module interrupts.
+Marked 1 switch rules as full_case in process $proc$positive.sv:105$20 in module interrupts.
+Marked 1 switch rules as full_case in process $proc$positive.sv:93$18 in module interrupts.
+Marked 1 switch rules as full_case in process $proc$positive.sv:81$15 in module interrupts.
+Removed a total of 0 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 3 redundant assignments.
+Promoted 1 assignment to connection.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \nreset in `\interrupts.$proc$positive.sv:166$32'.
+Found async reset \nreset in `\interrupts.$proc$positive.sv:154$30'.
+Found async reset \SYNTHESIZED_WIRE_21 in `\interrupts.$proc$positive.sv:142$28'.
+Found async reset \SYNTHESIZED_WIRE_15 in `\interrupts.$proc$positive.sv:130$26'.
+Found async reset \SYNTHESIZED_WIRE_12 in `\interrupts.$proc$positive.sv:117$22'.
+Found async reset \nreset in `\interrupts.$proc$positive.sv:105$20'.
+Found async reset \nreset in `\interrupts.$proc$positive.sv:93$18'.
+Found async reset \SYNTHESIZED_WIRE_9 in `\interrupts.$proc$positive.sv:81$15'.
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~6 debug messages>
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\interrupts.$proc$positive.sv:184$38'.
+Creating decoders for process `\interrupts.$proc$positive.sv:166$32'.
+     1/1: $0\im2[0:0]
+Creating decoders for process `\interrupts.$proc$positive.sv:154$30'.
+     1/1: $0\im1[0:0]
+Creating decoders for process `\interrupts.$proc$positive.sv:142$28'.
+     1/1: $0\DFFE_instIFF2[0:0]
+Creating decoders for process `\interrupts.$proc$positive.sv:130$26'.
+     1/1: $0\iff1[0:0]
+Creating decoders for process `\interrupts.$proc$positive.sv:117$22'.
+     1/1: $0\int_armed[0:0]
+Creating decoders for process `\interrupts.$proc$positive.sv:105$20'.
+     1/1: $0\DFFE_inst44[0:0]
+Creating decoders for process `\interrupts.$proc$positive.sv:93$18'.
+     1/1: $0\in_nmi_ALTERA_SYNTHESIZED[0:0]
+Creating decoders for process `\interrupts.$proc$positive.sv:81$15'.
+     1/1: $0\nmi_armed[0:0]
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\interrupts.\im2' using process `\interrupts.$proc$positive.sv:166$32'.
+  created $adff cell `$procdff$57' with positive edge clock and positive level reset.
+Creating register for signal `\interrupts.\im1' using process `\interrupts.$proc$positive.sv:154$30'.
+  created $adff cell `$procdff$62' with positive edge clock and positive level reset.
+Creating register for signal `\interrupts.\DFFE_instIFF2' using process `\interrupts.$proc$positive.sv:142$28'.
+  created $adff cell `$procdff$67' with positive edge clock and positive level reset.
+Creating register for signal `\interrupts.\iff1' using process `\interrupts.$proc$positive.sv:130$26'.
+  created $adff cell `$procdff$72' with positive edge clock and positive level reset.
+Creating register for signal `\interrupts.\int_armed' using process `\interrupts.$proc$positive.sv:117$22'.
+  created $adff cell `$procdff$77' with positive edge clock and positive level reset.
+Creating register for signal `\interrupts.\DFFE_inst44' using process `\interrupts.$proc$positive.sv:105$20'.
+  created $adff cell `$procdff$82' with positive edge clock and positive level reset.
+Creating register for signal `\interrupts.\in_nmi_ALTERA_SYNTHESIZED' using process `\interrupts.$proc$positive.sv:93$18'.
+  created $adff cell `$procdff$87' with positive edge clock and positive level reset.
+Creating register for signal `\interrupts.\nmi_armed' using process `\interrupts.$proc$positive.sv:81$15'.
+  created $adff cell `$procdff$92' with positive edge clock and positive level reset.
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `interrupts.$proc$positive.sv:184$38'.
+Found and cleaned up 1 empty switch in `\interrupts.$proc$positive.sv:166$32'.
+Removing empty process `interrupts.$proc$positive.sv:166$32'.
+Found and cleaned up 1 empty switch in `\interrupts.$proc$positive.sv:154$30'.
+Removing empty process `interrupts.$proc$positive.sv:154$30'.
+Found and cleaned up 1 empty switch in `\interrupts.$proc$positive.sv:142$28'.
+Removing empty process `interrupts.$proc$positive.sv:142$28'.
+Found and cleaned up 1 empty switch in `\interrupts.$proc$positive.sv:130$26'.
+Removing empty process `interrupts.$proc$positive.sv:130$26'.
+Removing empty process `interrupts.$proc$positive.sv:117$22'.
+Found and cleaned up 1 empty switch in `\interrupts.$proc$positive.sv:105$20'.
+Removing empty process `interrupts.$proc$positive.sv:105$20'.
+Found and cleaned up 1 empty switch in `\interrupts.$proc$positive.sv:93$18'.
+Removing empty process `interrupts.$proc$positive.sv:93$18'.
+Removing empty process `interrupts.$proc$positive.sv:81$15'.
+Cleaned up 6 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module interrupts.
+<suppressed ~16 debug messages>
+
+3.3. Executing FUTURE pass.
+
+3.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module interrupts.
+
+3.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \interrupts..
+Removed 16 unused cells and 60 unused wires.
+<suppressed ~17 debug messages>
+
+3.6. Executing CHECK pass (checking for obvious problems).
+Checking module interrupts...
+Found and reported 0 problems.
+
+3.7. Executing OPT pass (performing simple optimizations).
+
+3.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module interrupts.
+<suppressed ~1 debug messages>
+
+3.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\interrupts'.
+<suppressed ~12 debug messages>
+Removed a total of 4 cells.
+
+3.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \interrupts..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~6 debug messages>
+
+3.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \interrupts.
+Performed a total of 0 changes.
+
+3.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\interrupts'.
+Removed a total of 0 cells.
+
+3.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \interrupts..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+3.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module interrupts.
+
+3.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \interrupts..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~6 debug messages>
+
+3.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \interrupts.
+Performed a total of 0 changes.
+
+3.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\interrupts'.
+Removed a total of 0 cells.
+
+3.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \interrupts..
+
+3.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module interrupts.
+
+3.7.14. Finished OPT passes. (There is nothing left to do.)
+
+3.8. Executing WREDUCE pass (reducing word size of cells).
+
+3.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \interrupts..
+
+3.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.11. Executing OPT pass (performing simple optimizations).
+
+3.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module interrupts.
+
+3.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\interrupts'.
+Removed a total of 0 cells.
+
+3.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \interrupts..
+
+3.11.4. Finished fast OPT passes.
+
+3.12. Printing statistics.
+
+=== interrupts ===
+
+   Number of wires:                 50
+   Number of wire bits:             51
+   Number of public wires:          44
+   Number of public wire bits:      45
+   Number of ports:                 16
+   Number of port bits:             17
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 32
+     $adff                           8
+     $and                           10
+     $check                          1
+     $mux                            6
+     $not                            5
+     $or                             2
+
+3.13. Executing CHECK pass (checking for obvious problems).
+Checking module interrupts...
+Found and reported 0 problems.
+
+4. Executing FLATTEN pass (flatten design).
+
+5. Executing ASYNC2SYNC pass.
+Replacing interrupts.$procdff$57 ($adff): ARST=\nreset, D=$0\im2[0:0], Q=\im2
+Replacing interrupts.$procdff$62 ($adff): ARST=\nreset, D=$0\im1[0:0], Q=\im1
+Replacing interrupts.$procdff$67 ($adff): ARST=\SYNTHESIZED_WIRE_12, D=$0\DFFE_instIFF2[0:0], Q=\DFFE_instIFF2
+Replacing interrupts.$procdff$72 ($adff): ARST=\SYNTHESIZED_WIRE_15, D=$0\iff1[0:0], Q=\iff1
+Replacing interrupts.$procdff$77 ($adff): ARST=\SYNTHESIZED_WIRE_12, D=\SYNTHESIZED_WIRE_13, Q=\int_armed
+Replacing interrupts.$procdff$82 ($adff): ARST=\nreset, D=$0\DFFE_inst44[0:0], Q=\DFFE_inst44
+Replacing interrupts.$procdff$87 ($adff): ARST=\nreset, D=$0\in_nmi_ALTERA_SYNTHESIZED[0:0], Q=\in_nmi_ALTERA_SYNTHESIZED
+Replacing interrupts.$procdff$92 ($adff): ARST=\SYNTHESIZED_WIRE_9, D=1'1, Q=\nmi_armed
+
+6. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+7. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \interrupts..
+Removed 2 unused cells and 2 unused wires.
+<suppressed ~3 debug messages>
+
+9. Executing JSON backend.
+
+10. Executing SAT pass (solving SAT problems in the circuit).
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 48 cells to SAT database.
+No constraints for initial state found.
+
+Import proof for assert: 1'1 when 1'1.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 48 cells to SAT database.
+Import proof for assert: 1'1 when 1'1.
+Import show expression: \clk
+Import show expression: \ctl_iff1_iff2
+Import show expression: \ctl_iffx_bit
+Import show expression: \ctl_iffx_we
+Import show expression: \ctl_im_we
+Import show expression: \ctl_no_ints
+Import show expression: \db
+Import show expression: \intr
+Import show expression: \nmi
+Import show expression: \nreset
+Import show expression: \setM1
+Import show expression: \iff2
+Import show expression: \im1
+Import show expression: \im2
+Import show expression: \in_intr
+Import show expression: \in_nmi
+
+Solving problem with 508 variables and 1255 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+

@@ -1,0 +1,20 @@
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch/MGen/case_985413e24796/ref_wrapper.sv:19:5: Operator TASKREF 'ref_model_eval' expects 64 bits on the Function Argument, but Function Argument's VARREF 'reset' generates 1 bits.
+                                                                                                                           : ... note: In instance 'lfsr_tb.dut'
+   19 |     ref_model_eval(reset, clk, data_out__dpi);
+      |     ^~~~~~~~~~~~~~
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.032
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch/MGen/case_985413e24796/ref_wrapper.sv:19:5: Operator TASKREF 'ref_model_eval' expects 64 bits on the Function Argument, but Function Argument's VARREF 'clk' generates 1 bits.
+                                                                                                                           : ... note: In instance 'lfsr_tb.dut'
+   19 |     ref_model_eval(reset, clk, data_out__dpi);
+      |     ^~~~~~~~~~~~~~
+%Error-BLKANDNBLK: /workspace/PaperReproduction/fixme/results/full_code_batch/MGen/case_985413e24796/golden_tb.sv:6:10: Unsupported: Blocked and non-blocking assignments to same variable: 'lfsr_tb.new_out'
+    6 | reg [3:0]new_out;
+      |          ^~~~~~~
+                   /workspace/PaperReproduction/fixme/results/full_code_batch/MGen/case_985413e24796/golden_tb.sv:32:18: ... Location of blocking assignment
+   32 |          new_out = 1;
+      |                  ^
+                   /workspace/PaperReproduction/fixme/results/full_code_batch/MGen/case_985413e24796/golden_tb.sv:34:18: ... Location of nonblocking assignment
+   34 |          new_out <= {new_bit, new_out[3:1]};
+      |                  ^~
+%Error: Exiting due to 1 error(s)

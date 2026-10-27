@@ -1,0 +1,64 @@
+<?xml version="1.0" ?>
+<!-- DESCRIPTION: Verilator output: XML representation of netlist -->
+<verilator_xml>
+  <files>
+    <file id="d" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std.sv" language="1800-2023"/>
+    <file id="c" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std_waiver.vlt" language="1800-2023"/>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_a9fa20d9889c/dffr_async.v" language="1800-2023"/>
+    <file id="a" filename="&lt;built-in&gt;" language="1800-2023"/>
+    <file id="b" filename="&lt;command-line&gt;" language="1800-2023"/>
+  </files>
+  <module_files>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_a9fa20d9889c/dffr_async.v" language="1800-2023"/>
+  </module_files>
+  <cells>
+    <cell loc="e,3,8,3,18" name="dffr_async" submodname="dffr_async" hier="dffr_async"/>
+  </cells>
+  <netlist>
+    <module loc="e,3,8,3,18" name="dffr_async" origName="dffr_async" topModule="1">
+      <var loc="e,5,25,5,28" name="din" dtype_id="1" dir="input" pinIndex="1" vartype="logic" origName="din"/>
+      <var loc="e,6,25,6,28" name="clk" dtype_id="2" dir="input" pinIndex="2" vartype="logic" origName="clk"/>
+      <var loc="e,7,25,7,28" name="rst" dtype_id="2" dir="input" pinIndex="3" vartype="logic" origName="rst"/>
+      <var loc="e,8,25,8,26" name="q" dtype_id="1" dir="output" pinIndex="4" vartype="logic" origName="q"/>
+      <var loc="e,9,25,9,27" name="se" dtype_id="2" dir="input" pinIndex="5" vartype="logic" origName="se"/>
+      <var loc="e,10,25,10,27" name="si" dtype_id="1" dir="input" pinIndex="6" vartype="logic" origName="si"/>
+      <var loc="e,11,25,11,27" name="so" dtype_id="1" dir="output" pinIndex="7" vartype="logic" origName="so"/>
+      <var loc="e,4,11,4,15" name="SIZE" dtype_id="3" vartype="logic" origName="SIZE" param="true">
+        <const loc="e,4,18,4,19" name="32&apos;sh1" dtype_id="3"/>
+      </var>
+      <always loc="e,17,1,17,7">
+        <sentree loc="e,17,8,17,9">
+          <senitem loc="e,17,11,17,18" edgeType="POS">
+            <varref loc="e,17,19,17,22" name="clk" dtype_id="2"/>
+          </senitem>
+          <senitem loc="e,17,26,17,33" edgeType="POS">
+            <varref loc="e,17,34,17,37" name="rst" dtype_id="2"/>
+          </senitem>
+        </sentree>
+        <assigndly loc="e,18,16,18,18" dtype_id="2">
+          <and loc="e,18,23,18,24" dtype_id="2">
+            <not loc="e,18,23,18,24" dtype_id="2">
+              <varref loc="e,18,19,18,22" name="rst" dtype_id="2"/>
+            </not>
+            <cond loc="e,18,46,18,47" dtype_id="2">
+              <varref loc="e,18,42,18,44" name="se" dtype_id="2"/>
+              <varref loc="e,18,48,18,50" name="si" dtype_id="2"/>
+              <varref loc="e,18,64,18,67" name="din" dtype_id="2"/>
+            </cond>
+          </and>
+          <varref loc="e,18,3,18,4" name="q" dtype_id="2"/>
+        </assigndly>
+      </always>
+      <contassign loc="e,19,21,19,22" dtype_id="1">
+        <varref loc="e,8,25,8,26" name="q" dtype_id="1"/>
+        <varref loc="e,19,21,19,22" name="so" dtype_id="1"/>
+      </contassign>
+    </module>
+    <typetable loc="a,0,0,0,0">
+      <basicdtype loc="d,46,25,46,27" id="2" name="logic"/>
+      <voiddtype loc="d,48,18,48,27" id="4"/>
+      <basicdtype loc="e,5,9,5,10" id="1" name="logic" left="0" right="0"/>
+      <basicdtype loc="e,4,18,4,19" id="3" name="logic" left="31" right="0" signed="true"/>
+    </typetable>
+  </netlist>
+</verilator_xml>

@@ -1,0 +1,686 @@
+<?xml version="1.0" ?>
+<!-- DESCRIPTION: Verilator output: XML representation of netlist -->
+<verilator_xml>
+  <files>
+    <file id="d" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std.sv" language="1800-2023"/>
+    <file id="c" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std_waiver.vlt" language="1800-2023"/>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_0ac86f887300/RMON_CTRL.v" language="1800-2023"/>
+    <file id="a" filename="&lt;built-in&gt;" language="1800-2023"/>
+    <file id="b" filename="&lt;command-line&gt;" language="1800-2023"/>
+  </files>
+  <module_files>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_0ac86f887300/RMON_CTRL.v" language="1800-2023"/>
+  </module_files>
+  <cells>
+    <cell loc="e,3,8,3,17" name="RMON_CTRL" submodname="RMON_CTRL" hier="RMON_CTRL"/>
+  </cells>
+  <netlist>
+    <module loc="e,3,8,3,17" name="RMON_CTRL" origName="RMON_CTRL" topModule="1">
+      <var loc="e,23,17,23,20" name="Clk" dtype_id="1" dir="input" pinIndex="1" vartype="logic" origName="Clk"/>
+      <var loc="e,24,17,24,22" name="Reset" dtype_id="1" dir="input" pinIndex="2" vartype="logic" origName="Reset"/>
+      <var loc="e,25,17,25,28" name="Reg_apply_0" dtype_id="1" dir="input" pinIndex="3" vartype="logic" origName="Reg_apply_0"/>
+      <var loc="e,26,17,26,27" name="Reg_addr_0" dtype_id="2" dir="input" pinIndex="4" vartype="logic" origName="Reg_addr_0"/>
+      <var loc="e,27,17,27,27" name="Reg_data_0" dtype_id="3" dir="input" pinIndex="5" vartype="logic" origName="Reg_data_0"/>
+      <var loc="e,28,17,28,27" name="Reg_next_0" dtype_id="1" dir="output" pinIndex="6" vartype="logic" origName="Reg_next_0"/>
+      <var loc="e,29,17,29,28" name="Reg_apply_1" dtype_id="1" dir="input" pinIndex="7" vartype="logic" origName="Reg_apply_1"/>
+      <var loc="e,30,17,30,27" name="Reg_addr_1" dtype_id="2" dir="input" pinIndex="8" vartype="logic" origName="Reg_addr_1"/>
+      <var loc="e,31,17,31,27" name="Reg_data_1" dtype_id="3" dir="input" pinIndex="9" vartype="logic" origName="Reg_data_1"/>
+      <var loc="e,32,17,32,27" name="Reg_next_1" dtype_id="1" dir="output" pinIndex="10" vartype="logic" origName="Reg_next_1"/>
+      <var loc="e,33,17,33,22" name="Addra" dtype_id="4" dir="output" pinIndex="11" vartype="logic" origName="Addra"/>
+      <var loc="e,34,17,34,21" name="Dina" dtype_id="5" dir="output" pinIndex="12" vartype="logic" origName="Dina"/>
+      <var loc="e,35,17,35,22" name="Douta" dtype_id="5" dir="input" pinIndex="13" vartype="logic" origName="Douta"/>
+      <var loc="e,36,17,36,20" name="Wea" dtype_id="1" dir="output" pinIndex="14" vartype="logic" origName="Wea"/>
+      <var loc="e,37,17,37,28" name="CPU_rd_addr" dtype_id="4" dir="input" pinIndex="15" vartype="logic" origName="CPU_rd_addr"/>
+      <var loc="e,38,17,38,29" name="CPU_rd_apply" dtype_id="1" dir="input" pinIndex="16" vartype="logic" origName="CPU_rd_apply"/>
+      <var loc="e,39,17,39,29" name="CPU_rd_grant" dtype_id="1" dir="output" pinIndex="17" vartype="logic" origName="CPU_rd_grant"/>
+      <var loc="e,40,17,40,28" name="CPU_rd_dout" dtype_id="5" dir="output" pinIndex="18" vartype="logic" origName="CPU_rd_dout"/>
+      <var loc="e,41,17,41,25" name="StateCPU" dtype_id="6" vartype="logic" origName="StateCPU" param="true">
+        <const loc="e,41,34,41,39" name="4&apos;h0" dtype_id="6"/>
+      </var>
+      <var loc="e,42,17,42,26" name="StateMAC0" dtype_id="6" vartype="logic" origName="StateMAC0" param="true">
+        <const loc="e,42,34,42,39" name="4&apos;h1" dtype_id="6"/>
+      </var>
+      <var loc="e,43,17,43,26" name="StateMAC1" dtype_id="6" vartype="logic" origName="StateMAC1" param="true">
+        <const loc="e,43,34,43,39" name="4&apos;h2" dtype_id="6"/>
+      </var>
+      <var loc="e,44,17,44,29" name="CurrentState" dtype_id="6" vartype="logic" origName="CurrentState"/>
+      <var loc="e,45,17,45,26" name="NextState" dtype_id="6" vartype="logic" origName="NextState"/>
+      <var loc="e,46,17,46,33" name="CurrentState_reg" dtype_id="6" vartype="logic" origName="CurrentState_reg"/>
+      <var loc="e,47,17,47,28" name="StepCounter" dtype_id="2" vartype="logic" origName="StepCounter"/>
+      <var loc="e,48,17,48,25" name="DoutaReg" dtype_id="5" vartype="logic" origName="DoutaReg"/>
+      <var loc="e,53,17,53,22" name="Write" dtype_id="1" vartype="logic" origName="Write"/>
+      <var loc="e,54,17,54,21" name="Read" dtype_id="1" vartype="logic" origName="Read"/>
+      <var loc="e,55,17,55,25" name="Pipeline" dtype_id="1" vartype="logic" origName="Pipeline"/>
+      <var loc="e,57,17,57,33" name="CPU_rd_apply_reg" dtype_id="1" vartype="logic" origName="CPU_rd_apply_reg"/>
+      <always loc="e,58,1,58,7">
+        <sentree loc="e,58,8,58,9">
+          <senitem loc="e,58,10,58,17" edgeType="POS">
+            <varref loc="e,58,18,58,21" name="Clk" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,58,25,58,32" edgeType="POS">
+            <varref loc="e,58,33,58,38" name="Reset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <assigndly loc="e,60,25,60,27" dtype_id="6">
+          <cond loc="e,60,27,60,36" dtype_id="6">
+            <varref loc="e,59,9,59,14" name="Reset" dtype_id="1"/>
+            <const loc="e,60,27,60,36" name="4&apos;h1" dtype_id="6"/>
+            <varref loc="e,62,27,62,36" name="NextState" dtype_id="6"/>
+          </cond>
+          <varref loc="e,60,9,60,21" name="CurrentState" dtype_id="6"/>
+        </assigndly>
+      </always>
+      <always loc="e,63,1,63,7">
+        <sentree loc="e,63,8,63,9">
+          <senitem loc="e,63,10,63,17" edgeType="POS">
+            <varref loc="e,63,18,63,21" name="Clk" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,63,25,63,32" edgeType="POS">
+            <varref loc="e,63,33,63,38" name="Reset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <if loc="e,64,5,64,7">
+          <varref loc="e,64,9,64,14" name="Reset" dtype_id="1"/>
+          <begin>
+            <assigndly loc="e,65,29,65,31" dtype_id="6">
+              <const loc="e,65,31,65,40" name="4&apos;h1" dtype_id="6"/>
+              <varref loc="e,65,9,65,25" name="CurrentState_reg" dtype_id="6"/>
+            </assigndly>
+          </begin>
+          <begin>
+            <if loc="e,66,10,66,12">
+              <neq loc="e,66,25,66,27" dtype_id="1">
+                <const loc="e,66,27,66,35" name="4&apos;h0" dtype_id="6"/>
+                <varref loc="e,66,13,66,25" name="CurrentState" dtype_id="6"/>
+              </neq>
+              <begin>
+                <assigndly loc="e,67,29,67,31" dtype_id="6">
+                  <varref loc="e,67,31,67,43" name="CurrentState" dtype_id="6"/>
+                  <varref loc="e,67,9,67,25" name="CurrentState_reg" dtype_id="6"/>
+                </assigndly>
+              </begin>
+            </if>
+          </begin>
+        </if>
+      </always>
+      <always loc="e,68,1,68,7">
+        <sentree loc="e,68,8,68,9">
+          <senitem loc="e,68,26,68,42" edgeType="CHANGED">
+            <varref loc="e,68,26,68,42" name="CPU_rd_apply_reg" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,68,10,68,22" edgeType="CHANGED">
+            <varref loc="e,68,10,68,22" name="CurrentState" dtype_id="6"/>
+          </senitem>
+          <senitem loc="e,68,61,68,77" edgeType="CHANGED">
+            <varref loc="e,68,61,68,77" name="CurrentState_reg" dtype_id="6"/>
+          </senitem>
+          <senitem loc="e,68,46,68,57" edgeType="CHANGED">
+            <varref loc="e,68,46,68,57" name="Reg_apply_0" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,69,43,69,54" edgeType="CHANGED">
+            <varref loc="e,69,43,69,54" name="Reg_apply_1" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,70,43,70,54" edgeType="CHANGED">
+            <varref loc="e,70,43,70,54" name="StepCounter" dtype_id="2"/>
+          </senitem>
+        </sentree>
+        <case loc="e,72,5,72,9">
+          <varref loc="e,72,10,72,22" name="CurrentState" dtype_id="6"/>
+          <caseitem loc="e,73,18,73,19">
+            <const loc="e,73,9,73,18" name="4&apos;h1" dtype_id="6"/>
+            <assign loc="e,75,29,75,30" dtype_id="6">
+              <cond loc="e,75,30,75,38" dtype_id="6">
+                <and loc="e,74,28,74,30" dtype_id="1">
+                  <not loc="e,74,16,74,17" dtype_id="1">
+                    <varref loc="e,74,17,74,28" name="Reg_apply_0" dtype_id="1"/>
+                  </not>
+                  <varref loc="e,74,30,74,46" name="CPU_rd_apply_reg" dtype_id="1"/>
+                </and>
+                <const loc="e,75,30,75,38" name="4&apos;h0" dtype_id="6"/>
+                <cond loc="e,79,30,79,42" dtype_id="6">
+                  <varref loc="e,76,22,76,33" name="Reg_apply_0" dtype_id="1"/>
+                  <varref loc="e,79,30,79,42" name="CurrentState" dtype_id="6"/>
+                  <const loc="e,77,30,77,39" name="4&apos;h2" dtype_id="6"/>
+                </cond>
+              </cond>
+              <varref loc="e,75,17,75,26" name="NextState" dtype_id="6"/>
+            </assign>
+          </caseitem>
+          <caseitem loc="e,80,18,80,19">
+            <const loc="e,80,9,80,18" name="4&apos;h2" dtype_id="6"/>
+            <assign loc="e,82,29,82,30" dtype_id="6">
+              <cond loc="e,82,30,82,38" dtype_id="6">
+                <and loc="e,81,28,81,30" dtype_id="1">
+                  <not loc="e,81,16,81,17" dtype_id="1">
+                    <varref loc="e,81,17,81,28" name="Reg_apply_1" dtype_id="1"/>
+                  </not>
+                  <varref loc="e,81,30,81,46" name="CPU_rd_apply_reg" dtype_id="1"/>
+                </and>
+                <const loc="e,82,30,82,38" name="4&apos;h0" dtype_id="6"/>
+                <cond loc="e,86,30,86,42" dtype_id="6">
+                  <varref loc="e,83,22,83,33" name="Reg_apply_1" dtype_id="1"/>
+                  <varref loc="e,86,30,86,42" name="CurrentState" dtype_id="6"/>
+                  <const loc="e,84,30,84,39" name="4&apos;h1" dtype_id="6"/>
+                </cond>
+              </cond>
+              <varref loc="e,82,17,82,26" name="NextState" dtype_id="6"/>
+            </assign>
+          </caseitem>
+          <caseitem loc="e,87,17,87,18">
+            <const loc="e,87,9,87,17" name="4&apos;h0" dtype_id="6"/>
+            <if loc="e,88,13,88,15">
+              <eq loc="e,88,28,88,30" dtype_id="1">
+                <const loc="e,88,30,88,31" name="5&apos;h3" dtype_id="2"/>
+                <varref loc="e,88,17,88,28" name="StepCounter" dtype_id="2"/>
+              </eq>
+              <begin>
+                <case loc="e,89,17,89,21">
+                  <varref loc="e,89,23,89,39" name="CurrentState_reg" dtype_id="6"/>
+                  <caseitem loc="e,90,33,90,34">
+                    <const loc="e,90,21,90,30" name="4&apos;h1" dtype_id="6"/>
+                    <assign loc="e,90,45,90,46" dtype_id="6">
+                      <const loc="e,90,46,90,55" name="4&apos;h1" dtype_id="6"/>
+                      <varref loc="e,90,34,90,43" name="NextState" dtype_id="6"/>
+                    </assign>
+                  </caseitem>
+                  <caseitem loc="e,91,33,91,34">
+                    <const loc="e,91,21,91,30" name="4&apos;h2" dtype_id="6"/>
+                    <assign loc="e,91,45,91,46" dtype_id="6">
+                      <const loc="e,91,46,91,55" name="4&apos;h2" dtype_id="6"/>
+                      <varref loc="e,91,34,91,43" name="NextState" dtype_id="6"/>
+                    </assign>
+                  </caseitem>
+                  <caseitem loc="e,92,21,92,28">
+                    <assign loc="e,92,45,92,46" dtype_id="6">
+                      <const loc="e,92,46,92,55" name="4&apos;h1" dtype_id="6"/>
+                      <varref loc="e,92,34,92,43" name="NextState" dtype_id="6"/>
+                    </assign>
+                  </caseitem>
+                </case>
+              </begin>
+              <begin>
+                <assign loc="e,95,29,95,30" dtype_id="6">
+                  <varref loc="e,95,30,95,42" name="CurrentState" dtype_id="6"/>
+                  <varref loc="e,95,17,95,26" name="NextState" dtype_id="6"/>
+                </assign>
+              </begin>
+            </if>
+          </caseitem>
+          <caseitem loc="e,96,9,96,16">
+            <assign loc="e,97,29,97,30" dtype_id="6">
+              <const loc="e,97,30,97,39" name="4&apos;h1" dtype_id="6"/>
+              <varref loc="e,97,17,97,26" name="NextState" dtype_id="6"/>
+            </assign>
+          </caseitem>
+        </case>
+      </always>
+      <always loc="e,99,1,99,7">
+        <sentree loc="e,99,8,99,9">
+          <senitem loc="e,99,10,99,17" edgeType="POS">
+            <varref loc="e,99,18,99,21" name="Clk" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,99,25,99,32" edgeType="POS">
+            <varref loc="e,99,33,99,38" name="Reset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <if loc="e,100,5,100,7">
+          <varref loc="e,100,9,100,14" name="Reset" dtype_id="1"/>
+          <begin>
+            <assigndly loc="e,101,25,101,27" dtype_id="2">
+              <const loc="e,101,27,101,28" name="5&apos;h0" dtype_id="2"/>
+              <varref loc="e,101,9,101,20" name="StepCounter" dtype_id="2"/>
+            </assigndly>
+          </begin>
+          <begin>
+            <if loc="e,102,10,102,12">
+              <neq loc="e,102,22,102,24" dtype_id="1">
+                <varref loc="e,102,13,102,22" name="NextState" dtype_id="6"/>
+                <varref loc="e,102,24,102,36" name="CurrentState" dtype_id="6"/>
+              </neq>
+              <begin>
+                <assigndly loc="e,103,25,103,27" dtype_id="2">
+                  <const loc="e,103,27,103,28" name="5&apos;h0" dtype_id="2"/>
+                  <varref loc="e,103,9,103,20" name="StepCounter" dtype_id="2"/>
+                </assigndly>
+              </begin>
+              <begin>
+                <if loc="e,104,10,104,12">
+                  <neq loc="e,104,25,104,27" dtype_id="1">
+                    <const loc="e,104,27,104,31" name="5&apos;hf" dtype_id="2"/>
+                    <varref loc="e,104,14,104,25" name="StepCounter" dtype_id="2"/>
+                  </neq>
+                  <begin>
+                    <assigndly loc="e,105,25,105,27" dtype_id="2">
+                      <add loc="e,105,39,105,40" dtype_id="2">
+                        <const loc="e,105,39,105,40" name="5&apos;h1" dtype_id="2"/>
+                        <varref loc="e,105,27,105,38" name="StepCounter" dtype_id="2"/>
+                      </add>
+                      <varref loc="e,105,9,105,20" name="StepCounter" dtype_id="2"/>
+                    </assigndly>
+                  </begin>
+                </if>
+              </begin>
+            </if>
+          </begin>
+        </if>
+      </always>
+      <always loc="e,106,1,106,7">
+        <sentree loc="e,106,8,106,9">
+          <senitem loc="e,106,10,106,21" edgeType="CHANGED">
+            <varref loc="e,106,10,106,21" name="StepCounter" dtype_id="2"/>
+          </senitem>
+        </sentree>
+        <assign loc="e,109,17,109,18" dtype_id="1">
+          <or loc="e,108,23,108,25" dtype_id="1">
+            <or loc="e,107,39,107,41" dtype_id="1">
+              <or loc="e,107,23,107,25" dtype_id="1">
+                <eq loc="e,107,20,107,22" dtype_id="1">
+                  <const loc="e,107,22,107,23" name="5&apos;h1" dtype_id="2"/>
+                  <varref loc="e,107,9,107,20" name="StepCounter" dtype_id="2"/>
+                </eq>
+                <eq loc="e,107,36,107,38" dtype_id="1">
+                  <const loc="e,107,38,107,39" name="5&apos;h4" dtype_id="2"/>
+                  <varref loc="e,107,25,107,36" name="StepCounter" dtype_id="2"/>
+                </eq>
+              </or>
+              <eq loc="e,108,20,108,22" dtype_id="1">
+                <const loc="e,108,22,108,23" name="5&apos;h7" dtype_id="2"/>
+                <varref loc="e,108,9,108,20" name="StepCounter" dtype_id="2"/>
+              </eq>
+            </or>
+            <eq loc="e,108,36,108,38" dtype_id="1">
+              <const loc="e,108,38,108,40" name="5&apos;ha" dtype_id="2"/>
+              <varref loc="e,108,25,108,36" name="StepCounter" dtype_id="2"/>
+            </eq>
+          </or>
+          <varref loc="e,109,9,109,13" name="Read" dtype_id="1"/>
+        </assign>
+      </always>
+      <always loc="e,112,1,112,7">
+        <sentree loc="e,112,8,112,9">
+          <senitem loc="e,112,25,112,37" edgeType="CHANGED">
+            <varref loc="e,112,25,112,37" name="CurrentState" dtype_id="6"/>
+          </senitem>
+          <senitem loc="e,112,10,112,21" edgeType="CHANGED">
+            <varref loc="e,112,10,112,21" name="StepCounter" dtype_id="2"/>
+          </senitem>
+        </sentree>
+        <assign loc="e,115,21,115,22" dtype_id="1">
+          <or loc="e,114,23,114,25" dtype_id="1">
+            <or loc="e,113,39,113,41" dtype_id="1">
+              <or loc="e,113,23,113,25" dtype_id="1">
+                <eq loc="e,113,20,113,22" dtype_id="1">
+                  <const loc="e,113,22,113,23" name="5&apos;h2" dtype_id="2"/>
+                  <varref loc="e,113,9,113,20" name="StepCounter" dtype_id="2"/>
+                </eq>
+                <eq loc="e,113,36,113,38" dtype_id="1">
+                  <const loc="e,113,38,113,39" name="5&apos;h5" dtype_id="2"/>
+                  <varref loc="e,113,25,113,36" name="StepCounter" dtype_id="2"/>
+                </eq>
+              </or>
+              <eq loc="e,114,20,114,22" dtype_id="1">
+                <const loc="e,114,22,114,23" name="5&apos;h8" dtype_id="2"/>
+                <varref loc="e,114,9,114,20" name="StepCounter" dtype_id="2"/>
+              </eq>
+            </or>
+            <eq loc="e,114,36,114,38" dtype_id="1">
+              <const loc="e,114,38,114,40" name="5&apos;hb" dtype_id="2"/>
+              <varref loc="e,114,25,114,36" name="StepCounter" dtype_id="2"/>
+            </eq>
+          </or>
+          <varref loc="e,115,9,115,17" name="Pipeline" dtype_id="1"/>
+        </assign>
+      </always>
+      <always loc="e,118,1,118,7">
+        <sentree loc="e,118,8,118,9">
+          <senitem loc="e,118,25,118,37" edgeType="CHANGED">
+            <varref loc="e,118,25,118,37" name="CurrentState" dtype_id="6"/>
+          </senitem>
+          <senitem loc="e,118,10,118,21" edgeType="CHANGED">
+            <varref loc="e,118,10,118,21" name="StepCounter" dtype_id="2"/>
+          </senitem>
+        </sentree>
+        <assign loc="e,121,17,121,18" dtype_id="1">
+          <or loc="e,120,23,120,25" dtype_id="1">
+            <or loc="e,119,39,119,41" dtype_id="1">
+              <or loc="e,119,23,119,25" dtype_id="1">
+                <eq loc="e,119,20,119,22" dtype_id="1">
+                  <const loc="e,119,22,119,23" name="5&apos;h3" dtype_id="2"/>
+                  <varref loc="e,119,9,119,20" name="StepCounter" dtype_id="2"/>
+                </eq>
+                <eq loc="e,119,36,119,38" dtype_id="1">
+                  <const loc="e,119,38,119,39" name="5&apos;h6" dtype_id="2"/>
+                  <varref loc="e,119,25,119,36" name="StepCounter" dtype_id="2"/>
+                </eq>
+              </or>
+              <eq loc="e,120,20,120,22" dtype_id="1">
+                <const loc="e,120,22,120,23" name="5&apos;h9" dtype_id="2"/>
+                <varref loc="e,120,9,120,20" name="StepCounter" dtype_id="2"/>
+              </eq>
+            </or>
+            <eq loc="e,120,36,120,38" dtype_id="1">
+              <const loc="e,120,38,120,40" name="5&apos;hc" dtype_id="2"/>
+              <varref loc="e,120,25,120,36" name="StepCounter" dtype_id="2"/>
+            </eq>
+          </or>
+          <varref loc="e,121,9,121,14" name="Write" dtype_id="1"/>
+        </assign>
+      </always>
+      <always loc="e,124,1,124,7">
+        <sentree loc="e,124,8,124,9">
+          <senitem loc="e,124,10,124,17" edgeType="POS">
+            <varref loc="e,124,18,124,21" name="Clk" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,124,25,124,32" edgeType="POS">
+            <varref loc="e,124,33,124,38" name="Reset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <if loc="e,125,5,125,7">
+          <varref loc="e,125,9,125,14" name="Reset" dtype_id="1"/>
+          <begin>
+            <assigndly loc="e,126,25,126,27" dtype_id="5">
+              <const loc="e,126,27,126,28" name="32&apos;sh0" dtype_id="7"/>
+              <varref loc="e,126,9,126,17" name="DoutaReg" dtype_id="5"/>
+            </assigndly>
+          </begin>
+          <begin>
+            <if loc="e,127,10,127,12">
+              <varref loc="e,127,14,127,18" name="Read" dtype_id="1"/>
+              <begin>
+                <assigndly loc="e,128,25,128,27" dtype_id="5">
+                  <varref loc="e,128,27,128,32" name="Douta" dtype_id="5"/>
+                  <varref loc="e,128,9,128,17" name="DoutaReg" dtype_id="5"/>
+                </assigndly>
+              </begin>
+            </if>
+          </begin>
+        </if>
+      </always>
+      <always loc="e,129,1,129,7">
+        <case loc="e,130,5,130,9">
+          <varref loc="e,130,10,130,22" name="CurrentState" dtype_id="6"/>
+          <caseitem loc="e,131,19,131,20">
+            <const loc="e,131,9,131,18" name="4&apos;h1" dtype_id="6"/>
+            <assign loc="e,131,30,131,31" dtype_id="4">
+              <extend loc="e,131,37,131,38" dtype_id="4" width="6" widthminv="5">
+                <varref loc="e,131,38,131,48" name="Reg_addr_0" dtype_id="2"/>
+              </extend>
+              <varref loc="e,131,25,131,30" name="Addra" dtype_id="4"/>
+            </assign>
+          </caseitem>
+          <caseitem loc="e,132,19,132,20">
+            <const loc="e,132,9,132,18" name="4&apos;h2" dtype_id="6"/>
+            <assign loc="e,132,30,132,31" dtype_id="4">
+              <concat loc="e,132,37,132,38" dtype_id="4">
+                <const loc="e,132,32,132,36" name="1&apos;h1" dtype_id="1"/>
+                <varref loc="e,132,38,132,48" name="Reg_addr_1" dtype_id="2"/>
+              </concat>
+              <varref loc="e,132,25,132,30" name="Addra" dtype_id="4"/>
+            </assign>
+          </caseitem>
+          <caseitem loc="e,133,17,133,18">
+            <const loc="e,133,9,133,17" name="4&apos;h0" dtype_id="6"/>
+            <assign loc="e,133,30,133,31" dtype_id="4">
+              <varref loc="e,133,31,133,42" name="CPU_rd_addr" dtype_id="4"/>
+              <varref loc="e,133,25,133,30" name="Addra" dtype_id="4"/>
+            </assign>
+          </caseitem>
+          <caseitem loc="e,134,9,134,16">
+            <assign loc="e,134,30,134,31" dtype_id="4">
+              <const loc="e,134,31,134,32" name="6&apos;h0" dtype_id="4"/>
+              <varref loc="e,134,25,134,30" name="Addra" dtype_id="4"/>
+            </assign>
+          </caseitem>
+        </case>
+      </always>
+      <always loc="e,136,1,136,7">
+        <sentree loc="e,136,8,136,9">
+          <senitem loc="e,136,10,136,17" edgeType="POS">
+            <varref loc="e,136,18,136,21" name="Clk" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,136,25,136,32" edgeType="POS">
+            <varref loc="e,136,33,136,38" name="Reset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <if loc="e,137,5,137,7">
+          <varref loc="e,137,9,137,14" name="Reset" dtype_id="1"/>
+          <begin>
+            <assigndly loc="e,138,17,138,19" dtype_id="5">
+              <const loc="e,138,19,138,20" name="32&apos;sh0" dtype_id="7"/>
+              <varref loc="e,138,9,138,13" name="Dina" dtype_id="5"/>
+            </assigndly>
+          </begin>
+          <begin>
+            <case loc="e,140,9,140,13">
+              <varref loc="e,140,14,140,26" name="CurrentState" dtype_id="6"/>
+              <caseitem loc="e,141,23,141,24">
+                <const loc="e,141,13,141,22" name="4&apos;h1" dtype_id="6"/>
+                <assigndly loc="e,141,33,141,35" dtype_id="5">
+                  <add loc="e,141,40,141,41" dtype_id="5">
+                    <varref loc="e,141,35,141,40" name="Douta" dtype_id="5"/>
+                    <extend loc="e,141,41,141,51" dtype_id="5" width="32" widthminv="16">
+                      <varref loc="e,141,41,141,51" name="Reg_data_0" dtype_id="3"/>
+                    </extend>
+                  </add>
+                  <varref loc="e,141,29,141,33" name="Dina" dtype_id="5"/>
+                </assigndly>
+              </caseitem>
+              <caseitem loc="e,142,23,142,24">
+                <const loc="e,142,13,142,22" name="4&apos;h2" dtype_id="6"/>
+                <assigndly loc="e,142,33,142,35" dtype_id="5">
+                  <add loc="e,142,40,142,41" dtype_id="5">
+                    <varref loc="e,142,35,142,40" name="Douta" dtype_id="5"/>
+                    <extend loc="e,142,41,142,51" dtype_id="5" width="32" widthminv="16">
+                      <varref loc="e,142,41,142,51" name="Reg_data_1" dtype_id="3"/>
+                    </extend>
+                  </add>
+                  <varref loc="e,142,29,142,33" name="Dina" dtype_id="5"/>
+                </assigndly>
+              </caseitem>
+              <caseitem loc="e,143,21,143,22">
+                <const loc="e,143,13,143,21" name="4&apos;h0" dtype_id="6"/>
+                <assigndly loc="e,143,33,143,35" dtype_id="5">
+                  <const loc="e,143,35,143,36" name="32&apos;sh0" dtype_id="7"/>
+                  <varref loc="e,143,29,143,33" name="Dina" dtype_id="5"/>
+                </assigndly>
+              </caseitem>
+              <caseitem loc="e,144,13,144,20">
+                <assigndly loc="e,144,33,144,35" dtype_id="5">
+                  <const loc="e,144,35,144,36" name="32&apos;sh0" dtype_id="7"/>
+                  <varref loc="e,144,29,144,33" name="Dina" dtype_id="5"/>
+                </assigndly>
+              </caseitem>
+            </case>
+          </begin>
+        </if>
+      </always>
+      <always loc="e,147,1,147,7">
+        <sentree loc="e,147,8,147,9">
+          <senitem loc="e,147,10,147,22" edgeType="CHANGED">
+            <varref loc="e,147,10,147,22" name="CurrentState" dtype_id="6"/>
+          </senitem>
+          <senitem loc="e,147,26,147,34" edgeType="CHANGED">
+            <varref loc="e,147,26,147,34" name="Pipeline" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <assign loc="e,149,21,149,22" dtype_id="1">
+          <and loc="e,149,22,149,30" dtype_id="1">
+            <eq loc="e,148,20,148,22" dtype_id="1">
+              <const loc="e,148,22,148,31" name="4&apos;h1" dtype_id="6"/>
+              <varref loc="e,148,8,148,20" name="CurrentState" dtype_id="6"/>
+            </eq>
+            <varref loc="e,149,22,149,30" name="Pipeline" dtype_id="1"/>
+          </and>
+          <varref loc="e,149,9,149,19" name="Reg_next_0" dtype_id="1"/>
+        </assign>
+      </always>
+      <always loc="e,152,1,152,7">
+        <sentree loc="e,152,8,152,9">
+          <senitem loc="e,152,10,152,22" edgeType="CHANGED">
+            <varref loc="e,152,10,152,22" name="CurrentState" dtype_id="6"/>
+          </senitem>
+          <senitem loc="e,152,26,152,34" edgeType="CHANGED">
+            <varref loc="e,152,26,152,34" name="Pipeline" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <assign loc="e,154,21,154,22" dtype_id="1">
+          <and loc="e,154,22,154,30" dtype_id="1">
+            <eq loc="e,153,20,153,22" dtype_id="1">
+              <const loc="e,153,22,153,31" name="4&apos;h2" dtype_id="6"/>
+              <varref loc="e,153,8,153,20" name="CurrentState" dtype_id="6"/>
+            </eq>
+            <varref loc="e,154,22,154,30" name="Pipeline" dtype_id="1"/>
+          </and>
+          <varref loc="e,154,9,154,19" name="Reg_next_1" dtype_id="1"/>
+        </assign>
+      </always>
+      <var loc="e,157,9,157,25" name="CPU_rd_apply_dl1" dtype_id="1" vartype="logic" origName="CPU_rd_apply_dl1"/>
+      <var loc="e,158,9,158,25" name="CPU_rd_apply_dl2" dtype_id="1" vartype="logic" origName="CPU_rd_apply_dl2"/>
+      <always loc="e,159,1,159,7">
+        <sentree loc="e,159,8,159,9">
+          <senitem loc="e,159,11,159,18" edgeType="POS">
+            <varref loc="e,159,19,159,22" name="Clk" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,159,26,159,33" edgeType="POS">
+            <varref loc="e,159,34,159,39" name="Reset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <if loc="e,160,5,160,7">
+          <varref loc="e,160,9,160,14" name="Reset" dtype_id="1"/>
+          <begin>
+            <begin loc="e,161,9,161,14">
+              <assigndly loc="e,162,33,162,35" dtype_id="1">
+                <const loc="e,162,35,162,36" name="1&apos;h0" dtype_id="1"/>
+                <varref loc="e,162,9,162,25" name="CPU_rd_apply_dl1" dtype_id="1"/>
+              </assigndly>
+              <assigndly loc="e,163,33,163,35" dtype_id="1">
+                <const loc="e,163,35,163,36" name="1&apos;h0" dtype_id="1"/>
+                <varref loc="e,163,9,163,25" name="CPU_rd_apply_dl2" dtype_id="1"/>
+              </assigndly>
+            </begin>
+          </begin>
+          <begin>
+            <begin loc="e,166,9,166,14">
+              <assigndly loc="e,167,33,167,35" dtype_id="1">
+                <varref loc="e,167,35,167,47" name="CPU_rd_apply" dtype_id="1"/>
+                <varref loc="e,167,9,167,25" name="CPU_rd_apply_dl1" dtype_id="1"/>
+              </assigndly>
+              <assigndly loc="e,168,33,168,35" dtype_id="1">
+                <varref loc="e,168,35,168,51" name="CPU_rd_apply_dl1" dtype_id="1"/>
+                <varref loc="e,168,9,168,25" name="CPU_rd_apply_dl2" dtype_id="1"/>
+              </assigndly>
+            </begin>
+          </begin>
+        </if>
+      </always>
+      <always loc="e,170,1,170,7">
+        <sentree loc="e,170,8,170,9">
+          <senitem loc="e,170,11,170,18" edgeType="POS">
+            <varref loc="e,170,19,170,22" name="Clk" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,170,26,170,33" edgeType="POS">
+            <varref loc="e,170,34,170,39" name="Reset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <if loc="e,171,5,171,7">
+          <varref loc="e,171,9,171,14" name="Reset" dtype_id="1"/>
+          <begin>
+            <assigndly loc="e,172,29,172,31" dtype_id="1">
+              <const loc="e,172,31,172,32" name="1&apos;h0" dtype_id="1"/>
+              <varref loc="e,172,9,172,25" name="CPU_rd_apply_reg" dtype_id="1"/>
+            </assigndly>
+          </begin>
+          <begin>
+            <if loc="e,173,10,173,12">
+              <and loc="e,173,30,173,31" dtype_id="1">
+                <varref loc="e,173,14,173,30" name="CPU_rd_apply_dl1" dtype_id="1"/>
+                <not loc="e,173,31,173,32" dtype_id="1">
+                  <varref loc="e,173,32,173,48" name="CPU_rd_apply_dl2" dtype_id="1"/>
+                </not>
+              </and>
+              <begin>
+                <assigndly loc="e,174,29,174,31" dtype_id="1">
+                  <const loc="e,174,31,174,32" name="1&apos;h1" dtype_id="1"/>
+                  <varref loc="e,174,9,174,25" name="CPU_rd_apply_reg" dtype_id="1"/>
+                </assigndly>
+              </begin>
+              <begin>
+                <if loc="e,175,10,175,12">
+                  <and loc="e,175,36,175,38" dtype_id="1">
+                    <eq loc="e,175,26,175,28" dtype_id="1">
+                      <const loc="e,175,28,175,36" name="4&apos;h0" dtype_id="6"/>
+                      <varref loc="e,175,14,175,26" name="CurrentState" dtype_id="6"/>
+                    </eq>
+                    <varref loc="e,175,38,175,43" name="Write" dtype_id="1"/>
+                  </and>
+                  <begin>
+                    <assigndly loc="e,176,29,176,31" dtype_id="1">
+                      <const loc="e,176,31,176,32" name="1&apos;h0" dtype_id="1"/>
+                      <varref loc="e,176,9,176,25" name="CPU_rd_apply_reg" dtype_id="1"/>
+                    </assigndly>
+                  </begin>
+                </if>
+              </begin>
+            </if>
+          </begin>
+        </if>
+      </always>
+      <always loc="e,178,1,178,7">
+        <sentree loc="e,178,8,178,9">
+          <senitem loc="e,178,11,178,18" edgeType="POS">
+            <varref loc="e,178,19,178,22" name="Clk" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,178,26,178,33" edgeType="POS">
+            <varref loc="e,178,34,178,39" name="Reset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <if loc="e,179,5,179,7">
+          <varref loc="e,179,9,179,14" name="Reset" dtype_id="1"/>
+          <begin>
+            <assigndly loc="e,180,25,180,27" dtype_id="5">
+              <const loc="e,180,27,180,28" name="32&apos;sh0" dtype_id="7"/>
+              <varref loc="e,180,9,180,20" name="CPU_rd_dout" dtype_id="5"/>
+            </assigndly>
+          </begin>
+          <begin>
+            <if loc="e,181,10,181,12">
+              <and loc="e,181,22,181,24" dtype_id="1">
+                <varref loc="e,181,14,181,22" name="Pipeline" dtype_id="1"/>
+                <eq loc="e,181,36,181,38" dtype_id="1">
+                  <const loc="e,181,38,181,46" name="4&apos;h0" dtype_id="6"/>
+                  <varref loc="e,181,24,181,36" name="CurrentState" dtype_id="6"/>
+                </eq>
+              </and>
+              <begin>
+                <assigndly loc="e,182,25,182,27" dtype_id="5">
+                  <varref loc="e,182,27,182,32" name="Douta" dtype_id="5"/>
+                  <varref loc="e,182,9,182,20" name="CPU_rd_dout" dtype_id="5"/>
+                </assigndly>
+              </begin>
+            </if>
+          </begin>
+        </if>
+      </always>
+      <contassign loc="e,146,17,146,18" dtype_id="1">
+        <varref loc="e,53,17,53,22" name="Write" dtype_id="1"/>
+        <varref loc="e,146,17,146,18" name="Wea" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,177,21,177,22" dtype_id="1">
+        <not loc="e,177,22,177,23" dtype_id="1">
+          <varref loc="e,57,17,57,33" name="CPU_rd_apply_reg" dtype_id="1"/>
+        </not>
+        <varref loc="e,177,21,177,22" name="CPU_rd_grant" dtype_id="1"/>
+      </contassign>
+    </module>
+    <typetable loc="a,0,0,0,0">
+      <basicdtype loc="d,46,25,46,27" id="1" name="logic"/>
+      <voiddtype loc="d,48,18,48,27" id="8"/>
+      <basicdtype loc="e,41,34,41,39" id="6" name="logic" left="3" right="0"/>
+      <basicdtype loc="e,26,9,26,10" id="2" name="logic" left="4" right="0"/>
+      <basicdtype loc="e,27,9,27,10" id="3" name="logic" left="15" right="0"/>
+      <basicdtype loc="e,33,9,33,10" id="4" name="logic" left="5" right="0"/>
+      <basicdtype loc="e,34,9,34,10" id="5" name="logic" left="31" right="0"/>
+      <basicdtype loc="e,88,30,88,31" id="7" name="logic" left="31" right="0" signed="true"/>
+    </typetable>
+  </netlist>
+</verilator_xml>

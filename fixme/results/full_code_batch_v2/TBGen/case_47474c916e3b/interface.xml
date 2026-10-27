@@ -1,0 +1,267 @@
+<?xml version="1.0" ?>
+<!-- DESCRIPTION: Verilator output: XML representation of netlist -->
+<verilator_xml>
+  <files>
+    <file id="d" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std.sv" language="1800-2023"/>
+    <file id="c" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std_waiver.vlt" language="1800-2023"/>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_47474c916e3b/icontrol.v" language="1800-2023"/>
+    <file id="a" filename="&lt;built-in&gt;" language="1800-2023"/>
+    <file id="b" filename="&lt;command-line&gt;" language="1800-2023"/>
+  </files>
+  <module_files>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_47474c916e3b/icontrol.v" language="1800-2023"/>
+  </module_files>
+  <cells>
+    <cell loc="e,3,8,3,16" name="icontrol" submodname="icontrol" hier="icontrol"/>
+  </cells>
+  <netlist>
+    <module loc="e,3,8,3,16" name="icontrol" origName="icontrol" topModule="1">
+      <var loc="e,6,10,6,15" name="i_clk" dtype_id="1" dir="input" pinIndex="1" vartype="logic" origName="i_clk"/>
+      <var loc="e,6,17,6,24" name="i_reset" dtype_id="1" dir="input" pinIndex="2" vartype="logic" origName="i_reset"/>
+      <var loc="e,7,10,7,14" name="i_wr" dtype_id="1" dir="input" pinIndex="3" vartype="logic" origName="i_wr"/>
+      <var loc="e,8,16,8,26" name="i_proc_bus" dtype_id="2" dir="input" pinIndex="4" vartype="logic" origName="i_proc_bus"/>
+      <var loc="e,9,21,9,31" name="o_proc_bus" dtype_id="2" dir="output" pinIndex="5" vartype="logic" origName="o_proc_bus"/>
+      <var loc="e,10,23,10,33" name="i_brd_ints" dtype_id="3" dir="input" pinIndex="6" vartype="logic" origName="i_brd_ints"/>
+      <var loc="e,11,15,11,26" name="o_interrupt" dtype_id="1" dir="output" pinIndex="7" vartype="logic" origName="o_interrupt"/>
+      <var loc="e,5,12,5,17" name="IUSED" dtype_id="4" vartype="logic" origName="IUSED" param="true">
+        <const loc="e,5,20,5,22" name="32&apos;shf" dtype_id="4"/>
+      </var>
+      <var loc="e,12,20,12,31" name="r_int_state" dtype_id="3" vartype="logic" origName="r_int_state"/>
+      <var loc="e,13,20,13,32" name="r_int_enable" dtype_id="3" vartype="logic" origName="r_int_enable"/>
+      <var loc="e,14,21,14,34" name="nxt_int_state" dtype_id="3" vartype="logic" origName="nxt_int_state"/>
+      <var loc="e,15,7,15,12" name="r_any" dtype_id="1" vartype="logic" origName="r_any"/>
+      <var loc="e,15,14,15,25" name="r_interrupt" dtype_id="1" vartype="logic" origName="r_interrupt"/>
+      <var loc="e,15,27,15,32" name="r_gie" dtype_id="1" vartype="logic" origName="r_gie"/>
+      <initial loc="e,17,2,17,9">
+        <assign loc="e,17,22,17,23" dtype_id="3">
+          <const loc="e,17,24,17,25" name="15&apos;h0" dtype_id="3"/>
+          <varref loc="e,17,10,17,21" name="r_int_state" dtype_id="3"/>
+        </assign>
+      </initial>
+      <always loc="e,18,2,18,8">
+        <sentree loc="e,18,9,18,10">
+          <senitem loc="e,18,11,18,18" edgeType="POS">
+            <varref loc="e,18,19,18,24" name="i_clk" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <assigndly loc="e,20,17,20,19" dtype_id="3">
+          <cond loc="e,20,20,20,21" dtype_id="3">
+            <varref loc="e,19,7,19,14" name="i_reset" dtype_id="1"/>
+            <const loc="e,20,20,20,21" name="15&apos;h0" dtype_id="3"/>
+            <cond loc="e,22,33,22,34" dtype_id="3">
+              <varref loc="e,21,12,21,16" name="i_wr" dtype_id="1"/>
+              <and loc="e,22,33,22,34" dtype_id="3">
+                <varref loc="e,22,19,22,32" name="nxt_int_state" dtype_id="3"/>
+                <not loc="e,22,36,22,37" dtype_id="3">
+                  <sel loc="e,22,47,22,48" dtype_id="3">
+                    <varref loc="e,22,37,22,47" name="i_proc_bus" dtype_id="2"/>
+                    <const loc="e,22,58,22,59" name="5&apos;h0" dtype_id="5"/>
+                    <const loc="e,22,54,22,55" name="32&apos;hf" dtype_id="2"/>
+                  </sel>
+                </not>
+              </and>
+              <varref loc="e,24,19,24,32" name="nxt_int_state" dtype_id="3"/>
+            </cond>
+          </cond>
+          <varref loc="e,20,4,20,15" name="r_int_state" dtype_id="3"/>
+        </assigndly>
+      </always>
+      <initial loc="e,25,2,25,9">
+        <assign loc="e,25,23,25,24" dtype_id="3">
+          <const loc="e,25,25,25,26" name="15&apos;h0" dtype_id="3"/>
+          <varref loc="e,25,10,25,22" name="r_int_enable" dtype_id="3"/>
+        </assign>
+      </initial>
+      <always loc="e,26,2,26,8">
+        <sentree loc="e,26,9,26,10">
+          <senitem loc="e,26,11,26,18" edgeType="POS">
+            <varref loc="e,26,19,26,24" name="i_clk" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <if loc="e,27,3,27,5">
+          <varref loc="e,27,7,27,14" name="i_reset" dtype_id="1"/>
+          <begin>
+            <assigndly loc="e,28,17,28,19" dtype_id="3">
+              <const loc="e,28,20,28,21" name="15&apos;h0" dtype_id="3"/>
+              <varref loc="e,28,4,28,16" name="r_int_enable" dtype_id="3"/>
+            </assigndly>
+          </begin>
+          <begin>
+            <if loc="e,29,8,29,10">
+              <and loc="e,29,18,29,20" dtype_id="1">
+                <varref loc="e,29,13,29,17" name="i_wr" dtype_id="1"/>
+                <sel loc="e,29,31,29,32" dtype_id="1">
+                  <varref loc="e,29,21,29,31" name="i_proc_bus" dtype_id="2"/>
+                  <const loc="e,29,32,29,34" name="5&apos;h1f" dtype_id="5"/>
+                  <const loc="e,29,31,29,32" name="32&apos;h1" dtype_id="2"/>
+                </sel>
+              </and>
+              <begin>
+                <assigndly loc="e,30,17,30,19" dtype_id="3">
+                  <or loc="e,30,33,30,34" dtype_id="3">
+                    <varref loc="e,30,20,30,32" name="r_int_enable" dtype_id="3"/>
+                    <sel loc="e,30,45,30,46" dtype_id="3">
+                      <varref loc="e,30,35,30,45" name="i_proc_bus" dtype_id="2"/>
+                      <const loc="e,30,59,30,61" name="5&apos;h10" dtype_id="5"/>
+                      <const loc="e,30,55,30,56" name="32&apos;hf" dtype_id="2"/>
+                    </sel>
+                  </or>
+                  <varref loc="e,30,4,30,16" name="r_int_enable" dtype_id="3"/>
+                </assigndly>
+              </begin>
+              <begin>
+                <if loc="e,31,8,31,10">
+                  <and loc="e,31,18,31,20" dtype_id="1">
+                    <varref loc="e,31,13,31,17" name="i_wr" dtype_id="1"/>
+                    <not loc="e,31,21,31,22" dtype_id="1">
+                      <sel loc="e,31,32,31,33" dtype_id="1">
+                        <varref loc="e,31,22,31,32" name="i_proc_bus" dtype_id="2"/>
+                        <const loc="e,31,33,31,35" name="5&apos;h1f" dtype_id="5"/>
+                        <const loc="e,31,32,31,33" name="32&apos;h1" dtype_id="2"/>
+                      </sel>
+                    </not>
+                  </and>
+                  <begin>
+                    <assigndly loc="e,32,17,32,19" dtype_id="3">
+                      <and loc="e,32,33,32,34" dtype_id="3">
+                        <varref loc="e,32,20,32,32" name="r_int_enable" dtype_id="3"/>
+                        <not loc="e,32,36,32,37" dtype_id="3">
+                          <sel loc="e,32,48,32,49" dtype_id="3">
+                            <varref loc="e,32,38,32,48" name="i_proc_bus" dtype_id="2"/>
+                            <const loc="e,32,62,32,64" name="5&apos;h10" dtype_id="5"/>
+                            <const loc="e,32,58,32,59" name="32&apos;hf" dtype_id="2"/>
+                          </sel>
+                        </not>
+                      </and>
+                      <varref loc="e,32,4,32,16" name="r_int_enable" dtype_id="3"/>
+                    </assigndly>
+                  </begin>
+                </if>
+              </begin>
+            </if>
+          </begin>
+        </if>
+      </always>
+      <initial loc="e,33,2,33,9">
+        <assign loc="e,33,16,33,17" dtype_id="1">
+          <const loc="e,33,18,33,22" name="1&apos;h0" dtype_id="1"/>
+          <varref loc="e,33,10,33,15" name="r_gie" dtype_id="1"/>
+        </assign>
+      </initial>
+      <always loc="e,34,2,34,8">
+        <sentree loc="e,34,9,34,10">
+          <senitem loc="e,34,11,34,18" edgeType="POS">
+            <varref loc="e,34,19,34,24" name="i_clk" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <if loc="e,35,3,35,5">
+          <varref loc="e,35,7,35,14" name="i_reset" dtype_id="1"/>
+          <begin>
+            <assigndly loc="e,36,10,36,12" dtype_id="1">
+              <const loc="e,36,13,36,17" name="1&apos;h0" dtype_id="1"/>
+              <varref loc="e,36,4,36,9" name="r_gie" dtype_id="1"/>
+            </assigndly>
+          </begin>
+          <begin>
+            <if loc="e,37,8,37,10">
+              <varref loc="e,37,12,37,16" name="i_wr" dtype_id="1"/>
+              <begin>
+                <assigndly loc="e,38,10,38,12" dtype_id="1">
+                  <sel loc="e,38,23,38,24" dtype_id="1">
+                    <varref loc="e,38,13,38,23" name="i_proc_bus" dtype_id="2"/>
+                    <const loc="e,38,24,38,26" name="5&apos;h1f" dtype_id="5"/>
+                    <const loc="e,38,23,38,24" name="32&apos;h1" dtype_id="2"/>
+                  </sel>
+                  <varref loc="e,38,4,38,9" name="r_gie" dtype_id="1"/>
+                </assigndly>
+              </begin>
+            </if>
+          </begin>
+        </if>
+      </always>
+      <initial loc="e,39,2,39,9">
+        <assign loc="e,39,16,39,17" dtype_id="1">
+          <const loc="e,39,18,39,22" name="1&apos;h0" dtype_id="1"/>
+          <varref loc="e,39,10,39,15" name="r_any" dtype_id="1"/>
+        </assign>
+      </initial>
+      <always loc="e,40,2,40,8">
+        <sentree loc="e,40,9,40,10">
+          <senitem loc="e,40,11,40,18" edgeType="POS">
+            <varref loc="e,40,19,40,24" name="i_clk" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <assigndly loc="e,41,9,41,11" dtype_id="1">
+          <neq loc="e,41,42,41,44" dtype_id="1">
+            <const loc="e,41,45,41,46" name="32&apos;sh0" dtype_id="4"/>
+            <and loc="e,41,26,41,27" dtype_id="2">
+              <extend loc="e,41,14,41,25" dtype_id="2" width="32" widthminv="15">
+                <varref loc="e,41,14,41,25" name="r_int_state" dtype_id="3"/>
+              </extend>
+              <extend loc="e,41,28,41,40" dtype_id="2" width="32" widthminv="15">
+                <varref loc="e,41,28,41,40" name="r_int_enable" dtype_id="3"/>
+              </extend>
+            </and>
+          </neq>
+          <varref loc="e,41,3,41,8" name="r_any" dtype_id="1"/>
+        </assigndly>
+      </always>
+      <initial loc="e,42,2,42,9">
+        <assign loc="e,42,22,42,23" dtype_id="1">
+          <const loc="e,42,24,42,28" name="1&apos;h0" dtype_id="1"/>
+          <varref loc="e,42,10,42,21" name="r_interrupt" dtype_id="1"/>
+        </assign>
+      </initial>
+      <always loc="e,43,2,43,8">
+        <sentree loc="e,43,9,43,10">
+          <senitem loc="e,43,11,43,18" edgeType="POS">
+            <varref loc="e,43,19,43,24" name="i_clk" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <assigndly loc="e,44,15,44,17" dtype_id="1">
+          <and loc="e,44,24,44,25" dtype_id="1">
+            <varref loc="e,44,18,44,23" name="r_gie" dtype_id="1"/>
+            <varref loc="e,44,26,44,31" name="r_any" dtype_id="1"/>
+          </and>
+          <varref loc="e,44,3,44,14" name="r_interrupt" dtype_id="1"/>
+        </assigndly>
+      </always>
+      <begin loc="e,51,11,51,16" name="genblk1">
+        <contassign loc="e,52,21,52,22" dtype_id="2">
+          <concat loc="e,52,51,52,52" dtype_id="2">
+            <varref loc="e,52,25,52,30" name="r_gie" dtype_id="1"/>
+            <concat loc="e,52,44,52,45" dtype_id="6">
+              <varref loc="e,52,32,52,44" name="r_int_enable" dtype_id="3"/>
+              <concat loc="e,52,30,52,31" dtype_id="7">
+                <varref loc="e,52,46,52,51" name="r_any" dtype_id="1"/>
+                <varref loc="e,52,53,52,64" name="r_int_state" dtype_id="3"/>
+              </concat>
+            </concat>
+          </concat>
+          <varref loc="e,52,10,52,20" name="o_proc_bus" dtype_id="2"/>
+        </contassign>
+      </begin>
+      <contassign loc="e,16,23,16,24" dtype_id="3">
+        <or loc="e,16,37,16,38" dtype_id="3">
+          <varref loc="e,10,23,10,33" name="i_brd_ints" dtype_id="3"/>
+          <varref loc="e,12,20,12,31" name="r_int_state" dtype_id="3"/>
+        </or>
+        <varref loc="e,16,23,16,24" name="nxt_int_state" dtype_id="3"/>
+      </contassign>
+      <contassign loc="e,54,21,54,22" dtype_id="1">
+        <varref loc="e,15,14,15,25" name="r_interrupt" dtype_id="1"/>
+        <varref loc="e,54,21,54,22" name="o_interrupt" dtype_id="1"/>
+      </contassign>
+    </module>
+    <typetable loc="a,0,0,0,0">
+      <basicdtype loc="d,46,25,46,27" id="1" name="logic"/>
+      <voiddtype loc="d,48,18,48,27" id="8"/>
+      <basicdtype loc="e,8,9,8,10" id="2" name="logic" left="31" right="0"/>
+      <basicdtype loc="e,10,9,10,10" id="3" name="logic" left="14" right="0"/>
+      <basicdtype loc="e,22,47,22,48" id="5" name="logic" left="4" right="0" signed="true"/>
+      <basicdtype loc="e,52,30,52,31" id="7" name="logic" left="15" right="0"/>
+      <basicdtype loc="e,5,20,5,22" id="4" name="logic" left="31" right="0" signed="true"/>
+      <basicdtype loc="e,52,44,52,45" id="6" name="logic" left="30" right="0"/>
+    </typetable>
+  </netlist>
+</verilator_xml>

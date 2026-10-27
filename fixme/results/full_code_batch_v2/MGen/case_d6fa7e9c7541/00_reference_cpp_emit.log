@@ -1,0 +1,63 @@
+%Warning-IMPLICIT: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/MGen/case_d6fa7e9c7541/ref.v:59:21: Signal definition not found, creating implicitly: 'cnt_flag_o'
+                                                                                                                   : ... Suggested alternative: 'cop_flag'
+   59 |     .irq_source   ( cnt_flag_o ),
+      |                     ^~~~~~~~~~
+                   ... For warning description see https://verilator.org/warn/IMPLICIT?v=5.032
+                   ... Use "/* verilator lint_off IMPLICIT */" and lint_on around source to disable this message.
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/MGen/case_d6fa7e9c7541/ref.v:249:23: Operator ASSIGNDLY expects 1 bits on the Assign RHS, but Assign RHS's VARREF 'INIT_ENA' generates 32 bits.
+                                                                                                                      : ... note: In instance 'ref_cop_top.regs'
+  249 |         cop_ena       <= INIT_ENA;
+      |                       ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/MGen/case_d6fa7e9c7541/ref.v:262:23: Operator ASSIGNDLY expects 1 bits on the Assign RHS, but Assign RHS's VARREF 'INIT_ENA' generates 32 bits.
+                                                                                                                      : ... note: In instance 'ref_cop_top.regs'
+  262 |         cop_ena       <= INIT_ENA;
+      |                       ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/MGen/case_d6fa7e9c7541/ref.v:302:35: Operator EQ expects 32 bits on the LHS, but LHS's VARREF 'write_data' generates 16 bits.
+                                                                                                                       : ... note: In instance 'ref_cop_top.regs'
+  302 |       service_cop  <= (write_data == SERV_WD_0);
+      |                                   ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/MGen/case_d6fa7e9c7541/ref.v:303:50: Operator EQ expects 32 bits on the LHS, but LHS's VARREF 'write_data' generates 16 bits.
+                                                                                                                       : ... note: In instance 'ref_cop_top.regs'
+  303 |       reload_count <= service_cop && (write_data == SERV_WD_1);
+      |                                                  ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/MGen/case_d6fa7e9c7541/ref.v:165:24: Operator ASSIGN expects 16 bits on the Assign RHS, but Assign RHS's SEL generates 8 bits.
+                                                                                                                       : ... note: In instance 'ref_cop_top.wishbone'
+  165 |  4'b1_000: rd_data_mux = read_regs[ 7: 0];   
+      |                        ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/MGen/case_d6fa7e9c7541/ref.v:166:24: Operator ASSIGN expects 16 bits on the Assign RHS, but Assign RHS's SEL generates 8 bits.
+                                                                                                                       : ... note: In instance 'ref_cop_top.wishbone'
+  166 |  4'b1_001: rd_data_mux = read_regs[15: 8];   
+      |                        ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/MGen/case_d6fa7e9c7541/ref.v:167:24: Operator ASSIGN expects 16 bits on the Assign RHS, but Assign RHS's SEL generates 8 bits.
+                                                                                                                       : ... note: In instance 'ref_cop_top.wishbone'
+  167 |  4'b1_010: rd_data_mux = read_regs[23:16];   
+      |                        ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/MGen/case_d6fa7e9c7541/ref.v:168:24: Operator ASSIGN expects 16 bits on the Assign RHS, but Assign RHS's SEL generates 8 bits.
+                                                                                                                       : ... note: In instance 'ref_cop_top.wishbone'
+  168 |  4'b1_011: rd_data_mux = read_regs[31:24];   
+      |                        ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/MGen/case_d6fa7e9c7541/ref.v:169:24: Operator ASSIGN expects 16 bits on the Assign RHS, but Assign RHS's SEL generates 8 bits.
+                                                                                                                       : ... note: In instance 'ref_cop_top.wishbone'
+  169 |  4'b1_100: rd_data_mux = read_regs[39:32];   
+      |                        ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/MGen/case_d6fa7e9c7541/ref.v:170:24: Operator ASSIGN expects 16 bits on the Assign RHS, but Assign RHS's SEL generates 8 bits.
+                                                                                                                       : ... note: In instance 'ref_cop_top.wishbone'
+  170 |  4'b1_101: rd_data_mux = read_regs[47:40];   
+      |                        ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/MGen/case_d6fa7e9c7541/ref.v:183:2: Operator CASE expects 5 bits on the Case expression, but Case expression's REPLICATE generates 4 bits.
+                                                                                                                      : ... note: In instance 'ref_cop_top.wishbone'
+  183 |  case ({eight_bit_bus, wb_adr_i})  
+      |  ^~~~
+%Warning-CASEINCOMPLETE: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/MGen/case_d6fa7e9c7541/ref.v:163:7: Case values incompletely covered (example pattern 0x3)
+  163 |       case ({eight_bit_bus, wb_adr_i})  
+      |       ^~~~
+%Error-BLKANDNBLK: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/MGen/case_d6fa7e9c7541/ref.v:36:26: Unsupported: Blocked and non-blocking assignments to same variable: 'ref_cop_top.cop_counter'
+   36 |   logic [COUNT_SIZE-1:0] cop_counter;    
+      |                          ^~~~~~~~~~~
+                   /workspace/PaperReproduction/fixme/results/full_code_batch_v2/MGen/case_d6fa7e9c7541/ref.v:373:23: ... Location of blocking assignment
+  373 |       cop_counter  <= --cop_counter;
+      |                       ^~
+                   /workspace/PaperReproduction/fixme/results/full_code_batch_v2/MGen/case_d6fa7e9c7541/ref.v:371:20: ... Location of nonblocking assignment
+  371 |       cop_counter  <= timeout_value;
+      |                    ^~
+%Error: Exiting due to 1 error(s)

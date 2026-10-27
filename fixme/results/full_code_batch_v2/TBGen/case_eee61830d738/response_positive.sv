@@ -1,0 +1,90 @@
+`timescale 1ns/1ps
+module calibration_tb;
+wire [29:0] dwb_adr_o;
+wire [29:0] ref_dwb_adr_o;
+wire [3:0] dwb_sel_o;
+wire [3:0] ref_dwb_sel_o;
+wire [4:0] fsl_adr_o;
+wire [4:0] ref_fsl_adr_o;
+wire [1:0] fsl_tag_o;
+wire [1:0] ref_fsl_tag_o;
+wire [31:0] rRESULT;
+wire [31:0] ref_rRESULT;
+wire [3:0] rDWBSEL;
+wire [3:0] ref_rDWBSEL;
+wire rMSR_IE;
+wire ref_rMSR_IE;
+wire rMSR_BIP;
+wire ref_rMSR_BIP;
+reg [31:0] rREGA;
+reg [31:0] rREGB;
+reg [1:0] rMXSRC;
+reg [1:0] rMXTGT;
+reg [4:0] rRA;
+reg [4:0] rRB;
+reg [2:0] rMXALU;
+reg rBRA;
+reg rDLY;
+reg [10:0] rALT;
+reg rSTALL;
+reg [31:0] rSIMM;
+reg [15:0] rIMM;
+reg [5:0] rOPC;
+reg [4:0] rRD;
+reg [31:0] rDWBDI;
+reg [29:0] rPC;
+reg gclk;
+reg grst;
+reg gena;
+integer seed=13579; integer i; integer checks=0;integer failures=0;integer unknowns=0;
+aeMB_xecu dut(.dwb_adr_o(dwb_adr_o), .dwb_sel_o(dwb_sel_o), .fsl_adr_o(fsl_adr_o), .fsl_tag_o(fsl_tag_o), .rRESULT(rRESULT), .rDWBSEL(rDWBSEL), .rMSR_IE(rMSR_IE), .rMSR_BIP(rMSR_BIP), .rREGA(rREGA), .rREGB(rREGB), .rMXSRC(rMXSRC), .rMXTGT(rMXTGT), .rRA(rRA), .rRB(rRB), .rMXALU(rMXALU), .rBRA(rBRA), .rDLY(rDLY), .rALT(rALT), .rSTALL(rSTALL), .rSIMM(rSIMM), .rIMM(rIMM), .rOPC(rOPC), .rRD(rRD), .rDWBDI(rDWBDI), .rPC(rPC), .gclk(gclk), .grst(grst), .gena(gena));
+oracle_aeMB_xecu golden(.dwb_adr_o(ref_dwb_adr_o), .dwb_sel_o(ref_dwb_sel_o), .fsl_adr_o(ref_fsl_adr_o), .fsl_tag_o(ref_fsl_tag_o), .rRESULT(ref_rRESULT), .rDWBSEL(ref_rDWBSEL), .rMSR_IE(ref_rMSR_IE), .rMSR_BIP(ref_rMSR_BIP), .rREGA(rREGA), .rREGB(rREGB), .rMXSRC(rMXSRC), .rMXTGT(rMXTGT), .rRA(rRA), .rRB(rRB), .rMXALU(rMXALU), .rBRA(rBRA), .rDLY(rDLY), .rALT(rALT), .rSTALL(rSTALL), .rSIMM(rSIMM), .rIMM(rIMM), .rOPC(rOPC), .rRD(rRD), .rDWBDI(rDWBDI), .rPC(rPC), .gclk(gclk), .grst(grst), .gena(gena));
+initial begin
+rREGA = 0;
+rREGB = 0;
+rMXSRC = 0;
+rMXTGT = 0;
+rRA = 0;
+rRB = 0;
+rMXALU = 0;
+rBRA = 0;
+rDLY = 0;
+rALT = 0;
+rSTALL = 0;
+rSIMM = 0;
+rIMM = 0;
+rOPC = 0;
+rRD = 0;
+rDWBDI = 0;
+rPC = 0;
+gclk = 0;
+grst = 0;
+gena = 0;
+#2;
+
+for(i=0;i<64;i=i+1) begin
+rREGA = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+rREGB = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+rMXSRC = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+rMXTGT = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+rRA = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+rRB = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+rMXALU = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+rBRA = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+rDLY = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+rALT = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+rSTALL = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+rSIMM = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+rIMM = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+rOPC = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+rRD = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+rDWBDI = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+rPC = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+grst = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+gena = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+#2; gclk=1; #2;
+if ((^{ref_dwb_adr_o,ref_dwb_sel_o,ref_fsl_adr_o,ref_fsl_tag_o,ref_rRESULT,ref_rDWBSEL,ref_rMSR_IE,ref_rMSR_BIP}) === 1'bx || (^{dwb_adr_o,dwb_sel_o,fsl_adr_o,fsl_tag_o,rRESULT,rDWBSEL,rMSR_IE,rMSR_BIP}) === 1'bx) unknowns=unknowns+1; else begin checks=checks+1; if ({dwb_adr_o,dwb_sel_o,fsl_adr_o,fsl_tag_o,rRESULT,rDWBSEL,rMSR_IE,rMSR_BIP} !== {ref_dwb_adr_o,ref_dwb_sel_o,ref_fsl_adr_o,ref_fsl_tag_o,ref_rRESULT,ref_rDWBSEL,ref_rMSR_IE,ref_rMSR_BIP}) failures=failures+1; end
+gclk=0;
+end
+$display("CALIBRATION checks=%0d failures=%0d unknown=%0d",checks,failures,unknowns); $finish; end
+endmodule

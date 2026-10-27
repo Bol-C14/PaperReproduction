@@ -1,0 +1,13 @@
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_eee61830d738/aeMB_xecu.v:64:42: Operator ADD expects 33 bits on the RHS, but RHS's VARREF 'wOPC' generates 1 bits.
+                                                                                                                             : ... note: In instance 'aeMB_xecu'
+   64 |    assign   {wADC, wADD} = (rOPB + wOPA) + wOPC; 
+      |                                          ^
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.032
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_eee61830d738/aeMB_xecu.v:95:12: Operator COND expects 32 bits on the Conditional True, but Conditional True's VARREF 'rPC' generates 30 bits.
+                                                                                                                             : ... note: In instance 'aeMB_xecu'
+   95 |    (fMFPC) ? rPC :
+      |            ^
+- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev (Debian 5.032-1+b2)
+- Verilator: Built from 0.035 MB sources in 2 modules, into 0.000 MB in 0 C++ files needing 0.000 MB
+- Verilator: Walltime 0.011 s (elab=0.002, cvt=0.001, bld=0.000); cpu 0.000 s on 1 threads; alloced 9.379 MB

@@ -1,0 +1,1235 @@
+<?xml version="1.0" ?>
+<!-- DESCRIPTION: Verilator output: XML representation of netlist -->
+<verilator_xml>
+  <files>
+    <file id="d" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std.sv" language="1800-2023"/>
+    <file id="c" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std_waiver.vlt" language="1800-2023"/>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_75216a817585/lcd.v" language="1800-2023"/>
+    <file id="a" filename="&lt;built-in&gt;" language="1800-2023"/>
+    <file id="b" filename="&lt;command-line&gt;" language="1800-2023"/>
+  </files>
+  <module_files>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_75216a817585/lcd.v" language="1800-2023"/>
+  </module_files>
+  <cells>
+    <cell loc="e,3,8,3,11" name="lcd" submodname="lcd" hier="lcd"/>
+  </cells>
+  <netlist>
+    <module loc="e,3,8,3,11" name="lcd" origName="lcd" topModule="1">
+      <var loc="e,15,7,15,10" name="clk" dtype_id="1" dir="input" pinIndex="1" vartype="logic" origName="clk"/>
+      <var loc="e,16,7,16,12" name="reset" dtype_id="1" dir="input" pinIndex="2" vartype="logic" origName="reset"/>
+      <var loc="e,17,14,17,17" name="dat" dtype_id="2" dir="input" pinIndex="3" vartype="logic" origName="dat"/>
+      <var loc="e,18,13,18,17" name="addr" dtype_id="3" dir="input" pinIndex="4" vartype="logic" origName="addr"/>
+      <var loc="e,19,7,19,9" name="we" dtype_id="1" dir="input" pinIndex="5" vartype="logic" origName="we"/>
+      <var loc="e,20,8,20,12" name="busy" dtype_id="1" dir="output" pinIndex="6" vartype="logic" origName="busy"/>
+      <var loc="e,22,14,22,18" name="SF_D" dtype_id="4" dir="output" pinIndex="7" vartype="logic" origName="SF_D"/>
+      <var loc="e,24,8,24,13" name="LCD_E" dtype_id="1" dir="output" pinIndex="8" vartype="logic" origName="LCD_E"/>
+      <var loc="e,26,8,26,14" name="LCD_RS" dtype_id="1" dir="output" pinIndex="9" vartype="logic" origName="LCD_RS"/>
+      <var loc="e,28,8,28,14" name="LCD_RW" dtype_id="1" dir="output" pinIndex="10" vartype="logic" origName="LCD_RW">
+        <const loc="e,303,17,303,18" name="1&apos;h0" dtype_id="1"/>
+      </var>
+      <var loc="e,30,6,30,13" name="tx_init" dtype_id="1" vartype="logic" origName="tx_init"/>
+      <var loc="e,31,6,31,16" name="delay_load" dtype_id="1" vartype="logic" origName="delay_load"/>
+      <var loc="e,32,5,32,12" name="tx_done" dtype_id="1" vartype="logic" origName="tx_done"/>
+      <var loc="e,33,11,33,16" name="SF_D1" dtype_id="4" vartype="logic" origName="SF_D1"/>
+      <var loc="e,34,11,34,16" name="SF_D0" dtype_id="4" vartype="logic" origName="SF_D0"/>
+      <var loc="e,35,5,35,11" name="LCD_E1" dtype_id="1" vartype="logic" origName="LCD_E1"/>
+      <var loc="e,36,5,36,11" name="LCD_E0" dtype_id="1" vartype="logic" origName="LCD_E0"/>
+      <var loc="e,37,6,37,16" name="delay_done" dtype_id="1" vartype="logic" origName="delay_done"/>
+      <var loc="e,38,11,38,18" name="tx_byte" dtype_id="5" vartype="logic" origName="tx_byte"/>
+      <var loc="e,39,11,39,18" name="wr_addr" dtype_id="3" vartype="logic" origName="wr_addr"/>
+      <var loc="e,40,6,40,21" name="output_selector" dtype_id="1" vartype="logic" origName="output_selector"/>
+      <var loc="e,41,11,41,16" name="state" dtype_id="6" vartype="logic" origName="state"/>
+      <var loc="e,42,12,42,26" name="tx_delay_value" dtype_id="7" vartype="logic" origName="tx_delay_value"/>
+      <var loc="e,43,12,43,28" name="main_delay_value" dtype_id="7" vartype="logic" origName="main_delay_value"/>
+      <var loc="e,44,5,44,18" name="tx_delay_load" dtype_id="1" vartype="logic" origName="tx_delay_load"/>
+      <var loc="e,45,12,45,23" name="delay_value" dtype_id="7" vartype="logic" origName="delay_value"/>
+      <var loc="e,46,11,46,17" name="wr_dat" dtype_id="3" vartype="logic" origName="wr_dat"/>
+      <var loc="e,47,5,47,20" name="main_delay_load" dtype_id="1" vartype="logic" origName="main_delay_load"/>
+      <var loc="e,48,11,48,19" name="tx_state" dtype_id="8" vartype="logic" origName="tx_state"/>
+      <var loc="e,49,12,49,27" name="counter_counter" dtype_id="9" vartype="logic" origName="counter_counter"/>
+      <always loc="e,51,1,51,7">
+        <sentree loc="e,51,8,51,9">
+          <senitem loc="e,51,10,51,26" edgeType="CHANGED">
+            <varref loc="e,51,10,51,26" name="main_delay_value" dtype_id="7"/>
+          </senitem>
+          <senitem loc="e,51,28,51,41" edgeType="CHANGED">
+            <varref loc="e,51,28,51,41" name="tx_delay_load" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,51,43,51,57" edgeType="CHANGED">
+            <varref loc="e,51,43,51,57" name="tx_delay_value" dtype_id="7"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,51,66,51,92" name="LCD_CONUNTER_SHARING_VALUE">
+          <if loc="e,52,5,52,7">
+            <varref loc="e,52,9,52,22" name="tx_delay_load" dtype_id="1"/>
+            <begin>
+              <begin loc="e,52,24,52,29">
+                <assigndly loc="e,53,21,53,23" dtype_id="7">
+                  <varref loc="e,53,24,53,38" name="tx_delay_value" dtype_id="7"/>
+                  <varref loc="e,53,9,53,20" name="delay_value" dtype_id="7"/>
+                </assigndly>
+              </begin>
+            </begin>
+            <begin>
+              <begin loc="e,55,10,55,15">
+                <assigndly loc="e,56,21,56,23" dtype_id="7">
+                  <varref loc="e,56,24,56,40" name="main_delay_value" dtype_id="7"/>
+                  <varref loc="e,56,9,56,20" name="delay_value" dtype_id="7"/>
+                </assigndly>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <always loc="e,59,1,59,7">
+        <sentree loc="e,59,8,59,9">
+          <senitem loc="e,59,10,59,17" edgeType="POS">
+            <varref loc="e,59,18,59,21" name="clk" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,59,23,59,30" edgeType="POS">
+            <varref loc="e,59,31,59,36" name="reset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,59,45,59,59" name="LCD_DISPLAYFSM">
+          <if loc="e,60,5,60,7">
+            <varref loc="e,60,10,60,15" name="reset" dtype_id="1"/>
+            <begin>
+              <begin loc="e,60,23,60,28">
+                <assigndly loc="e,61,15,61,17" dtype_id="6">
+                  <const loc="e,61,18,61,26" name="5&apos;h0" dtype_id="6"/>
+                  <varref loc="e,61,9,61,14" name="state" dtype_id="6"/>
+                </assigndly>
+                <assigndly loc="e,62,25,62,27" dtype_id="1">
+                  <const loc="e,62,28,62,29" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,62,9,62,24" name="main_delay_load" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,63,26,63,28" dtype_id="7">
+                  <const loc="e,63,29,63,30" name="20&apos;h0" dtype_id="7"/>
+                  <varref loc="e,63,9,63,25" name="main_delay_value" dtype_id="7"/>
+                </assigndly>
+                <assigndly loc="e,64,15,64,17" dtype_id="4">
+                  <const loc="e,64,18,64,19" name="4&apos;h0" dtype_id="4"/>
+                  <varref loc="e,64,9,64,14" name="SF_D1" dtype_id="4"/>
+                </assigndly>
+                <assigndly loc="e,65,16,65,18" dtype_id="1">
+                  <const loc="e,65,19,65,20" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,65,9,65,15" name="LCD_E1" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,66,17,66,19" dtype_id="5">
+                  <const loc="e,66,20,66,21" name="8&apos;h0" dtype_id="5"/>
+                  <varref loc="e,66,9,66,16" name="tx_byte" dtype_id="5"/>
+                </assigndly>
+              </begin>
+            </begin>
+            <begin>
+              <begin loc="e,68,10,68,15">
+                <assigndly loc="e,69,25,69,27" dtype_id="1">
+                  <const loc="e,69,28,69,29" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,69,9,69,24" name="main_delay_load" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,70,26,70,28" dtype_id="7">
+                  <const loc="e,70,29,70,30" name="20&apos;h0" dtype_id="7"/>
+                  <varref loc="e,70,9,70,25" name="main_delay_value" dtype_id="7"/>
+                </assigndly>
+                <case loc="e,71,9,71,14">
+                  <varref loc="e,71,16,71,21" name="state" dtype_id="6"/>
+                  <caseitem loc="e,72,21,72,22">
+                    <const loc="e,72,13,72,21" name="5&apos;h0" dtype_id="6"/>
+                    <begin loc="e,72,23,72,28">
+                      <assigndly loc="e,73,25,73,27" dtype_id="5">
+                        <const loc="e,73,28,73,29" name="8&apos;h0" dtype_id="5"/>
+                        <varref loc="e,73,17,73,24" name="tx_byte" dtype_id="5"/>
+                      </assigndly>
+                      <assigndly loc="e,74,23,74,25" dtype_id="6">
+                        <const loc="e,74,26,74,34" name="5&apos;h1" dtype_id="6"/>
+                        <varref loc="e,74,17,74,22" name="state" dtype_id="6"/>
+                      </assigndly>
+                      <assigndly loc="e,75,33,75,35" dtype_id="1">
+                        <const loc="e,75,36,75,37" name="1&apos;h1" dtype_id="1"/>
+                        <varref loc="e,75,17,75,32" name="main_delay_load" dtype_id="1"/>
+                      </assigndly>
+                      <assigndly loc="e,76,34,76,36" dtype_id="7">
+                        <const loc="e,76,37,76,43" name="20&apos;hb71b0" dtype_id="7"/>
+                        <varref loc="e,76,17,76,33" name="main_delay_value" dtype_id="7"/>
+                      </assigndly>
+                    </begin>
+                  </caseitem>
+                  <caseitem loc="e,78,21,78,22">
+                    <const loc="e,78,13,78,21" name="5&apos;h1" dtype_id="6"/>
+                    <begin loc="e,78,23,78,28">
+                      <assigndly loc="e,79,33,79,35" dtype_id="1">
+                        <const loc="e,79,36,79,37" name="1&apos;h0" dtype_id="1"/>
+                        <varref loc="e,79,17,79,32" name="main_delay_load" dtype_id="1"/>
+                      </assigndly>
+                      <if loc="e,80,17,80,19">
+                        <varref loc="e,80,21,80,31" name="delay_done" dtype_id="1"/>
+                        <begin>
+                          <begin loc="e,80,33,80,38">
+                            <assigndly loc="e,81,27,81,29" dtype_id="6">
+                              <const loc="e,81,30,81,38" name="5&apos;h2" dtype_id="6"/>
+                              <varref loc="e,81,21,81,26" name="state" dtype_id="6"/>
+                            </assigndly>
+                            <assigndly loc="e,82,37,82,39" dtype_id="1">
+                              <const loc="e,82,40,82,41" name="1&apos;h1" dtype_id="1"/>
+                              <varref loc="e,82,21,82,36" name="main_delay_load" dtype_id="1"/>
+                            </assigndly>
+                            <assigndly loc="e,83,38,83,40" dtype_id="7">
+                              <const loc="e,83,41,83,43" name="20&apos;hb" dtype_id="7"/>
+                              <varref loc="e,83,21,83,37" name="main_delay_value" dtype_id="7"/>
+                            </assigndly>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </caseitem>
+                  <caseitem loc="e,86,21,86,22">
+                    <const loc="e,86,13,86,21" name="5&apos;h2" dtype_id="6"/>
+                    <begin loc="e,86,23,86,28">
+                      <assigndly loc="e,87,33,87,35" dtype_id="1">
+                        <const loc="e,87,36,87,37" name="1&apos;h0" dtype_id="1"/>
+                        <varref loc="e,87,17,87,32" name="main_delay_load" dtype_id="1"/>
+                      </assigndly>
+                      <assigndly loc="e,88,23,88,25" dtype_id="4">
+                        <const loc="e,88,26,88,27" name="4&apos;h3" dtype_id="4"/>
+                        <varref loc="e,88,17,88,22" name="SF_D1" dtype_id="4"/>
+                      </assigndly>
+                      <assigndly loc="e,89,24,89,26" dtype_id="1">
+                        <const loc="e,89,27,89,28" name="1&apos;h1" dtype_id="1"/>
+                        <varref loc="e,89,17,89,23" name="LCD_E1" dtype_id="1"/>
+                      </assigndly>
+                      <if loc="e,90,17,90,19">
+                        <varref loc="e,90,21,90,31" name="delay_done" dtype_id="1"/>
+                        <begin>
+                          <begin loc="e,90,33,90,38">
+                            <assigndly loc="e,91,27,91,29" dtype_id="6">
+                              <const loc="e,91,30,91,38" name="5&apos;h3" dtype_id="6"/>
+                              <varref loc="e,91,21,91,26" name="state" dtype_id="6"/>
+                            </assigndly>
+                            <assigndly loc="e,92,37,92,39" dtype_id="1">
+                              <const loc="e,92,40,92,41" name="1&apos;h1" dtype_id="1"/>
+                              <varref loc="e,92,21,92,36" name="main_delay_load" dtype_id="1"/>
+                            </assigndly>
+                            <assigndly loc="e,93,38,93,40" dtype_id="7">
+                              <const loc="e,93,41,93,47" name="20&apos;h320c8" dtype_id="7"/>
+                              <varref loc="e,93,21,93,37" name="main_delay_value" dtype_id="7"/>
+                            </assigndly>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </caseitem>
+                  <caseitem loc="e,96,21,96,22">
+                    <const loc="e,96,13,96,21" name="5&apos;h3" dtype_id="6"/>
+                    <begin loc="e,96,23,96,28">
+                      <assigndly loc="e,97,33,97,35" dtype_id="1">
+                        <const loc="e,97,36,97,37" name="1&apos;h0" dtype_id="1"/>
+                        <varref loc="e,97,17,97,32" name="main_delay_load" dtype_id="1"/>
+                      </assigndly>
+                      <assigndly loc="e,98,24,98,26" dtype_id="1">
+                        <const loc="e,98,27,98,28" name="1&apos;h0" dtype_id="1"/>
+                        <varref loc="e,98,17,98,23" name="LCD_E1" dtype_id="1"/>
+                      </assigndly>
+                      <if loc="e,99,17,99,19">
+                        <varref loc="e,99,21,99,31" name="delay_done" dtype_id="1"/>
+                        <begin>
+                          <begin loc="e,99,33,99,38">
+                            <assigndly loc="e,100,27,100,29" dtype_id="6">
+                              <const loc="e,100,30,100,38" name="5&apos;h4" dtype_id="6"/>
+                              <varref loc="e,100,21,100,26" name="state" dtype_id="6"/>
+                            </assigndly>
+                            <assigndly loc="e,101,37,101,39" dtype_id="1">
+                              <const loc="e,101,40,101,41" name="1&apos;h1" dtype_id="1"/>
+                              <varref loc="e,101,21,101,36" name="main_delay_load" dtype_id="1"/>
+                            </assigndly>
+                            <assigndly loc="e,102,38,102,40" dtype_id="7">
+                              <const loc="e,102,41,102,43" name="20&apos;hb" dtype_id="7"/>
+                              <varref loc="e,102,21,102,37" name="main_delay_value" dtype_id="7"/>
+                            </assigndly>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </caseitem>
+                  <caseitem loc="e,105,21,105,22">
+                    <const loc="e,105,13,105,21" name="5&apos;h4" dtype_id="6"/>
+                    <begin loc="e,105,23,105,28">
+                      <assigndly loc="e,106,33,106,35" dtype_id="1">
+                        <const loc="e,106,36,106,37" name="1&apos;h0" dtype_id="1"/>
+                        <varref loc="e,106,17,106,32" name="main_delay_load" dtype_id="1"/>
+                      </assigndly>
+                      <assigndly loc="e,107,23,107,25" dtype_id="4">
+                        <const loc="e,107,26,107,27" name="4&apos;h3" dtype_id="4"/>
+                        <varref loc="e,107,17,107,22" name="SF_D1" dtype_id="4"/>
+                      </assigndly>
+                      <assigndly loc="e,108,24,108,26" dtype_id="1">
+                        <const loc="e,108,27,108,28" name="1&apos;h1" dtype_id="1"/>
+                        <varref loc="e,108,17,108,23" name="LCD_E1" dtype_id="1"/>
+                      </assigndly>
+                      <if loc="e,109,17,109,19">
+                        <varref loc="e,109,21,109,31" name="delay_done" dtype_id="1"/>
+                        <begin>
+                          <begin loc="e,109,33,109,38">
+                            <assigndly loc="e,110,27,110,29" dtype_id="6">
+                              <const loc="e,110,30,110,38" name="5&apos;h5" dtype_id="6"/>
+                              <varref loc="e,110,21,110,26" name="state" dtype_id="6"/>
+                            </assigndly>
+                            <assigndly loc="e,111,37,111,39" dtype_id="1">
+                              <const loc="e,111,40,111,41" name="1&apos;h1" dtype_id="1"/>
+                              <varref loc="e,111,21,111,36" name="main_delay_load" dtype_id="1"/>
+                            </assigndly>
+                            <assigndly loc="e,112,38,112,40" dtype_id="7">
+                              <const loc="e,112,41,112,45" name="20&apos;h1388" dtype_id="7"/>
+                              <varref loc="e,112,21,112,37" name="main_delay_value" dtype_id="7"/>
+                            </assigndly>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </caseitem>
+                  <caseitem loc="e,115,21,115,22">
+                    <const loc="e,115,13,115,21" name="5&apos;h5" dtype_id="6"/>
+                    <begin loc="e,115,23,115,28">
+                      <assigndly loc="e,116,33,116,35" dtype_id="1">
+                        <const loc="e,116,36,116,37" name="1&apos;h0" dtype_id="1"/>
+                        <varref loc="e,116,17,116,32" name="main_delay_load" dtype_id="1"/>
+                      </assigndly>
+                      <assigndly loc="e,117,24,117,26" dtype_id="1">
+                        <const loc="e,117,27,117,28" name="1&apos;h0" dtype_id="1"/>
+                        <varref loc="e,117,17,117,23" name="LCD_E1" dtype_id="1"/>
+                      </assigndly>
+                      <if loc="e,118,17,118,19">
+                        <varref loc="e,118,21,118,31" name="delay_done" dtype_id="1"/>
+                        <begin>
+                          <begin loc="e,118,33,118,38">
+                            <assigndly loc="e,119,27,119,29" dtype_id="6">
+                              <const loc="e,119,30,119,38" name="5&apos;h6" dtype_id="6"/>
+                              <varref loc="e,119,21,119,26" name="state" dtype_id="6"/>
+                            </assigndly>
+                            <assigndly loc="e,120,37,120,39" dtype_id="1">
+                              <const loc="e,120,40,120,41" name="1&apos;h1" dtype_id="1"/>
+                              <varref loc="e,120,21,120,36" name="main_delay_load" dtype_id="1"/>
+                            </assigndly>
+                            <assigndly loc="e,121,38,121,40" dtype_id="7">
+                              <const loc="e,121,41,121,43" name="20&apos;hb" dtype_id="7"/>
+                              <varref loc="e,121,21,121,37" name="main_delay_value" dtype_id="7"/>
+                            </assigndly>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </caseitem>
+                  <caseitem loc="e,124,21,124,22">
+                    <const loc="e,124,13,124,21" name="5&apos;h6" dtype_id="6"/>
+                    <begin loc="e,124,23,124,28">
+                      <assigndly loc="e,125,33,125,35" dtype_id="1">
+                        <const loc="e,125,36,125,37" name="1&apos;h0" dtype_id="1"/>
+                        <varref loc="e,125,17,125,32" name="main_delay_load" dtype_id="1"/>
+                      </assigndly>
+                      <assigndly loc="e,126,23,126,25" dtype_id="4">
+                        <const loc="e,126,26,126,27" name="4&apos;h3" dtype_id="4"/>
+                        <varref loc="e,126,17,126,22" name="SF_D1" dtype_id="4"/>
+                      </assigndly>
+                      <assigndly loc="e,127,24,127,26" dtype_id="1">
+                        <const loc="e,127,27,127,28" name="1&apos;h1" dtype_id="1"/>
+                        <varref loc="e,127,17,127,23" name="LCD_E1" dtype_id="1"/>
+                      </assigndly>
+                      <if loc="e,128,17,128,19">
+                        <varref loc="e,128,21,128,31" name="delay_done" dtype_id="1"/>
+                        <begin>
+                          <begin loc="e,128,33,128,38">
+                            <assigndly loc="e,129,27,129,29" dtype_id="6">
+                              <const loc="e,129,30,129,38" name="5&apos;h7" dtype_id="6"/>
+                              <varref loc="e,129,21,129,26" name="state" dtype_id="6"/>
+                            </assigndly>
+                            <assigndly loc="e,130,37,130,39" dtype_id="1">
+                              <const loc="e,130,40,130,41" name="1&apos;h1" dtype_id="1"/>
+                              <varref loc="e,130,21,130,36" name="main_delay_load" dtype_id="1"/>
+                            </assigndly>
+                            <assigndly loc="e,131,38,131,40" dtype_id="7">
+                              <const loc="e,131,41,131,45" name="20&apos;h7d0" dtype_id="7"/>
+                              <varref loc="e,131,21,131,37" name="main_delay_value" dtype_id="7"/>
+                            </assigndly>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </caseitem>
+                  <caseitem loc="e,134,21,134,22">
+                    <const loc="e,134,13,134,21" name="5&apos;h7" dtype_id="6"/>
+                    <begin loc="e,134,23,134,28">
+                      <assigndly loc="e,135,33,135,35" dtype_id="1">
+                        <const loc="e,135,36,135,37" name="1&apos;h0" dtype_id="1"/>
+                        <varref loc="e,135,17,135,32" name="main_delay_load" dtype_id="1"/>
+                      </assigndly>
+                      <assigndly loc="e,136,24,136,26" dtype_id="1">
+                        <const loc="e,136,27,136,28" name="1&apos;h0" dtype_id="1"/>
+                        <varref loc="e,136,17,136,23" name="LCD_E1" dtype_id="1"/>
+                      </assigndly>
+                      <if loc="e,137,17,137,19">
+                        <varref loc="e,137,21,137,31" name="delay_done" dtype_id="1"/>
+                        <begin>
+                          <begin loc="e,137,33,137,38">
+                            <assigndly loc="e,138,27,138,29" dtype_id="6">
+                              <const loc="e,138,30,138,38" name="5&apos;h8" dtype_id="6"/>
+                              <varref loc="e,138,21,138,26" name="state" dtype_id="6"/>
+                            </assigndly>
+                            <assigndly loc="e,139,37,139,39" dtype_id="1">
+                              <const loc="e,139,40,139,41" name="1&apos;h1" dtype_id="1"/>
+                              <varref loc="e,139,21,139,36" name="main_delay_load" dtype_id="1"/>
+                            </assigndly>
+                            <assigndly loc="e,140,38,140,40" dtype_id="7">
+                              <const loc="e,140,41,140,43" name="20&apos;hb" dtype_id="7"/>
+                              <varref loc="e,140,21,140,37" name="main_delay_value" dtype_id="7"/>
+                            </assigndly>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </caseitem>
+                  <caseitem loc="e,143,21,143,22">
+                    <const loc="e,143,13,143,21" name="5&apos;h8" dtype_id="6"/>
+                    <begin loc="e,143,23,143,28">
+                      <assigndly loc="e,144,33,144,35" dtype_id="1">
+                        <const loc="e,144,36,144,37" name="1&apos;h0" dtype_id="1"/>
+                        <varref loc="e,144,17,144,32" name="main_delay_load" dtype_id="1"/>
+                      </assigndly>
+                      <assigndly loc="e,145,23,145,25" dtype_id="4">
+                        <const loc="e,145,26,145,27" name="4&apos;h2" dtype_id="4"/>
+                        <varref loc="e,145,17,145,22" name="SF_D1" dtype_id="4"/>
+                      </assigndly>
+                      <assigndly loc="e,146,24,146,26" dtype_id="1">
+                        <const loc="e,146,27,146,28" name="1&apos;h1" dtype_id="1"/>
+                        <varref loc="e,146,17,146,23" name="LCD_E1" dtype_id="1"/>
+                      </assigndly>
+                      <if loc="e,147,17,147,19">
+                        <varref loc="e,147,21,147,31" name="delay_done" dtype_id="1"/>
+                        <begin>
+                          <begin loc="e,147,33,147,38">
+                            <assigndly loc="e,148,27,148,29" dtype_id="6">
+                              <const loc="e,148,30,148,38" name="5&apos;h9" dtype_id="6"/>
+                              <varref loc="e,148,21,148,26" name="state" dtype_id="6"/>
+                            </assigndly>
+                            <assigndly loc="e,149,37,149,39" dtype_id="1">
+                              <const loc="e,149,40,149,41" name="1&apos;h1" dtype_id="1"/>
+                              <varref loc="e,149,21,149,36" name="main_delay_load" dtype_id="1"/>
+                            </assigndly>
+                            <assigndly loc="e,150,38,150,40" dtype_id="7">
+                              <const loc="e,150,41,150,45" name="20&apos;h7d0" dtype_id="7"/>
+                              <varref loc="e,150,21,150,37" name="main_delay_value" dtype_id="7"/>
+                            </assigndly>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </caseitem>
+                  <caseitem loc="e,153,21,153,22">
+                    <const loc="e,153,13,153,21" name="5&apos;h9" dtype_id="6"/>
+                    <begin loc="e,153,23,153,28">
+                      <assigndly loc="e,154,33,154,35" dtype_id="1">
+                        <const loc="e,154,36,154,37" name="1&apos;h0" dtype_id="1"/>
+                        <varref loc="e,154,17,154,32" name="main_delay_load" dtype_id="1"/>
+                      </assigndly>
+                      <assigndly loc="e,155,24,155,26" dtype_id="1">
+                        <const loc="e,155,27,155,28" name="1&apos;h0" dtype_id="1"/>
+                        <varref loc="e,155,17,155,23" name="LCD_E1" dtype_id="1"/>
+                      </assigndly>
+                      <if loc="e,156,17,156,19">
+                        <varref loc="e,156,21,156,31" name="delay_done" dtype_id="1"/>
+                        <begin>
+                          <begin loc="e,156,33,156,38">
+                            <assigndly loc="e,157,27,157,29" dtype_id="6">
+                              <const loc="e,157,30,157,38" name="5&apos;ha" dtype_id="6"/>
+                              <varref loc="e,157,21,157,26" name="state" dtype_id="6"/>
+                            </assigndly>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </caseitem>
+                  <caseitem loc="e,160,21,160,22">
+                    <const loc="e,160,13,160,21" name="5&apos;ha" dtype_id="6"/>
+                    <begin loc="e,160,23,160,28">
+                      <assigndly loc="e,161,25,161,27" dtype_id="5">
+                        <const loc="e,161,28,161,30" name="8&apos;h28" dtype_id="5"/>
+                        <varref loc="e,161,17,161,24" name="tx_byte" dtype_id="5"/>
+                      </assigndly>
+                      <if loc="e,162,17,162,19">
+                        <varref loc="e,162,21,162,28" name="tx_done" dtype_id="1"/>
+                        <begin>
+                          <begin loc="e,162,30,162,35">
+                            <assigndly loc="e,163,27,163,29" dtype_id="6">
+                              <const loc="e,163,30,163,38" name="5&apos;hb" dtype_id="6"/>
+                              <varref loc="e,163,21,163,26" name="state" dtype_id="6"/>
+                            </assigndly>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </caseitem>
+                  <caseitem loc="e,166,21,166,22">
+                    <const loc="e,166,13,166,21" name="5&apos;hb" dtype_id="6"/>
+                    <begin loc="e,166,23,166,28">
+                      <assigndly loc="e,167,25,167,27" dtype_id="5">
+                        <const loc="e,167,28,167,29" name="8&apos;h6" dtype_id="5"/>
+                        <varref loc="e,167,17,167,24" name="tx_byte" dtype_id="5"/>
+                      </assigndly>
+                      <if loc="e,168,17,168,19">
+                        <varref loc="e,168,21,168,28" name="tx_done" dtype_id="1"/>
+                        <begin>
+                          <begin loc="e,168,30,168,35">
+                            <assigndly loc="e,169,27,169,29" dtype_id="6">
+                              <const loc="e,169,30,169,38" name="5&apos;hc" dtype_id="6"/>
+                              <varref loc="e,169,21,169,26" name="state" dtype_id="6"/>
+                            </assigndly>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </caseitem>
+                  <caseitem loc="e,172,21,172,22">
+                    <const loc="e,172,13,172,21" name="5&apos;hc" dtype_id="6"/>
+                    <begin loc="e,172,23,172,28">
+                      <assigndly loc="e,173,25,173,27" dtype_id="5">
+                        <const loc="e,173,28,173,30" name="8&apos;hc" dtype_id="5"/>
+                        <varref loc="e,173,17,173,24" name="tx_byte" dtype_id="5"/>
+                      </assigndly>
+                      <if loc="e,174,17,174,19">
+                        <varref loc="e,174,21,174,28" name="tx_done" dtype_id="1"/>
+                        <begin>
+                          <begin loc="e,174,30,174,35">
+                            <assigndly loc="e,175,27,175,29" dtype_id="6">
+                              <const loc="e,175,30,175,38" name="5&apos;hd" dtype_id="6"/>
+                              <varref loc="e,175,21,175,26" name="state" dtype_id="6"/>
+                            </assigndly>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </caseitem>
+                  <caseitem loc="e,178,21,178,22">
+                    <const loc="e,178,13,178,21" name="5&apos;hd" dtype_id="6"/>
+                    <begin loc="e,178,23,178,28">
+                      <assigndly loc="e,179,25,179,27" dtype_id="5">
+                        <const loc="e,179,28,179,29" name="8&apos;h1" dtype_id="5"/>
+                        <varref loc="e,179,17,179,24" name="tx_byte" dtype_id="5"/>
+                      </assigndly>
+                      <if loc="e,180,17,180,19">
+                        <varref loc="e,180,21,180,28" name="tx_done" dtype_id="1"/>
+                        <begin>
+                          <begin loc="e,180,30,180,35">
+                            <assigndly loc="e,181,27,181,29" dtype_id="6">
+                              <const loc="e,181,30,181,38" name="5&apos;hf" dtype_id="6"/>
+                              <varref loc="e,181,21,181,26" name="state" dtype_id="6"/>
+                            </assigndly>
+                            <assigndly loc="e,182,37,182,39" dtype_id="1">
+                              <const loc="e,182,40,182,41" name="1&apos;h1" dtype_id="1"/>
+                              <varref loc="e,182,21,182,36" name="main_delay_load" dtype_id="1"/>
+                            </assigndly>
+                            <assigndly loc="e,183,38,183,40" dtype_id="7">
+                              <const loc="e,183,41,183,46" name="20&apos;h14050" dtype_id="7"/>
+                              <varref loc="e,183,21,183,37" name="main_delay_value" dtype_id="7"/>
+                            </assigndly>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </caseitem>
+                  <caseitem loc="e,186,21,186,22">
+                    <const loc="e,186,13,186,21" name="5&apos;he" dtype_id="6"/>
+                    <begin loc="e,186,23,186,28">
+                      <assigndly loc="e,187,23,187,25" dtype_id="6">
+                        <const loc="e,187,26,187,34" name="5&apos;hf" dtype_id="6"/>
+                        <varref loc="e,187,17,187,22" name="state" dtype_id="6"/>
+                      </assigndly>
+                    </begin>
+                  </caseitem>
+                  <caseitem loc="e,189,21,189,22">
+                    <const loc="e,189,13,189,21" name="5&apos;hf" dtype_id="6"/>
+                    <begin loc="e,189,23,189,28">
+                      <assigndly loc="e,190,25,190,27" dtype_id="5">
+                        <const loc="e,190,28,190,29" name="8&apos;h0" dtype_id="5"/>
+                        <varref loc="e,190,17,190,24" name="tx_byte" dtype_id="5"/>
+                      </assigndly>
+                      <if loc="e,191,17,191,19">
+                        <varref loc="e,191,21,191,31" name="delay_done" dtype_id="1"/>
+                        <begin>
+                          <begin loc="e,191,33,191,38">
+                            <assigndly loc="e,192,27,192,29" dtype_id="6">
+                              <const loc="e,192,30,192,38" name="5&apos;h10" dtype_id="6"/>
+                              <varref loc="e,192,21,192,26" name="state" dtype_id="6"/>
+                            </assigndly>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </caseitem>
+                  <caseitem loc="e,195,21,195,22">
+                    <const loc="e,195,13,195,21" name="5&apos;h10" dtype_id="6"/>
+                    <begin loc="e,195,23,195,28">
+                      <assigndly loc="e,196,25,196,27" dtype_id="5">
+                        <const loc="e,196,28,196,29" name="8&apos;h0" dtype_id="5"/>
+                        <varref loc="e,196,17,196,24" name="tx_byte" dtype_id="5"/>
+                      </assigndly>
+                      <if loc="e,197,17,197,19">
+                        <varref loc="e,197,21,197,23" name="we" dtype_id="1"/>
+                        <begin>
+                          <begin loc="e,197,25,197,30">
+                            <assigndly loc="e,198,27,198,29" dtype_id="6">
+                              <const loc="e,198,30,198,38" name="5&apos;h11" dtype_id="6"/>
+                              <varref loc="e,198,21,198,26" name="state" dtype_id="6"/>
+                            </assigndly>
+                            <assigndly loc="e,199,29,199,31" dtype_id="3">
+                              <varref loc="e,199,32,199,36" name="addr" dtype_id="3"/>
+                              <varref loc="e,199,21,199,28" name="wr_addr" dtype_id="3"/>
+                            </assigndly>
+                            <assigndly loc="e,200,28,200,30" dtype_id="3">
+                              <sel loc="e,200,31,200,34" dtype_id="3">
+                                <varref loc="e,200,31,200,34" name="dat" dtype_id="2"/>
+                                <const loc="e,200,31,200,34" name="32&apos;h0" dtype_id="2"/>
+                                <const loc="e,200,31,200,34" name="32&apos;h7" dtype_id="2"/>
+                              </sel>
+                              <varref loc="e,200,21,200,27" name="wr_dat" dtype_id="3"/>
+                            </assigndly>
+                          </begin>
+                        </begin>
+                        <begin>
+                          <begin loc="e,202,22,202,27">
+                            <assigndly loc="e,203,27,203,29" dtype_id="6">
+                              <const loc="e,203,30,203,38" name="5&apos;h10" dtype_id="6"/>
+                              <varref loc="e,203,21,203,26" name="state" dtype_id="6"/>
+                            </assigndly>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </caseitem>
+                  <caseitem loc="e,206,21,206,22">
+                    <const loc="e,206,13,206,21" name="5&apos;h11" dtype_id="6"/>
+                    <begin loc="e,206,23,206,28">
+                      <assigndly loc="e,207,25,207,27" dtype_id="5">
+                        <or loc="e,207,33,207,34" dtype_id="5">
+                          <const loc="e,207,33,207,34" name="8&apos;h80" dtype_id="5"/>
+                          <sel loc="e,207,33,207,34" dtype_id="5">
+                            <extend loc="e,207,35,207,42" dtype_id="2" width="32" widthminv="7">
+                              <varref loc="e,207,35,207,42" name="wr_addr" dtype_id="3"/>
+                            </extend>
+                            <const loc="e,207,33,207,34" name="32&apos;h0" dtype_id="2"/>
+                            <const loc="e,207,33,207,34" name="32&apos;h8" dtype_id="2"/>
+                          </sel>
+                        </or>
+                        <varref loc="e,207,17,207,24" name="tx_byte" dtype_id="5"/>
+                      </assigndly>
+                      <if loc="e,208,17,208,19">
+                        <varref loc="e,208,21,208,28" name="tx_done" dtype_id="1"/>
+                        <begin>
+                          <begin loc="e,208,30,208,35">
+                            <assigndly loc="e,209,27,209,29" dtype_id="6">
+                              <const loc="e,209,30,209,38" name="5&apos;h12" dtype_id="6"/>
+                              <varref loc="e,209,21,209,26" name="state" dtype_id="6"/>
+                            </assigndly>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </caseitem>
+                  <caseitem loc="e,212,21,212,22">
+                    <const loc="e,212,13,212,21" name="5&apos;h12" dtype_id="6"/>
+                    <begin loc="e,212,23,212,28">
+                      <assigndly loc="e,213,25,213,27" dtype_id="5">
+                        <extend loc="e,213,28,213,34" dtype_id="5" width="8" widthminv="7">
+                          <varref loc="e,213,28,213,34" name="wr_dat" dtype_id="3"/>
+                        </extend>
+                        <varref loc="e,213,17,213,24" name="tx_byte" dtype_id="5"/>
+                      </assigndly>
+                      <if loc="e,214,17,214,19">
+                        <varref loc="e,214,21,214,28" name="tx_done" dtype_id="1"/>
+                        <begin>
+                          <begin loc="e,214,30,214,35">
+                            <assigndly loc="e,215,27,215,29" dtype_id="6">
+                              <const loc="e,215,30,215,38" name="5&apos;h10" dtype_id="6"/>
+                              <varref loc="e,215,21,215,26" name="state" dtype_id="6"/>
+                            </assigndly>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </caseitem>
+                </case>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <always loc="e,221,1,221,7">
+        <sentree loc="e,221,8,221,9">
+          <senitem loc="e,221,10,221,17" edgeType="POS">
+            <varref loc="e,221,18,221,21" name="clk" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,221,23,221,30" edgeType="POS">
+            <varref loc="e,221,31,221,36" name="reset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,221,45,221,54" name="LCD_TXFSM">
+          <if loc="e,222,5,222,7">
+            <varref loc="e,222,10,222,15" name="reset" dtype_id="1"/>
+            <begin>
+              <begin loc="e,222,23,222,28">
+                <assigndly loc="e,223,18,223,20" dtype_id="8">
+                  <const loc="e,223,21,223,27" name="3&apos;h6" dtype_id="8"/>
+                  <varref loc="e,223,9,223,17" name="tx_state" dtype_id="8"/>
+                </assigndly>
+                <assigndly loc="e,224,15,224,17" dtype_id="4">
+                  <const loc="e,224,18,224,19" name="4&apos;h0" dtype_id="4"/>
+                  <varref loc="e,224,9,224,14" name="SF_D0" dtype_id="4"/>
+                </assigndly>
+                <assigndly loc="e,225,16,225,18" dtype_id="1">
+                  <const loc="e,225,19,225,20" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,225,9,225,15" name="LCD_E0" dtype_id="1"/>
+                </assigndly>
+              </begin>
+            </begin>
+            <begin>
+              <begin loc="e,227,10,227,15">
+                <assigndly loc="e,228,23,228,25" dtype_id="1">
+                  <const loc="e,228,26,228,27" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,228,9,228,22" name="tx_delay_load" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,229,24,229,26" dtype_id="7">
+                  <const loc="e,229,27,229,28" name="20&apos;h0" dtype_id="7"/>
+                  <varref loc="e,229,9,229,23" name="tx_delay_value" dtype_id="7"/>
+                </assigndly>
+                <case loc="e,230,9,230,14">
+                  <varref loc="e,230,16,230,24" name="tx_state" dtype_id="8"/>
+                  <caseitem loc="e,231,19,231,20">
+                    <const loc="e,231,13,231,19" name="3&apos;h0" dtype_id="8"/>
+                    <begin loc="e,231,21,231,26">
+                      <assigndly loc="e,232,24,232,26" dtype_id="1">
+                        <const loc="e,232,27,232,28" name="1&apos;h0" dtype_id="1"/>
+                        <varref loc="e,232,17,232,23" name="LCD_E0" dtype_id="1"/>
+                      </assigndly>
+                      <assigndly loc="e,233,23,233,25" dtype_id="4">
+                        <sel loc="e,233,33,233,34" dtype_id="4">
+                          <varref loc="e,233,26,233,33" name="tx_byte" dtype_id="5"/>
+                          <const loc="e,233,38,233,39" name="3&apos;h4" dtype_id="10"/>
+                          <const loc="e,233,35,233,36" name="32&apos;h4" dtype_id="2"/>
+                        </sel>
+                        <varref loc="e,233,17,233,22" name="SF_D0" dtype_id="4"/>
+                      </assigndly>
+                      <assigndly loc="e,234,31,234,33" dtype_id="1">
+                        <const loc="e,234,34,234,35" name="1&apos;h0" dtype_id="1"/>
+                        <varref loc="e,234,17,234,30" name="tx_delay_load" dtype_id="1"/>
+                      </assigndly>
+                      <if loc="e,235,17,235,19">
+                        <varref loc="e,235,21,235,31" name="delay_done" dtype_id="1"/>
+                        <begin>
+                          <begin loc="e,235,33,235,38">
+                            <assigndly loc="e,236,30,236,32" dtype_id="8">
+                              <const loc="e,236,33,236,39" name="3&apos;h1" dtype_id="8"/>
+                              <varref loc="e,236,21,236,29" name="tx_state" dtype_id="8"/>
+                            </assigndly>
+                            <assigndly loc="e,237,35,237,37" dtype_id="1">
+                              <const loc="e,237,38,237,39" name="1&apos;h1" dtype_id="1"/>
+                              <varref loc="e,237,21,237,34" name="tx_delay_load" dtype_id="1"/>
+                            </assigndly>
+                            <assigndly loc="e,238,36,238,38" dtype_id="7">
+                              <const loc="e,238,39,238,41" name="20&apos;hc" dtype_id="7"/>
+                              <varref loc="e,238,21,238,35" name="tx_delay_value" dtype_id="7"/>
+                            </assigndly>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </caseitem>
+                  <caseitem loc="e,241,19,241,20">
+                    <const loc="e,241,13,241,19" name="3&apos;h1" dtype_id="8"/>
+                    <begin loc="e,241,21,241,26">
+                      <assigndly loc="e,242,24,242,26" dtype_id="1">
+                        <const loc="e,242,27,242,28" name="1&apos;h1" dtype_id="1"/>
+                        <varref loc="e,242,17,242,23" name="LCD_E0" dtype_id="1"/>
+                      </assigndly>
+                      <assigndly loc="e,243,23,243,25" dtype_id="4">
+                        <sel loc="e,243,33,243,34" dtype_id="4">
+                          <varref loc="e,243,26,243,33" name="tx_byte" dtype_id="5"/>
+                          <const loc="e,243,38,243,39" name="3&apos;h4" dtype_id="10"/>
+                          <const loc="e,243,35,243,36" name="32&apos;h4" dtype_id="2"/>
+                        </sel>
+                        <varref loc="e,243,17,243,22" name="SF_D0" dtype_id="4"/>
+                      </assigndly>
+                      <assigndly loc="e,244,31,244,33" dtype_id="1">
+                        <const loc="e,244,34,244,35" name="1&apos;h0" dtype_id="1"/>
+                        <varref loc="e,244,17,244,30" name="tx_delay_load" dtype_id="1"/>
+                      </assigndly>
+                      <if loc="e,245,17,245,19">
+                        <varref loc="e,245,21,245,31" name="delay_done" dtype_id="1"/>
+                        <begin>
+                          <begin loc="e,245,33,245,38">
+                            <assigndly loc="e,246,30,246,32" dtype_id="8">
+                              <const loc="e,246,33,246,39" name="3&apos;h2" dtype_id="8"/>
+                              <varref loc="e,246,21,246,29" name="tx_state" dtype_id="8"/>
+                            </assigndly>
+                            <assigndly loc="e,247,35,247,37" dtype_id="1">
+                              <const loc="e,247,38,247,39" name="1&apos;h1" dtype_id="1"/>
+                              <varref loc="e,247,21,247,34" name="tx_delay_load" dtype_id="1"/>
+                            </assigndly>
+                            <assigndly loc="e,248,36,248,38" dtype_id="7">
+                              <const loc="e,248,39,248,41" name="20&apos;h32" dtype_id="7"/>
+                              <varref loc="e,248,21,248,35" name="tx_delay_value" dtype_id="7"/>
+                            </assigndly>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </caseitem>
+                  <caseitem loc="e,251,19,251,20">
+                    <const loc="e,251,13,251,19" name="3&apos;h2" dtype_id="8"/>
+                    <begin loc="e,251,21,251,26">
+                      <assigndly loc="e,252,24,252,26" dtype_id="1">
+                        <const loc="e,252,27,252,28" name="1&apos;h0" dtype_id="1"/>
+                        <varref loc="e,252,17,252,23" name="LCD_E0" dtype_id="1"/>
+                      </assigndly>
+                      <assigndly loc="e,253,31,253,33" dtype_id="1">
+                        <const loc="e,253,34,253,35" name="1&apos;h0" dtype_id="1"/>
+                        <varref loc="e,253,17,253,30" name="tx_delay_load" dtype_id="1"/>
+                      </assigndly>
+                      <if loc="e,254,17,254,19">
+                        <varref loc="e,254,21,254,31" name="delay_done" dtype_id="1"/>
+                        <begin>
+                          <begin loc="e,254,33,254,38">
+                            <assigndly loc="e,255,30,255,32" dtype_id="8">
+                              <const loc="e,255,33,255,39" name="3&apos;h3" dtype_id="8"/>
+                              <varref loc="e,255,21,255,29" name="tx_state" dtype_id="8"/>
+                            </assigndly>
+                            <assigndly loc="e,256,35,256,37" dtype_id="1">
+                              <const loc="e,256,38,256,39" name="1&apos;h1" dtype_id="1"/>
+                              <varref loc="e,256,21,256,34" name="tx_delay_load" dtype_id="1"/>
+                            </assigndly>
+                            <assigndly loc="e,257,36,257,38" dtype_id="7">
+                              <const loc="e,257,39,257,40" name="20&apos;h2" dtype_id="7"/>
+                              <varref loc="e,257,21,257,35" name="tx_delay_value" dtype_id="7"/>
+                            </assigndly>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </caseitem>
+                  <caseitem loc="e,260,19,260,20">
+                    <const loc="e,260,13,260,19" name="3&apos;h3" dtype_id="8"/>
+                    <begin loc="e,260,21,260,26">
+                      <assigndly loc="e,261,24,261,26" dtype_id="1">
+                        <const loc="e,261,27,261,28" name="1&apos;h0" dtype_id="1"/>
+                        <varref loc="e,261,17,261,23" name="LCD_E0" dtype_id="1"/>
+                      </assigndly>
+                      <assigndly loc="e,262,23,262,25" dtype_id="4">
+                        <sel loc="e,262,33,262,34" dtype_id="4">
+                          <varref loc="e,262,26,262,33" name="tx_byte" dtype_id="5"/>
+                          <const loc="e,262,38,262,39" name="3&apos;h0" dtype_id="10"/>
+                          <const loc="e,262,35,262,36" name="32&apos;h4" dtype_id="2"/>
+                        </sel>
+                        <varref loc="e,262,17,262,22" name="SF_D0" dtype_id="4"/>
+                      </assigndly>
+                      <assigndly loc="e,263,31,263,33" dtype_id="1">
+                        <const loc="e,263,34,263,35" name="1&apos;h0" dtype_id="1"/>
+                        <varref loc="e,263,17,263,30" name="tx_delay_load" dtype_id="1"/>
+                      </assigndly>
+                      <if loc="e,264,17,264,19">
+                        <varref loc="e,264,21,264,31" name="delay_done" dtype_id="1"/>
+                        <begin>
+                          <begin loc="e,264,33,264,38">
+                            <assigndly loc="e,265,30,265,32" dtype_id="8">
+                              <const loc="e,265,33,265,39" name="3&apos;h4" dtype_id="8"/>
+                              <varref loc="e,265,21,265,29" name="tx_state" dtype_id="8"/>
+                            </assigndly>
+                            <assigndly loc="e,266,35,266,37" dtype_id="1">
+                              <const loc="e,266,38,266,39" name="1&apos;h1" dtype_id="1"/>
+                              <varref loc="e,266,21,266,34" name="tx_delay_load" dtype_id="1"/>
+                            </assigndly>
+                            <assigndly loc="e,267,36,267,38" dtype_id="7">
+                              <const loc="e,267,39,267,41" name="20&apos;hc" dtype_id="7"/>
+                              <varref loc="e,267,21,267,35" name="tx_delay_value" dtype_id="7"/>
+                            </assigndly>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </caseitem>
+                  <caseitem loc="e,270,19,270,20">
+                    <const loc="e,270,13,270,19" name="3&apos;h4" dtype_id="8"/>
+                    <begin loc="e,270,21,270,26">
+                      <assigndly loc="e,271,24,271,26" dtype_id="1">
+                        <const loc="e,271,27,271,28" name="1&apos;h1" dtype_id="1"/>
+                        <varref loc="e,271,17,271,23" name="LCD_E0" dtype_id="1"/>
+                      </assigndly>
+                      <assigndly loc="e,272,23,272,25" dtype_id="4">
+                        <sel loc="e,272,33,272,34" dtype_id="4">
+                          <varref loc="e,272,26,272,33" name="tx_byte" dtype_id="5"/>
+                          <const loc="e,272,38,272,39" name="3&apos;h0" dtype_id="10"/>
+                          <const loc="e,272,35,272,36" name="32&apos;h4" dtype_id="2"/>
+                        </sel>
+                        <varref loc="e,272,17,272,22" name="SF_D0" dtype_id="4"/>
+                      </assigndly>
+                      <assigndly loc="e,273,31,273,33" dtype_id="1">
+                        <const loc="e,273,34,273,35" name="1&apos;h0" dtype_id="1"/>
+                        <varref loc="e,273,17,273,30" name="tx_delay_load" dtype_id="1"/>
+                      </assigndly>
+                      <if loc="e,274,17,274,19">
+                        <varref loc="e,274,21,274,31" name="delay_done" dtype_id="1"/>
+                        <begin>
+                          <begin loc="e,274,33,274,38">
+                            <assigndly loc="e,275,30,275,32" dtype_id="8">
+                              <const loc="e,275,33,275,39" name="3&apos;h5" dtype_id="8"/>
+                              <varref loc="e,275,21,275,29" name="tx_state" dtype_id="8"/>
+                            </assigndly>
+                            <assigndly loc="e,276,35,276,37" dtype_id="1">
+                              <const loc="e,276,38,276,39" name="1&apos;h1" dtype_id="1"/>
+                              <varref loc="e,276,21,276,34" name="tx_delay_load" dtype_id="1"/>
+                            </assigndly>
+                            <assigndly loc="e,277,36,277,38" dtype_id="7">
+                              <const loc="e,277,39,277,43" name="20&apos;h7d0" dtype_id="7"/>
+                              <varref loc="e,277,21,277,35" name="tx_delay_value" dtype_id="7"/>
+                            </assigndly>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </caseitem>
+                  <caseitem loc="e,280,19,280,20">
+                    <const loc="e,280,13,280,19" name="3&apos;h5" dtype_id="8"/>
+                    <begin loc="e,280,21,280,26">
+                      <assigndly loc="e,281,24,281,26" dtype_id="1">
+                        <const loc="e,281,27,281,28" name="1&apos;h0" dtype_id="1"/>
+                        <varref loc="e,281,17,281,23" name="LCD_E0" dtype_id="1"/>
+                      </assigndly>
+                      <assigndly loc="e,282,31,282,33" dtype_id="1">
+                        <const loc="e,282,34,282,35" name="1&apos;h0" dtype_id="1"/>
+                        <varref loc="e,282,17,282,30" name="tx_delay_load" dtype_id="1"/>
+                      </assigndly>
+                      <if loc="e,283,17,283,19">
+                        <varref loc="e,283,21,283,31" name="delay_done" dtype_id="1"/>
+                        <begin>
+                          <begin loc="e,283,33,283,38">
+                            <assigndly loc="e,284,30,284,32" dtype_id="8">
+                              <const loc="e,284,33,284,39" name="3&apos;h6" dtype_id="8"/>
+                              <varref loc="e,284,21,284,29" name="tx_state" dtype_id="8"/>
+                            </assigndly>
+                            <assigndly loc="e,285,29,285,31" dtype_id="1">
+                              <const loc="e,285,32,285,33" name="1&apos;h1" dtype_id="1"/>
+                              <varref loc="e,285,21,285,28" name="tx_done" dtype_id="1"/>
+                            </assigndly>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </caseitem>
+                  <caseitem loc="e,288,19,288,20">
+                    <const loc="e,288,13,288,19" name="3&apos;h6" dtype_id="8"/>
+                    <begin loc="e,288,21,288,26">
+                      <assigndly loc="e,289,24,289,26" dtype_id="1">
+                        <const loc="e,289,27,289,28" name="1&apos;h0" dtype_id="1"/>
+                        <varref loc="e,289,17,289,23" name="LCD_E0" dtype_id="1"/>
+                      </assigndly>
+                      <assigndly loc="e,290,25,290,27" dtype_id="1">
+                        <const loc="e,290,28,290,29" name="1&apos;h0" dtype_id="1"/>
+                        <varref loc="e,290,17,290,24" name="tx_done" dtype_id="1"/>
+                      </assigndly>
+                      <assigndly loc="e,291,31,291,33" dtype_id="1">
+                        <const loc="e,291,34,291,35" name="1&apos;h0" dtype_id="1"/>
+                        <varref loc="e,291,17,291,30" name="tx_delay_load" dtype_id="1"/>
+                      </assigndly>
+                      <if loc="e,292,17,292,19">
+                        <varref loc="e,292,21,292,28" name="tx_init" dtype_id="1"/>
+                        <begin>
+                          <begin loc="e,292,30,292,35">
+                            <assigndly loc="e,293,30,293,32" dtype_id="8">
+                              <const loc="e,293,33,293,39" name="3&apos;h0" dtype_id="8"/>
+                              <varref loc="e,293,21,293,29" name="tx_state" dtype_id="8"/>
+                            </assigndly>
+                            <assigndly loc="e,294,35,294,37" dtype_id="1">
+                              <const loc="e,294,38,294,39" name="1&apos;h1" dtype_id="1"/>
+                              <varref loc="e,294,21,294,34" name="tx_delay_load" dtype_id="1"/>
+                            </assigndly>
+                            <assigndly loc="e,295,36,295,38" dtype_id="7">
+                              <const loc="e,295,39,295,40" name="20&apos;h2" dtype_id="7"/>
+                              <varref loc="e,295,21,295,35" name="tx_delay_value" dtype_id="7"/>
+                            </assigndly>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </caseitem>
+                </case>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <always loc="e,304,1,304,7">
+        <sentree loc="e,304,8,304,9">
+          <senitem loc="e,304,32,304,38" edgeType="CHANGED">
+            <varref loc="e,304,32,304,38" name="LCD_E0" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,304,24,304,30" edgeType="CHANGED">
+            <varref loc="e,304,24,304,30" name="LCD_E1" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,304,17,304,22" edgeType="CHANGED">
+            <varref loc="e,304,17,304,22" name="SF_D0" dtype_id="4"/>
+          </senitem>
+          <senitem loc="e,304,10,304,15" edgeType="CHANGED">
+            <varref loc="e,304,10,304,15" name="SF_D1" dtype_id="4"/>
+          </senitem>
+          <senitem loc="e,304,40,304,55" edgeType="CHANGED">
+            <varref loc="e,304,40,304,55" name="output_selector" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,304,64,304,89" name="LCD_OUTPUT_TX_OR_INIT_MUX">
+          <if loc="e,305,5,305,7">
+            <varref loc="e,305,9,305,24" name="output_selector" dtype_id="1"/>
+            <begin>
+              <begin loc="e,305,26,305,31">
+                <assigndly loc="e,306,14,306,16" dtype_id="4">
+                  <varref loc="e,306,17,306,22" name="SF_D1" dtype_id="4"/>
+                  <varref loc="e,306,9,306,13" name="SF_D" dtype_id="4"/>
+                </assigndly>
+                <assigndly loc="e,307,15,307,17" dtype_id="1">
+                  <varref loc="e,307,18,307,24" name="LCD_E1" dtype_id="1"/>
+                  <varref loc="e,307,9,307,14" name="LCD_E" dtype_id="1"/>
+                </assigndly>
+              </begin>
+            </begin>
+            <begin>
+              <begin loc="e,309,10,309,15">
+                <assigndly loc="e,310,14,310,16" dtype_id="4">
+                  <varref loc="e,310,17,310,22" name="SF_D0" dtype_id="4"/>
+                  <varref loc="e,310,9,310,13" name="SF_D" dtype_id="4"/>
+                </assigndly>
+                <assigndly loc="e,311,15,311,17" dtype_id="1">
+                  <varref loc="e,311,18,311,24" name="LCD_E0" dtype_id="1"/>
+                  <varref loc="e,311,9,311,14" name="LCD_E" dtype_id="1"/>
+                </assigndly>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <always loc="e,317,1,317,7">
+        <sentree loc="e,317,8,317,9">
+          <senitem loc="e,317,10,317,17" edgeType="POS">
+            <varref loc="e,317,18,317,21" name="clk" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,317,30,317,57" name="LCD_COUNTER_COUNTDOWN_LOGIC">
+          <if loc="e,318,5,318,7">
+            <varref loc="e,318,9,318,19" name="delay_load" dtype_id="1"/>
+            <begin>
+              <begin loc="e,318,21,318,26">
+                <assigndly loc="e,319,25,319,27" dtype_id="9">
+                  <extend loc="e,319,28,319,39" dtype_id="9" width="21" widthminv="20">
+                    <varref loc="e,319,28,319,39" name="delay_value" dtype_id="7"/>
+                  </extend>
+                  <varref loc="e,319,9,319,24" name="counter_counter" dtype_id="9"/>
+                </assigndly>
+              </begin>
+            </begin>
+            <begin>
+              <begin loc="e,321,10,321,15">
+                <assigndly loc="e,322,25,322,27" dtype_id="9">
+                  <sub loc="e,322,45,322,46" dtype_id="9">
+                    <varref loc="e,322,29,322,44" name="counter_counter" dtype_id="9"/>
+                    <const loc="e,322,45,322,46" name="21&apos;h1" dtype_id="9"/>
+                  </sub>
+                  <varref loc="e,322,9,322,24" name="counter_counter" dtype_id="9"/>
+                </assigndly>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <initial loc="e,303,15,303,16">
+        <assign loc="e,303,15,303,16" dtype_id="1">
+          <const loc="e,303,17,303,18" name="1&apos;h0" dtype_id="1"/>
+          <varref loc="e,303,8,303,14" name="LCD_RW" dtype_id="1"/>
+        </assign>
+      </initial>
+      <var loc="e,314,40,314,42" name="__VdfgRegularize_hc7386264_0_0" dtype_id="1" vartype="logic" origName="__VdfgRegularize_hc7386264_0_0"/>
+      <var loc="e,314,62,314,64" name="__VdfgRegularize_hc7386264_0_1" dtype_id="1" vartype="logic" origName="__VdfgRegularize_hc7386264_0_1"/>
+      <var loc="e,314,84,314,86" name="__VdfgRegularize_hc7386264_0_2" dtype_id="1" vartype="logic" origName="__VdfgRegularize_hc7386264_0_2"/>
+      <var loc="e,314,106,314,108" name="__VdfgRegularize_hc7386264_0_3" dtype_id="1" vartype="logic" origName="__VdfgRegularize_hc7386264_0_3"/>
+      <var loc="e,314,128,314,130" name="__VdfgRegularize_hc7386264_0_4" dtype_id="1" vartype="logic" origName="__VdfgRegularize_hc7386264_0_4"/>
+      <contassign loc="e,302,13,302,14" dtype_id="1">
+        <neq loc="e,302,22,302,24" dtype_id="1">
+          <const loc="e,302,25,302,33" name="5&apos;h10" dtype_id="6"/>
+          <varref loc="e,41,11,41,16" name="state" dtype_id="6"/>
+        </neq>
+        <varref loc="e,302,13,302,14" name="busy" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,315,15,315,16" dtype_id="1">
+        <not loc="e,315,18,315,19" dtype_id="1">
+          <or loc="e,315,47,315,48" dtype_id="1">
+            <varref loc="e,314,40,314,42" name="__VdfgRegularize_hc7386264_0_0" dtype_id="1"/>
+            <or loc="e,315,69,315,70" dtype_id="1">
+              <varref loc="e,314,62,314,64" name="__VdfgRegularize_hc7386264_0_1" dtype_id="1"/>
+              <or loc="e,315,91,315,92" dtype_id="1">
+                <varref loc="e,314,84,314,86" name="__VdfgRegularize_hc7386264_0_2" dtype_id="1"/>
+                <or loc="e,315,113,315,114" dtype_id="1">
+                  <varref loc="e,314,106,314,108" name="__VdfgRegularize_hc7386264_0_3" dtype_id="1"/>
+                  <varref loc="e,314,128,314,130" name="__VdfgRegularize_hc7386264_0_4" dtype_id="1"/>
+                </or>
+              </or>
+            </or>
+          </or>
+        </not>
+        <varref loc="e,315,15,315,16" name="LCD_RS" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,314,16,314,17" dtype_id="1">
+        <and loc="e,314,30,314,31" dtype_id="1">
+          <not loc="e,314,20,314,21" dtype_id="1">
+            <varref loc="e,32,5,32,12" name="tx_done" dtype_id="1"/>
+          </not>
+          <or loc="e,314,53,314,54" dtype_id="1">
+            <varref loc="e,314,40,314,42" name="__VdfgRegularize_hc7386264_0_0" dtype_id="1"/>
+            <or loc="e,314,75,314,76" dtype_id="1">
+              <varref loc="e,314,62,314,64" name="__VdfgRegularize_hc7386264_0_1" dtype_id="1"/>
+              <or loc="e,314,97,314,98" dtype_id="1">
+                <varref loc="e,314,84,314,86" name="__VdfgRegularize_hc7386264_0_2" dtype_id="1"/>
+                <or loc="e,314,119,314,120" dtype_id="1">
+                  <varref loc="e,314,106,314,108" name="__VdfgRegularize_hc7386264_0_3" dtype_id="1"/>
+                  <or loc="e,314,141,314,142" dtype_id="1">
+                    <varref loc="e,314,128,314,130" name="__VdfgRegularize_hc7386264_0_4" dtype_id="1"/>
+                    <eq loc="e,314,150,314,152" dtype_id="1">
+                      <const loc="e,314,153,314,161" name="5&apos;h12" dtype_id="6"/>
+                      <varref loc="e,41,11,41,16" name="state" dtype_id="6"/>
+                    </eq>
+                  </or>
+                </or>
+              </or>
+            </or>
+          </or>
+        </and>
+        <varref loc="e,314,16,314,17" name="tx_init" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,50,24,50,25" dtype_id="1">
+        <or loc="e,50,47,50,48" dtype_id="1">
+          <eq loc="e,50,34,50,36" dtype_id="1">
+            <const loc="e,50,37,50,45" name="5&apos;h0" dtype_id="6"/>
+            <varref loc="e,41,11,41,16" name="state" dtype_id="6"/>
+          </eq>
+          <or loc="e,50,69,50,70" dtype_id="1">
+            <eq loc="e,50,56,50,58" dtype_id="1">
+              <const loc="e,50,59,50,67" name="5&apos;h1" dtype_id="6"/>
+              <varref loc="e,41,11,41,16" name="state" dtype_id="6"/>
+            </eq>
+            <or loc="e,50,91,50,92" dtype_id="1">
+              <eq loc="e,50,78,50,80" dtype_id="1">
+                <const loc="e,50,81,50,89" name="5&apos;h2" dtype_id="6"/>
+                <varref loc="e,41,11,41,16" name="state" dtype_id="6"/>
+              </eq>
+              <or loc="e,50,113,50,114" dtype_id="1">
+                <eq loc="e,50,100,50,102" dtype_id="1">
+                  <const loc="e,50,103,50,111" name="5&apos;h3" dtype_id="6"/>
+                  <varref loc="e,41,11,41,16" name="state" dtype_id="6"/>
+                </eq>
+                <or loc="e,50,135,50,136" dtype_id="1">
+                  <eq loc="e,50,122,50,124" dtype_id="1">
+                    <const loc="e,50,125,50,133" name="5&apos;h4" dtype_id="6"/>
+                    <varref loc="e,41,11,41,16" name="state" dtype_id="6"/>
+                  </eq>
+                  <or loc="e,50,157,50,158" dtype_id="1">
+                    <eq loc="e,50,144,50,146" dtype_id="1">
+                      <const loc="e,50,147,50,155" name="5&apos;h5" dtype_id="6"/>
+                      <varref loc="e,41,11,41,16" name="state" dtype_id="6"/>
+                    </eq>
+                    <or loc="e,50,179,50,180" dtype_id="1">
+                      <eq loc="e,50,166,50,168" dtype_id="1">
+                        <const loc="e,50,169,50,177" name="5&apos;h6" dtype_id="6"/>
+                        <varref loc="e,41,11,41,16" name="state" dtype_id="6"/>
+                      </eq>
+                      <or loc="e,50,201,50,202" dtype_id="1">
+                        <eq loc="e,50,188,50,190" dtype_id="1">
+                          <const loc="e,50,191,50,199" name="5&apos;h7" dtype_id="6"/>
+                          <varref loc="e,41,11,41,16" name="state" dtype_id="6"/>
+                        </eq>
+                        <or loc="e,50,223,50,224" dtype_id="1">
+                          <eq loc="e,50,210,50,212" dtype_id="1">
+                            <const loc="e,50,213,50,221" name="5&apos;h8" dtype_id="6"/>
+                            <varref loc="e,41,11,41,16" name="state" dtype_id="6"/>
+                          </eq>
+                          <eq loc="e,50,232,50,234" dtype_id="1">
+                            <const loc="e,50,235,50,243" name="5&apos;h9" dtype_id="6"/>
+                            <varref loc="e,41,11,41,16" name="state" dtype_id="6"/>
+                          </eq>
+                        </or>
+                      </or>
+                    </or>
+                  </or>
+                </or>
+              </or>
+            </or>
+          </or>
+        </or>
+        <varref loc="e,50,24,50,25" name="output_selector" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,314,40,314,42" dtype_id="1">
+        <eq loc="e,314,40,314,42" dtype_id="1">
+          <const loc="e,314,43,314,51" name="5&apos;ha" dtype_id="6"/>
+          <varref loc="e,41,11,41,16" name="state" dtype_id="6"/>
+        </eq>
+        <varref loc="e,314,40,314,42" name="__VdfgRegularize_hc7386264_0_0" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,314,62,314,64" dtype_id="1">
+        <eq loc="e,314,62,314,64" dtype_id="1">
+          <const loc="e,314,65,314,73" name="5&apos;hb" dtype_id="6"/>
+          <varref loc="e,41,11,41,16" name="state" dtype_id="6"/>
+        </eq>
+        <varref loc="e,314,62,314,64" name="__VdfgRegularize_hc7386264_0_1" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,314,84,314,86" dtype_id="1">
+        <eq loc="e,314,84,314,86" dtype_id="1">
+          <const loc="e,314,87,314,95" name="5&apos;hc" dtype_id="6"/>
+          <varref loc="e,41,11,41,16" name="state" dtype_id="6"/>
+        </eq>
+        <varref loc="e,314,84,314,86" name="__VdfgRegularize_hc7386264_0_2" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,314,106,314,108" dtype_id="1">
+        <eq loc="e,314,106,314,108" dtype_id="1">
+          <const loc="e,314,109,314,117" name="5&apos;hd" dtype_id="6"/>
+          <varref loc="e,41,11,41,16" name="state" dtype_id="6"/>
+        </eq>
+        <varref loc="e,314,106,314,108" name="__VdfgRegularize_hc7386264_0_3" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,314,128,314,130" dtype_id="1">
+        <eq loc="e,314,128,314,130" dtype_id="1">
+          <const loc="e,314,131,314,139" name="5&apos;h11" dtype_id="6"/>
+          <varref loc="e,41,11,41,16" name="state" dtype_id="6"/>
+        </eq>
+        <varref loc="e,314,128,314,130" name="__VdfgRegularize_hc7386264_0_4" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,301,19,301,20" dtype_id="1">
+        <or loc="e,301,36,301,38" dtype_id="1">
+          <varref loc="e,47,5,47,20" name="main_delay_load" dtype_id="1"/>
+          <varref loc="e,44,5,44,18" name="tx_delay_load" dtype_id="1"/>
+        </or>
+        <varref loc="e,301,19,301,20" name="delay_load" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,316,19,316,20" dtype_id="1">
+        <eq loc="e,316,38,316,40" dtype_id="1">
+          <const loc="e,316,41,316,42" name="21&apos;h0" dtype_id="9"/>
+          <varref loc="e,49,12,49,27" name="counter_counter" dtype_id="9"/>
+        </eq>
+        <varref loc="e,316,19,316,20" name="delay_done" dtype_id="1"/>
+      </contassign>
+    </module>
+    <typetable loc="a,0,0,0,0">
+      <basicdtype loc="d,46,25,46,27" id="1" name="logic"/>
+      <voiddtype loc="d,48,18,48,27" id="11"/>
+      <basicdtype loc="e,17,7,17,8" id="2" name="logic" left="31" right="0"/>
+      <basicdtype loc="e,18,7,18,8" id="3" name="logic" left="6" right="0"/>
+      <basicdtype loc="e,22,8,22,9" id="4" name="logic" left="3" right="0"/>
+      <basicdtype loc="e,38,1,38,4" id="5" name="logic" left="7" right="0"/>
+      <basicdtype loc="e,41,1,41,4" id="6" name="logic" left="4" right="0"/>
+      <basicdtype loc="e,42,1,42,4" id="7" name="logic" left="19" right="0"/>
+      <basicdtype loc="e,48,1,48,4" id="8" name="logic" left="2" right="0"/>
+      <basicdtype loc="e,49,1,49,4" id="9" name="logic" left="20" right="0"/>
+      <basicdtype loc="e,233,33,233,34" id="10" name="logic" left="2" right="0" signed="true"/>
+    </typetable>
+  </netlist>
+</verilator_xml>

@@ -77,3 +77,10 @@ See DATA_COVERAGE.md and evidence/full_dataset_audit_v2: 482 keys audited,
 403 original/430 structurally repaired complete schemas, and 753 reference-only
 scoring calls over all 251 SpeCom/Text RTLFix keys. The 747-task objective remains
 open; old control records and metrics have not been replaced by those counts.
+
+
+Full-code bounded execution and final matrix validation are recorded separately in
+BATCH_EXECUTION.md and results/final_coverage_selected/validation.txt. Every one of
+231 public code-case IDs has an outcome; actual commands, preflight refusals,
+reference-derived fixtures and model scores remain distinct. The prior 24 controls
+and 753 reference checks are retained unchanged.

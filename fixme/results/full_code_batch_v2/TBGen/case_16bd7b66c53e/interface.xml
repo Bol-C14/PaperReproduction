@@ -1,0 +1,916 @@
+<?xml version="1.0" ?>
+<!-- DESCRIPTION: Verilator output: XML representation of netlist -->
+<verilator_xml>
+  <files>
+    <file id="d" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std.sv" language="1800-2023"/>
+    <file id="c" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std_waiver.vlt" language="1800-2023"/>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_16bd7b66c53e/memory_ifc.v" language="1800-2023"/>
+    <file id="a" filename="&lt;built-in&gt;" language="1800-2023"/>
+    <file id="b" filename="&lt;command-line&gt;" language="1800-2023"/>
+  </files>
+  <module_files>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_16bd7b66c53e/memory_ifc.v" language="1800-2023"/>
+  </module_files>
+  <cells>
+    <cell loc="e,3,8,3,18" name="memory_ifc" submodname="memory_ifc" hier="memory_ifc"/>
+  </cells>
+  <netlist>
+    <module loc="e,3,8,3,18" name="memory_ifc" origName="memory_ifc" topModule="1">
+      <var loc="e,26,12,26,15" name="clk" dtype_id="1" dir="input" pinIndex="1" vartype="logic" origName="clk"/>
+      <var loc="e,27,12,27,19" name="nM1_int" dtype_id="1" dir="input" pinIndex="2" vartype="logic" origName="nM1_int"/>
+      <var loc="e,28,12,28,21" name="ctl_mRead" dtype_id="1" dir="input" pinIndex="3" vartype="logic" origName="ctl_mRead"/>
+      <var loc="e,29,12,29,22" name="ctl_mWrite" dtype_id="1" dir="input" pinIndex="4" vartype="logic" origName="ctl_mWrite"/>
+      <var loc="e,30,12,30,19" name="in_intr" dtype_id="1" dir="input" pinIndex="5" vartype="logic" origName="in_intr"/>
+      <var loc="e,31,12,31,18" name="nreset" dtype_id="1" dir="input" pinIndex="6" vartype="logic" origName="nreset"/>
+      <var loc="e,32,12,32,19" name="fIORead" dtype_id="1" dir="input" pinIndex="7" vartype="logic" origName="fIORead"/>
+      <var loc="e,33,12,33,20" name="fIOWrite" dtype_id="1" dir="input" pinIndex="8" vartype="logic" origName="fIOWrite"/>
+      <var loc="e,34,12,34,17" name="setM1" dtype_id="1" dir="input" pinIndex="9" vartype="logic" origName="setM1"/>
+      <var loc="e,35,12,35,20" name="ctl_iorw" dtype_id="1" dir="input" pinIndex="10" vartype="logic" origName="ctl_iorw"/>
+      <var loc="e,36,12,36,22" name="timings_en" dtype_id="1" dir="input" pinIndex="11" vartype="logic" origName="timings_en"/>
+      <var loc="e,37,12,37,19" name="iorq_Tw" dtype_id="1" dir="input" pinIndex="12" vartype="logic" origName="iorq_Tw"/>
+      <var loc="e,38,12,38,26" name="nhold_clk_wait" dtype_id="1" dir="input" pinIndex="13" vartype="logic" origName="nhold_clk_wait"/>
+      <var loc="e,39,13,39,20" name="nM1_out" dtype_id="1" dir="output" pinIndex="14" vartype="logic" origName="nM1_out"/>
+      <var loc="e,40,13,40,22" name="nRFSH_out" dtype_id="1" dir="output" pinIndex="15" vartype="logic" origName="nRFSH_out"/>
+      <var loc="e,41,13,41,22" name="nMREQ_out" dtype_id="1" dir="output" pinIndex="16" vartype="logic" origName="nMREQ_out"/>
+      <var loc="e,42,13,42,20" name="nRD_out" dtype_id="1" dir="output" pinIndex="17" vartype="logic" origName="nRD_out"/>
+      <var loc="e,43,13,43,20" name="nWR_out" dtype_id="1" dir="output" pinIndex="18" vartype="logic" origName="nWR_out"/>
+      <var loc="e,44,13,44,22" name="nIORQ_out" dtype_id="1" dir="output" pinIndex="19" vartype="logic" origName="nIORQ_out"/>
+      <var loc="e,45,13,45,23" name="latch_wait" dtype_id="1" dir="output" pinIndex="20" vartype="logic" origName="latch_wait"/>
+      <var loc="e,46,13,46,20" name="wait_m1" dtype_id="1" dir="output" pinIndex="21" vartype="logic" origName="wait_m1"/>
+      <var loc="e,49,6,49,10" name="iorq" dtype_id="1" vartype="logic" origName="iorq"/>
+      <var loc="e,54,5,54,11" name="mwr_wr" dtype_id="1" vartype="logic" origName="mwr_wr"/>
+      <var loc="e,57,5,57,7" name="q1" dtype_id="1" vartype="logic" origName="q1"/>
+      <var loc="e,58,5,58,7" name="q2" dtype_id="1" vartype="logic" origName="q2"/>
+      <var loc="e,60,5,60,14" name="wait_iorq" dtype_id="1" vartype="logic" origName="wait_iorq"/>
+      <var loc="e,61,5,61,18" name="wait_iorqinta" dtype_id="1" vartype="logic" origName="wait_iorqinta"/>
+      <var loc="e,62,5,62,31" name="wait_m_ALTERA_SYNTHESIZED1" dtype_id="1" vartype="logic" origName="wait_m_ALTERA_SYNTHESIZED1"/>
+      <var loc="e,63,5,63,13" name="wait_mrd" dtype_id="1" vartype="logic" origName="wait_mrd"/>
+      <var loc="e,64,5,64,13" name="wait_mwr" dtype_id="1" vartype="logic" origName="wait_mwr"/>
+      <var loc="e,66,5,66,16" name="DFFE_m1_ff3" dtype_id="1" vartype="logic" origName="DFFE_m1_ff3"/>
+      <var loc="e,68,5,68,18" name="DFFE_iorq_ff4" dtype_id="1" vartype="logic" origName="DFFE_iorq_ff4"/>
+      <var loc="e,69,5,69,24" name="SYNTHESIZED_WIRE_15" dtype_id="1" vartype="logic" origName="SYNTHESIZED_WIRE_15"/>
+      <var loc="e,70,5,70,17" name="DFFE_mrd_ff3" dtype_id="1" vartype="logic" origName="DFFE_mrd_ff3"/>
+      <var loc="e,71,5,71,18" name="DFFE_intr_ff3" dtype_id="1" vartype="logic" origName="DFFE_intr_ff3"/>
+      <var loc="e,73,5,73,24" name="SYNTHESIZED_WIRE_16" dtype_id="1" vartype="logic" origName="SYNTHESIZED_WIRE_16"/>
+      <var loc="e,75,5,75,24" name="SYNTHESIZED_WIRE_17" dtype_id="1" vartype="logic" origName="SYNTHESIZED_WIRE_17"/>
+      <var loc="e,76,6,76,25" name="SYNTHESIZED_WIRE_18" dtype_id="1" vartype="logic" origName="SYNTHESIZED_WIRE_18"/>
+      <var loc="e,77,5,77,18" name="DFFE_iorq_ff1" dtype_id="1" vartype="logic" origName="DFFE_iorq_ff1"/>
+      <var loc="e,78,5,78,16" name="DFFE_m1_ff1" dtype_id="1" vartype="logic" origName="DFFE_m1_ff1"/>
+      <var loc="e,79,5,79,17" name="DFFE_mrd_ff1" dtype_id="1" vartype="logic" origName="DFFE_mrd_ff1"/>
+      <var loc="e,80,5,80,17" name="DFFE_mwr_ff1" dtype_id="1" vartype="logic" origName="DFFE_mwr_ff1"/>
+      <var loc="e,81,5,81,18" name="DFFE_mreq_ff2" dtype_id="1" vartype="logic" origName="DFFE_mreq_ff2"/>
+      <always loc="e,100,1,100,7">
+        <sentree loc="e,100,7,100,8">
+          <senitem loc="e,100,9,100,16" edgeType="POS">
+            <varref loc="e,100,17,100,36" name="SYNTHESIZED_WIRE_18" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,100,40,100,47" edgeType="NEG">
+            <varref loc="e,100,48,100,54" name="nreset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,101,1,101,6">
+          <if loc="e,102,1,102,3">
+            <varref loc="e,102,6,102,12" name="nreset" dtype_id="1"/>
+            <begin>
+              <begin loc="e,107,2,107,7">
+                <assigndly loc="e,108,16,108,18" dtype_id="1">
+                  <varref loc="e,108,19,108,26" name="iorq_Tw" dtype_id="1"/>
+                  <varref loc="e,108,2,108,15" name="wait_iorqinta" dtype_id="1"/>
+                </assigndly>
+              </begin>
+            </begin>
+            <begin>
+              <begin loc="e,103,2,103,7">
+                <assigndly loc="e,104,16,104,18" dtype_id="1">
+                  <const loc="e,104,19,104,20" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,104,2,104,15" name="wait_iorqinta" dtype_id="1"/>
+                </assigndly>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <always loc="e,111,1,111,7">
+        <sentree loc="e,111,7,111,8">
+          <senitem loc="e,111,9,111,16" edgeType="POS">
+            <varref loc="e,111,17,111,20" name="clk" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,111,24,111,31" edgeType="NEG">
+            <varref loc="e,111,32,111,38" name="nreset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,112,1,112,6">
+          <if loc="e,113,1,113,3">
+            <varref loc="e,113,6,113,12" name="nreset" dtype_id="1"/>
+            <begin>
+              <if loc="e,118,1,118,3">
+                <varref loc="e,118,5,118,19" name="nhold_clk_wait" dtype_id="1"/>
+                <begin>
+                  <begin loc="e,119,2,119,7">
+                    <assigndly loc="e,120,16,120,18" dtype_id="1">
+                      <varref loc="e,120,19,120,32" name="wait_iorqinta" dtype_id="1"/>
+                      <varref loc="e,120,2,120,15" name="DFFE_intr_ff3" dtype_id="1"/>
+                    </assigndly>
+                  </begin>
+                </begin>
+              </if>
+            </begin>
+            <begin>
+              <begin loc="e,114,2,114,7">
+                <assigndly loc="e,115,16,115,18" dtype_id="1">
+                  <const loc="e,115,19,115,20" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,115,2,115,15" name="DFFE_intr_ff3" dtype_id="1"/>
+                </assigndly>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <always loc="e,123,1,123,7">
+        <sentree loc="e,123,7,123,8">
+          <senitem loc="e,123,9,123,16" edgeType="POS">
+            <varref loc="e,123,17,123,20" name="clk" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,123,24,123,31" edgeType="NEG">
+            <varref loc="e,123,32,123,38" name="nreset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,124,1,124,6">
+          <if loc="e,125,1,125,3">
+            <varref loc="e,125,6,125,12" name="nreset" dtype_id="1"/>
+            <begin>
+              <if loc="e,130,1,130,3">
+                <varref loc="e,130,5,130,15" name="timings_en" dtype_id="1"/>
+                <begin>
+                  <begin loc="e,131,2,131,7">
+                    <assigndly loc="e,132,16,132,18" dtype_id="1">
+                      <varref loc="e,132,19,132,27" name="ctl_iorw" dtype_id="1"/>
+                      <varref loc="e,132,2,132,15" name="DFFE_iorq_ff1" dtype_id="1"/>
+                    </assigndly>
+                  </begin>
+                </begin>
+              </if>
+            </begin>
+            <begin>
+              <begin loc="e,126,2,126,7">
+                <assigndly loc="e,127,16,127,18" dtype_id="1">
+                  <const loc="e,127,19,127,20" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,127,2,127,15" name="DFFE_iorq_ff1" dtype_id="1"/>
+                </assigndly>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <always loc="e,135,1,135,7">
+        <sentree loc="e,135,7,135,8">
+          <senitem loc="e,135,9,135,16" edgeType="POS">
+            <varref loc="e,135,17,135,20" name="clk" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,135,24,135,31" edgeType="NEG">
+            <varref loc="e,135,32,135,38" name="nreset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,136,1,136,6">
+          <if loc="e,137,1,137,3">
+            <varref loc="e,137,6,137,12" name="nreset" dtype_id="1"/>
+            <begin>
+              <if loc="e,142,1,142,3">
+                <varref loc="e,142,5,142,15" name="timings_en" dtype_id="1"/>
+                <begin>
+                  <begin loc="e,143,2,143,7">
+                    <assigndly loc="e,144,22,144,24" dtype_id="1">
+                      <varref loc="e,144,25,144,38" name="DFFE_iorq_ff1" dtype_id="1"/>
+                      <varref loc="e,144,2,144,21" name="SYNTHESIZED_WIRE_15" dtype_id="1"/>
+                    </assigndly>
+                  </begin>
+                </begin>
+              </if>
+            </begin>
+            <begin>
+              <begin loc="e,138,2,138,7">
+                <assigndly loc="e,139,22,139,24" dtype_id="1">
+                  <const loc="e,139,25,139,26" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,139,2,139,21" name="SYNTHESIZED_WIRE_15" dtype_id="1"/>
+                </assigndly>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <always loc="e,147,1,147,7">
+        <sentree loc="e,147,7,147,8">
+          <senitem loc="e,147,9,147,16" edgeType="POS">
+            <varref loc="e,147,17,147,36" name="SYNTHESIZED_WIRE_18" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,147,40,147,47" edgeType="NEG">
+            <varref loc="e,147,48,147,54" name="nreset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,148,1,148,6">
+          <if loc="e,149,1,149,3">
+            <varref loc="e,149,6,149,12" name="nreset" dtype_id="1"/>
+            <begin>
+              <if loc="e,154,1,154,3">
+                <varref loc="e,154,5,154,15" name="timings_en" dtype_id="1"/>
+                <begin>
+                  <begin loc="e,155,2,155,7">
+                    <assigndly loc="e,156,12,156,14" dtype_id="1">
+                      <varref loc="e,156,15,156,34" name="SYNTHESIZED_WIRE_15" dtype_id="1"/>
+                      <varref loc="e,156,2,156,11" name="wait_iorq" dtype_id="1"/>
+                    </assigndly>
+                  </begin>
+                </begin>
+              </if>
+            </begin>
+            <begin>
+              <begin loc="e,150,2,150,7">
+                <assigndly loc="e,151,12,151,14" dtype_id="1">
+                  <const loc="e,151,15,151,16" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,151,2,151,11" name="wait_iorq" dtype_id="1"/>
+                </assigndly>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <always loc="e,159,1,159,7">
+        <sentree loc="e,159,7,159,8">
+          <senitem loc="e,159,9,159,16" edgeType="POS">
+            <varref loc="e,159,17,159,36" name="SYNTHESIZED_WIRE_18" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,159,40,159,47" edgeType="NEG">
+            <varref loc="e,159,48,159,54" name="nreset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,160,1,160,6">
+          <if loc="e,161,1,161,3">
+            <varref loc="e,161,6,161,12" name="nreset" dtype_id="1"/>
+            <begin>
+              <if loc="e,166,1,166,3">
+                <varref loc="e,166,5,166,15" name="timings_en" dtype_id="1"/>
+                <begin>
+                  <begin loc="e,167,2,167,7">
+                    <assigndly loc="e,168,16,168,18" dtype_id="1">
+                      <varref loc="e,168,19,168,28" name="wait_iorq" dtype_id="1"/>
+                      <varref loc="e,168,2,168,15" name="DFFE_iorq_ff4" dtype_id="1"/>
+                    </assigndly>
+                  </begin>
+                </begin>
+              </if>
+            </begin>
+            <begin>
+              <begin loc="e,162,2,162,7">
+                <assigndly loc="e,163,16,163,18" dtype_id="1">
+                  <const loc="e,163,19,163,20" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,163,2,163,15" name="DFFE_iorq_ff4" dtype_id="1"/>
+                </assigndly>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <always loc="e,171,1,171,7">
+        <sentree loc="e,171,7,171,8">
+          <senitem loc="e,171,9,171,16" edgeType="POS">
+            <varref loc="e,171,17,171,20" name="clk" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,171,24,171,31" edgeType="NEG">
+            <varref loc="e,171,32,171,38" name="nreset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,172,1,172,6">
+          <if loc="e,173,1,173,3">
+            <varref loc="e,173,6,173,12" name="nreset" dtype_id="1"/>
+            <begin>
+              <if loc="e,178,1,178,3">
+                <varref loc="e,178,5,178,15" name="timings_en" dtype_id="1"/>
+                <begin>
+                  <begin loc="e,179,2,179,7">
+                    <assigndly loc="e,180,22,180,24" dtype_id="1">
+                      <varref loc="e,180,25,180,32" name="nM1_int" dtype_id="1"/>
+                      <varref loc="e,180,2,180,21" name="SYNTHESIZED_WIRE_16" dtype_id="1"/>
+                    </assigndly>
+                  </begin>
+                </begin>
+              </if>
+            </begin>
+            <begin>
+              <begin loc="e,174,2,174,7">
+                <assigndly loc="e,175,22,175,24" dtype_id="1">
+                  <const loc="e,175,25,175,26" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,175,2,175,21" name="SYNTHESIZED_WIRE_16" dtype_id="1"/>
+                </assigndly>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <always loc="e,183,1,183,7">
+        <sentree loc="e,183,7,183,8">
+          <senitem loc="e,183,9,183,16" edgeType="POS">
+            <varref loc="e,183,17,183,36" name="SYNTHESIZED_WIRE_18" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,183,40,183,47" edgeType="NEG">
+            <varref loc="e,183,48,183,54" name="nreset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,184,1,184,6">
+          <if loc="e,185,1,185,3">
+            <varref loc="e,185,6,185,12" name="nreset" dtype_id="1"/>
+            <begin>
+              <if loc="e,190,1,190,3">
+                <varref loc="e,190,5,190,15" name="timings_en" dtype_id="1"/>
+                <begin>
+                  <begin loc="e,191,2,191,7">
+                    <assigndly loc="e,192,14,192,16" dtype_id="1">
+                      <varref loc="e,192,17,192,22" name="setM1" dtype_id="1"/>
+                      <varref loc="e,192,2,192,13" name="DFFE_m1_ff1" dtype_id="1"/>
+                    </assigndly>
+                  </begin>
+                </begin>
+              </if>
+            </begin>
+            <begin>
+              <begin loc="e,186,2,186,7">
+                <assigndly loc="e,187,14,187,16" dtype_id="1">
+                  <const loc="e,187,17,187,18" name="1&apos;h1" dtype_id="1"/>
+                  <varref loc="e,187,2,187,13" name="DFFE_m1_ff1" dtype_id="1"/>
+                </assigndly>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <always loc="e,195,1,195,7">
+        <sentree loc="e,195,7,195,8">
+          <senitem loc="e,195,9,195,16" edgeType="POS">
+            <varref loc="e,195,17,195,36" name="SYNTHESIZED_WIRE_18" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,195,40,195,47" edgeType="NEG">
+            <varref loc="e,195,48,195,54" name="nreset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,196,1,196,6">
+          <if loc="e,197,1,197,3">
+            <varref loc="e,197,6,197,12" name="nreset" dtype_id="1"/>
+            <begin>
+              <if loc="e,202,1,202,3">
+                <varref loc="e,202,5,202,15" name="timings_en" dtype_id="1"/>
+                <begin>
+                  <begin loc="e,203,2,203,7">
+                    <assigndly loc="e,204,29,204,31" dtype_id="1">
+                      <varref loc="e,204,32,204,43" name="DFFE_m1_ff1" dtype_id="1"/>
+                      <varref loc="e,204,2,204,28" name="wait_m_ALTERA_SYNTHESIZED1" dtype_id="1"/>
+                    </assigndly>
+                  </begin>
+                </begin>
+              </if>
+            </begin>
+            <begin>
+              <begin loc="e,198,2,198,7">
+                <assigndly loc="e,199,29,199,31" dtype_id="1">
+                  <const loc="e,199,32,199,33" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,199,2,199,28" name="wait_m_ALTERA_SYNTHESIZED1" dtype_id="1"/>
+                </assigndly>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <always loc="e,207,1,207,7">
+        <sentree loc="e,207,7,207,8">
+          <senitem loc="e,207,9,207,16" edgeType="POS">
+            <varref loc="e,207,17,207,20" name="clk" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,207,24,207,31" edgeType="NEG">
+            <varref loc="e,207,32,207,38" name="nreset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,208,1,208,6">
+          <if loc="e,209,1,209,3">
+            <varref loc="e,209,6,209,12" name="nreset" dtype_id="1"/>
+            <begin>
+              <if loc="e,214,1,214,3">
+                <varref loc="e,214,5,214,15" name="timings_en" dtype_id="1"/>
+                <begin>
+                  <begin loc="e,215,2,215,7">
+                    <assigndly loc="e,216,14,216,16" dtype_id="1">
+                      <varref loc="e,216,17,216,43" name="wait_m_ALTERA_SYNTHESIZED1" dtype_id="1"/>
+                      <varref loc="e,216,2,216,13" name="DFFE_m1_ff3" dtype_id="1"/>
+                    </assigndly>
+                  </begin>
+                </begin>
+              </if>
+            </begin>
+            <begin>
+              <begin loc="e,210,2,210,7">
+                <assigndly loc="e,211,14,211,16" dtype_id="1">
+                  <const loc="e,211,17,211,18" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,211,2,211,13" name="DFFE_m1_ff3" dtype_id="1"/>
+                </assigndly>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <always loc="e,219,1,219,7">
+        <sentree loc="e,219,7,219,8">
+          <senitem loc="e,219,9,219,16" edgeType="POS">
+            <varref loc="e,219,17,219,20" name="clk" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,219,24,219,31" edgeType="NEG">
+            <varref loc="e,219,32,219,38" name="nreset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,220,1,220,6">
+          <if loc="e,221,1,221,3">
+            <varref loc="e,221,6,221,12" name="nreset" dtype_id="1"/>
+            <begin>
+              <if loc="e,226,1,226,3">
+                <varref loc="e,226,5,226,15" name="timings_en" dtype_id="1"/>
+                <begin>
+                  <begin loc="e,227,2,227,7">
+                    <assigndly loc="e,228,15,228,17" dtype_id="1">
+                      <varref loc="e,228,18,228,27" name="ctl_mRead" dtype_id="1"/>
+                      <varref loc="e,228,2,228,14" name="DFFE_mrd_ff1" dtype_id="1"/>
+                    </assigndly>
+                  </begin>
+                </begin>
+              </if>
+            </begin>
+            <begin>
+              <begin loc="e,222,2,222,7">
+                <assigndly loc="e,223,15,223,17" dtype_id="1">
+                  <const loc="e,223,18,223,19" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,223,2,223,14" name="DFFE_mrd_ff1" dtype_id="1"/>
+                </assigndly>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <always loc="e,231,1,231,7">
+        <sentree loc="e,231,7,231,8">
+          <senitem loc="e,231,9,231,16" edgeType="POS">
+            <varref loc="e,231,17,231,36" name="SYNTHESIZED_WIRE_18" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,231,40,231,47" edgeType="NEG">
+            <varref loc="e,231,48,231,54" name="nreset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,232,1,232,6">
+          <if loc="e,233,1,233,3">
+            <varref loc="e,233,6,233,12" name="nreset" dtype_id="1"/>
+            <begin>
+              <if loc="e,238,1,238,3">
+                <varref loc="e,238,5,238,15" name="timings_en" dtype_id="1"/>
+                <begin>
+                  <begin loc="e,239,2,239,7">
+                    <assigndly loc="e,240,11,240,13" dtype_id="1">
+                      <varref loc="e,240,14,240,26" name="DFFE_mrd_ff1" dtype_id="1"/>
+                      <varref loc="e,240,2,240,10" name="wait_mrd" dtype_id="1"/>
+                    </assigndly>
+                  </begin>
+                </begin>
+              </if>
+            </begin>
+            <begin>
+              <begin loc="e,234,2,234,7">
+                <assigndly loc="e,235,11,235,13" dtype_id="1">
+                  <const loc="e,235,14,235,15" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,235,2,235,10" name="wait_mrd" dtype_id="1"/>
+                </assigndly>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <always loc="e,243,1,243,7">
+        <sentree loc="e,243,7,243,8">
+          <senitem loc="e,243,9,243,16" edgeType="POS">
+            <varref loc="e,243,17,243,36" name="SYNTHESIZED_WIRE_18" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,243,40,243,47" edgeType="NEG">
+            <varref loc="e,243,48,243,54" name="nreset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,244,1,244,6">
+          <if loc="e,245,1,245,3">
+            <varref loc="e,245,6,245,12" name="nreset" dtype_id="1"/>
+            <begin>
+              <if loc="e,250,1,250,3">
+                <varref loc="e,250,5,250,15" name="timings_en" dtype_id="1"/>
+                <begin>
+                  <begin loc="e,251,2,251,7">
+                    <assigndly loc="e,252,15,252,17" dtype_id="1">
+                      <varref loc="e,252,18,252,26" name="wait_mrd" dtype_id="1"/>
+                      <varref loc="e,252,2,252,14" name="DFFE_mrd_ff3" dtype_id="1"/>
+                    </assigndly>
+                  </begin>
+                </begin>
+              </if>
+            </begin>
+            <begin>
+              <begin loc="e,246,2,246,7">
+                <assigndly loc="e,247,15,247,17" dtype_id="1">
+                  <const loc="e,247,18,247,19" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,247,2,247,14" name="DFFE_mrd_ff3" dtype_id="1"/>
+                </assigndly>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <always loc="e,255,1,255,7">
+        <sentree loc="e,255,7,255,8">
+          <senitem loc="e,255,9,255,16" edgeType="POS">
+            <varref loc="e,255,17,255,36" name="SYNTHESIZED_WIRE_18" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,255,40,255,47" edgeType="NEG">
+            <varref loc="e,255,48,255,54" name="nreset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,256,1,256,6">
+          <if loc="e,257,1,257,3">
+            <varref loc="e,257,6,257,12" name="nreset" dtype_id="1"/>
+            <begin>
+              <if loc="e,262,1,262,3">
+                <varref loc="e,262,5,262,15" name="timings_en" dtype_id="1"/>
+                <begin>
+                  <begin loc="e,263,2,263,7">
+                    <assigndly loc="e,264,22,264,24" dtype_id="1">
+                      <varref loc="e,264,25,264,44" name="SYNTHESIZED_WIRE_16" dtype_id="1"/>
+                      <varref loc="e,264,2,264,21" name="SYNTHESIZED_WIRE_17" dtype_id="1"/>
+                    </assigndly>
+                  </begin>
+                </begin>
+              </if>
+            </begin>
+            <begin>
+              <begin loc="e,258,2,258,7">
+                <assigndly loc="e,259,22,259,24" dtype_id="1">
+                  <const loc="e,259,25,259,26" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,259,2,259,21" name="SYNTHESIZED_WIRE_17" dtype_id="1"/>
+                </assigndly>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <always loc="e,267,1,267,7">
+        <sentree loc="e,267,7,267,8">
+          <senitem loc="e,267,9,267,16" edgeType="POS">
+            <varref loc="e,267,17,267,36" name="SYNTHESIZED_WIRE_18" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,267,40,267,47" edgeType="NEG">
+            <varref loc="e,267,48,267,54" name="nreset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,268,1,268,6">
+          <if loc="e,269,1,269,3">
+            <varref loc="e,269,6,269,12" name="nreset" dtype_id="1"/>
+            <begin>
+              <if loc="e,274,1,274,3">
+                <varref loc="e,274,5,274,15" name="timings_en" dtype_id="1"/>
+                <begin>
+                  <begin loc="e,275,2,275,7">
+                    <assigndly loc="e,276,16,276,18" dtype_id="1">
+                      <varref loc="e,276,19,276,38" name="SYNTHESIZED_WIRE_17" dtype_id="1"/>
+                      <varref loc="e,276,2,276,15" name="DFFE_mreq_ff2" dtype_id="1"/>
+                    </assigndly>
+                  </begin>
+                </begin>
+              </if>
+            </begin>
+            <begin>
+              <begin loc="e,270,2,270,7">
+                <assigndly loc="e,271,16,271,18" dtype_id="1">
+                  <const loc="e,271,19,271,20" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,271,2,271,15" name="DFFE_mreq_ff2" dtype_id="1"/>
+                </assigndly>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <always loc="e,279,1,279,7">
+        <sentree loc="e,279,7,279,8">
+          <senitem loc="e,279,9,279,16" edgeType="POS">
+            <varref loc="e,279,17,279,20" name="clk" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,279,24,279,31" edgeType="NEG">
+            <varref loc="e,279,32,279,38" name="nreset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,280,1,280,6">
+          <if loc="e,281,1,281,3">
+            <varref loc="e,281,6,281,12" name="nreset" dtype_id="1"/>
+            <begin>
+              <if loc="e,286,1,286,3">
+                <varref loc="e,286,5,286,15" name="timings_en" dtype_id="1"/>
+                <begin>
+                  <begin loc="e,287,2,287,7">
+                    <assigndly loc="e,288,15,288,17" dtype_id="1">
+                      <varref loc="e,288,18,288,28" name="ctl_mWrite" dtype_id="1"/>
+                      <varref loc="e,288,2,288,14" name="DFFE_mwr_ff1" dtype_id="1"/>
+                    </assigndly>
+                  </begin>
+                </begin>
+              </if>
+            </begin>
+            <begin>
+              <begin loc="e,282,2,282,7">
+                <assigndly loc="e,283,15,283,17" dtype_id="1">
+                  <const loc="e,283,18,283,19" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,283,2,283,14" name="DFFE_mwr_ff1" dtype_id="1"/>
+                </assigndly>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <always loc="e,291,1,291,7">
+        <sentree loc="e,291,7,291,8">
+          <senitem loc="e,291,9,291,16" edgeType="POS">
+            <varref loc="e,291,17,291,36" name="SYNTHESIZED_WIRE_18" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,291,40,291,47" edgeType="NEG">
+            <varref loc="e,291,48,291,54" name="nreset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,292,1,292,6">
+          <if loc="e,293,1,293,3">
+            <varref loc="e,293,6,293,12" name="nreset" dtype_id="1"/>
+            <begin>
+              <if loc="e,298,1,298,3">
+                <varref loc="e,298,5,298,15" name="timings_en" dtype_id="1"/>
+                <begin>
+                  <begin loc="e,299,2,299,7">
+                    <assigndly loc="e,300,11,300,13" dtype_id="1">
+                      <varref loc="e,300,14,300,26" name="DFFE_mwr_ff1" dtype_id="1"/>
+                      <varref loc="e,300,2,300,10" name="wait_mwr" dtype_id="1"/>
+                    </assigndly>
+                  </begin>
+                </begin>
+              </if>
+            </begin>
+            <begin>
+              <begin loc="e,294,2,294,7">
+                <assigndly loc="e,295,11,295,13" dtype_id="1">
+                  <const loc="e,295,14,295,15" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,295,2,295,10" name="wait_mwr" dtype_id="1"/>
+                </assigndly>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <always loc="e,303,1,303,7">
+        <sentree loc="e,303,7,303,8">
+          <senitem loc="e,303,9,303,16" edgeType="POS">
+            <varref loc="e,303,17,303,36" name="SYNTHESIZED_WIRE_18" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,303,40,303,47" edgeType="NEG">
+            <varref loc="e,303,48,303,54" name="nreset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,304,1,304,6">
+          <if loc="e,305,1,305,3">
+            <varref loc="e,305,6,305,12" name="nreset" dtype_id="1"/>
+            <begin>
+              <if loc="e,310,1,310,3">
+                <varref loc="e,310,5,310,15" name="timings_en" dtype_id="1"/>
+                <begin>
+                  <begin loc="e,311,2,311,7">
+                    <assigndly loc="e,312,9,312,11" dtype_id="1">
+                      <varref loc="e,312,12,312,20" name="wait_mwr" dtype_id="1"/>
+                      <varref loc="e,312,2,312,8" name="mwr_wr" dtype_id="1"/>
+                    </assigndly>
+                  </begin>
+                </begin>
+              </if>
+            </begin>
+            <begin>
+              <begin loc="e,306,2,306,7">
+                <assigndly loc="e,307,9,307,11" dtype_id="1">
+                  <const loc="e,307,12,307,13" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,307,2,307,8" name="mwr_wr" dtype_id="1"/>
+                </assigndly>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <always loc="e,319,1,319,7">
+        <sentree loc="e,319,7,319,8">
+          <senitem loc="e,319,9,319,16" edgeType="POS">
+            <varref loc="e,319,17,319,20" name="clk" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,319,24,319,31" edgeType="NEG">
+            <varref loc="e,319,32,319,38" name="nreset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,320,1,320,6">
+          <if loc="e,321,1,321,3">
+            <varref loc="e,321,6,321,12" name="nreset" dtype_id="1"/>
+            <begin>
+              <if loc="e,326,1,326,3">
+                <varref loc="e,326,5,326,15" name="timings_en" dtype_id="1"/>
+                <begin>
+                  <begin loc="e,327,2,327,7">
+                    <assigndly loc="e,328,5,328,7" dtype_id="1">
+                      <varref loc="e,328,8,328,27" name="SYNTHESIZED_WIRE_16" dtype_id="1"/>
+                      <varref loc="e,328,2,328,4" name="q1" dtype_id="1"/>
+                    </assigndly>
+                  </begin>
+                </begin>
+              </if>
+            </begin>
+            <begin>
+              <begin loc="e,322,2,322,7">
+                <assigndly loc="e,323,5,323,7" dtype_id="1">
+                  <const loc="e,323,8,323,9" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,323,2,323,4" name="q1" dtype_id="1"/>
+                </assigndly>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <always loc="e,331,1,331,7">
+        <sentree loc="e,331,7,331,8">
+          <senitem loc="e,331,9,331,16" edgeType="POS">
+            <varref loc="e,331,17,331,20" name="clk" dtype_id="1"/>
+          </senitem>
+          <senitem loc="e,331,24,331,31" edgeType="NEG">
+            <varref loc="e,331,32,331,38" name="nreset" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,332,1,332,6">
+          <if loc="e,333,1,333,3">
+            <varref loc="e,333,6,333,12" name="nreset" dtype_id="1"/>
+            <begin>
+              <if loc="e,338,1,338,3">
+                <varref loc="e,338,5,338,15" name="timings_en" dtype_id="1"/>
+                <begin>
+                  <begin loc="e,339,2,339,7">
+                    <assigndly loc="e,340,5,340,7" dtype_id="1">
+                      <varref loc="e,340,8,340,10" name="q1" dtype_id="1"/>
+                      <varref loc="e,340,2,340,4" name="q2" dtype_id="1"/>
+                    </assigndly>
+                  </begin>
+                </begin>
+              </if>
+            </begin>
+            <begin>
+              <begin loc="e,334,2,334,7">
+                <assigndly loc="e,335,5,335,7" dtype_id="1">
+                  <const loc="e,335,8,335,9" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,335,2,335,4" name="q2" dtype_id="1"/>
+                </assigndly>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <var loc="e,89,31,89,32" name="__VdfgRegularize_h6397b822_1_0" dtype_id="1" vartype="logic" origName="__VdfgRegularize_h6397b822_1_0"/>
+      <contassign loc="e,315,28,315,29" dtype_id="1">
+        <not loc="e,315,31,315,32" dtype_id="1">
+          <varref loc="e,26,12,26,15" name="clk" dtype_id="1"/>
+        </not>
+        <varref loc="e,315,28,315,29" name="SYNTHESIZED_WIRE_18" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,82,18,82,19" dtype_id="1">
+        <not loc="e,82,39,82,40" dtype_id="1">
+          <or loc="e,82,39,82,40" dtype_id="1">
+            <and loc="e,98,50,98,51" dtype_id="1">
+              <not loc="e,318,30,318,31" dtype_id="1">
+                <varref loc="e,81,5,81,18" name="DFFE_mreq_ff2" dtype_id="1"/>
+              </not>
+              <varref loc="e,75,5,75,24" name="SYNTHESIZED_WIRE_17" dtype_id="1"/>
+            </and>
+            <or loc="e,89,42,89,43" dtype_id="1">
+              <varref loc="e,89,31,89,32" name="__VdfgRegularize_h6397b822_1_0" dtype_id="1"/>
+              <or loc="e,93,26,93,27" dtype_id="1">
+                <varref loc="e,54,5,54,11" name="mwr_wr" dtype_id="1"/>
+                <varref loc="e,64,5,64,13" name="wait_mwr" dtype_id="1"/>
+              </or>
+            </or>
+          </or>
+        </not>
+        <varref loc="e,82,18,82,19" name="nMREQ_out" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,90,16,90,17" dtype_id="1">
+        <not loc="e,90,18,90,19" dtype_id="1">
+          <or loc="e,90,39,90,40" dtype_id="1">
+            <varref loc="e,89,31,89,32" name="__VdfgRegularize_h6397b822_1_0" dtype_id="1"/>
+            <and loc="e,83,22,83,23" dtype_id="1">
+              <varref loc="e,49,6,49,10" name="iorq" dtype_id="1"/>
+              <varref loc="e,32,12,32,19" name="fIORead" dtype_id="1"/>
+            </and>
+          </or>
+        </not>
+        <varref loc="e,90,16,90,17" name="nRD_out" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,92,16,92,17" dtype_id="1">
+        <not loc="e,92,18,92,19" dtype_id="1">
+          <or loc="e,92,28,92,29" dtype_id="1">
+            <and loc="e,87,23,87,24" dtype_id="1">
+              <varref loc="e,49,6,49,10" name="iorq" dtype_id="1"/>
+              <varref loc="e,33,12,33,20" name="fIOWrite" dtype_id="1"/>
+            </and>
+            <varref loc="e,54,5,54,11" name="mwr_wr" dtype_id="1"/>
+          </or>
+        </not>
+        <varref loc="e,92,16,92,17" name="nWR_out" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,94,18,94,19" dtype_id="1">
+        <not loc="e,94,20,94,21" dtype_id="1">
+          <or loc="e,96,34,96,35" dtype_id="1">
+            <varref loc="e,71,5,71,18" name="DFFE_intr_ff3" dtype_id="1"/>
+            <or loc="e,94,32,94,33" dtype_id="1">
+              <varref loc="e,61,5,61,18" name="wait_iorqinta" dtype_id="1"/>
+              <varref loc="e,49,6,49,10" name="iorq" dtype_id="1"/>
+            </or>
+          </or>
+        </not>
+        <varref loc="e,94,18,94,19" name="nIORQ_out" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,88,19,88,20" dtype_id="1">
+        <or loc="e,88,30,88,31" dtype_id="1">
+          <varref loc="e,63,5,63,13" name="wait_mrd" dtype_id="1"/>
+          <or loc="e,88,40,88,41" dtype_id="1">
+            <or loc="e,95,32,95,33" dtype_id="1">
+              <varref loc="e,60,5,60,14" name="wait_iorq" dtype_id="1"/>
+              <varref loc="e,61,5,61,18" name="wait_iorqinta" dtype_id="1"/>
+            </or>
+            <or loc="e,88,69,88,70" dtype_id="1">
+              <varref loc="e,62,5,62,31" name="wait_m_ALTERA_SYNTHESIZED1" dtype_id="1"/>
+              <varref loc="e,64,5,64,13" name="wait_mwr" dtype_id="1"/>
+            </or>
+          </or>
+        </or>
+        <varref loc="e,88,19,88,20" name="latch_wait" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,343,16,343,17" dtype_id="1">
+        <varref loc="e,62,5,62,31" name="wait_m_ALTERA_SYNTHESIZED1" dtype_id="1"/>
+        <varref loc="e,343,16,343,17" name="wait_m1" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,89,31,89,32" dtype_id="1">
+        <or loc="e,89,31,89,32" dtype_id="1">
+          <not loc="e,85,18,85,19" dtype_id="1">
+            <or loc="e,85,28,85,29" dtype_id="1">
+              <not loc="e,84,29,84,30" dtype_id="1">
+                <or loc="e,84,43,84,44" dtype_id="1">
+                  <varref loc="e,66,5,66,16" name="DFFE_m1_ff3" dtype_id="1"/>
+                  <varref loc="e,62,5,62,31" name="wait_m_ALTERA_SYNTHESIZED1" dtype_id="1"/>
+                </or>
+              </not>
+              <varref loc="e,30,12,30,19" name="in_intr" dtype_id="1"/>
+            </or>
+          </not>
+          <or loc="e,91,32,91,33" dtype_id="1">
+            <varref loc="e,70,5,70,17" name="DFFE_mrd_ff3" dtype_id="1"/>
+            <varref loc="e,63,5,63,13" name="wait_mrd" dtype_id="1"/>
+          </or>
+        </or>
+        <varref loc="e,89,31,89,32" name="__VdfgRegularize_h6397b822_1_0" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,86,13,86,14" dtype_id="1">
+        <or loc="e,86,25,86,26" dtype_id="1">
+          <varref loc="e,60,5,60,14" name="wait_iorq" dtype_id="1"/>
+          <or loc="e,86,41,86,42" dtype_id="1">
+            <varref loc="e,68,5,68,18" name="DFFE_iorq_ff4" dtype_id="1"/>
+            <varref loc="e,69,5,69,24" name="SYNTHESIZED_WIRE_15" dtype_id="1"/>
+          </or>
+        </or>
+        <varref loc="e,86,13,86,14" name="iorq" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,97,16,97,17" dtype_id="1">
+        <or loc="e,97,37,97,38" dtype_id="1">
+          <not loc="e,317,30,317,31" dtype_id="1">
+            <varref loc="e,31,12,31,18" name="nreset" dtype_id="1"/>
+          </not>
+          <varref loc="e,73,5,73,24" name="SYNTHESIZED_WIRE_16" dtype_id="1"/>
+        </or>
+        <varref loc="e,97,16,97,17" name="nM1_out" dtype_id="1"/>
+      </contassign>
+      <contassign loc="e,99,18,99,19" dtype_id="1">
+        <not loc="e,99,20,99,21" dtype_id="1">
+          <and loc="e,99,26,99,27" dtype_id="1">
+            <not loc="e,316,15,316,16" dtype_id="1">
+              <varref loc="e,58,5,58,7" name="q2" dtype_id="1"/>
+            </not>
+            <varref loc="e,73,5,73,24" name="SYNTHESIZED_WIRE_16" dtype_id="1"/>
+          </and>
+        </not>
+        <varref loc="e,99,18,99,19" name="nRFSH_out" dtype_id="1"/>
+      </contassign>
+    </module>
+    <typetable loc="a,0,0,0,0">
+      <basicdtype loc="d,46,25,46,27" id="1" name="logic"/>
+      <voiddtype loc="d,48,18,48,27" id="2"/>
+    </typetable>
+  </netlist>
+</verilator_xml>

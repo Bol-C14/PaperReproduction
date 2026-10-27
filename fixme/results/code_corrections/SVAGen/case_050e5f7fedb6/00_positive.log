@@ -1,0 +1,657 @@
+
+-- Running command `read_verilog -formal -sv positive.sv; hierarchy -top ct_had_regs; prep -top ct_had_regs; flatten; async2sync; dffunmap; memory_map; opt_clean; chformal -lower; write_json positive.json; sat -seq 2 -timeout 5 -prove-asserts -verify -show-inputs -show-outputs' --
+
+1. Executing Verilog-2005 frontend: positive.sv
+Parsing formal SystemVerilog input from `positive.sv' to AST representation.
+Generating RTLIL representation for module `\ct_had_regs'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \ct_had_regs
+
+2.2. Analyzing design hierarchy..
+Top module:  \ct_had_regs
+Removed 0 unused modules.
+Module ct_had_regs directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \ct_had_regs
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \ct_had_regs
+Removed 0 unused modules.
+Module ct_had_regs directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 4 switch rules as full_case in process $proc$positive.sv:693$70 in module ct_had_regs.
+Marked 3 switch rules as full_case in process $proc$positive.sv:678$68 in module ct_had_regs.
+Marked 4 switch rules as full_case in process $proc$positive.sv:665$63 in module ct_had_regs.
+Marked 3 switch rules as full_case in process $proc$positive.sv:654$61 in module ct_had_regs.
+Marked 3 switch rules as full_case in process $proc$positive.sv:643$59 in module ct_had_regs.
+Marked 3 switch rules as full_case in process $proc$positive.sv:632$57 in module ct_had_regs.
+Marked 3 switch rules as full_case in process $proc$positive.sv:621$55 in module ct_had_regs.
+Marked 3 switch rules as full_case in process $proc$positive.sv:610$53 in module ct_had_regs.
+Marked 3 switch rules as full_case in process $proc$positive.sv:599$51 in module ct_had_regs.
+Marked 3 switch rules as full_case in process $proc$positive.sv:588$49 in module ct_had_regs.
+Marked 3 switch rules as full_case in process $proc$positive.sv:577$47 in module ct_had_regs.
+Marked 2 switch rules as full_case in process $proc$positive.sv:568$45 in module ct_had_regs.
+Marked 1 switch rules as full_case in process $proc$positive.sv:544$37 in module ct_had_regs.
+Marked 1 switch rules as full_case in process $proc$positive.sv:506$34 in module ct_had_regs.
+Marked 3 switch rules as full_case in process $proc$positive.sv:485$30 in module ct_had_regs.
+Marked 3 switch rules as full_case in process $proc$positive.sv:473$27 in module ct_had_regs.
+Marked 2 switch rules as full_case in process $proc$positive.sv:462$24 in module ct_had_regs.
+Marked 4 switch rules as full_case in process $proc$positive.sv:448$19 in module ct_had_regs.
+Marked 1 switch rules as full_case in process $proc$positive.sv:434$16 in module ct_had_regs.
+Marked 1 switch rules as full_case in process $proc$positive.sv:420$13 in module ct_had_regs.
+Marked 2 switch rules as full_case in process $proc$positive.sv:411$10 in module ct_had_regs.
+Marked 2 switch rules as full_case in process $proc$positive.sv:402$7 in module ct_had_regs.
+Marked 2 switch rules as full_case in process $proc$positive.sv:393$4 in module ct_had_regs.
+Marked 2 switch rules as full_case in process $proc$positive.sv:384$1 in module ct_had_regs.
+Removed a total of 0 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 21 redundant assignments.
+Promoted 2 assignments to connections.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \cpurst_b in `\ct_had_regs.$proc$positive.sv:693$70'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$positive.sv:678$68'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$positive.sv:665$63'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$positive.sv:654$61'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$positive.sv:643$59'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$positive.sv:632$57'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$positive.sv:621$55'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$positive.sv:610$53'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$positive.sv:599$51'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$positive.sv:588$49'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$positive.sv:577$47'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$positive.sv:568$45'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$positive.sv:544$37'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$positive.sv:506$34'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$positive.sv:485$30'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$positive.sv:473$27'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$positive.sv:462$24'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$positive.sv:448$19'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$positive.sv:434$16'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$positive.sv:420$13'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$positive.sv:411$10'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$positive.sv:402$7'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$positive.sv:393$4'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$positive.sv:384$1'.
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~42 debug messages>
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\ct_had_regs.$proc$positive.sv:763$119'.
+Creating decoders for process `\ct_had_regs.$proc$positive.sv:759$118'.
+Creating decoders for process `\ct_had_regs.$proc$positive.sv:693$70'.
+     1/1: $0\mbir_idx[1:0]
+Creating decoders for process `\ct_had_regs.$proc$positive.sv:678$68'.
+     1/1: $0\pro[0:0]
+Creating decoders for process `\ct_had_regs.$proc$positive.sv:665$63'.
+     1/1: $0\pm[1:0]
+Creating decoders for process `\ct_had_regs.$proc$positive.sv:654$61'.
+     1/1: $0\sqa[0:0]
+Creating decoders for process `\ct_had_regs.$proc$positive.sv:643$59'.
+     1/1: $0\sqb[0:0]
+Creating decoders for process `\ct_had_regs.$proc$positive.sv:632$57'.
+     1/1: $0\frzo[0:0]
+Creating decoders for process `\ct_had_regs.$proc$positive.sv:621$55'.
+     1/1: $0\to[0:0]
+Creating decoders for process `\ct_had_regs.$proc$positive.sv:610$53'.
+     1/1: $0\swo[0:0]
+Creating decoders for process `\ct_had_regs.$proc$positive.sv:599$51'.
+     1/1: $0\mbo[0:0]
+Creating decoders for process `\ct_had_regs.$proc$positive.sv:588$49'.
+     1/1: $0\dro[0:0]
+Creating decoders for process `\ct_had_regs.$proc$positive.sv:577$47'.
+     1/1: $0\adro[0:0]
+Creating decoders for process `\ct_had_regs.$proc$positive.sv:568$45'.
+     1/1: $0\ps[0:0]
+Creating decoders for process `\ct_had_regs.$proc$positive.sv:544$37'.
+     1/7: $0\rob_not_empty[0:0]
+     2/7: $0\iq_not_empty[0:0]
+     3/7: $0\inst_not_wb[0:0]
+     4/7: $0\ifu_dead[0:0]
+     5/7: $0\idu_stall[0:0]
+     6/7: $0\exe_dead[0:0]
+     7/7: $0\bus_dead[0:0]
+Creating decoders for process `\ct_had_regs.$proc$positive.sv:506$34'.
+     1/12: $0\hcr_tme[0:0]
+     2/12: $0\hcr_sqc[1:0]
+     3/12: $0\hcr_rcb[0:0]
+     4/12: $0\hcr_rca[0:0]
+     5/12: $0\hcr_nicven[0:0]
+     6/12: $0\hcr_idre[0:0]
+     7/12: $0\hcr_frzc[0:0]
+     8/12: $0\hcr_dr[0:0]
+     9/12: $0\hcr_ddcen[0:0]
+    10/12: $0\hcr_bcb[4:0]
+    11/12: $0\hcr_bca[4:0]
+    12/12: $0\hcr_adr[0:0]
+Creating decoders for process `\ct_had_regs.$proc$positive.sv:485$30'.
+     1/2: $0\fdb[0:0]
+     2/2: $0\ffy[0:0]
+Creating decoders for process `\ct_had_regs.$proc$positive.sv:473$27'.
+     1/1: $0\ir_reg[31:0]
+Creating decoders for process `\ct_had_regs.$proc$positive.sv:462$24'.
+     1/1: $0\pc[63:0]
+Creating decoders for process `\ct_had_regs.$proc$positive.sv:448$19'.
+     1/1: $0\wbbr_reg[63:0]
+Creating decoders for process `\ct_had_regs.$proc$positive.sv:434$16'.
+     1/2: $0\event_exit_ie[0:0]
+     2/2: $0\event_ent_ie[0:0]
+Creating decoders for process `\ct_had_regs.$proc$positive.sv:420$13'.
+     1/2: $0\event_exit_oe[0:0]
+     2/2: $0\event_ent_oe[0:0]
+Creating decoders for process `\ct_had_regs.$proc$positive.sv:411$10'.
+     1/1: $0\bamb_reg[7:0]
+Creating decoders for process `\ct_had_regs.$proc$positive.sv:402$7'.
+     1/1: $0\bama_reg[7:0]
+Creating decoders for process `\ct_had_regs.$proc$positive.sv:393$4'.
+     1/1: $0\babb_reg[63:0]
+Creating decoders for process `\ct_had_regs.$proc$positive.sv:384$1'.
+     1/1: $0\baba_reg[63:0]
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\ct_had_regs.\x_regs_serial_data' using process `\ct_had_regs.$proc$positive.sv:759$118'.
+  created $dff cell `$procdff$287' with positive edge clock.
+Creating register for signal `\ct_had_regs.\mbir_idx' using process `\ct_had_regs.$proc$positive.sv:693$70'.
+  created $adff cell `$procdff$292' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\pro' using process `\ct_had_regs.$proc$positive.sv:678$68'.
+  created $adff cell `$procdff$297' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\pm' using process `\ct_had_regs.$proc$positive.sv:665$63'.
+  created $adff cell `$procdff$302' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\sqa' using process `\ct_had_regs.$proc$positive.sv:654$61'.
+  created $adff cell `$procdff$307' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\sqb' using process `\ct_had_regs.$proc$positive.sv:643$59'.
+  created $adff cell `$procdff$312' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\frzo' using process `\ct_had_regs.$proc$positive.sv:632$57'.
+  created $adff cell `$procdff$317' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\to' using process `\ct_had_regs.$proc$positive.sv:621$55'.
+  created $adff cell `$procdff$322' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\swo' using process `\ct_had_regs.$proc$positive.sv:610$53'.
+  created $adff cell `$procdff$327' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\mbo' using process `\ct_had_regs.$proc$positive.sv:599$51'.
+  created $adff cell `$procdff$332' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\dro' using process `\ct_had_regs.$proc$positive.sv:588$49'.
+  created $adff cell `$procdff$337' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\adro' using process `\ct_had_regs.$proc$positive.sv:577$47'.
+  created $adff cell `$procdff$342' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\ps' using process `\ct_had_regs.$proc$positive.sv:568$45'.
+  created $adff cell `$procdff$347' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\bus_dead' using process `\ct_had_regs.$proc$positive.sv:544$37'.
+  created $adff cell `$procdff$352' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\exe_dead' using process `\ct_had_regs.$proc$positive.sv:544$37'.
+  created $adff cell `$procdff$357' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\idu_stall' using process `\ct_had_regs.$proc$positive.sv:544$37'.
+  created $adff cell `$procdff$362' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\ifu_dead' using process `\ct_had_regs.$proc$positive.sv:544$37'.
+  created $adff cell `$procdff$367' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\inst_not_wb' using process `\ct_had_regs.$proc$positive.sv:544$37'.
+  created $adff cell `$procdff$372' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\iq_not_empty' using process `\ct_had_regs.$proc$positive.sv:544$37'.
+  created $adff cell `$procdff$377' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\rob_not_empty' using process `\ct_had_regs.$proc$positive.sv:544$37'.
+  created $adff cell `$procdff$382' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\hcr_adr' using process `\ct_had_regs.$proc$positive.sv:506$34'.
+  created $adff cell `$procdff$387' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\hcr_bca' using process `\ct_had_regs.$proc$positive.sv:506$34'.
+  created $adff cell `$procdff$392' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\hcr_bcb' using process `\ct_had_regs.$proc$positive.sv:506$34'.
+  created $adff cell `$procdff$397' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\hcr_ddcen' using process `\ct_had_regs.$proc$positive.sv:506$34'.
+  created $adff cell `$procdff$402' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\hcr_dr' using process `\ct_had_regs.$proc$positive.sv:506$34'.
+  created $adff cell `$procdff$407' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\hcr_frzc' using process `\ct_had_regs.$proc$positive.sv:506$34'.
+  created $adff cell `$procdff$412' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\hcr_idre' using process `\ct_had_regs.$proc$positive.sv:506$34'.
+  created $adff cell `$procdff$417' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\hcr_nicven' using process `\ct_had_regs.$proc$positive.sv:506$34'.
+  created $adff cell `$procdff$422' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\hcr_rca' using process `\ct_had_regs.$proc$positive.sv:506$34'.
+  created $adff cell `$procdff$427' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\hcr_rcb' using process `\ct_had_regs.$proc$positive.sv:506$34'.
+  created $adff cell `$procdff$432' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\hcr_sqc' using process `\ct_had_regs.$proc$positive.sv:506$34'.
+  created $adff cell `$procdff$437' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\hcr_tme' using process `\ct_had_regs.$proc$positive.sv:506$34'.
+  created $adff cell `$procdff$442' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\fdb' using process `\ct_had_regs.$proc$positive.sv:485$30'.
+  created $adff cell `$procdff$447' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\ffy' using process `\ct_had_regs.$proc$positive.sv:485$30'.
+  created $adff cell `$procdff$452' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\ir_reg' using process `\ct_had_regs.$proc$positive.sv:473$27'.
+  created $adff cell `$procdff$457' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\pc' using process `\ct_had_regs.$proc$positive.sv:462$24'.
+  created $adff cell `$procdff$462' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\wbbr_reg' using process `\ct_had_regs.$proc$positive.sv:448$19'.
+  created $adff cell `$procdff$467' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\event_ent_ie' using process `\ct_had_regs.$proc$positive.sv:434$16'.
+  created $adff cell `$procdff$472' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\event_exit_ie' using process `\ct_had_regs.$proc$positive.sv:434$16'.
+  created $adff cell `$procdff$477' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\event_ent_oe' using process `\ct_had_regs.$proc$positive.sv:420$13'.
+  created $adff cell `$procdff$482' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\event_exit_oe' using process `\ct_had_regs.$proc$positive.sv:420$13'.
+  created $adff cell `$procdff$487' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\bamb_reg' using process `\ct_had_regs.$proc$positive.sv:411$10'.
+  created $adff cell `$procdff$492' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\bama_reg' using process `\ct_had_regs.$proc$positive.sv:402$7'.
+  created $adff cell `$procdff$497' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\babb_reg' using process `\ct_had_regs.$proc$positive.sv:393$4'.
+  created $adff cell `$procdff$502' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\baba_reg' using process `\ct_had_regs.$proc$positive.sv:384$1'.
+  created $adff cell `$procdff$507' with positive edge clock and positive level reset.
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `ct_had_regs.$proc$positive.sv:763$119'.
+Removing empty process `ct_had_regs.$proc$positive.sv:759$118'.
+Found and cleaned up 3 empty switches in `\ct_had_regs.$proc$positive.sv:693$70'.
+Removing empty process `ct_had_regs.$proc$positive.sv:693$70'.
+Found and cleaned up 2 empty switches in `\ct_had_regs.$proc$positive.sv:678$68'.
+Removing empty process `ct_had_regs.$proc$positive.sv:678$68'.
+Found and cleaned up 3 empty switches in `\ct_had_regs.$proc$positive.sv:665$63'.
+Removing empty process `ct_had_regs.$proc$positive.sv:665$63'.
+Found and cleaned up 2 empty switches in `\ct_had_regs.$proc$positive.sv:654$61'.
+Removing empty process `ct_had_regs.$proc$positive.sv:654$61'.
+Found and cleaned up 2 empty switches in `\ct_had_regs.$proc$positive.sv:643$59'.
+Removing empty process `ct_had_regs.$proc$positive.sv:643$59'.
+Found and cleaned up 2 empty switches in `\ct_had_regs.$proc$positive.sv:632$57'.
+Removing empty process `ct_had_regs.$proc$positive.sv:632$57'.
+Found and cleaned up 2 empty switches in `\ct_had_regs.$proc$positive.sv:621$55'.
+Removing empty process `ct_had_regs.$proc$positive.sv:621$55'.
+Found and cleaned up 2 empty switches in `\ct_had_regs.$proc$positive.sv:610$53'.
+Removing empty process `ct_had_regs.$proc$positive.sv:610$53'.
+Found and cleaned up 2 empty switches in `\ct_had_regs.$proc$positive.sv:599$51'.
+Removing empty process `ct_had_regs.$proc$positive.sv:599$51'.
+Found and cleaned up 2 empty switches in `\ct_had_regs.$proc$positive.sv:588$49'.
+Removing empty process `ct_had_regs.$proc$positive.sv:588$49'.
+Found and cleaned up 2 empty switches in `\ct_had_regs.$proc$positive.sv:577$47'.
+Removing empty process `ct_had_regs.$proc$positive.sv:577$47'.
+Found and cleaned up 1 empty switch in `\ct_had_regs.$proc$positive.sv:568$45'.
+Removing empty process `ct_had_regs.$proc$positive.sv:568$45'.
+Found and cleaned up 1 empty switch in `\ct_had_regs.$proc$positive.sv:544$37'.
+Removing empty process `ct_had_regs.$proc$positive.sv:544$37'.
+Found and cleaned up 1 empty switch in `\ct_had_regs.$proc$positive.sv:506$34'.
+Removing empty process `ct_had_regs.$proc$positive.sv:506$34'.
+Found and cleaned up 2 empty switches in `\ct_had_regs.$proc$positive.sv:485$30'.
+Removing empty process `ct_had_regs.$proc$positive.sv:485$30'.
+Found and cleaned up 2 empty switches in `\ct_had_regs.$proc$positive.sv:473$27'.
+Removing empty process `ct_had_regs.$proc$positive.sv:473$27'.
+Found and cleaned up 2 empty switches in `\ct_had_regs.$proc$positive.sv:462$24'.
+Removing empty process `ct_had_regs.$proc$positive.sv:462$24'.
+Found and cleaned up 3 empty switches in `\ct_had_regs.$proc$positive.sv:448$19'.
+Removing empty process `ct_had_regs.$proc$positive.sv:448$19'.
+Found and cleaned up 1 empty switch in `\ct_had_regs.$proc$positive.sv:434$16'.
+Removing empty process `ct_had_regs.$proc$positive.sv:434$16'.
+Found and cleaned up 1 empty switch in `\ct_had_regs.$proc$positive.sv:420$13'.
+Removing empty process `ct_had_regs.$proc$positive.sv:420$13'.
+Found and cleaned up 1 empty switch in `\ct_had_regs.$proc$positive.sv:411$10'.
+Removing empty process `ct_had_regs.$proc$positive.sv:411$10'.
+Found and cleaned up 1 empty switch in `\ct_had_regs.$proc$positive.sv:402$7'.
+Removing empty process `ct_had_regs.$proc$positive.sv:402$7'.
+Found and cleaned up 1 empty switch in `\ct_had_regs.$proc$positive.sv:393$4'.
+Removing empty process `ct_had_regs.$proc$positive.sv:393$4'.
+Found and cleaned up 1 empty switch in `\ct_had_regs.$proc$positive.sv:384$1'.
+Removing empty process `ct_had_regs.$proc$positive.sv:384$1'.
+Cleaned up 42 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_had_regs.
+<suppressed ~88 debug messages>
+
+3.3. Executing FUTURE pass.
+
+3.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_had_regs.
+
+3.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_had_regs..
+Removed 68 unused cells and 227 unused wires.
+<suppressed ~69 debug messages>
+
+3.6. Executing CHECK pass (checking for obvious problems).
+Checking module ct_had_regs...
+Found and reported 0 problems.
+
+3.7. Executing OPT pass (performing simple optimizations).
+
+3.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_had_regs.
+<suppressed ~1 debug messages>
+
+3.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ct_had_regs'.
+Removed a total of 0 cells.
+
+3.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ct_had_regs..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~44 debug messages>
+
+3.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ct_had_regs.
+Performed a total of 0 changes.
+
+3.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ct_had_regs'.
+Removed a total of 0 cells.
+
+3.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_had_regs..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+3.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_had_regs.
+
+3.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ct_had_regs..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~44 debug messages>
+
+3.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ct_had_regs.
+Performed a total of 0 changes.
+
+3.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ct_had_regs'.
+Removed a total of 0 cells.
+
+3.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_had_regs..
+
+3.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_had_regs.
+
+3.7.14. Finished OPT passes. (There is nothing left to do.)
+
+3.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 36 bits (of 64) from port B of cell ct_had_regs.$and$positive.sv:736$73 ($and).
+Removed top 56 bits (of 64) from port B of cell ct_had_regs.$and$positive.sv:737$74 ($and).
+Removed top 56 bits (of 64) from port B of cell ct_had_regs.$and$positive.sv:738$76 ($and).
+Removed top 56 bits (of 64) from port B of cell ct_had_regs.$and$positive.sv:739$78 ($and).
+Removed top 56 bits (of 64) from port B of cell ct_had_regs.$and$positive.sv:743$86 ($and).
+Removed top 56 bits (of 64) from port B of cell ct_had_regs.$and$positive.sv:744$88 ($and).
+Removed top 32 bits (of 64) from port B of cell ct_had_regs.$and$positive.sv:747$94 ($and).
+Removed top 55 bits (of 64) from port B of cell ct_had_regs.$and$positive.sv:748$96 ($and).
+Removed top 32 bits (of 64) from port B of cell ct_had_regs.$and$positive.sv:749$98 ($and).
+Removed top 43 bits (of 64) from port B of cell ct_had_regs.$and$positive.sv:750$100 ($and).
+Removed top 62 bits (of 64) from port B of cell ct_had_regs.$and$positive.sv:751$102 ($and).
+Removed top 62 bits (of 64) from port B of cell ct_had_regs.$and$positive.sv:754$108 ($and).
+Removed top 62 bits (of 64) from port B of cell ct_had_regs.$and$positive.sv:755$110 ($and).
+Removed top 32 bits (of 64) from port B of cell ct_had_regs.$and$positive.sv:758$116 ($and).
+Removed top 1 bits (of 2) from mux cell ct_had_regs.$procmux$138 ($mux).
+Removed top 1 bits (of 2) from wire ct_had_regs.$procmux$138_Y.
+Removed top 7 bits (of 16) from wire ct_had_regs.csr_reg.
+Removed top 30 bits (of 32) from wire ct_had_regs.event_ie_reg.
+Removed top 30 bits (of 32) from wire ct_had_regs.event_oe_reg.
+Removed top 11 bits (of 32) from wire ct_had_regs.hsr_reg.
+Removed top 4 bits (of 32) from wire ct_had_regs.id_reg.
+
+3.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_had_regs..
+Removed 0 unused cells and 6 unused wires.
+<suppressed ~1 debug messages>
+
+3.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.11. Executing OPT pass (performing simple optimizations).
+
+3.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_had_regs.
+
+3.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ct_had_regs'.
+Removed a total of 0 cells.
+
+3.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_had_regs..
+
+3.11.4. Finished fast OPT passes.
+
+3.12. Printing statistics.
+
+=== ct_had_regs ===
+
+   Number of wires:                288
+   Number of wire bits:           5163
+   Number of public wires:         162
+   Number of public wire bits:    1670
+   Number of ports:                102
+   Number of port bits:           1057
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                178
+     $adff                          44
+     $and                           23
+     $check                          1
+     $dff                            1
+     $logic_and                     17
+     $logic_not                      5
+     $logic_or                       1
+     $mux                           64
+     $or                            22
+
+3.13. Executing CHECK pass (checking for obvious problems).
+Checking module ct_had_regs...
+Found and reported 0 problems.
+
+4. Executing FLATTEN pass (flatten design).
+
+5. Executing ASYNC2SYNC pass.
+Replacing ct_had_regs.$procdff$292 ($adff): ARST=\cpurst_b, D=$0\mbir_idx[1:0], Q=\mbir_idx
+Replacing ct_had_regs.$procdff$297 ($adff): ARST=\cpurst_b, D=$0\pro[0:0], Q=\pro
+Replacing ct_had_regs.$procdff$302 ($adff): ARST=\cpurst_b, D=$0\pm[1:0], Q=\pm
+Replacing ct_had_regs.$procdff$307 ($adff): ARST=\cpurst_b, D=$0\sqa[0:0], Q=\sqa
+Replacing ct_had_regs.$procdff$312 ($adff): ARST=\cpurst_b, D=$0\sqb[0:0], Q=\sqb
+Replacing ct_had_regs.$procdff$317 ($adff): ARST=\cpurst_b, D=$0\frzo[0:0], Q=\frzo
+Replacing ct_had_regs.$procdff$322 ($adff): ARST=\cpurst_b, D=$0\to[0:0], Q=\to
+Replacing ct_had_regs.$procdff$327 ($adff): ARST=\cpurst_b, D=$0\swo[0:0], Q=\swo
+Replacing ct_had_regs.$procdff$332 ($adff): ARST=\cpurst_b, D=$0\mbo[0:0], Q=\mbo
+Replacing ct_had_regs.$procdff$337 ($adff): ARST=\cpurst_b, D=$0\dro[0:0], Q=\dro
+Replacing ct_had_regs.$procdff$342 ($adff): ARST=\cpurst_b, D=$0\adro[0:0], Q=\adro
+Replacing ct_had_regs.$procdff$347 ($adff): ARST=\cpurst_b, D=$0\ps[0:0], Q=\ps
+Replacing ct_had_regs.$procdff$352 ($adff): ARST=\cpurst_b, D=$0\bus_dead[0:0], Q=\bus_dead
+Replacing ct_had_regs.$procdff$357 ($adff): ARST=\cpurst_b, D=$0\exe_dead[0:0], Q=\exe_dead
+Replacing ct_had_regs.$procdff$362 ($adff): ARST=\cpurst_b, D=$0\idu_stall[0:0], Q=\idu_stall
+Replacing ct_had_regs.$procdff$367 ($adff): ARST=\cpurst_b, D=$0\ifu_dead[0:0], Q=\ifu_dead
+Replacing ct_had_regs.$procdff$372 ($adff): ARST=\cpurst_b, D=$0\inst_not_wb[0:0], Q=\inst_not_wb
+Replacing ct_had_regs.$procdff$377 ($adff): ARST=\cpurst_b, D=$0\iq_not_empty[0:0], Q=\iq_not_empty
+Replacing ct_had_regs.$procdff$382 ($adff): ARST=\cpurst_b, D=$0\rob_not_empty[0:0], Q=\rob_not_empty
+Replacing ct_had_regs.$procdff$387 ($adff): ARST=\cpurst_b, D=$0\hcr_adr[0:0], Q=\hcr_adr
+Replacing ct_had_regs.$procdff$392 ($adff): ARST=\cpurst_b, D=$0\hcr_bca[4:0], Q=\hcr_bca
+Replacing ct_had_regs.$procdff$397 ($adff): ARST=\cpurst_b, D=$0\hcr_bcb[4:0], Q=\hcr_bcb
+Replacing ct_had_regs.$procdff$402 ($adff): ARST=\cpurst_b, D=$0\hcr_ddcen[0:0], Q=\hcr_ddcen
+Replacing ct_had_regs.$procdff$407 ($adff): ARST=\cpurst_b, D=$0\hcr_dr[0:0], Q=\hcr_dr
+Replacing ct_had_regs.$procdff$412 ($adff): ARST=\cpurst_b, D=$0\hcr_frzc[0:0], Q=\hcr_frzc
+Replacing ct_had_regs.$procdff$417 ($adff): ARST=\cpurst_b, D=$0\hcr_idre[0:0], Q=\hcr_idre
+Replacing ct_had_regs.$procdff$422 ($adff): ARST=\cpurst_b, D=$0\hcr_nicven[0:0], Q=\hcr_nicven
+Replacing ct_had_regs.$procdff$427 ($adff): ARST=\cpurst_b, D=$0\hcr_rca[0:0], Q=\hcr_rca
+Replacing ct_had_regs.$procdff$432 ($adff): ARST=\cpurst_b, D=$0\hcr_rcb[0:0], Q=\hcr_rcb
+Replacing ct_had_regs.$procdff$437 ($adff): ARST=\cpurst_b, D=$0\hcr_sqc[1:0], Q=\hcr_sqc
+Replacing ct_had_regs.$procdff$442 ($adff): ARST=\cpurst_b, D=$0\hcr_tme[0:0], Q=\hcr_tme
+Replacing ct_had_regs.$procdff$447 ($adff): ARST=\cpurst_b, D=$0\fdb[0:0], Q=\fdb
+Replacing ct_had_regs.$procdff$452 ($adff): ARST=\cpurst_b, D=$0\ffy[0:0], Q=\ffy
+Replacing ct_had_regs.$procdff$457 ($adff): ARST=\cpurst_b, D=$0\ir_reg[31:0], Q=\ir_reg
+Replacing ct_had_regs.$procdff$462 ($adff): ARST=\cpurst_b, D=$0\pc[63:0], Q=\pc
+Replacing ct_had_regs.$procdff$467 ($adff): ARST=\cpurst_b, D=$0\wbbr_reg[63:0], Q=\wbbr_reg
+Replacing ct_had_regs.$procdff$472 ($adff): ARST=\cpurst_b, D=$0\event_ent_ie[0:0], Q=\event_ent_ie
+Replacing ct_had_regs.$procdff$477 ($adff): ARST=\cpurst_b, D=$0\event_exit_ie[0:0], Q=\event_exit_ie
+Replacing ct_had_regs.$procdff$482 ($adff): ARST=\cpurst_b, D=$0\event_ent_oe[0:0], Q=\event_ent_oe
+Replacing ct_had_regs.$procdff$487 ($adff): ARST=\cpurst_b, D=$0\event_exit_oe[0:0], Q=\event_exit_oe
+Replacing ct_had_regs.$procdff$492 ($adff): ARST=\cpurst_b, D=$0\bamb_reg[7:0], Q=\bamb_reg
+Replacing ct_had_regs.$procdff$497 ($adff): ARST=\cpurst_b, D=$0\bama_reg[7:0], Q=\bama_reg
+Replacing ct_had_regs.$procdff$502 ($adff): ARST=\cpurst_b, D=$0\babb_reg[63:0], Q=\babb_reg
+Replacing ct_had_regs.$procdff$507 ($adff): ARST=\cpurst_b, D=$0\baba_reg[63:0], Q=\baba_reg
+
+6. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+7. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_had_regs..
+Removed 2 unused cells and 2 unused wires.
+<suppressed ~3 debug messages>
+
+9. Executing JSON backend.
+
+10. Executing SAT pass (solving SAT problems in the circuit).
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 266 cells to SAT database.
+No constraints for initial state found.
+
+Import proof for assert: 1'1 when 1'1.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 266 cells to SAT database.
+Import proof for assert: 1'1 when 1'1.
+Import show expression: \bkpt_regs_mbca
+Import show expression: \bkpt_regs_mbcb
+Import show expression: \cp0_had_cpuid_0
+Import show expression: \cp0_had_lpmd_b
+Import show expression: \cpuclk
+Import show expression: \cpurst_b
+Import show expression: \ctrl_regs_bkpta_vld
+Import show expression: \ctrl_regs_bkptb_vld
+Import show expression: \ctrl_regs_exit_dbg
+Import show expression: \ctrl_regs_freeze_pcfifo
+Import show expression: \ctrl_regs_set_sqa
+Import show expression: \ctrl_regs_set_sqb
+Import show expression: \ctrl_regs_update_adro
+Import show expression: \ctrl_regs_update_dro
+Import show expression: \ctrl_regs_update_mbo
+Import show expression: \ctrl_regs_update_pro
+Import show expression: \ctrl_regs_update_swo
+Import show expression: \ctrl_regs_update_to
+Import show expression: \dbgfifo_regs_data
+Import show expression: \ddc_regs_daddr
+Import show expression: \ddc_regs_ddata
+Import show expression: \ddc_regs_ffy
+Import show expression: \ddc_regs_ir
+Import show expression: \ddc_regs_update_csr
+Import show expression: \ddc_regs_update_wbbr
+Import show expression: \ddc_regs_wbbr
+Import show expression: \ddc_xx_update_ir
+Import show expression: \idu_had_iq_empty
+Import show expression: \idu_had_pipe_stall
+Import show expression: \idu_had_pipeline_empty
+Import show expression: \idu_had_wb_data
+Import show expression: \idu_had_wb_vld
+Import show expression: \ifu_had_no_inst
+Import show expression: \ifu_had_no_op
+Import show expression: \ifu_had_reset_on
+Import show expression: \ir_xx_baba_reg_sel
+Import show expression: \ir_xx_babb_reg_sel
+Import show expression: \ir_xx_bama_reg_sel
+Import show expression: \ir_xx_bamb_reg_sel
+Import show expression: \ir_xx_csr_reg_sel
+Import show expression: \ir_xx_daddr_reg_sel
+Import show expression: \ir_xx_dbgfifo_reg_sel
+Import show expression: \ir_xx_ddata_reg_sel
+Import show expression: \ir_xx_eventie_reg_sel
+Import show expression: \ir_xx_eventoe_reg_sel
+Import show expression: \ir_xx_hcr_reg_sel
+Import show expression: \ir_xx_hsr_reg_sel
+Import show expression: \ir_xx_id_reg_sel
+Import show expression: \ir_xx_ir_reg_sel
+Import show expression: \ir_xx_mbca_reg_sel
+Import show expression: \ir_xx_mbcb_reg_sel
+Import show expression: \ir_xx_mbir_reg_sel
+Import show expression: \ir_xx_otc_reg_sel
+Import show expression: \ir_xx_pc_reg_sel
+Import show expression: \ir_xx_pcfifo_reg_sel
+Import show expression: \ir_xx_pipefifo_reg_sel
+Import show expression: \ir_xx_pipesel_reg_sel
+Import show expression: \ir_xx_wbbr_reg_sel
+Import show expression: \ir_xx_wdata
+Import show expression: \lsu_had_no_op
+Import show expression: \mmu_xx_mmu_en
+Import show expression: \pcfifo_regs_data
+Import show expression: \pipefifo_regs_data
+Import show expression: \pipesel_regs_data
+Import show expression: \rtu_had_inst_exe_dead
+Import show expression: \rtu_had_inst_not_wb
+Import show expression: \rtu_had_rob_empty
+Import show expression: \rtu_had_xx_dbg_ack_pc
+Import show expression: \rtu_had_xx_pc
+Import show expression: \rtu_yy_xx_dbgon
+Import show expression: \trace_regs_otc
+Import show expression: \x_sm_xx_update_dr_en
+Import show expression: \had_biu_jdb_pm
+Import show expression: \had_idu_wbbr_data
+Import show expression: \had_idu_wbbr_vld
+Import show expression: \had_ifu_ir
+Import show expression: \had_ifu_pc
+Import show expression: \had_yy_xx_bkpta_base
+Import show expression: \had_yy_xx_bkpta_mask
+Import show expression: \had_yy_xx_bkpta_rc
+Import show expression: \had_yy_xx_bkptb_base
+Import show expression: \had_yy_xx_bkptb_mask
+Import show expression: \had_yy_xx_bkptb_rc
+Import show expression: \regs_ctrl_adr
+Import show expression: \regs_ctrl_dr
+Import show expression: \regs_ctrl_fdb
+Import show expression: \regs_ctrl_frzc
+Import show expression: \regs_ctrl_pcfifo_frozen
+Import show expression: \regs_ctrl_pm
+Import show expression: \regs_ctrl_sqa
+Import show expression: \regs_ctrl_sqb
+Import show expression: \regs_ctrl_sqc
+Import show expression: \regs_ctrl_tme
+Import show expression: \regs_event_enter_ie
+Import show expression: \regs_event_enter_oe
+Import show expression: \regs_event_exit_ie
+Import show expression: \regs_event_exit_oe
+Import show expression: \regs_xx_bca
+Import show expression: \regs_xx_bcb
+Import show expression: \regs_xx_ddc_en
+Import show expression: \regs_xx_nirven
+Import show expression: \x_regs_serial_data
+
+Solving problem with 48572 variables and 122201 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+

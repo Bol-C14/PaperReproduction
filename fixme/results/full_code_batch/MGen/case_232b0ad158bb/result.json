@@ -1,0 +1,41 @@
+{
+  "id": "MGen/L1/Text/PIPO",
+  "subset": "MGen",
+  "input_files": [
+    {
+      "name": "pipo_shift.v",
+      "bytes": 2133,
+      "sha256": "88ee60217b666051b1a4c8471b9703fce863a6e26e70dafaf49239fe454f7d93"
+    },
+    {
+      "name": "pipo_shift_tb.v",
+      "bytes": 1189,
+      "sha256": "8cc36c963b9d9a68d23df9962c0fa6d9aec226ce78918f1e3cc519fbcf9e5eb6"
+    }
+  ],
+  "overlays": [
+    {
+      "field": "spec_text",
+      "source": "data/SpeCom/L1/Text/PIPO/pipo_shit_spec.txt",
+      "sha256": "7f9bd5764abafac0efb5b9d562e7e2b3a4d2f8f7b54ca0226dc146705a2d6d14",
+      "reason": "same case name and byte-identical RTL in SpeCom; explicit cross-subset reuse",
+      "fidelity": "structural-input-overlay",
+      "matched_rtl_sha256": "88ee60217b666051b1a4c8471b9703fce863a6e26e70dafaf49239fe454f7d93"
+    }
+  ],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": null,
+  "negative_control_detected": null,
+  "commands": 4,
+  "status": "unknown",
+  "wrapper_mode": "dut_replacement",
+  "reference_source": "pipo_shift.v",
+  "reference_source_sha256": "88ee60217b666051b1a4c8471b9703fce863a6e26e70dafaf49239fe454f7d93",
+  "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+  "resolved_tb_parameters": {},
+  "reference_status": "unknown",
+  "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
+  "seconds": 113.492
+}

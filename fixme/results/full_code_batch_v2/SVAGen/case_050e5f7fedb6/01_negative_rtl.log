@@ -1,0 +1,865 @@
+
+-- Running command `read_verilog -formal -sv negative_rtl.sv; hierarchy -top ct_had_regs; prep -top ct_had_regs; flatten; async2sync; dffunmap; memory_map; opt_clean; chformal -lower; write_json negative_rtl.json; sat -seq 2 -timeout 5 -prove-asserts -verify -show-inputs -show-outputs' --
+
+1. Executing Verilog-2005 frontend: negative_rtl.sv
+Parsing formal SystemVerilog input from `negative_rtl.sv' to AST representation.
+Generating RTLIL representation for module `\ct_had_regs'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \ct_had_regs
+
+2.2. Analyzing design hierarchy..
+Top module:  \ct_had_regs
+Removed 0 unused modules.
+Module ct_had_regs directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \ct_had_regs
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \ct_had_regs
+Removed 0 unused modules.
+Module ct_had_regs directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 4 switch rules as full_case in process $proc$negative_rtl.sv:693$71 in module ct_had_regs.
+Marked 3 switch rules as full_case in process $proc$negative_rtl.sv:678$69 in module ct_had_regs.
+Marked 4 switch rules as full_case in process $proc$negative_rtl.sv:665$64 in module ct_had_regs.
+Marked 3 switch rules as full_case in process $proc$negative_rtl.sv:654$62 in module ct_had_regs.
+Marked 3 switch rules as full_case in process $proc$negative_rtl.sv:643$60 in module ct_had_regs.
+Marked 3 switch rules as full_case in process $proc$negative_rtl.sv:632$58 in module ct_had_regs.
+Marked 3 switch rules as full_case in process $proc$negative_rtl.sv:621$56 in module ct_had_regs.
+Marked 3 switch rules as full_case in process $proc$negative_rtl.sv:610$54 in module ct_had_regs.
+Marked 3 switch rules as full_case in process $proc$negative_rtl.sv:599$52 in module ct_had_regs.
+Marked 3 switch rules as full_case in process $proc$negative_rtl.sv:588$50 in module ct_had_regs.
+Marked 3 switch rules as full_case in process $proc$negative_rtl.sv:577$48 in module ct_had_regs.
+Marked 2 switch rules as full_case in process $proc$negative_rtl.sv:568$46 in module ct_had_regs.
+Marked 1 switch rules as full_case in process $proc$negative_rtl.sv:544$38 in module ct_had_regs.
+Marked 1 switch rules as full_case in process $proc$negative_rtl.sv:506$35 in module ct_had_regs.
+Marked 3 switch rules as full_case in process $proc$negative_rtl.sv:485$31 in module ct_had_regs.
+Marked 3 switch rules as full_case in process $proc$negative_rtl.sv:473$27 in module ct_had_regs.
+Marked 2 switch rules as full_case in process $proc$negative_rtl.sv:462$24 in module ct_had_regs.
+Marked 4 switch rules as full_case in process $proc$negative_rtl.sv:448$19 in module ct_had_regs.
+Marked 1 switch rules as full_case in process $proc$negative_rtl.sv:434$16 in module ct_had_regs.
+Marked 1 switch rules as full_case in process $proc$negative_rtl.sv:420$13 in module ct_had_regs.
+Marked 2 switch rules as full_case in process $proc$negative_rtl.sv:411$10 in module ct_had_regs.
+Marked 2 switch rules as full_case in process $proc$negative_rtl.sv:402$7 in module ct_had_regs.
+Marked 2 switch rules as full_case in process $proc$negative_rtl.sv:393$4 in module ct_had_regs.
+Marked 2 switch rules as full_case in process $proc$negative_rtl.sv:384$1 in module ct_had_regs.
+Removed a total of 0 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 21 redundant assignments.
+Promoted 2 assignments to connections.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \cpurst_b in `\ct_had_regs.$proc$negative_rtl.sv:693$71'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$negative_rtl.sv:678$69'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$negative_rtl.sv:665$64'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$negative_rtl.sv:654$62'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$negative_rtl.sv:643$60'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$negative_rtl.sv:632$58'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$negative_rtl.sv:621$56'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$negative_rtl.sv:610$54'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$negative_rtl.sv:599$52'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$negative_rtl.sv:588$50'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$negative_rtl.sv:577$48'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$negative_rtl.sv:568$46'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$negative_rtl.sv:544$38'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$negative_rtl.sv:506$35'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$negative_rtl.sv:485$31'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$negative_rtl.sv:473$27'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$negative_rtl.sv:462$24'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$negative_rtl.sv:448$19'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$negative_rtl.sv:434$16'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$negative_rtl.sv:420$13'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$negative_rtl.sv:411$10'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$negative_rtl.sv:402$7'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$negative_rtl.sv:393$4'.
+Found async reset \cpurst_b in `\ct_had_regs.$proc$negative_rtl.sv:384$1'.
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~42 debug messages>
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\ct_had_regs.$proc$negative_rtl.sv:763$120'.
+Creating decoders for process `\ct_had_regs.$proc$negative_rtl.sv:759$119'.
+Creating decoders for process `\ct_had_regs.$proc$negative_rtl.sv:693$71'.
+     1/1: $0\mbir_idx[1:0]
+Creating decoders for process `\ct_had_regs.$proc$negative_rtl.sv:678$69'.
+     1/1: $0\pro[0:0]
+Creating decoders for process `\ct_had_regs.$proc$negative_rtl.sv:665$64'.
+     1/1: $0\pm[1:0]
+Creating decoders for process `\ct_had_regs.$proc$negative_rtl.sv:654$62'.
+     1/1: $0\sqa[0:0]
+Creating decoders for process `\ct_had_regs.$proc$negative_rtl.sv:643$60'.
+     1/1: $0\sqb[0:0]
+Creating decoders for process `\ct_had_regs.$proc$negative_rtl.sv:632$58'.
+     1/1: $0\frzo[0:0]
+Creating decoders for process `\ct_had_regs.$proc$negative_rtl.sv:621$56'.
+     1/1: $0\to[0:0]
+Creating decoders for process `\ct_had_regs.$proc$negative_rtl.sv:610$54'.
+     1/1: $0\swo[0:0]
+Creating decoders for process `\ct_had_regs.$proc$negative_rtl.sv:599$52'.
+     1/1: $0\mbo[0:0]
+Creating decoders for process `\ct_had_regs.$proc$negative_rtl.sv:588$50'.
+     1/1: $0\dro[0:0]
+Creating decoders for process `\ct_had_regs.$proc$negative_rtl.sv:577$48'.
+     1/1: $0\adro[0:0]
+Creating decoders for process `\ct_had_regs.$proc$negative_rtl.sv:568$46'.
+     1/1: $0\ps[0:0]
+Creating decoders for process `\ct_had_regs.$proc$negative_rtl.sv:544$38'.
+     1/7: $0\rob_not_empty[0:0]
+     2/7: $0\iq_not_empty[0:0]
+     3/7: $0\inst_not_wb[0:0]
+     4/7: $0\ifu_dead[0:0]
+     5/7: $0\idu_stall[0:0]
+     6/7: $0\exe_dead[0:0]
+     7/7: $0\bus_dead[0:0]
+Creating decoders for process `\ct_had_regs.$proc$negative_rtl.sv:506$35'.
+     1/12: $0\hcr_tme[0:0]
+     2/12: $0\hcr_sqc[1:0]
+     3/12: $0\hcr_rcb[0:0]
+     4/12: $0\hcr_rca[0:0]
+     5/12: $0\hcr_nicven[0:0]
+     6/12: $0\hcr_idre[0:0]
+     7/12: $0\hcr_frzc[0:0]
+     8/12: $0\hcr_dr[0:0]
+     9/12: $0\hcr_ddcen[0:0]
+    10/12: $0\hcr_bcb[4:0]
+    11/12: $0\hcr_bca[4:0]
+    12/12: $0\hcr_adr[0:0]
+Creating decoders for process `\ct_had_regs.$proc$negative_rtl.sv:485$31'.
+     1/2: $0\fdb[0:0]
+     2/2: $0\ffy[0:0]
+Creating decoders for process `\ct_had_regs.$proc$negative_rtl.sv:473$27'.
+     1/1: $0\ir_reg[31:0]
+Creating decoders for process `\ct_had_regs.$proc$negative_rtl.sv:462$24'.
+     1/1: $0\pc[63:0]
+Creating decoders for process `\ct_had_regs.$proc$negative_rtl.sv:448$19'.
+     1/1: $0\wbbr_reg[63:0]
+Creating decoders for process `\ct_had_regs.$proc$negative_rtl.sv:434$16'.
+     1/2: $0\event_exit_ie[0:0]
+     2/2: $0\event_ent_ie[0:0]
+Creating decoders for process `\ct_had_regs.$proc$negative_rtl.sv:420$13'.
+     1/2: $0\event_exit_oe[0:0]
+     2/2: $0\event_ent_oe[0:0]
+Creating decoders for process `\ct_had_regs.$proc$negative_rtl.sv:411$10'.
+     1/1: $0\bamb_reg[7:0]
+Creating decoders for process `\ct_had_regs.$proc$negative_rtl.sv:402$7'.
+     1/1: $0\bama_reg[7:0]
+Creating decoders for process `\ct_had_regs.$proc$negative_rtl.sv:393$4'.
+     1/1: $0\babb_reg[63:0]
+Creating decoders for process `\ct_had_regs.$proc$negative_rtl.sv:384$1'.
+     1/1: $0\baba_reg[63:0]
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\ct_had_regs.\x_regs_serial_data' using process `\ct_had_regs.$proc$negative_rtl.sv:759$119'.
+  created $dff cell `$procdff$288' with positive edge clock.
+Creating register for signal `\ct_had_regs.\mbir_idx' using process `\ct_had_regs.$proc$negative_rtl.sv:693$71'.
+  created $adff cell `$procdff$293' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\pro' using process `\ct_had_regs.$proc$negative_rtl.sv:678$69'.
+  created $adff cell `$procdff$298' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\pm' using process `\ct_had_regs.$proc$negative_rtl.sv:665$64'.
+  created $adff cell `$procdff$303' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\sqa' using process `\ct_had_regs.$proc$negative_rtl.sv:654$62'.
+  created $adff cell `$procdff$308' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\sqb' using process `\ct_had_regs.$proc$negative_rtl.sv:643$60'.
+  created $adff cell `$procdff$313' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\frzo' using process `\ct_had_regs.$proc$negative_rtl.sv:632$58'.
+  created $adff cell `$procdff$318' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\to' using process `\ct_had_regs.$proc$negative_rtl.sv:621$56'.
+  created $adff cell `$procdff$323' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\swo' using process `\ct_had_regs.$proc$negative_rtl.sv:610$54'.
+  created $adff cell `$procdff$328' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\mbo' using process `\ct_had_regs.$proc$negative_rtl.sv:599$52'.
+  created $adff cell `$procdff$333' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\dro' using process `\ct_had_regs.$proc$negative_rtl.sv:588$50'.
+  created $adff cell `$procdff$338' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\adro' using process `\ct_had_regs.$proc$negative_rtl.sv:577$48'.
+  created $adff cell `$procdff$343' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\ps' using process `\ct_had_regs.$proc$negative_rtl.sv:568$46'.
+  created $adff cell `$procdff$348' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\bus_dead' using process `\ct_had_regs.$proc$negative_rtl.sv:544$38'.
+  created $adff cell `$procdff$353' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\exe_dead' using process `\ct_had_regs.$proc$negative_rtl.sv:544$38'.
+  created $adff cell `$procdff$358' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\idu_stall' using process `\ct_had_regs.$proc$negative_rtl.sv:544$38'.
+  created $adff cell `$procdff$363' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\ifu_dead' using process `\ct_had_regs.$proc$negative_rtl.sv:544$38'.
+  created $adff cell `$procdff$368' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\inst_not_wb' using process `\ct_had_regs.$proc$negative_rtl.sv:544$38'.
+  created $adff cell `$procdff$373' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\iq_not_empty' using process `\ct_had_regs.$proc$negative_rtl.sv:544$38'.
+  created $adff cell `$procdff$378' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\rob_not_empty' using process `\ct_had_regs.$proc$negative_rtl.sv:544$38'.
+  created $adff cell `$procdff$383' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\hcr_adr' using process `\ct_had_regs.$proc$negative_rtl.sv:506$35'.
+  created $adff cell `$procdff$388' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\hcr_bca' using process `\ct_had_regs.$proc$negative_rtl.sv:506$35'.
+  created $adff cell `$procdff$393' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\hcr_bcb' using process `\ct_had_regs.$proc$negative_rtl.sv:506$35'.
+  created $adff cell `$procdff$398' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\hcr_ddcen' using process `\ct_had_regs.$proc$negative_rtl.sv:506$35'.
+  created $adff cell `$procdff$403' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\hcr_dr' using process `\ct_had_regs.$proc$negative_rtl.sv:506$35'.
+  created $adff cell `$procdff$408' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\hcr_frzc' using process `\ct_had_regs.$proc$negative_rtl.sv:506$35'.
+  created $adff cell `$procdff$413' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\hcr_idre' using process `\ct_had_regs.$proc$negative_rtl.sv:506$35'.
+  created $adff cell `$procdff$418' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\hcr_nicven' using process `\ct_had_regs.$proc$negative_rtl.sv:506$35'.
+  created $adff cell `$procdff$423' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\hcr_rca' using process `\ct_had_regs.$proc$negative_rtl.sv:506$35'.
+  created $adff cell `$procdff$428' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\hcr_rcb' using process `\ct_had_regs.$proc$negative_rtl.sv:506$35'.
+  created $adff cell `$procdff$433' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\hcr_sqc' using process `\ct_had_regs.$proc$negative_rtl.sv:506$35'.
+  created $adff cell `$procdff$438' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\hcr_tme' using process `\ct_had_regs.$proc$negative_rtl.sv:506$35'.
+  created $adff cell `$procdff$443' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\fdb' using process `\ct_had_regs.$proc$negative_rtl.sv:485$31'.
+  created $adff cell `$procdff$448' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\ffy' using process `\ct_had_regs.$proc$negative_rtl.sv:485$31'.
+  created $adff cell `$procdff$453' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\ir_reg' using process `\ct_had_regs.$proc$negative_rtl.sv:473$27'.
+  created $adff cell `$procdff$458' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\pc' using process `\ct_had_regs.$proc$negative_rtl.sv:462$24'.
+  created $adff cell `$procdff$463' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\wbbr_reg' using process `\ct_had_regs.$proc$negative_rtl.sv:448$19'.
+  created $adff cell `$procdff$468' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\event_ent_ie' using process `\ct_had_regs.$proc$negative_rtl.sv:434$16'.
+  created $adff cell `$procdff$473' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\event_exit_ie' using process `\ct_had_regs.$proc$negative_rtl.sv:434$16'.
+  created $adff cell `$procdff$478' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\event_ent_oe' using process `\ct_had_regs.$proc$negative_rtl.sv:420$13'.
+  created $adff cell `$procdff$483' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\event_exit_oe' using process `\ct_had_regs.$proc$negative_rtl.sv:420$13'.
+  created $adff cell `$procdff$488' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\bamb_reg' using process `\ct_had_regs.$proc$negative_rtl.sv:411$10'.
+  created $adff cell `$procdff$493' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\bama_reg' using process `\ct_had_regs.$proc$negative_rtl.sv:402$7'.
+  created $adff cell `$procdff$498' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\babb_reg' using process `\ct_had_regs.$proc$negative_rtl.sv:393$4'.
+  created $adff cell `$procdff$503' with positive edge clock and positive level reset.
+Creating register for signal `\ct_had_regs.\baba_reg' using process `\ct_had_regs.$proc$negative_rtl.sv:384$1'.
+  created $adff cell `$procdff$508' with positive edge clock and positive level reset.
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `ct_had_regs.$proc$negative_rtl.sv:763$120'.
+Removing empty process `ct_had_regs.$proc$negative_rtl.sv:759$119'.
+Found and cleaned up 3 empty switches in `\ct_had_regs.$proc$negative_rtl.sv:693$71'.
+Removing empty process `ct_had_regs.$proc$negative_rtl.sv:693$71'.
+Found and cleaned up 2 empty switches in `\ct_had_regs.$proc$negative_rtl.sv:678$69'.
+Removing empty process `ct_had_regs.$proc$negative_rtl.sv:678$69'.
+Found and cleaned up 3 empty switches in `\ct_had_regs.$proc$negative_rtl.sv:665$64'.
+Removing empty process `ct_had_regs.$proc$negative_rtl.sv:665$64'.
+Found and cleaned up 2 empty switches in `\ct_had_regs.$proc$negative_rtl.sv:654$62'.
+Removing empty process `ct_had_regs.$proc$negative_rtl.sv:654$62'.
+Found and cleaned up 2 empty switches in `\ct_had_regs.$proc$negative_rtl.sv:643$60'.
+Removing empty process `ct_had_regs.$proc$negative_rtl.sv:643$60'.
+Found and cleaned up 2 empty switches in `\ct_had_regs.$proc$negative_rtl.sv:632$58'.
+Removing empty process `ct_had_regs.$proc$negative_rtl.sv:632$58'.
+Found and cleaned up 2 empty switches in `\ct_had_regs.$proc$negative_rtl.sv:621$56'.
+Removing empty process `ct_had_regs.$proc$negative_rtl.sv:621$56'.
+Found and cleaned up 2 empty switches in `\ct_had_regs.$proc$negative_rtl.sv:610$54'.
+Removing empty process `ct_had_regs.$proc$negative_rtl.sv:610$54'.
+Found and cleaned up 2 empty switches in `\ct_had_regs.$proc$negative_rtl.sv:599$52'.
+Removing empty process `ct_had_regs.$proc$negative_rtl.sv:599$52'.
+Found and cleaned up 2 empty switches in `\ct_had_regs.$proc$negative_rtl.sv:588$50'.
+Removing empty process `ct_had_regs.$proc$negative_rtl.sv:588$50'.
+Found and cleaned up 2 empty switches in `\ct_had_regs.$proc$negative_rtl.sv:577$48'.
+Removing empty process `ct_had_regs.$proc$negative_rtl.sv:577$48'.
+Found and cleaned up 1 empty switch in `\ct_had_regs.$proc$negative_rtl.sv:568$46'.
+Removing empty process `ct_had_regs.$proc$negative_rtl.sv:568$46'.
+Found and cleaned up 1 empty switch in `\ct_had_regs.$proc$negative_rtl.sv:544$38'.
+Removing empty process `ct_had_regs.$proc$negative_rtl.sv:544$38'.
+Found and cleaned up 1 empty switch in `\ct_had_regs.$proc$negative_rtl.sv:506$35'.
+Removing empty process `ct_had_regs.$proc$negative_rtl.sv:506$35'.
+Found and cleaned up 2 empty switches in `\ct_had_regs.$proc$negative_rtl.sv:485$31'.
+Removing empty process `ct_had_regs.$proc$negative_rtl.sv:485$31'.
+Found and cleaned up 2 empty switches in `\ct_had_regs.$proc$negative_rtl.sv:473$27'.
+Removing empty process `ct_had_regs.$proc$negative_rtl.sv:473$27'.
+Found and cleaned up 2 empty switches in `\ct_had_regs.$proc$negative_rtl.sv:462$24'.
+Removing empty process `ct_had_regs.$proc$negative_rtl.sv:462$24'.
+Found and cleaned up 3 empty switches in `\ct_had_regs.$proc$negative_rtl.sv:448$19'.
+Removing empty process `ct_had_regs.$proc$negative_rtl.sv:448$19'.
+Found and cleaned up 1 empty switch in `\ct_had_regs.$proc$negative_rtl.sv:434$16'.
+Removing empty process `ct_had_regs.$proc$negative_rtl.sv:434$16'.
+Found and cleaned up 1 empty switch in `\ct_had_regs.$proc$negative_rtl.sv:420$13'.
+Removing empty process `ct_had_regs.$proc$negative_rtl.sv:420$13'.
+Found and cleaned up 1 empty switch in `\ct_had_regs.$proc$negative_rtl.sv:411$10'.
+Removing empty process `ct_had_regs.$proc$negative_rtl.sv:411$10'.
+Found and cleaned up 1 empty switch in `\ct_had_regs.$proc$negative_rtl.sv:402$7'.
+Removing empty process `ct_had_regs.$proc$negative_rtl.sv:402$7'.
+Found and cleaned up 1 empty switch in `\ct_had_regs.$proc$negative_rtl.sv:393$4'.
+Removing empty process `ct_had_regs.$proc$negative_rtl.sv:393$4'.
+Found and cleaned up 1 empty switch in `\ct_had_regs.$proc$negative_rtl.sv:384$1'.
+Removing empty process `ct_had_regs.$proc$negative_rtl.sv:384$1'.
+Cleaned up 42 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_had_regs.
+<suppressed ~88 debug messages>
+
+3.3. Executing FUTURE pass.
+
+3.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_had_regs.
+
+3.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_had_regs..
+Removed 68 unused cells and 228 unused wires.
+<suppressed ~69 debug messages>
+
+3.6. Executing CHECK pass (checking for obvious problems).
+Checking module ct_had_regs...
+Found and reported 0 problems.
+
+3.7. Executing OPT pass (performing simple optimizations).
+
+3.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_had_regs.
+
+3.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ct_had_regs'.
+Removed a total of 0 cells.
+
+3.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ct_had_regs..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~44 debug messages>
+
+3.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ct_had_regs.
+Performed a total of 0 changes.
+
+3.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ct_had_regs'.
+Removed a total of 0 cells.
+
+3.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_had_regs..
+
+3.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_had_regs.
+
+3.7.8. Finished OPT passes. (There is nothing left to do.)
+
+3.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 36 bits (of 64) from port B of cell ct_had_regs.$and$negative_rtl.sv:736$74 ($and).
+Removed top 56 bits (of 64) from port B of cell ct_had_regs.$and$negative_rtl.sv:737$75 ($and).
+Removed top 56 bits (of 64) from port B of cell ct_had_regs.$and$negative_rtl.sv:738$77 ($and).
+Removed top 56 bits (of 64) from port B of cell ct_had_regs.$and$negative_rtl.sv:739$79 ($and).
+Removed top 56 bits (of 64) from port B of cell ct_had_regs.$and$negative_rtl.sv:743$87 ($and).
+Removed top 56 bits (of 64) from port B of cell ct_had_regs.$and$negative_rtl.sv:744$89 ($and).
+Removed top 32 bits (of 64) from port B of cell ct_had_regs.$and$negative_rtl.sv:747$95 ($and).
+Removed top 55 bits (of 64) from port B of cell ct_had_regs.$and$negative_rtl.sv:748$97 ($and).
+Removed top 32 bits (of 64) from port B of cell ct_had_regs.$and$negative_rtl.sv:749$99 ($and).
+Removed top 43 bits (of 64) from port B of cell ct_had_regs.$and$negative_rtl.sv:750$101 ($and).
+Removed top 62 bits (of 64) from port B of cell ct_had_regs.$and$negative_rtl.sv:751$103 ($and).
+Removed top 62 bits (of 64) from port B of cell ct_had_regs.$and$negative_rtl.sv:754$109 ($and).
+Removed top 62 bits (of 64) from port B of cell ct_had_regs.$and$negative_rtl.sv:755$111 ($and).
+Removed top 32 bits (of 64) from port B of cell ct_had_regs.$and$negative_rtl.sv:758$117 ($and).
+Removed top 1 bits (of 2) from mux cell ct_had_regs.$procmux$139 ($mux).
+Removed top 1 bits (of 2) from wire ct_had_regs.$procmux$139_Y.
+Removed top 7 bits (of 16) from wire ct_had_regs.csr_reg.
+Removed top 30 bits (of 32) from wire ct_had_regs.event_ie_reg.
+Removed top 30 bits (of 32) from wire ct_had_regs.event_oe_reg.
+Removed top 11 bits (of 32) from wire ct_had_regs.hsr_reg.
+Removed top 4 bits (of 32) from wire ct_had_regs.id_reg.
+
+3.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_had_regs..
+Removed 0 unused cells and 6 unused wires.
+<suppressed ~1 debug messages>
+
+3.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.11. Executing OPT pass (performing simple optimizations).
+
+3.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_had_regs.
+
+3.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ct_had_regs'.
+Removed a total of 0 cells.
+
+3.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_had_regs..
+
+3.11.4. Finished fast OPT passes.
+
+3.12. Printing statistics.
+
+=== ct_had_regs ===
+
+   Number of wires:                289
+   Number of wire bits:           5164
+   Number of public wires:         162
+   Number of public wire bits:    1670
+   Number of ports:                102
+   Number of port bits:           1057
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                180
+     $adff                          44
+     $and                           23
+     $check                          1
+     $dff                            1
+     $eq                             1
+     $logic_and                     17
+     $logic_not                      5
+     $logic_or                       1
+     $mux                           64
+     $not                            1
+     $or                            22
+
+3.13. Executing CHECK pass (checking for obvious problems).
+Checking module ct_had_regs...
+Found and reported 0 problems.
+
+4. Executing FLATTEN pass (flatten design).
+
+5. Executing ASYNC2SYNC pass.
+Replacing ct_had_regs.$procdff$293 ($adff): ARST=\cpurst_b, D=$0\mbir_idx[1:0], Q=\mbir_idx
+Replacing ct_had_regs.$procdff$298 ($adff): ARST=\cpurst_b, D=$0\pro[0:0], Q=\pro
+Replacing ct_had_regs.$procdff$303 ($adff): ARST=\cpurst_b, D=$0\pm[1:0], Q=\pm
+Replacing ct_had_regs.$procdff$308 ($adff): ARST=\cpurst_b, D=$0\sqa[0:0], Q=\sqa
+Replacing ct_had_regs.$procdff$313 ($adff): ARST=\cpurst_b, D=$0\sqb[0:0], Q=\sqb
+Replacing ct_had_regs.$procdff$318 ($adff): ARST=\cpurst_b, D=$0\frzo[0:0], Q=\frzo
+Replacing ct_had_regs.$procdff$323 ($adff): ARST=\cpurst_b, D=$0\to[0:0], Q=\to
+Replacing ct_had_regs.$procdff$328 ($adff): ARST=\cpurst_b, D=$0\swo[0:0], Q=\swo
+Replacing ct_had_regs.$procdff$333 ($adff): ARST=\cpurst_b, D=$0\mbo[0:0], Q=\mbo
+Replacing ct_had_regs.$procdff$338 ($adff): ARST=\cpurst_b, D=$0\dro[0:0], Q=\dro
+Replacing ct_had_regs.$procdff$343 ($adff): ARST=\cpurst_b, D=$0\adro[0:0], Q=\adro
+Replacing ct_had_regs.$procdff$348 ($adff): ARST=\cpurst_b, D=$0\ps[0:0], Q=\ps
+Replacing ct_had_regs.$procdff$353 ($adff): ARST=\cpurst_b, D=$0\bus_dead[0:0], Q=\bus_dead
+Replacing ct_had_regs.$procdff$358 ($adff): ARST=\cpurst_b, D=$0\exe_dead[0:0], Q=\exe_dead
+Replacing ct_had_regs.$procdff$363 ($adff): ARST=\cpurst_b, D=$0\idu_stall[0:0], Q=\idu_stall
+Replacing ct_had_regs.$procdff$368 ($adff): ARST=\cpurst_b, D=$0\ifu_dead[0:0], Q=\ifu_dead
+Replacing ct_had_regs.$procdff$373 ($adff): ARST=\cpurst_b, D=$0\inst_not_wb[0:0], Q=\inst_not_wb
+Replacing ct_had_regs.$procdff$378 ($adff): ARST=\cpurst_b, D=$0\iq_not_empty[0:0], Q=\iq_not_empty
+Replacing ct_had_regs.$procdff$383 ($adff): ARST=\cpurst_b, D=$0\rob_not_empty[0:0], Q=\rob_not_empty
+Replacing ct_had_regs.$procdff$388 ($adff): ARST=\cpurst_b, D=$0\hcr_adr[0:0], Q=\hcr_adr
+Replacing ct_had_regs.$procdff$393 ($adff): ARST=\cpurst_b, D=$0\hcr_bca[4:0], Q=\hcr_bca
+Replacing ct_had_regs.$procdff$398 ($adff): ARST=\cpurst_b, D=$0\hcr_bcb[4:0], Q=\hcr_bcb
+Replacing ct_had_regs.$procdff$403 ($adff): ARST=\cpurst_b, D=$0\hcr_ddcen[0:0], Q=\hcr_ddcen
+Replacing ct_had_regs.$procdff$408 ($adff): ARST=\cpurst_b, D=$0\hcr_dr[0:0], Q=\hcr_dr
+Replacing ct_had_regs.$procdff$413 ($adff): ARST=\cpurst_b, D=$0\hcr_frzc[0:0], Q=\hcr_frzc
+Replacing ct_had_regs.$procdff$418 ($adff): ARST=\cpurst_b, D=$0\hcr_idre[0:0], Q=\hcr_idre
+Replacing ct_had_regs.$procdff$423 ($adff): ARST=\cpurst_b, D=$0\hcr_nicven[0:0], Q=\hcr_nicven
+Replacing ct_had_regs.$procdff$428 ($adff): ARST=\cpurst_b, D=$0\hcr_rca[0:0], Q=\hcr_rca
+Replacing ct_had_regs.$procdff$433 ($adff): ARST=\cpurst_b, D=$0\hcr_rcb[0:0], Q=\hcr_rcb
+Replacing ct_had_regs.$procdff$438 ($adff): ARST=\cpurst_b, D=$0\hcr_sqc[1:0], Q=\hcr_sqc
+Replacing ct_had_regs.$procdff$443 ($adff): ARST=\cpurst_b, D=$0\hcr_tme[0:0], Q=\hcr_tme
+Replacing ct_had_regs.$procdff$448 ($adff): ARST=\cpurst_b, D=$0\fdb[0:0], Q=\fdb
+Replacing ct_had_regs.$procdff$453 ($adff): ARST=\cpurst_b, D=$0\ffy[0:0], Q=\ffy
+Replacing ct_had_regs.$procdff$458 ($adff): ARST=\cpurst_b, D=$0\ir_reg[31:0], Q=\ir_reg
+Replacing ct_had_regs.$procdff$463 ($adff): ARST=\cpurst_b, D=$0\pc[63:0], Q=\pc
+Replacing ct_had_regs.$procdff$468 ($adff): ARST=\cpurst_b, D=$0\wbbr_reg[63:0], Q=\wbbr_reg
+Replacing ct_had_regs.$procdff$473 ($adff): ARST=\cpurst_b, D=$0\event_ent_ie[0:0], Q=\event_ent_ie
+Replacing ct_had_regs.$procdff$478 ($adff): ARST=\cpurst_b, D=$0\event_exit_ie[0:0], Q=\event_exit_ie
+Replacing ct_had_regs.$procdff$483 ($adff): ARST=\cpurst_b, D=$0\event_ent_oe[0:0], Q=\event_ent_oe
+Replacing ct_had_regs.$procdff$488 ($adff): ARST=\cpurst_b, D=$0\event_exit_oe[0:0], Q=\event_exit_oe
+Replacing ct_had_regs.$procdff$493 ($adff): ARST=\cpurst_b, D=$0\bamb_reg[7:0], Q=\bamb_reg
+Replacing ct_had_regs.$procdff$498 ($adff): ARST=\cpurst_b, D=$0\bama_reg[7:0], Q=\bama_reg
+Replacing ct_had_regs.$procdff$503 ($adff): ARST=\cpurst_b, D=$0\babb_reg[63:0], Q=\babb_reg
+Replacing ct_had_regs.$procdff$508 ($adff): ARST=\cpurst_b, D=$0\baba_reg[63:0], Q=\baba_reg
+
+6. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+7. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_had_regs..
+Removed 2 unused cells and 2 unused wires.
+<suppressed ~3 debug messages>
+
+9. Executing JSON backend.
+
+10. Executing SAT pass (solving SAT problems in the circuit).
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 268 cells to SAT database.
+No constraints for initial state found.
+
+Import proof for assert: $eq$negative_rtl.sv:763$122_Y when 1'1.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 268 cells to SAT database.
+Import proof for assert: $eq$negative_rtl.sv:763$122_Y when 1'1.
+Import show expression: \bkpt_regs_mbca
+Import show expression: \bkpt_regs_mbcb
+Import show expression: \cp0_had_cpuid_0
+Import show expression: \cp0_had_lpmd_b
+Import show expression: \cpuclk
+Import show expression: \cpurst_b
+Import show expression: \ctrl_regs_bkpta_vld
+Import show expression: \ctrl_regs_bkptb_vld
+Import show expression: \ctrl_regs_exit_dbg
+Import show expression: \ctrl_regs_freeze_pcfifo
+Import show expression: \ctrl_regs_set_sqa
+Import show expression: \ctrl_regs_set_sqb
+Import show expression: \ctrl_regs_update_adro
+Import show expression: \ctrl_regs_update_dro
+Import show expression: \ctrl_regs_update_mbo
+Import show expression: \ctrl_regs_update_pro
+Import show expression: \ctrl_regs_update_swo
+Import show expression: \ctrl_regs_update_to
+Import show expression: \dbgfifo_regs_data
+Import show expression: \ddc_regs_daddr
+Import show expression: \ddc_regs_ddata
+Import show expression: \ddc_regs_ffy
+Import show expression: \ddc_regs_ir
+Import show expression: \ddc_regs_update_csr
+Import show expression: \ddc_regs_update_wbbr
+Import show expression: \ddc_regs_wbbr
+Import show expression: \ddc_xx_update_ir
+Import show expression: \idu_had_iq_empty
+Import show expression: \idu_had_pipe_stall
+Import show expression: \idu_had_pipeline_empty
+Import show expression: \idu_had_wb_data
+Import show expression: \idu_had_wb_vld
+Import show expression: \ifu_had_no_inst
+Import show expression: \ifu_had_no_op
+Import show expression: \ifu_had_reset_on
+Import show expression: \ir_xx_baba_reg_sel
+Import show expression: \ir_xx_babb_reg_sel
+Import show expression: \ir_xx_bama_reg_sel
+Import show expression: \ir_xx_bamb_reg_sel
+Import show expression: \ir_xx_csr_reg_sel
+Import show expression: \ir_xx_daddr_reg_sel
+Import show expression: \ir_xx_dbgfifo_reg_sel
+Import show expression: \ir_xx_ddata_reg_sel
+Import show expression: \ir_xx_eventie_reg_sel
+Import show expression: \ir_xx_eventoe_reg_sel
+Import show expression: \ir_xx_hcr_reg_sel
+Import show expression: \ir_xx_hsr_reg_sel
+Import show expression: \ir_xx_id_reg_sel
+Import show expression: \ir_xx_ir_reg_sel
+Import show expression: \ir_xx_mbca_reg_sel
+Import show expression: \ir_xx_mbcb_reg_sel
+Import show expression: \ir_xx_mbir_reg_sel
+Import show expression: \ir_xx_otc_reg_sel
+Import show expression: \ir_xx_pc_reg_sel
+Import show expression: \ir_xx_pcfifo_reg_sel
+Import show expression: \ir_xx_pipefifo_reg_sel
+Import show expression: \ir_xx_pipesel_reg_sel
+Import show expression: \ir_xx_wbbr_reg_sel
+Import show expression: \ir_xx_wdata
+Import show expression: \lsu_had_no_op
+Import show expression: \mmu_xx_mmu_en
+Import show expression: \pcfifo_regs_data
+Import show expression: \pipefifo_regs_data
+Import show expression: \pipesel_regs_data
+Import show expression: \rtu_had_inst_exe_dead
+Import show expression: \rtu_had_inst_not_wb
+Import show expression: \rtu_had_rob_empty
+Import show expression: \rtu_had_xx_dbg_ack_pc
+Import show expression: \rtu_had_xx_pc
+Import show expression: \rtu_yy_xx_dbgon
+Import show expression: \trace_regs_otc
+Import show expression: \x_sm_xx_update_dr_en
+Import show expression: \had_biu_jdb_pm
+Import show expression: \had_idu_wbbr_data
+Import show expression: \had_idu_wbbr_vld
+Import show expression: \had_ifu_ir
+Import show expression: \had_ifu_pc
+Import show expression: \had_yy_xx_bkpta_base
+Import show expression: \had_yy_xx_bkpta_mask
+Import show expression: \had_yy_xx_bkpta_rc
+Import show expression: \had_yy_xx_bkptb_base
+Import show expression: \had_yy_xx_bkptb_mask
+Import show expression: \had_yy_xx_bkptb_rc
+Import show expression: \regs_ctrl_adr
+Import show expression: \regs_ctrl_dr
+Import show expression: \regs_ctrl_fdb
+Import show expression: \regs_ctrl_frzc
+Import show expression: \regs_ctrl_pcfifo_frozen
+Import show expression: \regs_ctrl_pm
+Import show expression: \regs_ctrl_sqa
+Import show expression: \regs_ctrl_sqb
+Import show expression: \regs_ctrl_sqc
+Import show expression: \regs_ctrl_tme
+Import show expression: \regs_event_enter_ie
+Import show expression: \regs_event_enter_oe
+Import show expression: \regs_event_exit_ie
+Import show expression: \regs_event_exit_oe
+Import show expression: \regs_xx_bca
+Import show expression: \regs_xx_bcb
+Import show expression: \regs_xx_ddc_en
+Import show expression: \regs_xx_nirven
+Import show expression: \x_regs_serial_data
+
+Solving problem with 49031 variables and 123506 clauses..
+SAT proof finished - model found: FAIL!
+
+   ______                   ___       ___       _ _            _ _ 
+  (_____ \                 / __)     / __)     (_) |          | | |
+   _____) )___ ___   ___ _| |__    _| |__ _____ _| | _____  __| | |
+  |  ____/ ___) _ \ / _ (_   __)  (_   __|____ | | || ___ |/ _  |_|
+  | |   | |  | |_| | |_| || |       | |  / ___ | | || ____( (_| |_ 
+  |_|   |_|   \___/ \___/ |_|       |_|  \_____|_|\_)_____)\____|_|
+
+
+  Time Signal Name                                      Dec       Hex                                                                 Bin
+  ---- ---------------------------------------- ----------- --------- -------------------------------------------------------------------
+  init $auto$async2sync.cc:228:execute$515                0         0                                                                  00
+  init $auto$async2sync.cc:228:execute$517                0         0                                                                   0
+  init $auto$async2sync.cc:228:execute$519                0         0                                                                  00
+  init $auto$async2sync.cc:228:execute$521                0         0                                                                   0
+  init $auto$async2sync.cc:228:execute$523                0         0                                                                   0
+  init $auto$async2sync.cc:228:execute$525                0         0                                                                   0
+  init $auto$async2sync.cc:228:execute$527                0         0                                                                   0
+  init $auto$async2sync.cc:228:execute$529                0         0                                                                   0
+  init $auto$async2sync.cc:228:execute$531                0         0                                                                   0
+  init $auto$async2sync.cc:228:execute$533                0         0                                                                   0
+  init $auto$async2sync.cc:228:execute$535                0         0                                                                   0
+  init $auto$async2sync.cc:228:execute$537                0         0                                                                   0
+  init $auto$async2sync.cc:228:execute$539                0         0                                                                   0
+  init $auto$async2sync.cc:228:execute$541                0         0                                                                   0
+  init $auto$async2sync.cc:228:execute$543                0         0                                                                   0
+  init $auto$async2sync.cc:228:execute$545                0         0                                                                   0
+  init $auto$async2sync.cc:228:execute$547                0         0                                                                   0
+  init $auto$async2sync.cc:228:execute$549                0         0                                                                   0
+  init $auto$async2sync.cc:228:execute$551                0         0                                                                   0
+  init $auto$async2sync.cc:228:execute$553                0         0                                                                   0
+  init $auto$async2sync.cc:228:execute$555                0         0                                                               00000
+  init $auto$async2sync.cc:228:execute$557                0         0                                                               00000
+  init $auto$async2sync.cc:228:execute$559                0         0                                                                   0
+  init $auto$async2sync.cc:228:execute$561                0         0                                                                   0
+  init $auto$async2sync.cc:228:execute$563                0         0                                                                   0
+  init $auto$async2sync.cc:228:execute$565                0         0                                                                   0
+  init $auto$async2sync.cc:228:execute$567                0         0                                                                   0
+  init $auto$async2sync.cc:228:execute$569                0         0                                                                   0
+  init $auto$async2sync.cc:228:execute$571                0         0                                                                   0
+  init $auto$async2sync.cc:228:execute$573                0         0                                                                  00
+  init $auto$async2sync.cc:228:execute$575                0         0                                                                   0
+  init $auto$async2sync.cc:228:execute$577                0         0                                                                   0
+  init $auto$async2sync.cc:228:execute$579                0         0                                                                   0
+  init $auto$async2sync.cc:228:execute$581                0         0                                    00000000000000000000000000000000
+  init $auto$async2sync.cc:228:execute$583               --        --    0000000000000000000000000000000000000000000000000000000000000000
+  init $auto$async2sync.cc:228:execute$585               --        --    0000000000000000000000000000000000000000000000000000000000000000
+  init $auto$async2sync.cc:228:execute$587                0         0                                                                   0
+  init $auto$async2sync.cc:228:execute$589                0         0                                                                   0
+  init $auto$async2sync.cc:228:execute$591                0         0                                                                   0
+  init $auto$async2sync.cc:228:execute$593                0         0                                                                   0
+  init $auto$async2sync.cc:228:execute$595                0         0                                                            00000000
+  init $auto$async2sync.cc:228:execute$597                0         0                                                            00000000
+  init $auto$async2sync.cc:228:execute$599               --        --    0000000000000000000000000000000000000000000000000000000000000000
+  init $auto$async2sync.cc:228:execute$601               --        --    0000000000000000000000000000000000000000000000000000000000000000
+  init \x_regs_serial_data                               --        --    0000000000000000000000000000000000000000000000000000000000000000
+  ---- ---------------------------------------- ----------- --------- -------------------------------------------------------------------
+     1 \bkpt_regs_mbca                                    0         0                                                            00000000
+     1 \bkpt_regs_mbcb                                    0         0                                                            00000000
+     1 \cp0_had_cpuid_0                                   0         0                                    00000000000000000000000000000000
+     1 \cp0_had_lpmd_b                                    3         3                                                                  11
+     1 \cpuclk                                            0         0                                                                   0
+     1 \cpurst_b                                          1         1                                                                   1
+     1 \ctrl_regs_bkpta_vld                               0         0                                                                   0
+     1 \ctrl_regs_bkptb_vld                               0         0                                                                   0
+     1 \ctrl_regs_exit_dbg                                0         0                                                                   0
+     1 \ctrl_regs_freeze_pcfifo                           0         0                                                                   0
+     1 \ctrl_regs_set_sqa                                 0         0                                                                   0
+     1 \ctrl_regs_set_sqb                                 0         0                                                                   0
+     1 \ctrl_regs_update_adro                             0         0                                                                   0
+     1 \ctrl_regs_update_dro                              0         0                                                                   0
+     1 \ctrl_regs_update_mbo                              0         0                                                                   0
+     1 \ctrl_regs_update_pro                              0         0                                                                   0
+     1 \ctrl_regs_update_swo                              0         0                                                                   0
+     1 \ctrl_regs_update_to                               0         0                                                                   0
+     1 \dbgfifo_regs_data                                --        --    0000000000000000000000000000000000000000000000000000000000000000
+     1 \ddc_regs_daddr                                   --        --    0000000000000000000000000000000000000000000000000000000000000000
+     1 \ddc_regs_ddata                                   --        --    0000000000000000000000000000000000000000000000000000000000000000
+     1 \ddc_regs_ffy                                      0         0                                                                   0
+     1 \ddc_regs_ir                                       0         0                                    00000000000000000000000000000000
+     1 \ddc_regs_update_csr                               0         0                                                                   0
+     1 \ddc_regs_update_wbbr                              0         0                                                                   0
+     1 \ddc_regs_wbbr                                    --        --    0000000000000000000000000000000000000000000000000000000000000000
+     1 \ddc_xx_update_ir                                  0         0                                                                   0
+     1 \had_biu_jdb_pm                                    0         0                                                                  00
+     1 \had_idu_wbbr_data                                --        --    0000000000000000000000000000000000000000000000000000000000000000
+     1 \had_idu_wbbr_vld                                  0         0                                                                   0
+     1 \had_ifu_ir                                       -1  ffffffff                                    11111111111111111111111111111111
+     1 \had_ifu_pc                                       --        --                             000000000000000000000000000000000000000
+     1 \had_yy_xx_bkpta_base                             --        --                            0000000000000000000000000000000000000000
+     1 \had_yy_xx_bkpta_mask                              0         0                                                            00000000
+     1 \had_yy_xx_bkpta_rc                                0         0                                                                   0
+     1 \had_yy_xx_bkptb_base                             --        --                            0000000000000000000000000000000000000000
+     1 \had_yy_xx_bkptb_mask                              0         0                                                            00000000
+     1 \had_yy_xx_bkptb_rc                                0         0                                                                   0
+     1 \idu_had_iq_empty                                  1         1                                                                   1
+     1 \idu_had_pipe_stall                                0         0                                                                   0
+     1 \idu_had_pipeline_empty                            0         0                                                                   0
+     1 \idu_had_wb_data                                  --        --    0000000000000000000000000000000000000000000000000000000000000000
+     1 \idu_had_wb_vld                                    0         0                                                                   0
+     1 \ifu_had_no_inst                                   0         0                                                                   0
+     1 \ifu_had_no_op                                     1         1                                                                   1
+     1 \ifu_had_reset_on                                  0         0                                                                   0
+     1 \ir_xx_baba_reg_sel                                0         0                                                                   0
+     1 \ir_xx_babb_reg_sel                                0         0                                                                   0
+     1 \ir_xx_bama_reg_sel                                0         0                                                                   0
+     1 \ir_xx_bamb_reg_sel                                0         0                                                                   0
+     1 \ir_xx_csr_reg_sel                                 0         0                                                                   0
+     1 \ir_xx_daddr_reg_sel                               0         0                                                                   0
+     1 \ir_xx_dbgfifo_reg_sel                             0         0                                                                   0
+     1 \ir_xx_ddata_reg_sel                               0         0                                                                   0
+     1 \ir_xx_eventie_reg_sel                             0         0                                                                   0
+     1 \ir_xx_eventoe_reg_sel                             0         0                                                                   0
+     1 \ir_xx_hcr_reg_sel                                 0         0                                                                   0
+     1 \ir_xx_hsr_reg_sel                                 0         0                                                                   0
+     1 \ir_xx_id_reg_sel                                  0         0                                                                   0
+     1 \ir_xx_ir_reg_sel                                  0         0                                                                   0
+     1 \ir_xx_mbca_reg_sel                                0         0                                                                   0
+     1 \ir_xx_mbcb_reg_sel                                0         0                                                                   0
+     1 \ir_xx_mbir_reg_sel                                0         0                                                                   0
+     1 \ir_xx_otc_reg_sel                                 0         0                                                                   0
+     1 \ir_xx_pc_reg_sel                                  0         0                                                                   0
+     1 \ir_xx_pcfifo_reg_sel                              0         0                                                                   0
+     1 \ir_xx_pipefifo_reg_sel                            0         0                                                                   0
+     1 \ir_xx_pipesel_reg_sel                             0         0                                                                   0
+     1 \ir_xx_wbbr_reg_sel                                0         0                                                                   0
+     1 \ir_xx_wdata                                      --        --    0000000000000000000000000000000000000000000000000000000000000000
+     1 \lsu_had_no_op                                     1         1                                                                   1
+     1 \mmu_xx_mmu_en                                     0         0                                                                   0
+     1 \pcfifo_regs_data                                 --        --    0000000000000000000000000000000000000000000000000000000000000000
+     1 \pipefifo_regs_data                               --        --    0000000000000000000000000000000000000000000000000000000000000000
+     1 \pipesel_regs_data                                 0         0                                    00000000000000000000000000000000
+     1 \regs_ctrl_adr                                     0         0                                                                   0
+     1 \regs_ctrl_dr                                      0         0                                                                   0
+     1 \regs_ctrl_fdb                                     0         0                                                                   0
+     1 \regs_ctrl_frzc                                    0         0                                                                   0
+     1 \regs_ctrl_pcfifo_frozen                           0         0                                                                   0
+     1 \regs_ctrl_pm                                      0         0                                                                  00
+     1 \regs_ctrl_sqa                                     0         0                                                                   0
+     1 \regs_ctrl_sqb                                     0         0                                                                   0
+     1 \regs_ctrl_sqc                                     0         0                                                                  00
+     1 \regs_ctrl_tme                                     0         0                                                                   0
+     1 \regs_event_enter_ie                               0         0                                                                   0
+     1 \regs_event_enter_oe                               0         0                                                                   0
+     1 \regs_event_exit_ie                                0         0                                                                   0
+     1 \regs_event_exit_oe                                0         0                                                                   0
+     1 \regs_xx_bca                                       0         0                                                               00000
+     1 \regs_xx_bcb                                       0         0                                                               00000
+     1 \regs_xx_ddc_en                                    0         0                                                                   0
+     1 \regs_xx_nirven                                    0         0                                                                   0
+     1 \rtu_had_inst_exe_dead                             0         0                                                                   0
+     1 \rtu_had_inst_not_wb                               0         0                                                                   0
+     1 \rtu_had_rob_empty                                 1         1                                                                   1
+     1 \rtu_had_xx_dbg_ack_pc                             0         0                                                                   0
+     1 \rtu_had_xx_pc                                    --        --                             000000000000000000000000000000000000000
+     1 \rtu_yy_xx_dbgon                                   0         0                                                                   0
+     1 \trace_regs_otc                                    0         0                                                            00000000
+     1 \x_regs_serial_data                               --        --    0000000000000000000000000000000000000000000000000000000000000000
+     1 \x_sm_xx_update_dr_en                              0         0                                                                   0
+  ---- ---------------------------------------- ----------- --------- -------------------------------------------------------------------
+     2 \bkpt_regs_mbca                                    0         0                                                            00000000
+     2 \bkpt_regs_mbcb                                    0         0                                                            00000000
+     2 \cp0_had_cpuid_0                                   0         0                                    00000000000000000000000000000000
+     2 \cp0_had_lpmd_b                                    3         3                                                                  11
+     2 \cpuclk                                            0         0                                                                   0
+     2 \cpurst_b                                          1         1                                                                   1
+     2 \ctrl_regs_bkpta_vld                               0         0                                                                   0
+     2 \ctrl_regs_bkptb_vld                               0         0                                                                   0
+     2 \ctrl_regs_exit_dbg                                0         0                                                                   0
+     2 \ctrl_regs_freeze_pcfifo                           0         0                                                                   0
+     2 \ctrl_regs_set_sqa                                 0         0                                                                   0
+     2 \ctrl_regs_set_sqb                                 0         0                                                                   0
+     2 \ctrl_regs_update_adro                             0         0                                                                   0
+     2 \ctrl_regs_update_dro                              0         0                                                                   0
+     2 \ctrl_regs_update_mbo                              0         0                                                                   0
+     2 \ctrl_regs_update_pro                              0         0                                                                   0
+     2 \ctrl_regs_update_swo                              0         0                                                                   0
+     2 \ctrl_regs_update_to                               0         0                                                                   0
+     2 \dbgfifo_regs_data                                --        --    0000000000000000000000000000000000000000000000000000000000000000
+     2 \ddc_regs_daddr                                   --        --    0000000000000000000000000000000000000000000000000000000000000000
+     2 \ddc_regs_ddata                                   --        --    0000000000000000000000000000000000000000000000000000000000000000
+     2 \ddc_regs_ffy                                      0         0                                                                   0
+     2 \ddc_regs_ir                                       0         0                                    00000000000000000000000000000000
+     2 \ddc_regs_update_csr                               0         0                                                                   0
+     2 \ddc_regs_update_wbbr                              0         0                                                                   0
+     2 \ddc_regs_wbbr                                    --        --    0000000000000000000000000000000000000000000000000000000000000000
+     2 \ddc_xx_update_ir                                  0         0                                                                   0
+     2 \had_biu_jdb_pm                                    0         0                                                                  00
+     2 \had_idu_wbbr_data                                --        --    0000000000000000000000000000000000000000000000000000000000000000
+     2 \had_idu_wbbr_vld                                  0         0                                                                   0
+     2 \had_ifu_ir                                       -1  ffffffff                                    11111111111111111111111111111111
+     2 \had_ifu_pc                                       --        --                             000000000000000000000000000000000000000
+     2 \had_yy_xx_bkpta_base                             --        --                            0000000000000000000000000000000000000000
+     2 \had_yy_xx_bkpta_mask                              0         0                                                            00000000
+     2 \had_yy_xx_bkpta_rc                                0         0                                                                   0
+     2 \had_yy_xx_bkptb_base                             --        --                            0000000000000000000000000000000000000000
+     2 \had_yy_xx_bkptb_mask                              0         0                                                            00000000
+     2 \had_yy_xx_bkptb_rc                                0         0                                                                   0
+     2 \idu_had_iq_empty                                  1         1                                                                   1
+     2 \idu_had_pipe_stall                                0         0                                                                   0
+     2 \idu_had_pipeline_empty                            0         0                                                                   0
+     2 \idu_had_wb_data                                  --        --    0000000000000000000000000000000000000000000000000000000000000000
+     2 \idu_had_wb_vld                                    0         0                                                                   0
+     2 \ifu_had_no_inst                                   0         0                                                                   0
+     2 \ifu_had_no_op                                     1         1                                                                   1
+     2 \ifu_had_reset_on                                  0         0                                                                   0
+     2 \ir_xx_baba_reg_sel                                0         0                                                                   0
+     2 \ir_xx_babb_reg_sel                                0         0                                                                   0
+     2 \ir_xx_bama_reg_sel                                0         0                                                                   0
+     2 \ir_xx_bamb_reg_sel                                0         0                                                                   0
+     2 \ir_xx_csr_reg_sel                                 0         0                                                                   0
+     2 \ir_xx_daddr_reg_sel                               0         0                                                                   0
+     2 \ir_xx_dbgfifo_reg_sel                             0         0                                                                   0
+     2 \ir_xx_ddata_reg_sel                               0         0                                                                   0
+     2 \ir_xx_eventie_reg_sel                             0         0                                                                   0
+     2 \ir_xx_eventoe_reg_sel                             0         0                                                                   0
+     2 \ir_xx_hcr_reg_sel                                 0         0                                                                   0
+     2 \ir_xx_hsr_reg_sel                                 0         0                                                                   0
+     2 \ir_xx_id_reg_sel                                  0         0                                                                   0
+     2 \ir_xx_ir_reg_sel                                  0         0                                                                   0
+     2 \ir_xx_mbca_reg_sel                                0         0                                                                   0
+     2 \ir_xx_mbcb_reg_sel                                0         0                                                                   0
+     2 \ir_xx_mbir_reg_sel                                0         0                                                                   0
+     2 \ir_xx_otc_reg_sel                                 0         0                                                                   0
+     2 \ir_xx_pc_reg_sel                                  0         0                                                                   0
+     2 \ir_xx_pcfifo_reg_sel                              0         0                                                                   0
+     2 \ir_xx_pipefifo_reg_sel                            0         0                                                                   0
+     2 \ir_xx_pipesel_reg_sel                             0         0                                                                   0
+     2 \ir_xx_wbbr_reg_sel                                0         0                                                                   0
+     2 \ir_xx_wdata                                      --        --    0000000000000000000000000000000000000000000000000000000000000000
+     2 \lsu_had_no_op                                     1         1                                                                   1
+     2 \mmu_xx_mmu_en                                     0         0                                                                   0
+     2 \pcfifo_regs_data                                 --        --    0000000000000000000000000000000000000000000000000000000000000000
+     2 \pipefifo_regs_data                               --        --    0000000000000000000000000000000000000000000000000000000000000000
+     2 \pipesel_regs_data                                 0         0                                    00000000000000000000000000000000
+     2 \regs_ctrl_adr                                     0         0                                                                   0
+     2 \regs_ctrl_dr                                      0         0                                                                   0
+     2 \regs_ctrl_fdb                                     0         0                                                                   0
+     2 \regs_ctrl_frzc                                    0         0                                                                   0
+     2 \regs_ctrl_pcfifo_frozen                           0         0                                                                   0
+     2 \regs_ctrl_pm                                      0         0                                                                  00
+     2 \regs_ctrl_sqa                                     0         0                                                                   0
+     2 \regs_ctrl_sqb                                     0         0                                                                   0
+     2 \regs_ctrl_sqc    ERROR: Called with -verify and proof did fail!

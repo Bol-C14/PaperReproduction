@@ -1,0 +1,80 @@
+`timescale 1ns/1ps
+module calibration_tb;
+reg clk;
+reg rst_n;
+reg ena;
+reg t1s_sel;
+reg prefix_sel;
+reg suffix_sel;
+reg calc_sel;
+reg [1:0] TrailingOnes;
+reg [4:0] TotalCoeff;
+reg [15:0] rbsp;
+reg [3:0] i;
+wire [8:0] level_0;
+wire [8:0] ref_level_0;
+wire [8:0] level_1;
+wire [8:0] ref_level_1;
+wire [8:0] level_2;
+wire [8:0] ref_level_2;
+wire [8:0] level_3;
+wire [8:0] ref_level_3;
+wire [8:0] level_4;
+wire [8:0] ref_level_4;
+wire [8:0] level_5;
+wire [8:0] ref_level_5;
+wire [8:0] level_6;
+wire [8:0] ref_level_6;
+wire [8:0] level_7;
+wire [8:0] ref_level_7;
+wire [8:0] level_8;
+wire [8:0] ref_level_8;
+wire [8:0] level_9;
+wire [8:0] ref_level_9;
+wire [8:0] level_10;
+wire [8:0] ref_level_10;
+wire [8:0] level_11;
+wire [8:0] ref_level_11;
+wire [8:0] level_12;
+wire [8:0] ref_level_12;
+wire [8:0] level_13;
+wire [8:0] ref_level_13;
+wire [8:0] level_14;
+wire [8:0] ref_level_14;
+wire [8:0] level_15;
+wire [8:0] ref_level_15;
+wire [4:0] len_comb;
+wire [4:0] ref_len_comb;
+integer seed=13579; integer i; integer checks=0;integer failures=0;integer unknowns=0;
+cavlc_read_levels dut(.clk(clk), .rst_n(rst_n), .ena(ena), .t1s_sel(t1s_sel), .prefix_sel(prefix_sel), .suffix_sel(suffix_sel), .calc_sel(calc_sel), .TrailingOnes(TrailingOnes), .TotalCoeff(TotalCoeff), .rbsp(rbsp), .i(i), .level_0(level_0), .level_1(level_1), .level_2(level_2), .level_3(level_3), .level_4(level_4), .level_5(level_5), .level_6(level_6), .level_7(level_7), .level_8(level_8), .level_9(level_9), .level_10(level_10), .level_11(level_11), .level_12(level_12), .level_13(level_13), .level_14(level_14), .level_15(level_15), .len_comb(len_comb));
+oracle_cavlc_read_levels golden(.clk(clk), .rst_n(rst_n), .ena(ena), .t1s_sel(t1s_sel), .prefix_sel(prefix_sel), .suffix_sel(suffix_sel), .calc_sel(calc_sel), .TrailingOnes(TrailingOnes), .TotalCoeff(TotalCoeff), .rbsp(rbsp), .i(i), .level_0(ref_level_0), .level_1(ref_level_1), .level_2(ref_level_2), .level_3(ref_level_3), .level_4(ref_level_4), .level_5(ref_level_5), .level_6(ref_level_6), .level_7(ref_level_7), .level_8(ref_level_8), .level_9(ref_level_9), .level_10(ref_level_10), .level_11(ref_level_11), .level_12(ref_level_12), .level_13(ref_level_13), .level_14(ref_level_14), .level_15(ref_level_15), .len_comb(ref_len_comb));
+initial begin
+clk = 0;
+rst_n = 0;
+ena = 0;
+t1s_sel = 0;
+prefix_sel = 0;
+suffix_sel = 0;
+calc_sel = 0;
+TrailingOnes = 0;
+TotalCoeff = 0;
+rbsp = 0;
+i = 0;
+#2;
+rst_n = 1;
+for(i=0;i<64;i=i+1) begin
+ena = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+t1s_sel = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+prefix_sel = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+suffix_sel = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+calc_sel = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+TrailingOnes = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+TotalCoeff = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+rbsp = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+i = {$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed),$random(seed)};
+#2; clk=1; #2;
+if ((^{ref_level_0,ref_level_1,ref_level_2,ref_level_3,ref_level_4,ref_level_5,ref_level_6,ref_level_7,ref_level_8,ref_level_9,ref_level_10,ref_level_11,ref_level_12,ref_level_13,ref_level_14,ref_level_15,ref_len_comb}) === 1'bx || (^{level_0,level_1,level_2,level_3,level_4,level_5,level_6,level_7,level_8,level_9,level_10,level_11,level_12,level_13,level_14,level_15,len_comb}) === 1'bx) unknowns=unknowns+1; else begin checks=checks+1; if ({level_0,level_1,level_2,level_3,level_4,level_5,level_6,level_7,level_8,level_9,level_10,level_11,level_12,level_13,level_14,level_15,len_comb} !== {ref_level_0,ref_level_1,ref_level_2,ref_level_3,ref_level_4,ref_level_5,ref_level_6,ref_level_7,ref_level_8,ref_level_9,ref_level_10,ref_level_11,ref_level_12,ref_level_13,ref_level_14,ref_level_15,ref_len_comb}) failures=failures+1; end
+clk=0;
+end
+$display("CALIBRATION checks=%0d failures=%0d unknown=%0d",checks,failures,unknowns); $finish; end
+endmodule

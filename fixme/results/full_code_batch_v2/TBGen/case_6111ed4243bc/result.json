@@ -1,0 +1,40 @@
+{
+  "id": "TBGen/L2/Text/encoder",
+  "subset": "TBGen",
+  "input_files": [
+    {
+      "name": "encoder.v",
+      "bytes": 3124,
+      "sha256": "d96812d9810c75c580b21b3567e5cafcf0af4607c404a70937a8296b002cd77c"
+    },
+    {
+      "name": "encoder_spec.txt",
+      "bytes": 6898,
+      "sha256": "d7172649a2d219e2c4028f922dbd6a3505ff20f599a57e473bc2589cd3966d9b"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": true,
+  "negative_control_detected": true,
+  "commands": 5,
+  "status": "pass",
+  "stimulus_contract": {
+    "seed": 13579,
+    "cycles": 64,
+    "clock": "clk",
+    "reset_polarities": {
+      "rst": 1
+    },
+    "unknown_handling": "any observed unknown prevents pass",
+    "oracle": "renamed copy of supplied RTL; self-consistency/calibration only"
+  },
+  "observed_checks": 64,
+  "observed_unknown": 0,
+  "reference_status": "pass",
+  "negative_status": "fail",
+  "reason": "reference/checker positive and perturbed-checker negative executed",
+  "seconds": 0.109
+}

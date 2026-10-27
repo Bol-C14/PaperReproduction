@@ -1,0 +1,303 @@
+
+-- Running command `read_verilog -formal -sv constant_control.sv; hierarchy -top eth_rxcounters; prep -top eth_rxcounters; flatten; async2sync; dffunmap; memory_map; opt_clean; chformal -lower; write_json constant_control.json; sat -seq 2 -timeout 5 -prove-asserts -verify -show-inputs -show-outputs' --
+
+1. Executing Verilog-2005 frontend: constant_control.sv
+Parsing formal SystemVerilog input from `constant_control.sv' to AST representation.
+Generating RTLIL representation for module `\eth_rxcounters'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \eth_rxcounters
+
+2.2. Analyzing design hierarchy..
+Top module:  \eth_rxcounters
+Removed 0 unused modules.
+Module eth_rxcounters directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \eth_rxcounters
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \eth_rxcounters
+Removed 0 unused modules.
+Module eth_rxcounters directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 3 switch rules as full_case in process $proc$constant_control.sv:95$51 in module eth_rxcounters.
+Marked 2 switch rules as full_case in process $proc$constant_control.sv:81$47 in module eth_rxcounters.
+Marked 2 switch rules as full_case in process $proc$constant_control.sv:52$19 in module eth_rxcounters.
+Removed a total of 0 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 1 assignment to connection.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \Reset in `\eth_rxcounters.$proc$constant_control.sv:95$51'.
+Found async reset \Reset in `\eth_rxcounters.$proc$constant_control.sv:81$47'.
+Found async reset \Reset in `\eth_rxcounters.$proc$constant_control.sv:52$19'.
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~7 debug messages>
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\eth_rxcounters.$proc$constant_control.sv:111$57'.
+Creating decoders for process `\eth_rxcounters.$proc$constant_control.sv:95$51'.
+     1/1: $0\DlyCrcCnt[3:0]
+Creating decoders for process `\eth_rxcounters.$proc$constant_control.sv:81$47'.
+     1/1: $0\IFGCounter[4:0]
+Creating decoders for process `\eth_rxcounters.$proc$constant_control.sv:52$19'.
+     1/1: $0\ByteCnt[15:0]
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\eth_rxcounters.\DlyCrcCnt' using process `\eth_rxcounters.$proc$constant_control.sv:95$51'.
+  created $adff cell `$procdff$81' with positive edge clock and positive level reset.
+Creating register for signal `\eth_rxcounters.\IFGCounter' using process `\eth_rxcounters.$proc$constant_control.sv:81$47'.
+  created $adff cell `$procdff$84' with positive edge clock and positive level reset.
+Creating register for signal `\eth_rxcounters.\ByteCnt' using process `\eth_rxcounters.$proc$constant_control.sv:52$19'.
+  created $adff cell `$procdff$87' with positive edge clock and positive level reset.
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `eth_rxcounters.$proc$constant_control.sv:111$57'.
+Found and cleaned up 3 empty switches in `\eth_rxcounters.$proc$constant_control.sv:95$51'.
+Removing empty process `eth_rxcounters.$proc$constant_control.sv:95$51'.
+Found and cleaned up 2 empty switches in `\eth_rxcounters.$proc$constant_control.sv:81$47'.
+Removing empty process `eth_rxcounters.$proc$constant_control.sv:81$47'.
+Found and cleaned up 2 empty switches in `\eth_rxcounters.$proc$constant_control.sv:52$19'.
+Removing empty process `eth_rxcounters.$proc$constant_control.sv:52$19'.
+Cleaned up 7 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module eth_rxcounters.
+<suppressed ~5 debug messages>
+
+3.3. Executing FUTURE pass.
+
+3.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module eth_rxcounters.
+
+3.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \eth_rxcounters..
+Removed 0 unused cells and 34 unused wires.
+<suppressed ~1 debug messages>
+
+3.6. Executing CHECK pass (checking for obvious problems).
+Checking module eth_rxcounters...
+Found and reported 0 problems.
+
+3.7. Executing OPT pass (performing simple optimizations).
+
+3.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module eth_rxcounters.
+
+3.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\eth_rxcounters'.
+<suppressed ~6 debug messages>
+Removed a total of 2 cells.
+
+3.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \eth_rxcounters..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+3.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \eth_rxcounters.
+Performed a total of 0 changes.
+
+3.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\eth_rxcounters'.
+Removed a total of 0 cells.
+
+3.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \eth_rxcounters..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+3.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module eth_rxcounters.
+
+3.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \eth_rxcounters..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~4 debug messages>
+
+3.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \eth_rxcounters.
+Performed a total of 0 changes.
+
+3.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\eth_rxcounters'.
+Removed a total of 0 cells.
+
+3.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \eth_rxcounters..
+
+3.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module eth_rxcounters.
+
+3.7.14. Finished OPT passes. (There is nothing left to do.)
+
+3.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 15 bits (of 16) from port B of cell eth_rxcounters.$add$constant_control.sv:62$20 ($add).
+Removed top 13 bits (of 16) from port B of cell eth_rxcounters.$add$constant_control.sv:65$21 ($add).
+Removed top 15 bits (of 16) from port B of cell eth_rxcounters.$eq$constant_control.sv:68$24 ($eq).
+Removed top 14 bits (of 16) from port B of cell eth_rxcounters.$eq$constant_control.sv:69$25 ($eq).
+Removed top 14 bits (of 16) from port B of cell eth_rxcounters.$eq$constant_control.sv:70$26 ($eq).
+Removed top 13 bits (of 16) from port B of cell eth_rxcounters.$eq$constant_control.sv:71$27 ($eq).
+Removed top 13 bits (of 16) from port B of cell eth_rxcounters.$eq$constant_control.sv:72$28 ($eq).
+Removed top 13 bits (of 16) from port B of cell eth_rxcounters.$eq$constant_control.sv:73$29 ($eq).
+Removed top 13 bits (of 16) from port B of cell eth_rxcounters.$eq$constant_control.sv:74$30 ($eq).
+Removed top 14 bits (of 16) from port B of cell eth_rxcounters.$gt$constant_control.sv:75$31 ($gt).
+Removed top 13 bits (of 16) from port B of cell eth_rxcounters.$lt$constant_control.sv:76$32 ($lt).
+Removed top 4 bits (of 5) from port B of cell eth_rxcounters.$add$constant_control.sv:91$48 ($add).
+Removed top 3 bits (of 4) from port B of cell eth_rxcounters.$add$constant_control.sv:108$56 ($add).
+
+3.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \eth_rxcounters..
+
+3.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.11. Executing OPT pass (performing simple optimizations).
+
+3.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module eth_rxcounters.
+
+3.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\eth_rxcounters'.
+Removed a total of 0 cells.
+
+3.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \eth_rxcounters..
+
+3.11.4. Finished fast OPT passes.
+
+3.12. Printing statistics.
+
+=== eth_rxcounters ===
+
+   Number of wires:                 75
+   Number of wire bits:            212
+   Number of public wires:          36
+   Number of public wire bits:     104
+   Number of ports:                 28
+   Number of port bits:             62
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 62
+     $add                            4
+     $adff                           3
+     $and                           15
+     $check                          1
+     $eq                            11
+     $gt                             1
+     $logic_not                      1
+     $lt                             1
+     $mux                            8
+     $not                            7
+     $or                             9
+     $reduce_or                      1
+
+3.13. Executing CHECK pass (checking for obvious problems).
+Checking module eth_rxcounters...
+Found and reported 0 problems.
+
+4. Executing FLATTEN pass (flatten design).
+
+5. Executing ASYNC2SYNC pass.
+Replacing eth_rxcounters.$procdff$81 ($adff): ARST=\Reset, D=$0\DlyCrcCnt[3:0], Q=\DlyCrcCnt
+Replacing eth_rxcounters.$procdff$84 ($adff): ARST=\Reset, D=$0\IFGCounter[4:0], Q=\IFGCounter
+Replacing eth_rxcounters.$procdff$87 ($adff): ARST=\Reset, D=$0\ByteCnt[15:0], Q=\ByteCnt
+
+6. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+7. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \eth_rxcounters..
+Removed 2 unused cells and 2 unused wires.
+<suppressed ~3 debug messages>
+
+9. Executing JSON backend.
+
+10. Executing SAT pass (solving SAT problems in the circuit).
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 68 cells to SAT database.
+No constraints for initial state found.
+
+Import proof for assert: 1'1 when 1'1.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 68 cells to SAT database.
+Import proof for assert: 1'1 when 1'1.
+Import show expression: \DlyCrcEn
+Import show expression: \HugEn
+Import show expression: \MRxClk
+Import show expression: \MRxDEqD
+Import show expression: \MRxDV
+Import show expression: \MaxFL
+Import show expression: \Reset
+Import show expression: \StateData
+Import show expression: \StateDrop
+Import show expression: \StateIdle
+Import show expression: \StatePreamble
+Import show expression: \StateSFD
+Import show expression: \Transmitting
+Import show expression: \r_IFG
+Import show expression: \ByteCntEq0
+Import show expression: \ByteCntEq1
+Import show expression: \ByteCntEq2
+Import show expression: \ByteCntEq3
+Import show expression: \ByteCntEq4
+Import show expression: \ByteCntEq5
+Import show expression: \ByteCntEq6
+Import show expression: \ByteCntEq7
+Import show expression: \ByteCntGreat2
+Import show expression: \ByteCntMaxFrame
+Import show expression: \ByteCntOut
+Import show expression: \ByteCntSmall7
+Import show expression: \DlyCrcCnt
+Import show expression: \IFGCounterEq24
+
+Solving problem with 3355 variables and 9225 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+

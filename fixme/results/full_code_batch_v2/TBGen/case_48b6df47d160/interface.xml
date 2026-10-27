@@ -1,0 +1,583 @@
+<?xml version="1.0" ?>
+<!-- DESCRIPTION: Verilator output: XML representation of netlist -->
+<verilator_xml>
+  <files>
+    <file id="d" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std.sv" language="1800-2023"/>
+    <file id="c" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std_waiver.vlt" language="1800-2023"/>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_48b6df47d160/flexible_lvds_tx.v" language="1800-2023"/>
+    <file id="a" filename="&lt;built-in&gt;" language="1800-2023"/>
+    <file id="b" filename="&lt;command-line&gt;" language="1800-2023"/>
+  </files>
+  <module_files>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_48b6df47d160/flexible_lvds_tx.v" language="1800-2023"/>
+  </module_files>
+  <cells>
+    <cell loc="e,3,8,3,24" name="flexible_lvds_tx" submodname="flexible_lvds_tx" hier="flexible_lvds_tx"/>
+  </cells>
+  <netlist>
+    <module loc="e,3,8,3,24" name="flexible_lvds_tx" origName="flexible_lvds_tx" topModule="1">
+      <var loc="e,16,34,16,39" name="tx_in" dtype_id="1" dir="input" pinIndex="1" vartype="logic" origName="tx_in"/>
+      <var loc="e,17,11,17,21" name="tx_fastclk" dtype_id="2" dir="input" pinIndex="2" vartype="logic" origName="tx_fastclk"/>
+      <var loc="e,18,11,18,21" name="tx_slowclk" dtype_id="2" dir="input" pinIndex="3" vartype="logic" origName="tx_slowclk"/>
+      <var loc="e,19,11,19,20" name="tx_regclk" dtype_id="2" dir="input" pinIndex="4" vartype="logic" origName="tx_regclk"/>
+      <var loc="e,20,11,20,20" name="tx_locked" dtype_id="2" dir="input" pinIndex="5" vartype="logic" origName="tx_locked"/>
+      <var loc="e,21,39,21,45" name="tx_out" dtype_id="3" dir="output" pinIndex="6" vartype="logic" origName="tx_out"/>
+      <var loc="e,11,15,11,33" name="number_of_channels" dtype_id="4" vartype="logic" origName="number_of_channels" param="true">
+        <const loc="e,11,36,11,37" name="32&apos;sh1" dtype_id="4"/>
+      </var>
+      <var loc="e,12,15,12,37" name="deserialization_factor" dtype_id="4" vartype="logic" origName="deserialization_factor" param="true">
+        <const loc="e,12,40,12,41" name="32&apos;sh4" dtype_id="4"/>
+      </var>
+      <var loc="e,13,15,13,31" name="registered_input" dtype_id="5" vartype="logic" origName="registered_input" param="true">
+        <const loc="e,13,34,13,38" name="16&apos;h4f4e" dtype_id="5"/>
+      </var>
+      <var loc="e,14,15,14,29" name="REGISTER_WIDTH" dtype_id="4" vartype="logic" origName="REGISTER_WIDTH" param="true">
+        <const loc="e,14,54,14,55" name="32&apos;h4" dtype_id="4"/>
+      </var>
+      <var loc="e,15,15,15,27" name="DOUBLE_DESER" dtype_id="4" vartype="logic" origName="DOUBLE_DESER" param="true">
+        <const loc="e,15,52,15,53" name="32&apos;h8" dtype_id="4"/>
+      </var>
+      <var loc="e,22,37,22,43" name="tx_reg" dtype_id="1" vartype="logic" origName="tx_reg"/>
+      <var loc="e,23,37,23,44" name="tx_reg2" dtype_id="6" vartype="logic" origName="tx_reg2"/>
+      <var loc="e,24,37,24,49" name="tx_shift_reg" dtype_id="1" vartype="logic" origName="tx_shift_reg"/>
+      <var loc="e,25,37,25,50" name="tx_shift_reg2" dtype_id="6" vartype="logic" origName="tx_shift_reg2"/>
+      <var loc="e,26,32,26,40" name="h_sync_a" dtype_id="1" vartype="logic" origName="h_sync_a"/>
+      <var loc="e,27,36,27,46" name="sync_b_reg" dtype_id="6" vartype="logic" origName="sync_b_reg"/>
+      <var loc="e,28,36,28,45" name="dataout_h" dtype_id="3" vartype="logic" origName="dataout_h"/>
+      <var loc="e,29,36,29,45" name="dataout_l" dtype_id="3" vartype="logic" origName="dataout_l"/>
+      <var loc="e,30,36,30,47" name="dataout_tmp" dtype_id="3" vartype="logic" origName="dataout_tmp"/>
+      <var loc="e,31,36,31,47" name="tx_ddio_out" dtype_id="3" vartype="logic" origName="tx_ddio_out"/>
+      <var loc="e,34,13,34,15" name="i1" dtype_id="7" vartype="integer" origName="i1"/>
+      <var loc="e,35,13,35,15" name="i2" dtype_id="7" vartype="integer" origName="i2"/>
+      <var loc="e,36,13,36,15" name="i3" dtype_id="7" vartype="integer" origName="i3"/>
+      <var loc="e,37,13,37,14" name="x" dtype_id="7" vartype="integer" origName="x"/>
+      <var loc="e,38,13,38,15" name="x2" dtype_id="7" vartype="integer" origName="x2"/>
+      <var loc="e,39,13,39,20" name="loadcnt" dtype_id="7" vartype="integer" origName="loadcnt"/>
+      <initial loc="e,40,5,40,12">
+        <begin loc="e,41,13,41,27" name="INITIALIZATION">
+          <assign loc="e,42,16,42,17" dtype_id="1">
+            <const loc="e,42,33,42,34" name="4&apos;h0" dtype_id="1"/>
+            <varref loc="e,42,9,42,15" name="tx_reg" dtype_id="1"/>
+          </assign>
+          <assign loc="e,43,17,43,18" dtype_id="6">
+            <const loc="e,43,38,43,39" name="8&apos;h0" dtype_id="6"/>
+            <varref loc="e,43,9,43,16" name="tx_reg2" dtype_id="6"/>
+          </assign>
+          <assign loc="e,44,22,44,23" dtype_id="1">
+            <const loc="e,44,39,44,40" name="4&apos;h0" dtype_id="1"/>
+            <varref loc="e,44,9,44,21" name="tx_shift_reg" dtype_id="1"/>
+          </assign>
+          <assign loc="e,45,23,45,24" dtype_id="6">
+            <const loc="e,45,44,45,45" name="8&apos;h0" dtype_id="6"/>
+            <varref loc="e,45,9,45,22" name="tx_shift_reg2" dtype_id="6"/>
+          </assign>
+          <assign loc="e,46,19,46,20" dtype_id="3">
+            <const loc="e,46,40,46,41" name="1&apos;h0" dtype_id="2"/>
+            <varref loc="e,46,9,46,18" name="dataout_h" dtype_id="3"/>
+          </assign>
+          <assign loc="e,47,19,47,20" dtype_id="3">
+            <const loc="e,47,40,47,41" name="1&apos;h0" dtype_id="2"/>
+            <varref loc="e,47,9,47,18" name="dataout_l" dtype_id="3"/>
+          </assign>
+          <assign loc="e,48,21,48,22" dtype_id="3">
+            <const loc="e,48,42,48,43" name="1&apos;h0" dtype_id="2"/>
+            <varref loc="e,48,9,48,20" name="dataout_tmp" dtype_id="3"/>
+          </assign>
+          <assign loc="e,49,21,49,22" dtype_id="3">
+            <const loc="e,49,42,49,43" name="1&apos;h0" dtype_id="2"/>
+            <varref loc="e,49,9,49,20" name="tx_ddio_out" dtype_id="3"/>
+          </assign>
+          <assign loc="e,50,18,50,19" dtype_id="1">
+            <const loc="e,50,35,50,36" name="4&apos;h0" dtype_id="1"/>
+            <varref loc="e,50,9,50,17" name="h_sync_a" dtype_id="1"/>
+          </assign>
+          <assign loc="e,51,20,51,21" dtype_id="6">
+            <const loc="e,51,41,51,42" name="8&apos;h0" dtype_id="6"/>
+            <varref loc="e,51,9,51,19" name="sync_b_reg" dtype_id="6"/>
+          </assign>
+          <assign loc="e,52,17,52,18" dtype_id="7">
+            <const loc="e,52,19,52,20" name="32&apos;sh0" dtype_id="4"/>
+            <varref loc="e,52,9,52,16" name="loadcnt" dtype_id="7"/>
+          </assign>
+        </begin>
+      </initial>
+      <always loc="e,54,5,54,11">
+        <sentree loc="e,54,12,54,13">
+          <senitem loc="e,54,15,54,22" edgeType="POS">
+            <varref loc="e,54,23,54,33" name="tx_fastclk" dtype_id="2"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,55,13,55,25" name="DDIO_OUT_POS">
+          <begin loc="e,57,9,57,14">
+            <begin loc="e,58,13,58,16">
+              <assign loc="e,58,21,58,22" dtype_id="7">
+                <const loc="e,58,23,58,24" name="32&apos;sh0" dtype_id="4"/>
+                <varref loc="e,58,18,58,20" name="i1" dtype_id="7"/>
+              </assign>
+              <while loc="e,58,13,58,16">
+                <begin>
+                </begin>
+                <begin>
+                  <gts loc="e,58,30,58,31" dtype_id="2">
+                    <const loc="e,58,32,58,50" name="32&apos;sh1" dtype_id="4"/>
+                    <varref loc="e,58,27,58,29" name="i1" dtype_id="7"/>
+                  </gts>
+                </begin>
+                <begin>
+                  <begin loc="e,59,13,59,18">
+                    <assigndly loc="e,60,31,60,33" dtype_id="2">
+                      <sel loc="e,60,46,60,47" dtype_id="2">
+                        <varref loc="e,60,34,60,46" name="tx_shift_reg" dtype_id="1"/>
+                        <sub loc="e,60,76,60,77" dtype_id="8">
+                          <sel loc="e,60,76,60,77" dtype_id="9">
+                            <muls loc="e,60,53,60,54" dtype_id="4">
+                              <const loc="e,60,54,60,76" name="32&apos;sh4" dtype_id="4"/>
+                              <add loc="e,60,50,60,51" dtype_id="4">
+                                <const loc="e,60,51,60,52" name="32&apos;sh1" dtype_id="4"/>
+                                <varref loc="e,60,48,60,50" name="i1" dtype_id="7"/>
+                              </add>
+                            </muls>
+                            <const loc="e,60,76,60,77" name="32&apos;h0" dtype_id="10"/>
+                            <const loc="e,60,76,60,77" name="32&apos;h2" dtype_id="10"/>
+                          </sel>
+                          <const loc="e,60,76,60,77" name="2&apos;h1" dtype_id="9"/>
+                        </sub>
+                        <const loc="e,60,46,60,47" name="32&apos;h1" dtype_id="10"/>
+                      </sel>
+                      <sel loc="e,60,26,60,27" dtype_id="2">
+                        <varref loc="e,60,17,60,26" name="dataout_h" dtype_id="3"/>
+                        <sel loc="e,60,27,60,29" dtype_id="11">
+                          <varref loc="e,60,27,60,29" name="i1" dtype_id="7"/>
+                          <const loc="e,60,27,60,29" name="32&apos;h0" dtype_id="10"/>
+                          <const loc="e,60,27,60,29" name="32&apos;h1" dtype_id="10"/>
+                        </sel>
+                        <const loc="e,60,26,60,27" name="32&apos;h1" dtype_id="10"/>
+                      </sel>
+                    </assigndly>
+                    <assigndly loc="e,61,31,61,33" dtype_id="2">
+                      <sel loc="e,61,46,61,47" dtype_id="2">
+                        <varref loc="e,61,34,61,46" name="tx_shift_reg" dtype_id="1"/>
+                        <sub loc="e,61,76,61,77" dtype_id="8">
+                          <sel loc="e,61,76,61,77" dtype_id="9">
+                            <muls loc="e,61,53,61,54" dtype_id="4">
+                              <const loc="e,61,54,61,76" name="32&apos;sh4" dtype_id="4"/>
+                              <add loc="e,61,50,61,51" dtype_id="4">
+                                <const loc="e,61,51,61,52" name="32&apos;sh1" dtype_id="4"/>
+                                <varref loc="e,61,48,61,50" name="i1" dtype_id="7"/>
+                              </add>
+                            </muls>
+                            <const loc="e,61,76,61,77" name="32&apos;h0" dtype_id="10"/>
+                            <const loc="e,61,76,61,77" name="32&apos;h2" dtype_id="10"/>
+                          </sel>
+                          <const loc="e,61,76,61,77" name="2&apos;h2" dtype_id="9"/>
+                        </sub>
+                        <const loc="e,61,46,61,47" name="32&apos;h1" dtype_id="10"/>
+                      </sel>
+                      <sel loc="e,61,26,61,27" dtype_id="2">
+                        <varref loc="e,61,17,61,26" name="dataout_l" dtype_id="3"/>
+                        <sel loc="e,61,27,61,29" dtype_id="11">
+                          <varref loc="e,61,27,61,29" name="i1" dtype_id="7"/>
+                          <const loc="e,61,27,61,29" name="32&apos;h0" dtype_id="10"/>
+                          <const loc="e,61,27,61,29" name="32&apos;h1" dtype_id="10"/>
+                        </sel>
+                        <const loc="e,61,26,61,27" name="32&apos;h1" dtype_id="10"/>
+                      </sel>
+                    </assigndly>
+                    <assigndly loc="e,62,33,62,35" dtype_id="2">
+                      <sel loc="e,62,48,62,49" dtype_id="2">
+                        <varref loc="e,62,36,62,48" name="tx_shift_reg" dtype_id="1"/>
+                        <sub loc="e,62,78,62,79" dtype_id="8">
+                          <sel loc="e,62,78,62,79" dtype_id="9">
+                            <muls loc="e,62,55,62,56" dtype_id="4">
+                              <const loc="e,62,56,62,78" name="32&apos;sh4" dtype_id="4"/>
+                              <add loc="e,62,52,62,53" dtype_id="4">
+                                <const loc="e,62,53,62,54" name="32&apos;sh1" dtype_id="4"/>
+                                <varref loc="e,62,50,62,52" name="i1" dtype_id="7"/>
+                              </add>
+                            </muls>
+                            <const loc="e,62,78,62,79" name="32&apos;h0" dtype_id="10"/>
+                            <const loc="e,62,78,62,79" name="32&apos;h2" dtype_id="10"/>
+                          </sel>
+                          <const loc="e,62,78,62,79" name="2&apos;h1" dtype_id="9"/>
+                        </sub>
+                        <const loc="e,62,48,62,49" name="32&apos;h1" dtype_id="10"/>
+                      </sel>
+                      <sel loc="e,62,28,62,29" dtype_id="2">
+                        <varref loc="e,62,17,62,28" name="dataout_tmp" dtype_id="3"/>
+                        <sel loc="e,62,29,62,31" dtype_id="11">
+                          <varref loc="e,62,29,62,31" name="i1" dtype_id="7"/>
+                          <const loc="e,62,29,62,31" name="32&apos;h0" dtype_id="10"/>
+                          <const loc="e,62,29,62,31" name="32&apos;h1" dtype_id="10"/>
+                        </sel>
+                        <const loc="e,62,28,62,29" name="32&apos;h1" dtype_id="10"/>
+                      </sel>
+                    </assigndly>
+                  </begin>
+                </begin>
+                <begin>
+                  <assign loc="e,58,55,58,56" dtype_id="7">
+                    <add loc="e,58,60,58,61" dtype_id="7">
+                      <const loc="e,58,61,58,62" name="32&apos;sh1" dtype_id="4"/>
+                      <varref loc="e,58,57,58,59" name="i1" dtype_id="7"/>
+                    </add>
+                    <varref loc="e,58,52,58,54" name="i1" dtype_id="7"/>
+                  </assign>
+                </begin>
+              </while>
+            </begin>
+          </begin>
+        </begin>
+      </always>
+      <always loc="e,75,5,75,11">
+        <sentree loc="e,75,12,75,13">
+          <senitem loc="e,75,15,75,22" edgeType="NEG">
+            <varref loc="e,75,23,75,33" name="tx_fastclk" dtype_id="2"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,76,13,76,25" name="DDIO_OUT_NEG">
+          <assigndly loc="e,77,21,77,23" dtype_id="3">
+            <varref loc="e,77,24,77,33" name="dataout_l" dtype_id="3"/>
+            <varref loc="e,77,9,77,20" name="dataout_tmp" dtype_id="3"/>
+          </assigndly>
+        </begin>
+      </always>
+      <always loc="e,79,5,79,11">
+        <sentree loc="e,79,12,79,13">
+          <senitem loc="e,79,15,79,22" edgeType="POS">
+            <varref loc="e,79,23,79,33" name="tx_fastclk" dtype_id="2"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,80,14,80,22" name="SHIFTREG">
+          <begin loc="e,81,9,81,14">
+            <begin loc="e,83,13,83,18">
+              <assigndly loc="e,84,25,84,27" dtype_id="7">
+                <moddivs loc="e,84,42,84,43" dtype_id="7">
+                  <add loc="e,84,37,84,38" dtype_id="7">
+                    <const loc="e,84,39,84,40" name="32&apos;sh1" dtype_id="4"/>
+                    <varref loc="e,84,29,84,36" name="loadcnt" dtype_id="7"/>
+                  </add>
+                  <const loc="e,84,67,84,68" name="32&apos;h2" dtype_id="7"/>
+                </moddivs>
+                <varref loc="e,84,17,84,24" name="loadcnt" dtype_id="7"/>
+              </assigndly>
+              <if loc="e,85,17,85,19">
+                <eq loc="e,85,28,85,30" dtype_id="2">
+                  <const loc="e,85,31,85,32" name="32&apos;sh0" dtype_id="4"/>
+                  <varref loc="e,85,20,85,27" name="loadcnt" dtype_id="7"/>
+                </eq>
+                <begin>
+                  <assigndly loc="e,86,34,86,36" dtype_id="1">
+                    <varref loc="e,86,37,86,46" name="tx_reg" dtype_id="1"/>
+                    <varref loc="e,86,21,86,33" name="tx_shift_reg" dtype_id="1"/>
+                  </assigndly>
+                </begin>
+                <begin>
+                  <begin loc="e,88,17,88,22">
+                    <begin loc="e,89,21,89,24">
+                      <assign loc="e,89,28,89,29" dtype_id="7">
+                        <const loc="e,89,30,89,31" name="32&apos;sh0" dtype_id="4"/>
+                        <varref loc="e,89,26,89,28" name="i2" dtype_id="7"/>
+                      </assign>
+                      <while loc="e,89,21,89,24">
+                        <begin>
+                        </begin>
+                        <begin>
+                          <gts loc="e,89,36,89,37" dtype_id="2">
+                            <const loc="e,89,38,89,56" name="32&apos;sh1" dtype_id="4"/>
+                            <varref loc="e,89,33,89,35" name="i2" dtype_id="7"/>
+                          </gts>
+                        </begin>
+                        <begin>
+                          <begin loc="e,90,21,90,26">
+                            <begin loc="e,91,25,91,28">
+                              <assign loc="e,91,31,91,32" dtype_id="7">
+                                <const loc="e,91,54,91,55" name="32&apos;h3" dtype_id="7"/>
+                                <varref loc="e,91,30,91,31" name="x" dtype_id="7"/>
+                              </assign>
+                              <while loc="e,91,25,91,28">
+                                <begin>
+                                </begin>
+                                <begin>
+                                  <lts loc="e,91,60,91,61" dtype_id="2">
+                                    <const loc="e,91,61,91,62" name="32&apos;sh1" dtype_id="4"/>
+                                    <varref loc="e,91,58,91,59" name="x" dtype_id="7"/>
+                                  </lts>
+                                </begin>
+                                <begin>
+                                  <assigndly loc="e,92,77,92,79" dtype_id="2">
+                                    <sel loc="e,93,46,93,47" dtype_id="2">
+                                      <varref loc="e,93,33,93,45" name="tx_shift_reg" dtype_id="1"/>
+                                      <add loc="e,93,51,93,52" dtype_id="8">
+                                        <sub loc="e,93,48,93,49" dtype_id="9">
+                                          <sel loc="e,93,51,93,52" dtype_id="9">
+                                            <varref loc="e,93,47,93,48" name="x" dtype_id="7"/>
+                                            <const loc="e,93,51,93,52" name="32&apos;h0" dtype_id="10"/>
+                                            <const loc="e,93,51,93,52" name="32&apos;h2" dtype_id="10"/>
+                                          </sel>
+                                          <const loc="e,93,51,93,52" name="2&apos;h2" dtype_id="9"/>
+                                        </sub>
+                                        <sel loc="e,93,51,93,52" dtype_id="9">
+                                          <muls loc="e,93,57,93,58" dtype_id="4">
+                                            <const loc="e,93,59,93,81" name="32&apos;sh4" dtype_id="4"/>
+                                            <varref loc="e,93,54,93,56" name="i2" dtype_id="7"/>
+                                          </muls>
+                                          <const loc="e,93,51,93,52" name="32&apos;h0" dtype_id="10"/>
+                                          <const loc="e,93,51,93,52" name="32&apos;h2" dtype_id="10"/>
+                                        </sel>
+                                      </add>
+                                      <const loc="e,93,46,93,47" name="32&apos;h1" dtype_id="10"/>
+                                    </sel>
+                                    <sel loc="e,92,41,92,42" dtype_id="2">
+                                      <varref loc="e,92,29,92,41" name="tx_shift_reg" dtype_id="1"/>
+                                      <add loc="e,92,44,92,45" dtype_id="8">
+                                        <sel loc="e,92,44,92,45" dtype_id="9">
+                                          <varref loc="e,92,42,92,43" name="x" dtype_id="7"/>
+                                          <const loc="e,92,44,92,45" name="32&apos;h0" dtype_id="10"/>
+                                          <const loc="e,92,44,92,45" name="32&apos;h2" dtype_id="10"/>
+                                        </sel>
+                                        <sel loc="e,92,44,92,45" dtype_id="9">
+                                          <muls loc="e,92,50,92,51" dtype_id="4">
+                                            <const loc="e,92,52,92,74" name="32&apos;sh4" dtype_id="4"/>
+                                            <varref loc="e,92,47,92,49" name="i2" dtype_id="7"/>
+                                          </muls>
+                                          <const loc="e,92,44,92,45" name="32&apos;h0" dtype_id="10"/>
+                                          <const loc="e,92,44,92,45" name="32&apos;h2" dtype_id="10"/>
+                                        </sel>
+                                      </add>
+                                      <const loc="e,92,41,92,42" name="32&apos;h1" dtype_id="10"/>
+                                    </sel>
+                                  </assigndly>
+                                </begin>
+                                <begin>
+                                  <assign loc="e,91,65,91,66" dtype_id="7">
+                                    <sub loc="e,91,67,91,68" dtype_id="7">
+                                      <varref loc="e,91,66,91,67" name="x" dtype_id="7"/>
+                                      <const loc="e,91,68,91,69" name="32&apos;sh1" dtype_id="4"/>
+                                    </sub>
+                                    <varref loc="e,91,64,91,65" name="x" dtype_id="7"/>
+                                  </assign>
+                                </begin>
+                              </while>
+                            </begin>
+                          </begin>
+                        </begin>
+                        <begin>
+                          <assign loc="e,89,61,89,62" dtype_id="7">
+                            <add loc="e,89,65,89,66" dtype_id="7">
+                              <const loc="e,89,66,89,67" name="32&apos;sh1" dtype_id="4"/>
+                              <varref loc="e,89,63,89,65" name="i2" dtype_id="7"/>
+                            </add>
+                            <varref loc="e,89,58,89,60" name="i2" dtype_id="7"/>
+                          </assign>
+                        </begin>
+                      </while>
+                    </begin>
+                  </begin>
+                </begin>
+              </if>
+            </begin>
+          </begin>
+        </begin>
+      </always>
+      <always loc="e,114,5,114,11">
+        <sentree loc="e,114,12,114,13">
+          <senitem loc="e,114,15,114,22" edgeType="POS">
+            <varref loc="e,114,23,114,33" name="tx_slowclk" dtype_id="2"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,115,13,115,25" name="SYNC_REG_POS">
+          <assigndly loc="e,116,22,116,24" dtype_id="1">
+            <varref loc="e,116,25,116,30" name="tx_in" dtype_id="1"/>
+            <varref loc="e,116,13,116,21" name="h_sync_a" dtype_id="1"/>
+          </assigndly>
+        </begin>
+      </always>
+      <always loc="e,118,5,118,11">
+        <sentree loc="e,118,12,118,13">
+          <senitem loc="e,118,15,118,22" edgeType="NEG">
+            <varref loc="e,118,23,118,33" name="tx_slowclk" dtype_id="2"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,119,13,119,25" name="SYNC_REG_NEG">
+          <begin loc="e,120,9,120,12">
+            <assign loc="e,120,16,120,17" dtype_id="7">
+              <const loc="e,120,18,120,19" name="32&apos;sh0" dtype_id="4"/>
+              <varref loc="e,120,14,120,16" name="i3" dtype_id="7"/>
+            </assign>
+            <while loc="e,120,9,120,12">
+              <begin>
+              </begin>
+              <begin>
+                <gts loc="e,120,24,120,25" dtype_id="2">
+                  <const loc="e,120,26,120,44" name="32&apos;sh1" dtype_id="4"/>
+                  <varref loc="e,120,21,120,23" name="i3" dtype_id="7"/>
+                </gts>
+              </begin>
+              <begin>
+                <begin loc="e,121,9,121,14">
+                  <begin loc="e,122,13,122,16">
+                    <assign loc="e,122,20,122,21" dtype_id="7">
+                      <const loc="e,122,21,122,22" name="32&apos;sh0" dtype_id="4"/>
+                      <varref loc="e,122,18,122,20" name="x2" dtype_id="7"/>
+                    </assign>
+                    <while loc="e,122,13,122,16">
+                      <begin>
+                      </begin>
+                      <begin>
+                        <gts loc="e,122,27,122,28" dtype_id="2">
+                          <const loc="e,122,29,122,51" name="32&apos;sh4" dtype_id="4"/>
+                          <varref loc="e,122,24,122,26" name="x2" dtype_id="7"/>
+                        </gts>
+                      </begin>
+                      <begin>
+                        <begin loc="e,123,13,123,18">
+                          <assigndly loc="e,124,76,124,78" dtype_id="2">
+                            <sel loc="e,125,29,125,30" dtype_id="2">
+                              <varref loc="e,125,21,125,29" name="h_sync_a" dtype_id="1"/>
+                              <add loc="e,125,33,125,34" dtype_id="8">
+                                <sel loc="e,125,33,125,34" dtype_id="9">
+                                  <varref loc="e,125,30,125,32" name="x2" dtype_id="7"/>
+                                  <const loc="e,125,33,125,34" name="32&apos;h0" dtype_id="10"/>
+                                  <const loc="e,125,33,125,34" name="32&apos;h2" dtype_id="10"/>
+                                </sel>
+                                <sel loc="e,125,33,125,34" dtype_id="9">
+                                  <muls loc="e,125,39,125,40" dtype_id="4">
+                                    <const loc="e,125,41,125,63" name="32&apos;sh4" dtype_id="4"/>
+                                    <varref loc="e,125,36,125,38" name="i3" dtype_id="7"/>
+                                  </muls>
+                                  <const loc="e,125,33,125,34" name="32&apos;h0" dtype_id="10"/>
+                                  <const loc="e,125,33,125,34" name="32&apos;h2" dtype_id="10"/>
+                                </sel>
+                              </add>
+                              <const loc="e,125,29,125,30" name="32&apos;h1" dtype_id="10"/>
+                            </sel>
+                            <sel loc="e,124,27,124,28" dtype_id="2">
+                              <varref loc="e,124,17,124,27" name="sync_b_reg" dtype_id="6"/>
+                              <add loc="e,124,31,124,32" dtype_id="12">
+                                <sel loc="e,124,31,124,32" dtype_id="13">
+                                  <varref loc="e,124,28,124,30" name="x2" dtype_id="7"/>
+                                  <const loc="e,124,31,124,32" name="32&apos;h0" dtype_id="10"/>
+                                  <const loc="e,124,31,124,32" name="32&apos;h3" dtype_id="10"/>
+                                </sel>
+                                <sel loc="e,124,31,124,32" dtype_id="13">
+                                  <muls loc="e,124,49,124,50" dtype_id="4">
+                                    <const loc="e,124,51,124,73" name="32&apos;sh4" dtype_id="4"/>
+                                    <add loc="e,124,44,124,45" dtype_id="4">
+                                      <const loc="e,124,46,124,47" name="32&apos;sh1" dtype_id="4"/>
+                                      <muls loc="e,124,39,124,40" dtype_id="4">
+                                        <const loc="e,124,41,124,42" name="32&apos;sh2" dtype_id="4"/>
+                                        <varref loc="e,124,36,124,38" name="i3" dtype_id="7"/>
+                                      </muls>
+                                    </add>
+                                  </muls>
+                                  <const loc="e,124,31,124,32" name="32&apos;h0" dtype_id="10"/>
+                                  <const loc="e,124,31,124,32" name="32&apos;h3" dtype_id="10"/>
+                                </sel>
+                              </add>
+                              <const loc="e,124,27,124,28" name="32&apos;h1" dtype_id="10"/>
+                            </sel>
+                          </assigndly>
+                          <assigndly loc="e,126,54,126,56" dtype_id="2">
+                            <sel loc="e,127,26,127,27" dtype_id="2">
+                              <varref loc="e,127,21,127,26" name="tx_in" dtype_id="1"/>
+                              <add loc="e,127,30,127,31" dtype_id="8">
+                                <sel loc="e,127,30,127,31" dtype_id="9">
+                                  <varref loc="e,127,27,127,29" name="x2" dtype_id="7"/>
+                                  <const loc="e,127,30,127,31" name="32&apos;h0" dtype_id="10"/>
+                                  <const loc="e,127,30,127,31" name="32&apos;h2" dtype_id="10"/>
+                                </sel>
+                                <sel loc="e,127,30,127,31" dtype_id="9">
+                                  <muls loc="e,127,36,127,37" dtype_id="4">
+                                    <const loc="e,127,38,127,60" name="32&apos;sh4" dtype_id="4"/>
+                                    <varref loc="e,127,33,127,35" name="i3" dtype_id="7"/>
+                                  </muls>
+                                  <const loc="e,127,30,127,31" name="32&apos;h0" dtype_id="10"/>
+                                  <const loc="e,127,30,127,31" name="32&apos;h2" dtype_id="10"/>
+                                </sel>
+                              </add>
+                              <const loc="e,127,26,127,27" name="32&apos;h1" dtype_id="10"/>
+                            </sel>
+                            <sel loc="e,126,27,126,28" dtype_id="2">
+                              <varref loc="e,126,17,126,27" name="sync_b_reg" dtype_id="6"/>
+                              <add loc="e,126,31,126,32" dtype_id="12">
+                                <sel loc="e,126,31,126,32" dtype_id="13">
+                                  <varref loc="e,126,28,126,30" name="x2" dtype_id="7"/>
+                                  <const loc="e,126,31,126,32" name="32&apos;h0" dtype_id="10"/>
+                                  <const loc="e,126,31,126,32" name="32&apos;h3" dtype_id="10"/>
+                                </sel>
+                                <sel loc="e,126,31,126,32" dtype_id="13">
+                                  <muls loc="e,126,37,126,38" dtype_id="4">
+                                    <const loc="e,126,39,126,51" name="32&apos;h8" dtype_id="4"/>
+                                    <varref loc="e,126,34,126,36" name="i3" dtype_id="7"/>
+                                  </muls>
+                                  <const loc="e,126,31,126,32" name="32&apos;h0" dtype_id="10"/>
+                                  <const loc="e,126,31,126,32" name="32&apos;h3" dtype_id="10"/>
+                                </sel>
+                              </add>
+                              <const loc="e,126,27,126,28" name="32&apos;h1" dtype_id="10"/>
+                            </sel>
+                          </assigndly>
+                        </begin>
+                      </begin>
+                      <begin>
+                        <assign loc="e,122,55,122,56" dtype_id="7">
+                          <add loc="e,122,58,122,59" dtype_id="7">
+                            <const loc="e,122,59,122,60" name="32&apos;sh1" dtype_id="4"/>
+                            <varref loc="e,122,56,122,58" name="x2" dtype_id="7"/>
+                          </add>
+                          <varref loc="e,122,53,122,55" name="x2" dtype_id="7"/>
+                        </assign>
+                      </begin>
+                    </while>
+                  </begin>
+                </begin>
+              </begin>
+              <begin>
+                <assign loc="e,120,49,120,50" dtype_id="7">
+                  <add loc="e,120,53,120,54" dtype_id="7">
+                    <const loc="e,120,54,120,55" name="32&apos;sh1" dtype_id="4"/>
+                    <varref loc="e,120,51,120,53" name="i3" dtype_id="7"/>
+                  </add>
+                  <varref loc="e,120,46,120,48" name="i3" dtype_id="7"/>
+                </assign>
+              </begin>
+            </while>
+          </begin>
+        </begin>
+      </always>
+      <always loc="e,131,5,131,11">
+        <sentree loc="e,131,12,131,13">
+          <senitem loc="e,131,15,131,22" edgeType="POS">
+            <varref loc="e,131,23,131,32" name="tx_regclk" dtype_id="2"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,132,13,132,19" name="IN_REG">
+          <assigndly loc="e,134,21,134,23" dtype_id="1">
+            <varref loc="e,134,24,134,29" name="tx_in" dtype_id="1"/>
+            <varref loc="e,134,13,134,19" name="tx_reg" dtype_id="1"/>
+          </assigndly>
+        </begin>
+      </always>
+      <contassign loc="e,140,19,140,20" dtype_id="3">
+        <varref loc="e,30,36,30,47" name="dataout_tmp" dtype_id="3"/>
+        <varref loc="e,140,19,140,20" name="tx_out" dtype_id="3"/>
+      </contassign>
+    </module>
+    <typetable loc="a,0,0,0,0">
+      <basicdtype loc="d,46,25,46,27" id="2" name="logic"/>
+      <voiddtype loc="d,48,18,48,27" id="14"/>
+      <basicdtype loc="e,13,34,13,38" id="5" name="logic" left="15" right="0"/>
+      <basicdtype loc="e,14,54,14,55" id="10" name="logic" left="31" right="0"/>
+      <basicdtype loc="e,16,11,16,12" id="1" name="logic" left="3" right="0"/>
+      <basicdtype loc="e,21,12,21,13" id="3" name="logic" left="0" right="0"/>
+      <basicdtype loc="e,23,5,23,8" id="6" name="logic" left="7" right="0"/>
+      <basicdtype loc="e,34,5,34,12" id="7" name="integer" left="31" right="0" signed="true"/>
+      <basicdtype loc="e,60,26,60,27" id="11" name="logic" signed="true"/>
+      <basicdtype loc="e,60,46,60,47" id="8" name="logic" left="1" right="0" signed="true"/>
+      <basicdtype loc="e,69,47,69,48" id="12" name="logic" left="2" right="0" signed="true"/>
+      <basicdtype loc="e,11,36,11,37" id="4" name="logic" left="31" right="0" signed="true"/>
+      <basicdtype loc="e,60,76,60,77" id="9" name="logic" left="1" right="0"/>
+      <basicdtype loc="e,69,67,69,68" id="13" name="logic" left="2" right="0"/>
+    </typetable>
+  </netlist>
+</verilator_xml>

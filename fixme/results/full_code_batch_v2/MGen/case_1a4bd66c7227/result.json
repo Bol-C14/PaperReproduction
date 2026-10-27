@@ -1,0 +1,41 @@
+{
+  "id": "MGen/L1/Text/Mealy Overlap",
+  "subset": "MGen",
+  "input_files": [
+    {
+      "name": "mealy_ol.v",
+      "bytes": 3055,
+      "sha256": "8bc8173bfda358e9d47cc6d8269f044617faf490edcf1d52453ae1118ef3f517"
+    },
+    {
+      "name": "mealy_ol_tb.v",
+      "bytes": 3854,
+      "sha256": "2139c0e9c4618e97610c466ca3fc38c1e546ffcdcdd908ececbf2711b9281e74"
+    }
+  ],
+  "overlays": [
+    {
+      "field": "spec_text",
+      "source": "data/SpeCom/L1/Text/Mealy Overlap/mealy_ol_spec.txt",
+      "sha256": "804cc870b1efb7967c94e51eef3364f8a50d6718310a9c4d8737aac067c7b058",
+      "reason": "same case name and byte-identical RTL in SpeCom; explicit cross-subset reuse",
+      "fidelity": "structural-input-overlay",
+      "matched_rtl_sha256": "8bc8173bfda358e9d47cc6d8269f044617faf490edcf1d52453ae1118ef3f517"
+    }
+  ],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": null,
+  "negative_control_detected": null,
+  "commands": 4,
+  "status": "unknown",
+  "wrapper_mode": "dut_replacement",
+  "reference_source": "mealy_ol.v",
+  "reference_source_sha256": "8bc8173bfda358e9d47cc6d8269f044617faf490edcf1d52453ae1118ef3f517",
+  "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+  "resolved_tb_parameters": {},
+  "reference_status": "unknown",
+  "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
+  "seconds": 16.268
+}

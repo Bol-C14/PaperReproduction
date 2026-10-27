@@ -1,0 +1,40 @@
+{
+  "id": "TBGen/L1/Text/transport_in2out",
+  "subset": "TBGen",
+  "input_files": [
+    {
+      "name": "transport_in2out.v",
+      "bytes": 782,
+      "sha256": "3f4076fb0ae974fca82291fe7c32a4bb5967241ad0936ccbae35d6dbdb4c39f1"
+    },
+    {
+      "name": "transport_in2out_spec.txt",
+      "bytes": 7388,
+      "sha256": "0a18e7d9f80239efb93d7a045800dfdc46cca4834aa4dfeeab9349df0ecff871"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": true,
+  "negative_control_detected": true,
+  "commands": 5,
+  "status": "pass",
+  "stimulus_contract": {
+    "seed": 13579,
+    "cycles": 64,
+    "clock": "clk",
+    "reset_polarities": {
+      "reset": 1
+    },
+    "unknown_handling": "any observed unknown prevents pass",
+    "oracle": "renamed copy of supplied RTL; self-consistency/calibration only"
+  },
+  "observed_checks": 64,
+  "observed_unknown": 0,
+  "reference_status": "pass",
+  "negative_status": "fail",
+  "reason": "reference/checker positive and perturbed-checker negative executed",
+  "seconds": 0.165
+}

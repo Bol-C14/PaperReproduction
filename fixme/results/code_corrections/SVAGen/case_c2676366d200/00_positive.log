@@ -1,0 +1,420 @@
+
+-- Running command `read_verilog -formal -sv positive.sv; hierarchy -top ct_biu_other_io_sync; prep -top ct_biu_other_io_sync; flatten; async2sync; dffunmap; memory_map; opt_clean; chformal -lower; write_json positive.json; sat -seq 2 -timeout 5 -prove-asserts -verify -show-inputs -show-outputs' --
+
+1. Executing Verilog-2005 frontend: positive.sv
+Parsing formal SystemVerilog input from `positive.sv' to AST representation.
+Generating RTLIL representation for module `\ct_biu_other_io_sync'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \ct_biu_other_io_sync
+
+2.2. Analyzing design hierarchy..
+Top module:  \ct_biu_other_io_sync
+Removed 0 unused modules.
+Module ct_biu_other_io_sync directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \ct_biu_other_io_sync
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \ct_biu_other_io_sync
+Removed 0 unused modules.
+Module ct_biu_other_io_sync directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$positive.sv:299$30 in module ct_biu_other_io_sync.
+Marked 1 switch rules as full_case in process $proc$positive.sv:292$28 in module ct_biu_other_io_sync.
+Marked 1 switch rules as full_case in process $proc$positive.sv:280$26 in module ct_biu_other_io_sync.
+Marked 1 switch rules as full_case in process $proc$positive.sv:263$22 in module ct_biu_other_io_sync.
+Marked 1 switch rules as full_case in process $proc$positive.sv:224$15 in module ct_biu_other_io_sync.
+Marked 1 switch rules as full_case in process $proc$positive.sv:212$12 in module ct_biu_other_io_sync.
+Marked 1 switch rules as full_case in process $proc$positive.sv:198$9 in module ct_biu_other_io_sync.
+Marked 1 switch rules as full_case in process $proc$positive.sv:190$5 in module ct_biu_other_io_sync.
+Removed a total of 0 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 22 redundant assignments.
+Promoted 4 assignments to connections.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \cpurst_b in `\ct_biu_other_io_sync.$proc$positive.sv:299$30'.
+Found async reset \cpurst_b in `\ct_biu_other_io_sync.$proc$positive.sv:292$28'.
+Found async reset \cpurst_b in `\ct_biu_other_io_sync.$proc$positive.sv:280$26'.
+Found async reset \cpurst_b in `\ct_biu_other_io_sync.$proc$positive.sv:263$22'.
+Found async reset \cpurst_b in `\ct_biu_other_io_sync.$proc$positive.sv:224$15'.
+Found async reset \cpurst_b in `\ct_biu_other_io_sync.$proc$positive.sv:212$12'.
+Found async reset \cpurst_b in `\ct_biu_other_io_sync.$proc$positive.sv:198$9'.
+Found async reset \cpurst_b in `\ct_biu_other_io_sync.$proc$positive.sv:190$5'.
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~2 debug messages>
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\ct_biu_other_io_sync.$proc$positive.sv:307$32'.
+Creating decoders for process `\ct_biu_other_io_sync.$proc$positive.sv:299$30'.
+     1/1: $0\biu_hpcp_l2of_int[3:0]
+Creating decoders for process `\ct_biu_other_io_sync.$proc$positive.sv:292$28'.
+     1/1: $0\biu_pad_cnt_en[3:0]
+Creating decoders for process `\ct_biu_other_io_sync.$proc$positive.sv:280$26'.
+     1/2: $0\biu_pad_jdb_pm[0:0]
+     2/2: $0\biu_pad_lpmd_b[0:0]
+Creating decoders for process `\ct_biu_other_io_sync.$proc$positive.sv:276$25'.
+Creating decoders for process `\ct_biu_other_io_sync.$proc$positive.sv:263$22'.
+     1/2: $0\had_sdb_req_b_ff2[0:0]
+     2/2: $0\had_sdb_req_b_ff1[0:0]
+Creating decoders for process `\ct_biu_other_io_sync.$proc$positive.sv:224$15'.
+     1/12: $0\cp0_ss_int_ff2[0:0]
+     2/12: $0\cp0_st_int_ff2[0:0]
+     3/12: $0\cp0_se_int_ff2[0:0]
+     4/12: $0\cp0_ms_int_ff2[0:0]
+     5/12: $0\cp0_mt_int_ff2[0:0]
+     6/12: $0\cp0_me_int_ff2[0:0]
+     7/12: $0\cp0_ss_int_ff1[0:0]
+     8/12: $0\cp0_st_int_ff1[0:0]
+     9/12: $0\cp0_se_int_ff1[0:0]
+    10/12: $0\cp0_ms_int_ff1[0:0]
+    11/12: $0\cp0_mt_int_ff1[0:0]
+    12/12: $0\cp0_me_int_ff1[0:0]
+Creating decoders for process `\ct_biu_other_io_sync.$proc$positive.sv:219$14'.
+     1/1: $0\biu_csr_rdata[127:0]
+Creating decoders for process `\ct_biu_other_io_sync.$proc$positive.sv:212$12'.
+     1/1: $0\biu_csr_cmplt[0:0]
+Creating decoders for process `\ct_biu_other_io_sync.$proc$positive.sv:206$11'.
+     1/1: $0\biu_pad_csr_wdata[79:0]
+Creating decoders for process `\ct_biu_other_io_sync.$proc$positive.sv:198$9'.
+     1/1: $0\biu_pad_csr_sel[0:0]
+Creating decoders for process `\ct_biu_other_io_sync.$proc$positive.sv:190$5'.
+     1/1: $0\biu_csr_sel_ff[0:0]
+Creating decoders for process `\ct_biu_other_io_sync.$proc$positive.sv:181$2'.
+Creating decoders for process `\ct_biu_other_io_sync.$proc$positive.sv:177$1'.
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\ct_biu_other_io_sync.\biu_hpcp_l2of_int' using process `\ct_biu_other_io_sync.$proc$positive.sv:299$30'.
+  created $adff cell `$procdff$43' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\biu_pad_cnt_en' using process `\ct_biu_other_io_sync.$proc$positive.sv:292$28'.
+  created $adff cell `$procdff$48' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\biu_pad_jdb_pm' using process `\ct_biu_other_io_sync.$proc$positive.sv:280$26'.
+  created $adff cell `$procdff$53' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\biu_pad_lpmd_b' using process `\ct_biu_other_io_sync.$proc$positive.sv:280$26'.
+  created $adff cell `$procdff$58' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\biu_hpcp_time' using process `\ct_biu_other_io_sync.$proc$positive.sv:276$25'.
+  created $dff cell `$procdff$59' with positive edge clock.
+Creating register for signal `\ct_biu_other_io_sync.\had_sdb_req_b_ff1' using process `\ct_biu_other_io_sync.$proc$positive.sv:263$22'.
+  created $adff cell `$procdff$64' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\had_sdb_req_b_ff2' using process `\ct_biu_other_io_sync.$proc$positive.sv:263$22'.
+  created $adff cell `$procdff$69' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\cp0_me_int_ff1' using process `\ct_biu_other_io_sync.$proc$positive.sv:224$15'.
+  created $adff cell `$procdff$74' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\cp0_me_int_ff2' using process `\ct_biu_other_io_sync.$proc$positive.sv:224$15'.
+  created $adff cell `$procdff$79' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\cp0_ms_int_ff1' using process `\ct_biu_other_io_sync.$proc$positive.sv:224$15'.
+  created $adff cell `$procdff$84' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\cp0_ms_int_ff2' using process `\ct_biu_other_io_sync.$proc$positive.sv:224$15'.
+  created $adff cell `$procdff$89' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\cp0_mt_int_ff1' using process `\ct_biu_other_io_sync.$proc$positive.sv:224$15'.
+  created $adff cell `$procdff$94' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\cp0_mt_int_ff2' using process `\ct_biu_other_io_sync.$proc$positive.sv:224$15'.
+  created $adff cell `$procdff$99' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\cp0_se_int_ff1' using process `\ct_biu_other_io_sync.$proc$positive.sv:224$15'.
+  created $adff cell `$procdff$104' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\cp0_se_int_ff2' using process `\ct_biu_other_io_sync.$proc$positive.sv:224$15'.
+  created $adff cell `$procdff$109' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\cp0_ss_int_ff1' using process `\ct_biu_other_io_sync.$proc$positive.sv:224$15'.
+  created $adff cell `$procdff$114' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\cp0_ss_int_ff2' using process `\ct_biu_other_io_sync.$proc$positive.sv:224$15'.
+  created $adff cell `$procdff$119' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\cp0_st_int_ff1' using process `\ct_biu_other_io_sync.$proc$positive.sv:224$15'.
+  created $adff cell `$procdff$124' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\cp0_st_int_ff2' using process `\ct_biu_other_io_sync.$proc$positive.sv:224$15'.
+  created $adff cell `$procdff$129' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\biu_csr_rdata' using process `\ct_biu_other_io_sync.$proc$positive.sv:219$14'.
+  created $dff cell `$procdff$130' with positive edge clock.
+Creating register for signal `\ct_biu_other_io_sync.\biu_csr_cmplt' using process `\ct_biu_other_io_sync.$proc$positive.sv:212$12'.
+  created $adff cell `$procdff$135' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\biu_pad_csr_wdata' using process `\ct_biu_other_io_sync.$proc$positive.sv:206$11'.
+  created $dff cell `$procdff$136' with positive edge clock.
+Creating register for signal `\ct_biu_other_io_sync.\biu_pad_csr_sel' using process `\ct_biu_other_io_sync.$proc$positive.sv:198$9'.
+  created $adff cell `$procdff$141' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\biu_csr_sel_ff' using process `\ct_biu_other_io_sync.$proc$positive.sv:190$5'.
+  created $adff cell `$procdff$146' with positive edge clock and positive level reset.
+Creating register for signal `\ct_biu_other_io_sync.\biu_cp0_apb_base' using process `\ct_biu_other_io_sync.$proc$positive.sv:181$2'.
+  created $dff cell `$procdff$147' with positive edge clock.
+Creating register for signal `\ct_biu_other_io_sync.\biu_cp0_rvba' using process `\ct_biu_other_io_sync.$proc$positive.sv:177$1'.
+  created $dff cell `$procdff$148' with positive edge clock.
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `ct_biu_other_io_sync.$proc$positive.sv:307$32'.
+Removing empty process `ct_biu_other_io_sync.$proc$positive.sv:299$30'.
+Removing empty process `ct_biu_other_io_sync.$proc$positive.sv:292$28'.
+Removing empty process `ct_biu_other_io_sync.$proc$positive.sv:280$26'.
+Removing empty process `ct_biu_other_io_sync.$proc$positive.sv:276$25'.
+Removing empty process `ct_biu_other_io_sync.$proc$positive.sv:263$22'.
+Removing empty process `ct_biu_other_io_sync.$proc$positive.sv:224$15'.
+Found and cleaned up 1 empty switch in `\ct_biu_other_io_sync.$proc$positive.sv:219$14'.
+Removing empty process `ct_biu_other_io_sync.$proc$positive.sv:219$14'.
+Removing empty process `ct_biu_other_io_sync.$proc$positive.sv:212$12'.
+Found and cleaned up 1 empty switch in `\ct_biu_other_io_sync.$proc$positive.sv:206$11'.
+Removing empty process `ct_biu_other_io_sync.$proc$positive.sv:206$11'.
+Removing empty process `ct_biu_other_io_sync.$proc$positive.sv:198$9'.
+Removing empty process `ct_biu_other_io_sync.$proc$positive.sv:190$5'.
+Removing empty process `ct_biu_other_io_sync.$proc$positive.sv:181$2'.
+Removing empty process `ct_biu_other_io_sync.$proc$positive.sv:177$1'.
+Cleaned up 2 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_biu_other_io_sync.
+<suppressed ~42 debug messages>
+
+3.3. Executing FUTURE pass.
+
+3.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_biu_other_io_sync.
+
+3.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_biu_other_io_sync..
+Removed 31 unused cells and 86 unused wires.
+<suppressed ~34 debug messages>
+
+3.6. Executing CHECK pass (checking for obvious problems).
+Checking module ct_biu_other_io_sync...
+Found and reported 0 problems.
+
+3.7. Executing OPT pass (performing simple optimizations).
+
+3.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_biu_other_io_sync.
+<suppressed ~1 debug messages>
+
+3.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ct_biu_other_io_sync'.
+Removed a total of 0 cells.
+
+3.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ct_biu_other_io_sync..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+3.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ct_biu_other_io_sync.
+Performed a total of 0 changes.
+
+3.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ct_biu_other_io_sync'.
+Removed a total of 0 cells.
+
+3.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_biu_other_io_sync..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+3.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_biu_other_io_sync.
+
+3.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \ct_biu_other_io_sync..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~2 debug messages>
+
+3.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \ct_biu_other_io_sync.
+Performed a total of 0 changes.
+
+3.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ct_biu_other_io_sync'.
+Removed a total of 0 cells.
+
+3.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_biu_other_io_sync..
+
+3.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_biu_other_io_sync.
+
+3.7.14. Finished OPT passes. (There is nothing left to do.)
+
+3.8. Executing WREDUCE pass (reducing word size of cells).
+
+3.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_biu_other_io_sync..
+
+3.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.11. Executing OPT pass (performing simple optimizations).
+
+3.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module ct_biu_other_io_sync.
+
+3.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\ct_biu_other_io_sync'.
+Removed a total of 0 cells.
+
+3.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_biu_other_io_sync..
+
+3.11.4. Finished fast OPT passes.
+
+3.12. Printing statistics.
+
+=== ct_biu_other_io_sync ===
+
+   Number of wires:                 76
+   Number of wire bits:           1073
+   Number of public wires:          69
+   Number of public wire bits:     860
+   Number of ports:                 50
+   Number of port bits:            762
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 37
+     $adff                          21
+     $and                            1
+     $check                          1
+     $dff                            5
+     $logic_not                      2
+     $mux                            2
+     $or                             5
+
+3.13. Executing CHECK pass (checking for obvious problems).
+Checking module ct_biu_other_io_sync...
+Found and reported 0 problems.
+
+4. Executing FLATTEN pass (flatten design).
+
+5. Executing ASYNC2SYNC pass.
+Replacing ct_biu_other_io_sync.$procdff$104 ($adff): ARST=\cpurst_b, D=\pad_biu_se_int, Q=\cp0_se_int_ff1
+Replacing ct_biu_other_io_sync.$procdff$109 ($adff): ARST=\cpurst_b, D=\cp0_se_int_ff1, Q=\cp0_se_int_ff2
+Replacing ct_biu_other_io_sync.$procdff$114 ($adff): ARST=\cpurst_b, D=\pad_biu_ss_int, Q=\cp0_ss_int_ff1
+Replacing ct_biu_other_io_sync.$procdff$119 ($adff): ARST=\cpurst_b, D=\cp0_ss_int_ff1, Q=\cp0_ss_int_ff2
+Replacing ct_biu_other_io_sync.$procdff$124 ($adff): ARST=\cpurst_b, D=\pad_biu_st_int, Q=\cp0_st_int_ff1
+Replacing ct_biu_other_io_sync.$procdff$129 ($adff): ARST=\cpurst_b, D=\cp0_st_int_ff1, Q=\cp0_st_int_ff2
+Replacing ct_biu_other_io_sync.$procdff$135 ($adff): ARST=\cpurst_b, D=\pad_biu_csr_cmplt, Q=\biu_csr_cmplt
+Replacing ct_biu_other_io_sync.$procdff$141 ($adff): ARST=\cpurst_b, D=\csr_sel_pulse, Q=\biu_pad_csr_sel
+Replacing ct_biu_other_io_sync.$procdff$146 ($adff): ARST=\cpurst_b, D=\biu_csr_sel, Q=\biu_csr_sel_ff
+Replacing ct_biu_other_io_sync.$procdff$43 ($adff): ARST=\cpurst_b, D=\pad_biu_hpcp_l2of_int, Q=\biu_hpcp_l2of_int
+Replacing ct_biu_other_io_sync.$procdff$48 ($adff): ARST=\cpurst_b, D=\hpcp_biu_cnt_en, Q=\biu_pad_cnt_en
+Replacing ct_biu_other_io_sync.$procdff$53 ($adff): ARST=\cpurst_b, D=\had_biu_jdb_pm [1], Q=\biu_pad_jdb_pm
+Replacing ct_biu_other_io_sync.$procdff$58 ($adff): ARST=\cpurst_b, D=\cp0_biu_lpmd_b [0], Q=\biu_pad_lpmd_b
+Replacing ct_biu_other_io_sync.$procdff$64 ($adff): ARST=\cpurst_b, D=\pad_biu_dbgrq_b, Q=\had_sdb_req_b_ff1
+Replacing ct_biu_other_io_sync.$procdff$69 ($adff): ARST=\cpurst_b, D=\had_sdb_req_b_ff1, Q=\had_sdb_req_b_ff2
+Replacing ct_biu_other_io_sync.$procdff$74 ($adff): ARST=\cpurst_b, D=\pad_biu_me_int, Q=\cp0_me_int_ff1
+Replacing ct_biu_other_io_sync.$procdff$79 ($adff): ARST=\cpurst_b, D=\cp0_me_int_ff1, Q=\cp0_me_int_ff2
+Replacing ct_biu_other_io_sync.$procdff$84 ($adff): ARST=\cpurst_b, D=\pad_biu_ms_int, Q=\cp0_ms_int_ff1
+Replacing ct_biu_other_io_sync.$procdff$89 ($adff): ARST=\cpurst_b, D=\cp0_ms_int_ff1, Q=\cp0_ms_int_ff2
+Replacing ct_biu_other_io_sync.$procdff$94 ($adff): ARST=\cpurst_b, D=\pad_biu_mt_int, Q=\cp0_mt_int_ff1
+Replacing ct_biu_other_io_sync.$procdff$99 ($adff): ARST=\cpurst_b, D=\cp0_mt_int_ff1, Q=\cp0_mt_int_ff2
+
+6. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+7. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \ct_biu_other_io_sync..
+Removed 2 unused cells and 2 unused wires.
+<suppressed ~3 debug messages>
+
+9. Executing JSON backend.
+
+10. Executing SAT pass (solving SAT problems in the circuit).
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 79 cells to SAT database.
+No constraints for initial state found.
+
+Import proof for assert: 1'1 when 1'1.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 79 cells to SAT database.
+Import proof for assert: 1'1 when 1'1.
+Import show expression: \biu_csr_op
+Import show expression: \biu_csr_sel
+Import show expression: \biu_csr_wdata
+Import show expression: \coreclk
+Import show expression: \cp0_biu_icg_en
+Import show expression: \cp0_biu_lpmd_b
+Import show expression: \cpurst_b
+Import show expression: \forever_coreclk
+Import show expression: \had_biu_jdb_pm
+Import show expression: \hpcp_biu_cnt_en
+Import show expression: \pad_biu_csr_cmplt
+Import show expression: \pad_biu_csr_rdata
+Import show expression: \pad_biu_dbgrq_b
+Import show expression: \pad_biu_hpcp_l2of_int
+Import show expression: \pad_biu_me_int
+Import show expression: \pad_biu_ms_int
+Import show expression: \pad_biu_mt_int
+Import show expression: \pad_biu_se_int
+Import show expression: \pad_biu_ss_int
+Import show expression: \pad_biu_st_int
+Import show expression: \pad_core_hartid
+Import show expression: \pad_core_rvba
+Import show expression: \pad_xx_apb_base
+Import show expression: \pad_xx_time
+Import show expression: \pad_yy_icg_scan_en
+Import show expression: \biu_cp0_apb_base
+Import show expression: \biu_cp0_coreid
+Import show expression: \biu_cp0_me_int
+Import show expression: \biu_cp0_ms_int
+Import show expression: \biu_cp0_mt_int
+Import show expression: \biu_cp0_rvba
+Import show expression: \biu_cp0_se_int
+Import show expression: \biu_cp0_ss_int
+Import show expression: \biu_cp0_st_int
+Import show expression: \biu_csr_cmplt
+Import show expression: \biu_csr_rdata
+Import show expression: \biu_had_coreid
+Import show expression: \biu_had_sdb_req_b
+Import show expression: \biu_hpcp_l2of_int
+Import show expression: \biu_hpcp_time
+Import show expression: \biu_mmu_smp_disable
+Import show expression: \biu_pad_cnt_en
+Import show expression: \biu_pad_csr_sel
+Import show expression: \biu_pad_csr_wdata
+Import show expression: \biu_pad_jdb_pm
+Import show expression: \biu_pad_lpmd_b
+Import show expression: \biu_xx_dbg_wakeup
+Import show expression: \biu_xx_int_wakeup
+Import show expression: \biu_xx_normal_work
+Import show expression: \biu_xx_pmp_sel
+
+Solving problem with 6297 variables and 13629 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+

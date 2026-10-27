@@ -1,0 +1,38 @@
+{
+  "id": "SVAGen/L3/Text/2",
+  "subset": "SVAGen",
+  "input_files": [
+    {
+      "name": "ct_idu_dep_reg_src2_entry_294.txt",
+      "bytes": 16939,
+      "sha256": "c38ec865747b8f0e281cb3e32c44a98597a91e36acf31a181d981dabad8b4cde"
+    },
+    {
+      "name": "ct_idu_dep_reg_src2_entry_294.v",
+      "bytes": 10917,
+      "sha256": "8fd835b0783d849b297bab71c3847c73cff9fd89ca6feee35adc81b2a92f70f1"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": true,
+  "negative_control_detected": true,
+  "commands": 4,
+  "status": "pass",
+  "assertion": "always @* assert((x_read_data[12]) == (x_read_lsu_match));",
+  "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+  "relation_lhs": "x_read_data[12]",
+  "property_counts": {
+    "assert": 1,
+    "assume": 0,
+    "cover": 0
+  },
+  "constant_mutation_status": "completed",
+  "constant_mutation_killed": false,
+  "negative_status": "fail",
+  "constant_control_status": "unknown",
+  "reason": "nonzero properties proven and selected output mutant falsified",
+  "seconds": 0.148
+}

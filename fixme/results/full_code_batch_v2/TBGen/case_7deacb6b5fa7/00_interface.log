@@ -1,0 +1,17 @@
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_7deacb6b5fa7/vga_controller.v:126:17: Operator DIV expects 32 or 11 bits on the LHS, but LHS's VARREF 'hc' generates 10 bits.
+                                                                                                                                   : ... note: In instance 'vga_controller'
+  126 |   read_addr = hc/10 + (vc/10)*48;
+      |                 ^
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.032
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_7deacb6b5fa7/vga_controller.v:126:26: Operator DIV expects 32 or 11 bits on the LHS, but LHS's VARREF 'vc' generates 10 bits.
+                                                                                                                                   : ... note: In instance 'vga_controller'
+  126 |   read_addr = hc/10 + (vc/10)*48;
+      |                          ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_7deacb6b5fa7/vga_controller.v:130:13: Operator ASSIGN expects 11 bits on the Assign RHS, but Assign RHS's CONST '10'h0' generates 10 bits.
+                                                                                                                                   : ... note: In instance 'vga_controller'
+  130 |   read_addr = 10'd0;
+      |             ^
+- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev (Debian 5.032-1+b2)
+- Verilator: Built from 0.029 MB sources in 2 modules, into 0.000 MB in 0 C++ files needing 0.000 MB
+- Verilator: Walltime 0.004 s (elab=0.001, cvt=0.000, bld=0.000); cpu 0.004 s on 1 threads; alloced 8.879 MB

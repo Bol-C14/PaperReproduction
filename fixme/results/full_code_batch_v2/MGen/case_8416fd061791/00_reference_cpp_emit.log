@@ -1,0 +1,27 @@
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/MGen/case_8416fd061791/ref.v:203:28: Operator ASSIGNDLY expects 7 bits on the Assign RHS, but Assign RHS's VARREF 'dat' generates 32 bits.
+                                                                                                                      : ... note: In instance 'ref_lcd'
+  203 |                     wr_dat <= dat;
+      |                            ^~
+                     ... For warning description see https://verilator.org/warn/WIDTHTRUNC?v=5.032
+                     ... Use "/* verilator lint_off WIDTHTRUNC */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/MGen/case_8416fd061791/ref.v:210:33: Operator OR expects 32 or 8 bits on the RHS, but RHS's VARREF 'wr_addr' generates 7 bits.
+                                                                                                                       : ... note: In instance 'ref_lcd'
+  210 |                 tx_byte <= (128 | wr_addr);
+      |                                 ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/MGen/case_8416fd061791/ref.v:216:25: Operator ASSIGNDLY expects 8 bits on the Assign RHS, but Assign RHS's VARREF 'wr_dat' generates 7 bits.
+                                                                                                                       : ... note: In instance 'ref_lcd'
+  216 |                 tx_byte <= wr_dat;
+      |                         ^~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/MGen/case_8416fd061791/ref.v:322:25: Operator ASSIGNDLY expects 21 bits on the Assign RHS, but Assign RHS's VARREF 'delay_value' generates 20 bits.
+                                                                                                                       : ... note: In instance 'ref_lcd'
+  322 |         counter_counter <= delay_value;
+      |                         ^~
+%Warning-CASEINCOMPLETE: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/MGen/case_8416fd061791/ref.v:74:9: Case values incompletely covered (example pattern 0x13)
+   74 |         casez (state)
+      |         ^~~~~
+%Warning-CASEINCOMPLETE: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/MGen/case_8416fd061791/ref.v:233:9: Case values incompletely covered (example pattern 0x7)
+  233 |         casez (tx_state)
+      |         ^~~~~
+- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev (Debian 5.032-1+b2)
+- Verilator: Built from 0.036 MB sources in 2 modules, into 0.049 MB in 7 C++ files needing 0.000 MB
+- Verilator: Walltime 0.009 s (elab=0.001, cvt=0.004, bld=0.000); cpu 0.008 s on 1 threads; alloced 9.570 MB

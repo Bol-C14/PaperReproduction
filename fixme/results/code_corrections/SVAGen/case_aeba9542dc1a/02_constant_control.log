@@ -1,0 +1,262 @@
+
+-- Running command `read_verilog -formal -sv constant_control.sv; hierarchy -top eth_clockgen; prep -top eth_clockgen; flatten; async2sync; dffunmap; memory_map; opt_clean; chformal -lower; write_json constant_control.json; sat -seq 2 -timeout 5 -prove-asserts -verify -show-inputs -show-outputs' --
+
+1. Executing Verilog-2005 frontend: constant_control.sv
+Parsing formal SystemVerilog input from `constant_control.sv' to AST representation.
+Generating RTLIL representation for module `\eth_clockgen'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \eth_clockgen
+
+2.2. Analyzing design hierarchy..
+Top module:  \eth_clockgen
+Removed 0 unused modules.
+Module eth_clockgen directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \eth_clockgen
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \eth_clockgen
+Removed 0 unused modules.
+Module eth_clockgen directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 1 switch rules as full_case in process $proc$constant_control.sv:32$7 in module eth_clockgen.
+Marked 2 switch rules as full_case in process $proc$constant_control.sv:18$5 in module eth_clockgen.
+Removed a total of 0 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 2 redundant assignments.
+Promoted 1 assignment to connection.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \Reset in `\eth_clockgen.$proc$constant_control.sv:32$7'.
+Found async reset \Reset in `\eth_clockgen.$proc$constant_control.sv:18$5'.
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~2 debug messages>
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\eth_clockgen.$proc$constant_control.sv:45$13'.
+Creating decoders for process `\eth_clockgen.$proc$constant_control.sv:32$7'.
+     1/1: $0\Mdc[0:0]
+Creating decoders for process `\eth_clockgen.$proc$constant_control.sv:18$5'.
+     1/1: $0\Counter[7:0]
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\eth_clockgen.\Mdc' using process `\eth_clockgen.$proc$constant_control.sv:32$7'.
+  created $adff cell `$procdff$24' with positive edge clock and positive level reset.
+Creating register for signal `\eth_clockgen.\Counter' using process `\eth_clockgen.$proc$constant_control.sv:18$5'.
+  created $adff cell `$procdff$27' with positive edge clock and positive level reset.
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `eth_clockgen.$proc$constant_control.sv:45$13'.
+Found and cleaned up 1 empty switch in `\eth_clockgen.$proc$constant_control.sv:32$7'.
+Removing empty process `eth_clockgen.$proc$constant_control.sv:32$7'.
+Found and cleaned up 1 empty switch in `\eth_clockgen.$proc$constant_control.sv:18$5'.
+Removing empty process `eth_clockgen.$proc$constant_control.sv:18$5'.
+Cleaned up 2 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module eth_clockgen.
+<suppressed ~5 debug messages>
+
+3.3. Executing FUTURE pass.
+
+3.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module eth_clockgen.
+
+3.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \eth_clockgen..
+Removed 0 unused cells and 13 unused wires.
+<suppressed ~1 debug messages>
+
+3.6. Executing CHECK pass (checking for obvious problems).
+Checking module eth_clockgen...
+Found and reported 0 problems.
+
+3.7. Executing OPT pass (performing simple optimizations).
+
+3.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module eth_clockgen.
+
+3.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\eth_clockgen'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+3.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \eth_clockgen..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~3 debug messages>
+
+3.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \eth_clockgen.
+Performed a total of 0 changes.
+
+3.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\eth_clockgen'.
+Removed a total of 0 cells.
+
+3.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \eth_clockgen..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+3.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module eth_clockgen.
+
+3.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \eth_clockgen..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~3 debug messages>
+
+3.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \eth_clockgen.
+Performed a total of 0 changes.
+
+3.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\eth_clockgen'.
+Removed a total of 0 cells.
+
+3.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \eth_clockgen..
+
+3.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module eth_clockgen.
+
+3.7.14. Finished OPT passes. (There is nothing left to do.)
+
+3.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 30 bits (of 32) from port B of cell eth_clockgen.$lt$constant_control.sv:16$1 ($lt).
+Removed top 25 bits (of 32) from port A of cell eth_clockgen.$sub$constant_control.sv:17$4 ($sub).
+Removed top 31 bits (of 32) from port B of cell eth_clockgen.$sub$constant_control.sv:17$4 ($sub).
+Removed top 24 bits (of 32) from port Y of cell eth_clockgen.$sub$constant_control.sv:17$4 ($sub).
+Removed top 7 bits (of 8) from port B of cell eth_clockgen.$sub$constant_control.sv:29$6 ($sub).
+
+3.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \eth_clockgen..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+3.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.11. Executing OPT pass (performing simple optimizations).
+
+3.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module eth_clockgen.
+
+3.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\eth_clockgen'.
+Removed a total of 0 cells.
+
+3.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \eth_clockgen..
+
+3.11.4. Finished fast OPT passes.
+
+3.12. Printing statistics.
+
+=== eth_clockgen ===
+
+   Number of wires:                 15
+   Number of wire bits:             57
+   Number of public wires:          10
+   Number of public wire bits:      38
+   Number of ports:                  6
+   Number of port bits:             13
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 13
+     $adff                           2
+     $and                            2
+     $check                          1
+     $logic_not                      1
+     $lt                             1
+     $mux                            3
+     $not                            1
+     $sub                            2
+
+3.13. Executing CHECK pass (checking for obvious problems).
+Checking module eth_clockgen...
+Found and reported 0 problems.
+
+4. Executing FLATTEN pass (flatten design).
+
+5. Executing ASYNC2SYNC pass.
+Replacing eth_clockgen.$procdff$24 ($adff): ARST=\Reset, D=$0\Mdc[0:0], Q=\Mdc
+Replacing eth_clockgen.$procdff$27 ($adff): ARST=\Reset, D=$0\Counter[7:0], Q=\Counter
+
+6. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+7. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \eth_clockgen..
+Removed 2 unused cells and 2 unused wires.
+<suppressed ~3 debug messages>
+
+9. Executing JSON backend.
+
+10. Executing SAT pass (solving SAT problems in the circuit).
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 17 cells to SAT database.
+No constraints for initial state found.
+
+Import proof for assert: 1'1 when 1'1.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 17 cells to SAT database.
+Import proof for assert: 1'1 when 1'1.
+Import show expression: \Clk
+Import show expression: \Divider
+Import show expression: \Reset
+Import show expression: \Mdc
+Import show expression: \MdcEn
+Import show expression: \MdcEn_n
+
+Solving problem with 847 variables and 2223 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+

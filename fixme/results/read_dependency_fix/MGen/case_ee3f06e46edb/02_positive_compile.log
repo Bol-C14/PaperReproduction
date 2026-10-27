@@ -1,0 +1,51 @@
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/read_dependency_fix/MGen/case_ee3f06e46edb/ref_wrapper.sv:36:5: Operator TASKREF 'ref_model_eval' expects 64 bits on the Function Argument, but Function Argument's VARREF 'clk' generates 1 bits.
+                                                                                                                               : ... note: In instance 'tb.ref_model'
+   36 |     ref_model_eval(clk, rst, enable, opa, opb, ref_sign__dpi, ref_mantissa_7__dpi, ref_exponent_out__dpi);
+      |     ^~~~~~~~~~~~~~
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.032
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/read_dependency_fix/MGen/case_ee3f06e46edb/ref_wrapper.sv:36:5: Operator TASKREF 'ref_model_eval' expects 64 bits on the Function Argument, but Function Argument's VARREF 'rst' generates 1 bits.
+                                                                                                                               : ... note: In instance 'tb.ref_model'
+   36 |     ref_model_eval(clk, rst, enable, opa, opb, ref_sign__dpi, ref_mantissa_7__dpi, ref_exponent_out__dpi);
+      |     ^~~~~~~~~~~~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/read_dependency_fix/MGen/case_ee3f06e46edb/ref_wrapper.sv:36:5: Operator TASKREF 'ref_model_eval' expects 64 bits on the Function Argument, but Function Argument's VARREF 'enable' generates 1 bits.
+                                                                                                                               : ... note: In instance 'tb.ref_model'
+   36 |     ref_model_eval(clk, rst, enable, opa, opb, ref_sign__dpi, ref_mantissa_7__dpi, ref_exponent_out__dpi);
+      |     ^~~~~~~~~~~~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/read_dependency_fix/MGen/case_ee3f06e46edb/dut.v:189:36: Operator COND expects 32 or 12 bits on the Conditional False, but Conditional False's VARREF 'dividend_shift_2' generates 6 bits.
+                                                                                                                        : ... note: In instance 'tb.uut'
+  189 |         expon_shift_a <= a_is_norm ? 0 : dividend_shift_2;
+      |                                    ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/read_dependency_fix/MGen/case_ee3f06e46edb/dut.v:190:36: Operator COND expects 32 or 12 bits on the Conditional False, but Conditional False's VARREF 'divisor_shift_2' generates 6 bits.
+                                                                                                                        : ... note: In instance 'tb.uut'
+  190 |         expon_shift_b <= b_is_norm ? 0 : divisor_shift_2;
+      |                                    ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/read_dependency_fix/MGen/case_ee3f06e46edb/dut.v:200:71: Operator SUB expects 12 bits on the RHS, but RHS's VARREF 'expon_final_4_term' generates 1 bits.
+                                                                                                                        : ... note: In instance 'tb.uut'
+  200 |         expon_final_5 <= quotient_msb ? expon_final_4 : expon_final_4 - expon_final_4_term;
+      |                                                                       ^
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/read_dependency_fix/MGen/case_ee3f06e46edb/dut.v:207:24: Operator ASSIGNDLY expects 7 bits on the Assign RHS, but Assign RHS's SUB generates 32 or 12 bits.
+                                                                                                                       : ... note: In instance 'tb.uut'
+  207 |   remainder_shift_term <= 52 - expon_uf_term_4;
+      |                        ^~
+%Warning-CASEX: /workspace/PaperReproduction/fixme/results/read_dependency_fix/MGen/case_ee3f06e46edb/dut.v:245:4: Suggest casez (with ?'s) in place of casex (with X's)
+  245 |    casex(dividend_a)
+      |    ^~~~~
+%Warning-CASEX: /workspace/PaperReproduction/fixme/results/read_dependency_fix/MGen/case_ee3f06e46edb/dut.v:301:4: Suggest casez (with ?'s) in place of casex (with X's)
+  301 |    casex(divisor_b)
+      |    ^~~~~
+make: Entering directory '/workspace/PaperReproduction/fixme/results/read_dependency_fix/MGen/case_ee3f06e46edb/dpi_obj'
+g++  -I.  -MMD -I/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include -I/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/workspace/PaperReproduction/fixme/results/read_dependency_fix/MGen/case_ee3f06e46edb/ref_obj -DVL_TIME_CONTEXT   -fcoroutines -Os  -c -o response.o /workspace/PaperReproduction/fixme/results/read_dependency_fix/MGen/case_ee3f06e46edb/response.cpp
+g++ -Os  -I.  -MMD -I/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include -I/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/workspace/PaperReproduction/fixme/results/read_dependency_fix/MGen/case_ee3f06e46edb/ref_obj -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated.o /workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated.cpp
+g++ -Os  -I.  -MMD -I/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include -I/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/workspace/PaperReproduction/fixme/results/read_dependency_fix/MGen/case_ee3f06e46edb/ref_obj -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated_dpi.o /workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_dpi.cpp
+g++ -Os  -I.  -MMD -I/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include -I/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/workspace/PaperReproduction/fixme/results/read_dependency_fix/MGen/case_ee3f06e46edb/ref_obj -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated_timing.o /workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_timing.cpp
+g++ -Os  -I.  -MMD -I/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include -I/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/workspace/PaperReproduction/fixme/results/read_dependency_fix/MGen/case_ee3f06e46edb/ref_obj -DVL_TIME_CONTEXT   -fcoroutines -c -o verilated_threads.o /workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_threads.cpp
+python3 /workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/bin/verilator_includer -DVL_INCLUDE_OPT=include Vtb.cpp Vtb___024root__DepSet_hfe20aad3__0.cpp Vtb___024root__DepSet_ha183790c__0.cpp Vtb___024unit__DepSet_h748589bb__0.cpp Vtb__main.cpp Vtb__Dpi.cpp Vtb___024root__Slow.cpp Vtb___024root__DepSet_hfe20aad3__0__Slow.cpp Vtb___024root__DepSet_ha183790c__0__Slow.cpp Vtb___024unit__Slow.cpp Vtb___024unit__DepSet_h182099b4__0__Slow.cpp Vtb__Syms.cpp > Vtb__ALL.cpp
+g++ -Os  -I.  -MMD -I/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include -I/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -I/workspace/PaperReproduction/fixme/results/read_dependency_fix/MGen/case_ee3f06e46edb/ref_obj -DVL_TIME_CONTEXT   -fcoroutines -c -o Vtb__ALL.o Vtb__ALL.cpp
+echo "" > Vtb__ALL.verilator_deplist.tmp
+g++    response.o verilated.o verilated_dpi.o verilated_timing.o verilated_threads.o Vtb__ALL.a   /workspace/PaperReproduction/fixme/results/read_dependency_fix/MGen/case_ee3f06e46edb/ref_obj/libRefModel.a  -pthread -lpthread -latomic   -o Vtb
+rm Vtb__ALL.verilator_deplist.tmp
+make: Leaving directory '/workspace/PaperReproduction/fixme/results/read_dependency_fix/MGen/case_ee3f06e46edb/dpi_obj'
+- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev (Debian 5.032-1+b2)
+- Verilator: Built from 0.105 MB sources in 5 modules, into 0.218 MB in 12 C++ files needing 0.001 MB
+- Verilator: Walltime 7.951 s (elab=0.002, cvt=0.015, bld=7.927); cpu 0.000 s on 1 threads; alloced 11.578 MB

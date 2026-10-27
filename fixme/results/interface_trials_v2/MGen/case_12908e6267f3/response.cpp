@@ -1,0 +1,2 @@
+#include "RefModel.h"
+extern "C" void ref_model_eval(unsigned long long clk,unsigned long long rst,unsigned long long enable,unsigned long long selection,unsigned long long d_in_0,unsigned long long d_in_1,unsigned long long* ref_d_o,unsigned long long* ref_wr_en){static RefModel model;model.clk=clk;model.rst=rst;model.enable=enable;model.selection=selection;model.d_in_0=d_in_0;model.d_in_1=d_in_1;model.eval();*ref_d_o=model.ref_d_o;*ref_wr_en=model.ref_wr_en;}

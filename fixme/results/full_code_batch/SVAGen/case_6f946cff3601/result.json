@@ -1,0 +1,30 @@
+{
+  "id": "SVAGen/L2/Text/7",
+  "subset": "SVAGen",
+  "input_files": [
+    {
+      "name": "eth_rxcounters.v",
+      "bytes": 3688,
+      "sha256": "20b08b210b03491b30ea17a803b24ac7b251efe9bdca62629594bc8eab0a622b"
+    },
+    {
+      "name": "eth_rxcounters_spec.txt",
+      "bytes": 8443,
+      "sha256": "8ffda819c80b46d34054ab5788085ae64378f1b20098a5d13b0c593423353903"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": null,
+  "negative_control_detected": null,
+  "commands": 0,
+  "status": "unknown",
+  "assertion": "always @* assert((ByteCntOut) == (DlyCrcEn ? ByteCntDelayed : ByteCnt));",
+  "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+  "relation_lhs": "ByteCntOut",
+  "property_counts": null,
+  "reason": "reference proof baseline: wall timeout",
+  "seconds": 150.187
+}

@@ -1,0 +1,40 @@
+{
+  "id": "TBGen/L3/Text/ima_adpcm_dec",
+  "subset": "TBGen",
+  "input_files": [
+    {
+      "name": "ima_adpcm_dec.v",
+      "bytes": 5619,
+      "sha256": "1a1c68fae850c87660af616c1386a48be6465de360bcd950c93114f5712087ea"
+    },
+    {
+      "name": "ima_adpcm_dec_spec.txt",
+      "bytes": 7912,
+      "sha256": "06521ba95f9d76dfbbe144124775efeaa5d095165d54f0eff02a7c9ffd191164"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": true,
+  "negative_control_detected": true,
+  "commands": 5,
+  "status": "pass",
+  "stimulus_contract": {
+    "seed": 13579,
+    "cycles": 64,
+    "clock": "clock",
+    "reset_polarities": {
+      "reset": 1
+    },
+    "unknown_handling": "any observed unknown prevents pass",
+    "oracle": "renamed copy of supplied RTL; self-consistency/calibration only"
+  },
+  "observed_checks": 64,
+  "observed_unknown": 0,
+  "reference_status": "pass",
+  "negative_status": "fail",
+  "reason": "reference/checker positive and perturbed-checker negative executed",
+  "seconds": 0.154
+}

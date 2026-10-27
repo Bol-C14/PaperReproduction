@@ -1,0 +1,350 @@
+
+-- Running command `read_verilog -formal -sv constant_control.sv; hierarchy -top Phy_int; prep -top Phy_int; flatten; async2sync; dffunmap; memory_map; opt_clean; chformal -lower; write_json constant_control.json; sat -seq 2 -timeout 5 -prove-asserts -verify -show-inputs -show-outputs' --
+
+1. Executing Verilog-2005 frontend: constant_control.sv
+Parsing formal SystemVerilog input from `constant_control.sv' to AST representation.
+Generating RTLIL representation for module `\Phy_int'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \Phy_int
+
+2.2. Analyzing design hierarchy..
+Top module:  \Phy_int
+Removed 0 unused modules.
+Module Phy_int directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \Phy_int
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \Phy_int
+Removed 0 unused modules.
+Module Phy_int directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 3 switch rules as full_case in process $proc$constant_control.sv:133$16 in module Phy_int.
+Marked 2 switch rules as full_case in process $proc$constant_control.sv:126$13 in module Phy_int.
+Marked 3 switch rules as full_case in process $proc$constant_control.sv:117$12 in module Phy_int.
+Marked 1 switch rules as full_case in process $proc$constant_control.sv:94$11 in module Phy_int.
+Marked 2 switch rules as full_case in process $proc$constant_control.sv:86$10 in module Phy_int.
+Marked 4 switch rules as full_case in process $proc$constant_control.sv:75$5 in module Phy_int.
+Marked 2 switch rules as full_case in process $proc$constant_control.sv:68$2 in module Phy_int.
+Marked 1 switch rules as full_case in process $proc$constant_control.sv:57$1 in module Phy_int.
+Removed a total of 0 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 15 redundant assignments.
+Promoted 1 assignment to connection.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \Reset in `\Phy_int.$proc$constant_control.sv:133$16'.
+Found async reset \Reset in `\Phy_int.$proc$constant_control.sv:126$13'.
+Found async reset \Reset in `\Phy_int.$proc$constant_control.sv:117$12'.
+Found async reset \Reset in `\Phy_int.$proc$constant_control.sv:94$11'.
+Found async reset \Reset in `\Phy_int.$proc$constant_control.sv:86$10'.
+Found async reset \Reset in `\Phy_int.$proc$constant_control.sv:75$5'.
+Found async reset \Reset in `\Phy_int.$proc$constant_control.sv:68$2'.
+Found async reset \Reset in `\Phy_int.$proc$constant_control.sv:57$1'.
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~11 debug messages>
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\Phy_int.$proc$constant_control.sv:142$20'.
+Creating decoders for process `\Phy_int.$proc$constant_control.sv:133$16'.
+     1/1: $0\MRxD[7:0]
+Creating decoders for process `\Phy_int.$proc$constant_control.sv:126$13'.
+     1/1: $0\Rx_odd_data_ptr[0:0]
+Creating decoders for process `\Phy_int.$proc$constant_control.sv:117$12'.
+     1/1: $0\MCrs_dv[0:0]
+Creating decoders for process `\Phy_int.$proc$constant_control.sv:94$11'.
+     1/7: $0\Col_dl1[0:0]
+     2/7: $0\Crs_dl1[0:0]
+     3/7: $0\Rxd_dl2[7:0]
+     4/7: $0\Rxd_dl1[7:0]
+     5/7: $0\Rx_dv_dl2[0:0]
+     6/7: $0\Rx_dv_dl1[0:0]
+     7/7: $0\Rx_er_dl1[0:0]
+Creating decoders for process `\Phy_int.$proc$constant_control.sv:86$10'.
+     1/1: $0\Tx_en[0:0]
+Creating decoders for process `\Phy_int.$proc$constant_control.sv:75$5'.
+     1/1: $0\Txd[7:0]
+Creating decoders for process `\Phy_int.$proc$constant_control.sv:68$2'.
+     1/1: $0\Tx_odd_data_ptr[0:0]
+Creating decoders for process `\Phy_int.$proc$constant_control.sv:57$1'.
+     1/2: $0\MTxEn_dl1[0:0]
+     2/2: $0\MTxD_dl1[7:0]
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\Phy_int.\MRxD' using process `\Phy_int.$proc$constant_control.sv:133$16'.
+  created $adff cell `$procdff$58' with positive edge clock and positive level reset.
+Creating register for signal `\Phy_int.\Rx_odd_data_ptr' using process `\Phy_int.$proc$constant_control.sv:126$13'.
+  created $adff cell `$procdff$61' with positive edge clock and positive level reset.
+Creating register for signal `\Phy_int.\MCrs_dv' using process `\Phy_int.$proc$constant_control.sv:117$12'.
+  created $adff cell `$procdff$64' with positive edge clock and positive level reset.
+Creating register for signal `\Phy_int.\Rx_er_dl1' using process `\Phy_int.$proc$constant_control.sv:94$11'.
+  created $adff cell `$procdff$67' with positive edge clock and positive level reset.
+Creating register for signal `\Phy_int.\Rx_dv_dl1' using process `\Phy_int.$proc$constant_control.sv:94$11'.
+  created $adff cell `$procdff$70' with positive edge clock and positive level reset.
+Creating register for signal `\Phy_int.\Rx_dv_dl2' using process `\Phy_int.$proc$constant_control.sv:94$11'.
+  created $adff cell `$procdff$73' with positive edge clock and positive level reset.
+Creating register for signal `\Phy_int.\Rxd_dl1' using process `\Phy_int.$proc$constant_control.sv:94$11'.
+  created $adff cell `$procdff$76' with positive edge clock and positive level reset.
+Creating register for signal `\Phy_int.\Rxd_dl2' using process `\Phy_int.$proc$constant_control.sv:94$11'.
+  created $adff cell `$procdff$79' with positive edge clock and positive level reset.
+Creating register for signal `\Phy_int.\Crs_dl1' using process `\Phy_int.$proc$constant_control.sv:94$11'.
+  created $adff cell `$procdff$82' with positive edge clock and positive level reset.
+Creating register for signal `\Phy_int.\Col_dl1' using process `\Phy_int.$proc$constant_control.sv:94$11'.
+  created $adff cell `$procdff$85' with positive edge clock and positive level reset.
+Creating register for signal `\Phy_int.\Tx_en' using process `\Phy_int.$proc$constant_control.sv:86$10'.
+  created $adff cell `$procdff$88' with positive edge clock and positive level reset.
+Creating register for signal `\Phy_int.\Txd' using process `\Phy_int.$proc$constant_control.sv:75$5'.
+  created $adff cell `$procdff$91' with positive edge clock and positive level reset.
+Creating register for signal `\Phy_int.\Tx_odd_data_ptr' using process `\Phy_int.$proc$constant_control.sv:68$2'.
+  created $adff cell `$procdff$94' with positive edge clock and positive level reset.
+Creating register for signal `\Phy_int.\MTxD_dl1' using process `\Phy_int.$proc$constant_control.sv:57$1'.
+  created $adff cell `$procdff$97' with positive edge clock and positive level reset.
+Creating register for signal `\Phy_int.\MTxEn_dl1' using process `\Phy_int.$proc$constant_control.sv:57$1'.
+  created $adff cell `$procdff$100' with positive edge clock and positive level reset.
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `Phy_int.$proc$constant_control.sv:142$20'.
+Found and cleaned up 3 empty switches in `\Phy_int.$proc$constant_control.sv:133$16'.
+Removing empty process `Phy_int.$proc$constant_control.sv:133$16'.
+Found and cleaned up 1 empty switch in `\Phy_int.$proc$constant_control.sv:126$13'.
+Removing empty process `Phy_int.$proc$constant_control.sv:126$13'.
+Found and cleaned up 2 empty switches in `\Phy_int.$proc$constant_control.sv:117$12'.
+Removing empty process `Phy_int.$proc$constant_control.sv:117$12'.
+Removing empty process `Phy_int.$proc$constant_control.sv:94$11'.
+Found and cleaned up 1 empty switch in `\Phy_int.$proc$constant_control.sv:86$10'.
+Removing empty process `Phy_int.$proc$constant_control.sv:86$10'.
+Found and cleaned up 3 empty switches in `\Phy_int.$proc$constant_control.sv:75$5'.
+Removing empty process `Phy_int.$proc$constant_control.sv:75$5'.
+Found and cleaned up 1 empty switch in `\Phy_int.$proc$constant_control.sv:68$2'.
+Removing empty process `Phy_int.$proc$constant_control.sv:68$2'.
+Removing empty process `Phy_int.$proc$constant_control.sv:57$1'.
+Cleaned up 11 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module Phy_int.
+<suppressed ~17 debug messages>
+
+3.3. Executing FUTURE pass.
+
+3.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module Phy_int.
+
+3.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Phy_int..
+Removed 2 unused cells and 45 unused wires.
+<suppressed ~4 debug messages>
+
+3.6. Executing CHECK pass (checking for obvious problems).
+Checking module Phy_int...
+Found and reported 0 problems.
+
+3.7. Executing OPT pass (performing simple optimizations).
+
+3.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module Phy_int.
+
+3.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Phy_int'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+3.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \Phy_int..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~6 debug messages>
+
+3.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \Phy_int.
+Performed a total of 0 changes.
+
+3.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Phy_int'.
+Removed a total of 0 cells.
+
+3.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Phy_int..
+Removed 0 unused cells and 1 unused wires.
+<suppressed ~1 debug messages>
+
+3.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module Phy_int.
+
+3.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \Phy_int..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~6 debug messages>
+
+3.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \Phy_int.
+Performed a total of 0 changes.
+
+3.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Phy_int'.
+Removed a total of 0 cells.
+
+3.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Phy_int..
+
+3.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module Phy_int.
+
+3.7.14. Finished OPT passes. (There is nothing left to do.)
+
+3.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 4 bits (of 8) from mux cell Phy_int.$procmux$45 ($mux).
+Removed top 4 bits (of 8) from mux cell Phy_int.$procmux$48 ($mux).
+Removed top 4 bits (of 8) from wire Phy_int.$procmux$45_Y.
+Removed top 4 bits (of 8) from wire Phy_int.$procmux$48_Y.
+
+3.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Phy_int..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+3.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.11. Executing OPT pass (performing simple optimizations).
+
+3.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module Phy_int.
+
+3.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\Phy_int'.
+Removed a total of 0 cells.
+
+3.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Phy_int..
+
+3.11.4. Finished fast OPT passes.
+
+3.12. Printing statistics.
+
+=== Phy_int ===
+
+   Number of wires:                 49
+   Number of wire bits:            142
+   Number of public wires:          29
+   Number of public wire bits:      80
+   Number of ports:                 19
+   Number of port bits:             49
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 35
+     $adff                          14
+     $check                          1
+     $logic_and                      5
+     $logic_not                      4
+     $mux                           11
+
+3.13. Executing CHECK pass (checking for obvious problems).
+Checking module Phy_int...
+Found and reported 0 problems.
+
+4. Executing FLATTEN pass (flatten design).
+
+5. Executing ASYNC2SYNC pass.
+Replacing Phy_int.$procdff$100 ($adff): ARST=\Reset, D=\MTxEn, Q=\MTxEn_dl1
+Replacing Phy_int.$procdff$58 ($adff): ARST=\Reset, D=$0\MRxD[7:0], Q=\MRxD
+Replacing Phy_int.$procdff$61 ($adff): ARST=\Reset, D=$0\Rx_odd_data_ptr[0:0], Q=\Rx_odd_data_ptr
+Replacing Phy_int.$procdff$64 ($adff): ARST=\Reset, D=$0\MCrs_dv[0:0], Q=\MCrs_dv
+Replacing Phy_int.$procdff$67 ($adff): ARST=\Reset, D=\Rx_er, Q=\Rx_er_dl1
+Replacing Phy_int.$procdff$70 ($adff): ARST=\Reset, D=\Rx_dv, Q=\Rx_dv_dl1
+Replacing Phy_int.$procdff$73 ($adff): ARST=\Reset, D=\Rx_dv_dl1, Q=\Rx_dv_dl2
+Replacing Phy_int.$procdff$76 ($adff): ARST=\Reset, D=\Rxd, Q=\Rxd_dl1
+Replacing Phy_int.$procdff$79 ($adff): ARST=\Reset, D=\Rxd_dl1, Q=\Rxd_dl2
+Replacing Phy_int.$procdff$82 ($adff): ARST=\Reset, D=\Crs, Q=\Crs_dl1
+Replacing Phy_int.$procdff$88 ($adff): ARST=\Reset, D=$0\Tx_en[0:0], Q=\Tx_en
+Replacing Phy_int.$procdff$91 ($adff): ARST=\Reset, D=$0\Txd[7:0], Q=\Txd
+Replacing Phy_int.$procdff$94 ($adff): ARST=\Reset, D=$0\Tx_odd_data_ptr[0:0], Q=\Tx_odd_data_ptr
+Replacing Phy_int.$procdff$97 ($adff): ARST=\Reset, D=\MTxD, Q=\MTxD_dl1
+
+6. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+7. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \Phy_int..
+Removed 2 unused cells and 2 unused wires.
+<suppressed ~3 debug messages>
+
+9. Executing JSON backend.
+
+10. Executing SAT pass (solving SAT problems in the circuit).
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 63 cells to SAT database.
+No constraints for initial state found.
+
+Import proof for assert: 1'1 when 1'1.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 63 cells to SAT database.
+Import proof for assert: 1'1 when 1'1.
+Import show expression: \Col
+Import show expression: \Crs
+Import show expression: \Line_loop_en
+Import show expression: \MAC_rx_clk
+Import show expression: \MAC_tx_clk
+Import show expression: \MTxD
+Import show expression: \MTxEn
+Import show expression: \Reset
+Import show expression: \Rx_dv
+Import show expression: \Rx_er
+Import show expression: \Rxd
+Import show expression: \Speed
+Import show expression: \MCRS
+Import show expression: \MCrs_dv
+Import show expression: \MRxD
+Import show expression: \MRxErr
+Import show expression: \Tx_en
+Import show expression: \Tx_er
+Import show expression: \Txd
+
+Solving problem with 2179 variables and 5527 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+

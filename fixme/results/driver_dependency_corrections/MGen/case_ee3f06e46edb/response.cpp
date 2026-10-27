@@ -1,0 +1,2 @@
+#include "RefModel.h"
+extern "C" void ref_model_eval(unsigned long long clk,unsigned long long rst,unsigned long long enable,unsigned long long opa,unsigned long long opb,unsigned long long* ref_sign,unsigned long long* ref_mantissa_7,unsigned long long* ref_exponent_out){static VerilatedContext context;static RefModel model(&context);model.clk=clk;model.rst=rst;model.enable=enable;model.opa=opa;model.opb=opb;model.eval();*ref_sign=model.ref_sign;*ref_mantissa_7=model.ref_mantissa_7;*ref_exponent_out=model.ref_exponent_out;}

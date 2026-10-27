@@ -1,0 +1,130 @@
+{
+  "kind": "reference-calibration-not-model-score",
+  "live_llm": false,
+  "case_count": 2,
+  "max_workers": 2,
+  "case_budget_seconds": 150,
+  "results": [
+    {
+      "id": "MGen/L3/Text/GA_70",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": ".fsm.sch.verilog.xml",
+          "bytes": 56,
+          "sha256": "4b9dad72827b173a43d570c924aad53b345e21485e3fa3a1deadf098783684bb"
+        },
+        {
+          "name": "dut.f",
+          "bytes": 27,
+          "sha256": "85f962db6f0a138db67a6c64fb84664cd2459a96548439499529589bb912a8bc"
+        },
+        {
+          "name": "dut.v",
+          "bytes": 16044,
+          "sha256": "a7d9d23624daf2c59bf049c03640ff875c80adfa7fcad7152e984a49828a8866"
+        },
+        {
+          "name": "fpu_div_ref",
+          "bytes": 14168,
+          "sha256": "be5f78534fb3eb5fb9d923d11e03ace17060f744fc995e416f58fe1feecff794"
+        },
+        {
+          "name": "fpu_div_ref.cpp",
+          "bytes": 1241,
+          "sha256": "f5131fc928b4ca397b6b7648951b2b49be2c5310eb74b2d66378deee8d71ef3e"
+        },
+        {
+          "name": "makefile",
+          "bytes": 865,
+          "sha256": "de1974fd4efad8cbbc2765709ba76331fc80e47c0896457754c9a7680734b5dc"
+        },
+        {
+          "name": "ref.v",
+          "bytes": 16103,
+          "sha256": "a376a97bde92464f84da6518d69f441cde1d0ecb6cd9a2afc3d66580ec191e77"
+        },
+        {
+          "name": "ref_output.txt",
+          "bytes": 21,
+          "sha256": "8f8c6255fbc4fc8ea637036352e20e56d954b46a8c87f4ef3aba6df7ac1ff379"
+        },
+        {
+          "name": "ref_tb.v",
+          "bytes": 3229,
+          "sha256": "6687ea1b536eeac8528f211895a3d8cfc1337e5da61f03ddafe6315f9480ed44"
+        },
+        {
+          "name": "spec.txt",
+          "bytes": 7944,
+          "sha256": "4f75440713b49d90bc353a8200761335bb137eaa25ec829e04d1faf06ec4e724"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 2,
+      "status": "error",
+      "staged_read_dependencies": [
+        {
+          "name": "ref_output.txt",
+          "sha256": "8f8c6255fbc4fc8ea637036352e20e56d954b46a8c87f4ef3aba6df7ac1ff379"
+        }
+      ],
+      "wrapper_mode": "reference_model",
+      "reference_source": "ref.v",
+      "reference_source_sha256": "a376a97bde92464f84da6518d69f441cde1d0ecb6cd9a2afc3d66580ec191e77",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {},
+      "reason": "FileNotFoundError: [Errno 2] No such file or directory: '/workspace/PaperReproduction/fixme/results/driver_dependency_corrections/MGen/case_ee3f06e46edb/ref_tb.v'",
+      "seconds": 4.856
+    },
+    {
+      "id": "SVAGen/L2/Text/10",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "fm_avalon_wb.v",
+          "bytes": 4125,
+          "sha256": "ce229098c79fdf80e2cb5d81172b734b372dfe48907ff47a318f86bf91ab8998"
+        },
+        {
+          "name": "fm_avalon_wb_spec.txt",
+          "bytes": 7487,
+          "sha256": "5b039ee0562482e6719d1fc0d252e267e3a35f14f8bc38aafa12dff488c11fef"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 5,
+      "status": "pass",
+      "active_assignment_line": 95,
+      "assignment_target_width": 1,
+      "assertion": "always @* assert((o_req) == 1'(r_req));",
+      "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+      "relation_lhs": "o_req",
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "constant_mutation_status": "completed",
+      "constant_mutation_killed": false,
+      "negative_status": "fail",
+      "constant_control_status": "unknown",
+      "reason": "nonzero properties proven and selected output mutant falsified",
+      "seconds": 0.341
+    }
+  ],
+  "statuses": {
+    "pass": 1,
+    "error": 1
+  }
+}

@@ -1,0 +1,17 @@
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_c3055311d0b2/spi_master.v:95:22: Operator LT expects 32 or 4 bits on the LHS, but LHS's VARREF 'prescallerint' generates 3 bits.
+                                                                                                                              : ... note: In instance 'spi_master'
+   95 |     if(prescallerint < PRESCALLER_SIZE)
+      |                      ^
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.032
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_c3055311d0b2/spi_master.v:121:23: Operator ASSIGNDLY expects 3 bits on the Assign RHS, but Assign RHS's REPLICATE generates 24 bits.
+                                                                                                                              : ... note: In instance 'spi_master'
+  121 |         prescallerint <= {PRESCALLER_SIZE{3'b0}};
+      |                       ^~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_c3055311d0b2/spi_master.v:215:12: Operator ASSIGNW expects 1 bits on the Assign RHS, but Assign RHS's COND generates 5 bits.
+                                                                                                                              : ... note: In instance 'spi_master'
+  215 | assign sck = (modeint[1])? ~sckint : sckint;
+      |            ^
+- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev (Debian 5.032-1+b2)
+- Verilator: Built from 0.033 MB sources in 2 modules, into 0.000 MB in 0 C++ files needing 0.000 MB
+- Verilator: Walltime 0.004 s (elab=0.001, cvt=0.000, bld=0.000); cpu 0.000 s on 1 threads; alloced 9.016 MB

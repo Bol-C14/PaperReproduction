@@ -1,0 +1,17 @@
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_71f19b8008a7/fpu_sub.v:99:52: Operator SUB expects 11 bits on the RHS, but RHS's VARREF 'large_norm_small_denorm' generates 1 bits.
+                                                                                                                           : ... note: In instance 'fpu_sub'
+   99 |   exponent_diff <= exponent_large - exponent_small - large_norm_small_denorm;
+      |                                                    ^
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.032
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_71f19b8008a7/fpu_sub.v:106:41: Operator GT expects 11 bits on the LHS, but LHS's VARREF 'diff_shift_2' generates 7 bits.
+                                                                                                                            : ... note: In instance 'fpu_sub'
+  106 |   diffshift_gt_exponent <= diff_shift_2 > exponent_large;
+      |                                         ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_71f19b8008a7/fpu_sub.v:109:59: Operator SUB expects 32 or 11 bits on the RHS, but RHS's VARREF 'diff_shift_2' generates 7 bits.
+                                                                                                                            : ... note: In instance 'fpu_sub'
+  109 |   exponent <= diffshift_gt_exponent ? 0 : (exponent_large - diff_shift_2);
+      |                                                           ^
+- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev (Debian 5.032-1+b2)
+- Verilator: Built from 0.035 MB sources in 2 modules, into 0.000 MB in 0 C++ files needing 0.000 MB
+- Verilator: Walltime 0.005 s (elab=0.001, cvt=0.000, bld=0.000); cpu 0.004 s on 1 threads; alloced 9.004 MB

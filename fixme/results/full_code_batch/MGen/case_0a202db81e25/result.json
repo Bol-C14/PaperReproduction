@@ -1,0 +1,41 @@
+{
+  "id": "MGen/L1/Text/Sync FIFO",
+  "subset": "MGen",
+  "input_files": [
+    {
+      "name": "syncfifo.v",
+      "bytes": 3833,
+      "sha256": "ab9699cf80cb4b05b9703e2fe2557d7cb98da42f9e443f042bf0b13e220fa67b"
+    },
+    {
+      "name": "syncfifo_tb.v",
+      "bytes": 1561,
+      "sha256": "b2e578ca3c7edbb7f10d8d667bc49e5991d208c432890af0155805da59b73874"
+    }
+  ],
+  "overlays": [
+    {
+      "field": "spec_text",
+      "source": "data/SpeCom/L1/Text/Sync FIFO/syncfifo_spec.txt",
+      "sha256": "1fa8e55fcbe97015918ed128af41740bc3088da4391e3746a95d87aeab3f6390",
+      "reason": "same case name and byte-identical RTL in SpeCom; explicit cross-subset reuse",
+      "fidelity": "structural-input-overlay",
+      "matched_rtl_sha256": "ab9699cf80cb4b05b9703e2fe2557d7cb98da42f9e443f042bf0b13e220fa67b"
+    }
+  ],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": null,
+  "negative_control_detected": null,
+  "commands": 4,
+  "status": "unknown",
+  "wrapper_mode": "dut_replacement",
+  "reference_source": "syncfifo.v",
+  "reference_source_sha256": "ab9699cf80cb4b05b9703e2fe2557d7cb98da42f9e443f042bf0b13e220fa67b",
+  "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+  "resolved_tb_parameters": {},
+  "reference_status": "unknown",
+  "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
+  "seconds": 128.45
+}

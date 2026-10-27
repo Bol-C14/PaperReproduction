@@ -1,0 +1,383 @@
+<?xml version="1.0" ?>
+<!-- DESCRIPTION: Verilator output: XML representation of netlist -->
+<verilator_xml>
+  <files>
+    <file id="d" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std.sv" language="1800-2023"/>
+    <file id="c" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std_waiver.vlt" language="1800-2023"/>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_433882c32e93/ALTERA_MF_HINT_EVALUATION.v" language="1800-2023"/>
+    <file id="a" filename="&lt;built-in&gt;" language="1800-2023"/>
+    <file id="b" filename="&lt;command-line&gt;" language="1800-2023"/>
+  </files>
+  <module_files>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_433882c32e93/ALTERA_MF_HINT_EVALUATION.v" language="1800-2023"/>
+  </module_files>
+  <cells>
+    <cell loc="e,3,8,3,33" name="ALTERA_MF_HINT_EVALUATION" submodname="ALTERA_MF_HINT_EVALUATION" hier="ALTERA_MF_HINT_EVALUATION"/>
+  </cells>
+  <netlist>
+    <module loc="e,3,8,3,33" name="ALTERA_MF_HINT_EVALUATION" origName="ALTERA_MF_HINT_EVALUATION" topModule="1">
+      <func loc="e,4,20,4,39" name="GET_PARAMETER_VALUE" dtype_id="1">
+        <var loc="e,4,20,4,39" name="GET_PARAMETER_VALUE" dtype_id="1" dir="output" vartype="logic" origName="GET_PARAMETER_VALUE"/>
+        <var loc="e,5,21,5,33" name="given_string" dtype_id="1" dir="input" vartype="logic" origName="given_string"/>
+        <var loc="e,6,20,6,38" name="compare_param_name" dtype_id="2" dir="input" vartype="logic" origName="compare_param_name"/>
+        <var loc="e,7,13,7,35" name="param_value_char_count" dtype_id="3" vartype="integer" origName="param_value_char_count"/>
+        <var loc="e,8,13,8,34" name="param_name_char_count" dtype_id="3" vartype="integer" origName="param_name_char_count"/>
+        <var loc="e,9,13,9,30" name="white_space_count" dtype_id="3" vartype="integer" origName="white_space_count"/>
+        <var loc="e,10,9,10,28" name="extract_param_value" dtype_id="4" vartype="logic" origName="extract_param_value"/>
+        <var loc="e,11,9,11,27" name="extract_param_name" dtype_id="4" vartype="logic" origName="extract_param_name"/>
+        <var loc="e,12,9,12,20" name="param_found" dtype_id="4" vartype="logic" origName="param_found"/>
+        <var loc="e,13,9,13,28" name="include_white_space" dtype_id="4" vartype="logic" origName="include_white_space"/>
+        <var loc="e,14,19,14,29" name="reg_string" dtype_id="1" vartype="logic" origName="reg_string"/>
+        <var loc="e,15,18,15,28" name="param_name" dtype_id="2" vartype="logic" origName="param_name"/>
+        <var loc="e,16,18,16,29" name="param_value" dtype_id="5" vartype="logic" origName="param_value"/>
+        <var loc="e,17,15,17,18" name="tmp" dtype_id="6" vartype="logic" origName="tmp"/>
+        <begin loc="e,18,1,18,6">
+          <assign loc="e,19,16,19,17" dtype_id="1">
+            <varref loc="e,19,18,19,30" name="given_string" dtype_id="1"/>
+            <varref loc="e,19,5,19,15" name="reg_string" dtype_id="1"/>
+          </assign>
+          <assign loc="e,20,28,20,29" dtype_id="3">
+            <const loc="e,20,30,20,31" name="32&apos;sh0" dtype_id="7"/>
+            <varref loc="e,20,5,20,27" name="param_value_char_count" dtype_id="3"/>
+          </assign>
+          <assign loc="e,21,27,21,28" dtype_id="3">
+            <const loc="e,21,28,21,29" name="32&apos;sh0" dtype_id="7"/>
+            <varref loc="e,21,5,21,26" name="param_name_char_count" dtype_id="3"/>
+          </assign>
+          <assign loc="e,22,25,22,26" dtype_id="4">
+            <const loc="e,22,27,22,28" name="1&apos;h1" dtype_id="4"/>
+            <varref loc="e,22,5,22,24" name="extract_param_value" dtype_id="4"/>
+          </assign>
+          <assign loc="e,23,24,23,25" dtype_id="4">
+            <const loc="e,23,26,23,27" name="1&apos;h0" dtype_id="4"/>
+            <varref loc="e,23,5,23,23" name="extract_param_name" dtype_id="4"/>
+          </assign>
+          <assign loc="e,24,17,24,18" dtype_id="4">
+            <const loc="e,24,19,24,20" name="1&apos;h0" dtype_id="4"/>
+            <varref loc="e,24,5,24,16" name="param_found" dtype_id="4"/>
+          </assign>
+          <assign loc="e,25,25,25,26" dtype_id="4">
+            <const loc="e,25,27,25,28" name="1&apos;h0" dtype_id="4"/>
+            <varref loc="e,25,5,25,24" name="include_white_space" dtype_id="4"/>
+          </assign>
+          <assign loc="e,26,23,26,24" dtype_id="3">
+            <const loc="e,26,25,26,26" name="32&apos;sh0" dtype_id="7"/>
+            <varref loc="e,26,5,26,22" name="white_space_count" dtype_id="3"/>
+          </assign>
+          <assign loc="e,27,9,27,10" dtype_id="6">
+            <sel loc="e,27,21,27,22" dtype_id="8">
+              <varref loc="e,27,11,27,21" name="reg_string" dtype_id="1"/>
+              <const loc="e,27,24,27,25" name="11&apos;h0" dtype_id="9"/>
+              <const loc="e,27,22,27,23" name="32&apos;h8" dtype_id="10"/>
+            </sel>
+            <varref loc="e,27,5,27,8" name="tmp" dtype_id="6"/>
+          </assign>
+          <while loc="e,28,5,28,10">
+            <begin>
+            </begin>
+            <begin>
+              <and loc="e,28,24,28,26" dtype_id="4">
+                <neq loc="e,28,17,28,19" dtype_id="4">
+                  <const loc="e,28,20,28,21" name="8&apos;h0" dtype_id="8"/>
+                  <varref loc="e,28,13,28,16" name="tmp" dtype_id="6"/>
+                </neq>
+                <not loc="e,28,40,28,42" dtype_id="4">
+                  <varref loc="e,28,28,28,39" name="param_found" dtype_id="4"/>
+                </not>
+              </and>
+            </begin>
+            <begin>
+              <begin loc="e,29,5,29,10">
+                <assign loc="e,30,13,30,14" dtype_id="6">
+                  <sel loc="e,30,25,30,26" dtype_id="8">
+                    <varref loc="e,30,15,30,25" name="reg_string" dtype_id="1"/>
+                    <const loc="e,30,28,30,29" name="11&apos;h0" dtype_id="9"/>
+                    <const loc="e,30,26,30,27" name="32&apos;h8" dtype_id="10"/>
+                  </sel>
+                  <varref loc="e,30,9,30,12" name="tmp" dtype_id="6"/>
+                </assign>
+                <if loc="e,31,9,31,11">
+                  <or loc="e,31,24,31,26" dtype_id="4">
+                    <neq loc="e,31,17,31,19" dtype_id="4">
+                      <const loc="e,31,20,31,22" name="8&apos;h20" dtype_id="8"/>
+                      <varref loc="e,31,13,31,16" name="tmp" dtype_id="6"/>
+                    </neq>
+                    <varref loc="e,31,28,31,47" name="include_white_space" dtype_id="4"/>
+                  </or>
+                  <begin>
+                    <begin loc="e,32,9,32,14">
+                      <if loc="e,33,13,33,15">
+                        <eq loc="e,33,20,33,22" dtype_id="4">
+                          <const loc="e,33,23,33,25" name="8&apos;h20" dtype_id="8"/>
+                          <varref loc="e,33,16,33,19" name="tmp" dtype_id="6"/>
+                        </eq>
+                        <begin>
+                          <begin loc="e,34,13,34,18">
+                            <assign loc="e,35,35,35,36" dtype_id="3">
+                              <const loc="e,35,37,35,38" name="32&apos;sh1" dtype_id="7"/>
+                              <varref loc="e,35,17,35,34" name="white_space_count" dtype_id="3"/>
+                            </assign>
+                          </begin>
+                        </begin>
+                        <begin>
+                          <if loc="e,37,18,37,20">
+                            <eq loc="e,37,25,37,27" dtype_id="4">
+                              <const loc="e,37,28,37,30" name="8&apos;h3d" dtype_id="8"/>
+                              <varref loc="e,37,21,37,24" name="tmp" dtype_id="6"/>
+                            </eq>
+                            <begin>
+                              <begin loc="e,38,13,38,18">
+                                <assign loc="e,39,37,39,38" dtype_id="4">
+                                  <const loc="e,39,39,39,40" name="1&apos;h0" dtype_id="4"/>
+                                  <varref loc="e,39,17,39,36" name="extract_param_value" dtype_id="4"/>
+                                </assign>
+                                <assign loc="e,40,36,40,37" dtype_id="4">
+                                  <const loc="e,40,39,40,40" name="1&apos;h1" dtype_id="4"/>
+                                  <varref loc="e,40,17,40,35" name="extract_param_name" dtype_id="4"/>
+                                </assign>
+                                <assign loc="e,41,37,41,38" dtype_id="4">
+                                  <const loc="e,41,39,41,40" name="1&apos;h0" dtype_id="4"/>
+                                  <varref loc="e,41,17,41,36" name="include_white_space" dtype_id="4"/>
+                                </assign>
+                                <assign loc="e,42,35,42,36" dtype_id="3">
+                                  <const loc="e,42,37,42,38" name="32&apos;sh0" dtype_id="7"/>
+                                  <varref loc="e,42,17,42,34" name="white_space_count" dtype_id="3"/>
+                                </assign>
+                                <assign loc="e,43,29,43,30" dtype_id="5">
+                                  <shiftr loc="e,43,43,43,45" dtype_id="5">
+                                    <varref loc="e,43,31,43,42" name="param_value" dtype_id="5"/>
+                                    <muls loc="e,43,49,43,50" dtype_id="7">
+                                      <const loc="e,43,47,43,48" name="32&apos;sh8" dtype_id="7"/>
+                                      <sub loc="e,43,55,43,56" dtype_id="7">
+                                        <const loc="e,43,52,43,54" name="32&apos;sh14" dtype_id="7"/>
+                                        <varref loc="e,43,57,43,79" name="param_value_char_count" dtype_id="3"/>
+                                      </sub>
+                                    </muls>
+                                  </shiftr>
+                                  <varref loc="e,43,17,43,28" name="param_value" dtype_id="5"/>
+                                </assign>
+                                <assign loc="e,44,40,44,41" dtype_id="3">
+                                  <const loc="e,44,42,44,43" name="32&apos;sh0" dtype_id="7"/>
+                                  <varref loc="e,44,17,44,39" name="param_value_char_count" dtype_id="3"/>
+                                </assign>
+                              </begin>
+                            </begin>
+                            <begin>
+                              <if loc="e,46,18,46,20">
+                                <eq loc="e,46,26,46,28" dtype_id="4">
+                                  <const loc="e,46,29,46,31" name="8&apos;h2c" dtype_id="8"/>
+                                  <varref loc="e,46,22,46,25" name="tmp" dtype_id="6"/>
+                                </eq>
+                                <begin>
+                                  <begin loc="e,47,13,47,18">
+                                    <assign loc="e,48,37,48,38" dtype_id="4">
+                                      <const loc="e,48,39,48,40" name="1&apos;h1" dtype_id="4"/>
+                                      <varref loc="e,48,17,48,36" name="extract_param_value" dtype_id="4"/>
+                                    </assign>
+                                    <assign loc="e,49,36,49,37" dtype_id="4">
+                                      <const loc="e,49,39,49,40" name="1&apos;h0" dtype_id="4"/>
+                                      <varref loc="e,49,17,49,35" name="extract_param_name" dtype_id="4"/>
+                                    </assign>
+                                    <assign loc="e,50,28,50,29" dtype_id="2">
+                                      <shiftr loc="e,50,41,50,43" dtype_id="2">
+                                        <varref loc="e,50,30,50,40" name="param_name" dtype_id="2"/>
+                                        <muls loc="e,50,47,50,48" dtype_id="7">
+                                          <const loc="e,50,45,50,46" name="32&apos;sh8" dtype_id="7"/>
+                                          <sub loc="e,50,53,50,54" dtype_id="7">
+                                            <const loc="e,50,50,50,52" name="32&apos;sh32" dtype_id="7"/>
+                                            <varref loc="e,50,55,50,76" name="param_name_char_count" dtype_id="3"/>
+                                          </sub>
+                                        </muls>
+                                      </shiftr>
+                                      <varref loc="e,50,17,50,27" name="param_name" dtype_id="2"/>
+                                    </assign>
+                                    <assign loc="e,51,39,51,40" dtype_id="3">
+                                      <const loc="e,51,41,51,42" name="32&apos;sh0" dtype_id="7"/>
+                                      <varref loc="e,51,17,51,38" name="param_name_char_count" dtype_id="3"/>
+                                    </assign>
+                                    <if loc="e,52,17,52,19">
+                                      <eq loc="e,52,31,52,33" dtype_id="4">
+                                        <varref loc="e,52,20,52,30" name="param_name" dtype_id="2"/>
+                                        <varref loc="e,52,34,52,52" name="compare_param_name" dtype_id="2"/>
+                                      </eq>
+                                      <begin>
+                                        <assign loc="e,53,33,53,34" dtype_id="4">
+                                          <const loc="e,53,35,53,36" name="1&apos;h1" dtype_id="4"/>
+                                          <varref loc="e,53,21,53,32" name="param_found" dtype_id="4"/>
+                                        </assign>
+                                      </begin>
+                                    </if>
+                                  </begin>
+                                </begin>
+                                <begin>
+                                  <begin loc="e,56,13,56,18">
+                                    <if loc="e,57,17,57,19">
+                                      <varref loc="e,57,20,57,39" name="extract_param_value" dtype_id="4"/>
+                                      <begin>
+                                        <begin loc="e,58,17,58,22">
+                                          <assign loc="e,59,44,59,45" dtype_id="3">
+                                            <add loc="e,59,89,59,90" dtype_id="3">
+                                              <const loc="e,59,91,59,92" name="32&apos;sh1" dtype_id="7"/>
+                                              <add loc="e,59,69,59,70" dtype_id="3">
+                                                <varref loc="e,59,46,59,68" name="param_value_char_count" dtype_id="3"/>
+                                                <varref loc="e,59,71,59,88" name="white_space_count" dtype_id="3"/>
+                                              </add>
+                                            </add>
+                                            <varref loc="e,59,21,59,43" name="param_value_char_count" dtype_id="3"/>
+                                          </assign>
+                                          <assign loc="e,60,41,60,42" dtype_id="4">
+                                            <const loc="e,60,43,60,44" name="1&apos;h1" dtype_id="4"/>
+                                            <varref loc="e,60,21,60,40" name="include_white_space" dtype_id="4"/>
+                                          </assign>
+                                          <if loc="e,61,21,61,23">
+                                            <lts loc="e,61,42,61,43" dtype_id="4">
+                                              <const loc="e,61,44,61,45" name="32&apos;sh0" dtype_id="7"/>
+                                              <varref loc="e,61,24,61,41" name="white_space_count" dtype_id="3"/>
+                                            </lts>
+                                            <begin>
+                                              <begin loc="e,62,21,62,26">
+                                                <assign loc="e,63,37,63,38" dtype_id="5">
+                                                  <concat loc="e,63,49,63,50" dtype_id="11">
+                                                    <const loc="e,63,40,63,49" name="8&apos;h20" dtype_id="8"/>
+                                                    <sel loc="e,63,62,63,63" dtype_id="12">
+                                                      <varref loc="e,63,51,63,62" name="param_value" dtype_id="5"/>
+                                                      <const loc="e,63,68,63,69" name="8&apos;h8" dtype_id="13"/>
+                                                      <const loc="e,63,65,63,66" name="32&apos;h98" dtype_id="10"/>
+                                                    </sel>
+                                                  </concat>
+                                                  <varref loc="e,63,25,63,36" name="param_value" dtype_id="5"/>
+                                                </assign>
+                                                <assign loc="e,64,43,64,44" dtype_id="3">
+                                                  <const loc="e,64,45,64,46" name="32&apos;sh0" dtype_id="7"/>
+                                                  <varref loc="e,64,25,64,42" name="white_space_count" dtype_id="3"/>
+                                                </assign>
+                                              </begin>
+                                            </begin>
+                                          </if>
+                                          <assign loc="e,66,33,66,34" dtype_id="5">
+                                            <concat loc="e,66,39,66,40" dtype_id="11">
+                                              <varref loc="e,66,36,66,39" name="tmp" dtype_id="6"/>
+                                              <sel loc="e,66,52,66,53" dtype_id="12">
+                                                <varref loc="e,66,41,66,52" name="param_value" dtype_id="5"/>
+                                                <const loc="e,66,58,66,59" name="8&apos;h8" dtype_id="13"/>
+                                                <const loc="e,66,55,66,56" name="32&apos;h98" dtype_id="10"/>
+                                              </sel>
+                                            </concat>
+                                            <varref loc="e,66,21,66,32" name="param_value" dtype_id="5"/>
+                                          </assign>
+                                        </begin>
+                                      </begin>
+                                      <begin>
+                                        <if loc="e,68,22,68,24">
+                                          <varref loc="e,68,25,68,43" name="extract_param_name" dtype_id="4"/>
+                                          <begin>
+                                            <begin loc="e,69,17,69,22">
+                                              <assign loc="e,70,32,70,33" dtype_id="2">
+                                                <concat loc="e,70,38,70,39" dtype_id="14">
+                                                  <varref loc="e,70,35,70,38" name="tmp" dtype_id="6"/>
+                                                  <sel loc="e,70,50,70,51" dtype_id="15">
+                                                    <varref loc="e,70,40,70,50" name="param_name" dtype_id="2"/>
+                                                    <const loc="e,70,56,70,57" name="9&apos;h8" dtype_id="16"/>
+                                                    <const loc="e,70,53,70,54" name="32&apos;h188" dtype_id="10"/>
+                                                  </sel>
+                                                </concat>
+                                                <varref loc="e,70,21,70,31" name="param_name" dtype_id="2"/>
+                                              </assign>
+                                              <assign loc="e,71,43,71,44" dtype_id="3">
+                                                <add loc="e,71,67,71,68" dtype_id="3">
+                                                  <const loc="e,71,69,71,70" name="32&apos;sh1" dtype_id="7"/>
+                                                  <varref loc="e,71,45,71,66" name="param_name_char_count" dtype_id="3"/>
+                                                </add>
+                                                <varref loc="e,71,21,71,42" name="param_name_char_count" dtype_id="3"/>
+                                              </assign>
+                                            </begin>
+                                          </begin>
+                                        </if>
+                                      </begin>
+                                    </if>
+                                  </begin>
+                                </begin>
+                              </if>
+                            </begin>
+                          </if>
+                        </begin>
+                      </if>
+                    </begin>
+                  </begin>
+                </if>
+                <assign loc="e,75,20,75,21" dtype_id="1">
+                  <shiftr loc="e,75,33,75,35" dtype_id="1">
+                    <varref loc="e,75,22,75,32" name="reg_string" dtype_id="1"/>
+                    <const loc="e,75,36,75,37" name="32&apos;sh8" dtype_id="7"/>
+                  </shiftr>
+                  <varref loc="e,75,9,75,19" name="reg_string" dtype_id="1"/>
+                </assign>
+              </begin>
+            </begin>
+          </while>
+          <if loc="e,77,5,77,7">
+            <varref loc="e,77,8,77,26" name="extract_param_name" dtype_id="4"/>
+            <begin>
+              <begin loc="e,78,5,78,10">
+                <assign loc="e,79,20,79,21" dtype_id="2">
+                  <shiftr loc="e,79,33,79,35" dtype_id="2">
+                    <varref loc="e,79,22,79,32" name="param_name" dtype_id="2"/>
+                    <muls loc="e,79,39,79,40" dtype_id="7">
+                      <const loc="e,79,37,79,38" name="32&apos;sh8" dtype_id="7"/>
+                      <sub loc="e,79,45,79,46" dtype_id="7">
+                        <const loc="e,79,42,79,44" name="32&apos;sh32" dtype_id="7"/>
+                        <varref loc="e,79,47,79,68" name="param_name_char_count" dtype_id="3"/>
+                      </sub>
+                    </muls>
+                  </shiftr>
+                  <varref loc="e,79,9,79,19" name="param_name" dtype_id="2"/>
+                </assign>
+                <if loc="e,80,9,80,11">
+                  <eq loc="e,80,23,80,25" dtype_id="4">
+                    <varref loc="e,80,12,80,22" name="param_name" dtype_id="2"/>
+                    <varref loc="e,80,26,80,44" name="compare_param_name" dtype_id="2"/>
+                  </eq>
+                  <begin>
+                    <assign loc="e,81,25,81,26" dtype_id="4">
+                      <const loc="e,81,27,81,28" name="1&apos;h1" dtype_id="4"/>
+                      <varref loc="e,81,13,81,24" name="param_found" dtype_id="4"/>
+                    </assign>
+                  </begin>
+                </if>
+              </begin>
+            </begin>
+          </if>
+          <assign loc="e,84,29,84,30" dtype_id="1">
+            <cond loc="e,84,31,84,42" dtype_id="1">
+              <varref loc="e,83,9,83,20" name="param_found" dtype_id="4"/>
+              <extend loc="e,84,31,84,42" dtype_id="1" width="1600" widthminv="160">
+                <varref loc="e,84,31,84,42" name="param_value" dtype_id="5"/>
+              </extend>
+              <const loc="e,86,31,86,33" name="1600&apos;h0" dtype_id="1"/>
+            </cond>
+            <varref loc="e,84,9,84,28" name="GET_PARAMETER_VALUE" dtype_id="1"/>
+          </assign>
+        </begin>
+      </func>
+    </module>
+    <typetable loc="a,0,0,0,0">
+      <voiddtype loc="d,48,18,48,27" id="17"/>
+      <basicdtype loc="e,63,40,63,49" id="8" name="logic" left="7" right="0"/>
+      <basicdtype loc="e,4,20,4,39" id="1" name="logic" left="1600" right="1"/>
+      <basicdtype loc="e,6,11,6,12" id="2" name="logic" left="400" right="1"/>
+      <basicdtype loc="e,7,5,7,12" id="3" name="integer" left="31" right="0" signed="true"/>
+      <basicdtype loc="e,10,5,10,8" id="4" name="logic"/>
+      <basicdtype loc="e,16,5,16,8" id="5" name="logic" left="160" right="1"/>
+      <basicdtype loc="e,17,5,17,8" id="6" name="logic" left="8" right="1"/>
+      <basicdtype loc="e,27,21,27,22" id="9" name="logic" left="10" right="0" signed="true"/>
+      <basicdtype loc="e,52,31,52,33" id="14" name="logic" left="399" right="0"/>
+      <basicdtype loc="e,63,62,63,63" id="12" name="logic" left="151" right="0"/>
+      <basicdtype loc="e,63,62,63,63" id="13" name="logic" left="7" right="0" signed="true"/>
+      <basicdtype loc="e,63,49,63,50" id="11" name="logic" left="159" right="0"/>
+      <basicdtype loc="e,70,50,70,51" id="15" name="logic" left="391" right="0"/>
+      <basicdtype loc="e,70,50,70,51" id="16" name="logic" left="8" right="0" signed="true"/>
+      <basicdtype loc="e,20,30,20,31" id="7" name="logic" left="31" right="0" signed="true"/>
+      <basicdtype loc="e,27,22,27,23" id="10" name="logic" left="31" right="0"/>
+    </typetable>
+  </netlist>
+</verilator_xml>

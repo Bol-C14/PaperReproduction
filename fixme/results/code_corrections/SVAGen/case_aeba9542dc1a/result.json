@@ -1,0 +1,39 @@
+{
+  "id": "SVAGen/L1/Text/eth_clockgen",
+  "subset": "SVAGen",
+  "input_files": [
+    {
+      "name": "eth_clockgen.v",
+      "bytes": 1045,
+      "sha256": "a5f6f5546d6b8d6938d75e996a5ea6f1a4bb4c1d10fe5228a65b87bd64906241"
+    },
+    {
+      "name": "eth_clockgen_spec.txt",
+      "bytes": 6989,
+      "sha256": "90d056fadd19eec09e3cb3f9d50dd2d8d6d6014aa735eb0e4e561327a442655e"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": true,
+  "negative_control_detected": true,
+  "commands": 4,
+  "status": "pass",
+  "assignment_target_width": 1,
+  "assertion": "always @* assert((MdcEn) == 1'(CountEq0 & ~Mdc));",
+  "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+  "relation_lhs": "MdcEn",
+  "property_counts": {
+    "assert": 1,
+    "assume": 0,
+    "cover": 0
+  },
+  "constant_mutation_status": "completed",
+  "constant_mutation_killed": false,
+  "negative_status": "fail",
+  "constant_control_status": "unknown",
+  "reason": "nonzero properties proven and selected output mutant falsified",
+  "seconds": 0.143
+}

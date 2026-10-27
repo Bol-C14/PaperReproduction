@@ -1,0 +1,21 @@
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ca641e0b44f4/fpu_div.v:189:36: Operator COND expects 32 or 12 bits on the Conditional False, but Conditional False's VARREF 'dividend_shift_2' generates 6 bits.
+                                                                                                                            : ... note: In instance 'fpu_div'
+  189 |         expon_shift_a <= a_is_norm ? 0 : dividend_shift_2;
+      |                                    ^
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.032
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ca641e0b44f4/fpu_div.v:190:36: Operator COND expects 32 or 12 bits on the Conditional False, but Conditional False's VARREF 'divisor_shift_2' generates 6 bits.
+                                                                                                                            : ... note: In instance 'fpu_div'
+  190 |         expon_shift_b <= b_is_norm ? 0 : divisor_shift_2;
+      |                                    ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ca641e0b44f4/fpu_div.v:200:71: Operator SUB expects 12 bits on the RHS, but RHS's VARREF 'expon_final_4_term' generates 1 bits.
+                                                                                                                            : ... note: In instance 'fpu_div'
+  200 |         expon_final_5 <= quotient_msb ? expon_final_4 : expon_final_4 - expon_final_4_term;
+      |                                                                       ^
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ca641e0b44f4/fpu_div.v:207:24: Operator ASSIGNDLY expects 7 bits on the Assign RHS, but Assign RHS's SUB generates 32 or 12 bits.
+                                                                                                                           : ... note: In instance 'fpu_div'
+  207 |   remainder_shift_term <= 52 - expon_uf_term_4;
+      |                        ^~
+- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev (Debian 5.032-1+b2)
+- Verilator: Built from 0.042 MB sources in 2 modules, into 0.000 MB in 0 C++ files needing 0.000 MB
+- Verilator: Walltime 0.007 s (elab=0.001, cvt=0.001, bld=0.000); cpu 0.004 s on 1 threads; alloced 9.387 MB

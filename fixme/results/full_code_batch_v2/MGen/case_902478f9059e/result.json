@@ -1,0 +1,40 @@
+{
+  "id": "MGen/L1/Text/Single Port RAM",
+  "subset": "MGen",
+  "input_files": [
+    {
+      "name": "singleport_ram.v",
+      "bytes": 1049,
+      "sha256": "4afc0ae138989b85789422c46082fbc942741d30dcb58fa524183bec455fff75"
+    },
+    {
+      "name": "singleportram_tb.v",
+      "bytes": 1240,
+      "sha256": "ae242c0e6683fb11131401b808a4a8babff33221957208d313f3e4a620a95f70"
+    }
+  ],
+  "overlays": [
+    {
+      "field": "spec_text",
+      "source": "data/SpeCom/L1/Text/Single Port RAM/singleport_spec.txt",
+      "sha256": "66d3129109b8798b046c7c54e98691092c89970d3aeeba5e8b939eca79a3f38f",
+      "reason": "same case name and byte-identical RTL in SpeCom; explicit cross-subset reuse",
+      "fidelity": "structural-input-overlay",
+      "matched_rtl_sha256": "4afc0ae138989b85789422c46082fbc942741d30dcb58fa524183bec455fff75"
+    }
+  ],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": null,
+  "negative_control_detected": null,
+  "commands": 1,
+  "status": "adapter_unsupported",
+  "wrapper_mode": "dut_replacement",
+  "reference_source": "singleport_ram.v",
+  "reference_source_sha256": "4afc0ae138989b85789422c46082fbc942741d30dcb58fa524183bec455fff75",
+  "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+  "resolved_tb_parameters": {},
+  "reason": "DPI requires scalar/vector <=64-bit resolved ports; complex or wider port found",
+  "seconds": 0.067
+}

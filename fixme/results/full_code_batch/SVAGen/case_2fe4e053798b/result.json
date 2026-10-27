@@ -1,0 +1,30 @@
+{
+  "id": "SVAGen/L1/Text/usbh_crc16",
+  "subset": "SVAGen",
+  "input_files": [
+    {
+      "name": "usbh_crc16.v",
+      "bytes": 1611,
+      "sha256": "6324ffcb76b1f999bef6d46a100f11bc4aa011778d8f951d4482161e4843a01f"
+    },
+    {
+      "name": "usbh_crc16_spec.txt",
+      "bytes": 5436,
+      "sha256": "2013e4ee76446be031b6c1086b06d9f9a98b795d0e158060c1aa78d6549154a9"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": null,
+  "negative_control_detected": null,
+  "commands": 0,
+  "status": "unknown",
+  "assertion": "always @* assert((crc_o[15]) == (data_i[0] ^ data_i[1] ^ data_i[2] ^ data_i[3] ^ data_i[4] ^\n                        data_i[5] ^ data_i[6] ^ data_i[7] ^ crc_i[7] ^ crc_i[6] ^\n                        crc_i[5] ^ crc_i[4] ^ crc_i[3] ^ crc_i[2] ^\n                        crc_i[1] ^ crc_i[0]));",
+  "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+  "relation_lhs": "crc_o[15]",
+  "property_counts": null,
+  "reason": "reference proof baseline: wall timeout",
+  "seconds": 150.173
+}

@@ -1,0 +1,30 @@
+{
+  "id": "SVAGen/L3/Text/9",
+  "subset": "SVAGen",
+  "input_files": [
+    {
+      "name": "eth_macstatus_180.txt",
+      "bytes": 12870,
+      "sha256": "fbe4933fe2f5028789bc676ae32c4b026081c0d04bf7c7e5faf25396d25994da"
+    },
+    {
+      "name": "eth_macstatus_180.v",
+      "bytes": 6375,
+      "sha256": "f5a0fee4fbdaa7561e090b80bacdcbc45f2ad89f074ac96bddffacc24e72afd3"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": null,
+  "negative_control_detected": null,
+  "commands": 0,
+  "status": "unknown",
+  "assertion": "always @* assert((ReceivedPacketGood) == (~LatchedCrcError));",
+  "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+  "relation_lhs": "ReceivedPacketGood",
+  "property_counts": null,
+  "reason": "reference proof baseline: wall timeout",
+  "seconds": 150.214
+}

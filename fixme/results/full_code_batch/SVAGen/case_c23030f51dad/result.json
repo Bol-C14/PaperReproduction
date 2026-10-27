@@ -1,0 +1,30 @@
+{
+  "id": "SVAGen/L3/Text/8",
+  "subset": "SVAGen",
+  "input_files": [
+    {
+      "name": "tessera_sdram_ctrl_594.txt",
+      "bytes": 32232,
+      "sha256": "4b070fa995fa4ba36ca901bf6d5faf77f09369f0d0b246e4e03415fece89d268"
+    },
+    {
+      "name": "tessera_sdram_ctrl_594.v",
+      "bytes": 14382,
+      "sha256": "440fd3f858d8beece2e3e23ebeb5740e0d70796486963d4244f4f917018a0762"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": null,
+  "negative_control_detected": null,
+  "commands": 0,
+  "status": "unknown",
+  "assertion": "always @* assert((ctrl_cmd) == (ini_cmd | ref_cmd | dma_cmd | wri_cmd | rea_cmd));",
+  "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+  "relation_lhs": "ctrl_cmd",
+  "property_counts": null,
+  "reason": "reference proof baseline: wall timeout",
+  "seconds": 150.212
+}

@@ -1,0 +1,40 @@
+{
+  "id": "TBGen/L1/Text/icontrol",
+  "subset": "TBGen",
+  "input_files": [
+    {
+      "name": "icontrol.v",
+      "bytes": 1570,
+      "sha256": "9a9a5fe01a8a395b1d6829d97635224e1e37c126b373297ce1b31f3aede28a51"
+    },
+    {
+      "name": "icontrol_spec.txt",
+      "bytes": 7964,
+      "sha256": "348d89edca1341d233db5bc530d175ceb123c92c49313918d13a8d3af701a115"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": true,
+  "negative_control_detected": true,
+  "commands": 5,
+  "status": "pass",
+  "stimulus_contract": {
+    "seed": 13579,
+    "cycles": 64,
+    "clock": "i_clk",
+    "reset_polarities": {
+      "i_reset": 1
+    },
+    "unknown_handling": "any observed unknown prevents pass",
+    "oracle": "renamed copy of supplied RTL; self-consistency/calibration only"
+  },
+  "observed_checks": 64,
+  "observed_unknown": 0,
+  "reference_status": "pass",
+  "negative_status": "fail",
+  "reason": "reference/checker positive and perturbed-checker negative executed",
+  "seconds": 0.164
+}

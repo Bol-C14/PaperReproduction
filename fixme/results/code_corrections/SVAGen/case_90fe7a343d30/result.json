@@ -1,0 +1,39 @@
+{
+  "id": "SVAGen/L2/Text/2",
+  "subset": "SVAGen",
+  "input_files": [
+    {
+      "name": "Phy_int_141.txt",
+      "bytes": 7760,
+      "sha256": "65bc03e188e99188529466e5c39919db891edfc9f4261e198dc6ae1ee393da41"
+    },
+    {
+      "name": "Phy_int_141.v",
+      "bytes": 4349,
+      "sha256": "33003ea7d14ffba3c74ce429cdf13af8edc9b24030c0d622eeac2b5b2be73d29"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": true,
+  "negative_control_detected": true,
+  "commands": 4,
+  "status": "pass",
+  "assignment_target_width": 1,
+  "assertion": "always @* assert((Tx_er) == 1'(0));",
+  "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+  "relation_lhs": "Tx_er",
+  "property_counts": {
+    "assert": 1,
+    "assume": 0,
+    "cover": 0
+  },
+  "constant_mutation_status": "completed",
+  "constant_mutation_killed": false,
+  "negative_status": "fail",
+  "constant_control_status": "unknown",
+  "reason": "nonzero properties proven and selected output mutant falsified",
+  "seconds": 0.175
+}

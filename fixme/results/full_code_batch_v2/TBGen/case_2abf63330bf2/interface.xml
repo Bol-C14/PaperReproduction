@@ -1,0 +1,254 @@
+<?xml version="1.0" ?>
+<!-- DESCRIPTION: Verilator output: XML representation of netlist -->
+<verilator_xml>
+  <files>
+    <file id="d" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std.sv" language="1800-2023"/>
+    <file id="c" filename="/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/verilated_std_waiver.vlt" language="1800-2023"/>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_2abf63330bf2/rotary.v" language="1800-2023"/>
+    <file id="a" filename="&lt;built-in&gt;" language="1800-2023"/>
+    <file id="b" filename="&lt;command-line&gt;" language="1800-2023"/>
+  </files>
+  <module_files>
+    <file id="e" filename="/workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_2abf63330bf2/rotary.v" language="1800-2023"/>
+  </module_files>
+  <cells>
+    <cell loc="e,3,8,3,14" name="rotary" submodname="rotary" hier="rotary"/>
+  </cells>
+  <netlist>
+    <module loc="e,3,8,3,14" name="rotary" origName="rotary" topModule="1">
+      <var loc="e,4,15,4,18" name="clk" dtype_id="1" dir="input" pinIndex="1" vartype="logic" origName="clk"/>
+      <var loc="e,5,15,5,20" name="reset" dtype_id="1" dir="input" pinIndex="2" vartype="logic" origName="reset"/>
+      <var loc="e,6,15,6,18" name="rot" dtype_id="2" dir="input" pinIndex="3" vartype="logic" origName="rot"/>
+      <var loc="e,7,15,7,22" name="rot_btn" dtype_id="1" dir="output" pinIndex="4" vartype="logic" origName="rot_btn"/>
+      <var loc="e,8,15,8,24" name="rot_event" dtype_id="1" dir="output" pinIndex="5" vartype="logic" origName="rot_event"/>
+      <var loc="e,9,15,9,23" name="rot_left" dtype_id="1" dir="output" pinIndex="6" vartype="logic" origName="rot_left"/>
+      <var loc="e,11,11,11,16" name="rot_q" dtype_id="3" vartype="logic" origName="rot_q"/>
+      <always loc="e,12,1,12,7">
+        <sentree loc="e,12,8,12,9">
+          <senitem loc="e,12,10,12,17" edgeType="POS">
+            <varref loc="e,12,18,12,21" name="clk" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,13,1,13,6">
+          <case loc="e,14,2,14,6">
+            <sel loc="e,14,11,14,12" dtype_id="3">
+              <varref loc="e,14,8,14,11" name="rot" dtype_id="2"/>
+              <const loc="e,14,14,14,15" name="2&apos;h0" dtype_id="4"/>
+              <const loc="e,14,12,14,13" name="32&apos;h2" dtype_id="5"/>
+            </sel>
+            <caseitem loc="e,15,8,15,9">
+              <const loc="e,15,3,15,8" name="2&apos;h0" dtype_id="3"/>
+              <assigndly loc="e,15,16,15,18" dtype_id="3">
+                <concat loc="e,15,29,15,30" dtype_id="3">
+                  <sel loc="e,15,26,15,27" dtype_id="1">
+                    <varref loc="e,15,21,15,26" name="rot_q" dtype_id="3"/>
+                    <const loc="e,15,27,15,28" name="1&apos;h1" dtype_id="6"/>
+                    <const loc="e,15,26,15,27" name="32&apos;h1" dtype_id="5"/>
+                  </sel>
+                  <const loc="e,15,31,15,35" name="1&apos;h0" dtype_id="1"/>
+                </concat>
+                <varref loc="e,15,10,15,15" name="rot_q" dtype_id="3"/>
+              </assigndly>
+            </caseitem>
+            <caseitem loc="e,16,8,16,9">
+              <const loc="e,16,3,16,8" name="2&apos;h1" dtype_id="3"/>
+              <assigndly loc="e,16,16,16,18" dtype_id="3">
+                <extend loc="e,16,25,16,26" dtype_id="3" width="2" widthminv="1">
+                  <sel loc="e,16,32,16,33" dtype_id="1">
+                    <varref loc="e,16,27,16,32" name="rot_q" dtype_id="3"/>
+                    <const loc="e,16,33,16,34" name="1&apos;h0" dtype_id="6"/>
+                    <const loc="e,16,32,16,33" name="32&apos;h1" dtype_id="5"/>
+                  </sel>
+                </extend>
+                <varref loc="e,16,10,16,15" name="rot_q" dtype_id="3"/>
+              </assigndly>
+            </caseitem>
+            <caseitem loc="e,17,8,17,9">
+              <const loc="e,17,3,17,8" name="2&apos;h2" dtype_id="3"/>
+              <assigndly loc="e,17,16,17,18" dtype_id="3">
+                <concat loc="e,17,25,17,26" dtype_id="3">
+                  <const loc="e,17,21,17,25" name="1&apos;h1" dtype_id="1"/>
+                  <sel loc="e,17,32,17,33" dtype_id="1">
+                    <varref loc="e,17,27,17,32" name="rot_q" dtype_id="3"/>
+                    <const loc="e,17,33,17,34" name="1&apos;h0" dtype_id="6"/>
+                    <const loc="e,17,32,17,33" name="32&apos;h1" dtype_id="5"/>
+                  </sel>
+                </concat>
+                <varref loc="e,17,10,17,15" name="rot_q" dtype_id="3"/>
+              </assigndly>
+            </caseitem>
+            <caseitem loc="e,18,8,18,9">
+              <const loc="e,18,3,18,8" name="2&apos;h3" dtype_id="3"/>
+              <assigndly loc="e,18,16,18,18" dtype_id="3">
+                <concat loc="e,18,29,18,30" dtype_id="3">
+                  <sel loc="e,18,26,18,27" dtype_id="1">
+                    <varref loc="e,18,21,18,26" name="rot_q" dtype_id="3"/>
+                    <const loc="e,18,27,18,28" name="1&apos;h1" dtype_id="6"/>
+                    <const loc="e,18,26,18,27" name="32&apos;h1" dtype_id="5"/>
+                  </sel>
+                  <const loc="e,18,31,18,35" name="1&apos;h1" dtype_id="1"/>
+                </concat>
+                <varref loc="e,18,10,18,15" name="rot_q" dtype_id="3"/>
+              </assigndly>
+            </caseitem>
+          </case>
+        </begin>
+      </always>
+      <var loc="e,21,11,21,24" name="rot_q_delayed" dtype_id="3" vartype="logic" origName="rot_q_delayed"/>
+      <always loc="e,22,1,22,7">
+        <sentree loc="e,22,8,22,9">
+          <senitem loc="e,22,10,22,17" edgeType="POS">
+            <varref loc="e,22,18,22,21" name="clk" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,23,1,23,6">
+          <assigndly loc="e,24,16,24,18" dtype_id="3">
+            <varref loc="e,24,19,24,24" name="rot_q" dtype_id="3"/>
+            <varref loc="e,24,2,24,15" name="rot_q_delayed" dtype_id="3"/>
+          </assigndly>
+          <if loc="e,25,2,25,4">
+            <and loc="e,25,15,25,17" dtype_id="1">
+              <sel loc="e,25,11,25,12" dtype_id="1">
+                <varref loc="e,25,6,25,11" name="rot_q" dtype_id="3"/>
+                <const loc="e,25,12,25,13" name="1&apos;h0" dtype_id="6"/>
+                <const loc="e,25,11,25,12" name="32&apos;h1" dtype_id="5"/>
+              </sel>
+              <not loc="e,25,18,25,19" dtype_id="1">
+                <sel loc="e,25,32,25,33" dtype_id="1">
+                  <varref loc="e,25,19,25,32" name="rot_q_delayed" dtype_id="3"/>
+                  <const loc="e,25,33,25,34" name="1&apos;h0" dtype_id="6"/>
+                  <const loc="e,25,32,25,33" name="32&apos;h1" dtype_id="5"/>
+                </sel>
+              </not>
+            </and>
+            <begin>
+              <begin loc="e,25,37,25,42">
+                <assigndly loc="e,26,13,26,15" dtype_id="1">
+                  <const loc="e,26,16,26,17" name="1&apos;h1" dtype_id="1"/>
+                  <varref loc="e,26,3,26,12" name="rot_event" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,27,13,27,15" dtype_id="1">
+                  <sel loc="e,27,21,27,22" dtype_id="1">
+                    <varref loc="e,27,16,27,21" name="rot_q" dtype_id="3"/>
+                    <const loc="e,27,22,27,23" name="1&apos;h1" dtype_id="6"/>
+                    <const loc="e,27,21,27,22" name="32&apos;h1" dtype_id="5"/>
+                  </sel>
+                  <varref loc="e,27,3,27,11" name="rot_left" dtype_id="1"/>
+                </assigndly>
+              </begin>
+            </begin>
+            <begin>
+              <assigndly loc="e,29,13,29,15" dtype_id="1">
+                <const loc="e,29,16,29,17" name="1&apos;h0" dtype_id="1"/>
+                <varref loc="e,29,3,29,12" name="rot_event" dtype_id="1"/>
+              </assigndly>
+            </begin>
+          </if>
+        </begin>
+      </always>
+      <var loc="e,31,12,31,17" name="rot_d" dtype_id="2" vartype="logic" origName="rot_d"/>
+      <var loc="e,32,12,32,22" name="dead_count" dtype_id="7" vartype="logic" origName="dead_count"/>
+      <always loc="e,33,1,33,7">
+        <sentree loc="e,33,8,33,9">
+          <senitem loc="e,33,10,33,17" edgeType="POS">
+            <varref loc="e,33,18,33,21" name="clk" dtype_id="1"/>
+          </senitem>
+        </sentree>
+        <begin loc="e,34,1,34,6">
+          <if loc="e,35,2,35,4">
+            <varref loc="e,35,6,35,11" name="reset" dtype_id="1"/>
+            <begin>
+              <begin loc="e,35,13,35,18">
+                <assigndly loc="e,36,14,36,16" dtype_id="1">
+                  <const loc="e,36,17,36,18" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,36,3,36,10" name="rot_btn" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,37,14,37,16" dtype_id="7">
+                  <const loc="e,37,17,37,18" name="16&apos;h0" dtype_id="7"/>
+                  <varref loc="e,37,3,37,13" name="dead_count" dtype_id="7"/>
+                </assigndly>
+              </begin>
+            </begin>
+            <begin>
+              <begin loc="e,38,11,38,16">
+                <assigndly loc="e,39,11,39,13" dtype_id="1">
+                  <const loc="e,39,14,39,18" name="1&apos;h0" dtype_id="1"/>
+                  <varref loc="e,39,3,39,10" name="rot_btn" dtype_id="1"/>
+                </assigndly>
+                <assigndly loc="e,40,11,40,13" dtype_id="2">
+                  <concat loc="e,40,26,40,27" dtype_id="2">
+                    <sel loc="e,40,21,40,22" dtype_id="3">
+                      <varref loc="e,40,16,40,21" name="rot_d" dtype_id="2"/>
+                      <const loc="e,40,24,40,25" name="2&apos;h0" dtype_id="4"/>
+                      <const loc="e,40,22,40,23" name="32&apos;h2" dtype_id="5"/>
+                    </sel>
+                    <sel loc="e,40,31,40,32" dtype_id="1">
+                      <varref loc="e,40,28,40,31" name="rot" dtype_id="2"/>
+                      <const loc="e,40,32,40,33" name="2&apos;h2" dtype_id="4"/>
+                      <const loc="e,40,31,40,32" name="32&apos;h1" dtype_id="5"/>
+                    </sel>
+                  </concat>
+                  <varref loc="e,40,3,40,8" name="rot_d" dtype_id="2"/>
+                </assigndly>
+                <if loc="e,41,3,41,5">
+                  <eq loc="e,41,18,41,20" dtype_id="1">
+                    <const loc="e,41,21,41,22" name="16&apos;h0" dtype_id="7"/>
+                    <varref loc="e,41,7,41,17" name="dead_count" dtype_id="7"/>
+                  </eq>
+                  <begin>
+                    <begin loc="e,41,24,41,29">
+                      <if loc="e,42,4,42,6">
+                        <eq loc="e,42,20,42,22" dtype_id="1">
+                          <const loc="e,42,23,42,28" name="2&apos;h1" dtype_id="3"/>
+                          <sel loc="e,42,14,42,15" dtype_id="3">
+                            <varref loc="e,42,9,42,14" name="rot_d" dtype_id="2"/>
+                            <const loc="e,42,17,42,18" name="2&apos;h1" dtype_id="4"/>
+                            <const loc="e,42,15,42,16" name="32&apos;h2" dtype_id="5"/>
+                          </sel>
+                        </eq>
+                        <begin>
+                          <begin loc="e,42,31,42,36">
+                            <assigndly loc="e,43,16,43,18" dtype_id="1">
+                              <const loc="e,43,19,43,23" name="1&apos;h1" dtype_id="1"/>
+                              <varref loc="e,43,5,43,12" name="rot_btn" dtype_id="1"/>
+                            </assigndly>
+                            <assigndly loc="e,44,16,44,18" dtype_id="7">
+                              <sub loc="e,44,30,44,31" dtype_id="7">
+                                <varref loc="e,44,19,44,29" name="dead_count" dtype_id="7"/>
+                                <const loc="e,44,30,44,31" name="16&apos;h1" dtype_id="7"/>
+                              </sub>
+                              <varref loc="e,44,5,44,15" name="dead_count" dtype_id="7"/>
+                            </assigndly>
+                          </begin>
+                        </begin>
+                      </if>
+                    </begin>
+                  </begin>
+                  <begin>
+                    <assigndly loc="e,47,15,47,17" dtype_id="7">
+                      <sub loc="e,47,29,47,30" dtype_id="7">
+                        <varref loc="e,47,18,47,28" name="dead_count" dtype_id="7"/>
+                        <const loc="e,47,29,47,30" name="16&apos;h1" dtype_id="7"/>
+                      </sub>
+                      <varref loc="e,47,4,47,14" name="dead_count" dtype_id="7"/>
+                    </assigndly>
+                  </begin>
+                </if>
+              </begin>
+            </begin>
+          </if>
+        </begin>
+      </always>
+    </module>
+    <typetable loc="a,0,0,0,0">
+      <basicdtype loc="d,46,25,46,27" id="1" name="logic"/>
+      <voiddtype loc="d,48,18,48,27" id="8"/>
+      <basicdtype loc="e,6,8,6,9" id="2" name="logic" left="2" right="0"/>
+      <basicdtype loc="e,11,1,11,4" id="3" name="logic" left="1" right="0"/>
+      <basicdtype loc="e,14,11,14,12" id="4" name="logic" left="1" right="0" signed="true"/>
+      <basicdtype loc="e,15,26,15,27" id="6" name="logic" signed="true"/>
+      <basicdtype loc="e,32,1,32,4" id="7" name="logic" left="15" right="0"/>
+      <basicdtype loc="e,14,12,14,13" id="5" name="logic" left="31" right="0"/>
+    </typetable>
+  </netlist>
+</verilator_xml>

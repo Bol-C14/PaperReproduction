@@ -1,0 +1,40 @@
+{
+  "id": "MGen/L1/Text/Moore Nonoverlap",
+  "subset": "MGen",
+  "input_files": [
+    {
+      "name": "moore_nonol.v",
+      "bytes": 3180,
+      "sha256": "dbc22e7fbe9c0cdd70e20eabd7884dc435a906fa5944fb93f7df8f5dd5e4007c"
+    },
+    {
+      "name": "moore_nonol_tb.v",
+      "bytes": 4352,
+      "sha256": "25f4b1e294024e800c19a885e531c1256123ea2b735ebc2c694ee5dd59d571cd"
+    }
+  ],
+  "overlays": [
+    {
+      "field": "spec_text",
+      "source": "data/SpeCom/L1/Text/Moore Nonoverlap/moore_nonol_spec.txt",
+      "sha256": "1bdd4501f9dd95bd16c15e8be2963a539fde716e5c22418e821cade8411e7e8a",
+      "reason": "same case name and byte-identical RTL in SpeCom; explicit cross-subset reuse",
+      "fidelity": "structural-input-overlay",
+      "matched_rtl_sha256": "dbc22e7fbe9c0cdd70e20eabd7884dc435a906fa5944fb93f7df8f5dd5e4007c"
+    }
+  ],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": null,
+  "negative_control_detected": null,
+  "commands": 1,
+  "status": "error",
+  "wrapper_mode": "dut_replacement",
+  "reference_source": "moore_nonol.v",
+  "reference_source_sha256": "dbc22e7fbe9c0cdd70e20eabd7884dc435a906fa5944fb93f7df8f5dd5e4007c",
+  "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+  "resolved_tb_parameters": {},
+  "reason": "official reference/derived baseline diagnostic: candidate compilation diagnostic",
+  "seconds": 0.068
+}

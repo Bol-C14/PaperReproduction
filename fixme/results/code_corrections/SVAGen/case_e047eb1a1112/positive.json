@@ -1,0 +1,2749 @@
+{
+  "creator": "Yosys 0.52 (git sha1 fee39a3284c90249e1d9684cf6944ffbbcbb8f90)",
+  "modules": {
+    "ct_idu_dep_reg_src2_entry": {
+      "attributes": {
+        "keep": "00000000000000000000000000000001",
+        "top": "00000000000000000000000000000001",
+        "src": "positive.sv:2.1-296.10"
+      },
+      "ports": {
+        "alu0_reg_fwd_vld": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "alu1_reg_fwd_vld": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "cp0_idu_icg_en": {
+          "direction": "input",
+          "bits": [ 4 ]
+        },
+        "cp0_yy_clk_en": {
+          "direction": "input",
+          "bits": [ 5 ]
+        },
+        "cpurst_b": {
+          "direction": "input",
+          "bits": [ 6 ]
+        },
+        "ctrl_xx_rf_pipe0_preg_lch_vld_dupx": {
+          "direction": "input",
+          "bits": [ 7 ]
+        },
+        "ctrl_xx_rf_pipe1_preg_lch_vld_dupx": {
+          "direction": "input",
+          "bits": [ 8 ]
+        },
+        "dp_xx_rf_pipe0_dst_preg_dupx": {
+          "direction": "input",
+          "bits": [ 9, 10, 11, 12, 13, 14, 15 ]
+        },
+        "dp_xx_rf_pipe1_dst_preg_dupx": {
+          "direction": "input",
+          "bits": [ 16, 17, 18, 19, 20, 21, 22 ]
+        },
+        "forever_cpuclk": {
+          "direction": "input",
+          "bits": [ 23 ]
+        },
+        "gateclk_entry_vld": {
+          "direction": "input",
+          "bits": [ 24 ]
+        },
+        "iu_idu_div_inst_vld": {
+          "direction": "input",
+          "bits": [ 25 ]
+        },
+        "iu_idu_div_preg_dupx": {
+          "direction": "input",
+          "bits": [ 26, 27, 28, 29, 30, 31, 32 ]
+        },
+        "iu_idu_ex2_pipe0_wb_preg_dupx": {
+          "direction": "input",
+          "bits": [ 33, 34, 35, 36, 37, 38, 39 ]
+        },
+        "iu_idu_ex2_pipe0_wb_preg_vld_dupx": {
+          "direction": "input",
+          "bits": [ 40 ]
+        },
+        "iu_idu_ex2_pipe1_mult_inst_vld_dupx": {
+          "direction": "input",
+          "bits": [ 41 ]
+        },
+        "iu_idu_ex2_pipe1_preg_dupx": {
+          "direction": "input",
+          "bits": [ 42, 43, 44, 45, 46, 47, 48 ]
+        },
+        "iu_idu_ex2_pipe1_wb_preg_dupx": {
+          "direction": "input",
+          "bits": [ 49, 50, 51, 52, 53, 54, 55 ]
+        },
+        "iu_idu_ex2_pipe1_wb_preg_vld_dupx": {
+          "direction": "input",
+          "bits": [ 56 ]
+        },
+        "lsu_idu_ag_pipe3_load_inst_vld": {
+          "direction": "input",
+          "bits": [ 57 ]
+        },
+        "lsu_idu_ag_pipe3_preg_dupx": {
+          "direction": "input",
+          "bits": [ 58, 59, 60, 61, 62, 63, 64 ]
+        },
+        "lsu_idu_dc_pipe3_load_fwd_inst_vld_dupx": {
+          "direction": "input",
+          "bits": [ 65 ]
+        },
+        "lsu_idu_dc_pipe3_load_inst_vld_dupx": {
+          "direction": "input",
+          "bits": [ 66 ]
+        },
+        "lsu_idu_dc_pipe3_preg_dupx": {
+          "direction": "input",
+          "bits": [ 67, 68, 69, 70, 71, 72, 73 ]
+        },
+        "lsu_idu_wb_pipe3_wb_preg_dupx": {
+          "direction": "input",
+          "bits": [ 74, 75, 76, 77, 78, 79, 80 ]
+        },
+        "lsu_idu_wb_pipe3_wb_preg_vld_dupx": {
+          "direction": "input",
+          "bits": [ 81 ]
+        },
+        "mla_reg_fwd_vld": {
+          "direction": "input",
+          "bits": [ 82 ]
+        },
+        "pad_yy_icg_scan_en": {
+          "direction": "input",
+          "bits": [ 83 ]
+        },
+        "rtu_idu_flush_fe": {
+          "direction": "input",
+          "bits": [ 84 ]
+        },
+        "rtu_idu_flush_is": {
+          "direction": "input",
+          "bits": [ 85 ]
+        },
+        "vfpu_idu_ex1_pipe6_mfvr_inst_vld_dupx": {
+          "direction": "input",
+          "bits": [ 86 ]
+        },
+        "vfpu_idu_ex1_pipe6_preg_dupx": {
+          "direction": "input",
+          "bits": [ 87, 88, 89, 90, 91, 92, 93 ]
+        },
+        "vfpu_idu_ex1_pipe7_mfvr_inst_vld_dupx": {
+          "direction": "input",
+          "bits": [ 94 ]
+        },
+        "vfpu_idu_ex1_pipe7_preg_dupx": {
+          "direction": "input",
+          "bits": [ 95, 96, 97, 98, 99, 100, 101 ]
+        },
+        "x_create_data": {
+          "direction": "input",
+          "bits": [ 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112 ]
+        },
+        "x_entry_mla": {
+          "direction": "input",
+          "bits": [ 113 ]
+        },
+        "x_gateclk_idx_write_en": {
+          "direction": "input",
+          "bits": [ 114 ]
+        },
+        "x_gateclk_write_en": {
+          "direction": "input",
+          "bits": [ 115 ]
+        },
+        "x_rdy_clr": {
+          "direction": "input",
+          "bits": [ 116 ]
+        },
+        "x_read_data": {
+          "direction": "output",
+          "bits": [ 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129 ]
+        },
+        "x_write_en": {
+          "direction": "input",
+          "bits": [ 130 ]
+        }
+      },
+      "cells": {
+        "$assert$positive.sv:295$68": {
+          "hide_name": 1,
+          "type": "$assert",
+          "parameters": {
+          },
+          "attributes": {
+            "src": "positive.sv:295.11-295.60"
+          },
+          "port_directions": {
+            "A": "input",
+            "EN": "input"
+          },
+          "connections": {
+            "A": [ "1" ],
+            "EN": [ "1" ]
+          }
+        },
+        "$auto$async2sync.cc:237:execute$123": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000111"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0", "0", "0", "0", "0", "0", "0" ],
+            "B": [ 131, 132, 133, 134, 135, 136, 137 ],
+            "S": [ 6 ],
+            "Y": [ 119, 120, 121, 122, 123, 124, 125 ]
+          }
+        },
+        "$auto$async2sync.cc:237:execute$125": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ 138 ],
+            "S": [ 6 ],
+            "Y": [ 139 ]
+          }
+        },
+        "$auto$async2sync.cc:237:execute$127": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "1" ],
+            "B": [ 140 ],
+            "S": [ 6 ],
+            "Y": [ 141 ]
+          }
+        },
+        "$auto$async2sync.cc:237:execute$129": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "1" ],
+            "B": [ 142 ],
+            "S": [ 6 ],
+            "Y": [ 143 ]
+          }
+        },
+        "$auto$async2sync.cc:237:execute$131": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "1" ],
+            "B": [ 144 ],
+            "S": [ 6 ],
+            "Y": [ 128 ]
+          }
+        },
+        "$auto$ff.cc:526:unmap_srst$137": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "1" ],
+            "B": [ 145 ],
+            "S": [ 6 ],
+            "Y": [ 146 ]
+          }
+        },
+        "$auto$ff.cc:526:unmap_srst$139": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "1" ],
+            "B": [ 147 ],
+            "S": [ 6 ],
+            "Y": [ 148 ]
+          }
+        },
+        "$auto$ff.cc:526:unmap_srst$141": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "1" ],
+            "B": [ 149 ],
+            "S": [ 6 ],
+            "Y": [ 150 ]
+          }
+        },
+        "$auto$ff.cc:526:unmap_srst$143": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0" ],
+            "B": [ 151 ],
+            "S": [ 6 ],
+            "Y": [ 152 ]
+          }
+        },
+        "$auto$ff.cc:526:unmap_srst$145": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000111"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ "0", "0", "0", "0", "0", "0", "0" ],
+            "B": [ 153, 154, 155, 156, 157, 158, 159 ],
+            "S": [ 6 ],
+            "Y": [ 160, 161, 162, 163, 164, 165, 166 ]
+          }
+        },
+        "$eq$positive.sv:188$6": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000111",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000111",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:188.32-188.78"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 9, 10, 11, 12, 13, 14, 15 ],
+            "B": [ 119, 120, 121, 122, 123, 124, 125 ],
+            "Y": [ 167 ]
+          }
+        },
+        "$eq$positive.sv:190$8": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000111",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000111",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:190.32-190.78"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 16, 17, 18, 19, 20, 21, 22 ],
+            "B": [ 119, 120, 121, 122, 123, 124, 125 ],
+            "Y": [ 168 ]
+          }
+        },
+        "$eq$positive.sv:192$10": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000111",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000111",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:192.32-192.76"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 42, 43, 44, 45, 46, 47, 48 ],
+            "B": [ 119, 120, 121, 122, 123, 124, 125 ],
+            "Y": [ 169 ]
+          }
+        },
+        "$eq$positive.sv:194$12": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000111",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000111",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:194.32-194.70"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 26, 27, 28, 29, 30, 31, 32 ],
+            "B": [ 119, 120, 121, 122, 123, 124, 125 ],
+            "Y": [ 170 ]
+          }
+        },
+        "$eq$positive.sv:196$14": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000111",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000111",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:196.32-196.76"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 67, 68, 69, 70, 71, 72, 73 ],
+            "B": [ 119, 120, 121, 122, 123, 124, 125 ],
+            "Y": [ 171 ]
+          }
+        },
+        "$eq$positive.sv:198$16": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000111",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000111",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:198.32-198.78"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 87, 88, 89, 90, 91, 92, 93 ],
+            "B": [ 119, 120, 121, 122, 123, 124, 125 ],
+            "Y": [ 172 ]
+          }
+        },
+        "$eq$positive.sv:200$18": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000111",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000111",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:200.32-200.78"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 95, 96, 97, 98, 99, 100, 101 ],
+            "B": [ 119, 120, 121, 122, 123, 124, 125 ],
+            "Y": [ 173 ]
+          }
+        },
+        "$eq$positive.sv:249$47": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000111",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000111",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:249.23-249.70"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 33, 34, 35, 36, 37, 38, 39 ],
+            "B": [ 119, 120, 121, 122, 123, 124, 125 ],
+            "Y": [ 174 ]
+          }
+        },
+        "$eq$positive.sv:251$49": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000111",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000111",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:251.23-251.70"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 49, 50, 51, 52, 53, 54, 55 ],
+            "B": [ 119, 120, 121, 122, 123, 124, 125 ],
+            "Y": [ 175 ]
+          }
+        },
+        "$eq$positive.sv:253$51": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000111",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000111",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:253.23-253.70"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 74, 75, 76, 77, 78, 79, 80 ],
+            "B": [ 119, 120, 121, 122, 123, 124, 125 ],
+            "Y": [ 176 ]
+          }
+        },
+        "$eq$positive.sv:272$60": {
+          "hide_name": 1,
+          "type": "$eq",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000111",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000111",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:272.31-272.75"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 58, 59, 60, 61, 62, 63, 64 ],
+            "B": [ 119, 120, 121, 122, 123, 124, 125 ],
+            "Y": [ 177 ]
+          }
+        },
+        "$logic_and$positive.sv:187$7": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:187.28-188.79"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 7 ],
+            "B": [ 167 ],
+            "Y": [ 178 ]
+          }
+        },
+        "$logic_and$positive.sv:189$9": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:189.28-190.79"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 8 ],
+            "B": [ 168 ],
+            "Y": [ 179 ]
+          }
+        },
+        "$logic_and$positive.sv:191$11": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:191.28-192.77"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 41 ],
+            "B": [ 169 ],
+            "Y": [ 180 ]
+          }
+        },
+        "$logic_and$positive.sv:193$13": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:193.28-194.71"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 25 ],
+            "B": [ 170 ],
+            "Y": [ 181 ]
+          }
+        },
+        "$logic_and$positive.sv:195$15": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:195.28-196.77"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 66 ],
+            "B": [ 171 ],
+            "Y": [ 182 ]
+          }
+        },
+        "$logic_and$positive.sv:197$17": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:197.28-198.79"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 86 ],
+            "B": [ 172 ],
+            "Y": [ 183 ]
+          }
+        },
+        "$logic_and$positive.sv:199$19": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:199.28-200.79"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 94 ],
+            "B": [ 173 ],
+            "Y": [ 184 ]
+          }
+        },
+        "$logic_and$positive.sv:203$20": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:203.32-203.84"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 65 ],
+            "B": [ 139 ],
+            "Y": [ 185 ]
+          }
+        },
+        "$logic_and$positive.sv:213$30": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:213.21-213.65"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 186 ],
+            "B": [ 187 ],
+            "Y": [ 117 ]
+          }
+        },
+        "$logic_and$positive.sv:232$39": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:232.31-233.49"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 113 ],
+            "B": [ 82 ],
+            "Y": [ 188 ]
+          }
+        },
+        "$logic_and$positive.sv:235$43": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:235.25-235.77"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 189 ],
+            "B": [ 187 ],
+            "Y": [ 126 ]
+          }
+        },
+        "$logic_and$positive.sv:248$48": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:248.19-249.71"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 40 ],
+            "B": [ 174 ],
+            "Y": [ 190 ]
+          }
+        },
+        "$logic_and$positive.sv:250$50": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:250.19-251.71"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 56 ],
+            "B": [ 175 ],
+            "Y": [ 191 ]
+          }
+        },
+        "$logic_and$positive.sv:252$52": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:252.19-253.71"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 81 ],
+            "B": [ 176 ],
+            "Y": [ 192 ]
+          }
+        },
+        "$logic_and$positive.sv:271$61": {
+          "hide_name": 1,
+          "type": "$logic_and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:271.27-272.76"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 57 ],
+            "B": [ 177 ],
+            "Y": [ 129 ]
+          }
+        },
+        "$logic_not$positive.sv:213$29": {
+          "hide_name": 1,
+          "type": "$logic_not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:213.55-213.65"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 116 ],
+            "Y": [ 187 ]
+          }
+        },
+        "$logic_or$positive.sv:204$21": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:204.28-205.46"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 178 ],
+            "B": [ 179 ],
+            "Y": [ 193 ]
+          }
+        },
+        "$logic_or$positive.sv:204$22": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:204.28-206.46"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 193 ],
+            "B": [ 180 ],
+            "Y": [ 194 ]
+          }
+        },
+        "$logic_or$positive.sv:204$23": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:204.28-207.45"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 194 ],
+            "B": [ 181 ],
+            "Y": [ 195 ]
+          }
+        },
+        "$logic_or$positive.sv:204$24": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:204.28-208.46"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 195 ],
+            "B": [ 182 ],
+            "Y": [ 196 ]
+          }
+        },
+        "$logic_or$positive.sv:204$25": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:204.28-209.47"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 196 ],
+            "B": [ 183 ],
+            "Y": [ 197 ]
+          }
+        },
+        "$logic_or$positive.sv:204$26": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:204.28-210.47"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 197 ],
+            "B": [ 184 ],
+            "Y": [ 198 ]
+          }
+        },
+        "$logic_or$positive.sv:213$27": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:213.22-213.39"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 128 ],
+            "B": [ 198 ],
+            "Y": [ 199 ]
+          }
+        },
+        "$logic_or$positive.sv:213$28": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:213.22-213.50"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 199 ],
+            "B": [ 141 ],
+            "Y": [ 186 ]
+          }
+        },
+        "$logic_or$positive.sv:215$31": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:215.32-215.46"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 128 ],
+            "B": [ 143 ],
+            "Y": [ 200 ]
+          }
+        },
+        "$logic_or$positive.sv:215$32": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:215.32-216.60"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 200 ],
+            "B": [ 2 ],
+            "Y": [ 201 ]
+          }
+        },
+        "$logic_or$positive.sv:215$33": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:215.32-217.60"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 201 ],
+            "B": [ 3 ],
+            "Y": [ 202 ]
+          }
+        },
+        "$logic_or$positive.sv:215$34": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:215.32-218.60"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 202 ],
+            "B": [ 185 ],
+            "Y": [ 203 ]
+          }
+        },
+        "$logic_or$positive.sv:215$35": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:215.32-219.59"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 203 ],
+            "B": [ 188 ],
+            "Y": [ 127 ]
+          }
+        },
+        "$logic_or$positive.sv:225$38": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:225.11-225.47"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 84 ],
+            "B": [ 85 ],
+            "Y": [ 204 ]
+          }
+        },
+        "$logic_or$positive.sv:235$40": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:235.26-235.51"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 143 ],
+            "B": [ 188 ],
+            "Y": [ 205 ]
+          }
+        },
+        "$logic_or$positive.sv:235$41": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:235.26-235.62"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 205 ],
+            "B": [ 141 ],
+            "Y": [ 189 ]
+          }
+        },
+        "$logic_or$positive.sv:254$53": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:254.21-255.32"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 141 ],
+            "B": [ 190 ],
+            "Y": [ 206 ]
+          }
+        },
+        "$logic_or$positive.sv:254$54": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:254.21-256.32"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 206 ],
+            "B": [ 191 ],
+            "Y": [ 207 ]
+          }
+        },
+        "$logic_or$positive.sv:254$55": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:254.21-257.32"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 207 ],
+            "B": [ 192 ],
+            "Y": [ 208 ]
+          }
+        },
+        "$logic_or$positive.sv:259$56": {
+          "hide_name": 1,
+          "type": "$logic_or",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:259.20-259.36"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 141 ],
+            "B": [ 208 ],
+            "Y": [ 118 ]
+          }
+        },
+        "$procdff$101": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "00000000000000000000000000000001",
+            "WIDTH": "00000000000000000000000000000111"
+          },
+          "attributes": {
+            "src": "positive.sv:286.1-294.4"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 23 ],
+            "D": [ 160, 161, 162, 163, 164, 165, 166 ],
+            "Q": [ 131, 132, 133, 134, 135, 136, 137 ]
+          }
+        },
+        "$procdff$106": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "00000000000000000000000000000001",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:274.1-284.4"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 23 ],
+            "D": [ 152 ],
+            "Q": [ 138 ]
+          }
+        },
+        "$procdff$111": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "00000000000000000000000000000001",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:260.1-270.4"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 23 ],
+            "D": [ 150 ],
+            "Q": [ 140 ]
+          }
+        },
+        "$procdff$116": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "00000000000000000000000000000001",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:237.1-247.4"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 23 ],
+            "D": [ 148 ],
+            "Q": [ 142 ]
+          }
+        },
+        "$procdff$121": {
+          "hide_name": 1,
+          "type": "$dff",
+          "parameters": {
+            "CLK_POLARITY": "00000000000000000000000000000001",
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "positive.sv:221.1-231.4"
+          },
+          "port_directions": {
+            "CLK": "input",
+            "D": "input",
+            "Q": "output"
+          },
+          "connections": {
+            "CLK": [ 23 ],
+            "D": [ 146 ],
+            "Q": [ 144 ]
+          }
+        },
+        "$procmux$71": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000111"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "positive.sv:290.11-290.21|positive.sv:290.8-293.28"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 119, 120, 121, 122, 123, 124, 125 ],
+            "B": [ 104, 105, 106, 107, 108, 109, 110 ],
+            "S": [ 130 ],
+            "Y": [ 153, 154, 155, 156, 157, 158, 159 ]
+          }
+        },
+        "$procmux$74": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "positive.sv:280.11-280.21|positive.sv:280.8-283.35"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 129 ],
+            "B": [ 112 ],
+            "S": [ 130 ],
+            "Y": [ 209 ]
+          }
+        },
+        "$procmux$77": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "positive.sv:278.11-278.47|positive.sv:278.8-283.35"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 209 ],
+            "B": [ "0" ],
+            "S": [ 204 ],
+            "Y": [ 151 ]
+          }
+        },
+        "$procmux$80": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "positive.sv:266.11-266.21|positive.sv:266.8-269.21"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 118 ],
+            "B": [ 103 ],
+            "S": [ 130 ],
+            "Y": [ 210 ]
+          }
+        },
+        "$procmux$83": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "positive.sv:264.11-264.47|positive.sv:264.8-269.21"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 210 ],
+            "B": [ "1" ],
+            "S": [ 204 ],
+            "Y": [ 149 ]
+          }
+        },
+        "$procmux$86": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "positive.sv:243.11-243.21|positive.sv:243.8-246.31"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 126 ],
+            "B": [ 111 ],
+            "S": [ 130 ],
+            "Y": [ 211 ]
+          }
+        },
+        "$procmux$89": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "positive.sv:241.11-241.47|positive.sv:241.8-246.31"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 211 ],
+            "B": [ "1" ],
+            "S": [ 204 ],
+            "Y": [ 147 ]
+          }
+        },
+        "$procmux$92": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "positive.sv:227.11-227.21|positive.sv:227.8-230.23"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 117 ],
+            "B": [ 102 ],
+            "S": [ 130 ],
+            "Y": [ 212 ]
+          }
+        },
+        "$procmux$95": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "positive.sv:225.11-225.47|positive.sv:225.8-230.23"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 212 ],
+            "B": [ "1" ],
+            "S": [ 204 ],
+            "Y": [ 145 ]
+          }
+        }
+      },
+      "netnames": {
+        "$0\\lsu_match[0:0]": {
+          "hide_name": 1,
+          "bits": [ 151 ],
+          "attributes": {
+            "src": "positive.sv:274.1-284.4"
+          }
+        },
+        "$0\\mla_rdy[0:0]": {
+          "hide_name": 1,
+          "bits": [ 147 ],
+          "attributes": {
+            "src": "positive.sv:237.1-247.4"
+          }
+        },
+        "$0\\preg[6:0]": {
+          "hide_name": 1,
+          "bits": [ 153, 154, 155, 156, 157, 158, 159 ],
+          "attributes": {
+            "src": "positive.sv:286.1-294.4"
+          }
+        },
+        "$0\\rdy[0:0]": {
+          "hide_name": 1,
+          "bits": [ 145 ],
+          "attributes": {
+            "src": "positive.sv:221.1-231.4"
+          }
+        },
+        "$0\\wb[0:0]": {
+          "hide_name": 1,
+          "bits": [ 149 ],
+          "attributes": {
+            "src": "positive.sv:260.1-270.4"
+          }
+        },
+        "$auto$async2sync.cc:228:execute$122": {
+          "hide_name": 1,
+          "bits": [ 131, 132, 133, 134, 135, 136, 137 ],
+          "attributes": {
+          }
+        },
+        "$auto$async2sync.cc:228:execute$124": {
+          "hide_name": 1,
+          "bits": [ 138 ],
+          "attributes": {
+          }
+        },
+        "$auto$async2sync.cc:228:execute$126": {
+          "hide_name": 1,
+          "bits": [ 140 ],
+          "attributes": {
+          }
+        },
+        "$auto$async2sync.cc:228:execute$128": {
+          "hide_name": 1,
+          "bits": [ 142 ],
+          "attributes": {
+          }
+        },
+        "$auto$async2sync.cc:228:execute$130": {
+          "hide_name": 1,
+          "bits": [ 144 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:2914:Mux$138": {
+          "hide_name": 1,
+          "bits": [ 146 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:2914:Mux$140": {
+          "hide_name": 1,
+          "bits": [ 148 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:2914:Mux$142": {
+          "hide_name": 1,
+          "bits": [ 150 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:2914:Mux$144": {
+          "hide_name": 1,
+          "bits": [ 152 ],
+          "attributes": {
+          }
+        },
+        "$auto$rtlil.cc:2914:Mux$146": {
+          "hide_name": 1,
+          "bits": [ 160, 161, 162, 163, 164, 165, 166 ],
+          "attributes": {
+          }
+        },
+        "$eq$positive.sv:188$6_Y": {
+          "hide_name": 1,
+          "bits": [ 167 ],
+          "attributes": {
+            "src": "positive.sv:188.32-188.78"
+          }
+        },
+        "$eq$positive.sv:190$8_Y": {
+          "hide_name": 1,
+          "bits": [ 168 ],
+          "attributes": {
+            "src": "positive.sv:190.32-190.78"
+          }
+        },
+        "$eq$positive.sv:192$10_Y": {
+          "hide_name": 1,
+          "bits": [ 169 ],
+          "attributes": {
+            "src": "positive.sv:192.32-192.76"
+          }
+        },
+        "$eq$positive.sv:194$12_Y": {
+          "hide_name": 1,
+          "bits": [ 170 ],
+          "attributes": {
+            "src": "positive.sv:194.32-194.70"
+          }
+        },
+        "$eq$positive.sv:196$14_Y": {
+          "hide_name": 1,
+          "bits": [ 171 ],
+          "attributes": {
+            "src": "positive.sv:196.32-196.76"
+          }
+        },
+        "$eq$positive.sv:198$16_Y": {
+          "hide_name": 1,
+          "bits": [ 172 ],
+          "attributes": {
+            "src": "positive.sv:198.32-198.78"
+          }
+        },
+        "$eq$positive.sv:200$18_Y": {
+          "hide_name": 1,
+          "bits": [ 173 ],
+          "attributes": {
+            "src": "positive.sv:200.32-200.78"
+          }
+        },
+        "$eq$positive.sv:249$47_Y": {
+          "hide_name": 1,
+          "bits": [ 174 ],
+          "attributes": {
+            "src": "positive.sv:249.23-249.70"
+          }
+        },
+        "$eq$positive.sv:251$49_Y": {
+          "hide_name": 1,
+          "bits": [ 175 ],
+          "attributes": {
+            "src": "positive.sv:251.23-251.70"
+          }
+        },
+        "$eq$positive.sv:253$51_Y": {
+          "hide_name": 1,
+          "bits": [ 176 ],
+          "attributes": {
+            "src": "positive.sv:253.23-253.70"
+          }
+        },
+        "$eq$positive.sv:272$60_Y": {
+          "hide_name": 1,
+          "bits": [ 177 ],
+          "attributes": {
+            "src": "positive.sv:272.31-272.75"
+          }
+        },
+        "$logic_not$positive.sv:213$29_Y": {
+          "hide_name": 1,
+          "bits": [ 187 ],
+          "attributes": {
+            "src": "positive.sv:213.55-213.65"
+          }
+        },
+        "$logic_or$positive.sv:204$21_Y": {
+          "hide_name": 1,
+          "bits": [ 193 ],
+          "attributes": {
+            "src": "positive.sv:204.28-205.46"
+          }
+        },
+        "$logic_or$positive.sv:204$22_Y": {
+          "hide_name": 1,
+          "bits": [ 194 ],
+          "attributes": {
+            "src": "positive.sv:204.28-206.46"
+          }
+        },
+        "$logic_or$positive.sv:204$23_Y": {
+          "hide_name": 1,
+          "bits": [ 195 ],
+          "attributes": {
+            "src": "positive.sv:204.28-207.45"
+          }
+        },
+        "$logic_or$positive.sv:204$24_Y": {
+          "hide_name": 1,
+          "bits": [ 196 ],
+          "attributes": {
+            "src": "positive.sv:204.28-208.46"
+          }
+        },
+        "$logic_or$positive.sv:204$25_Y": {
+          "hide_name": 1,
+          "bits": [ 197 ],
+          "attributes": {
+            "src": "positive.sv:204.28-209.47"
+          }
+        },
+        "$logic_or$positive.sv:213$27_Y": {
+          "hide_name": 1,
+          "bits": [ 199 ],
+          "attributes": {
+            "src": "positive.sv:213.22-213.39"
+          }
+        },
+        "$logic_or$positive.sv:213$28_Y": {
+          "hide_name": 1,
+          "bits": [ 186 ],
+          "attributes": {
+            "src": "positive.sv:213.22-213.50"
+          }
+        },
+        "$logic_or$positive.sv:215$31_Y": {
+          "hide_name": 1,
+          "bits": [ 200 ],
+          "attributes": {
+            "src": "positive.sv:215.32-215.46"
+          }
+        },
+        "$logic_or$positive.sv:215$32_Y": {
+          "hide_name": 1,
+          "bits": [ 201 ],
+          "attributes": {
+            "src": "positive.sv:215.32-216.60"
+          }
+        },
+        "$logic_or$positive.sv:215$33_Y": {
+          "hide_name": 1,
+          "bits": [ 202 ],
+          "attributes": {
+            "src": "positive.sv:215.32-217.60"
+          }
+        },
+        "$logic_or$positive.sv:215$34_Y": {
+          "hide_name": 1,
+          "bits": [ 203 ],
+          "attributes": {
+            "src": "positive.sv:215.32-218.60"
+          }
+        },
+        "$logic_or$positive.sv:225$38_Y": {
+          "hide_name": 1,
+          "bits": [ 204 ],
+          "attributes": {
+            "src": "positive.sv:225.11-225.47"
+          }
+        },
+        "$logic_or$positive.sv:235$40_Y": {
+          "hide_name": 1,
+          "bits": [ 205 ],
+          "attributes": {
+            "src": "positive.sv:235.26-235.51"
+          }
+        },
+        "$logic_or$positive.sv:235$41_Y": {
+          "hide_name": 1,
+          "bits": [ 189 ],
+          "attributes": {
+            "src": "positive.sv:235.26-235.62"
+          }
+        },
+        "$logic_or$positive.sv:254$53_Y": {
+          "hide_name": 1,
+          "bits": [ 206 ],
+          "attributes": {
+            "src": "positive.sv:254.21-255.32"
+          }
+        },
+        "$logic_or$positive.sv:254$54_Y": {
+          "hide_name": 1,
+          "bits": [ 207 ],
+          "attributes": {
+            "src": "positive.sv:254.21-256.32"
+          }
+        },
+        "$procmux$74_Y": {
+          "hide_name": 1,
+          "bits": [ 209 ],
+          "attributes": {
+          }
+        },
+        "$procmux$80_Y": {
+          "hide_name": 1,
+          "bits": [ 210 ],
+          "attributes": {
+          }
+        },
+        "$procmux$86_Y": {
+          "hide_name": 1,
+          "bits": [ 211 ],
+          "attributes": {
+          }
+        },
+        "$procmux$92_Y": {
+          "hide_name": 1,
+          "bits": [ 212 ],
+          "attributes": {
+          }
+        },
+        "alu0_data_ready": {
+          "hide_name": 0,
+          "bits": [ 178 ],
+          "attributes": {
+            "src": "positive.sv:91.17-91.32"
+          }
+        },
+        "alu0_issue_data_ready": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "positive.sv:92.17-92.38"
+          }
+        },
+        "alu0_reg_fwd_vld": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "positive.sv:45.17-45.33"
+          }
+        },
+        "alu1_data_ready": {
+          "hide_name": 0,
+          "bits": [ 179 ],
+          "attributes": {
+            "src": "positive.sv:94.17-94.32"
+          }
+        },
+        "alu1_issue_data_ready": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "positive.sv:95.17-95.38"
+          }
+        },
+        "alu1_reg_fwd_vld": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "positive.sv:46.17-46.33"
+          }
+        },
+        "cp0_idu_icg_en": {
+          "hide_name": 0,
+          "bits": [ 4 ],
+          "attributes": {
+            "src": "positive.sv:47.17-47.31"
+          }
+        },
+        "cp0_yy_clk_en": {
+          "hide_name": 0,
+          "bits": [ 5 ],
+          "attributes": {
+            "src": "positive.sv:48.17-48.30"
+          }
+        },
+        "cpurst_b": {
+          "hide_name": 0,
+          "bits": [ 6 ],
+          "attributes": {
+            "src": "positive.sv:49.17-49.25"
+          }
+        },
+        "ctrl_xx_rf_pipe0_preg_lch_vld_dupx": {
+          "hide_name": 0,
+          "bits": [ 7 ],
+          "attributes": {
+            "src": "positive.sv:50.17-50.51"
+          }
+        },
+        "ctrl_xx_rf_pipe1_preg_lch_vld_dupx": {
+          "hide_name": 0,
+          "bits": [ 8 ],
+          "attributes": {
+            "src": "positive.sv:51.17-51.51"
+          }
+        },
+        "data_ready": {
+          "hide_name": 0,
+          "bits": [ 198 ],
+          "attributes": {
+            "src": "positive.sv:102.17-102.27"
+          }
+        },
+        "dep_clk": {
+          "hide_name": 0,
+          "bits": [ 23 ],
+          "attributes": {
+            "src": "positive.sv:103.17-103.24"
+          }
+        },
+        "div_data_ready": {
+          "hide_name": 0,
+          "bits": [ 181 ],
+          "attributes": {
+            "src": "positive.sv:105.17-105.31"
+          }
+        },
+        "dp_xx_rf_pipe0_dst_preg_dupx": {
+          "hide_name": 0,
+          "bits": [ 9, 10, 11, 12, 13, 14, 15 ],
+          "attributes": {
+            "src": "positive.sv:52.17-52.45"
+          }
+        },
+        "dp_xx_rf_pipe1_dst_preg_dupx": {
+          "hide_name": 0,
+          "bits": [ 16, 17, 18, 19, 20, 21, 22 ],
+          "attributes": {
+            "src": "positive.sv:53.17-53.45"
+          }
+        },
+        "forever_cpuclk": {
+          "hide_name": 0,
+          "bits": [ 23 ],
+          "attributes": {
+            "src": "positive.sv:54.17-54.31"
+          }
+        },
+        "gateclk_entry_vld": {
+          "hide_name": 0,
+          "bits": [ 24 ],
+          "attributes": {
+            "src": "positive.sv:55.17-55.34"
+          }
+        },
+        "iu_idu_div_inst_vld": {
+          "hide_name": 0,
+          "bits": [ 25 ],
+          "attributes": {
+            "src": "positive.sv:56.17-56.36"
+          }
+        },
+        "iu_idu_div_preg_dupx": {
+          "hide_name": 0,
+          "bits": [ 26, 27, 28, 29, 30, 31, 32 ],
+          "attributes": {
+            "src": "positive.sv:57.17-57.37"
+          }
+        },
+        "iu_idu_ex2_pipe0_wb_preg_dupx": {
+          "hide_name": 0,
+          "bits": [ 33, 34, 35, 36, 37, 38, 39 ],
+          "attributes": {
+            "src": "positive.sv:58.17-58.46"
+          }
+        },
+        "iu_idu_ex2_pipe0_wb_preg_vld_dupx": {
+          "hide_name": 0,
+          "bits": [ 40 ],
+          "attributes": {
+            "src": "positive.sv:59.17-59.50"
+          }
+        },
+        "iu_idu_ex2_pipe1_mult_inst_vld_dupx": {
+          "hide_name": 0,
+          "bits": [ 41 ],
+          "attributes": {
+            "src": "positive.sv:60.17-60.52"
+          }
+        },
+        "iu_idu_ex2_pipe1_preg_dupx": {
+          "hide_name": 0,
+          "bits": [ 42, 43, 44, 45, 46, 47, 48 ],
+          "attributes": {
+            "src": "positive.sv:61.17-61.43"
+          }
+        },
+        "iu_idu_ex2_pipe1_wb_preg_dupx": {
+          "hide_name": 0,
+          "bits": [ 49, 50, 51, 52, 53, 54, 55 ],
+          "attributes": {
+            "src": "positive.sv:62.17-62.46"
+          }
+        },
+        "iu_idu_ex2_pipe1_wb_preg_vld_dupx": {
+          "hide_name": 0,
+          "bits": [ 56 ],
+          "attributes": {
+            "src": "positive.sv:63.17-63.50"
+          }
+        },
+        "load_data_ready": {
+          "hide_name": 0,
+          "bits": [ 182 ],
+          "attributes": {
+            "src": "positive.sv:118.17-118.32"
+          }
+        },
+        "load_issue_data_ready": {
+          "hide_name": 0,
+          "bits": [ 185 ],
+          "attributes": {
+            "src": "positive.sv:119.17-119.38"
+          }
+        },
+        "lsu_idu_ag_pipe3_load_inst_vld": {
+          "hide_name": 0,
+          "bits": [ 57 ],
+          "attributes": {
+            "src": "positive.sv:64.17-64.47"
+          }
+        },
+        "lsu_idu_ag_pipe3_preg_dupx": {
+          "hide_name": 0,
+          "bits": [ 58, 59, 60, 61, 62, 63, 64 ],
+          "attributes": {
+            "src": "positive.sv:65.17-65.43"
+          }
+        },
+        "lsu_idu_dc_pipe3_load_fwd_inst_vld_dupx": {
+          "hide_name": 0,
+          "bits": [ 65 ],
+          "attributes": {
+            "src": "positive.sv:66.17-66.56"
+          }
+        },
+        "lsu_idu_dc_pipe3_load_inst_vld_dupx": {
+          "hide_name": 0,
+          "bits": [ 66 ],
+          "attributes": {
+            "src": "positive.sv:67.17-67.52"
+          }
+        },
+        "lsu_idu_dc_pipe3_preg_dupx": {
+          "hide_name": 0,
+          "bits": [ 67, 68, 69, 70, 71, 72, 73 ],
+          "attributes": {
+            "src": "positive.sv:68.17-68.43"
+          }
+        },
+        "lsu_idu_wb_pipe3_wb_preg_dupx": {
+          "hide_name": 0,
+          "bits": [ 74, 75, 76, 77, 78, 79, 80 ],
+          "attributes": {
+            "src": "positive.sv:69.17-69.46"
+          }
+        },
+        "lsu_idu_wb_pipe3_wb_preg_vld_dupx": {
+          "hide_name": 0,
+          "bits": [ 81 ],
+          "attributes": {
+            "src": "positive.sv:70.17-70.50"
+          }
+        },
+        "lsu_match": {
+          "hide_name": 0,
+          "bits": [ 139 ],
+          "attributes": {
+            "src": "positive.sv:86.17-86.26"
+          }
+        },
+        "lsu_match_update": {
+          "hide_name": 0,
+          "bits": [ 129 ],
+          "attributes": {
+            "src": "positive.sv:127.17-127.33"
+          }
+        },
+        "mla_data_ready": {
+          "hide_name": 0,
+          "bits": [ 188 ],
+          "attributes": {
+            "src": "positive.sv:128.17-128.31"
+          }
+        },
+        "mla_issue_data_ready": {
+          "hide_name": 0,
+          "bits": [ 188 ],
+          "attributes": {
+            "src": "positive.sv:129.17-129.37"
+          }
+        },
+        "mla_rdy": {
+          "hide_name": 0,
+          "bits": [ 143 ],
+          "attributes": {
+            "src": "positive.sv:87.17-87.24"
+          }
+        },
+        "mla_rdy_update": {
+          "hide_name": 0,
+          "bits": [ 126 ],
+          "attributes": {
+            "src": "positive.sv:130.17-130.31"
+          }
+        },
+        "mla_reg_fwd_vld": {
+          "hide_name": 0,
+          "bits": [ 82 ],
+          "attributes": {
+            "src": "positive.sv:71.17-71.32"
+          }
+        },
+        "mult_data_ready": {
+          "hide_name": 0,
+          "bits": [ 180 ],
+          "attributes": {
+            "src": "positive.sv:132.17-132.32"
+          }
+        },
+        "pad_yy_icg_scan_en": {
+          "hide_name": 0,
+          "bits": [ 83 ],
+          "attributes": {
+            "src": "positive.sv:72.17-72.35"
+          }
+        },
+        "pipe0_wb": {
+          "hide_name": 0,
+          "bits": [ 190 ],
+          "attributes": {
+            "src": "positive.sv:134.17-134.25"
+          }
+        },
+        "pipe1_wb": {
+          "hide_name": 0,
+          "bits": [ 191 ],
+          "attributes": {
+            "src": "positive.sv:135.17-135.25"
+          }
+        },
+        "pipe3_wb": {
+          "hide_name": 0,
+          "bits": [ 192 ],
+          "attributes": {
+            "src": "positive.sv:136.17-136.25"
+          }
+        },
+        "preg": {
+          "hide_name": 0,
+          "bits": [ 119, 120, 121, 122, 123, 124, 125 ],
+          "attributes": {
+            "src": "positive.sv:88.17-88.21"
+          }
+        },
+        "rdy": {
+          "hide_name": 0,
+          "bits": [ 128 ],
+          "attributes": {
+            "src": "positive.sv:89.17-89.20"
+          }
+        },
+        "rdy_clear": {
+          "hide_name": 0,
+          "bits": [ 116 ],
+          "attributes": {
+            "src": "positive.sv:137.17-137.26"
+          }
+        },
+        "rdy_update": {
+          "hide_name": 0,
+          "bits": [ 117 ],
+          "attributes": {
+            "src": "positive.sv:138.17-138.27"
+          }
+        },
+        "rtu_idu_flush_fe": {
+          "hide_name": 0,
+          "bits": [ 84 ],
+          "attributes": {
+            "src": "positive.sv:73.17-73.33"
+          }
+        },
+        "rtu_idu_flush_is": {
+          "hide_name": 0,
+          "bits": [ 85 ],
+          "attributes": {
+            "src": "positive.sv:74.17-74.33"
+          }
+        },
+        "vfpu0_data_ready": {
+          "hide_name": 0,
+          "bits": [ 183 ],
+          "attributes": {
+            "src": "positive.sv:141.17-141.33"
+          }
+        },
+        "vfpu1_data_ready": {
+          "hide_name": 0,
+          "bits": [ 184 ],
+          "attributes": {
+            "src": "positive.sv:142.17-142.33"
+          }
+        },
+        "vfpu_idu_ex1_pipe6_mfvr_inst_vld_dupx": {
+          "hide_name": 0,
+          "bits": [ 86 ],
+          "attributes": {
+            "src": "positive.sv:75.17-75.54"
+          }
+        },
+        "vfpu_idu_ex1_pipe6_preg_dupx": {
+          "hide_name": 0,
+          "bits": [ 87, 88, 89, 90, 91, 92, 93 ],
+          "attributes": {
+            "src": "positive.sv:76.17-76.45"
+          }
+        },
+        "vfpu_idu_ex1_pipe7_mfvr_inst_vld_dupx": {
+          "hide_name": 0,
+          "bits": [ 94 ],
+          "attributes": {
+            "src": "positive.sv:77.17-77.54"
+          }
+        },
+        "vfpu_idu_ex1_pipe7_preg_dupx": {
+          "hide_name": 0,
+          "bits": [ 95, 96, 97, 98, 99, 100, 101 ],
+          "attributes": {
+            "src": "positive.sv:78.17-78.45"
+          }
+        },
+        "wake_up": {
+          "hide_name": 0,
+          "bits": [ 141 ],
+          "attributes": {
+            "src": "positive.sv:147.17-147.24"
+          }
+        },
+        "wb": {
+          "hide_name": 0,
+          "bits": [ 141 ],
+          "attributes": {
+            "src": "positive.sv:90.17-90.19"
+          }
+        },
+        "wb_update": {
+          "hide_name": 0,
+          "bits": [ 118 ],
+          "attributes": {
+            "src": "positive.sv:148.17-148.26"
+          }
+        },
+        "write_back": {
+          "hide_name": 0,
+          "bits": [ 208 ],
+          "attributes": {
+            "src": "positive.sv:149.17-149.27"
+          }
+        },
+        "write_clk": {
+          "hide_name": 0,
+          "bits": [ 23 ],
+          "attributes": {
+            "src": "positive.sv:150.17-150.26"
+          }
+        },
+        "write_clk_en": {
+          "hide_name": 0,
+          "bits": [ 114 ],
+          "attributes": {
+            "src": "positive.sv:151.17-151.29",
+            "unused_bits": "0 "
+          }
+        },
+        "x_create_data": {
+          "hide_name": 0,
+          "bits": [ 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112 ],
+          "attributes": {
+            "src": "positive.sv:79.17-79.30"
+          }
+        },
+        "x_create_lsu_match": {
+          "hide_name": 0,
+          "bits": [ 112 ],
+          "attributes": {
+            "src": "positive.sv:153.17-153.35"
+          }
+        },
+        "x_create_mla_rdy": {
+          "hide_name": 0,
+          "bits": [ 111 ],
+          "attributes": {
+            "src": "positive.sv:154.17-154.33"
+          }
+        },
+        "x_create_preg": {
+          "hide_name": 0,
+          "bits": [ 104, 105, 106, 107, 108, 109, 110 ],
+          "attributes": {
+            "src": "positive.sv:155.17-155.30"
+          }
+        },
+        "x_create_rdy": {
+          "hide_name": 0,
+          "bits": [ 102 ],
+          "attributes": {
+            "src": "positive.sv:156.17-156.29"
+          }
+        },
+        "x_create_wb": {
+          "hide_name": 0,
+          "bits": [ 103 ],
+          "attributes": {
+            "src": "positive.sv:157.17-157.28"
+          }
+        },
+        "x_entry_mla": {
+          "hide_name": 0,
+          "bits": [ 113 ],
+          "attributes": {
+            "src": "positive.sv:80.17-80.28"
+          }
+        },
+        "x_gateclk_idx_write_en": {
+          "hide_name": 0,
+          "bits": [ 114 ],
+          "attributes": {
+            "src": "positive.sv:81.17-81.39"
+          }
+        },
+        "x_gateclk_write_en": {
+          "hide_name": 0,
+          "bits": [ 115 ],
+          "attributes": {
+            "src": "positive.sv:82.17-82.35"
+          }
+        },
+        "x_rdy_clr": {
+          "hide_name": 0,
+          "bits": [ 116 ],
+          "attributes": {
+            "src": "positive.sv:83.17-83.26"
+          }
+        },
+        "x_read_data": {
+          "hide_name": 0,
+          "bits": [ 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129 ],
+          "attributes": {
+            "src": "positive.sv:85.17-85.28"
+          }
+        },
+        "x_read_lsu_match": {
+          "hide_name": 0,
+          "bits": [ 129 ],
+          "attributes": {
+            "src": "positive.sv:163.17-163.33"
+          }
+        },
+        "x_read_mla_rdy": {
+          "hide_name": 0,
+          "bits": [ 126 ],
+          "attributes": {
+            "src": "positive.sv:164.17-164.31"
+          }
+        },
+        "x_read_preg": {
+          "hide_name": 0,
+          "bits": [ 119, 120, 121, 122, 123, 124, 125 ],
+          "attributes": {
+            "src": "positive.sv:165.17-165.28"
+          }
+        },
+        "x_read_rdy": {
+          "hide_name": 0,
+          "bits": [ 117 ],
+          "attributes": {
+            "src": "positive.sv:166.17-166.27"
+          }
+        },
+        "x_read_rdy_for_bypass": {
+          "hide_name": 0,
+          "bits": [ 128 ],
+          "attributes": {
+            "src": "positive.sv:167.17-167.38"
+          }
+        },
+        "x_read_rdy_for_issue": {
+          "hide_name": 0,
+          "bits": [ 127 ],
+          "attributes": {
+            "src": "positive.sv:168.17-168.37"
+          }
+        },
+        "x_read_wb": {
+          "hide_name": 0,
+          "bits": [ 118 ],
+          "attributes": {
+            "src": "positive.sv:169.17-169.26"
+          }
+        },
+        "x_write_en": {
+          "hide_name": 0,
+          "bits": [ 130 ],
+          "attributes": {
+            "src": "positive.sv:84.17-84.27"
+          }
+        }
+      }
+    }
+  }
+}

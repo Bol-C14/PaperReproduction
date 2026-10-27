@@ -1,0 +1,39 @@
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/MGen/case_708222e2d0bc/ref.v:72:32: Operator AND expects 13 bits on the RHS, but RHS's VARREF 'col_address' generates 9 bits.
+                                                                                                                      : ... note: In instance 'ref_hpdmc_mgmt'
+   72 |  |({13{ref_sdram_adr_loadcol}} & col_address)
+      |                                ^
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.032
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/MGen/case_708222e2d0bc/ref.v:205:20: Operator ASSIGN expects 4 bits on the Assign RHS, but Assign RHS's VARREF 'ref_write' generates 1 bits.
+                                                                                                                       : ... note: In instance 'ref_hpdmc_mgmt'
+  205 |         next_state = ref_write;
+      |                    ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/MGen/case_708222e2d0bc/ref.v:207:20: Operator ASSIGN expects 4 bits on the Assign RHS, but Assign RHS's VARREF 'ref_read' generates 1 bits.
+                                                                                                                       : ... note: In instance 'ref_hpdmc_mgmt'
+  207 |         next_state = ref_read;
+      |                    ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/MGen/case_708222e2d0bc/ref.v:223:17: Operator ASSIGN expects 4 bits on the Assign RHS, but Assign RHS's VARREF 'ref_write' generates 1 bits.
+                                                                                                                       : ... note: In instance 'ref_hpdmc_mgmt'
+  223 |      next_state = ref_write;
+      |                 ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/MGen/case_708222e2d0bc/ref.v:225:17: Operator ASSIGN expects 4 bits on the Assign RHS, but Assign RHS's VARREF 'ref_read' generates 1 bits.
+                                                                                                                       : ... note: In instance 'ref_hpdmc_mgmt'
+  225 |      next_state = ref_read;
+      |                 ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/MGen/case_708222e2d0bc/ref.v:157:2: Operator CASE expects 4 bits on the Case Item, but Case Item's VARREF 'ref_read' generates 1 bits.
+                                                                                                                      : ... note: In instance 'ref_hpdmc_mgmt'
+  157 |  case(state)
+      |  ^~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/MGen/case_708222e2d0bc/ref.v:157:2: Operator CASE expects 4 bits on the Case Item, but Case Item's VARREF 'ref_write' generates 1 bits.
+                                                                                                                      : ... note: In instance 'ref_hpdmc_mgmt'
+  157 |  case(state)
+      |  ^~~~
+%Warning-COMBDLY: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/MGen/case_708222e2d0bc/ref.v:36:1: Non-blocking assignment '<=' in combinational logic process
+                                                                                                                 : ... This will be executed as a blocking assignment '='!
+   36 | always @(*) begin
+      | ^~~~~~
+                  *** See https://verilator.org/warn/COMBDLY before disabling this,
+                  else you may end up with different sim results.
+- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev (Debian 5.032-1+b2)
+- Verilator: Built from 0.034 MB sources in 2 modules, into 0.073 MB in 8 C++ files needing 0.000 MB
+- Verilator: Walltime 0.011 s (elab=0.001, cvt=0.006, bld=0.000); cpu 0.012 s on 1 threads; alloced 9.773 MB

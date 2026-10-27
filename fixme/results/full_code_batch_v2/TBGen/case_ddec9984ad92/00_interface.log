@@ -1,0 +1,56 @@
+%Warning-IMPLICIT: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ddec9984ad92/P16C5x_ALU.v:31:8: Signal definition not found, creating implicitly: 'C_In'
+   31 | assign C_In  = ALU_Op[0];  
+      |        ^~~~
+                   ... For warning description see https://verilator.org/warn/IMPLICIT?v=5.032
+                   ... Use "/* verilator lint_off IMPLICIT */" and lint_on around source to disable this message.
+%Warning-IMPLICIT: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ddec9984ad92/P16C5x_ALU.v:32:8: Signal definition not found, creating implicitly: 'B_Inv'
+   32 | assign B_Inv = ALU_Op[1];  
+      |        ^~~~~
+%Warning-IMPLICIT: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ddec9984ad92/P16C5x_ALU.v:33:8: Signal definition not found, creating implicitly: 'B_Sel'
+                                                                                                                          : ... Suggested alternative: 'D_Sel'
+   33 | assign B_Sel = ALU_Op[2];  
+      |        ^~~~~
+%Warning-IMPLICIT: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ddec9984ad92/P16C5x_ALU.v:34:8: Signal definition not found, creating implicitly: 'A_Sel'
+                                                                                                                          : ... Suggested alternative: 'B_Sel'
+   34 | assign A_Sel = ALU_Op[3];  
+      |        ^~~~~
+%Warning-IMPLICIT: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ddec9984ad92/P16C5x_ALU.v:61:8: Signal definition not found, creating implicitly: 'Set'
+   61 | assign Set = ALU_Op[3];
+      |        ^~~
+%Warning-IMPLICIT: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ddec9984ad92/P16C5x_ALU.v:62:8: Signal definition not found, creating implicitly: 'Tst'
+                                                                                                                          : ... Suggested alternative: 'Rst'
+   62 | assign Tst = ALU_Op[8];
+      |        ^~~
+%Warning-IMPLICIT: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ddec9984ad92/P16C5x_ALU.v:93:8: Signal definition not found, creating implicitly: 'WE_W'
+                                                                                                                          : ... Suggested alternative: 'WE_PSW'
+   93 | assign WE_W = ALU_Op[9];
+      |        ^~~~
+%Warning-IMPLICIT: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ddec9984ad92/P16C5x_ALU.v:101:8: Signal definition not found, creating implicitly: 'Z_Sel'
+                                                                                                                           : ... Suggested alternative: 'A_Sel'
+  101 | assign Z_Sel = ALU_Op[5];
+      |        ^~~~~
+%Warning-IMPLICIT: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ddec9984ad92/P16C5x_ALU.v:111:8: Signal definition not found, creating implicitly: 'DC_Sel'
+                                                                                                                           : ... Suggested alternative: 'D_Sel'
+  111 | assign DC_Sel = ALU_Op[5] & ALU_Op[4];
+      |        ^~~~~~
+%Warning-IMPLICIT: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ddec9984ad92/P16C5x_ALU.v:120:8: Signal definition not found, creating implicitly: 'C_Sel'
+                                                                                                                           : ... Suggested alternative: 'A_Sel'
+  120 | assign C_Sel = ALU_Op[4];
+      |        ^~~~~
+%Warning-IMPLICIT: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ddec9984ad92/P16C5x_ALU.v:121:8: Signal definition not found, creating implicitly: 'S_Dir'
+  121 | assign S_Dir = ALU_Op[1] & ALU_Op[0];
+      |        ^~~~~
+%Warning-IMPLICIT: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ddec9984ad92/P16C5x_ALU.v:122:8: Signal definition not found, creating implicitly: 'C_Drv'
+  122 | assign C_Drv = ((~ALU_Op[7] & ~ALU_Op[6]) ? C7
+      |        ^~~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ddec9984ad92/P16C5x_ALU.v:38:39: Operator ADD expects 5 bits on the RHS, but RHS's VARREF 'C_In' generates 1 bits.
+                                                                                                                              : ... note: In instance 'P16C5x_ALU'
+   38 | assign {C3, X[3:0]} = A[3:0] + Y[3:0] + C_In;
+      |                                       ^
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/full_code_batch_v2/TBGen/case_ddec9984ad92/P16C5x_ALU.v:39:39: Operator ADD expects 5 bits on the RHS, but RHS's VARREF 'C3' generates 1 bits.
+                                                                                                                              : ... note: In instance 'P16C5x_ALU'
+   39 | assign {C7, X[7:4]} = A[7:4] + Y[7:4] + C3;
+      |                                       ^
+- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev (Debian 5.032-1+b2)
+- Verilator: Built from 0.030 MB sources in 2 modules, into 0.000 MB in 0 C++ files needing 0.000 MB
+- Verilator: Walltime 0.006 s (elab=0.001, cvt=0.001, bld=0.000); cpu 0.004 s on 1 threads; alloced 8.871 MB

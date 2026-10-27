@@ -1,0 +1,157 @@
+{
+  "kind": "reference-calibration-not-model-score",
+  "live_llm": false,
+  "case_count": 4,
+  "max_workers": 2,
+  "case_budget_seconds": 150,
+  "results": [
+    {
+      "id": "MGen/L1/Text/1 bit Full Adder using HA",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": "full_half_add_1bit.v",
+          "bytes": 1461,
+          "sha256": "abc9512c7a8ad44feba987eca51f632af27ff157ac682b53f6052848ed0ab00f"
+        },
+        {
+          "name": "full_half_add_1bit_tb.v",
+          "bytes": 1928,
+          "sha256": "fa0dd55c8f1a389544aceeb094e4cbc945121ece3931d2b02d1d10606b4dce76"
+        }
+      ],
+      "overlays": [
+        {
+          "field": "spec_text",
+          "source": "data/SpeCom/L1/Text/1 bit Full Adder using HA/full_half_add_1bit_spec.txt",
+          "sha256": "048b7305dec344ab7cee0cff5cd3982c53e9c35d730fe86e403c74171195810a",
+          "reason": "same case name and byte-identical RTL in SpeCom; explicit cross-subset reuse",
+          "fidelity": "structural-input-overlay",
+          "matched_rtl_sha256": "abc9512c7a8ad44feba987eca51f632af27ff157ac682b53f6052848ed0ab00f"
+        }
+      ],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 2,
+      "status": "error",
+      "wrapper_mode": "dut_replacement",
+      "reference_source": "full_half_add_1bit.v",
+      "reference_source_sha256": "abc9512c7a8ad44feba987eca51f632af27ff157ac682b53f6052848ed0ab00f",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "reason": "nonzero tool exit without a recognized candidate diagnostic",
+      "seconds": 0.129
+    },
+    {
+      "id": "RTLFix/L1/MultiModal/1",
+      "subset": "RTLFix",
+      "input_files": [
+        {
+          "name": "1.Multiplexer.pdf",
+          "bytes": 216632,
+          "sha256": "4ada403bb9b3f23d5d168bb248014d2aea8a65265ba1d55cc4b582e65e390b75"
+        },
+        {
+          "name": "mux.sv",
+          "bytes": 318,
+          "sha256": "fc41d85618614f1bd35ebb124179bf9dbf9d516b72444e19bbd8c33f9f4bfe29"
+        },
+        {
+          "name": "tb_top.sv",
+          "bytes": 3650,
+          "sha256": "3e59c94d175a418058e45461ed563f4878de6e2f0b7b1aecb5b087206e364737"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 4,
+      "status": "pass",
+      "reason": "reviewed repair and original buggy source both executed against golden TB",
+      "seconds": 0.186
+    },
+    {
+      "id": "SVAGen/L1/Text/usbh_crc16",
+      "subset": "SVAGen",
+      "input_files": [
+        {
+          "name": "usbh_crc16.v",
+          "bytes": 1611,
+          "sha256": "6324ffcb76b1f999bef6d46a100f11bc4aa011778d8f951d4482161e4843a01f"
+        },
+        {
+          "name": "usbh_crc16_spec.txt",
+          "bytes": 5436,
+          "sha256": "2013e4ee76446be031b6c1086b06d9f9a98b795d0e158060c1aa78d6549154a9"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 3,
+      "status": "pass",
+      "assertion": "always @* assert((crc_o[15]) == (data_i[0] ^ data_i[1] ^ data_i[2] ^ data_i[3] ^ data_i[4] ^\n                        data_i[5] ^ data_i[6] ^ data_i[7] ^ crc_i[7] ^ crc_i[6] ^\n                        crc_i[5] ^ crc_i[4] ^ crc_i[3] ^ crc_i[2] ^\n                        crc_i[1] ^ crc_i[0]));",
+      "proof_scope": "two-timeframe SAT of source-derived output invariant; not full spec/SVA coverage; no environment assumptions",
+      "relation_lhs": "crc_o[15]",
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "negative_status": "fail",
+      "constant_control_status": "unknown",
+      "reason": "nonzero properties proven and selected output mutant falsified",
+      "seconds": 0.265
+    },
+    {
+      "id": "TBGen/L1/Text/address_mux",
+      "subset": "TBGen",
+      "input_files": [
+        {
+          "name": "address_mux.v",
+          "bytes": 820,
+          "sha256": "85518d5583f56ca2cb390c9cf7ca8df8a888e4f0e7b3502aac8a53b009ce49a7"
+        },
+        {
+          "name": "address_mux_spec.txt",
+          "bytes": 5948,
+          "sha256": "101a1e8ed425e6b56bd80f0c06bccb386f1a12963331d2fa6070979e92b5a3ca"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 5,
+      "status": "pass",
+      "stimulus_contract": {
+        "seed": 13579,
+        "cycles": 64,
+        "clock": null,
+        "reset_polarities": {},
+        "unknown_handling": "any observed unknown prevents pass",
+        "oracle": "renamed copy of supplied RTL; self-consistency/calibration only"
+      },
+      "observed_checks": 64,
+      "observed_unknown": 0,
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "reference/checker positive and perturbed-checker negative executed",
+      "seconds": 0.132
+    }
+  ],
+  "statuses": {
+    "error": 1,
+    "pass": 3
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "TBGen/L2/Text/vga_controller",
+  "subset": "TBGen",
+  "input_files": [
+    {
+      "name": "vga_controller.v",
+      "bytes": 2495,
+      "sha256": "ea7a0a58ebd76238ca263d046ded37779b368f25f1bc08f0a83bd3830f8b793d"
+    },
+    {
+      "name": "vga_controller_spec.txt",
+      "bytes": 7021,
+      "sha256": "ac123258109881755a8da15de4d1091d369a0a802b3f24815ecc532ba04d43ed"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": true,
+  "negative_control_detected": true,
+  "commands": 5,
+  "status": "pass",
+  "stimulus_contract": {
+    "seed": 13579,
+    "cycles": 64,
+    "clock": "clk_50",
+    "reset_polarities": {
+      "reset_n": 0
+    },
+    "unknown_handling": "any observed unknown prevents pass",
+    "oracle": "renamed copy of supplied RTL; self-consistency/calibration only"
+  },
+  "observed_checks": 64,
+  "observed_unknown": 0,
+  "reference_status": "pass",
+  "negative_status": "fail",
+  "reason": "reference/checker positive and perturbed-checker negative executed",
+  "seconds": 0.176
+}

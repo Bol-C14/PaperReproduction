@@ -1,0 +1,303 @@
+
+-- Running command `read_verilog -formal -sv positive.sv; hierarchy -top tap2_sm; prep -top tap2_sm; flatten; async2sync; dffunmap; memory_map; opt_clean; chformal -lower; write_json positive.json; sat -seq 2 -timeout 5 -prove-asserts -verify -show-inputs -show-outputs' --
+
+1. Executing Verilog-2005 frontend: positive.sv
+Parsing formal SystemVerilog input from `positive.sv' to AST representation.
+Generating RTLIL representation for module `\tap2_sm'.
+Note: Assuming pure combinatorial block at positive.sv:70.1-128.4 in
+compliance with IEC 62142(E):2005 / IEEE Std. 1364.1(E):2002. Recommending
+use of @* instead of @(...) for better match of synthesis and simulation.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \tap2_sm
+
+2.2. Analyzing design hierarchy..
+Top module:  \tap2_sm
+Removed 0 unused modules.
+Module tap2_sm directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1.1. Analyzing design hierarchy..
+Top module:  \tap2_sm
+
+3.1.2. Analyzing design hierarchy..
+Top module:  \tap2_sm
+Removed 0 unused modules.
+Module tap2_sm directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 3 switch rules as full_case in process $proc$positive.sv:171$28 in module tap2_sm.
+Marked 1 switch rules as full_case in process $proc$positive.sv:162$25 in module tap2_sm.
+Marked 2 switch rules as full_case in process $proc$positive.sv:153$23 in module tap2_sm.
+Marked 2 switch rules as full_case in process $proc$positive.sv:134$19 in module tap2_sm.
+Marked 7 switch rules as full_case in process $proc$positive.sv:70$10 in module tap2_sm.
+Marked 3 switch rules as full_case in process $proc$positive.sv:55$4 in module tap2_sm.
+Marked 2 switch rules as full_case in process $proc$positive.sv:46$1 in module tap2_sm.
+Removed a total of 0 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 8 redundant assignments.
+Promoted 2 assignments to connections.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \trst_b in `\tap2_sm.$proc$positive.sv:134$19'.
+Found async reset \trst_b in `\tap2_sm.$proc$positive.sv:55$4'.
+Found async reset \trst_b in `\tap2_sm.$proc$positive.sv:46$1'.
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~17 debug messages>
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\tap2_sm.$proc$positive.sv:184$31'.
+Creating decoders for process `\tap2_sm.$proc$positive.sv:171$28'.
+     1/1: $0\sm2_data_counter[7:0]
+Creating decoders for process `\tap2_sm.$proc$positive.sv:162$25'.
+     1/1: $0\sm2_rs[1:0]
+Creating decoders for process `\tap2_sm.$proc$positive.sv:153$23'.
+     1/1: $0\sm2_rs_counter[1:0]
+Creating decoders for process `\tap2_sm.$proc$positive.sv:134$19'.
+     1/2: $0\sm2_write_vld[0:0]
+     2/2: $0\sm2_read_vld[0:0]
+Creating decoders for process `\tap2_sm.$proc$positive.sv:70$10'.
+     1/7: $7\tap2_nxt_st[3:0]
+     2/7: $6\tap2_nxt_st[3:0]
+     3/7: $5\tap2_nxt_st[3:0]
+     4/7: $4\tap2_nxt_st[3:0]
+     5/7: $3\tap2_nxt_st[3:0]
+     6/7: $2\tap2_nxt_st[3:0]
+     7/7: $1\tap2_nxt_st[3:0]
+Creating decoders for process `\tap2_sm.$proc$positive.sv:55$4'.
+     1/1: $0\tap2_rst_cnt[6:0]
+Creating decoders for process `\tap2_sm.$proc$positive.sv:46$1'.
+     1/1: $0\tap2_cur_st[3:0]
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\tap2_sm.\tap2_nxt_st' from process `\tap2_sm.$proc$positive.sv:70$10'.
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\tap2_sm.\sm2_data_counter' using process `\tap2_sm.$proc$positive.sv:171$28'.
+  created $dff cell `$procdff$151' with positive edge clock.
+Creating register for signal `\tap2_sm.\sm2_rs' using process `\tap2_sm.$proc$positive.sv:162$25'.
+  created $dff cell `$procdff$152' with positive edge clock.
+Creating register for signal `\tap2_sm.\sm2_rs_counter' using process `\tap2_sm.$proc$positive.sv:153$23'.
+  created $dff cell `$procdff$153' with positive edge clock.
+Creating register for signal `\tap2_sm.\sm2_read_vld' using process `\tap2_sm.$proc$positive.sv:134$19'.
+  created $adff cell `$procdff$158' with positive edge clock and positive level reset.
+Creating register for signal `\tap2_sm.\sm2_write_vld' using process `\tap2_sm.$proc$positive.sv:134$19'.
+  created $adff cell `$procdff$163' with positive edge clock and positive level reset.
+Creating register for signal `\tap2_sm.\tap2_rst_cnt' using process `\tap2_sm.$proc$positive.sv:55$4'.
+  created $adff cell `$procdff$168' with positive edge clock and positive level reset.
+Creating register for signal `\tap2_sm.\tap2_cur_st' using process `\tap2_sm.$proc$positive.sv:46$1'.
+  created $adff cell `$procdff$173' with positive edge clock and positive level reset.
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `tap2_sm.$proc$positive.sv:184$31'.
+Found and cleaned up 3 empty switches in `\tap2_sm.$proc$positive.sv:171$28'.
+Removing empty process `tap2_sm.$proc$positive.sv:171$28'.
+Found and cleaned up 1 empty switch in `\tap2_sm.$proc$positive.sv:162$25'.
+Removing empty process `tap2_sm.$proc$positive.sv:162$25'.
+Found and cleaned up 2 empty switches in `\tap2_sm.$proc$positive.sv:153$23'.
+Removing empty process `tap2_sm.$proc$positive.sv:153$23'.
+Found and cleaned up 1 empty switch in `\tap2_sm.$proc$positive.sv:134$19'.
+Removing empty process `tap2_sm.$proc$positive.sv:134$19'.
+Found and cleaned up 7 empty switches in `\tap2_sm.$proc$positive.sv:70$10'.
+Removing empty process `tap2_sm.$proc$positive.sv:70$10'.
+Found and cleaned up 2 empty switches in `\tap2_sm.$proc$positive.sv:55$4'.
+Removing empty process `tap2_sm.$proc$positive.sv:55$4'.
+Found and cleaned up 1 empty switch in `\tap2_sm.$proc$positive.sv:46$1'.
+Removing empty process `tap2_sm.$proc$positive.sv:46$1'.
+Cleaned up 17 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tap2_sm.
+<suppressed ~16 debug messages>
+
+3.3. Executing FUTURE pass.
+
+3.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tap2_sm.
+
+3.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tap2_sm..
+Removed 9 unused cells and 56 unused wires.
+<suppressed ~10 debug messages>
+
+3.6. Executing CHECK pass (checking for obvious problems).
+Checking module tap2_sm...
+Found and reported 0 problems.
+
+3.7. Executing OPT pass (performing simple optimizations).
+
+3.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tap2_sm.
+<suppressed ~1 debug messages>
+
+3.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tap2_sm'.
+<suppressed ~36 debug messages>
+Removed a total of 12 cells.
+
+3.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tap2_sm..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$113.
+    dead port 2/2 on $mux $procmux$115.
+    dead port 2/2 on $mux $procmux$129.
+    dead port 2/2 on $mux $procmux$64.
+    dead port 2/2 on $mux $procmux$74.
+    dead port 2/2 on $mux $procmux$85.
+    dead port 2/2 on $mux $procmux$98.
+Removed 7 multiplexer ports.
+<suppressed ~7 debug messages>
+
+3.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tap2_sm.
+  Optimizing cells in module \tap2_sm.
+Performed a total of 1 changes.
+
+3.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tap2_sm'.
+<suppressed ~3 debug messages>
+Removed a total of 1 cells.
+
+3.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tap2_sm..
+Removed 42 unused cells and 64 unused wires.
+<suppressed ~58 debug messages>
+
+3.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tap2_sm.
+
+3.7.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+3.7.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \tap2_sm..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+3.7.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \tap2_sm.
+Performed a total of 0 changes.
+
+3.7.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tap2_sm'.
+Removed a total of 0 cells.
+
+3.7.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tap2_sm..
+
+3.7.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tap2_sm.
+
+3.7.14. Finished OPT passes. (There is nothing left to do.)
+
+3.8. Executing WREDUCE pass (reducing word size of cells).
+
+3.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tap2_sm..
+
+3.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.11. Executing OPT pass (performing simple optimizations).
+
+3.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module tap2_sm.
+
+3.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\tap2_sm'.
+Removed a total of 0 cells.
+
+3.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tap2_sm..
+
+3.11.4. Finished fast OPT passes.
+
+3.12. Printing statistics.
+
+=== tap2_sm ===
+
+   Number of wires:                  8
+   Number of wire bits:              8
+   Number of public wires:           7
+   Number of public wire bits:       7
+   Number of ports:                  5
+   Number of port bits:              5
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  3
+     $adff                           1
+     $check                          1
+     $logic_not                      1
+
+3.13. Executing CHECK pass (checking for obvious problems).
+Checking module tap2_sm...
+Found and reported 0 problems.
+
+4. Executing FLATTEN pass (flatten design).
+
+5. Executing ASYNC2SYNC pass.
+Replacing tap2_sm.$procdff$163 ($adff): ARST=\trst_b, D=$0\sm2_write_vld[0:0], Q=\sm2_write_vld
+
+6. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+7. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \tap2_sm..
+Removed 2 unused cells and 2 unused wires.
+<suppressed ~3 debug messages>
+
+9. Executing JSON backend.
+
+10. Executing SAT pass (solving SAT problems in the circuit).
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 5 cells to SAT database.
+No constraints for initial state found.
+
+Import proof for assert: 1'1 when 1'1.
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 5 cells to SAT database.
+Import proof for assert: 1'1 when 1'1.
+Import show expression: \pad_had_jtg_tap_en
+Import show expression: \tclk
+Import show expression: \tms_i
+Import show expression: \trst_b
+Import show expression: \debug_wake_vld
+
+Solving problem with 49 variables and 105 clauses..
+SAT proof finished - no model found: SUCCESS!
+
+                  /$$$$$$      /$$$$$$$$     /$$$$$$$    
+                 /$$__  $$    | $$_____/    | $$__  $$   
+                | $$  \ $$    | $$          | $$  \ $$   
+                | $$  | $$    | $$$$$       | $$  | $$   
+                | $$  | $$    | $$__/       | $$  | $$   
+                | $$/$$ $$    | $$          | $$  | $$   
+                |  $$$$$$/ /$$| $$$$$$$$ /$$| $$$$$$$//$$
+                 \____ $$$|__/|________/|__/|_______/|__/
+                       \__/                              
+

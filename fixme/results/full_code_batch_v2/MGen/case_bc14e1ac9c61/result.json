@@ -1,0 +1,43 @@
+{
+  "id": "MGen/L1/Text/Full Adder",
+  "subset": "MGen",
+  "input_files": [
+    {
+      "name": "full_adder_1bit.v",
+      "bytes": 545,
+      "sha256": "6701c74f14ede51ff751cc8eaf4d7bd7b7c63e3332e6ae955d03b3d0839f8f0f"
+    },
+    {
+      "name": "full_adder_1bit_tb.v",
+      "bytes": 1895,
+      "sha256": "24b6e2a0aa8b95dfe719d9703679e7e68f61727d32d072eeae33cf8a03541c91"
+    }
+  ],
+  "overlays": [
+    {
+      "field": "spec_text",
+      "source": "data/SpeCom/L1/Text/Full Adder/full_adder_1bit_spec.txt",
+      "sha256": "603b6a3a12edce951242754e9477b6500f9bf64150c579da962c7b0eb334677c",
+      "reason": "same case name and byte-identical RTL in SpeCom; explicit cross-subset reuse",
+      "fidelity": "structural-input-overlay",
+      "matched_rtl_sha256": "6701c74f14ede51ff751cc8eaf4d7bd7b7c63e3332e6ae955d03b3d0839f8f0f"
+    }
+  ],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": true,
+  "negative_control_detected": true,
+  "commands": 6,
+  "status": "pass",
+  "wrapper_mode": "dut_replacement",
+  "reference_source": "full_adder_1bit.v",
+  "reference_source_sha256": "6701c74f14ede51ff751cc8eaf4d7bd7b7c63e3332e6ae955d03b3d0839f8f0f",
+  "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+  "resolved_tb_parameters": {},
+  "observed_checks": 0,
+  "reference_status": "pass",
+  "negative_status": "fail",
+  "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+  "seconds": 14.647
+}

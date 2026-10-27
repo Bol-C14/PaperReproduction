@@ -1,0 +1,38 @@
+{
+  "id": "TBGen/L2/Text/wb_regfile",
+  "subset": "TBGen",
+  "input_files": [
+    {
+      "name": "wb_regfile.v",
+      "bytes": 5110,
+      "sha256": "1cd2bf680eb305fc922f58ecd0c47d6c2cd0a054e372ee64b9bf0c2c5217162c"
+    },
+    {
+      "name": "wb_regfile_spec.txt",
+      "bytes": 7581,
+      "sha256": "5966bed85100234924f645c6692e5146914240d31fc759b920957712935bf91b"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": true,
+  "negative_control_detected": true,
+  "commands": 5,
+  "status": "pass",
+  "stimulus_contract": {
+    "seed": 13579,
+    "cycles": 64,
+    "clock": "clk_i",
+    "reset_polarities": {},
+    "unknown_handling": "any observed unknown prevents pass",
+    "oracle": "renamed copy of supplied RTL; self-consistency/calibration only"
+  },
+  "observed_checks": 64,
+  "observed_unknown": 0,
+  "reference_status": "pass",
+  "negative_status": "fail",
+  "reason": "reference/checker positive and perturbed-checker negative executed",
+  "seconds": 0.129
+}
