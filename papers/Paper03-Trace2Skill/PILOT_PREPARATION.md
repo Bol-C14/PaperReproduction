@@ -71,11 +71,35 @@ Evolution gen1包括seed和一个初始化mutant；基于两候选实测结果�
 
 ### 最后一次即时就绪核验
 
-在用户报告完成Personal vault设置之后，本任务实际只检查环境变量名存在性，得到 **NR_API_KEY_present=false**。目标 `models.northern-relay.com` 的逐域名授权状态为 **unknown**：本环境只显示general network enabled，没有域名清单或可用的vault/network授权元数据工具；未用请求/health probe“验证”。环境工作正常，不新建替代线程、不切换Mac、不改权限。需平台将secret与目标域名授权实际投递到本任务；用户已设置的证据不等于此旧任务已收到。
+在用户报告完成Personal vault设置之后，本任务实际只检查环境变量名存在性，得到 **NR_API_KEY_present=false**。目标 `models.northern-relay.com` 的逐域名授权状态为 **unknown**：本环境只显示general network enabled，没有域名清单或可用的vault/network授权元数据工具；未用请求/health probe“验证”。环境工作正常，不新建替代线程、不切换Mac、不改权限。需平台将secret与目标域名授权实际投递到本任务；用户已设置的证据不等于此旧任务已收到。用户最新明确接受All environments范围，本任务不再要求缩小scope。
 
 共享并发新增四项mock测试：所有role/arm client引用同一个ExperimentController/Budget；4个lease允许、第5个拒绝；4个真实Python线程持有共享lease（没有API）并释放；429重试只释放自己的一份lease而不影响其他正在运行的请求。实现是**单broker进程内**共享，不是跨进程分布式limiter；未来不能每个worker独立建立controller。
 
 
 ### Vault 类型修正阻碍（父线程的只读元数据报告）
 
-父线程随后报告：用户当前把NR_API_KEY存为普通Environment variable且范围All environment configurations，尚非仅PaperReproduction的Network secret。此处仅引用父线程的元数据观察；本线程未读vault值。用户需先改类型与scope，平台实际注入后再做存在性布尔及域名元数据核验；不能据用户说完成就声称接通。修正前不运行可能继承此变量的生成代码/外部工具。最后离线测试的顶层Python进程也由env白名单启动，测试子进程继续使用独立allowlist；不记录全环境。
+父线程曾报告：NR_API_KEY存为普通Environment variable且范围All environment configurations。用户最新已明确保留All environments范围，此偏好优先，不再要求缩小。普通env var并非一概不能用于API client；其可用性取决于实际注入、日志/子进程/文件系统隔离和逐域名授权，Network secret则可能提供更强平台约束，具体语义仍需平台元数据确认。此处仅引用父线程的元数据观察，本线程未读vault值；当前任务实际存在性false仍是独立blocker。修正前不运行可能继承此变量的生成代码/外部工具。最后离线测试的顶层Python进程也由env白名单启动，测试子进程继续使用独立allowlist；不记录全环境。
+
+
+## Blocker的可行解法与用户动作边界
+
+| 阻碍 | 可行的下一步 | 是否必须用户动作 |
+|---|---|---|
+| 当前task没有NR_API_KEY | 平台向现有任务安全注入/刷新后仅检查存在性；不读聊天/文件找替代key | **用户/平台**：若旧任务无法刷新则由父线程处理；本线程不擅自建新任务 |
+| 目标域名许可unknown | 由平台元数据确认models.northern-relay.com及对应secret路由；不通过请求探测、不扩权限 | **用户/平台**可能需确认；不能用“network enabled”替代逐域名证据 |
+| 原CVDP固定数据403 | 仅接受原站恢复或有合法访问权的固定材料；继续保留hash验证 | 若坚持原benchmark，可能需**合法材料提供方**；不绕403 |
+| 没有真实simulator | 官方artifact已带digest固定的ghcr.io/hdl/sim/osvb基础镜像Dockerfile和cocotb兼容shim；可在后续审阅环境准备阶段build，当前未pull/build | 通常无需新的研究授权；需要免费storage/network和平台容器能力，若被拒才报告，不擅自提权 |
+| 简小RTL smoke的工具缺失 | 普通开源免费Icarus(iverilog/vvp)即可；无需LLM、无需cocotb也可跑本包自编SV穷举TB | 通常工程准备即可；本轮不安装。系统有cc/gcc/make、apt-get/pip，但无bison/flex，不能声称源码构建链已齐 |
+| NeMo完整依赖缺失 | 官方constraints列openai、Ray、PyYAML、pydantic及cocotb/pytest；已有yaml/pydantic；公开免费依赖不等于服务免费 | 本轮不install未知script；后续可审阅后安装已固定依赖，不需用户提供付费资源 |
+| Chat facade、token counter、完整隔离未实测 | 保留纯转换测试，接入本地NeMo facade并验证schema；取得可信tokenizer/template；broker/worker隔离后smoke | 主要是工程工作，不能靠用户“同意”代替测试；父线程启用live前完成 |
+| live未启用 | 父线程在上述条件满足后明确启动单任务；共享100k、最多4并发和到期保护 | **父线程**启动授权待定；本轮禁止真实请求继续有效 |
+
+### 独立公开的真实RTL smoke fixture
+
+已从cocotb/cocotb GitHub **v1.9.2**取得adder.sv、test_adder.py、adder_model.py和LICENSE，逐文件Git blob SHA-1验证并记录SHA-256（`pilot/verifier_fixture/SOURCES.json`）。前三个示例文件标CC0/public domain；保留原文，root LICENSE也一并保留。来源是独立公开示例，不是CVDP材料镜像、未绕过403。
+
+自编`tb.sv`穷举4-bit adder的256组输入；`smoke.py`未来真正调用iverilog和vvp，验证原adder正控制和OR故障注入负控制，编译错误不算功能失败。它不执行LLM生成代码、不读secret，子进程只收env白名单。当前执行此smoke得到**NOT_RUN，exit2：iverilog/vvp missing，真实verifier执行0**。这是可准备的真实RTL仿真fixture，不是mock verifier；在模拟器缺失时也绝不返回pass。
+
+它是小型工具链/接口smoke，不是原CVDP schoolMIPS任务，更不是论文效果实验。故障是人工注入、测试是本轮作者编写；可在父线程后续选用其做portability canary，但不能冒充原始基线或paper task复现。当前`pilot_plan.json`仍保留原task，未悄悄替换。
+
+命令：`python3 pilot/verifier_fixture/smoke.py`。需在无凭证的白名单环境运行；当前仅运行了缺工具的拒绝路径。准备这个小fixture不改变live状态、账号budget或安全设置。
