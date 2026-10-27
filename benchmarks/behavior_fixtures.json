@@ -1,0 +1,41 @@
+{
+  "width": 8,
+  "arithmetic": "all intermediates and outputs unsigned modulo 2^8",
+  "input_format": "whitelisted expression AST; not arbitrary RTL frontend",
+  "fixtures": [
+    {
+      "id": "paper_fig4_mul11",
+      "provenance": "ASPEN Figure4 expression x*11",
+      "inputs": [
+        "x"
+      ],
+      "outputs": [
+        "11*x"
+      ]
+    },
+    {
+      "id": "appendix_mcm71931",
+      "provenance": "ASPEN reported constants only; independently generated RTL, not official benchmark bytes",
+      "inputs": [
+        "x"
+      ],
+      "outputs": [
+        "7*x",
+        "19*x",
+        "31*x"
+      ]
+    },
+    {
+      "id": "fir_style_12_41_21",
+      "provenance": "new controlled combinational FIR-style fixture using constants in ASPEN Appendix A; not original FIR",
+      "inputs": [
+        "x0",
+        "x1",
+        "x2"
+      ],
+      "outputs": [
+        "12*x0+41*x1+21*x2"
+      ]
+    }
+  ]
+}

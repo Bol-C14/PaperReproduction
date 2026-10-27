@@ -41,21 +41,25 @@
         "\"ASPEN\" \"Niansong\" code github",
         "site:github.com \"aspen\" \"egglog\""
       ],
-      "note": "limited search; not proof no release exists; guessed cornell-zhang/aspen URL 404; no official association established",
-      "checked_utc": "2026-10-27"
+      "note": "Author ASPEN publication entry paper-only; NVIDIA entry has no located artifact link. Not located does not prove no release exists.",
+      "checked_utc": "2026-10-27",
+      "verified_author_page": "https://www.zzzdavid.tech/"
     },
     {
       "id": "rover-paper",
       "url": "https://arxiv.org/abs/2406.12421",
       "status": "primary_paper_read",
-      "code_status": "not_located",
+      "code_status": "original implementation author-declared closed source",
       "license": "paper CC BY 4.0; code license unverified",
       "queries": [
         "ROVER RTL optimization github code",
         "\"ROVER\" \"rtl2egg\" github"
       ],
       "sha256": null,
-      "checked_utc": "2026-10-27"
+      "checked_utc": "2026-10-27",
+      "code_license": "not public",
+      "evidence": "Coward thesis printed p9/PDF30 section1.3 and printed p155/PDF176",
+      "baseline_distinction": "ASPEN IV.B reimplements TableI+fixed cost; no original ROVER binary required"
     },
     {
       "id": "benchmarks",
@@ -98,6 +102,47 @@
       "cost_usd": 0,
       "calls": 0,
       "checked_utc": "2026-10-27"
+    },
+    {
+      "id": "coward-thesis",
+      "url": "https://samuelcoward.co.uk/assets/pdf/Thesis_Imperial.pdf",
+      "status": "browser_read_primary",
+      "evidence": "printed9/PDF30 section1.3 Intel IP; printed155/PDF176 closed-source; printed157/PDF178 extraction-gym contributions",
+      "license": "CC BY-NC 4.0 for thesis; not a software/data grant",
+      "sha256": null
+    },
+    {
+      "id": "cowardsa-extraction-gym",
+      "url": "https://github.com/cowardsa/extraction-gym",
+      "observed_head": "2fcd1a67e3e903141545d7d77ce50b05d7d6cdad",
+      "status": "root/README/LICENSE/converter read only; not full ROVER",
+      "license": "MIT root LICENSE observed; data-specific notices not inventoried",
+      "data_coverage": "not verified; browser data directory restricted URL; no alternate access attempted",
+      "safety": "downloaded Makefile/convert script not executed; code/format inspection only"
+    },
+    {
+      "id": "extraction-algorithms",
+      "url": "https://github.com/egraphs-good/extraction-gym",
+      "ref": "903ba0f818b50608fe20ae9e0f03c35cb27bc50a",
+      "status": "reviewed extract/mod/faster_bottom_up/faster_greedy_dag Rust source; Python adaptations executed",
+      "license": "MIT included",
+      "data_coverage": "root describes generic extraction JSON; actual data directory restricted URL; no ASPEN-benchmark coverage claimed",
+      "runtime": "no Rust compiler installed; no downloaded build scripts executed"
+    },
+    {
+      "id": "egglog-behavior-runtime",
+      "url": "https://pypi.org/project/egglog/14.0.0/",
+      "status": "binary wheel installed and native egraph verified",
+      "license": "MIT wheel license and metadata observed",
+      "version": "Python package14.0.0; compiled Rust engine commit unverified; not paper Rust0.4.0",
+      "wheel_sha256": "4e8c905dc33cd377523232fd5966f379a3c1d25718ecbfb32dfe865977f6c492",
+      "proof": "12 native/Python bottom-up cost crosschecks"
+    },
+    {
+      "id": "behavior-fixtures",
+      "status": "published formula/constants + newly authored fixtures",
+      "data_coverage": "3 controlled W8 expressions; not official FIR/DCT/Polynomial/Watermark RTL; no author-fork data used",
+      "location": "benchmarks/behavior_fixtures.json"
     }
   ],
   "local_files": [
@@ -120,6 +165,42 @@
     {
       "path": "sources/figure6_labels.csv",
       "sha256": "8d0df2ea1973f65dcc8602b279d052a3936bc668bdc1b7d37b7c59d46c99638d"
+    },
+    {
+      "path": "sources/public_components/cowardsa-LICENSE",
+      "sha256": "33ec94d67f8eff8e107cbd61c6af1502c6e414c5ec70923cf47515f015233969"
+    },
+    {
+      "path": "sources/public_components/cowardsa-README.md",
+      "sha256": "102ac00aee81d11cad91265b2fbafa3ac68fcc059a674573bf835318d640c7e6"
+    },
+    {
+      "path": "sources/public_components/cowardsa-convert.py",
+      "sha256": "a950158a3f4ff9a670cf405f690c836be87b594f3c5afa03b374327e2c86ca97"
+    },
+    {
+      "path": "sources/public_components/egglog-bindings.pyi",
+      "sha256": "c0e563ed5565f3e118a028729582fc12459e6d7b08ea2077034b3a7c7dc03c3a"
+    },
+    {
+      "path": "sources/public_components/egglog-python-LICENSE",
+      "sha256": "c3b56556fe4efc53d9468f19fb865bfeaec3e5a737603b3c25490c6781aaf421"
+    },
+    {
+      "path": "sources/public_components/upstream-extract-mod.rs",
+      "sha256": "fed1c51c515be82905c49fc1b805e48a4dad8c35e706888fb4b98deed36b9e4d"
+    },
+    {
+      "path": "sources/public_components/upstream-faster-bottom-up.rs",
+      "sha256": "13229369743a7699cf6223682f7be5f975c2c39a6b9442757e24638bbb6b16c6"
+    },
+    {
+      "path": "sources/public_components/upstream-faster-greedy-dag.rs",
+      "sha256": "b2c3b600d8643ef25c8843e19edc7b52d569d1ac95c333176d294259fdee3236"
+    },
+    {
+      "path": "sources/public_components/upstream-main.rs",
+      "sha256": "28f0a3b8a55b266d16584d930c25e0eb9646a931caada244dd80d30c105a55d4"
     },
     {
       "path": "sources/smoke.v",

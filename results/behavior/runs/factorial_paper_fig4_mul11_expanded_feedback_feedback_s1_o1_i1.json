@@ -1,0 +1,172 @@
+{
+  "id": "factorial_paper_fig4_mul11_expanded_feedback_feedback_s1_o1_i1",
+  "outer": 1,
+  "inner": 1,
+  "subset": "constants_only",
+  "terms": [
+    [
+      "Add",
+      [
+        "Shl",
+        [
+          "Mul",
+          [
+            "Num",
+            5
+          ],
+          [
+            "Var",
+            "x"
+          ]
+        ],
+        1
+      ],
+      [
+        "Var",
+        "x"
+      ]
+    ]
+  ],
+  "rendered": [
+    "(((8'd5 * x) << 1) + x)"
+  ],
+  "extraction": {
+    "seconds": 7.011399998191337e-05,
+    "choices": {
+      "i64-11": "primitive-i64-11",
+      "i64-5": "primitive-i64-5",
+      "i64-2": "primitive-i64-2",
+      "i64-1": "primitive-i64-1",
+      "String-0": "primitive-String-0",
+      "Expr-0": "function-0-Num",
+      "Expr-3": "function-1-Num",
+      "Expr-6": "function-2-Num",
+      "Expr-9": "function-3-Num",
+      "Expr-1": "function-0-Var",
+      "Expr-2": "function-0-Add",
+      "Expr-4": "function-1-Mul",
+      "Expr-7": "function-2-Mul",
+      "Expr-5": "function-0-Shl",
+      "Expr-8": "function-1-Shl"
+    },
+    "used_nodes": [
+      "function-0-Add",
+      "function-0-Shl",
+      "function-0-Var",
+      "function-1-Mul",
+      "function-1-Num",
+      "primitive-String-0",
+      "primitive-i64-1",
+      "primitive-i64-5"
+    ],
+    "tree_root_costs": [
+      3.0
+    ],
+    "dag_cost": 3.0,
+    "steps": 24
+  },
+  "greedy_shadow": {
+    "rendered": [
+      "(((8'd5 * x) << 1) + x)"
+    ],
+    "seconds": 4.11010000789247e-05,
+    "choices": {
+      "i64-11": "primitive-i64-11",
+      "i64-5": "primitive-i64-5",
+      "i64-2": "primitive-i64-2",
+      "i64-1": "primitive-i64-1",
+      "String-0": "primitive-String-0",
+      "Expr-0": "function-0-Num",
+      "Expr-3": "function-1-Num",
+      "Expr-6": "function-2-Num",
+      "Expr-9": "function-3-Num",
+      "Expr-1": "function-0-Var",
+      "Expr-2": "function-0-Add",
+      "Expr-4": "function-1-Mul",
+      "Expr-7": "function-2-Mul",
+      "Expr-5": "function-0-Shl",
+      "Expr-8": "function-1-Shl"
+    },
+    "used_nodes": [
+      "function-0-Add",
+      "function-0-Shl",
+      "function-0-Var",
+      "function-1-Mul",
+      "function-1-Num",
+      "primitive-String-0",
+      "primitive-i64-1",
+      "primitive-i64-5"
+    ],
+    "tree_root_costs": [
+      3.0
+    ],
+    "dag_cost": 3.0,
+    "steps": 24
+  },
+  "metrics": {
+    "gates": 61,
+    "depth": 10,
+    "z3": "unsat",
+    "rtl_sat": true,
+    "synthesis_seconds": 0.10521156700019674,
+    "sat_seconds": 0.0807333740001468,
+    "rtl_sha256": "c2883cc90c875e9fbd60adcd29cd7d7dc5b4f88a12328a4666503a1d3adc9f48",
+    "netlist_sha256": "15516a25b1533840270329161cd751137ff91d44ebbd91c84014d2ff467ed9e6",
+    "rtl": "results/behavior/rtl/factorial_paper_fig4_mul11_expanded_feedback_feedback_s1_o1_i1.v"
+  },
+  "action": {
+    "before": "da508e0c804cb8873957acf3a7b482d1f22ea6d32e2cb35651e65ebec9065413",
+    "after": "ad9671c7609ac57e6fa9e7b4cfbe9aca44fd6e17fcbd6c9cc9f20b00aaa2ef2a",
+    "selected_node": "function-1-Mul",
+    "delta": 6,
+    "rollback": true,
+    "metric": 61,
+    "best_before": 59,
+    "snapshot_before_update": {
+      "primitive-i64-11": 0.0,
+      "function-0-Num": 0.0,
+      "primitive-i64-5": 0.0,
+      "function-1-Num": 0.0,
+      "primitive-i64-2": 0.0,
+      "function-2-Num": 0.0,
+      "primitive-i64-1": 0.0,
+      "function-3-Num": 0.0,
+      "primitive-String-0": 0.0,
+      "function-0-Var": 0.0,
+      "function-0-Add": 1.0,
+      "function-1-Add": 1.0,
+      "function-0-Mul": 4.0,
+      "function-1-Mul": 1.0,
+      "function-2-Mul": 1.0,
+      "function-3-Mul": 1.0,
+      "function-0-Shl": 1.0,
+      "function-1-Shl": 1.0,
+      "function-2-Shl": 1.0
+    }
+  },
+  "rule_selection_seconds": 0,
+  "graph_seconds": 0,
+  "controller_seconds": 6.048000000191678e-05,
+  "graph_nodes": 19,
+  "costs_after": {
+    "primitive-i64-11": 0.0,
+    "function-0-Num": 0.0,
+    "primitive-i64-5": 0.0,
+    "function-1-Num": 0.0,
+    "primitive-i64-2": 0.0,
+    "function-2-Num": 0.0,
+    "primitive-i64-1": 0.0,
+    "function-3-Num": 0.0,
+    "primitive-String-0": 0.0,
+    "function-0-Var": 0.0,
+    "function-0-Add": 1.0,
+    "function-1-Add": 1.0,
+    "function-0-Mul": 1.0,
+    "function-1-Mul": 7.0,
+    "function-2-Mul": 1.0,
+    "function-3-Mul": 1.0,
+    "function-0-Shl": 1.0,
+    "function-1-Shl": 1.0,
+    "function-2-Shl": 1.0
+  }
+}

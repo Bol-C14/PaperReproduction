@@ -1,5 +1,21 @@
 # Evidence audit
 
+## 当前主要结论：行为部分复现 / Go
+
+成功标准已调整为可观察行为，不要求复刻原始PPA数值。真实native egglog重写、e-graph抽取、免费Yosys综合反馈、局部cost更新/回退、再次抽取和实际RTL SAT闭环已运行；在线LLM及netlist K-way partition/归因仍未复现。完整逐模块契约、替代假设、命令、预算和失败记录见 **BEHAVIOR_CONTRACT.md** 与 configs/behavior_contract.json。原数值Not Replicated是次级对照，不是行为工作停止理由；上一阶段68候选枚举/180回放仍是独立pilot。
+
+本阶段：3个受控8位fixture × pool/selection/cost三因素各2级 × 2个确定性重复标签 = 48会话，每会话7次真实综合与7次RTL SAT。factorial336 + 起步pilot7 + Figure4探针3 = **346次综合、346次SAT**；无offline target oracle、无cache；第一阶段207 EDA调用单列，合计899。0/1不是独立随机种子，24/24复跑指标相同。每个因素对照固定其他因素与初始构造程序、宽度、工具、正确性和真实综合预算。结构/抽取/控制器时间及约70.81s会话wall已保存，安装、一次性规则检查、最终汇总/绘图和研究平台用量单列，不宣称equal-total-research-cost。第一阶段90义务=69 UNSAT+21预期SAT；新增proposal验证另有51个有限义务UNSAT，不能合称“所有规则均正确”。
+
+关键结果：MCM expanded pool加cost反馈146→130门；FIR-style cost反馈162→158门；x×11 best仍59门；本选择启发式无收益。pool扩展与反馈有交互，不能将收益归于LLM。Figure4三种成本设置确实抽出原乘法/完全展开/部分展开三类表达式，但本地门数为59/57/61，未重现论文面积排序。Figure4静态MUL10还优于本有限预算在线controller的门数，反映cost先验/搜索预算限制。20次真实rollback已记录，配对frontier见results/behavior/online_pareto.json与图，未拼接独立最优。
+
+来源和blocker修正（已查原文）：第一作者 [zzzdavid.tech](https://www.zzzdavid.tech/) 的ASPEN出版条目仅见paper链接；[NVIDIA出版页](https://research.nvidia.com/labs/electronic-design-automation/publication/deng2025aspen/) 未定位完整artifact链接，故ASPEN完整代码/artifact仍是“未定位”，不是“不存在”。[Coward博士论文](https://samuelcoward.co.uk/assets/pdf/Thesis_Imperial.pdf)印刷p9/PDF30§1.3说明Intel IP限制，印刷p155/PDF176明确ROVER closed-source。**ASPEN§IV-B的ROVER是作者按TableI+fixed e-node cost自建的基线，不是原闭源软件，拿不到原ROVER不妨碍独立重实现这条机制。**
+
+[cowardsa/extraction-gym](https://github.com/cowardsa/extraction-gym)是ROVER extraction testcases的fork，root LICENSE为MIT，不是完整ROVER；[egraphs-good/extraction-gym](https://github.com/egraphs-good/extraction-gym)是ASPEN引用的MIT抽取工具。已安全只读核查源码和converter格式，未执行下载来的Makefile/convert.py；源码算法用于Python适配并保留MIT notice。数据目录浏览返回restricted URL，未换通道绕过，故具体case覆盖、逐文件data声明及与ASPEN七个benchmarks的关系未核实，未使用这些数据跑结果。Rust编译器缺失不阻断免费wheel路径：Python egglog14.0.0实际可用，版本替代明确，不冒充Rust0.4.0；12个native/Python tree成本场景一致。模型实际预检未发现torch/transformers/模型权重，未核实任何免费API额度、未检查凭证或调用API，确定性proposal replay和控制器仅为非在线LLM对照。
+
+下一步Go：继续在免费算术域检验真实e-graph规则池/固定cost/random或数值策略、扩展可验证fixtures和归因代理；无需等待闭源ROVER。仍需补齐通用RTL前端、MUXAR类型前提、公开真实benchmark数据许可/覆盖、在线LLM能力和netlist分区归因。商业ASAP7/指定付费模型只限制原数值对照，不阻止行为复现。
+
+## 第一阶段：保留的次级数值对照与离线pilot
+
 **证据等级：算术与本地反例可验证；官方算法结果未复现。** 所有论文来源核验日期 2026-10-27，源清单及取回限制在 `sources/manifest.json`。这里的疑点不等于官方软件存在已验证 bug。
 
 ## Reporting ambiguity：归一化和运行/取点配置无法唯一确定
@@ -40,7 +56,7 @@ extraction-gym 上游 MIT license 与 Cargo manifest 已取回，HEAD=903ba0f818
 
 复算定位和手工值：Table II 在 PDF 第 5 页（论文 §IV），Figure 6 在 PDF 第 6 页。`sources/figure6_labels.csv` 是从浏览工具的 PDF 文本提取结果手工转录的两个 full ASPEN 标签，不是原始绘图数据；没有完成独立像素级校对。FIR area 公式 `100*(1-169.52/240.31)=29.4578%`（commercial）与 `100*(1-169.52/194.10)=12.6636%`（ROVER）；MCM(7,19,31) delay 为 `100*(1-316.12/462.33)=31.6246%` 与 `100*(1-316.12/405.34)=22.0111%`。原始小数未知，±0.005 的显示取整通常不能解释这些差距，但不同 runs/约束可以，所以不能唯一归因。此处是单 benchmark 比率，mean/geomean 不适用；Table II 平均行另算 arithmetic mean of per-benchmark ratios、geometric mean of ratios 与 ratio of sums，结果见 `results/reporting_ambiguity.json`。后两者不是同一种估计量，不能相互替代。Figure 6 是否与 Table II 共用 seed、pool、constraints 与相同的单目标 Pareto minima 未知，联合最优也不能凭单列 minima 推得。
 
-## 交付计数与预算口径（最终一致性说明）
+## 第一阶段交付计数与预算口径（历史口径）
 
 90 项是 **15 个语义 case × 6 个有限位宽的回归 obligations**，不是 90 条规则均等价：69 个 mismatch UNSAT、21 个预期反例 SAT、0 unknown，90 个 expected-result assertions 全部通过。SAT 仅说明明确建模语义下可产生反例，不能泛指官方实现错误。最终 pilot 有 68 个不同候选，表达式 Z3 68/68、实际 Verilog miter SAT 68/68 通过。
 

@@ -1,0 +1,53 @@
+{
+  "kind": "behavior_reimplementation_non_online_LLM",
+  "engine": "egglog-python==14.0.0 (substitute version; Rust engine commit unverified)",
+  "width": 8,
+  "benchmarks": [
+    "paper_fig4_mul11",
+    "appendix_mcm71931",
+    "fir_style_12_41_21"
+  ],
+  "seeds": [
+    0,
+    1
+  ],
+  "outer_iterations": 2,
+  "inner_iterations": 3,
+  "reference_syntheses_per_session": 1,
+  "true_synthesis_budget_per_session": 7,
+  "synthesis_timeout_s": 30,
+  "graph_rounds": 3,
+  "graph_node_limit": 10000,
+  "cost_delta": 3,
+  "extractors": [
+    "bottom_up",
+    "greedy_dag"
+  ],
+  "chosen_extractor": "bottom_up",
+  "factors": {
+    "pool": [
+      "initial",
+      "expanded"
+    ],
+    "selection": [
+      "static",
+      "feedback"
+    ],
+    "cost": [
+      "static",
+      "feedback"
+    ]
+  },
+  "metrics": [
+    "generic_gate_count",
+    "generic_logic_depth"
+  ],
+  "cache": false,
+  "initial_cost": 1,
+  "llm_calls": 0,
+  "api_cost_usd": 0,
+  "free_model_status": "No local torch/transformers or safetensors found; no free API quota verified; no API calls attempted",
+  "notes": "Actual synthesis response used online. No offline target oracle/pretraining. All structural/extraction/controller times recorded; no tokens. Not exact ASPEN PPA or online LLM adaptation.",
+  "seed_role": "0/1 are deterministic repeat labels; controller does not use stochastic seed",
+  "fixture_provenance": "published expression/constants + newly authored FIR-style AST; not official benchmark bytes"
+}

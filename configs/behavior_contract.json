@@ -1,0 +1,81 @@
+{
+  "primary_success": "behavior partially replicated / Go",
+  "secondary": "original numerical PPA not replicated",
+  "modules": [
+    {
+      "module": "rule_proposal",
+      "input": "initial rules + design",
+      "output": "expanded checked rule pool",
+      "state": "once; published Appendix-A replay",
+      "observable_invariant": "51 finite checks UNSAT; per-output final Z3+SAT",
+      "status": "Partially Replicated",
+      "substitution": "no fresh/online LLM; published rules privileged source knowledge"
+    },
+    {
+      "module": "rule_selection",
+      "input": "design + actual synthesis history",
+      "output": "full/constants_only rulesets",
+      "state": "history retained between outer loops",
+      "observable_invariant": "response intervention changes action; same allowed pool and initial construction",
+      "status": "Partially Replicated",
+      "substitution": "two-option deterministic heuristic; no measured quality gain"
+    },
+    {
+      "module": "egraph_rewrite",
+      "input": "AST + selected rules",
+      "output": "native e-classes/e-nodes",
+      "state": "three rounds; post-round 10000 node guard",
+      "observable_invariant": "original roots retained; congruence native engine",
+      "status": "Replicated in scoped arithmetic domain",
+      "substitution": "egglog-python14 substitute; MUXAR excluded; not arbitrary RTL"
+    },
+    {
+      "module": "extraction",
+      "input": "graph + local costs",
+      "output": "acyclic expressions/choices",
+      "state": "bottom-up main; greedy-DAG shadow",
+      "observable_invariant": "12 tree cost crosschecks native/Python; final RTL checks",
+      "status": "Replicated in scoped domain",
+      "substitution": "Python adaptations, not Rust performance or global DAG optimality"
+    },
+    {
+      "module": "synthesis_feedback",
+      "input": "actual emitted RTL",
+      "output": "generic gates/depth + netlist",
+      "state": "real Yosys at every step, no target oracle/cache",
+      "observable_invariant": "7 real synthesis calls each session, including reference",
+      "status": "Replicated for feedback behavior",
+      "substitution": "no ASAP7 timing/area claims"
+    },
+    {
+      "module": "cost_update",
+      "input": "observed gates + choices + history",
+      "output": "local cost map + rollback trace",
+      "state": "reset1 per outer; +3 or rollback/+6",
+      "observable_invariant": "feedback dependency intervention; 20 rollback events",
+      "status": "Partially Replicated",
+      "substitution": "selected-node structural attribution, no LLM/K-way netlist tracing"
+    },
+    {
+      "module": "equivalence",
+      "input": "AST and emitted RTL + trusted references",
+      "output": "UNSAT / RTL SAT success",
+      "state": "unknown/timeout fail closed",
+      "observable_invariant": "346 actual RTL checks pass",
+      "status": "Replicated for recorded fixtures",
+      "substitution": "8-bit unsigned modular, no X/Z/sequential/mixed widths"
+    },
+    {
+      "module": "pareto",
+      "input": "paired verified point metrics",
+      "output": "observed nondominated points + IDs",
+      "state": "only actual observed pairs",
+      "observable_invariant": "no joining independent minima",
+      "status": "Replicated for observed metric frontier",
+      "substitution": "not global Pareto or original Figure7"
+    }
+  ],
+  "evidence": "results/behavior/validation.json",
+  "budget": "48 factorial sessions x7 true synthesis; includes reference; equal real synthesis, feature/controller timing reported; one-time install/proposal checks separate",
+  "model_status": "no verified free runtime/API; deterministic non-online-LLM substitutes"
+}

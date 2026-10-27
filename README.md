@@ -1,18 +1,27 @@
-# ASPEN MLCAD 2025：部分复现审阅包
+# ASPEN MLCAD 2025：行为复现与批判性审评
 
-完整复现 No-Go；免费替代机制 pilot 已完成。请先读 REPRODUCTION.md，再读 EVIDENCE_AUDIT.md、BASELINE_COMPARISON.md 和 RESEARCH_OPPORTUNITIES.md。所有官方结论、替代结果与语义前提分开报告。
+**当前主要结论：行为部分复现 / Go。** 真实native egglog重写/抽取→免费Yosys综合反馈→局部cost更新和回退→再次抽取→实际RTL SAT已完成。在线LLM和netlist分区归因未复现；原始Table II / Figure 6 / Figure 7数值是次级未复现对照，商业EDA缺失不再是结束行为工作的理由。
 
-运行/重建命令见 REPRODUCTION.md；固定依赖在 configs/requirements.lock 与 configs/analysis-requirements.txt。结果图在 results/*.png，逐候选与逐种子查询记录在 results/*.json，必要原始日志在 logs/。可执行静态交叉核验：
+先读 [BEHAVIOR_CONTRACT.md](BEHAVIOR_CONTRACT.md)，再读四份报告：REPRODUCTION.md、EVIDENCE_AUDIT.md、BASELINE_COMPARISON.md、RESEARCH_OPPORTUNITIES.md。第一阶段的68候选离线枚举保持pilot身份；第二阶段48会话使用真实在线综合，每会话7次、含reference，不是查表。完整预算、负结果、替代假设、来源修正和复现命令均在契约中。
+
+- 当前结果、原生e-graph快照、配对frontier与图：`results/behavior/`
+- 原始压缩工具日志与逐次调用ledger：`logs/behavior/`
+- 固定环境：`configs/behavior-requirements.lock`
+- 输入fixtures与规则：`benchmarks/behavior_fixtures.json`、`behavior/table_i_rules.egg`
+
+已有结果静态核验（不新增EDA）：
 
 ```bash
 python scripts/verify_artifacts.py
+.venv/bin/python scripts/verify_behavior_artifacts.py
 ```
 
-ZIP 的 git/ 目录含本分支全历史 bundle 和含 binary 图的完整 root patch；RELEASE.json 给出 branch/完整 commit。恢复完整历史：
+行为重跑请使用契约中的新目录 `ASPEN_BEHAVIOR_RUN_ROOT=.runs/rebuild1`，避免覆盖已有证据。可计数的本阶段346次综合+346次RTL SAT全部通过，另有51个有限proposal义务UNSAT；第一阶段90项是69 UNSAT和21个预期SAT反例，不是90条规则均等价。
+
+ZIP内 `git/` 含完整分支bundle和binary root patch，`RELEASE.json`给出完整commit：
 
 ```bash
 git clone -b reproduction/aspen-mlcad2025 git/aspen-review.bundle restored
-git -C restored switch reproduction/aspen-mlcad2025
 ```
 
-EXCLUSIONS.md 记录未包含文件与重建方法。审阅包不是完整商业 EDA/ASAP7 或在线 LLM 运行环境。90 项回归中 21 项是预期反例；不是 90 条规则均等价。
+未包含依赖、缓存和完整生成netlists，见EXCLUSIONS.md。原ROVER闭源的来源已核实，但ASPEN自己的TableI+fixed-cost baseline可以独立重建；作者extraction-gym fork并不是完整ROVER。所有数值、非在线LLM替代和官方原始数据严格分开。
