@@ -55,6 +55,7 @@
 python -m venv .venv
 .venv/bin/pip install --only-binary=:all: -r configs/requirements.lock
 python scripts/environment.py
+python scripts/reporting_audit.py > logs/reporting_audit.log
 .venv/bin/python scripts/rule_audit.py > logs/rule_audit.log
 .venv/bin/python scripts/pilot.py > logs/pilot.jsonl
 .venv/bin/python scripts/verify_rtl.py > logs/rtl_equivalence.log
