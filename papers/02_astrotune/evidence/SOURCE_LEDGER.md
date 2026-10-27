@@ -1,0 +1,19 @@
+# Sources checked 2026-10-27 UTC
+
+| Source | Checked evidence | Limits |
+|---|---|---|
+| https://jpan.me/files/ISPD26_AstroTune.pdf | Web extraction of all 9 pages: pp1–2 motivation/related work, pp3–5 equations1–10 and workflow, pp6–8 setup/results/ablations, p9 references | Direct curl403; no local original PDF or byte hash. No appendix within these 9 pages. Figures/table text read from extraction, not digitized curves. |
+| https://scholars.duke.edu/publication/1817133 | Title, four authors, DOI, pp144–152, March27 2026 publication date | Abstract/catalogue, not implementation evidence. |
+| https://jpan.me/publications/ | AstroTune entry links conference and PDF, no code/artifact link at entry | Does not prove private/unindexed artifacts absent. |
+| https://github.com/panjingyu | Author-linked GitHub account; broad web searches for AstroTune+authors+artifact/code | No verified matching official repo located. Same-name music/astrology projects discarded. No unofficial AstroTune code executed. |
+| https://github.com/hkust-zhiyao/RTLLM | Actual clone commit51ed553d0ffd32797a1a0a13e051656bf302c81f; MIT LICENSE; selected RTL/spec/testbench bytes | This is v2.1 updated Aug2026, AFTER paper. Exact paper data snapshots/LLM variants unavailable. Six named designs here are a behavioral subset, not original test suite. |
+| https://openroad-flow-scripts.readthedocs.io/en/latest/user/BuildWithPrebuilt.html | Official installation alternatives; prebuilt VaultLink returns403 in shell | Current ORFS image too large for storage; no proprietary EDA. |
+| https://github.com/The-OpenROAD-Project/OpenROAD-flow-scripts | Pinned commit64939f3717ad7c694199ba04cb98924b98022868; Nangate45 library/LEF/RC files and hashes | Platform Apache LICENSE accompanies proprietary Liberty notices; preserve notices locally, omit platform data from redistribution. |
+| Docker public efabless/openlane:2023.09.07 | Immutable amd64 manifest sha256:8d74595b533c5f09aaf46ad74d3d8bb5b8300e9b5932db4f7d17b20a6651a1ab; hash-verified layers | Binary substitutes: Yosys0.30+48, OpenROAD git0a6d0fd..., Verilator5.009 devel. Not author's tool versions. No redistribution of binaries in review ZIP. |
+| https://github.com/abetlen/llama-cpp-python and https://huggingface.co/Qwen/Qwen2.5-Coder-0.5B-Instruct-GGUF | Official CPU backend/model distribution and model Apache2.0 card | Wheel index proxy403, weights403; zero inference calls and no model utility claim. |
+
+Paper license is CC BY4.0, explicitly printed on p1. That does not license an undiscovered implementation. Original experiments: DC/Innovus; exact versions, 33 individual parameter/value lists, gamma weights, hash dimensions, specification tokenization, database full membership/provenance, all BO policy constants/seeds, API token costs, exact prompts/preselection implementation and raw logs are not supplied by the nine-page paper. These are evidence gaps, not assertions that authors did not do the work.
+
+## Additional official presentation found during artifact check
+
+Conference program https://ispd.cc/ispd2026/index.php?page=program links a **26-page official slide deck** at https://ispd.cc/slides/2026/protected/slides_9_1.pdf . Read all pages through the normal public web tool; no credentials or access bypass. It is supporting presentation material, not an implementation artifact or appendix. On slide/page20 it explicitly states that database and test designs are separated. Therefore the audit must distinguish the authors' stated separation from the absence of released membership lists needed for independent duplicate/family-overlap verification. Page23 independently confirms altered HR@1=95.8%, HR@3=100%. Slides confirm GP→TPE stages and early pruning but do not supply the missing numeric implementation constants or code. ACM DOI page fetch returned403, so supplementary-asset availability there remains unverified.
