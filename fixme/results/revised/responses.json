@@ -1,0 +1,38 @@
+{
+  "SpeCom": {
+    "positive": "B",
+    "wrong": "A",
+    "malformed": "???",
+    "ambiguous": "A or B"
+  },
+  "MGen": {
+    "positive": "extern \"C\" void ref_model_eval(unsigned long long a,unsigned long long b,unsigned long long c,unsigned long long* s,unsigned long long* co){*s=(a^b^c)&1;*co=((a+b+c)>>1)&1;}",
+    "wrong": "extern \"C\" void ref_model_eval(unsigned long long a,unsigned long long b,unsigned long long c,unsigned long long* s,unsigned long long* co){*s=0;*co=((a+b+c)>>1)&1;}",
+    "malformed": "not C++"
+  },
+  "TBGen": {
+    "positive": "module dut_tb; reg select; reg [15:0] in0,in1; wire [15:0] out;\naddress_mux dut(select,in0,in1,out); integer i; initial begin\nfor(i=0;i<64;i=i+1) begin select=i%2; in0=16'h1<<((i/2)%16); in1=~in0; #1;\nif(out !== (select?in1:in0)) $fatal(1,\"TEST_FAIL\"); end\n$display(\"TEST_PASS checks=64\"); $finish; end endmodule",
+    "wrong": "module dut_tb; reg select; reg [15:0] in0,in1; wire [15:0] out;\naddress_mux dut(select,in0,in1,out); integer i; initial begin\nfor(i=0;i<64;i=i+1) begin select=i%2; in0=16'h1<<((i/2)%16); in1=~in0; #1;\nif(out !== (select?in0:in1)) $fatal(1,\"TEST_FAIL\"); end\n$display(\"TEST_PASS checks=64\"); $finish; end endmodule",
+    "malformed": "module ;",
+    "empty_tb": "module dut_tb; initial $finish; endmodule",
+    "timeout": "module dut_tb; initial forever #1; endmodule"
+  },
+  "SVAGen": {
+    "positive": "always @* assert(crc_o[5] == crc_i[13]);",
+    "wrong": "always @* assert(crc_o[5] != crc_i[13]);",
+    "malformed": "assert ( ;",
+    "unsupported": "assert property (@(posedge clk) a |=> b);",
+    "vacuous": "always @* assert(1);"
+  },
+  "RTLFix": {
+    "positive": "module mux (\n    input  wire d0,\n    input  wire d1,\n    input  wire d2,\n    input  wire d3,\n    input  wire s1,\n    input  wire s0,\n    output wire y\n);\n\n    wire mux1_out;\n    wire mux2_out;\n    assign mux1_out = s0 ? d1 : d0;\n    assign mux2_out = s0 ? d3 : d2;\n\n    assign y = s1 ? mux2_out : mux1_out;\n\nendmodule",
+    "wrong": "module mux (\n    input  wire d0,\n    input  wire d1,\n    input  wire d2,\n    input  wire d3,\n    input  wire s1,\n    input  wire s0,\n    output wire y\n);\n\n    wire mux1_out;\n    wire mux2_out;\n    assign mux1_out = s0 ? d1 : d0;\n    assign mux2_out = s0 ? d3 : d2;\n\n    assign y = s1 ? mux2_out : ~mux1_out;\n\nendmodule",
+    "malformed": "module ;"
+  },
+  "RTLFixText": {
+    "positive": "always@(negedge clk)\nalways@(posedge clk)",
+    "wrong": "always@(negedge clk)",
+    "malformed": "???",
+    "pair_only": "always@(negedge clk)\nalways@(posedge clk)"
+  }
+}

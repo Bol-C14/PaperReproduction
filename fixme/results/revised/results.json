@@ -1,0 +1,957 @@
+{
+  "model": "fixed-author-fixture-v1",
+  "live_llm": false,
+  "cases": 24,
+  "statuses": {
+    "pass": 7,
+    "fail": 14,
+    "unknown": 2,
+    "unsupported": 1
+  },
+  "results": [
+    {
+      "subset": "SpeCom",
+      "case": "SpeCom/L1/Text/1 bit Full Adder using HA",
+      "variant": "positive",
+      "model": "fixed-author-fixture-v1",
+      "live_llm": false,
+      "upstream_commit": "e875437fbb11590b71775b32d3579726d702cfc6",
+      "input_files": [
+        {
+          "name": "full_half_add_1bit.v",
+          "sha256": "abc9512c7a8ad44feba987eca51f632af27ff157ac682b53f6052848ed0ab00f"
+        },
+        {
+          "name": "full_half_add_1bit_spec.txt",
+          "sha256": "048b7305dec344ab7cee0cff5cd3982c53e9c35d730fe86e403c74171195810a"
+        },
+        {
+          "name": "full_half_add_1bit_tb.v",
+          "sha256": "fa0dd55c8f1a389544aceeb094e4cbc945121ece3931d2b02d1d10606b4dce76"
+        },
+        {
+          "name": "q.txt",
+          "sha256": "d5ae9ed53ed75a3eadb4560e06f4f5d89ad9a6924d59d84fc582e77c35e37131"
+        },
+        {
+          "name": "ref.txt",
+          "sha256": "d38b2fb53548b1785d7af46a7167b95e90459760a2dec0f62f01458d9d6abfa3"
+        }
+      ],
+      "response_sha256": "df7e70e5021544f4834bbee64a9e3789febc4be81470df629cad6ddb03320a5c",
+      "fidelity": "exact-current-upstream-evaluator",
+      "coverage": {
+        "line": null,
+        "toggle": null,
+        "functional": null
+      },
+      "syntax_pass": null,
+      "functional_pass": true,
+      "status": "pass",
+      "official_status": "pass",
+      "details": {
+        "subset": "SpeCom",
+        "correct_option": "B",
+        "reference_answer": "B. The logical OR operation is mathematically equivalent to the canonical carry expression (i_a & i_b) | (i_cin & (i_a ^ i_b)), as a carry-out occurs if the first stage generates a carry OR if the second stage generates a carry by adding the input carry to the intermediate sum.",
+        "selected_option": "B"
+      },
+      "semantic_limit": "objective option match"
+    },
+    {
+      "subset": "SpeCom",
+      "case": "SpeCom/L1/Text/1 bit Full Adder using HA",
+      "variant": "wrong",
+      "model": "fixed-author-fixture-v1",
+      "live_llm": false,
+      "upstream_commit": "e875437fbb11590b71775b32d3579726d702cfc6",
+      "input_files": [
+        {
+          "name": "full_half_add_1bit.v",
+          "sha256": "abc9512c7a8ad44feba987eca51f632af27ff157ac682b53f6052848ed0ab00f"
+        },
+        {
+          "name": "full_half_add_1bit_spec.txt",
+          "sha256": "048b7305dec344ab7cee0cff5cd3982c53e9c35d730fe86e403c74171195810a"
+        },
+        {
+          "name": "full_half_add_1bit_tb.v",
+          "sha256": "fa0dd55c8f1a389544aceeb094e4cbc945121ece3931d2b02d1d10606b4dce76"
+        },
+        {
+          "name": "q.txt",
+          "sha256": "d5ae9ed53ed75a3eadb4560e06f4f5d89ad9a6924d59d84fc582e77c35e37131"
+        },
+        {
+          "name": "ref.txt",
+          "sha256": "d38b2fb53548b1785d7af46a7167b95e90459760a2dec0f62f01458d9d6abfa3"
+        }
+      ],
+      "response_sha256": "559aead08264d5795d3909718cdd05abd49572e84fe55590eef31a88a08fdffd",
+      "fidelity": "exact-current-upstream-evaluator",
+      "coverage": {
+        "line": null,
+        "toggle": null,
+        "functional": null
+      },
+      "syntax_pass": null,
+      "functional_pass": false,
+      "status": "fail",
+      "official_status": "fail",
+      "details": {
+        "subset": "SpeCom",
+        "correct_option": "B",
+        "reference_answer": "B. The logical OR operation is mathematically equivalent to the canonical carry expression (i_a & i_b) | (i_cin & (i_a ^ i_b)), as a carry-out occurs if the first stage generates a carry OR if the second stage generates a carry by adding the input carry to the intermediate sum.",
+        "selected_option": "A"
+      },
+      "semantic_limit": "objective option match"
+    },
+    {
+      "subset": "SpeCom",
+      "case": "SpeCom/L1/Text/1 bit Full Adder using HA",
+      "variant": "malformed",
+      "model": "fixed-author-fixture-v1",
+      "live_llm": false,
+      "upstream_commit": "e875437fbb11590b71775b32d3579726d702cfc6",
+      "input_files": [
+        {
+          "name": "full_half_add_1bit.v",
+          "sha256": "abc9512c7a8ad44feba987eca51f632af27ff157ac682b53f6052848ed0ab00f"
+        },
+        {
+          "name": "full_half_add_1bit_spec.txt",
+          "sha256": "048b7305dec344ab7cee0cff5cd3982c53e9c35d730fe86e403c74171195810a"
+        },
+        {
+          "name": "full_half_add_1bit_tb.v",
+          "sha256": "fa0dd55c8f1a389544aceeb094e4cbc945121ece3931d2b02d1d10606b4dce76"
+        },
+        {
+          "name": "q.txt",
+          "sha256": "d5ae9ed53ed75a3eadb4560e06f4f5d89ad9a6924d59d84fc582e77c35e37131"
+        },
+        {
+          "name": "ref.txt",
+          "sha256": "d38b2fb53548b1785d7af46a7167b95e90459760a2dec0f62f01458d9d6abfa3"
+        }
+      ],
+      "response_sha256": "a03b221c6c6eae7122ca51695d456d5222e524889136394944b2f9763b483615",
+      "fidelity": "exact-current-upstream-evaluator",
+      "coverage": {
+        "line": null,
+        "toggle": null,
+        "functional": null
+      },
+      "syntax_pass": null,
+      "functional_pass": null,
+      "status": "fail",
+      "official_status": "fail",
+      "details": {
+        "subset": "SpeCom",
+        "correct_option": "B",
+        "reference_answer": "B. The logical OR operation is mathematically equivalent to the canonical carry expression (i_a & i_b) | (i_cin & (i_a ^ i_b)), as a carry-out occurs if the first stage generates a carry OR if the second stage generates a carry by adding the input carry to the intermediate sum.",
+        "selected_option": null
+      },
+      "semantic_limit": "objective option match"
+    },
+    {
+      "subset": "SpeCom",
+      "case": "SpeCom/L1/Text/1 bit Full Adder using HA",
+      "variant": "ambiguous",
+      "model": "fixed-author-fixture-v1",
+      "live_llm": false,
+      "upstream_commit": "e875437fbb11590b71775b32d3579726d702cfc6",
+      "input_files": [
+        {
+          "name": "full_half_add_1bit.v",
+          "sha256": "abc9512c7a8ad44feba987eca51f632af27ff157ac682b53f6052848ed0ab00f"
+        },
+        {
+          "name": "full_half_add_1bit_spec.txt",
+          "sha256": "048b7305dec344ab7cee0cff5cd3982c53e9c35d730fe86e403c74171195810a"
+        },
+        {
+          "name": "full_half_add_1bit_tb.v",
+          "sha256": "fa0dd55c8f1a389544aceeb094e4cbc945121ece3931d2b02d1d10606b4dce76"
+        },
+        {
+          "name": "q.txt",
+          "sha256": "d5ae9ed53ed75a3eadb4560e06f4f5d89ad9a6924d59d84fc582e77c35e37131"
+        },
+        {
+          "name": "ref.txt",
+          "sha256": "d38b2fb53548b1785d7af46a7167b95e90459760a2dec0f62f01458d9d6abfa3"
+        }
+      ],
+      "response_sha256": "522dd8a4a2cad02b4446d2e534865456653e21d6f144b00964ae3905f9f4546d",
+      "fidelity": "exact-current-upstream-evaluator",
+      "coverage": {
+        "line": null,
+        "toggle": null,
+        "functional": null
+      },
+      "syntax_pass": null,
+      "functional_pass": false,
+      "status": "fail",
+      "official_status": "fail",
+      "details": {
+        "subset": "SpeCom",
+        "correct_option": "B",
+        "reference_answer": "B. The logical OR operation is mathematically equivalent to the canonical carry expression (i_a & i_b) | (i_cin & (i_a ^ i_b)), as a carry-out occurs if the first stage generates a carry OR if the second stage generates a carry by adding the input carry to the intermediate sum.",
+        "selected_option": "A"
+      },
+      "semantic_limit": "objective option match"
+    },
+    {
+      "subset": "MGen",
+      "case": "MGen/L1/Text/1 bit Full Adder using HA",
+      "variant": "positive",
+      "model": "fixed-author-fixture-v1",
+      "live_llm": false,
+      "upstream_commit": "e875437fbb11590b71775b32d3579726d702cfc6",
+      "input_files": [
+        {
+          "name": "full_half_add_1bit.v",
+          "sha256": "abc9512c7a8ad44feba987eca51f632af27ff157ac682b53f6052848ed0ab00f"
+        },
+        {
+          "name": "full_half_add_1bit_tb.v",
+          "sha256": "fa0dd55c8f1a389544aceeb094e4cbc945121ece3931d2b02d1d10606b4dce76"
+        }
+      ],
+      "response_sha256": "0534305c219a43443a5826fe414e818ea8f9d8eef1e2d5eb63aa2bbf6162b28f",
+      "fidelity": "substituted",
+      "coverage": {
+        "line": null,
+        "toggle": null,
+        "functional": null
+      },
+      "syntax_pass": true,
+      "functional_pass": true,
+      "status": "pass",
+      "reason": "explicit test evidence",
+      "observed_checks": 100,
+      "official_status": "pass"
+    },
+    {
+      "subset": "MGen",
+      "case": "MGen/L1/Text/1 bit Full Adder using HA",
+      "variant": "wrong",
+      "model": "fixed-author-fixture-v1",
+      "live_llm": false,
+      "upstream_commit": "e875437fbb11590b71775b32d3579726d702cfc6",
+      "input_files": [
+        {
+          "name": "full_half_add_1bit.v",
+          "sha256": "abc9512c7a8ad44feba987eca51f632af27ff157ac682b53f6052848ed0ab00f"
+        },
+        {
+          "name": "full_half_add_1bit_tb.v",
+          "sha256": "fa0dd55c8f1a389544aceeb094e4cbc945121ece3931d2b02d1d10606b4dce76"
+        }
+      ],
+      "response_sha256": "0f6b3d5195702f62ef423f4528a307f149855e7ea9ab359b0c49c1149adf5440",
+      "fidelity": "substituted",
+      "coverage": {
+        "line": null,
+        "toggle": null,
+        "functional": null
+      },
+      "syntax_pass": true,
+      "functional_pass": false,
+      "status": "fail",
+      "reason": "missing success/check evidence or observed mismatch",
+      "observed_checks": 54,
+      "official_status": "pass"
+    },
+    {
+      "subset": "MGen",
+      "case": "MGen/L1/Text/1 bit Full Adder using HA",
+      "variant": "malformed",
+      "model": "fixed-author-fixture-v1",
+      "live_llm": false,
+      "upstream_commit": "e875437fbb11590b71775b32d3579726d702cfc6",
+      "input_files": [
+        {
+          "name": "full_half_add_1bit.v",
+          "sha256": "abc9512c7a8ad44feba987eca51f632af27ff157ac682b53f6052848ed0ab00f"
+        },
+        {
+          "name": "full_half_add_1bit_tb.v",
+          "sha256": "fa0dd55c8f1a389544aceeb094e4cbc945121ece3931d2b02d1d10606b4dce76"
+        }
+      ],
+      "response_sha256": "3fc1c7f217570955716c66eee0b8b2257beab895663e63381e6d9c7918eace4a",
+      "fidelity": "substituted",
+      "coverage": {
+        "line": null,
+        "toggle": null,
+        "functional": null
+      },
+      "syntax_pass": false,
+      "functional_pass": null,
+      "status": "fail",
+      "reason": "candidate compilation diagnostic"
+    },
+    {
+      "subset": "TBGen",
+      "case": "TBGen/L1/Text/address_mux",
+      "variant": "positive",
+      "model": "fixed-author-fixture-v1",
+      "live_llm": false,
+      "upstream_commit": "e875437fbb11590b71775b32d3579726d702cfc6",
+      "input_files": [
+        {
+          "name": "address_mux.v",
+          "sha256": "85518d5583f56ca2cb390c9cf7ca8df8a888e4f0e7b3502aac8a53b009ce49a7"
+        },
+        {
+          "name": "address_mux_spec.txt",
+          "sha256": "101a1e8ed425e6b56bd80f0c06bccb386f1a12963331d2fa6070979e92b5a3ca"
+        }
+      ],
+      "response_sha256": "b513a6664cf2eea3ecea0912dfaade4ac627be7338d3743f1d2889a04b8c2c18",
+      "fidelity": "substituted",
+      "coverage": {
+        "line": null,
+        "toggle": null,
+        "functional": null
+      },
+      "syntax_pass": true,
+      "functional_pass": true,
+      "status": "pass",
+      "reason": "explicit test evidence",
+      "observed_checks": null,
+      "official_status": "pass",
+      "mutation_killed": true,
+      "mutation_status": "fail"
+    },
+    {
+      "subset": "TBGen",
+      "case": "TBGen/L1/Text/address_mux",
+      "variant": "wrong",
+      "model": "fixed-author-fixture-v1",
+      "live_llm": false,
+      "upstream_commit": "e875437fbb11590b71775b32d3579726d702cfc6",
+      "input_files": [
+        {
+          "name": "address_mux.v",
+          "sha256": "85518d5583f56ca2cb390c9cf7ca8df8a888e4f0e7b3502aac8a53b009ce49a7"
+        },
+        {
+          "name": "address_mux_spec.txt",
+          "sha256": "101a1e8ed425e6b56bd80f0c06bccb386f1a12963331d2fa6070979e92b5a3ca"
+        }
+      ],
+      "response_sha256": "4f3c613b4f0b39035ba3a2b8dbb62aa9fcee39dbe929f5e84cbc46c6ecd17689",
+      "fidelity": "substituted",
+      "coverage": {
+        "line": null,
+        "toggle": null,
+        "functional": null
+      },
+      "syntax_pass": true,
+      "functional_pass": false,
+      "status": "fail",
+      "reason": "functional test failure reported",
+      "official_status": "fail",
+      "mutation_killed": true,
+      "mutation_status": "fail"
+    },
+    {
+      "subset": "TBGen",
+      "case": "TBGen/L1/Text/address_mux",
+      "variant": "malformed",
+      "model": "fixed-author-fixture-v1",
+      "live_llm": false,
+      "upstream_commit": "e875437fbb11590b71775b32d3579726d702cfc6",
+      "input_files": [
+        {
+          "name": "address_mux.v",
+          "sha256": "85518d5583f56ca2cb390c9cf7ca8df8a888e4f0e7b3502aac8a53b009ce49a7"
+        },
+        {
+          "name": "address_mux_spec.txt",
+          "sha256": "101a1e8ed425e6b56bd80f0c06bccb386f1a12963331d2fa6070979e92b5a3ca"
+        }
+      ],
+      "response_sha256": "4f4e46be5e272f54476c602ea31ce1b702b6379b69cb2f07fba03f66723b8b3e",
+      "fidelity": "substituted",
+      "coverage": {
+        "line": null,
+        "toggle": null,
+        "functional": null
+      },
+      "syntax_pass": false,
+      "functional_pass": null,
+      "status": "fail",
+      "official_status": "fail",
+      "reason": "candidate compilation diagnostic"
+    },
+    {
+      "subset": "TBGen",
+      "case": "TBGen/L1/Text/address_mux",
+      "variant": "empty_tb",
+      "model": "fixed-author-fixture-v1",
+      "live_llm": false,
+      "upstream_commit": "e875437fbb11590b71775b32d3579726d702cfc6",
+      "input_files": [
+        {
+          "name": "address_mux.v",
+          "sha256": "85518d5583f56ca2cb390c9cf7ca8df8a888e4f0e7b3502aac8a53b009ce49a7"
+        },
+        {
+          "name": "address_mux_spec.txt",
+          "sha256": "101a1e8ed425e6b56bd80f0c06bccb386f1a12963331d2fa6070979e92b5a3ca"
+        }
+      ],
+      "response_sha256": "c64965c88f18bdbd5bb3a21163c94909958b1f89a1eeef132ebac9e468631563",
+      "fidelity": "substituted",
+      "coverage": {
+        "line": null,
+        "toggle": null,
+        "functional": null
+      },
+      "syntax_pass": true,
+      "functional_pass": false,
+      "status": "fail",
+      "reason": "missing success/check evidence or observed mismatch",
+      "observed_checks": null,
+      "official_status": "pass",
+      "mutation_killed": false,
+      "mutation_status": "fail"
+    },
+    {
+      "subset": "TBGen",
+      "case": "TBGen/L1/Text/address_mux",
+      "variant": "timeout",
+      "model": "fixed-author-fixture-v1",
+      "live_llm": false,
+      "upstream_commit": "e875437fbb11590b71775b32d3579726d702cfc6",
+      "input_files": [
+        {
+          "name": "address_mux.v",
+          "sha256": "85518d5583f56ca2cb390c9cf7ca8df8a888e4f0e7b3502aac8a53b009ce49a7"
+        },
+        {
+          "name": "address_mux_spec.txt",
+          "sha256": "101a1e8ed425e6b56bd80f0c06bccb386f1a12963331d2fa6070979e92b5a3ca"
+        }
+      ],
+      "response_sha256": "e320150c60a2f13ee73b224a952391b8f28e08bc241008cf5255efe946fe315d",
+      "fidelity": "substituted",
+      "coverage": {
+        "line": null,
+        "toggle": null,
+        "functional": null
+      },
+      "syntax_pass": true,
+      "functional_pass": null,
+      "status": "unknown",
+      "reason": "wall timeout",
+      "official_status": "unknown"
+    },
+    {
+      "subset": "SVAGen",
+      "case": "SVAGen/L1/Text/usbh_crc16",
+      "variant": "positive",
+      "model": "fixed-author-fixture-v1",
+      "live_llm": false,
+      "upstream_commit": "e875437fbb11590b71775b32d3579726d702cfc6",
+      "input_files": [
+        {
+          "name": "usbh_crc16.v",
+          "sha256": "6324ffcb76b1f999bef6d46a100f11bc4aa011778d8f951d4482161e4843a01f"
+        },
+        {
+          "name": "usbh_crc16_spec.txt",
+          "sha256": "2013e4ee76446be031b6c1086b06d9f9a98b795d0e158060c1aa78d6549154a9"
+        }
+      ],
+      "response_sha256": "2b354a0ab0031c4183088eaa5c23d39425b747bd49ed858a42ea5e6f5ec08b1d",
+      "fidelity": "substituted",
+      "coverage": {
+        "line": null,
+        "toggle": null,
+        "functional": null
+      },
+      "syntax_pass": true,
+      "functional_pass": true,
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "mutation_killed": true,
+      "mutation_status": "fail",
+      "mutation_reason": "formal counterexample reported",
+      "mutation_property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "status": "pass",
+      "reason": "nonzero properties proven and selected output mutant falsified",
+      "proof_scope": "actual nonzero combinational assertions; all 24 binary input bits; selected output mutant adequacy; not full specification or temporal SVA"
+    },
+    {
+      "subset": "SVAGen",
+      "case": "SVAGen/L1/Text/usbh_crc16",
+      "variant": "wrong",
+      "model": "fixed-author-fixture-v1",
+      "live_llm": false,
+      "upstream_commit": "e875437fbb11590b71775b32d3579726d702cfc6",
+      "input_files": [
+        {
+          "name": "usbh_crc16.v",
+          "sha256": "6324ffcb76b1f999bef6d46a100f11bc4aa011778d8f951d4482161e4843a01f"
+        },
+        {
+          "name": "usbh_crc16_spec.txt",
+          "sha256": "2013e4ee76446be031b6c1086b06d9f9a98b795d0e158060c1aa78d6549154a9"
+        }
+      ],
+      "response_sha256": "3191dba5b652cf08f8085f1ee06031e1487c3eb158c3d9a1ee0e3645272a8d7e",
+      "fidelity": "substituted",
+      "coverage": {
+        "line": null,
+        "toggle": null,
+        "functional": null
+      },
+      "syntax_pass": true,
+      "functional_pass": false,
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "status": "fail",
+      "reason": "formal counterexample reported",
+      "proof_scope": "actual nonzero combinational assertions; all 24 binary input bits; selected output mutant adequacy; not full specification or temporal SVA"
+    },
+    {
+      "subset": "SVAGen",
+      "case": "SVAGen/L1/Text/usbh_crc16",
+      "variant": "malformed",
+      "model": "fixed-author-fixture-v1",
+      "live_llm": false,
+      "upstream_commit": "e875437fbb11590b71775b32d3579726d702cfc6",
+      "input_files": [
+        {
+          "name": "usbh_crc16.v",
+          "sha256": "6324ffcb76b1f999bef6d46a100f11bc4aa011778d8f951d4482161e4843a01f"
+        },
+        {
+          "name": "usbh_crc16_spec.txt",
+          "sha256": "2013e4ee76446be031b6c1086b06d9f9a98b795d0e158060c1aa78d6549154a9"
+        }
+      ],
+      "response_sha256": "f74e11e0024da9ffc20d58592bcd298603e52550637faa2f0767d3278a7b0b5e",
+      "fidelity": "substituted",
+      "coverage": {
+        "line": null,
+        "toggle": null,
+        "functional": null
+      },
+      "syntax_pass": false,
+      "functional_pass": false,
+      "property_counts": null,
+      "status": "fail",
+      "reason": "candidate assertion syntax diagnostic",
+      "proof_scope": "actual nonzero combinational assertions; all 24 binary input bits; selected output mutant adequacy; not full specification or temporal SVA"
+    },
+    {
+      "subset": "SVAGen",
+      "case": "SVAGen/L1/Text/usbh_crc16",
+      "variant": "unsupported",
+      "model": "fixed-author-fixture-v1",
+      "live_llm": false,
+      "upstream_commit": "e875437fbb11590b71775b32d3579726d702cfc6",
+      "input_files": [
+        {
+          "name": "usbh_crc16.v",
+          "sha256": "6324ffcb76b1f999bef6d46a100f11bc4aa011778d8f951d4482161e4843a01f"
+        },
+        {
+          "name": "usbh_crc16_spec.txt",
+          "sha256": "2013e4ee76446be031b6c1086b06d9f9a98b795d0e158060c1aa78d6549154a9"
+        }
+      ],
+      "response_sha256": "605a3d6ba39d1f8026b75088f51271300c7ebb9b2b33e352e45d3fe12968c99d",
+      "fidelity": "substituted",
+      "coverage": {
+        "line": null,
+        "toggle": null,
+        "functional": null
+      },
+      "syntax_pass": null,
+      "functional_pass": null,
+      "status": "unsupported",
+      "reason": "response uses temporal SVA or assumptions outside the immediate combinational adapter"
+    },
+    {
+      "subset": "SVAGen",
+      "case": "SVAGen/L1/Text/usbh_crc16",
+      "variant": "vacuous",
+      "model": "fixed-author-fixture-v1",
+      "live_llm": false,
+      "upstream_commit": "e875437fbb11590b71775b32d3579726d702cfc6",
+      "input_files": [
+        {
+          "name": "usbh_crc16.v",
+          "sha256": "6324ffcb76b1f999bef6d46a100f11bc4aa011778d8f951d4482161e4843a01f"
+        },
+        {
+          "name": "usbh_crc16_spec.txt",
+          "sha256": "2013e4ee76446be031b6c1086b06d9f9a98b795d0e158060c1aa78d6549154a9"
+        }
+      ],
+      "response_sha256": "b964d83ea32a75a79fc113a51a7803279bc336eb7466685846eef6183bad0322",
+      "fidelity": "substituted",
+      "coverage": {
+        "line": null,
+        "toggle": null,
+        "functional": null
+      },
+      "syntax_pass": true,
+      "functional_pass": null,
+      "property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "mutation_killed": false,
+      "mutation_status": "completed",
+      "mutation_reason": "",
+      "mutation_property_counts": {
+        "assert": 1,
+        "assume": 0,
+        "cover": 0
+      },
+      "status": "unknown",
+      "reason": "vacuity/adequacy gate: selected CRC output mutant was not falsified",
+      "proof_scope": "actual nonzero combinational assertions; all 24 binary input bits; selected output mutant adequacy; not full specification or temporal SVA"
+    },
+    {
+      "subset": "RTLFix",
+      "case": "RTLFix/L1/MultiModal/1",
+      "variant": "positive",
+      "model": "fixed-author-fixture-v1",
+      "live_llm": false,
+      "upstream_commit": "e875437fbb11590b71775b32d3579726d702cfc6",
+      "input_files": [
+        {
+          "name": "1.Multiplexer.pdf",
+          "sha256": "4ada403bb9b3f23d5d168bb248014d2aea8a65265ba1d55cc4b582e65e390b75"
+        },
+        {
+          "name": "mux.sv",
+          "sha256": "fc41d85618614f1bd35ebb124179bf9dbf9d516b72444e19bbd8c33f9f4bfe29"
+        },
+        {
+          "name": "tb_top.sv",
+          "sha256": "3e59c94d175a418058e45461ed563f4878de6e2f0b7b1aecb5b087206e364737"
+        }
+      ],
+      "response_sha256": "6388411c4af62419cd1f2c81cd7b919ac46330efc87a49910fc65bf9c8076be8",
+      "fidelity": "substituted",
+      "coverage": {
+        "line": null,
+        "toggle": null,
+        "functional": null
+      },
+      "syntax_pass": true,
+      "functional_pass": true,
+      "status": "pass",
+      "reason": "explicit test evidence",
+      "observed_checks": null,
+      "official_status": "pass"
+    },
+    {
+      "subset": "RTLFix",
+      "case": "RTLFix/L1/MultiModal/1",
+      "variant": "wrong",
+      "model": "fixed-author-fixture-v1",
+      "live_llm": false,
+      "upstream_commit": "e875437fbb11590b71775b32d3579726d702cfc6",
+      "input_files": [
+        {
+          "name": "1.Multiplexer.pdf",
+          "sha256": "4ada403bb9b3f23d5d168bb248014d2aea8a65265ba1d55cc4b582e65e390b75"
+        },
+        {
+          "name": "mux.sv",
+          "sha256": "fc41d85618614f1bd35ebb124179bf9dbf9d516b72444e19bbd8c33f9f4bfe29"
+        },
+        {
+          "name": "tb_top.sv",
+          "sha256": "3e59c94d175a418058e45461ed563f4878de6e2f0b7b1aecb5b087206e364737"
+        }
+      ],
+      "response_sha256": "fc41d85618614f1bd35ebb124179bf9dbf9d516b72444e19bbd8c33f9f4bfe29",
+      "fidelity": "substituted",
+      "coverage": {
+        "line": null,
+        "toggle": null,
+        "functional": null
+      },
+      "syntax_pass": true,
+      "functional_pass": false,
+      "status": "fail",
+      "reason": "missing success/check evidence or observed mismatch",
+      "observed_checks": null,
+      "official_status": "pass"
+    },
+    {
+      "subset": "RTLFix",
+      "case": "RTLFix/L1/MultiModal/1",
+      "variant": "malformed",
+      "model": "fixed-author-fixture-v1",
+      "live_llm": false,
+      "upstream_commit": "e875437fbb11590b71775b32d3579726d702cfc6",
+      "input_files": [
+        {
+          "name": "1.Multiplexer.pdf",
+          "sha256": "4ada403bb9b3f23d5d168bb248014d2aea8a65265ba1d55cc4b582e65e390b75"
+        },
+        {
+          "name": "mux.sv",
+          "sha256": "fc41d85618614f1bd35ebb124179bf9dbf9d516b72444e19bbd8c33f9f4bfe29"
+        },
+        {
+          "name": "tb_top.sv",
+          "sha256": "3e59c94d175a418058e45461ed563f4878de6e2f0b7b1aecb5b087206e364737"
+        }
+      ],
+      "response_sha256": "4f4e46be5e272f54476c602ea31ce1b702b6379b69cb2f07fba03f66723b8b3e",
+      "fidelity": "substituted",
+      "coverage": {
+        "line": null,
+        "toggle": null,
+        "functional": null
+      },
+      "syntax_pass": false,
+      "functional_pass": null,
+      "status": "fail",
+      "official_status": "fail",
+      "reason": "candidate compilation diagnostic"
+    },
+    {
+      "subset": "RTLFixText",
+      "case": "RTLFix/L1/Text/1",
+      "variant": "positive",
+      "model": "fixed-author-fixture-v1",
+      "live_llm": false,
+      "upstream_commit": "e875437fbb11590b71775b32d3579726d702cfc6",
+      "input_files": [
+        {
+          "name": "q102.txt",
+          "sha256": "e8038ecab588a270a89c9d298981cd1c0d0ea4073eae53cd150b09843aebe12f"
+        },
+        {
+          "name": "ref102.json",
+          "sha256": "6770bb3fe79e7600a19ac3b9e92ca1990574500b8a7ca47ae68fe494cf776e45"
+        },
+        {
+          "name": "ref102.txt",
+          "sha256": "f0d2f818ce877a6f4df2b843bf0c55fe8e973b86a8bc061d3971a380d7f73165"
+        }
+      ],
+      "response_sha256": "bd9030b80a317081a694169a9dcb514af70dd7134a8d6658e81d0f46d1acf5c9",
+      "fidelity": "exact-current-upstream-evaluator",
+      "coverage": {
+        "line": null,
+        "toggle": null,
+        "functional": null
+      },
+      "syntax_pass": null,
+      "functional_pass": true,
+      "status": "pass",
+      "official_status": "pass",
+      "details": {
+        "subset": "RTLFix",
+        "reference": {
+          "source_format": "json",
+          "source_ref": "ref102.txt",
+          "schema_version": "rtlfix-ref-v1",
+          "warnings": [],
+          "reference_path": "/workspace/PaperReproduction/.cache/fixme/upstream/data/RTLFix/L1/Text/1/ref102.json"
+        },
+        "old_code": "always@(negedge clk)",
+        "new_code": "always@(posedge clk)",
+        "match_details": {
+          "old_code_hit": true,
+          "new_code_hit": true,
+          "normalized_old_code": "always@(negedgeclk)",
+          "normalized_new_code": "always@(posedgeclk)"
+        }
+      },
+      "semantic_limit": "fragment match only; no repaired RTL was executed"
+    },
+    {
+      "subset": "RTLFixText",
+      "case": "RTLFix/L1/Text/1",
+      "variant": "wrong",
+      "model": "fixed-author-fixture-v1",
+      "live_llm": false,
+      "upstream_commit": "e875437fbb11590b71775b32d3579726d702cfc6",
+      "input_files": [
+        {
+          "name": "q102.txt",
+          "sha256": "e8038ecab588a270a89c9d298981cd1c0d0ea4073eae53cd150b09843aebe12f"
+        },
+        {
+          "name": "ref102.json",
+          "sha256": "6770bb3fe79e7600a19ac3b9e92ca1990574500b8a7ca47ae68fe494cf776e45"
+        },
+        {
+          "name": "ref102.txt",
+          "sha256": "f0d2f818ce877a6f4df2b843bf0c55fe8e973b86a8bc061d3971a380d7f73165"
+        }
+      ],
+      "response_sha256": "873e0349b2a7eade37aa38e3cb750cc268341d6df73b003706931ebc65aa4a1e",
+      "fidelity": "exact-current-upstream-evaluator",
+      "coverage": {
+        "line": null,
+        "toggle": null,
+        "functional": null
+      },
+      "syntax_pass": null,
+      "functional_pass": false,
+      "status": "fail",
+      "official_status": "fail",
+      "details": {
+        "subset": "RTLFix",
+        "reference": {
+          "source_format": "json",
+          "source_ref": "ref102.txt",
+          "schema_version": "rtlfix-ref-v1",
+          "warnings": [],
+          "reference_path": "/workspace/PaperReproduction/.cache/fixme/upstream/data/RTLFix/L1/Text/1/ref102.json"
+        },
+        "old_code": "always@(negedge clk)",
+        "new_code": "always@(posedge clk)",
+        "match_details": {
+          "old_code_hit": true,
+          "new_code_hit": false,
+          "normalized_old_code": "always@(negedgeclk)",
+          "normalized_new_code": "always@(posedgeclk)"
+        }
+      },
+      "semantic_limit": "fragment match only; no repaired RTL was executed"
+    },
+    {
+      "subset": "RTLFixText",
+      "case": "RTLFix/L1/Text/1",
+      "variant": "malformed",
+      "model": "fixed-author-fixture-v1",
+      "live_llm": false,
+      "upstream_commit": "e875437fbb11590b71775b32d3579726d702cfc6",
+      "input_files": [
+        {
+          "name": "q102.txt",
+          "sha256": "e8038ecab588a270a89c9d298981cd1c0d0ea4073eae53cd150b09843aebe12f"
+        },
+        {
+          "name": "ref102.json",
+          "sha256": "6770bb3fe79e7600a19ac3b9e92ca1990574500b8a7ca47ae68fe494cf776e45"
+        },
+        {
+          "name": "ref102.txt",
+          "sha256": "f0d2f818ce877a6f4df2b843bf0c55fe8e973b86a8bc061d3971a380d7f73165"
+        }
+      ],
+      "response_sha256": "a03b221c6c6eae7122ca51695d456d5222e524889136394944b2f9763b483615",
+      "fidelity": "exact-current-upstream-evaluator",
+      "coverage": {
+        "line": null,
+        "toggle": null,
+        "functional": null
+      },
+      "syntax_pass": null,
+      "functional_pass": false,
+      "status": "fail",
+      "official_status": "fail",
+      "details": {
+        "subset": "RTLFix",
+        "reference": {
+          "source_format": "json",
+          "source_ref": "ref102.txt",
+          "schema_version": "rtlfix-ref-v1",
+          "warnings": [],
+          "reference_path": "/workspace/PaperReproduction/.cache/fixme/upstream/data/RTLFix/L1/Text/1/ref102.json"
+        },
+        "old_code": "always@(negedge clk)",
+        "new_code": "always@(posedge clk)",
+        "match_details": {
+          "old_code_hit": false,
+          "new_code_hit": false,
+          "normalized_old_code": "always@(negedgeclk)",
+          "normalized_new_code": "always@(posedgeclk)"
+        }
+      },
+      "semantic_limit": "fragment match only; no repaired RTL was executed"
+    },
+    {
+      "subset": "RTLFixText",
+      "case": "RTLFix/L1/Text/1",
+      "variant": "pair_only",
+      "model": "fixed-author-fixture-v1",
+      "live_llm": false,
+      "upstream_commit": "e875437fbb11590b71775b32d3579726d702cfc6",
+      "input_files": [
+        {
+          "name": "q102.txt",
+          "sha256": "e8038ecab588a270a89c9d298981cd1c0d0ea4073eae53cd150b09843aebe12f"
+        },
+        {
+          "name": "ref102.json",
+          "sha256": "6770bb3fe79e7600a19ac3b9e92ca1990574500b8a7ca47ae68fe494cf776e45"
+        },
+        {
+          "name": "ref102.txt",
+          "sha256": "f0d2f818ce877a6f4df2b843bf0c55fe8e973b86a8bc061d3971a380d7f73165"
+        }
+      ],
+      "response_sha256": "bd9030b80a317081a694169a9dcb514af70dd7134a8d6658e81d0f46d1acf5c9",
+      "fidelity": "exact-current-upstream-evaluator",
+      "coverage": {
+        "line": null,
+        "toggle": null,
+        "functional": null
+      },
+      "syntax_pass": null,
+      "functional_pass": true,
+      "status": "pass",
+      "official_status": "pass",
+      "details": {
+        "subset": "RTLFix",
+        "reference": {
+          "source_format": "json",
+          "source_ref": "ref102.txt",
+          "schema_version": "rtlfix-ref-v1",
+          "warnings": [],
+          "reference_path": "/workspace/PaperReproduction/.cache/fixme/upstream/data/RTLFix/L1/Text/1/ref102.json"
+        },
+        "old_code": "always@(negedge clk)",
+        "new_code": "always@(posedge clk)",
+        "match_details": {
+          "old_code_hit": true,
+          "new_code_hit": true,
+          "normalized_old_code": "always@(negedgeclk)",
+          "normalized_new_code": "always@(posedgeclk)"
+        }
+      },
+      "semantic_limit": "fragment match only; no repaired RTL was executed"
+    }
+  ],
+  "formal_parser_checks": {
+    "# found: 0\n# proven: 0": "inconclusive",
+    "# found: 2\n# proven: 1": "inconclusive",
+    "# found: 2\n# proven: 2": "proven",
+    "# found: 2\n# falsified: 1": "falsified",
+    "unrecognized": ""
+  },
+  "published_aggregate_reproduced": false,
+  "pass_at_5": null,
+  "reason": "deterministic evaluator controls are not independent model samples"
+}

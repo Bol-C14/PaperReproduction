@@ -1,0 +1,5 @@
+module dut_tb; reg select; reg [15:0] in0,in1; wire [15:0] out;
+address_mux dut(select,in0,in1,out); integer i; initial begin
+for(i=0;i<64;i=i+1) begin select=i%2; in0=16'h1<<((i/2)%16); in1=~in0; #1;
+if(out !== (select?in0:in1)) $fatal(1,"TEST_FAIL"); end
+$display("TEST_PASS checks=64"); $finish; end endmodule

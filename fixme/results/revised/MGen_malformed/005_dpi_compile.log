@@ -1,0 +1,35 @@
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/revised/MGen_malformed/ref_wrapper.sv:26:5: Operator TASKREF 'ref_model_eval' expects 64 bits on the Function Argument, but Function Argument's VARREF 'i_a' generates 1 bits.
+                                                                                                           : ... note: In instance 'full_half_add_1bit_tb.dut'
+   26 |     ref_model_eval(i_a, i_b, i_cin, o_sum__dpi, o_carry__dpi);
+      |     ^~~~~~~~~~~~~~
+                      ... For warning description see https://verilator.org/warn/WIDTHEXPAND?v=5.032
+                      ... Use "/* verilator lint_off WIDTHEXPAND */" and lint_on around source to disable this message.
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/revised/MGen_malformed/ref_wrapper.sv:26:5: Operator TASKREF 'ref_model_eval' expects 64 bits on the Function Argument, but Function Argument's VARREF 'i_b' generates 1 bits.
+                                                                                                           : ... note: In instance 'full_half_add_1bit_tb.dut'
+   26 |     ref_model_eval(i_a, i_b, i_cin, o_sum__dpi, o_carry__dpi);
+      |     ^~~~~~~~~~~~~~
+%Warning-WIDTHEXPAND: /workspace/PaperReproduction/fixme/results/revised/MGen_malformed/ref_wrapper.sv:26:5: Operator TASKREF 'ref_model_eval' expects 64 bits on the Function Argument, but Function Argument's VARREF 'i_cin' generates 1 bits.
+                                                                                                           : ... note: In instance 'full_half_add_1bit_tb.dut'
+   26 |     ref_model_eval(i_a, i_b, i_cin, o_sum__dpi, o_carry__dpi);
+      |     ^~~~~~~~~~~~~~
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/revised/MGen_malformed/full_half_add_1bit_tb.v:34:8: Operator ASSIGN expects 1 bits on the Assign RHS, but Assign RHS's RAND generates 32 bits.
+                                                                                                                   : ... note: In instance 'full_half_add_1bit_tb'
+   34 |    A   = $random;    
+      |        ^
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/revised/MGen_malformed/full_half_add_1bit_tb.v:35:8: Operator ASSIGN expects 1 bits on the Assign RHS, but Assign RHS's RAND generates 32 bits.
+                                                                                                                   : ... note: In instance 'full_half_add_1bit_tb'
+   35 |    B   = $random;    
+      |        ^
+%Warning-WIDTHTRUNC: /workspace/PaperReproduction/fixme/results/revised/MGen_malformed/full_half_add_1bit_tb.v:36:8: Operator ASSIGN expects 1 bits on the Assign RHS, but Assign RHS's RAND generates 32 bits.
+                                                                                                                   : ... note: In instance 'full_half_add_1bit_tb'
+   36 |    Cin = $random;    
+      |        ^
+make: Entering directory '/workspace/PaperReproduction/fixme/results/revised/MGen_malformed/obj_dir'
+g++  -I.  -MMD -I/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include -I/workspace/PaperReproduction/.cache/fixme/tools/usr/share/verilator/include/vltstd -DVM_COVERAGE=0 -DVM_SC=0 -DVM_TIMING=1 -DVM_TRACE=0 -DVM_TRACE_FST=0 -DVM_TRACE_VCD=0 -faligned-new -fcf-protection=none -Wno-bool-operation -Wno-shadow -Wno-sign-compare -Wno-tautological-compare -Wno-uninitialized -Wno-unused-but-set-parameter -Wno-unused-but-set-variable -Wno-unused-parameter -Wno-unused-variable    -DVL_TIME_CONTEXT   -fcoroutines -Os  -c -o dut.o /workspace/PaperReproduction/fixme/results/revised/MGen_malformed/dut.cpp
+/workspace/PaperReproduction/fixme/results/revised/MGen_malformed/dut.cpp:1:1: error: expected unqualified-id before 'not' token
+    1 | not C++
+      | ^~~
+make: *** [Vfull_half_add_1bit_tb.mk:64: dut.o] Error 1
+make: Leaving directory '/workspace/PaperReproduction/fixme/results/revised/MGen_malformed/obj_dir'
+%Error: make -C obj_dir -f Vfull_half_add_1bit_tb.mk -j 1 exited with 2
+%Error: Command Failed ulimit -s unlimited 2>/dev/null; exec /workspace/PaperReproduction/.cache/fixme/tools/usr/bin/verilator_bin --binary --timing -Wno-fatal --top-module full_half_add_1bit_tb -Mdir obj_dir /workspace/PaperReproduction/fixme/results/revised/MGen_malformed/full_half_add_1bit_tb.v /workspace/PaperReproduction/fixme/results/revised/MGen_malformed/ref_wrapper.sv /workspace/PaperReproduction/fixme/results/revised/MGen_malformed/dut.cpp

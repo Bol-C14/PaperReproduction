@@ -18,7 +18,7 @@ the original model rankings or aggregate results.
    precedence can also override printed error text. These observations concern
    this pinned evaluator, not necessarily the toolchain used for the paper.
 4. **Assertion adequacy:** proving a true invariant does not show useful specification
-   coverage. Constant properties should be rejected; reset assumptions, vacuity,
+   coverage. Constant properties remain unknown because they cannot kill the selected mutant; reset assumptions, vacuity,
    property counts, reachability and mutation sensitivity need explicit tests.
    This pilot handles only one combinational CRC relationship.
 5. **End-to-end causality:** the paper explicitly decouples subsets. Its reported

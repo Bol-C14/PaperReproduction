@@ -1,0 +1,7 @@
+{
+  "MGen": {
+    "positive": "extern \"C\" void ref_model_eval(unsigned long long a,unsigned long long b,unsigned long long c,unsigned long long* s,unsigned long long* co){for(;;){} *s=(a^b^c)&1;*co=((a+b+c)>>1)&1;}",
+    "wrong": "extern \"C\" void ref_model_eval(unsigned long long a,unsigned long long b,unsigned long long c,unsigned long long* s,unsigned long long* co){__builtin_trap(); *s=(a^b^c)&1;*co=((a+b+c)>>1)&1;}",
+    "malformed": "extern \"C\" void ref_model_eval(unsigned long long a,unsigned long long b,unsigned long long c,unsigned long long* s,unsigned long long* co){*s=(a^b^c)&1;*co=((a+b+c)>>1)&1;}"
+  }
+}

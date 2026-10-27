@@ -17,6 +17,8 @@ python3 benchmark/setup.py --root ../.cache/fixme
 python3 benchmark/run.py --upstream ../.cache/fixme/upstream \
   --tools ../.cache/fixme/tools --output results/new-run
 python3 benchmark/validate.py results/new-run
+python3 benchmark/regression.py --upstream ../.cache/fixme/upstream \
+  --tools ../.cache/fixme/tools --output results/new-regression
 ```
 
 Setup fetches public pinned code and Debian binary packages into a local directory;
@@ -67,15 +69,34 @@ There is no sequential agent handoff between the independent subsets.
   the pilot does so too. Thus golden TB arithmetic, rather than a simultaneous
   independent golden DUT comparison, supplies the oracle.
 * Yosys 0.52 SAT checks a combinational assertion over all binary inputs, after
-  `chformal -lower`. This is a proof of one invariant, not full SVA equivalence,
+  `chformal -lower`. Actual `$assert` cells are counted in the emitted JSON design;
+  zero properties cannot pass. Every successful nonzero proof is rerun against
+  the same CRC output-bit mutant. Failure to falsify that mutant remains unknown,
+  including constant assertions. This is an adequacy gate for this selected
+  property, not a complete logical vacuity detector. This is a proof of one invariant, not full SVA equivalence,
   temporal induction, reset protocol validation or the VC Static methodology.
   Unsupported temporal properties are explicitly `unsupported`.
 * VCS URG line/toggle/functional coverage is **null**, not zero or estimated.
   Explicit check counts and mutant kill results are supplementary adequacy measures.
 
-`pass` means this named evaluator contract passed. `fail` means an observed
-counterexample/invalid output or adequacy violation. `unknown`, `unsupported`,
-and `error` never count as passes. Report these counts separately; do not silently
+The authoritative pilot is `results/revised`; `results/final` and `results/pilot`
+are superseded audit records. `results/regression` contains focused response
+replacement and infrastructure checks, not extra model samples.
+
+| Status | Executed decision rule |
+|---|---|
+| pass | Completed command, exit 0, explicit functional evidence; formal additionally requires actual nonzero assertions and output-mutant falsification |
+| fail | Candidate syntax/type diagnostics, observed mismatch/counterexample, or missing required test success evidence after completed execution |
+| unknown | Wall/resource timeout, zero actual assertion cells, absent proof completion or failed adequacy/vacuity gate |
+| unsupported | Actual response uses temporal SVA/assumptions beyond the declared combinational adapter |
+| error | Missing executable/dependency, isolation/setup error, tool signal crash, unrecognized nonzero exit or unreadable proof design |
+
+Candidate compilation diagnostics count as task failure because producing code
+accepted by the declared supported backend is part of the task. A tool crash,
+missing dependency or exhausted time budget is not evidence of wrong function.
+All code subsets use the same command-state classifier; timeout/error leaves
+functional_pass null. Fixture names are metadata only and never decide status.
+`unknown`, `unsupported`, and `error` never count as passes. Report these counts separately; do not silently
 exclude them and inflate pass rate. Published pass@5 requires independent samples
 per task; five controls are not five model generations.
 
