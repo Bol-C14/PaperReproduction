@@ -1,0 +1,48 @@
+{
+  "subset": "SpeCom",
+  "case": "SpeCom/L1/Text/1 bit Full Adder using HA",
+  "variant": "ambiguous",
+  "model": "fixed-author-fixture-v1",
+  "live_llm": false,
+  "upstream_commit": "e875437fbb11590b71775b32d3579726d702cfc6",
+  "input_files": [
+    {
+      "name": "full_half_add_1bit.v",
+      "sha256": "abc9512c7a8ad44feba987eca51f632af27ff157ac682b53f6052848ed0ab00f"
+    },
+    {
+      "name": "full_half_add_1bit_spec.txt",
+      "sha256": "048b7305dec344ab7cee0cff5cd3982c53e9c35d730fe86e403c74171195810a"
+    },
+    {
+      "name": "full_half_add_1bit_tb.v",
+      "sha256": "fa0dd55c8f1a389544aceeb094e4cbc945121ece3931d2b02d1d10606b4dce76"
+    },
+    {
+      "name": "q.txt",
+      "sha256": "d5ae9ed53ed75a3eadb4560e06f4f5d89ad9a6924d59d84fc582e77c35e37131"
+    },
+    {
+      "name": "ref.txt",
+      "sha256": "d38b2fb53548b1785d7af46a7167b95e90459760a2dec0f62f01458d9d6abfa3"
+    }
+  ],
+  "response_sha256": "522dd8a4a2cad02b4446d2e534865456653e21d6f144b00964ae3905f9f4546d",
+  "fidelity": "exact-current-upstream-evaluator",
+  "coverage": {
+    "line": null,
+    "toggle": null,
+    "functional": null
+  },
+  "syntax_pass": null,
+  "functional_pass": false,
+  "status": "fail",
+  "official_status": "fail",
+  "details": {
+    "subset": "SpeCom",
+    "correct_option": "B",
+    "reference_answer": "B. The logical OR operation is mathematically equivalent to the canonical carry expression (i_a & i_b) | (i_cin & (i_a ^ i_b)), as a carry-out occurs if the first stage generates a carry OR if the second stage generates a carry by adding the input carry to the intermediate sum.",
+    "selected_option": "A"
+  },
+  "semantic_limit": "objective option match"
+}

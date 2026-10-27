@@ -1,0 +1,52 @@
+{
+  "subset": "RTLFixText",
+  "case": "RTLFix/L1/Text/1",
+  "variant": "positive",
+  "model": "fixed-author-fixture-v1",
+  "live_llm": false,
+  "upstream_commit": "e875437fbb11590b71775b32d3579726d702cfc6",
+  "input_files": [
+    {
+      "name": "q102.txt",
+      "sha256": "e8038ecab588a270a89c9d298981cd1c0d0ea4073eae53cd150b09843aebe12f"
+    },
+    {
+      "name": "ref102.json",
+      "sha256": "6770bb3fe79e7600a19ac3b9e92ca1990574500b8a7ca47ae68fe494cf776e45"
+    },
+    {
+      "name": "ref102.txt",
+      "sha256": "f0d2f818ce877a6f4df2b843bf0c55fe8e973b86a8bc061d3971a380d7f73165"
+    }
+  ],
+  "response_sha256": "bd9030b80a317081a694169a9dcb514af70dd7134a8d6658e81d0f46d1acf5c9",
+  "fidelity": "exact-current-upstream-evaluator",
+  "coverage": {
+    "line": null,
+    "toggle": null,
+    "functional": null
+  },
+  "syntax_pass": null,
+  "functional_pass": true,
+  "status": "pass",
+  "official_status": "pass",
+  "details": {
+    "subset": "RTLFix",
+    "reference": {
+      "source_format": "json",
+      "source_ref": "ref102.txt",
+      "schema_version": "rtlfix-ref-v1",
+      "warnings": [],
+      "reference_path": "/tmp/fixme-upstream/data/RTLFix/L1/Text/1/ref102.json"
+    },
+    "old_code": "always@(negedge clk)",
+    "new_code": "always@(posedge clk)",
+    "match_details": {
+      "old_code_hit": true,
+      "new_code_hit": true,
+      "normalized_old_code": "always@(negedgeclk)",
+      "normalized_new_code": "always@(posedgeclk)"
+    }
+  },
+  "semantic_limit": "fragment match only; no repaired RTL was executed"
+}
