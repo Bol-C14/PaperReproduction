@@ -25,3 +25,11 @@
 固定共享 e-graph、工具、正确性约束与预算，做 rule pool initial/expanded × selection random/heuristic/LLM × extraction static/numerical/LLM 的受控矩阵；先小规模筛选后扩展，避免一次跑全矩阵。在同一次实现上记录 area/delay/power、可行约束和 point ID，使用 paired Pareto hypervolume 或 fixed-delay area，不拼接独立 minima。把 proposal tokens、每个分区 prompt tokens、cache、失败率、等价检查次数、EDA calls、CPU wall time、已知付费费用和未知费用都列出。
 
 最小放行资源：官方 commit+license、RTL hashes/params、工具/PDK/constraints、prompts、cost update/partition 配置、sample runs、预算与 seed。论文模型无免费额度仍是完整复现 No-Go；可继续免费工具的机制研究，但始终分开报告。
+
+## 交付计数与预算口径（最终一致性说明）
+
+90 项是 **15 个语义 case × 6 个有限位宽的回归 obligations**，不是 90 条规则均等价：69 个 mismatch UNSAT、21 个预期反例 SAT、0 unknown，90 个 expected-result assertions 全部通过。SAT 仅说明明确建模语义下可产生反例，不能泛指官方实现错误。最终 pilot 有 68 个不同候选，表达式 Z3 68/68、实际 Verilog miter SAT 68/68 通过。
+
+180 个 offline replay sessions = 6 tasks × 10 seeds × 3 methods，各 4 次查询，合计 720 次**逻辑查表查询**；这些没有额外运行 EDA。开发记录是两轮各 68 次候选综合=136 次，另 68 次 RTL SAT 与 3 次 smoke（1 次输入路径失败），合计 207 次研究/诊断 EDA invocations；不把版本查询算作综合。第一轮 raw logs 被第二轮替换，不能从当前原始日志完整重算所有开发耗时。最终候选 sweep wall time 9.686 秒仅为该轮，不是端到端研究成本。
+
+4-query budget 仅计目标响应，不含候选生成、全部候选结构特征提取、全池特征标准化、回归拟合或策略 CPU 时间。全部候选已离线综合构成 oracle；oracle labels 用于查表响应/事后评价，选择器只看到已查询 labels，但池结构和全部候选特征事先可见（transductive 固定池设定）。特征深度修正后使用同一个池重跑一次，开发代价计入 136 次综合。没有进行测试集调参搜索，也没有报告包含这些开销的在线 wall-time 竞争力。故 equal-query 不是 equal-total-compute。

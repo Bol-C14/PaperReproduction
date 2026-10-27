@@ -39,3 +39,11 @@ extraction-gym 上游 MIT license 与 Cargo manifest 已取回，HEAD=903ba0f818
 修正回归：`merge_shifts_widened_count` 将 x 和两个 counts 扩展到 2W 位再对 counts 相加并移位，最后截取低 W 位；6/6 位宽 mismatch UNSAT。脚本对每个 case 的 expected SAT/UNSAT 作断言，意外变化会失败。MUX fullmask 与 arithmetic boolean-complement 的修正也有可执行断言。原文没有在已取得的 Table I/IV 文本中给出足以确认上述 vector/Boolean 解释的完整 MUXAR 类型定义，因此这些回归约束是本次独立模型，不能倒推官方使用了相同语义。
 
 复算定位和手工值：Table II 在 PDF 第 5 页（论文 §IV），Figure 6 在 PDF 第 6 页。`sources/figure6_labels.csv` 是从浏览工具的 PDF 文本提取结果手工转录的两个 full ASPEN 标签，不是原始绘图数据；没有完成独立像素级校对。FIR area 公式 `100*(1-169.52/240.31)=29.4578%`（commercial）与 `100*(1-169.52/194.10)=12.6636%`（ROVER）；MCM(7,19,31) delay 为 `100*(1-316.12/462.33)=31.6246%` 与 `100*(1-316.12/405.34)=22.0111%`。原始小数未知，±0.005 的显示取整通常不能解释这些差距，但不同 runs/约束可以，所以不能唯一归因。此处是单 benchmark 比率，mean/geomean 不适用；Table II 平均行另算 arithmetic mean of per-benchmark ratios、geometric mean of ratios 与 ratio of sums，结果见 `results/reporting_ambiguity.json`。后两者不是同一种估计量，不能相互替代。Figure 6 是否与 Table II 共用 seed、pool、constraints 与相同的单目标 Pareto minima 未知，联合最优也不能凭单列 minima 推得。
+
+## 交付计数与预算口径（最终一致性说明）
+
+90 项是 **15 个语义 case × 6 个有限位宽的回归 obligations**，不是 90 条规则均等价：69 个 mismatch UNSAT、21 个预期反例 SAT、0 unknown，90 个 expected-result assertions 全部通过。SAT 仅说明明确建模语义下可产生反例，不能泛指官方实现错误。最终 pilot 有 68 个不同候选，表达式 Z3 68/68、实际 Verilog miter SAT 68/68 通过。
+
+180 个 offline replay sessions = 6 tasks × 10 seeds × 3 methods，各 4 次查询，合计 720 次**逻辑查表查询**；这些没有额外运行 EDA。开发记录是两轮各 68 次候选综合=136 次，另 68 次 RTL SAT 与 3 次 smoke（1 次输入路径失败），合计 207 次研究/诊断 EDA invocations；不把版本查询算作综合。第一轮 raw logs 被第二轮替换，不能从当前原始日志完整重算所有开发耗时。最终候选 sweep wall time 9.686 秒仅为该轮，不是端到端研究成本。
+
+4-query budget 仅计目标响应，不含候选生成、全部候选结构特征提取、全池特征标准化、回归拟合或策略 CPU 时间。全部候选已离线综合构成 oracle；oracle labels 用于查表响应/事后评价，选择器只看到已查询 labels，但池结构和全部候选特征事先可见（transductive 固定池设定）。特征深度修正后使用同一个池重跑一次，开发代价计入 136 次综合。没有进行测试集调参搜索，也没有报告包含这些开销的在线 wall-time 竞争力。故 equal-query 不是 equal-total-compute。

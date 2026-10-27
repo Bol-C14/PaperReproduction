@@ -33,3 +33,11 @@ Table II 的 ASPEN area 和 delay 是分别取 Pareto 最小值，必须报告�
 ## 下一阶段合格比较
 
 固定官方 benchmarks、合法工具/PDK、位宽/符号/约束、共享规则池与 e-graph；允许每策略相同的 unique synthesis calls、timeout、重复 seed 与总 wall time。分别比较 original-only/expanded pool，random/heuristic/ridge/bandit，静态抽取/数值反馈/LLM feedback。记录 rule proposal 一次性成本和 amortization、每分区 token、等价失败/timeout、重复 RTL/cache hits、Pareto verified points 与 paired bootstrap。预算在看结果前固定；无免费论文模型额度时，完整 LLM arm 保持 Not Replicated，不能偷偷替换模型。
+
+## 交付计数与预算口径（最终一致性说明）
+
+90 项是 **15 个语义 case × 6 个有限位宽的回归 obligations**，不是 90 条规则均等价：69 个 mismatch UNSAT、21 个预期反例 SAT、0 unknown，90 个 expected-result assertions 全部通过。SAT 仅说明明确建模语义下可产生反例，不能泛指官方实现错误。最终 pilot 有 68 个不同候选，表达式 Z3 68/68、实际 Verilog miter SAT 68/68 通过。
+
+180 个 offline replay sessions = 6 tasks × 10 seeds × 3 methods，各 4 次查询，合计 720 次**逻辑查表查询**；这些没有额外运行 EDA。开发记录是两轮各 68 次候选综合=136 次，另 68 次 RTL SAT 与 3 次 smoke（1 次输入路径失败），合计 207 次研究/诊断 EDA invocations；不把版本查询算作综合。第一轮 raw logs 被第二轮替换，不能从当前原始日志完整重算所有开发耗时。最终候选 sweep wall time 9.686 秒仅为该轮，不是端到端研究成本。
+
+4-query budget 仅计目标响应，不含候选生成、全部候选结构特征提取、全池特征标准化、回归拟合或策略 CPU 时间。全部候选已离线综合构成 oracle；oracle labels 用于查表响应/事后评价，选择器只看到已查询 labels，但池结构和全部候选特征事先可见（transductive 固定池设定）。特征深度修正后使用同一个池重跑一次，开发代价计入 136 次综合。没有进行测试集调参搜索，也没有报告包含这些开销的在线 wall-time 竞争力。故 equal-query 不是 equal-total-compute。
