@@ -1,0 +1,35 @@
+"""Build and verify a compact, tracked-files-only review archive; no EDA/network."""
+import argparse,hashlib,json,os,shutil,subprocess,sys,tempfile,zipfile
+from pathlib import Path
+repo=Path(__file__).resolve().parents[1]
+p=argparse.ArgumentParser();p.add_argument('--output-dir',type=Path,default=repo.parent/'deliverables');a=p.parse_args();out=a.output_dir.resolve();out.mkdir(parents=True,exist_ok=True);os.chdir(repo)
+commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip();branch=subprocess.check_output(['git','branch','--show-current'],text=True).strip();assert not subprocess.check_output(['git','status','--porcelain'],text=True),'Commit the reviewed working tree before packaging'
+archive=out/'aspen-mlcad2025-review.zip'
+with tempfile.TemporaryDirectory(prefix='aspen-package-',dir=out) as tmp:
+ stage=Path(tmp)/'aspen-review';stage.mkdir()
+ for raw in subprocess.check_output(['git','ls-files','-z']).split(b'\0'):
+  if not raw:continue
+  src=Path(os.fsdecode(raw));dest=stage/src;dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(src,dest)
+ (stage/'git').mkdir();subprocess.run(['git','bundle','create',str(stage/'git/aspen-review.bundle'),branch],check=True)
+ with (stage/'git/aspen-history.patch').open('wb') as f:subprocess.run(['git','format-patch','--root','--stdout','--binary',commit],stdout=f,check=True)
+ (stage/'EXCLUSIONS.md').write_text('''# Exclusions and rebuild\n\nExcluded: .venv (~476 MiB), .cache (~161 MiB, including binary wheels/compiler cache), all generated results/netlists (~35 MiB), temporary smoke JSON, .runs directories, bytecode and the working .git directory. History is instead included as git/aspen-review.bundle and git/aspen-history.patch. No downloaded tool executables, model weights, credentials or virtual environment are included. Small upstream source/API/license texts are audited provenance for the extraction adaptation, not binaries.\n\nInstall fixed binary dependencies and rebuild in a fresh ASPEN_BEHAVIOR_RUN_ROOT directory using BEHAVIOR_CONTRACT.md. Runtime versions are in configs/behavior-requirements.lock, original pilot versions in configs/requirements.lock; inspected wheel hashes are in configs/*wheel-sha256.txt. Full netlists can be regenerated; exact per-run hashes are in results/behavior/runs and sessions, and results/pilot_candidates.json. Graph snapshots, raw synthesis/SAT logs and all metrics are included; graph/raw log files use gzip.\n\nThe first legacy development sweep raw logs were overwritten and are irrecoverable historical bytes; this limitation is explicit in logs/run_history.json. The first online batch post-test failed due a comparison aliasing bug after all EDA passed; the original traceback and successful no-EDA correction/replay validation are included.\n\nOfficial PDF bytes were never obtained by shell (HTTP403), so no PDF or byte hash is included. ASPEN complete official code/RTL/artifacts remain unlocated; original ROVER is author-declared closed-source, while ASPEN's TableI/fixed-cost baseline can be independently implemented. Public author-fork testcase directory access was restricted; data coverage and per-file licenses remain unverified, and those data were not used. Original commercial ASAP7 PPA, online LLM capabilities and netlist partition/attribution cannot be recreated by the available artifacts alone.\n\nMANIFEST.sha256 checks every other package file. RELEASE.json binds the branch/full commit and distinguishes legacy replay from new online actual EDA.\n''')
+ sem=json.loads((repo/'results/rule_audit.json').read_text());bv=json.loads((repo/'results/behavior/validation.json').read_text())
+ release=dict(branch=branch,commit=commit,primary_scope='Behavior Partially Replicated / Go; real egraph/synthesis loop executed',secondary_scope='Original numerical ASAP7 PPA Not Replicated',legacy_semantic_obligations=dict(total=len(sem),mismatch_unsat=sum(r['result']=='unsat' for r in sem),expected_counterexample_sat=sum(r['result']=='sat' for r in sem),unknown=sum(r['result']=='unknown' for r in sem)),new_finite_proposal_unsat=51,legacy_pilot=dict(retained_candidates=68,rtl_sat_passed=68,replay_sessions=180,lookup_queries=720,development_eda_invocations=207),new_online=bv,total_counted_eda_invocations=899,model_calls_in_experiments=0,new_paid_cost_usd=0,platform_cost='unknown existing allocation; not included in experimental model calls')
+ (stage/'RELEASE.json').write_text(json.dumps(release,indent=2));files=sorted(p for p in stage.rglob('*') if p.is_file());(stage/'MANIFEST.sha256').write_text(''.join(hashlib.sha256(p.read_bytes()).hexdigest()+'  '+str(p.relative_to(stage))+'\n' for p in files))
+ with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED,compresslevel=9) as z:
+  for f in sorted(stage.rglob('*')):
+   if f.is_file():z.write(f,'aspen-review/'+str(f.relative_to(stage)))
+ with zipfile.ZipFile(archive) as z:
+  assert z.testzip() is None
+  assert all(not any(v in Path(n).parts for v in ['.venv','.cache','.git','.runs','__pycache__']) for n in z.namelist())
+  with tempfile.TemporaryDirectory(prefix='aspen-reviewcheck-',dir='/tmp') as checktmp:
+   z.extractall(checktmp);base=Path(checktmp)/'aspen-review'
+   for line in (base/'MANIFEST.sha256').read_text().splitlines():
+    h,rel=line.split('  ',1);assert hashlib.sha256((base/rel).read_bytes()).hexdigest()==h,rel
+   v=subprocess.run(['git','bundle','verify',str(base/'git/aspen-review.bundle')],cwd=repo,capture_output=True,text=True);assert v.returncode==0,v.stderr
+   restored=Path(checktmp)/'restored';subprocess.run(['git','clone','--quiet','-b',branch,str(base/'git/aspen-review.bundle'),str(restored)],check=True)
+   assert subprocess.check_output(['git','-C',str(restored),'rev-parse','HEAD'],text=True).strip()==commit
+   for script,python in [('verify_artifacts.py',sys.executable),('verify_behavior_artifacts.py',str(repo/'.venv/bin/python'))]:
+    r=subprocess.run([python,str(base/'scripts'/script)],capture_output=True,text=True);assert r.returncode==0,r.stderr
+result=dict(filename=archive.name,path=str(archive),size_bytes=archive.stat().st_size,sha256=hashlib.sha256(archive.read_bytes()).hexdigest(),zip_crc='PASS',internal_sha256='PASS',bundle_verify='PASS',bundle_restore_commit='PASS',legacy_artifact_crosscheck='PASS',online_artifact_controller_replay='PASS',members=len(files)+1,commit=commit,branch=branch)
+(out/'aspen-package-validation.json').write_text(json.dumps(result,indent=2));print(json.dumps(result,indent=2))
