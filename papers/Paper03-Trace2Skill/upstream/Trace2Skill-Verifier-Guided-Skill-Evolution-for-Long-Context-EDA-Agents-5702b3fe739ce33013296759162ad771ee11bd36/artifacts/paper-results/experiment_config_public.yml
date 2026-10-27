@@ -1,0 +1,115 @@
+schema_version: 2
+paper_id: 66
+historical_run_window_utc:
+  first_launch: "2026-05-14T06:06:37.585234Z"
+  final_completion: "2026-05-18T17:38:04.037913Z"
+  C3:
+    first_launch: "2026-05-14T06:06:37.585234Z"
+    final_completion: "2026-05-16T07:40:49.142846Z"
+  C4:
+    first_launch: "2026-05-16T17:34:07.853417Z"
+    final_completion: "2026-05-18T17:38:04.037913Z"
+vendored_nemogym:
+  reported_version: 0.2.0rc0
+  canonical_upstream_revision: not_retained
+  nearest_recoverable_fork_commit: 1cbd905e9ebaf1ad8914eaac7675439e6521238d
+  release_subtree_git_tree: e4eaa02a419f669da1566ed398e7ae8e84933a5d
+  includes_local_modifications: true
+conditions:
+  C3:
+    skill_evolution: true
+    dense_runtime_feedback: false
+  C4:
+    skill_evolution: true
+    dense_runtime_feedback: true
+    max_executed_feedback_runs_per_rollout: 3
+    excess_or_ungated_attempts: rejected_without_verifier_execution
+budget:
+  tasks: 8
+  generations: 5
+  population_size: 4
+  repeats_per_candidate: 4
+  rollouts_per_task: 80
+  rollouts_per_condition: 640
+  max_agent_turns: 30
+  max_parallel_rollouts_per_candidate: 2
+  fitness_process_timeout_seconds: 21600
+models:
+  rollout:
+    recorded_alias: azure/anthropic/claude-opus-4-6
+    temperature: 0.2
+    max_output_tokens: 16384
+    top_p: null
+    top_k: null
+    seed: null
+    stop_sequences: null
+  oracle:
+    recorded_alias: azure/openai/gpt-5
+    temperature: 0.0
+    max_output_tokens: 16384
+    wrapper_max_total_attempts: 3
+    sdk_max_additional_retries: 1
+  mutation:
+    recorded_alias: azure/anthropic/claude-sonnet-4-5
+    temperature: 0.35
+    max_output_tokens: 8192
+    wrapper_max_total_attempts: 3
+    sdk_max_additional_retries: 0
+  mutation_repair:
+    recorded_alias: azure/anthropic/claude-sonnet-4-5
+    temperature: 0.2
+    max_output_tokens: 8192
+    conditional_on_failed_integration_gate: true
+    wrapper_max_total_attempts: 3
+    sdk_max_additional_retries: 0
+  compression:
+    recorded_alias: azure/anthropic/claude-sonnet-4-5
+    temperature: 0.3
+    max_output_tokens: 8192
+    conditional_on_generated_text_exceeding_candidate_character_budget: true
+    observed_wrapper_attempt_rows: {C3: 27, C4: 16}
+    wrapper_max_total_attempts: 3
+    sdk_max_additional_retries: 0
+retry_and_transport_policy:
+  optimizer_llm_wrapper:
+    max_total_attempts: 3
+    initial_backoff_seconds: 10
+    exponential_backoff_cap_seconds: 120
+    jitter_seconds: [0, 2]
+  rollout_collection:
+    additional_retries_after_initial_attempt: 3
+    max_total_attempts: 4
+    retry_sleep_seconds: 180
+    reuse_already_valid_cached_outputs: true
+    observed_retry_events: {C3: 3, C4: 1}
+  request_bridge:
+    internal_max_total_attempts: 1
+    external_max_total_attempts: 3
+    retry_sleep_seconds: 0.5
+    http_timeout_total_seconds: 21600
+    http_timeout_sock_read_seconds: 7200
+  openai_compatible_request_loop:
+    initial_max_attempts: 5
+    expand_by_one_on_retryable_http_status: true
+    absolute_max_attempts: 12
+    exponential_backoff_cap_seconds: 60
+    public_request_level_retry_occurrences: not_observed
+endpoint_provenance:
+  exact_recorded_endpoint: withheld_from_public_artifact
+  service_alias_routing: internal
+  immutable_deployment_revision_or_model_snapshot: not_recorded
+tasks:
+  - {cid: cid003, short_task_id: fpga_nes_0003}
+  - {cid: cid003, short_task_id: verilog_pcie_0004}
+  - {cid: cid004, short_task_id: 802.11a_0001}
+  - {cid: cid004, short_task_id: verilog_pcie_0028}
+  - {cid: cid005, short_task_id: NoobsCpu-8bit_0002}
+  - {cid: cid005, short_task_id: rvx_0004}
+  - {cid: cid016, short_task_id: async-fifo_0003}
+  - {cid: cid016, short_task_id: schoolMIPS_0012}
+unrecorded_or_unset:
+  - provider-side sampling seed
+  - top-p and top-k
+  - stop sequences
+  - immutable provider deployment revision or model snapshot identifier
+  - monetary API cost

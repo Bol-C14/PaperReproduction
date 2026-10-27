@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "sanitization": {
+    "source_paths_included": false,
+    "endpoint_values_included": false,
+    "raw_log_lines_included": false
+  },
+  "sources": [
+    {
+      "source_id": "c3_primary",
+      "condition": "C3",
+      "source_sha256": "b5aa890f4c037601391858e495a7142c5bf502d597831bd3dc7ade234a8c722a",
+      "recorded_endpoint": {
+        "present_in_private_log": true,
+        "value_withheld": true
+      },
+      "service_aliases": {
+        "rollout": "azure/anthropic/claude-opus-4-6",
+        "mutation": "azure/anthropic/claude-sonnet-4-5",
+        "oracle": "azure/openai/gpt-5"
+      },
+      "rollout_temperature": 0.2,
+      "openai_compatible_retry_loop": {
+        "initial_max_attempts": 5,
+        "absolute_max_attempts_on_retryable_status": 12,
+        "backoff_cap_seconds": 60.0
+      },
+      "request_bridge": {
+        "http_timeout_total_seconds": 21600,
+        "http_timeout_sock_read_seconds": 7200,
+        "internal_max_attempts": 1,
+        "external_max_attempts": 3
+      },
+      "fitness": {
+        "repeats_per_candidate": 4,
+        "max_parallel_rollouts": 2
+      }
+    },
+    {
+      "source_id": "c3_restart",
+      "condition": "C3",
+      "source_sha256": "b49f580b8cdd820131c0fa9f0455509028d4797a56c56fef671d82b250cb0066",
+      "recorded_endpoint": {
+        "present_in_private_log": true,
+        "value_withheld": true
+      },
+      "service_aliases": {
+        "rollout": "azure/anthropic/claude-opus-4-6",
+        "mutation": "azure/anthropic/claude-sonnet-4-5",
+        "oracle": "azure/openai/gpt-5"
+      },
+      "rollout_temperature": 0.2,
+      "openai_compatible_retry_loop": {
+        "initial_max_attempts": 5,
+        "absolute_max_attempts_on_retryable_status": 12,
+        "backoff_cap_seconds": 60.0
+      },
+      "request_bridge": {
+        "http_timeout_total_seconds": 21600,
+        "http_timeout_sock_read_seconds": 7200,
+        "internal_max_attempts": 1,
+        "external_max_attempts": 3
+      },
+      "fitness": {
+        "repeats_per_candidate": 4,
+        "max_parallel_rollouts": 2
+      }
+    },
+    {
+      "source_id": "c4_primary",
+      "condition": "C4",
+      "source_sha256": "2c98fdb7fddc144113d266cfeeef305e5ee98ad05e4fdcd0f854fe119978057b",
+      "recorded_endpoint": {
+        "present_in_private_log": true,
+        "value_withheld": true
+      },
+      "service_aliases": {
+        "rollout": "azure/anthropic/claude-opus-4-6",
+        "mutation": "azure/anthropic/claude-sonnet-4-5",
+        "oracle": "azure/openai/gpt-5"
+      },
+      "rollout_temperature": 0.2,
+      "openai_compatible_retry_loop": {
+        "initial_max_attempts": 5,
+        "absolute_max_attempts_on_retryable_status": 12,
+        "backoff_cap_seconds": 60.0
+      },
+      "request_bridge": {
+        "http_timeout_total_seconds": 21600,
+        "http_timeout_sock_read_seconds": 7200,
+        "internal_max_attempts": 1,
+        "external_max_attempts": 3
+      },
+      "fitness": {
+        "repeats_per_candidate": 4,
+        "max_parallel_rollouts": 2
+      }
+    }
+  ]
+}

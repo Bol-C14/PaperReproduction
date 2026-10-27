@@ -1,0 +1,188 @@
+{
+  "C3": {
+    "passes": 173,
+    "n": 640,
+    "rate": 0.2703125,
+    "wilson95_naive_iid": [
+      0.2373497684340372,
+      0.30601617747564
+    ],
+    "solved": 3,
+    "failure_modes": {
+      "fail:simulation_or_assertion": 411,
+      "fail:exploration_only": 27,
+      "fail:no_simulation_after_compile": 4,
+      "fail:compile_error": 24,
+      "fail:hidden_verifier_or_semantic": 1
+    },
+    "feedback_executions": 0,
+    "feedback_attempts": 0,
+    "paper_formula_max_absolute_difference": 0.009432850000000003,
+    "paper_formula_rows_differ_gt_rounding": 107,
+    "parent_info_generation1": {
+      "original": 8,
+      "init_mutant_1": 8,
+      "init_mutant_2": 8,
+      "init_mutant_3": 8
+    }
+  },
+  "C4": {
+    "passes": 215,
+    "n": 640,
+    "rate": 0.3359375,
+    "wilson95_naive_iid": [
+      0.3004194613359511,
+      0.37341335717096125
+    ],
+    "solved": 6,
+    "failure_modes": {
+      "fail:exploration_only": 8,
+      "fail:simulation_or_assertion": 388,
+      "fail:compile_error": 21,
+      "fail:no_simulation_after_compile": 8
+    },
+    "feedback_executions": 1052,
+    "feedback_attempts": 1130,
+    "paper_formula_max_absolute_difference": 0.008938196000000002,
+    "paper_formula_rows_differ_gt_rounding": 92,
+    "parent_info_generation1": {
+      "original": 8,
+      "init_mutant_1": 8,
+      "init_mutant_2": 8,
+      "init_mutant_3": 8
+    }
+  },
+  "difference": {
+    "rate": 0.065625,
+    "task_paired_descriptive_bootstrap95": [
+      -0.0546875,
+      0.1984375
+    ],
+    "task_deltas": [
+      0.1375,
+      0.4375,
+      0.0,
+      0.175,
+      0.0,
+      0.0,
+      0.0125,
+      -0.2375
+    ],
+    "bootstrap_seed": 260527,
+    "bootstrap_replicates": 20000,
+    "warning": "8 selected tasks, one adaptive search per condition/task; no independent search-seed replication. CI is descriptive, not causal."
+  },
+  "runtime_calls": {
+    "C3": {
+      "attempts": 762,
+      "purpose": {
+        "mutate": 120,
+        "compress": 27,
+        "layer1_refine": 512,
+        "layer2_fail_synthesis_by_cid": 27,
+        "layer3_handoff_by_cid": 32,
+        "repair_mutation": 32,
+        "layer2_pass_synthesis_by_cid": 12
+      },
+      "status": {
+        "success": 762
+      },
+      "recorded_optimizer_tokens": 7841652,
+      "collection_retry_events": 3
+    },
+    "C4": {
+      "attempts": 755,
+      "purpose": {
+        "mutate": 119,
+        "compress": 16,
+        "layer1_refine": 512,
+        "layer2_fail_synthesis_by_cid": 24,
+        "layer2_pass_synthesis_by_cid": 21,
+        "layer3_handoff_by_cid": 32,
+        "repair_mutation": 31
+      },
+      "status": {
+        "success": 753,
+        "error": 2
+      },
+      "recorded_optimizer_tokens": 8168008,
+      "collection_retry_events": 1
+    }
+  },
+  "metadata_fields": [
+    "cid",
+    "completed_at_utc",
+    "condition",
+    "dense_feedback_enabled",
+    "dense_feedback_max_executions",
+    "fitness_timeout_seconds",
+    "generations",
+    "launched_at_utc",
+    "library_versions",
+    "models",
+    "num_parallel",
+    "num_repeats",
+    "platform",
+    "population_size",
+    "python_version",
+    "schema_version",
+    "short_task_id",
+    "skill_hashes",
+    "source_batch",
+    "source_git_commit",
+    "source_git_dirty",
+    "status",
+    "task_id",
+    "temperatures"
+  ],
+  "selector_replay_summary": {
+    "frozen_artifact": {
+      "groups": 80,
+      "changed": 0,
+      "ties": 7,
+      "archived_winner_excluded": 0
+    },
+    "no_semantic_gate": {
+      "groups": 80,
+      "changed": 11,
+      "ties": 7,
+      "archived_winner_excluded": 11
+    },
+    "paper_weights_same_gate": {
+      "groups": 80,
+      "changed": 0,
+      "ties": 7,
+      "archived_winner_excluded": 0
+    },
+    "skill_only_same_gate": {
+      "groups": 80,
+      "changed": 22,
+      "ties": 20,
+      "archived_winner_excluded": 12
+    },
+    "sparse_only_same_gate": {
+      "groups": 80,
+      "changed": 32,
+      "ties": 40,
+      "archived_winner_excluded": 0
+    }
+  },
+  "progress_audit96": {
+    "f_progress": 0.9816993464052287,
+    "f_progress_strict": 0.677995642701525,
+    "selected_hard8_posthoc_seed_passes": {
+      "cvdp_agentic_heavy_802.11a_0001": 0,
+      "cvdp_agentic_heavy_NoobsCpu-8bit_0002": 0,
+      "cvdp_agentic_heavy_async-fifo_0003": 4,
+      "cvdp_agentic_heavy_fpga_nes_0003": 1,
+      "cvdp_agentic_heavy_rvx_0004": 0,
+      "cvdp_agentic_heavy_schoolMIPS_0012": 0,
+      "cvdp_agentic_heavy_verilog_pcie_0004": 0,
+      "cvdp_agentic_heavy_verilog_pcie_0028": 0
+    }
+  },
+  "summed_task_hours": {
+    "C3": 42.10650285944445,
+    "C4": 48.03469379222222
+  }
+}

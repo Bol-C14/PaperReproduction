@@ -1,0 +1,22 @@
+{
+  "description": "Allow-listed sanitized evidence for MLCAD 2026 Trace2Skill AE.",
+  "excluded": [
+    "task payloads and materialized repositories",
+    "raw rollout prompts/responses and non-selected optimizer exchanges",
+    "hidden verifier source and raw output",
+    "per-rollout written repository filenames (only write counts remain; public task IDs are retained)",
+    "hostnames, PIDs, credentials, endpoints, and machine-local paths"
+  ],
+  "rollout_file_fields": {
+    "files_written_count": "number of distinct write targets observed; target names are withheld"
+  },
+  "repeat_index_semantics": "zero-based physical row ordinal within the archived per-individual JSONL; this may differ from the scheduler _ng_rollout_index",
+  "rollout_feedback_fields": {
+    "verify_feedback_attempts": "all agent tool requests",
+    "verify_feedback_budget_rejections": "requests rejected after the three-execution budget was consumed",
+    "verify_feedback_executions": "requests that ran the private verifier and returned a sanitized response",
+    "verify_feedback_gate_rejections": "requests rejected by edit/compile preconditions",
+    "verify_feedback_rejection_reasons": "exact safe rejection-code counts"
+  },
+  "schema_version": 2
+}

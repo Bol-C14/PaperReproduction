@@ -1,0 +1,7 @@
+# PaperReproduction
+
+This local branch contains Paper03's behavior reproduction and evidence audit for NVIDIA Trace2Skill (MLCAD 2026).
+
+Start with [REPRODUCTION.md](papers/Paper03-Trace2Skill/REPRODUCTION.md), then [the evidence audit](papers/Paper03-Trace2Skill/EVIDENCE_AUDIT.md), [novelty/baseline comparison](papers/Paper03-Trace2Skill/BASELINE_COMPARISON.md), and [research opportunities](papers/Paper03-Trace2Skill/RESEARCH_OPPORTUNITIES.md).
+
+Branch: `reproduction/trace2skill-mlcad2026`. Cached numbers and deterministic helper behavior were checked; no new live LLM/RTL rollouts were generated. This branch was prepared locally without pushing or publishing.

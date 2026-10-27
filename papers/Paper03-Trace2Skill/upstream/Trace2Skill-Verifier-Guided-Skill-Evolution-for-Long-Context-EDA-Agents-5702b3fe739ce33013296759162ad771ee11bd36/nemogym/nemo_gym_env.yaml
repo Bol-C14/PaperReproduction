@@ -1,0 +1,11 @@
+# NeMo-Gym model credentials — passed via ng_config_paths in the optimizer.
+# Values reference shell environment variables set by sourcing .env
+# at the repo root.
+#
+# Usage (standalone):
+#   source ../../.env
+#   ng_run "+config_paths=[configs/cvdp_lc.yaml,nemo_gym_env.yaml]"
+
+policy_base_url: ${oc.env:LLM_BASE_URL}
+policy_api_key: ${oc.env:LLM_API_KEY}
+policy_model_name: ${oc.env:ROLLOUT_MODEL}

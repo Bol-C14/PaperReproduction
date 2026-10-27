@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "evidence_scope": "Allow-listed reconstruction of the corrected 24-task native-Codex baseline launch and outcome summary.",
+  "launch_timestamp_utc": "2026-05-12T02:10:55.857Z",
+  "launch": {
+    "historical_runner_path": "scripts/run_codex_harness_baseline.py (retained privately; not distributed in this repository)",
+    "task_manifest": "the 24 public task identifiers listed in outcomes.csv",
+    "task_count": 24,
+    "repeats": 1,
+    "max_turns_soft": 30,
+    "hide_skill_md": true,
+    "verifier_image": "trace2skill/cvdp-sim-cocotb-compat:latest",
+    "verifier_image_digest_retained": false,
+    "explicit_model_override": false,
+    "explicit_reasoning_effort_override": false,
+    "runner_default_model": "gpt-5.5",
+    "runner_default_reasoning_effort": "high",
+    "effective_model": "gpt-5.5",
+    "effective_reasoning_effort": "high"
+  },
+  "outcome": {
+    "completed_attempts": 24,
+    "runner_failures_or_timeouts": 0,
+    "passes": 12,
+    "attempts": 24,
+    "passes_by_cid": {
+      "cid003": 4,
+      "cid004": 2,
+      "cid005": 2,
+      "cid016": 4
+    },
+    "attempts_by_cid": {
+      "cid003": 6,
+      "cid004": 6,
+      "cid005": 6,
+      "cid016": 6
+    }
+  },
+  "source_commitments": {
+    "public_outcomes_csv_sha256": "75dcce99071a3c7115ed309ecc25f09559abb287444b63e58792edd53c61ec3a",
+    "canonical_taskset_csv_lines_sha256": "6ac648b2ad9b136c3a46e8e53b3bc7511b73df7ed47c6943b47996045d665ceb",
+    "canonical_codex_projection_csv_lines_sha256": "7fae1e77ef067feab84408f4008229ae8d02ea95a874d1e48b98ac958e69c919",
+    "exact_private_launch_command_utf8_no_newline_sha256": "5abc4fde7de089a7ac5f2db3921cd8e9a3e22b59be292a07b28b91995ab1e96b",
+    "retained_authoring_session_jsonl_sha256": "a1dabd543e3a3cb346ce2c2c07eba10611697ab9a50f5db5e5114c0effe90506",
+    "surviving_runner_sha256": "6cae128d11afd12c334b47e7a6e3d82ba002cac3e17e97f84e8d469b80b19151",
+    "contemporaneous_runner_hash_recorded": false,
+    "runner_linkage": "retrospective strong reconstruction"
+  },
+  "reconstruction_basis": [
+    "The retained launch event invokes the surviving runner on the exact public 24-task manifest with one repeat, a 30-turn soft cap, no injected skill, and the corrected compatibility verifier image.",
+    "The launch omits model and reasoning-effort overrides; the runner writes a clean run-scoped Codex configuration whose defaults are gpt-5.5 and high reasoning effort.",
+    "The retained completion readout reports 24 of 24 attempts completed, 12 of 24 passed, and no Codex runner failure or timeout; outcomes.csv preserves the task-level binary results."
+  ],
+  "terminology": "high is the formal baseline runner reasoning-effort setting; the manuscript describes it parenthetically as the heavy-reasoning setting used for this experiment. Settings of the surrounding authoring session are not baseline settings.",
+  "limitations": [
+    "The raw authoring-session record is excluded because it contains unrelated private conversation and machine-local paths.",
+    "The original attempt directory and complete per-attempt Codex event streams were not retained.",
+    "The exact Codex CLI build is not independently recoverable from the public artifact.",
+    "The verifier image used a mutable latest tag, and no immutable image digest was retained.",
+    "The runner SHA-256 was computed retrospectively from the separately retained source; it was not embedded in the launch manifest.",
+    "This record supports configuration and aggregate-outcome provenance, but it does not make the contextual Codex baseline fully independently reproducible."
+  ]
+}

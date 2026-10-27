@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "trace2skill"
+version = "1.0.0"
+description = "Verifier-guided evolution of natural-language skills for long-context EDA agents"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.12,<3.14"
+authors = [
+    { name = "Zijian Du", email = "ldu@nvidia.com" },
+    { name = "Nathaniel Pinckney", email = "npinckney@nvidia.com" },
+]
+keywords = [
+    "llm-agents",
+    "electronic-design-automation",
+    "evolutionary-algorithm",
+    "test-time-scaling",
+    "verilog",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "openai>=2.31,<3",
+    "PyYAML==6.0.3",
+    "opentelemetry-api>=1.22,<2",
+    "opentelemetry-sdk>=1.22,<2",
+    "opentelemetry-exporter-otlp>=1.22,<2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3,<9",
+    "pytest-asyncio>=0.24,<2",
+    "ruff>=0.9,<1",
+]
+
+[tool.setuptools]
+packages = ["optimizer", "eval"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "nemogym/resources_servers/cvdp_agentic_heavy/tests"]
+addopts = "-ra"
+
+[tool.ruff]
+line-length = 120
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "C4", "UP"]
+ignore = ["E501"]

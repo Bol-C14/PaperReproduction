@@ -1,0 +1,24 @@
+# Unified eval model configuration — single source of truth
+#
+# Used by:
+#   - optimizer/run_optimizer.py (via eval_config reference in optimize_skill.yml)
+#   - eval/run_analyzer.py --config eval/configs/eval_models.yml
+#   - eval/run_judge.py --config eval/configs/eval_models.yml
+#   - scripts/run_eval.sh (passes --config to Python scripts)
+#
+# Environment variables are expanded at load time.
+# CLI args (--model, --base-url, --api-key) override these values.
+
+analyzer:
+  base_url: ${LLM_BASE_URL}
+  api_key: ${LLM_API_KEY}
+  model: ${ANALYZER_MODEL}
+  max_tokens: 8192
+  temperature: 0.0
+
+judge:
+  base_url: ${LLM_BASE_URL}
+  api_key: ${LLM_API_KEY}
+  model: ${JUDGE_MODEL}
+  max_tokens: 4096
+  temperature: 0.0

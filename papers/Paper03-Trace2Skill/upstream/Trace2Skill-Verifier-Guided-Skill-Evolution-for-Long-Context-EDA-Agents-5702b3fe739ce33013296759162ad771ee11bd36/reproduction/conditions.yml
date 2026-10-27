@@ -1,0 +1,17 @@
+schema_version: 1
+shared_budget:
+  tasks: 8
+  generations: 5
+  population_size: 4
+  repeats_per_candidate: 4
+  max_parallel_rollouts: 2
+  max_agent_turns: 30
+  fitness_timeout_seconds: 21600
+conditions:
+  c3-sparse:
+    skill_evolution: true
+    runtime_verifier_feedback: false
+  c4-dense:
+    skill_evolution: true
+    runtime_verifier_feedback: true
+    max_executed_feedback_runs_per_rollout: 3

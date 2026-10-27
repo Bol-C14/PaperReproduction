@@ -1,0 +1,46 @@
+# Combined NeMo-Gym config for CVDP long-context runs with a 30-step rollout cap.
+#
+# Use with:
+#   ng_run "+config_paths=[configs/cvdp_lc_30turns.yaml,nemo_gym_env.yaml]"
+
+cvdp_agentic_heavy:
+  resources_servers:
+    cvdp_agentic_heavy:
+      entrypoint: app.py
+      domain: agent
+      verified: false
+      oss_sim_image: ${oc.env:CVDP_OSS_SIM_IMAGE,trace2skill/cvdp-sim-cocotb-compat:latest}
+      oss_pnr_image: ${oc.env:CVDP_OSS_PNR_IMAGE,trace2skill/cvdp-sim-cocotb-compat:latest}
+      eda_sim_image: ""
+      license_network_name: ""
+      docker_timeout: 600
+      num_processes: 4
+      runtime_verifier_feedback_enabled: ${oc.env:CVDP_RUNTIME_VERIFIER_FEEDBACK_ENABLED,0}
+      runtime_verifier_feedback_max_calls: ${oc.env:CVDP_RUNTIME_VERIFIER_FEEDBACK_MAX_CALLS,3}
+      runtime_verifier_feedback_artifact_root: ${oc.env:CVDP_RUNTIME_VERIFIER_FEEDBACK_ARTIFACT_ROOT,../runs/runtime_verifier_feedback}
+
+cvdp_agentic_heavy_simple_agent:
+  responses_api_agents:
+    cvdp_agentic_heavy_agent:
+      entrypoint: app.py
+      resources_server:
+        type: resources_servers
+        name: cvdp_agentic_heavy
+      model_server:
+        type: responses_api_models
+        name: policy_model
+      max_steps: 30
+      datasets:
+      - name: validation
+        type: validation
+        jsonl_fpath: data/tasks.jsonl
+        license: Apache 2.0
+        num_repeats: 5
+
+policy_model:
+  responses_api_models:
+    openai_model:
+      entrypoint: app.py
+      openai_base_url: ${policy_base_url}
+      openai_api_key: ${policy_api_key}
+      openai_model: ${policy_model_name}

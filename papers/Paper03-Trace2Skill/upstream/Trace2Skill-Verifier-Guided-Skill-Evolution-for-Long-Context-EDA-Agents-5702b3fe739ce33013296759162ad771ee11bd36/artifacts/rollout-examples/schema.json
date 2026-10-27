@@ -1,0 +1,265 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:trace2skill:schema:sanitized-action-trace:v1",
+  "title": "Trace2Skill sanitized action trace",
+  "description": "Public, content-free commitment to one archived Trace2Skill rollout.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "sample_kind",
+    "condition",
+    "condition_description",
+    "coordinate",
+    "outcome",
+    "individual_metrics",
+    "provenance",
+    "redaction",
+    "trace_summary",
+    "events"
+  ],
+  "properties": {
+    "schema_version": {"const": 1},
+    "sample_kind": {"const": "sanitized_action_trace"},
+    "condition": {"enum": ["C3", "C4"]},
+    "condition_description": {"type": "string"},
+    "coordinate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["task_id", "short_task_id", "cid", "generation", "individual", "repeat", "repeat_source"],
+      "properties": {
+        "task_id": {"type": "string", "pattern": "^cvdp_agentic_heavy_"},
+        "short_task_id": {"type": "string"},
+        "cid": {"type": "string", "pattern": "^cid[0-9]{3}$"},
+        "generation": {"type": "integer", "minimum": 0},
+        "individual": {"type": "integer", "minimum": 0},
+        "repeat": {"type": "integer", "minimum": 0},
+        "repeat_source": {"const": "archived _ng_rollout_index"}
+      }
+    },
+    "outcome": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reward", "outcome", "mode", "phase_reached", "tests_passed", "tests_total",
+        "files_written_count", "path_has_critical_issue", "path_issue_codes",
+        "verify_feedback_attempts", "verify_feedback_executions",
+        "verify_feedback_budget_rejections", "verify_feedback_gate_rejections"
+      ],
+      "properties": {
+        "reward": {"enum": [0, 1]},
+        "outcome": {"enum": ["pass", "fail"]},
+        "mode": {"type": "string"},
+        "phase_reached": {"type": "string"},
+        "tests_passed": {"type": ["integer", "null"]},
+        "tests_total": {"type": ["integer", "null"]},
+        "files_written_count": {"type": "integer", "minimum": 0},
+        "path_has_critical_issue": {"type": "boolean"},
+        "path_issue_codes": {"type": "array", "items": {"type": "string"}},
+        "verify_feedback_attempts": {"type": "integer", "minimum": 0},
+        "verify_feedback_executions": {"type": "integer", "minimum": 0},
+        "verify_feedback_budget_rejections": {"type": "integer", "minimum": 0},
+        "verify_feedback_gate_rejections": {"type": "integer", "minimum": 0}
+      }
+    },
+    "individual_metrics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pass_rate", "SelectQ", "SkillQ", "AgentProgressQ", "AgentVarianceQ", "AgentAdherenceQ"],
+      "properties": {
+        "pass_rate": {"type": "number", "minimum": 0, "maximum": 1},
+        "SelectQ": {"type": "number", "minimum": 0, "maximum": 1},
+        "SkillQ": {"type": "number", "minimum": 0, "maximum": 1},
+        "AgentProgressQ": {"type": "number", "minimum": 0, "maximum": 1},
+        "AgentVarianceQ": {"type": "number", "minimum": 0, "maximum": 1},
+        "AgentAdherenceQ": {"type": "number", "minimum": 0, "maximum": 1}
+      }
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_artifact", "source_jsonl_ordinal", "public_rollout_jsonl_ordinal",
+        "public_quality_jsonl_ordinal",
+        "raw_record_sha256", "public_rollout_record_sha256", "public_quality_record_sha256",
+        "skill_sha256", "exporter"
+      ],
+      "properties": {
+        "source_artifact": {"type": "string"},
+        "source_jsonl_ordinal": {"type": "integer", "minimum": 0},
+        "public_rollout_jsonl_ordinal": {"type": "integer", "minimum": 0},
+        "public_quality_jsonl_ordinal": {"type": "integer", "minimum": 0},
+        "raw_record_sha256": {"$ref": "#/$defs/hash"},
+        "public_rollout_record_sha256": {"$ref": "#/$defs/hash"},
+        "public_quality_record_sha256": {"$ref": "#/$defs/hash"},
+        "skill_sha256": {"$ref": "#/$defs/hash"},
+        "exporter": {"const": "scripts/export_public_rollout_example.py"}
+      }
+    },
+    "redaction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["assistant_messages", "tool_arguments", "tool_results", "provider_metadata", "hidden_verifier_material"],
+      "properties": {
+        "assistant_messages": {"type": "string"},
+        "tool_arguments": {"type": "string"},
+        "tool_results": {"type": "string"},
+        "provider_metadata": {"type": "string"},
+        "hidden_verifier_material": {"type": "string"}
+      }
+    },
+    "trace_summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["assistant_message_count", "tool_call_count", "tool_counts", "action_family_counts"],
+      "properties": {
+        "assistant_message_count": {"type": "integer", "minimum": 0},
+        "tool_call_count": {"type": "integer", "minimum": 1},
+        "tool_counts": {"$ref": "#/$defs/counts"},
+        "action_family_counts": {"$ref": "#/$defs/counts"}
+      }
+    },
+    "events": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/event"}
+    }
+  },
+  "$defs": {
+    "hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "nullable_hash": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
+    "counts": {
+      "type": "object",
+      "additionalProperties": {"type": "integer", "minimum": 0}
+    },
+    "path_summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "depth", "suffix", "contains_parent_reference"],
+      "properties": {
+        "kind": {"enum": ["absolute-withheld", "workspace-relative"]},
+        "depth": {"type": "integer", "minimum": 0},
+        "suffix": {"type": "string"},
+        "contains_parent_reference": {"type": "boolean"}
+      }
+    },
+    "string_commitment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "byte_count", "sha256"],
+      "properties": {
+        "name": {"type": "string"},
+        "byte_count": {"type": "integer", "minimum": 0},
+        "sha256": {"$ref": "#/$defs/hash"},
+        "path_summary": {"$ref": "#/$defs/path_summary"}
+      }
+    },
+    "argument_commitment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["keys", "byte_count", "sha256", "string_field_commitments", "public_scalar_fields"],
+      "properties": {
+        "keys": {"type": "array", "items": {"type": "string"}},
+        "byte_count": {"type": "integer", "minimum": 0},
+        "sha256": {"$ref": "#/$defs/hash"},
+        "string_field_commitments": {"type": "array", "items": {"$ref": "#/$defs/string_commitment"}},
+        "public_scalar_fields": {
+          "type": "object",
+          "additionalProperties": {"type": ["number", "boolean"]}
+        }
+      }
+    },
+    "result_commitment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["present", "byte_count", "sha256"],
+      "properties": {
+        "present": {"type": "boolean"},
+        "byte_count": {"type": "integer", "minimum": 0},
+        "sha256": {"$ref": "#/$defs/nullable_hash"}
+      }
+    },
+    "waveform_summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "available": {"type": "boolean"},
+        "changed_signal_count": {"type": "integer", "minimum": 0},
+        "clock_or_reset_activity": {"type": "boolean"},
+        "files_analyzed": {"type": "integer", "minimum": 0},
+        "files_seen": {"type": "integer", "minimum": 0},
+        "signal_count": {"type": "integer", "minimum": 0},
+        "unknown_or_high_impedance_count": {"type": "integer", "minimum": 0}
+      }
+    },
+    "verifier_feedback": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status"],
+      "properties": {
+        "status": {"const": "executed"},
+        "compile_ok": {"type": "boolean"},
+        "partial_score": {"type": "number", "minimum": 0, "maximum": 1},
+        "pass": {"type": "boolean"},
+        "sim_ok": {"type": "boolean"},
+        "tests_passed": {"type": "integer", "minimum": 0},
+        "tests_total": {"type": "integer", "minimum": 0},
+        "timeout": {"type": "boolean"},
+        "waveform_summary": {"$ref": "#/$defs/waveform_summary"}
+      }
+    },
+    "event": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sequence", "tool", "action_family", "call_status", "argument_commitment", "result_commitment"],
+      "properties": {
+        "sequence": {"type": "integer", "minimum": 1},
+        "tool": {"enum": ["cat", "ls", "rg", "read_file", "show_changes", "echo", "edit", "iverilog", "vvp", "verify_feedback"]},
+        "action_family": {"enum": ["inspect", "modify", "compile", "simulate", "verifier_feedback"]},
+        "call_status": {"enum": ["completed", "failed", "incomplete", "other"]},
+        "argument_commitment": {"$ref": "#/$defs/argument_commitment"},
+        "result_commitment": {"$ref": "#/$defs/result_commitment"},
+        "verifier_feedback": {"$ref": "#/$defs/verifier_feedback"}
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"condition": {"const": "C3"}}, "required": ["condition"]},
+      "then": {
+        "properties": {
+          "outcome": {
+            "properties": {
+              "verify_feedback_attempts": {"const": 0},
+              "verify_feedback_executions": {"const": 0},
+              "verify_feedback_budget_rejections": {"const": 0},
+              "verify_feedback_gate_rejections": {"const": 0}
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {"properties": {"condition": {"const": "C4"}}, "required": ["condition"]},
+      "then": {
+        "properties": {
+          "outcome": {
+            "properties": {"verify_feedback_executions": {"maximum": 3}}
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "outcome": {
+            "properties": {"outcome": {"const": "pass"}},
+            "required": ["outcome"]
+          }
+        }
+      },
+      "then": {"properties": {"outcome": {"properties": {"reward": {"const": 1}}}}},
+      "else": {"properties": {"outcome": {"properties": {"reward": {"const": 0}}}}}
+    }
+  ]
+}

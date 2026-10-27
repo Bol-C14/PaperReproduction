@@ -1,0 +1,332 @@
+{
+  "scope": "offline original pure helper tests + metadata replay; no generated model traces",
+  "tests": [
+    {
+      "suite": "test_skill_integration.py",
+      "test": "test_integration_artifacts_are_written",
+      "status": "pass"
+    },
+    {
+      "suite": "test_skill_integration.py",
+      "test": "test_integration_gate_accepts_covered_concrete_directives",
+      "status": "pass"
+    },
+    {
+      "suite": "test_skill_integration.py",
+      "test": "test_integration_gate_rejects_missing_critical_and_harness_violation",
+      "status": "pass"
+    },
+    {
+      "suite": "test_skill_integration.py",
+      "test": "test_patch_plan_does_not_invert_add_change_guidance_with_negative_words",
+      "status": "pass"
+    },
+    {
+      "suite": "test_skill_integration.py",
+      "test": "test_patch_plan_extracts_add_remove_preserve_and_terms",
+      "status": "pass"
+    },
+    {
+      "suite": "test_skill_integration.py",
+      "test": "test_remove_gate_allows_desirable_mentions_of_terms_from_bad_patterns",
+      "status": "pass"
+    },
+    {
+      "suite": "test_skill_integration.py",
+      "test": "test_remove_gate_blocks_actual_prohibited_behavior_not_term_overlap",
+      "status": "pass"
+    },
+    {
+      "suite": "test_skill_integration.py",
+      "test": "test_safe_partial_improvement_can_pass_with_missing_critical_warning",
+      "status": "pass"
+    },
+    {
+      "suite": "test_skill_integration.py",
+      "test": "test_semantic_repair_preserves_useful_candidate_and_removes_risky_testbench_edit",
+      "status": "pass"
+    },
+    {
+      "suite": "test_skill_selector.py",
+      "test": "test_semantic_selector_accepts_grounded_child_that_adds_covered_lesson",
+      "status": "pass"
+    },
+    {
+      "suite": "test_skill_selector.py",
+      "test": "test_semantic_selector_accepts_initial_exploration_without_oracle_feedback",
+      "status": "pass"
+    },
+    {
+      "suite": "test_skill_selector.py",
+      "test": "test_semantic_selector_keeps_parent_when_child_drops_durable_lesson",
+      "status": "pass"
+    },
+    {
+      "suite": "test_lesson_bank.py",
+      "test": "test_final_distillation_keeps_best_skill_and_durable_lessons",
+      "status": "pass"
+    },
+    {
+      "suite": "test_lesson_bank.py",
+      "test": "test_lesson_bank_preserves_patch_plan_and_path_rules",
+      "status": "pass"
+    },
+    {
+      "suite": "test_standard_ea_flow.py AST subset",
+      "test": "test_combined_selection_blocks_invalid_child_on_equal_pass_rate",
+      "status": "pass"
+    },
+    {
+      "suite": "test_standard_ea_flow.py AST subset",
+      "test": "test_combined_selection_keeps_parent_when_child_semantic_quality_regresses",
+      "status": "pass"
+    },
+    {
+      "suite": "test_standard_ea_flow.py AST subset",
+      "test": "test_standard_ea_carried_survivor_is_reevaluated_not_pre_scored",
+      "status": "pass"
+    },
+    {
+      "suite": "test_standard_ea_flow.py AST subset",
+      "test": "test_standard_ea_defers_child_semantic_selection_until_rollout",
+      "status": "pass"
+    },
+    {
+      "suite": "test_standard_ea_flow.py AST subset",
+      "test": "test_standard_ea_survivor_record_uses_evaluated_population_member",
+      "status": "pass"
+    }
+  ],
+  "source_subset": {
+    "optimizer_definitions": [
+      {
+        "name": "Individual",
+        "line": 133,
+        "end": 235
+      },
+      {
+        "name": "_json_safe",
+        "line": 300,
+        "end": 310
+      },
+      {
+        "name": "_write_json",
+        "line": 313,
+        "end": 316
+      },
+      {
+        "name": "_append_jsonl",
+        "line": 319,
+        "end": 323
+      },
+      {
+        "name": "_append_one_jsonl",
+        "line": 326,
+        "end": 329
+      },
+      {
+        "name": "_sha256_text",
+        "line": 339,
+        "end": 340
+      },
+      {
+        "name": "_carry_prompt_for_reevaluation",
+        "line": 384,
+        "end": 395
+      },
+      {
+        "name": "_semantic_metrics",
+        "line": 415,
+        "end": 421
+      },
+      {
+        "name": "_semantic_score_from_metrics",
+        "line": 424,
+        "end": 454
+      },
+      {
+        "name": "_skill_quality_from_individual",
+        "line": 457,
+        "end": 474
+      },
+      {
+        "name": "_skill_validity_from_individual",
+        "line": 477,
+        "end": 511
+      },
+      {
+        "name": "_safe_float",
+        "line": 514,
+        "end": 518
+      },
+      {
+        "name": "_apply_combined_selection_fitness",
+        "line": 521,
+        "end": 638
+      },
+      {
+        "name": "defer_child_semantic_selection",
+        "line": 900,
+        "end": 947
+      },
+      {
+        "name": "make_standard_ea_survivor_record",
+        "line": 950,
+        "end": 981
+      }
+    ]
+  },
+  "traces": [
+    {
+      "file": "c3_noobscpu_sparse_example.jsonl",
+      "outcome": "fail",
+      "tools": [
+        "cat",
+        "ls",
+        "ls",
+        "cat",
+        "cat",
+        "cat",
+        "cat",
+        "cat",
+        "cat",
+        "ls",
+        "ls",
+        "ls",
+        "ls",
+        "echo",
+        "iverilog",
+        "vvp",
+        "show_changes",
+        "cat"
+      ],
+      "feedback": [],
+      "skill_sha256": "e96dae1848c879ef1e82e34b545969568cbfea457514ab299494ca1b1f17ded6",
+      "scheduler_repeat": {
+        "cid": "cid005",
+        "generation": 1,
+        "individual": 0,
+        "repeat": 2,
+        "repeat_source": "archived _ng_rollout_index",
+        "short_task_id": "NoobsCpu-8bit_0002",
+        "task_id": "cvdp_agentic_heavy_NoobsCpu-8bit_0002"
+      }
+    },
+    {
+      "file": "c4_noobscpu_dense_example.jsonl",
+      "outcome": "pass",
+      "tools": [
+        "cat",
+        "ls",
+        "ls",
+        "cat",
+        "cat",
+        "cat",
+        "cat",
+        "cat",
+        "cat",
+        "ls",
+        "ls",
+        "ls",
+        "ls",
+        "rg",
+        "read_file",
+        "cat",
+        "echo",
+        "iverilog",
+        "vvp",
+        "verify_feedback",
+        "rg",
+        "read_file",
+        "edit",
+        "edit",
+        "iverilog",
+        "vvp",
+        "verify_feedback",
+        "edit",
+        "iverilog",
+        "vvp",
+        "verify_feedback",
+        "cat"
+      ],
+      "feedback": [
+        {
+          "sequence": 20,
+          "scalars": {
+            "compile_ok": false,
+            "partial_score": 0.0,
+            "pass": false,
+            "sim_ok": true,
+            "status": "executed",
+            "tests_passed": 0,
+            "tests_total": 1,
+            "timeout": false,
+            "waveform_summary": {
+              "available": true,
+              "changed_signal_count": 166,
+              "clock_or_reset_activity": true,
+              "files_analyzed": 1,
+              "files_seen": 1,
+              "signal_count": 212,
+              "unknown_or_high_impedance_count": 161
+            }
+          }
+        },
+        {
+          "sequence": 27,
+          "scalars": {
+            "compile_ok": false,
+            "partial_score": 0.0,
+            "pass": false,
+            "sim_ok": true,
+            "status": "executed",
+            "tests_passed": 0,
+            "tests_total": 1,
+            "timeout": false,
+            "waveform_summary": {
+              "available": true,
+              "changed_signal_count": 166,
+              "clock_or_reset_activity": true,
+              "files_analyzed": 1,
+              "files_seen": 1,
+              "signal_count": 212,
+              "unknown_or_high_impedance_count": 161
+            }
+          }
+        },
+        {
+          "sequence": 31,
+          "scalars": {
+            "compile_ok": true,
+            "partial_score": 1.0,
+            "pass": true,
+            "sim_ok": true,
+            "status": "executed",
+            "tests_passed": 1,
+            "tests_total": 1,
+            "timeout": false,
+            "waveform_summary": {
+              "available": true,
+              "changed_signal_count": 166,
+              "clock_or_reset_activity": true,
+              "files_analyzed": 1,
+              "files_seen": 1,
+              "signal_count": 212,
+              "unknown_or_high_impedance_count": 161
+            }
+          }
+        }
+      ],
+      "skill_sha256": "e96dae1848c879ef1e82e34b545969568cbfea457514ab299494ca1b1f17ded6",
+      "scheduler_repeat": {
+        "cid": "cid005",
+        "generation": 1,
+        "individual": 0,
+        "repeat": 2,
+        "repeat_source": "archived _ng_rollout_index",
+        "short_task_id": "NoobsCpu-8bit_0002",
+        "task_id": "cvdp_agentic_heavy_NoobsCpu-8bit_0002"
+      }
+    }
+  ]
+}

@@ -1,0 +1,217 @@
+{
+  "schema_version": 2,
+  "functional_scope": {
+    "C1": {
+      "artifact_status": "planned control only: unsupported draft placeholder values withdrawn; exact completed-run evidence was not preserved"
+    },
+    "C2": {
+      "artifact_status": "planned control only: unsupported draft placeholder values withdrawn; official no-EA dense run was not found"
+    },
+    "C3": {
+      "rollouts": 640,
+      "passes": 173,
+      "pass_rate": 0.2703125,
+      "solved_tasks": 3,
+      "AgentQ": 0.522824875,
+      "task_passes": {
+        "fpga_nes_0003": 65,
+        "verilog_pcie_0004": 0,
+        "802.11a_0001": 0,
+        "verilog_pcie_0028": 28,
+        "NoobsCpu-8bit_0002": 0,
+        "rvx_0004": 0,
+        "async-fifo_0003": 80,
+        "schoolMIPS_0012": 0
+      },
+      "feedback_audit": {
+        "attempts": 0,
+        "executions": 0,
+        "budget_rejections": 0,
+        "gate_rejections": 0,
+        "max_executions_per_rollout": 0,
+        "rejection_reasons": {
+          "verify_feedback_budget_exhausted": 0,
+          "verify_feedback_requires_successful_iverilog": 0,
+          "verify_feedback_requires_new_edit": 0,
+          "verify_feedback_requires_edit": 0
+        }
+      }
+    },
+    "C4": {
+      "rollouts": 640,
+      "passes": 215,
+      "pass_rate": 0.3359375,
+      "solved_tasks": 6,
+      "AgentQ": 0.565676,
+      "task_passes": {
+        "fpga_nes_0003": 79,
+        "verilog_pcie_0004": 1,
+        "802.11a_0001": 11,
+        "verilog_pcie_0028": 9,
+        "NoobsCpu-8bit_0002": 35,
+        "rvx_0004": 0,
+        "async-fifo_0003": 80,
+        "schoolMIPS_0012": 0
+      },
+      "passing_rollouts_with_executed_feedback": {
+        "verilog_pcie_0004": 1,
+        "802.11a_0001": 9,
+        "NoobsCpu-8bit_0002": 35
+      },
+      "feedback_audit": {
+        "attempts": 1130,
+        "executions": 1052,
+        "budget_rejections": 66,
+        "gate_rejections": 12,
+        "max_executions_per_rollout": 3,
+        "rejection_reasons": {
+          "verify_feedback_budget_exhausted": 66,
+          "verify_feedback_requires_successful_iverilog": 3,
+          "verify_feedback_requires_new_edit": 1,
+          "verify_feedback_requires_edit": 8
+        }
+      }
+    }
+  },
+  "historical_source_audit": {
+    "total_files": 161,
+    "commits": {
+      "d091581d2685": {"files": 43, "machine_prefix_substitutions": 16},
+      "1d2b582869af": {"files": 59, "machine_prefix_substitutions": 79},
+      "90afe0fcee8e": {"files": 59, "machine_prefix_substitutions": 81}
+    }
+  },
+  "runtime_call_audit": {
+    "llm_attempt_rows": 1517,
+    "source_files": 23,
+    "launch_settings": {
+      "sources": {
+        "c3_primary": {
+          "condition": "C3",
+          "sha256": "b5aa890f4c037601391858e495a7142c5bf502d597831bd3dc7ade234a8c722a"
+        },
+        "c3_restart": {
+          "condition": "C3",
+          "sha256": "b49f580b8cdd820131c0fa9f0455509028d4797a56c56fef671d82b250cb0066"
+        },
+        "c4_primary": {
+          "condition": "C4",
+          "sha256": "2c98fdb7fddc144113d266cfeeef305e5ee98ad05e4fdcd0f854fe119978057b"
+        }
+      },
+      "service_aliases": {
+        "rollout": "azure/anthropic/claude-opus-4-6",
+        "mutation": "azure/anthropic/claude-sonnet-4-5",
+        "oracle": "azure/openai/gpt-5"
+      },
+      "rollout_temperature": 0.2,
+      "openai_compatible_retry_loop": {
+        "initial_max_attempts": 5,
+        "absolute_max_attempts_on_retryable_status": 12,
+        "backoff_cap_seconds": 60.0
+      },
+      "request_bridge": {
+        "http_timeout_total_seconds": 21600,
+        "http_timeout_sock_read_seconds": 7200,
+        "internal_max_attempts": 1,
+        "external_max_attempts": 3
+      },
+      "fitness": {
+        "repeats_per_candidate": 4,
+        "max_parallel_rollouts": 2
+      }
+    },
+    "conditions": {
+      "C3": {
+        "total": 762,
+        "purpose_counts": {
+          "compress": 27,
+          "layer1_refine": 512,
+          "layer2_fail_synthesis_by_cid": 27,
+          "layer2_pass_synthesis_by_cid": 12,
+          "layer3_handoff_by_cid": 32,
+          "mutate": 120,
+          "repair_mutation": 32
+        },
+        "status_counts": {"success": 762, "error": 0},
+        "attempt_counts": {"1": 762}
+      },
+      "C4": {
+        "total": 755,
+        "purpose_counts": {
+          "compress": 16,
+          "layer1_refine": 512,
+          "layer2_fail_synthesis_by_cid": 24,
+          "layer2_pass_synthesis_by_cid": 21,
+          "layer3_handoff_by_cid": 32,
+          "mutate": 119,
+          "repair_mutation": 31
+        },
+        "status_counts": {"success": 753, "error": 2},
+        "attempt_counts": {"1": 754, "2": 1},
+        "error_type_counts": {"AuthenticationError": 1, "InternalServerError": 1}
+      }
+    },
+    "purpose_policies": {
+      "compress": {"model": "azure/anthropic/claude-sonnet-4-5", "temperature": 0.3, "temperature_provenance": "historical_source", "max_output_tokens": 8192},
+      "mutate": {"model": "azure/anthropic/claude-sonnet-4-5", "temperature": 0.35, "temperature_provenance": "recorded_call_context", "max_output_tokens": 8192},
+      "repair_mutation": {"model": "azure/anthropic/claude-sonnet-4-5", "temperature": 0.2, "temperature_provenance": "recorded_call_context", "max_output_tokens": 8192},
+      "oracle": {"model": "azure/openai/gpt-5", "temperature": 0.0, "temperature_provenance": "completed_run_config", "max_output_tokens": 16384}
+    },
+    "rollout_retry_rows": 4,
+    "rollout_retry_counts": {"C3": 3, "C4": 1},
+    "replacement_artifacts_present": 4
+  },
+  "posthoc_progress_audit": {
+    "sha256": "9f9e13f02db5c47ba704ce18046d25194dc2a280f377e78659703bdc06203338",
+    "rollouts": 96,
+    "tasks": 24,
+    "passes": 51,
+    "failures": 45,
+    "passes_by_cid": {"cid003": 17, "cid004": 8, "cid005": 8, "cid016": 18},
+    "outcome_aware": {
+      "pearson_r": 0.9010794082496459,
+      "auc": 0.9816993464052288,
+      "pass_mean": 0.915443137254902,
+      "fail_mean": 0.410455555555556
+    },
+    "strict_behavior_only": {
+      "pearson_r": 0.3051202103256801,
+      "auc": 0.6779956427015251,
+      "pass_mean": 0.398139215686274,
+      "fail_mean": 0.338286666666667
+    }
+  },
+  "oss24_contextual_outcomes": {
+    "sha256": "75dcce99071a3c7115ed309ecc25f09559abb287444b63e58792edd53c61ec3a",
+    "tasks": 24,
+    "per_cid": {
+      "cid003": {"cvdp": 4, "claude": 5, "codex": 4},
+      "cid004": {"cvdp": 2, "claude": 3, "codex": 2},
+      "cid005": {"cvdp": 1, "claude": 2, "codex": 2},
+      "cid016": {"cvdp": 2, "claude": 2, "codex": 4}
+    },
+    "totals": {"cvdp": 9, "claude": 12, "codex": 12}
+  },
+  "valid_candidate_generation_means": {
+    "C3": {
+      "1": {"n": 32, "SelectQ": 0.3234835, "SkillQ": 0.5, "AgentProgressQ": 0.47890125, "AgentVarianceQ": 0.707625, "AgentAdherenceQ": 1.0},
+      "2": {"n": 26, "SelectQ": 0.24639923076923076, "SkillQ": 0.5987664230769231, "AgentProgressQ": 0.42776153846153847, "AgentVarianceQ": 0.7038769230769231, "AgentAdherenceQ": 1.0},
+      "3": {"n": 24, "SelectQ": 0.3579957083333333, "SkillQ": 0.6643968333333333, "AgentProgressQ": 0.5612608333333333, "AgentVarianceQ": 0.7505416666666667, "AgentAdherenceQ": 1.0},
+      "4": {"n": 17, "SelectQ": 0.3433445294117647, "SkillQ": 0.7193047647058823, "AgentProgressQ": 0.5680694117647059, "AgentVarianceQ": 0.8506294117647059, "AgentAdherenceQ": 1.0},
+      "5": {"n": 14, "SelectQ": 0.34288092857142855, "SkillQ": 0.8053055714285714, "AgentProgressQ": 0.5010728571428571, "AgentVarianceQ": 0.7871, "AgentAdherenceQ": 1.0}
+    },
+    "C4": {
+      "1": {"n": 32, "SelectQ": 0.40671796875, "SkillQ": 0.5, "AgentProgressQ": 0.5385225, "AgentVarianceQ": 0.71989375, "AgentAdherenceQ": 1.0},
+      "2": {"n": 27, "SelectQ": 0.3358415925925926, "SkillQ": 0.6913476666666667, "AgentProgressQ": 0.5517303703703704, "AgentVarianceQ": 0.7686259259259259, "AgentAdherenceQ": 1.0},
+      "3": {"n": 14, "SelectQ": 0.5284393571428572, "SkillQ": 0.7386377857142857, "AgentProgressQ": 0.6014371428571429, "AgentVarianceQ": 0.7481071428571429, "AgentAdherenceQ": 1.0},
+      "4": {"n": 17, "SelectQ": 0.5839732941176471, "SkillQ": 0.7576256470588235, "AgentProgressQ": 0.6190835294117647, "AgentVarianceQ": 0.7917, "AgentAdherenceQ": 1.0},
+      "5": {"n": 15, "SelectQ": 0.4996778, "SkillQ": 0.8210247333333334, "AgentProgressQ": 0.5896813333333334, "AgentVarianceQ": 0.7754266666666667, "AgentAdherenceQ": 1.0}
+    }
+  },
+  "deterministic_smoke": {
+    "best_generation": 2,
+    "pass_at_1": 1.0,
+    "AgentProgressQ": 1.0
+  }
+}
