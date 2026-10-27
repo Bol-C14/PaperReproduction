@@ -1,0 +1,138 @@
+{
+  "run": "div_16bit_ast_tournament_prune_probe_0",
+  "design": "div_16bit",
+  "method": "ast_tournament_prune_probe",
+  "seed": 0,
+  "warm": [
+    0,
+    9
+  ],
+  "budget": 18,
+  "calls": 18,
+  "unique_synth": 6,
+  "unique_full": 12,
+  "best_qor": 104.44752691708044,
+  "best": {
+    "run": "div_16bit_ast_tournament_prune_probe_0",
+    "id": 15,
+    "design": "div_16bit",
+    "stage": "place",
+    "s": 0,
+    "p": 2,
+    "label": "search",
+    "out": "work/div_16bit_ast_tournament_prune_probe_0/0015_place",
+    "status": "ok",
+    "parent_run": "div_16bit_ast_tournament_prune_probe_0",
+    "parent_id": 0,
+    "parent_net_sha256": "f25e73b6b3f3c41353261910a9b18c85fea331408afb8c48b7b4c975cc1327ee",
+    "area": 1453.424,
+    "power": 0.0664,
+    "slack": -4.447526917080437,
+    "net_sha256": "f25e73b6b3f3c41353261910a9b18c85fea331408afb8c48b7b4c975cc1327ee",
+    "wall_s": 0.9490036580000378
+  },
+  "reference": {
+    "run": "div_16bit_ast_tournament_prune_probe_0",
+    "id": 1,
+    "design": "div_16bit",
+    "stage": "place",
+    "s": 0,
+    "p": 0,
+    "label": "reference",
+    "out": "work/div_16bit_ast_tournament_prune_probe_0/0001_place",
+    "status": "ok",
+    "parent_run": "div_16bit_ast_tournament_prune_probe_0",
+    "parent_id": 0,
+    "parent_net_sha256": "f25e73b6b3f3c41353261910a9b18c85fea331408afb8c48b7b4c975cc1327ee",
+    "area": 1453.424,
+    "power": 0.0667,
+    "slack": -4.49473448960104,
+    "net_sha256": "f25e73b6b3f3c41353261910a9b18c85fea331408afb8c48b7b4c975cc1327ee",
+    "wall_s": 0.6746158700000251
+  },
+  "wall_s": 38.44311050200008,
+  "eda_wall_s": 38.29627100199923,
+  "events": [
+    {
+      "event": "warmstart",
+      "at_calls": 3,
+      "s": 0,
+      "p": 9
+    },
+    {
+      "event": "stable_promote",
+      "at_calls": 5,
+      "s": 0,
+      "stability": 2
+    },
+    {
+      "event": "baseline_update",
+      "at_calls": 6,
+      "qor": 104.47705885037068
+    },
+    {
+      "event": "baseline_update",
+      "at_calls": 7,
+      "qor": 104.46892757670837
+    },
+    {
+      "event": "terminal_promote",
+      "at_calls": 10,
+      "s": 1
+    },
+    {
+      "event": "terminal_promote",
+      "at_calls": 10,
+      "s": 2
+    },
+    {
+      "event": "baseline_update",
+      "at_calls": 11,
+      "qor": 104.46892757670837
+    },
+    {
+      "event": "prune",
+      "at_calls": 12,
+      "s": 1,
+      "qor": 104.50676753117145,
+      "baseline": 104.46892757670837,
+      "threshold": 1.00001
+    },
+    {
+      "event": "prune",
+      "at_calls": 13,
+      "s": 2,
+      "qor": 104.50676753117145,
+      "baseline": 104.46892757670837,
+      "threshold": 1.00001
+    },
+    {
+      "event": "baseline_update",
+      "at_calls": 14,
+      "qor": 104.46892757670837
+    },
+    {
+      "event": "baseline_update",
+      "at_calls": 15,
+      "qor": 104.46892757670837
+    },
+    {
+      "event": "baseline_update",
+      "at_calls": 16,
+      "qor": 104.44752691708044
+    },
+    {
+      "event": "baseline_update",
+      "at_calls": 17,
+      "qor": 104.44752691708044
+    },
+    {
+      "event": "baseline_update",
+      "at_calls": 18,
+      "qor": 104.44752691708044
+    }
+  ],
+  "early_stop": "finite space or global budget; long-stability stage stopping not implemented",
+  "not_performance_arm": true,
+  "probe_prune_ratio": 1.00001
+}

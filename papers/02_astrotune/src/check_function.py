@@ -1,10 +1,11 @@
 """Execute upstream testbenches after changing ONLY expected DUT module names."""
-import json,re,os,subprocess
+import json,re,os,subprocess,sys
 from pathlib import Path
 from eda import ROOT,TOOLS
 m=json.loads((ROOT/'benchmarks/manifest.json').read_text())['designs'];results=[]
 env=dict(os.environ,VERILATOR_ROOT=str(TOOLS/'build/share/verilator'),LD_LIBRARY_PATH=str(TOOLS/'deps')+':'+str(TOOLS/'build/lib'))
 for d in m:
+ if len(sys.argv)>1 and d['id'] not in sys.argv[1:]:continue
  out=ROOT/'work/function'/d['id'];out.mkdir(parents=True,exist_ok=True)
  tb=(ROOT/d['rtl']).parent/'testbench.v';text=tb.read_text();text=re.sub(r'\b'+re.escape(d['id'])+r'\b',d['top'],text);(out/'tb.v').write_text(text)
  top=re.search(r'\bmodule\s+(\w+)',text)[1]
@@ -18,4 +19,4 @@ for d in m:
    text=(e.stdout or b'').decode() if isinstance(e.stdout,bytes) else (e.stdout or '');(out/'simulation.log').write_text(text);row.update(timeout=True,passed=False,output=text)
  else:row['passed']=False
  results.append(row);print(d['id'],row['passed'],row.get('output',r.stderr[-400:]),flush=True)
- (ROOT/'results/function_checks.json').write_text(json.dumps(results,indent=2))
+ (ROOT/'results'/('function_checks_stress.json' if len(sys.argv)>1 else 'function_checks.json')).write_text(json.dumps(results,indent=2))

@@ -1,0 +1,217 @@
+{
+  "identity_tests": [
+    {
+      "query": "adder_8bit",
+      "kind": "alpha_rename_identity_only",
+      "scores": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "rank": 1,
+      "ast_tokens_equal": true
+    },
+    {
+      "query": "multi_pipe_4bit",
+      "kind": "alpha_rename_identity_only",
+      "scores": [
+        1.0,
+        1.0,
+        1.0000000000000002
+      ],
+      "rank": 1,
+      "ast_tokens_equal": true
+    },
+    {
+      "query": "right_shifter",
+      "kind": "alpha_rename_identity_only",
+      "scores": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "rank": 1,
+      "ast_tokens_equal": true
+    },
+    {
+      "query": "adder_32bit",
+      "kind": "alpha_rename_identity_only",
+      "scores": [
+        1.0,
+        1.0,
+        1.0000000000000002
+      ],
+      "rank": 1,
+      "ast_tokens_equal": true
+    },
+    {
+      "query": "multi_pipe_8bit",
+      "kind": "alpha_rename_identity_only",
+      "scores": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "rank": 1,
+      "ast_tokens_equal": true
+    },
+    {
+      "query": "barrel_shifter",
+      "kind": "alpha_rename_identity_only",
+      "scores": [
+        1.0,
+        1.0,
+        0.9999999999999998
+      ],
+      "rank": 1,
+      "ast_tokens_equal": true
+    }
+  ],
+  "identity_top1": 1.0,
+  "tuning_no_exact_overlap": true,
+  "functional_collision_unit_test": {
+    "equal_tokens": true,
+    "scores": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "meaning": "zero mask vs all-one mask. Unit test only; not an EDA/benchmark result."
+  },
+  "single_metric_tuning_rankings": {
+    "adder_32bit": {
+      "simhash": [
+        {
+          "id": "multi_pipe_4bit",
+          "score": 0.6875
+        },
+        {
+          "id": "right_shifter",
+          "score": 0.6484375
+        },
+        {
+          "id": "adder_8bit",
+          "score": 0.640625
+        }
+      ],
+      "minhash": [
+        {
+          "id": "adder_8bit",
+          "score": 0.5
+        },
+        {
+          "id": "right_shifter",
+          "score": 0.328125
+        },
+        {
+          "id": "multi_pipe_4bit",
+          "score": 0.265625
+        }
+      ],
+      "haste": [
+        {
+          "id": "multi_pipe_4bit",
+          "score": 0.6920264019585556
+        },
+        {
+          "id": "adder_8bit",
+          "score": 0.6893206806768741
+        },
+        {
+          "id": "right_shifter",
+          "score": 0.6076393085203544
+        }
+      ]
+    },
+    "multi_pipe_8bit": {
+      "simhash": [
+        {
+          "id": "multi_pipe_4bit",
+          "score": 0.828125
+        },
+        {
+          "id": "right_shifter",
+          "score": 0.7421875
+        },
+        {
+          "id": "adder_8bit",
+          "score": 0.640625
+        }
+      ],
+      "minhash": [
+        {
+          "id": "multi_pipe_4bit",
+          "score": 0.609375
+        },
+        {
+          "id": "right_shifter",
+          "score": 0.40625
+        },
+        {
+          "id": "adder_8bit",
+          "score": 0.328125
+        }
+      ],
+      "haste": [
+        {
+          "id": "multi_pipe_4bit",
+          "score": 0.8931041387965861
+        },
+        {
+          "id": "right_shifter",
+          "score": 0.7564116881811851
+        },
+        {
+          "id": "adder_8bit",
+          "score": 0.6796171704590113
+        }
+      ]
+    },
+    "barrel_shifter": {
+      "simhash": [
+        {
+          "id": "adder_8bit",
+          "score": 0.90625
+        },
+        {
+          "id": "right_shifter",
+          "score": 0.5859375
+        },
+        {
+          "id": "multi_pipe_4bit",
+          "score": 0.578125
+        }
+      ],
+      "minhash": [
+        {
+          "id": "adder_8bit",
+          "score": 0.65625
+        },
+        {
+          "id": "right_shifter",
+          "score": 0.390625
+        },
+        {
+          "id": "multi_pipe_4bit",
+          "score": 0.296875
+        }
+      ],
+      "haste": [
+        {
+          "id": "adder_8bit",
+          "score": 0.9811421642532612
+        },
+        {
+          "id": "multi_pipe_4bit",
+          "score": 0.5213272479983673
+        },
+        {
+          "id": "right_shifter",
+          "score": 0.4056397381880553
+        }
+      ]
+    }
+  },
+  "wall_s": 69.89450631799991,
+  "limits": "Identity alpha-renaming preserves exact AST. This does not test independently generated equivalent RTL, nor LLM semantic preselection."
+}

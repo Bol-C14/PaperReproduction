@@ -27,7 +27,7 @@ def gp_pick(options,obs,rng):
 
 class Search:
     def __init__(self,design,method,seed,warm,budget=18,runid=None):
-        self.design=design;self.method=method;self.seed=seed;self.warm=warm;self.budget=budget;self.rng=np.random.default_rng(seed)
+        self.design=design;self.method=method;self.seed=seed;self.warm=warm;self.budget=budget;self.rng=np.random.default_rng(seed);self.prune_ratio=1.05
         self.eda=EDA(runid or f'{design["id"]}_{method}_{seed}');self.syn={};self.obs={};self.placed={};self.events=[];self.studies={};self.start=time.monotonic();self.ref=None
     def event(self,kind,**kw):self.events.append(dict(event=kind,at_calls=len(self.eda.records),**kw))
     def qs(self,r):return logic(r['area'],r['power'],r['slack'],self.ref)
@@ -108,8 +108,8 @@ class Search:
         p=self.warm[1];new=0
         if (s,p) not in self.placed and len(self.eda.records)<self.budget:
             baseline=min(self.qp(r) for r in self.placed.values());r=self.place(s,p);new+=1
-            if prune and self.qp(r)>baseline*1.05:
-                self.event('prune',s=s,qor=self.qp(r),baseline=baseline,threshold=1.05);return False
+            if prune and self.qp(r)>baseline*self.prune_ratio:
+                self.event('prune',s=s,qor=self.qp(r),baseline=baseline,threshold=self.prune_ratio);return False
         while len(self.eda.records)<self.budget and new<max_new:
             opts=[p for p in range(len(PLACE)) if (s,p) not in self.placed]
             if not opts:break
@@ -118,7 +118,7 @@ class Search:
         return True
 
 def main():
-    ds=data();phase=sys.argv[1] if len(sys.argv)>1 else 'all'
+    ds=[d for d in data() if d['split']!='target_stress'];phase=sys.argv[1] if len(sys.argv)>1 else 'all'
     if phase=='legacy':
         db=[]
         for d in ds[:3]:

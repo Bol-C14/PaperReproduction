@@ -1,0 +1,21 @@
+{
+  "command": [
+    "/workspace/scratch/astrotune/tools/build/bin/verilator",
+    "--binary",
+    "--timing",
+    "-CFLAGS",
+    "-std=c++20",
+    "-Wno-fatal",
+    "--top-module",
+    "pipe4_semantics",
+    "--Mdir",
+    "/workspace/PaperReproduction/papers/02_astrotune/work/pipe4_semantics/obj",
+    "-j",
+    "1",
+    "/workspace/PaperReproduction/papers/02_astrotune/benchmarks/multi_pipe_4bit/verified_multi_pipe_4bit.v",
+    "/workspace/PaperReproduction/papers/02_astrotune/tests/pipe4_semantics.v"
+  ],
+  "exit": 0,
+  "output": "PASS: all 256 unsigned 4-bit products after two pipeline edges\n- /workspace/PaperReproduction/papers/02_astrotune/tests/pipe4_semantics.v:15: Verilog $finish\n",
+  "passed": true
+}

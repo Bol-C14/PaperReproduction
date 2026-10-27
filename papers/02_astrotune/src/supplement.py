@@ -1,5 +1,5 @@
 """Run only AFTER main searches: inclusive budget, measured transfer and repeatability."""
-import json,time
+import json,time,sys
 from experiment import data,Search
 from eda import ROOT,EDA
 from qor import layout
@@ -8,11 +8,12 @@ def main():
  ds=data();db=json.loads((ROOT/'results/legacy_db.json').read_text())
  # Frozen donor preparation costs 3*18=54 calls. Charge that entire cost to each retrieval use.
  # Give no-retrieval random exactly 18+54=72 online calls; no offline objective matrix.
- for d in ds[3:]:
-  for seed in (0,1,2):
+ for d in ([] if '--audit-only' in sys.argv else ds[3:]):
+  for seed in ((0,) if d['split']=='target_stress' else (0,1,2)):
    name=f'{d["id"]}_random_inclusive_{seed}';p=ROOT/'results'/f'{name}.summary.json'
    if p.exists():continue
    r=Search(d,'random',seed,(0,0),72,runid=name).run();r['method']='random_inclusive';p.write_text(json.dumps(r,indent=2));print(name,r['best_qor'],flush=True)
+ if '--inclusive-only' in sys.argv:return
  # Every donor's *selected* config measured on every target only after all searches.
  matrix=[]
  for d in ds[3:]:

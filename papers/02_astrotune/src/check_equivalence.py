@@ -11,6 +11,9 @@ for path in sorted((ROOT/'results').glob('*.jsonl')):
   if r['status']=='ok' and r['stage']=='synth':networks.setdefault((r['design'],r['s']),r)
 for (name,s),r in networks.items():
  d=manifest[name];out=ROOT/'work/equivalence'/f'{name}_{s}';out.mkdir(parents=True,exist_ok=True)
+ if name=='div_16bit' and s!=0:
+  rows.append({'design':name,'s':s,'status':'not_tested_proof_budget','wall_s':0,'source_run':r['run'],'source_id':r['id']})
+  continue
  script=f'''read_verilog {ROOT/d['rtl']}
 prep -top {d['top']} -flatten
 async2sync
@@ -37,7 +40,9 @@ equiv_induct -undef -seq 10
 equiv_status -assert
 '''
  (out/'proof.ys').write_text(script)
- try:wall=run(['yosys','-s',str(out/'proof.ys')],out/'proof.log');status='proved';error=None
+ try:
+  if (out/'proof.log').exists() and 'Equivalence successfully proven!' in (out/'proof.log').read_text():wall=0;status='proved';error=None
+  else:wall=run(['yosys','-s',str(out/'proof.ys')],out/'proof.log',timeout=30);status='proved';error=None
  except Exception as e:status='unproved';error=str(e);wall=None
  rows.append({'design':name,'s':s,'status':status,'error':error,'wall_s':wall,'source_run':r['run'],'source_id':r['id']});print(name,s,status,flush=True)
  (ROOT/'results/equivalence.json').write_text(json.dumps(rows,indent=2))

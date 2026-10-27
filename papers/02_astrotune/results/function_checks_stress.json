@@ -1,0 +1,26 @@
+[
+  {
+    "design": "div_16bit",
+    "command": [
+      "/workspace/scratch/astrotune/tools/build/bin/verilator",
+      "--binary",
+      "--timing",
+      "-CFLAGS",
+      "-std=c++20",
+      "-Wno-fatal",
+      "--top-module",
+      "tb_division",
+      "--Mdir",
+      "/workspace/PaperReproduction/papers/02_astrotune/work/function/div_16bit/obj",
+      "-j",
+      "1",
+      "/workspace/PaperReproduction/papers/02_astrotune/benchmarks/div_16bit/verified_div_16bit.v",
+      "/workspace/PaperReproduction/papers/02_astrotune/work/function/div_16bit/tb.v"
+    ],
+    "compile_exit": 0,
+    "adaptation": "DUT module-name substitution only; upstream testbench retained",
+    "sim_exit": 0,
+    "passed": true,
+    "output": "===========Your Design Passed===========\n- /workspace/PaperReproduction/papers/02_astrotune/work/function/div_16bit/tb.v:31: Verilog $finish\n"
+  }
+]

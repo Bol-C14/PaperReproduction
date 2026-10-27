@@ -10,11 +10,16 @@ PLACE=[{'util':u,'density':d} for u in (.25,.35,.45,.55) for d in (.65,.75,.85)]
 
 def sha(p): return hashlib.sha256(Path(p).read_bytes()).hexdigest()
 
-def run(cmd,log):
+def run(cmd,log,timeout=180):
     start=time.monotonic()
     env=dict(os.environ,OMP_NUM_THREADS='1',LD_LIBRARY_PATH=str(TOOLS/'deps')+':'+str(TOOLS/'build/lib'),TCL_LIBRARY=str(TOOLS/'runtime/usr/share/tcl8.5'))
     cmd=[str(TOOLS/'build/bin'/cmd[0])]+cmd[1:]
-    r=subprocess.run(cmd,env=env,capture_output=True,text=True,timeout=180)
+    try:
+        r=subprocess.run(cmd,env=env,capture_output=True,text=True,timeout=timeout)
+    except subprocess.TimeoutExpired as e:
+        def dec(x):return x.decode(errors='replace') if isinstance(x,bytes) else (x or '')
+        log.write_text(dec(e.stdout)+'\nSTDERR\n'+dec(e.stderr)+f'\nTIMEOUT {timeout}s\n')
+        raise
     log.write_text(r.stdout+'\nSTDERR\n'+r.stderr)
     if r.returncode: raise RuntimeError(f'{cmd[0]} failed ({r.returncode}): '+r.stdout[-800:]+r.stderr[-400:])
     return time.monotonic()-start
