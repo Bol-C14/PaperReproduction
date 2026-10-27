@@ -2,9 +2,9 @@
 
 **证据等级：算术与本地反例可验证；官方算法结果未复现。** 所有论文来源核验日期 2026-10-27，源清单及取回限制在 `sources/manifest.json`。这里的疑点不等于官方软件存在已验证 bug。
 
-## 已验证的报告不一致
+## Reporting ambiguity：归一化和运行/取点配置无法唯一确定
 
-[论文 Figure 6](https://www.csl.cornell.edu/~zhiruz/pdfs/aspen-mlcad2025.pdf) caption 将图中 improvement 定义为 over commercial baseline，但 full ASPEN FIR area 标为 12.7%，Table II 数据相对 commercial 为 29.46%，相对 ROVER 为 12.66%。MCM(7,19,31) delay 标为 22.0%，commercial 分母算出 31.62%，ROVER 分母算出 22.01%。因此至少不能用一个统一的 caption 分母解释已显示的 full-system 数值。没有原始数据，不判断究竟是 caption、柱数值或运行配置错误。机器计算见 `results/table_ii_arithmetic.json`；不能用这一问题反推实际 RTL 不正确。
+[论文 Figure 6](https://www.csl.cornell.edu/~zhiruz/pdfs/aspen-mlcad2025.pdf) caption 将图中 improvement 定义为 over commercial baseline，但 full ASPEN FIR area 标为 12.7%，Table II 数据相对 commercial 为 29.46%，相对 ROVER 为 12.66%。MCM(7,19,31) delay 标为 22.0%，commercial 分母算出 31.62%，ROVER 分母算出 22.01%。这两组显示值不能由统一的 caption 分母直接复算，但缺少原始 run/point 信息，最终分类为 **reporting ambiguity**；不径称已验证论文错误，也不判断究竟是 caption、标签转录、柱数值、不同运行或 Pareto 取点配置造成。机器计算见 `results/table_ii_arithmetic.json`；不能用这一问题反推实际 RTL 不正确。
 
 Table II 的四个均值由显示的绝对数重算为 24.2244%、12.4261%、16.5108%、6.6540%。与报告均值基本相符（首项显示 24.23% 的微差可由未显示精度造成），不是证实的算术错误。
 
@@ -37,3 +37,5 @@ extraction-gym 上游 MIT license 与 Cargo manifest 已取回，HEAD=903ba0f818
 未跑：官方 LLM proposal/selection/feedback、官方 egglog extraction-gym flow、商业 synthesis/LEC、ASAP7 PPA、FIR/DCT/Polynomial/Watermark、官方 Figure 6 消融、Figure 7 点集。没有权限审批被拒；shell HTTP 403 是下载通道受限，浏览读取成功，PDF hash 不可得。未申请购买许可证或调用模型 API。
 
 修正回归：`merge_shifts_widened_count` 将 x 和两个 counts 扩展到 2W 位再对 counts 相加并移位，最后截取低 W 位；6/6 位宽 mismatch UNSAT。脚本对每个 case 的 expected SAT/UNSAT 作断言，意外变化会失败。MUX fullmask 与 arithmetic boolean-complement 的修正也有可执行断言。原文没有在已取得的 Table I/IV 文本中给出足以确认上述 vector/Boolean 解释的完整 MUXAR 类型定义，因此这些回归约束是本次独立模型，不能倒推官方使用了相同语义。
+
+复算定位和手工值：Table II 在 PDF 第 5 页（论文 §IV），Figure 6 在 PDF 第 6 页。`sources/figure6_labels.csv` 是从浏览工具的 PDF 文本提取结果手工转录的两个 full ASPEN 标签，不是原始绘图数据；没有完成独立像素级校对。FIR area 公式 `100*(1-169.52/240.31)=29.4586%`（commercial）与 `100*(1-169.52/194.10)=12.6636%`（ROVER）；MCM(7,19,31) delay 为 `100*(1-316.12/462.33)=31.6246%` 与 `100*(1-316.12/405.34)=22.0111%`。原始小数未知，±0.005 的显示取整通常不能解释这些差距，但不同 runs/约束可以，所以不能唯一归因。此处是单 benchmark 比率，mean/geomean 不适用；Table II 平均行另算 arithmetic mean of per-benchmark ratios、geometric mean of ratios 与 ratio of sums，结果见 `results/reporting_ambiguity.json`。后两者不是同一种估计量，不能相互替代。Figure 6 是否与 Table II 共用 seed、pool、constraints 与相同的单目标 Pareto minima 未知，联合最优也不能凭单列 minima 推得。

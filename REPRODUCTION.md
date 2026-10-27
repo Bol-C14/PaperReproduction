@@ -10,7 +10,7 @@
 |---|---|---|
 | Table II 原始数值及平均提升可计算 | Replicated（仅算术） | `sources/table_ii.csv` → `results/table_ii_arithmetic.json`；Go |
 | Table II 商业 EDA/ASAP7 端到端指标 | Not Replicated | 缺指定商业流程、官方 RTL/脚本、模型及调用记录；No-Go |
-| Figure 6 消融及独立因果贡献 | Not Replicated | 无原始 runs；存在分母/图表不一致；No-Go |
+| Figure 6 消融及独立因果贡献 | Not Replicated | 无原始 runs；存在分母/取点配置的 reporting ambiguity；No-Go |
 | Figure 7 官方 Pareto 点集 | Not Replicated | 无逐点 area/delay/RTL；不能由两列最小值重建；No-Go |
 | 提议规则的位向量语义 | Partially Replicated | 独立 Z3，90 项检查，69 unsat、21 sat、0 unknown；只覆盖列明语义及规则子集；Go |
 | 重写后实际 RTL 等价性 | Replicated（本地替代 pilot） | 68/68 Yosys SAT；不是官方候选；Go |
