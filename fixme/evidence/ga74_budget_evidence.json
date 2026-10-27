@@ -1,0 +1,9 @@
+{
+  "case_id": "MGen/L3/Text/GA_74",
+  "source_workload": "repeat (200), each #300000 with two #5 clock generators: 60,000,000 ns and roughly 6,000,000 clock periods",
+  "observed_prefix_checks": 171,
+  "observed_seconds": 3.003,
+  "estimated_full_seconds": 3.512,
+  "chosen_timeout_seconds": 6,
+  "derivation": "1.5x measured full-run estimate, ceil; cap30s; only this case, no source/test-count change; default remains3s"
+}

@@ -11,21 +11,21 @@ matrix** is `results/final_coverage_selected/matrix.csv` / `matrix.json`.
 
 | Group | Reference calibration pass | Unknown | Reference/adapter error | Adapter contract unsupported |
 |---|---:|---:|---:|---:|
-| MGen | 5 | 38 | 17 | 21 |
-| TBGen | 49 | 34 | 5 | 20 |
+| MGen | 28 | 9 | 24 | 20 |
+| TBGen | 49 | 34 | 6 | 19 |
 | SVAGen | 30 | 0 | 0 | 11 |
 | RTLFix MM | 1 | 0 | 0 | 0 |
-| Total | **85** | **72** | **22** | **52** |
+| Total | **108** | **43** | **30** | **50** |
 
-There were **848 recorded command attempts** across the full corrected batch and
-focused follow-ups. The latest evidence selection contains 720 commands: 199 code
+There were **1089 recorded case-command attempts** across the full corrected batch and
+focused follow-ups. The latest evidence selection contains 776 commands: 199 code
 cases have commands in their latest attempt and 32 were rejected in content-based
-preflight. Across retained attempts, **200 unique code cases actually invoked
+preflight. Across retained attempts, **201 unique code cases actually invoked
 verification tools**; one case was later identified as unsuitable for a cloned
-oracle because it contains internal randomness. The other 31 have only content/
+oracle because it contains internal randomness. The other 30 have only content/
 interface-contract refusal evidence. They are not claimed as simulated or proven.
-Of the original 227 additional cases, 196 have actual tool execution somewhere in
-the recorded attempts and 31 have preflight-only decisions. No code case remains
+Of the original 227 additional cases, 197 have actual tool execution somewhere in
+the recorded attempts and 30 have preflight-only decisions. No code case remains
 uninspected, but broad language/model coverage is still incomplete.
 
 ## What the reference providers really do
@@ -74,34 +74,36 @@ also retain nonzero property evidence and constant-property counterfactual logs.
 |---|---:|
 | Complete reference-only SpeCom/Text RTLFix scorer checks | 199 |
 | Missing/invalid original field-level assets or reference | 52 |
-| Code reference calibration passed | 85 |
-| Insufficient proof/oracle evidence, without wall timeout | 39 |
-| Resource limit/external signal, unknown outcome | 4 |
-| Actual wall timeout, unknown outcome | 29 |
-| Reference/adapter diagnostic error | 19 |
-| Additional missing external input dependencies | 3 |
-| Explicit adapter contract unsupported | 52 |
+| Code reference calibration passed | 108 |
+| Insufficient proof/oracle evidence, without wall timeout | 43 |
+| Resource limit/external signal, unknown outcome | 0 |
+| Actual wall timeout, unknown outcome | 0 |
+| Reference/adapter diagnostic error | 26 |
+| Additional missing external input dependencies | 4 |
+| Explicit adapter contract unsupported | 50 |
 | Total | **482** |
 
 The **430** repaired schema count is field-level readiness, not dependency closure
-or executable success. Three field-ready TBGen cases additionally lack referenced
+or executable success. Four field-ready TBGen cases additionally lack referenced
 input assets: `sq_sin` needs `../tables/sin_table.hex`, `gmii_tx_bfm` needs
 `ptpdv2_tx.pcap`, and `alt_exc_upcore` needs its memory configuration/data and
-transaction files. These are data errors, not model failures. Existing constant
+transaction files; `BRSFmnCE` needs its default `RAMINIT.mif`. These are data errors, not model failures. Existing constant
 basename read dependencies are hash-checked and staged; output files and fopen
 mode strings are not misclassified as missing input assets.
 
-Unknowns remain explicit. Some supplied MGen TBs print a stream of passed tests
-but never terminate within the wall budget; others provide monitor output without
-a recognized self-checking oracle. Unknown startup/state in four-state TB checks
-also blocks passing. Such cases are not claimed wrong. Error examples include
+Unknowns remain explicit. The earlier apparent MGen nontermination was largely an
+adapter thread-context/lifetime bug, now diagnosed and repaired through directed
+replays; see DIRECTED_REPAIRS.md. Latest selected code records have no wall-timeout
+or file-limit unknowns. Remaining unknowns lack a sufficient oracle/negative
+response or observe unknown startup/state in the four-state checker. They are not
+claimed wrong. Error examples include
 illegal packed integer TB declarations, undefined RTL variables, a testbench
 instantiating a missing module, mixed assignment restrictions, and hierarchical
 reference-state accesses that a DPI wrapper does not expose. No silent source
 repair turns these into passes.
 
 The prior **753 reference-scorer controls over 251 directories** are separate from
-these 231 code-adapter records. Nor are 85 calibration passes model answers.
+these 231 code-adapter records. Nor are 108 calibration passes model answers.
 `live_llm=false` and `is_model_score=false` accompany the final matrix. The original
 747-task identity and published metrics remain open because original assets and
 comparable sampled responses/tool semantics have not been recovered.
@@ -111,7 +113,7 @@ comparable sampled responses/tool semantics have not been recovered.
 At most two workers run. Each worker starts its own 150-second case budget when
 execution begins; queue time is excluded. Commands have individual wall limits:
 interface 15 s, reference emission 20 s, reference C++ build 45 s, DPI compilation
-50 s, Icarus compilation 20 s, simulation 2–3 s, Yosys command 15 s with SAT timeout
+50 s, Icarus compilation 20 s, simulation 2–3 s by default (two measured long-TB exceptions use 6 s), Yosys command 15 s with SAT timeout
 5 s. Process CPU and per-file limits are 90 s and 16 MiB. Process-group killing
 prevents surviving children on a wall timeout. There were no observed OOM/physical disk failures or pending approvals.
 Resource-limit signals, including the 16 MiB per-file output cap, remain unknown
@@ -154,7 +156,15 @@ small pilot checks. Output directories must be empty. The default provider deriv
 calibration fixtures from supplied references; it does not make model requests.
 
 Remaining work is concrete: broaden reviewed clock/inout/wide-port and temporal
-contracts, investigate 19 reference/adapter errors and 72 unknowns, obtain absent
+contracts, investigate 26 reference/adapter errors and 43 unknowns, obtain absent
 external datasets/original MM assets, and evaluate independently supplied model
 responses with comparable oracles. These are not described as completed model
 benchmarking, and no paid API or proprietary-tool access has been requested.
+
+
+Directed v4 update: see DIRECTED_REPAIRS.md for the 42-case constrained replay,
+causal context/parser probes, lifecycle cleanup, actual interface fixes and source
+conflicts. Prior v3 selection/matrix are preserved in coverage_v3_snapshot. The
+current matrix selects actual attempts per case, not a claim of a single new full
+sweep. Code-case command totals exclude standalone diagnostic probes, which have
+their own traces. No unrelated full batch was repeated.

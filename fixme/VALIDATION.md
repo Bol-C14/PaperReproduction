@@ -84,3 +84,10 @@ BATCH_EXECUTION.md and results/final_coverage_selected/validation.txt. Every one
 231 public code-case IDs has an outcome; actual commands, preflight refusals,
 reference-derived fixtures and model scores remain distinct. The prior 24 controls
 and 753 reference checks are retained unchanged.
+
+
+Latest directed-repair update: DIRECTED_REPAIRS.md supersedes earlier code-outcome
+totals. The authoritative matrix has 108 reference-calibration passes, 43 unknowns,
+30 errors and 50 adapter-contract refusals across 231 code keys. Context leakage,
+post-finish resource lifetime and exact oracle parsing were fixed without a full
+sweep or model calls; old evidence remains retained.

@@ -1,0 +1,73 @@
+{
+  "id": "MGen/L3/Text/GA_67",
+  "subset": "MGen",
+  "input_files": [
+    {
+      "name": ".fsm.sch.verilog.xml",
+      "bytes": 642,
+      "sha256": "57e44f1a299fa017f2a33872ed9c88299024e23dad7cd2749d8dfae8c068d152"
+    },
+    {
+      "name": "dut.f",
+      "bytes": 27,
+      "sha256": "85f962db6f0a138db67a6c64fb84664cd2459a96548439499529589bb912a8bc"
+    },
+    {
+      "name": "dut.v",
+      "bytes": 5562,
+      "sha256": "2e569ac3ded88fe652d3910ace1b2dff0ab5eb5c9b648a525c3d93d87f72c0b8"
+    },
+    {
+      "name": "makefile",
+      "bytes": 874,
+      "sha256": "1ed610b3f900c43854aa439d0f8595382f87e739e36896024208217abf4d247f"
+    },
+    {
+      "name": "ref.v",
+      "bytes": 5842,
+      "sha256": "cfef0ec0d523a3085d47a02912d0c91e5086e5a2b7840e2d4cf1c913de48c9ed"
+    },
+    {
+      "name": "ref_tb.v",
+      "bytes": 8486,
+      "sha256": "2d359d986b709275448ad5863de5adb046af90de7263ff8ff2d304f368726a87"
+    },
+    {
+      "name": "spec.txt",
+      "bytes": 8223,
+      "sha256": "909f68979220001f50843734c905e276c586236264aad555f1073f78e9f926da"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": null,
+  "negative_control_detected": null,
+  "commands": 0,
+  "status": "error",
+  "staging_overlays": [
+    {
+      "file": "ref_tb.v",
+      "kind": "diagnostic-only FSDB PLI removal",
+      "source_sha256": "2d359d986b709275448ad5863de5adb046af90de7263ff8ff2d304f368726a87",
+      "staged_sha256": "40772c9f97aa23496fe8958d1ea5204f7d596078c31e686ed71a9532f3e6901d",
+      "diff": "ref_tb.v.waveform.diff",
+      "scope": "waveform output only; upstream unchanged"
+    }
+  ],
+  "wrapper_mode": "reference_model",
+  "reference_source": "ref.v",
+  "reference_source_sha256": "cfef0ec0d523a3085d47a02912d0c91e5086e5a2b7840e2d4cf1c913de48c9ed",
+  "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+  "interface_conflict": {
+    "parameter_bindings": {
+      "W": 8,
+      "D": 8
+    },
+    "declared_reference_parameters": [],
+    "decision": "do not discard TB bindings or invent source parameters"
+  },
+  "reason": "TB/source parameter interface conflict: named bindings supplied to a parameterless reference",
+  "seconds": 0.003
+}

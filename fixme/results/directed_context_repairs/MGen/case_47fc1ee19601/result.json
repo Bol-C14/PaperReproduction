@@ -1,0 +1,44 @@
+{
+  "id": "MGen/L1/Text/Sync DFF",
+  "subset": "MGen",
+  "input_files": [
+    {
+      "name": "dff_sync.v",
+      "bytes": 710,
+      "sha256": "b32079e096317a5b84bed75cdc9e72092032839fe429279cb743983f969f783c"
+    },
+    {
+      "name": "dff_sync_tb.v",
+      "bytes": 1475,
+      "sha256": "f3d50d4d5474f3c84137b985033832737e60c916ce03593244e58cee1cca7c8a"
+    }
+  ],
+  "overlays": [
+    {
+      "field": "spec_text",
+      "source": "data/SpeCom/L1/Text/Sync DFF/dff_sync_spec.txt",
+      "sha256": "39b7da1a3123671ae8c9d618dd0ea5ea91b61f7f6a943d89b41636c654c802cc",
+      "reason": "same case name and byte-identical RTL in SpeCom; explicit cross-subset reuse",
+      "fidelity": "structural-input-overlay",
+      "matched_rtl_sha256": "b32079e096317a5b84bed75cdc9e72092032839fe429279cb743983f969f783c"
+    }
+  ],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": true,
+  "negative_control_detected": true,
+  "commands": 6,
+  "status": "pass",
+  "wrapper_mode": "dut_replacement",
+  "reference_source": "dff_sync.v",
+  "reference_source_sha256": "b32079e096317a5b84bed75cdc9e72092032839fe429279cb743983f969f783c",
+  "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+  "resolved_tb_parameters": {},
+  "observed_checks": 49,
+  "score_reason": "explicit supplied-TB failed check",
+  "reference_status": "pass",
+  "negative_status": "fail",
+  "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+  "seconds": 12.856
+}

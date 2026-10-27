@@ -1,0 +1,56 @@
+{
+  "kind": "reference-calibration-not-model-score",
+  "live_llm": false,
+  "case_count": 1,
+  "max_workers": 1,
+  "case_budget_seconds": 150,
+  "results": [
+    {
+      "id": "MGen/L1/Text/Async DFF",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": "dff_async.v",
+          "bytes": 826,
+          "sha256": "389636286cc7e5aa5a24f56d6621071ff55214be1a930c31de5815fe36ed40c7"
+        },
+        {
+          "name": "dff_async_tb.v",
+          "bytes": 1519,
+          "sha256": "61d3e68df57c536d069909fcb27f69ea222fa35d0b9b18cc21c3269f3d6072ec"
+        }
+      ],
+      "overlays": [
+        {
+          "field": "spec_text",
+          "source": "data/SpeCom/L1/Text/Async DFF/dff_async_spec.txt",
+          "sha256": "d7ea8e578bb71a83dbf17ed486a834bedc3b69618d5b96a5454870e6a3310236",
+          "reason": "same case name and byte-identical RTL in SpeCom; explicit cross-subset reuse",
+          "fidelity": "structural-input-overlay",
+          "matched_rtl_sha256": "389636286cc7e5aa5a24f56d6621071ff55214be1a930c31de5815fe36ed40c7"
+        }
+      ],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
+      "wrapper_mode": "dut_replacement",
+      "reference_source": "dff_async.v",
+      "reference_source_sha256": "389636286cc7e5aa5a24f56d6621071ff55214be1a930c31de5815fe36ed40c7",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {},
+      "observed_checks": 100,
+      "score_reason": "explicit supplied-TB failed check",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 12.936
+    }
+  ],
+  "statuses": {
+    "pass": 1
+  }
+}

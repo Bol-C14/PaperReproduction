@@ -1,0 +1,231 @@
+{
+  "context_hypothesis": "confirmed by actual runtime probe and Async DFF unchanged-3s replay",
+  "secondary_lifecycle_bug": "GA89 line-buffered execution reaches all 1004 checks and $finish/report but hangs at exit; explicit TB-final model/context release fixes process exit at original3s",
+  "old_wall_timeout_cases": 29,
+  "same_path_resource_cases": 4,
+  "context_cohort_outcomes": {
+    "error": 9,
+    "pass": 18,
+    "unknown": 6
+  },
+  "context_cohort_latest_simulation_timeouts": 0,
+  "targeted_case_count": 42,
+  "diagnostics": {
+    "context_probe": "results/context_regression",
+    "causal_case": "evidence/context_causal_report.json",
+    "measured_long_TBs": [
+      "evidence/ga74_budget_evidence.json",
+      "evidence/remaining_measured_budgets.json"
+    ],
+    "GA89_exit_probe": "results/ga89_unbuffered_probe",
+    "GA94_comparator_probe": "results/ga94_oracle_probe"
+  },
+  "case_investigations": [
+    {
+      "id": "MGen/L3/Text/GA_67",
+      "status": "error",
+      "reason": "TB/source parameter interface conflict: named bindings supplied to a parameterless reference",
+      "reference_status": null,
+      "negative_status": null,
+      "observed_checks": null,
+      "interface_conflict": {
+        "parameter_bindings": {
+          "W": 8,
+          "D": 8
+        },
+        "declared_reference_parameters": [],
+        "decision": "do not discard TB bindings or invent source parameters"
+      },
+      "staging_overlays": [
+        {
+          "file": "ref_tb.v",
+          "kind": "diagnostic-only FSDB PLI removal",
+          "source_sha256": "2d359d986b709275448ad5863de5adb046af90de7263ff8ff2d304f368726a87",
+          "staged_sha256": "40772c9f97aa23496fe8958d1ea5204f7d596078c31e686ed71a9532f3e6901d",
+          "diff": "ref_tb.v.waveform.diff",
+          "scope": "waveform output only; upstream unchanged"
+        }
+      ],
+      "reference_interface_selection": null,
+      "interface_parse_normalization": null,
+      "inactive_file_dependencies": null,
+      "resolved_tb_parameters": null
+    },
+    {
+      "id": "MGen/L2/Text/GS_58",
+      "status": "pass",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "observed_checks": 100,
+      "interface_conflict": null,
+      "staging_overlays": [
+        {
+          "file": "dut.v",
+          "kind": "module-name alias for exact named-port match",
+          "source_sha256": "27e1d221da4ca9749460c1de0b058fcf7d0464d7363912fde637da28b4cefc36",
+          "staged_sha256": "186edc9c7afb6b69c315085d6bd03f2a6675cd58c7136d1b45069c22d98dc749",
+          "from_module": "omsp_watchdog",
+          "to_module": "top",
+          "matched_port_names": [
+            "aclk_en",
+            "dbg_freeze",
+            "mclk",
+            "nmi",
+            "nmi_evt",
+            "nmie",
+            "per_addr",
+            "per_din",
+            "per_dout",
+            "per_en",
+            "per_wen",
+            "puc",
+            "smclk_en",
+            "wdtifg_set",
+            "wdtpw_error",
+            "wdttmsel"
+          ],
+          "diff": "dut.v.module_alias.diff",
+          "scope": "only module declaration name changes; no port/default/body/parameter changes"
+        }
+      ],
+      "reference_interface_selection": null,
+      "interface_parse_normalization": null,
+      "inactive_file_dependencies": null,
+      "resolved_tb_parameters": {}
+    },
+    {
+      "id": "MGen/L3/Text/GA_74",
+      "status": "pass",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "observed_checks": 200,
+      "interface_conflict": null,
+      "staging_overlays": [
+        {
+          "file": "ref_tb.v",
+          "kind": "diagnostic-only FSDB PLI removal",
+          "source_sha256": "dd3743a24146d57e497d89aa84871ebead6608073f0da7727229a44905a737a0",
+          "staged_sha256": "d6b6c82b439bee458b19909a822d1fa2e55ca96fa743f9db4e1701de101acfaa",
+          "diff": "ref_tb.v.waveform.diff",
+          "scope": "waveform output only; upstream unchanged"
+        }
+      ],
+      "reference_interface_selection": null,
+      "interface_parse_normalization": null,
+      "inactive_file_dependencies": null,
+      "resolved_tb_parameters": {}
+    },
+    {
+      "id": "MGen/L3/Text/GA_94",
+      "status": "unknown",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "reference_status": "pass",
+      "negative_status": "pass",
+      "observed_checks": 101,
+      "interface_conflict": null,
+      "staging_overlays": [
+        {
+          "file": "ref_tb.v",
+          "kind": "diagnostic-only FSDB PLI removal",
+          "source_sha256": "b3451f3dcedf078b7a3f8fb64e104a537dea34f0642e143f87eabc2fd005e809",
+          "staged_sha256": "4bd954beb8b984379ee828163b19b9034bac0ac28a245ac75dac2f2a0f02f2d7",
+          "diff": "ref_tb.v.waveform.diff",
+          "scope": "waveform output only; upstream unchanged"
+        }
+      ],
+      "reference_interface_selection": {
+        "old_first_module": "MUX32_ref",
+        "selected_module": "CPU_ref",
+        "evidence": "unique reference-source module directly instantiated by supplied TB",
+        "reference_sha256": "3c0d87234bb5cca8a9e6cee34e72b585891d0d8390d5b09cd3d7641aede970de",
+        "tb_sha256": "b3451f3dcedf078b7a3f8fb64e104a537dea34f0642e143f87eabc2fd005e809",
+        "source_rewrite": false
+      },
+      "interface_parse_normalization": {
+        "kind": "parser-view whitespace after packed net/variable type",
+        "before_ports": [
+          "clk_i",
+          "DataOrReg",
+          "address",
+          "instr_i",
+          "reset",
+          "vout_addr",
+          "value_o_ref",
+          "is_positive_ref"
+        ],
+        "after_ports": [
+          "clk_i",
+          "DataOrReg",
+          "address",
+          "instr_i",
+          "reset",
+          "vout_addr",
+          "value_o_ref",
+          "is_positive_ref",
+          "easter_egg_ref"
+        ],
+        "verified_against": "actual generated RefModel C++ port declarations",
+        "source_rewrite": false
+      },
+      "inactive_file_dependencies": null,
+      "resolved_tb_parameters": {}
+    },
+    {
+      "id": "MGen/L2/Text/GA_97",
+      "status": "pass",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "observed_checks": 200,
+      "interface_conflict": null,
+      "staging_overlays": [
+        {
+          "file": "ref_tb.v",
+          "kind": "diagnostic-only FSDB PLI removal",
+          "source_sha256": "2049a90c4e3aa0c60bb6c27b01d086e706ae1fb287ca2a7baf4b25fd59de387b",
+          "staged_sha256": "bef55da69c8dcf5b345e714e34d289787739e816609729c3c06452cb4783e55c",
+          "diff": "ref_tb.v.waveform.diff",
+          "scope": "waveform output only; upstream unchanged"
+        }
+      ],
+      "reference_interface_selection": null,
+      "interface_parse_normalization": null,
+      "inactive_file_dependencies": [
+        {
+          "file": "dut.v",
+          "parameter": "lpm_file",
+          "default": "NONE",
+          "guard": "lpm_file != \"NONE\" && lpm_file != \"none\"",
+          "reason": "all-default read is statically disabled; no TB override; source not rewritten"
+        },
+        {
+          "file": "ref.v",
+          "parameter": "lpm_file",
+          "default": "NONE",
+          "guard": "lpm_file != \"NONE\" && lpm_file != \"none\"",
+          "reason": "all-default read is statically disabled; no TB override; source not rewritten"
+        }
+      ],
+      "resolved_tb_parameters": {
+        "operation_mode": "DUAL_PORT",
+        "output_mode": "REG"
+      }
+    },
+    {
+      "id": "TBGen/L2/Text/BRSFmnCE",
+      "status": "error",
+      "reason": "missing external input asset: ['RAMINIT.mif']",
+      "reference_status": null,
+      "negative_status": null,
+      "observed_checks": null,
+      "interface_conflict": null,
+      "staging_overlays": null,
+      "reference_interface_selection": null,
+      "interface_parse_normalization": null,
+      "inactive_file_dependencies": null,
+      "resolved_tb_parameters": null
+    }
+  ]
+}

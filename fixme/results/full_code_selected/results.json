@@ -6,7 +6,15 @@
     "full_code_batch_v2",
     "code_corrections",
     "driver_dependency_corrections",
-    "read_dependency_fix"
+    "read_dependency_fix",
+    "context_async_trial",
+    "directed_context_repairs",
+    "interface_binding_repairs",
+    "packed_port_parse_repair",
+    "exact_lexical_repairs",
+    "ga74_measured_budget",
+    "remaining_measured_budgets",
+    "context_lifecycle_repairs"
   ],
   "results": [
     {
@@ -137,20 +145,28 @@
       "functional_pass": null,
       "negative_control_detected": null,
       "commands": 4,
-      "status": "unknown",
+      "status": "error",
       "wrapper_mode": "dut_replacement",
       "reference_source": "cntr_3ud.v",
       "reference_source_sha256": "13674f0afadc4fd047d79cbf7f13949f142ef53aa1f62756d49468af66a099bd",
       "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
       "resolved_tb_parameters": {},
-      "reference_status": "unknown",
+      "observed_checks": 11,
+      "score_reason": "explicit supplied-TB failed check",
+      "reference_status": "fail",
       "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "seconds": 11.729,
-      "evidence_root": "../full_code_batch_v2",
+      "seconds": 12.257,
+      "evidence_root": "../directed_context_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "unknown",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "error",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
         }
@@ -288,21 +304,28 @@
       "functional_pass": null,
       "negative_control_detected": null,
       "commands": 4,
-      "status": "unknown",
+      "status": "error",
       "wrapper_mode": "dut_replacement",
       "reference_source": "alu.v",
       "reference_source_sha256": "b391de8a9a58cfaf52bd047b6a34748a06f8282c7a3e1f2b24e4da02bc165846",
       "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
       "resolved_tb_parameters": {},
-      "observed_checks": 0,
-      "reference_status": "unknown",
+      "observed_checks": 200,
+      "score_reason": "explicit supplied-TB failed check",
+      "reference_status": "fail",
       "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "seconds": 12.107,
-      "evidence_root": "../full_code_batch_v2",
+      "seconds": 11.807,
+      "evidence_root": "../exact_lexical_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "unknown",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "exact_lexical_repairs",
+          "status": "error",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
         }
@@ -336,25 +359,46 @@
       "live_llm": false,
       "kind": "reference-calibration-not-model-score",
       "fidelity": "structural-substituted",
-      "functional_pass": null,
-      "negative_control_detected": null,
-      "commands": 4,
-      "status": "unknown",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
       "wrapper_mode": "dut_replacement",
       "reference_source": "dff_async.v",
       "reference_source_sha256": "389636286cc7e5aa5a24f56d6621071ff55214be1a930c31de5815fe36ed40c7",
       "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
       "resolved_tb_parameters": {},
-      "reference_status": "unknown",
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "seconds": 14.903,
-      "evidence_root": "../full_code_batch_v2",
+      "reference_lifecycle": {
+        "model_context_ownership": "explicit unique owners",
+        "cleanup": "TB final calls ref_model_release before outer main context destruction",
+        "active_RTL_behavior_changed": false,
+        "diff": "tb_lifecycle.diff"
+      },
+      "observed_checks": 100,
+      "score_reason": "explicit supplied-TB failed check",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 13.151,
+      "evidence_root": "../context_lifecycle_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "context_async_trial",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
+        },
+        {
+          "root": "context_lifecycle_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ]
     },
@@ -548,13 +592,21 @@
       "reference_source_sha256": "8f4eba519023bcc1d1d3adef79d91758476e19a1c335c81834ca6523ea16acf1",
       "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
       "resolved_tb_parameters": {},
+      "observed_checks": 0,
+      "score_reason": "no recognized check evidence",
       "reference_status": "unknown",
       "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "seconds": 15.255,
-      "evidence_root": "../full_code_batch_v2",
+      "seconds": 12.055,
+      "evidence_root": "../directed_context_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
+          "status": "unknown",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
@@ -699,13 +751,21 @@
       "reference_source_sha256": "fb92d609830d29347c8ec3eb6887455024f231bd1279d918a32fa7a2f3095240",
       "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
       "resolved_tb_parameters": {},
+      "observed_checks": 0,
+      "score_reason": "no recognized check evidence",
       "reference_status": "unknown",
       "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "seconds": 17.354,
-      "evidence_root": "../full_code_batch_v2",
+      "seconds": 12.584,
+      "evidence_root": "../directed_context_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
+          "status": "unknown",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
@@ -749,13 +809,21 @@
       "reference_source_sha256": "8bc8173bfda358e9d47cc6d8269f044617faf490edcf1d52453ae1118ef3f517",
       "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
       "resolved_tb_parameters": {},
+      "observed_checks": 0,
+      "score_reason": "no recognized check evidence",
       "reference_status": "unknown",
       "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "seconds": 16.268,
-      "evidence_root": "../full_code_batch_v2",
+      "seconds": 12.879,
+      "evidence_root": "../directed_context_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
+          "status": "unknown",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
@@ -937,26 +1005,34 @@
       "live_llm": false,
       "kind": "reference-calibration-not-model-score",
       "fidelity": "structural-substituted",
-      "functional_pass": null,
-      "negative_control_detected": null,
-      "commands": 4,
-      "status": "unknown",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
       "wrapper_mode": "dut_replacement",
       "reference_source": "mux_always.v",
       "reference_source_sha256": "57c2b4e86f9d1a46767e5fdf7e8a62d8180c437135753e8eb8d2e50a26960094",
       "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
       "resolved_tb_parameters": {},
-      "observed_checks": 0,
-      "reference_status": "unknown",
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "seconds": 12.418,
-      "evidence_root": "../full_code_batch_v2",
+      "observed_checks": 100,
+      "score_reason": "explicit supplied-TB failed check",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 12.795,
+      "evidence_root": "../exact_lexical_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "exact_lexical_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ]
     },
@@ -988,26 +1064,34 @@
       "live_llm": false,
       "kind": "reference-calibration-not-model-score",
       "fidelity": "structural-substituted",
-      "functional_pass": null,
-      "negative_control_detected": null,
-      "commands": 4,
-      "status": "unknown",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
       "wrapper_mode": "dut_replacement",
       "reference_source": "mux_case.v",
       "reference_source_sha256": "e0b69faf8f892352155abb43a0dd5729d48da9a5f608fe5d6d3dc013ffaed792",
       "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
       "resolved_tb_parameters": {},
-      "observed_checks": 0,
-      "reference_status": "unknown",
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "seconds": 12.672,
-      "evidence_root": "../full_code_batch_v2",
+      "observed_checks": 100,
+      "score_reason": "explicit supplied-TB failed check",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 12.38,
+      "evidence_root": "../exact_lexical_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "exact_lexical_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ]
     },
@@ -1039,25 +1123,34 @@
       "live_llm": false,
       "kind": "reference-calibration-not-model-score",
       "fidelity": "structural-substituted",
-      "functional_pass": null,
-      "negative_control_detected": null,
-      "commands": 4,
-      "status": "unknown",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
       "wrapper_mode": "dut_replacement",
       "reference_source": "no_1s.v",
       "reference_source_sha256": "fdcb265ff140d3b4932f9003f0aa9f1ed2495491a628b634f6d9423bd6dabfe8",
       "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
       "resolved_tb_parameters": {},
-      "reference_status": "unknown",
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "seconds": 15.503,
-      "evidence_root": "../full_code_batch_v2",
+      "observed_checks": 1,
+      "score_reason": "explicit supplied-TB failed check",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 13.737,
+      "evidence_root": "../directed_context_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ]
     },
@@ -1098,13 +1191,21 @@
       "reference_source_sha256": "88ee60217b666051b1a4c8471b9703fce863a6e26e70dafaf49239fe454f7d93",
       "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
       "resolved_tb_parameters": {},
+      "observed_checks": 0,
+      "score_reason": "no recognized check evidence",
       "reference_status": "unknown",
       "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "seconds": 15.248,
-      "evidence_root": "../full_code_batch_v2",
+      "seconds": 12.811,
+      "evidence_root": "../directed_context_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
+          "status": "unknown",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
@@ -1232,25 +1333,34 @@
       "live_llm": false,
       "kind": "reference-calibration-not-model-score",
       "fidelity": "structural-substituted",
-      "functional_pass": null,
-      "negative_control_detected": null,
-      "commands": 4,
-      "status": "unknown",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
       "wrapper_mode": "dut_replacement",
       "reference_source": "dff_sync.v",
       "reference_source_sha256": "b32079e096317a5b84bed75cdc9e72092032839fe429279cb743983f969f783c",
       "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
       "resolved_tb_parameters": {},
-      "reference_status": "unknown",
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "seconds": 15.259,
-      "evidence_root": "../full_code_batch_v2",
+      "observed_checks": 49,
+      "score_reason": "explicit supplied-TB failed check",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 12.856,
+      "evidence_root": "../directed_context_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ]
     },
@@ -1291,13 +1401,21 @@
       "reference_source_sha256": "ab9699cf80cb4b05b9703e2fe2557d7cb98da42f9e443f042bf0b13e220fa67b",
       "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
       "resolved_tb_parameters": {},
+      "observed_checks": 0,
+      "score_reason": "no recognized check evidence",
       "reference_status": "unknown",
       "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "seconds": 15.161,
-      "evidence_root": "../full_code_batch_v2",
+      "seconds": 11.958,
+      "evidence_root": "../directed_context_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
+          "status": "unknown",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
@@ -1332,10 +1450,10 @@
       "live_llm": false,
       "kind": "reference-calibration-not-model-score",
       "fidelity": "structural-substituted",
-      "functional_pass": null,
-      "negative_control_detected": null,
-      "commands": 4,
-      "status": "unknown",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
       "wrapper_mode": "dut_replacement",
       "reference_source": "univ_shift.v",
       "reference_source_sha256": "b8905e766ab0f05c484662f3183af1cbf741d9831f9ff081b258a6256f9474e8",
@@ -1343,16 +1461,25 @@
       "resolved_tb_parameters": {
         "n": 4
       },
-      "reference_status": "unknown",
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "seconds": 12.588,
-      "evidence_root": "../full_code_batch_v2",
+      "observed_checks": 20,
+      "score_reason": "explicit supplied-TB failed check",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 12.734,
+      "evidence_root": "../directed_context_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ]
     },
@@ -1590,10 +1717,10 @@
       "live_llm": false,
       "kind": "reference-calibration-not-model-score",
       "fidelity": "structural-substituted",
-      "functional_pass": null,
-      "negative_control_detected": null,
-      "commands": 4,
-      "status": "unknown",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
       "wrapper_mode": "reference_model",
       "reference_source": "ref.v",
       "reference_source_sha256": "8df6da97f1a2455752426bfeec2696945992b92663f50a1b5ca6fe766f6de8f4",
@@ -1602,16 +1729,25 @@
         "LGMEM": 10,
         "BUSW": 32
       },
-      "reference_status": "unknown",
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "seconds": 16.865,
-      "evidence_root": "../full_code_batch_v2",
+      "observed_checks": 1004,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 12.393,
+      "evidence_root": "../directed_context_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ]
     },
@@ -1662,20 +1798,28 @@
       "functional_pass": null,
       "negative_control_detected": null,
       "commands": 4,
-      "status": "unknown",
+      "status": "error",
       "wrapper_mode": "reference_model",
       "reference_source": "ref.v",
       "reference_source_sha256": "61c1c0ddefcdbc382b494c4464ce19b5148c3187245edd09a673d49c37faa285",
       "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
       "resolved_tb_parameters": {},
-      "reference_status": "unknown",
+      "observed_checks": 102,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "fail",
       "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "seconds": 16.513,
-      "evidence_root": "../full_code_batch_v2",
+      "seconds": 12.211,
+      "evidence_root": "../directed_context_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "unknown",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "error",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
         }
@@ -1725,25 +1869,34 @@
       "live_llm": false,
       "kind": "reference-calibration-not-model-score",
       "fidelity": "structural-substituted",
-      "functional_pass": null,
-      "negative_control_detected": null,
-      "commands": 4,
-      "status": "unknown",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
       "wrapper_mode": "reference_model",
       "reference_source": "ref.v",
       "reference_source_sha256": "f458c6b30325585339cc2af1d308577d9216b03090aa6a46f4084c4e77c4e419",
       "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
       "resolved_tb_parameters": {},
-      "reference_status": "unknown",
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "seconds": 17.72,
-      "evidence_root": "../full_code_batch_v2",
+      "observed_checks": 217,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 13.271,
+      "evidence_root": "../directed_context_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ]
     },
@@ -1851,19 +2004,69 @@
       "live_llm": false,
       "kind": "reference-calibration-not-model-score",
       "fidelity": "structural-substituted",
-      "functional_pass": null,
-      "negative_control_detected": null,
-      "commands": 0,
-      "status": "adapter_unsupported",
-      "reason": "file I/O source outside bounded no-filesystem-confinement contract",
-      "seconds": 0.0,
-      "evidence_root": "../full_code_batch_v2",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
+      "staging_overlays": [
+        {
+          "file": "ref_tb.v",
+          "kind": "diagnostic-only FSDB PLI removal",
+          "source_sha256": "2049a90c4e3aa0c60bb6c27b01d086e706ae1fb287ca2a7baf4b25fd59de387b",
+          "staged_sha256": "bef55da69c8dcf5b345e714e34d289787739e816609729c3c06452cb4783e55c",
+          "diff": "ref_tb.v.waveform.diff",
+          "scope": "waveform output only; upstream unchanged"
+        }
+      ],
+      "inactive_file_dependencies": [
+        {
+          "file": "dut.v",
+          "parameter": "lpm_file",
+          "default": "NONE",
+          "guard": "lpm_file != \"NONE\" && lpm_file != \"none\"",
+          "reason": "all-default read is statically disabled; no TB override; source not rewritten"
+        },
+        {
+          "file": "ref.v",
+          "parameter": "lpm_file",
+          "default": "NONE",
+          "guard": "lpm_file != \"NONE\" && lpm_file != \"none\"",
+          "reason": "all-default read is statically disabled; no TB override; source not rewritten"
+        }
+      ],
+      "wrapper_mode": "reference_model",
+      "reference_source": "ref.v",
+      "reference_source_sha256": "1ee9cef28298d5182bec2c1bb32389f4177de21c0d53ca720cfcf671cd93c9a0",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {
+        "operation_mode": "DUAL_PORT",
+        "output_mode": "REG"
+      },
+      "observed_checks": 200,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 13.0,
+      "evidence_root": "../interface_binding_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "adapter_unsupported",
           "commands": 0,
           "reason": "file I/O source outside bounded no-filesystem-confinement contract"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "error",
+          "commands": 3,
+          "reason": "official reference/derived baseline diagnostic: candidate compilation diagnostic"
+        },
+        {
+          "root": "interface_binding_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ]
     },
@@ -1909,20 +2112,28 @@
       "functional_pass": null,
       "negative_control_detected": null,
       "commands": 4,
-      "status": "unknown",
+      "status": "error",
       "wrapper_mode": "dut_replacement",
       "reference_source": "dut.v",
       "reference_source_sha256": "61f68611d3b558eb9d989706c8536721d2afe106730e34e91c7bf36deac36d4e",
       "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
       "resolved_tb_parameters": {},
-      "reference_status": "unknown",
+      "observed_checks": 160,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "fail",
       "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "seconds": 20.88,
-      "evidence_root": "../full_code_batch_v2",
+      "seconds": 16.076,
+      "evidence_root": "../directed_context_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "unknown",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "error",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
         }
@@ -1972,25 +2183,34 @@
       "live_llm": false,
       "kind": "reference-calibration-not-model-score",
       "fidelity": "structural-substituted",
-      "functional_pass": null,
-      "negative_control_detected": null,
-      "commands": 4,
-      "status": "unknown",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
       "wrapper_mode": "reference_model",
       "reference_source": "ref.v",
       "reference_source_sha256": "41cfd6fb0a055c2bc39ffff2a25e6fb3fedc30af5a4c9cb993ac43c15dfe5821",
       "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
       "resolved_tb_parameters": {},
-      "reference_status": "unknown",
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "seconds": 18.282,
-      "evidence_root": "../full_code_batch_v2",
+      "observed_checks": 200,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 13.699,
+      "evidence_root": "../directed_context_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ]
     },
@@ -2348,25 +2568,40 @@
       "live_llm": false,
       "kind": "reference-calibration-not-model-score",
       "fidelity": "structural-substituted",
-      "functional_pass": null,
-      "negative_control_detected": null,
-      "commands": 4,
-      "status": "unknown",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
       "wrapper_mode": "reference_model",
       "reference_source": "ref.v",
       "reference_source_sha256": "cd1c4dd377e62648e0f3f82187389dce0ebdf622312ebc4e05a0919ea594a742",
       "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
       "resolved_tb_parameters": {},
-      "reference_status": "unknown",
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "seconds": 18.231,
-      "evidence_root": "../full_code_batch_v2",
+      "observed_checks": 200,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 19.327,
+      "evidence_root": "../remaining_measured_budgets",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "unknown",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "remaining_measured_budgets",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ]
     },
@@ -2414,10 +2649,10 @@
       "live_llm": false,
       "kind": "reference-calibration-not-model-score",
       "fidelity": "structural-substituted",
-      "functional_pass": null,
-      "negative_control_detected": null,
-      "commands": 4,
-      "status": "unknown",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
       "wrapper_mode": "reference_model",
       "reference_source": "ref.v",
       "reference_source_sha256": "eb58cf1be4dabe1f94e0cb65b7b9e4fb86f68bc5586d0f8ed00a86d03a52429f",
@@ -2425,16 +2660,25 @@
       "resolved_tb_parameters": {
         "BW": 32
       },
-      "reference_status": "unknown",
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "seconds": 15.652,
-      "evidence_root": "../full_code_batch_v2",
+      "observed_checks": 100,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 13.188,
+      "evidence_root": "../directed_context_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ]
     },
@@ -2545,7 +2789,7 @@
       "functional_pass": null,
       "negative_control_detected": null,
       "commands": 4,
-      "status": "unknown",
+      "status": "error",
       "wrapper_mode": "reference_model",
       "reference_source": "ref.v",
       "reference_source_sha256": "b93c55277d0ffd5c34f418966dc2128f3a8e5acda28f271323f23f5e56f0c2a1",
@@ -2556,14 +2800,22 @@
         "ALMOST_EMPTY_THRESH": 1,
         "ALMOST_FULL_THRESH": 6
       },
-      "reference_status": "unknown",
+      "observed_checks": 100,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "fail",
       "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "seconds": 16.611,
-      "evidence_root": "../full_code_batch_v2",
+      "seconds": 13.217,
+      "evidence_root": "../directed_context_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "unknown",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "error",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
         }
@@ -2613,25 +2865,34 @@
       "live_llm": false,
       "kind": "reference-calibration-not-model-score",
       "fidelity": "structural-substituted",
-      "functional_pass": null,
-      "negative_control_detected": null,
-      "commands": 4,
-      "status": "unknown",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
       "wrapper_mode": "reference_model",
       "reference_source": "ref.v",
       "reference_source_sha256": "1de85b2bd0bdf24d834b39cf1d30ec7fcef0e74614df9ad7bd1eb1dd8577f6b1",
       "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
       "resolved_tb_parameters": {},
-      "reference_status": "unknown",
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "seconds": 17.363,
-      "evidence_root": "../full_code_batch_v2",
+      "observed_checks": 100,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 16.925,
+      "evidence_root": "../directed_context_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ]
     },
@@ -2750,20 +3011,28 @@
       "functional_pass": null,
       "negative_control_detected": null,
       "commands": 4,
-      "status": "unknown",
+      "status": "error",
       "wrapper_mode": "reference_model",
       "reference_source": "ref.v",
       "reference_source_sha256": "47789937213427d31f50bad34eac07adb94deec985ea5ba38d6222749de316c7",
       "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
       "resolved_tb_parameters": {},
-      "reference_status": "unknown",
+      "observed_checks": 100,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "fail",
       "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "seconds": 15.415,
-      "evidence_root": "../full_code_batch_v2",
+      "seconds": 11.853,
+      "evidence_root": "../directed_context_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "unknown",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "error",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
         }
@@ -2813,24 +3082,64 @@
       "live_llm": false,
       "kind": "reference-calibration-not-model-score",
       "fidelity": "structural-substituted",
-      "functional_pass": null,
-      "negative_control_detected": null,
-      "commands": 3,
-      "status": "error",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
       "wrapper_mode": "reference_model",
       "reference_source": "ref.v",
       "reference_source_sha256": "6c2709499a78cd1197e2a803876800983e8c8b0da67a8c76a25ad23556ee0995",
       "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
       "resolved_tb_parameters": {},
-      "reason": "official reference/derived baseline diagnostic: candidate compilation diagnostic",
-      "seconds": 5.22,
-      "evidence_root": "../full_code_batch_v2",
+      "staging_overlays": [
+        {
+          "file": "dut.v",
+          "kind": "module-name alias for exact named-port match",
+          "source_sha256": "27e1d221da4ca9749460c1de0b058fcf7d0464d7363912fde637da28b4cefc36",
+          "staged_sha256": "186edc9c7afb6b69c315085d6bd03f2a6675cd58c7136d1b45069c22d98dc749",
+          "from_module": "omsp_watchdog",
+          "to_module": "top",
+          "matched_port_names": [
+            "aclk_en",
+            "dbg_freeze",
+            "mclk",
+            "nmi",
+            "nmi_evt",
+            "nmie",
+            "per_addr",
+            "per_din",
+            "per_dout",
+            "per_en",
+            "per_wen",
+            "puc",
+            "smclk_en",
+            "wdtifg_set",
+            "wdtpw_error",
+            "wdttmsel"
+          ],
+          "diff": "dut.v.module_alias.diff",
+          "scope": "only module declaration name changes; no port/default/body/parameter changes"
+        }
+      ],
+      "observed_checks": 100,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 13.329,
+      "evidence_root": "../directed_context_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "error",
           "commands": 3,
           "reason": "official reference/derived baseline diagnostic: candidate compilation diagnostic"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ]
     },
@@ -2878,10 +3187,10 @@
       "live_llm": false,
       "kind": "reference-calibration-not-model-score",
       "fidelity": "structural-substituted",
-      "functional_pass": null,
-      "negative_control_detected": null,
-      "commands": 4,
-      "status": "unknown",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
       "wrapper_mode": "reference_model",
       "reference_source": "ref.v",
       "reference_source_sha256": "865fed79cf8c27d2af40eb352b1a07009ec7991d2213ca83ed49a812479829a2",
@@ -2890,16 +3199,25 @@
         "ADDRESS_WIDTH": 32,
         "AUX_WIDTH": 1
       },
-      "reference_status": "unknown",
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "seconds": 15.104,
-      "evidence_root": "../full_code_batch_v2",
+      "observed_checks": 100,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 13.411,
+      "evidence_root": "../directed_context_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ]
     },
@@ -3075,10 +3393,10 @@
       "live_llm": false,
       "kind": "reference-calibration-not-model-score",
       "fidelity": "structural-substituted",
-      "functional_pass": null,
-      "negative_control_detected": null,
-      "commands": 4,
-      "status": "unknown",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
       "wrapper_mode": "reference_model",
       "reference_source": "ref.v",
       "reference_source_sha256": "61b99f52d7bd879d346b2b0d976993f61a0c55ff270b59782e77fce108c51efa",
@@ -3087,16 +3405,25 @@
         "GSHARE_WIDTH": 4,
         "PHT_LEN": 16
       },
-      "reference_status": "unknown",
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "seconds": 14.604,
-      "evidence_root": "../full_code_batch_v2",
+      "observed_checks": 100,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 12.996,
+      "evidence_root": "../directed_context_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ]
     },
@@ -3146,25 +3473,45 @@
       "fidelity": "structural-substituted",
       "functional_pass": null,
       "negative_control_detected": null,
-      "commands": 1,
+      "commands": 0,
       "status": "error",
+      "staging_overlays": [
+        {
+          "file": "ref_tb.v",
+          "kind": "diagnostic-only FSDB PLI removal",
+          "source_sha256": "2d359d986b709275448ad5863de5adb046af90de7263ff8ff2d304f368726a87",
+          "staged_sha256": "40772c9f97aa23496fe8958d1ea5204f7d596078c31e686ed71a9532f3e6901d",
+          "diff": "ref_tb.v.waveform.diff",
+          "scope": "waveform output only; upstream unchanged"
+        }
+      ],
       "wrapper_mode": "reference_model",
       "reference_source": "ref.v",
       "reference_source_sha256": "cfef0ec0d523a3085d47a02912d0c91e5086e5a2b7840e2d4cf1c913de48c9ed",
       "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
-      "resolved_tb_parameters": {
-        "W": 8,
-        "D": 8
+      "interface_conflict": {
+        "parameter_bindings": {
+          "W": 8,
+          "D": 8
+        },
+        "declared_reference_parameters": [],
+        "decision": "do not discard TB bindings or invent source parameters"
       },
-      "reason": "official reference/derived baseline diagnostic: candidate compilation diagnostic",
-      "seconds": 0.069,
-      "evidence_root": "../full_code_batch_v2",
+      "reason": "TB/source parameter interface conflict: named bindings supplied to a parameterless reference",
+      "seconds": 0.003,
+      "evidence_root": "../directed_context_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "error",
           "commands": 1,
           "reason": "official reference/derived baseline diagnostic: candidate compilation diagnostic"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "error",
+          "commands": 0,
+          "reason": "TB/source parameter interface conflict: named bindings supplied to a parameterless reference"
         }
       ]
     },
@@ -3277,25 +3624,34 @@
       "live_llm": false,
       "kind": "reference-calibration-not-model-score",
       "fidelity": "structural-substituted",
-      "functional_pass": null,
-      "negative_control_detected": null,
-      "commands": 4,
-      "status": "unknown",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
       "wrapper_mode": "reference_model",
       "reference_source": "ref.v",
       "reference_source_sha256": "63c7904eb0a1a016610d5887dd7a275b80596c7f4be780f297db44b4bf578e0e",
       "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
       "resolved_tb_parameters": {},
-      "reference_status": "unknown",
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "seconds": 14.953,
-      "evidence_root": "../full_code_batch_v2",
+      "observed_checks": 266,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 13.7,
+      "evidence_root": "../directed_context_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ]
     },
@@ -3361,7 +3717,7 @@
       "functional_pass": null,
       "negative_control_detected": null,
       "commands": 4,
-      "status": "unknown",
+      "status": "error",
       "staged_read_dependencies": [
         {
           "name": "ref_output.txt",
@@ -3373,10 +3729,12 @@
       "reference_source_sha256": "a376a97bde92464f84da6518d69f441cde1d0ecb6cd9a2afc3d66580ec191e77",
       "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
       "resolved_tb_parameters": {},
-      "reference_status": "unknown",
+      "observed_checks": 0,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "fail",
       "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "seconds": 16.052,
-      "evidence_root": "../read_dependency_fix",
+      "seconds": 13.875,
+      "evidence_root": "../directed_context_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
@@ -3399,6 +3757,12 @@
         {
           "root": "read_dependency_fix",
           "status": "unknown",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "error",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
         }
@@ -3573,24 +3937,50 @@
       "live_llm": false,
       "kind": "reference-calibration-not-model-score",
       "fidelity": "structural-substituted",
-      "functional_pass": null,
-      "negative_control_detected": null,
-      "commands": 3,
-      "status": "error",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
+      "staging_overlays": [
+        {
+          "file": "ref_tb.v",
+          "kind": "diagnostic-only FSDB PLI removal",
+          "source_sha256": "dd3743a24146d57e497d89aa84871ebead6608073f0da7727229a44905a737a0",
+          "staged_sha256": "d6b6c82b439bee458b19909a822d1fa2e55ca96fa743f9db4e1701de101acfaa",
+          "diff": "ref_tb.v.waveform.diff",
+          "scope": "waveform output only; upstream unchanged"
+        }
+      ],
       "wrapper_mode": "reference_model",
       "reference_source": "ref.v",
       "reference_source_sha256": "d044ed72a6dbcb267293857330e8cae8c8b76c016cd7dd0dffac19019d0ff605",
       "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
       "resolved_tb_parameters": {},
-      "reason": "official reference/derived baseline diagnostic: candidate compilation diagnostic",
-      "seconds": 4.667,
-      "evidence_root": "../full_code_batch_v2",
+      "observed_checks": 200,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 18.732,
+      "evidence_root": "../ga74_measured_budget",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "error",
           "commands": 3,
           "reason": "official reference/derived baseline diagnostic: candidate compilation diagnostic"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "unknown",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "ga74_measured_budget",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ]
     },
@@ -3818,25 +4208,34 @@
       "live_llm": false,
       "kind": "reference-calibration-not-model-score",
       "fidelity": "structural-substituted",
-      "functional_pass": null,
-      "negative_control_detected": null,
-      "commands": 4,
-      "status": "unknown",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
       "wrapper_mode": "reference_model",
       "reference_source": "ref.v",
       "reference_source_sha256": "5cb9410d4f048336fc43d8fac60cb04d0e78bbb33c9e9513bbb2ea41f8e7dd16",
       "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
       "resolved_tb_parameters": {},
-      "reference_status": "unknown",
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "seconds": 15.611,
-      "evidence_root": "../full_code_batch_v2",
+      "observed_checks": 2006,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 13.126,
+      "evidence_root": "../directed_context_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ]
     },
@@ -3955,24 +4354,33 @@
       "kind": "reference-calibration-not-model-score",
       "fidelity": "structural-substituted",
       "functional_pass": null,
-      "negative_control_detected": null,
-      "commands": 4,
+      "negative_control_detected": false,
+      "commands": 6,
       "status": "unknown",
       "wrapper_mode": "reference_model",
       "reference_source": "ref.v",
       "reference_source_sha256": "23297e0b18f766ad5c63adcff4c3f74e699379ddb99cfb8b08bf6fc228fb050b",
       "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
       "resolved_tb_parameters": {},
-      "reference_status": "unknown",
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "seconds": 13.346,
-      "evidence_root": "../full_code_batch_v2",
+      "observed_checks": 102,
+      "score_reason": "completed supplied-TB count evidence",
+      "reference_status": "pass",
+      "negative_status": "pass",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 13.87,
+      "evidence_root": "../directed_context_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "unknown",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ]
     },
@@ -4023,7 +4431,7 @@
       "functional_pass": null,
       "negative_control_detected": null,
       "commands": 4,
-      "status": "unknown",
+      "status": "error",
       "wrapper_mode": "reference_model",
       "reference_source": "ref.v",
       "reference_source_sha256": "2c661126dc3f0af25fb4f6a9a3e2c991a3a18d091b43389c4590d7b885e766ad",
@@ -4032,14 +4440,22 @@
         "sdram_depth": 26,
         "sdram_columndepth": 9
       },
-      "reference_status": "unknown",
+      "observed_checks": 99,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "fail",
       "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "seconds": 16.964,
-      "evidence_root": "../full_code_batch_v2",
+      "seconds": 12.716,
+      "evidence_root": "../directed_context_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "unknown",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "error",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
         }
@@ -4089,25 +4505,34 @@
       "live_llm": false,
       "kind": "reference-calibration-not-model-score",
       "fidelity": "structural-substituted",
-      "functional_pass": null,
-      "negative_control_detected": null,
-      "commands": 4,
-      "status": "unknown",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
       "wrapper_mode": "reference_model",
       "reference_source": "ref.v",
       "reference_source_sha256": "c0eebfafb2800f70ba9652f41aca22fbfd13a833b6919f3c6573cc5949a1534c",
       "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
       "resolved_tb_parameters": {},
-      "reference_status": "unknown",
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "seconds": 16.718,
-      "evidence_root": "../full_code_batch_v2",
+      "observed_checks": 104,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 12.833,
+      "evidence_root": "../directed_context_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ]
     },
@@ -4220,25 +4645,34 @@
       "live_llm": false,
       "kind": "reference-calibration-not-model-score",
       "fidelity": "structural-substituted",
-      "functional_pass": null,
-      "negative_control_detected": null,
-      "commands": 4,
-      "status": "unknown",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
       "wrapper_mode": "reference_model",
       "reference_source": "ref.v",
       "reference_source_sha256": "bfe363f3010f57d4e395955936d7cc866ba49e6fc19cfbb81ce86d21d84307eb",
       "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
       "resolved_tb_parameters": {},
-      "reference_status": "unknown",
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "seconds": 12.741,
-      "evidence_root": "../full_code_batch_v2",
+      "observed_checks": 1009,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 12.858,
+      "evidence_root": "../directed_context_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ]
     },
@@ -4286,25 +4720,52 @@
       "live_llm": false,
       "kind": "reference-calibration-not-model-score",
       "fidelity": "structural-substituted",
-      "functional_pass": null,
-      "negative_control_detected": null,
-      "commands": 4,
-      "status": "unknown",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
       "wrapper_mode": "reference_model",
       "reference_source": "ref.v",
       "reference_source_sha256": "bebc7d3f208e68991010bc3c2bb8c5f2bc5e17e4a07af9778905b79f88d38a54",
       "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
       "resolved_tb_parameters": {},
-      "reference_status": "unknown",
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "seconds": 15.51,
-      "evidence_root": "../full_code_batch_v2",
+      "reference_lifecycle": {
+        "model_context_ownership": "explicit unique owners",
+        "cleanup": "TB final calls ref_model_release before outer main context destruction",
+        "active_RTL_behavior_changed": false,
+        "diff": "tb_lifecycle.diff"
+      },
+      "observed_checks": 1004,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 14.015,
+      "evidence_root": "../context_lifecycle_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "unknown",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "remaining_measured_budgets",
+          "status": "unknown",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "context_lifecycle_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ]
     },
@@ -4352,25 +4813,34 @@
       "live_llm": false,
       "kind": "reference-calibration-not-model-score",
       "fidelity": "structural-substituted",
-      "functional_pass": null,
-      "negative_control_detected": null,
-      "commands": 4,
-      "status": "unknown",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
       "wrapper_mode": "reference_model",
       "reference_source": "ref.v",
       "reference_source_sha256": "3cc85273180e0a425496b19b0065d4b8800a4fd2fdc0c693e519827e98aab5d5",
       "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
       "resolved_tb_parameters": {},
-      "reference_status": "unknown",
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "seconds": 15.003,
-      "evidence_root": "../full_code_batch_v2",
+      "observed_checks": 104,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 13.734,
+      "evidence_root": "../directed_context_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ]
     },
@@ -4421,20 +4891,28 @@
       "functional_pass": null,
       "negative_control_detected": null,
       "commands": 4,
-      "status": "unknown",
+      "status": "error",
       "wrapper_mode": "reference_model",
       "reference_source": "ref.v",
       "reference_source_sha256": "8b18326b62f507d8f136ecd1d6d5d83a5cbeba314d8888f3dc9035e87459efa2",
       "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
       "resolved_tb_parameters": {},
-      "reference_status": "unknown",
+      "observed_checks": 113,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "fail",
       "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "seconds": 14.758,
-      "evidence_root": "../full_code_batch_v2",
+      "seconds": 13.213,
+      "evidence_root": "../directed_context_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "unknown",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "error",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
         }
@@ -4623,23 +5101,89 @@
       "kind": "reference-calibration-not-model-score",
       "fidelity": "structural-substituted",
       "functional_pass": null,
-      "negative_control_detected": null,
-      "commands": 3,
-      "status": "error",
+      "negative_control_detected": false,
+      "commands": 6,
+      "status": "unknown",
+      "staging_overlays": [
+        {
+          "file": "ref_tb.v",
+          "kind": "diagnostic-only FSDB PLI removal",
+          "source_sha256": "b3451f3dcedf078b7a3f8fb64e104a537dea34f0642e143f87eabc2fd005e809",
+          "staged_sha256": "4bd954beb8b984379ee828163b19b9034bac0ac28a245ac75dac2f2a0f02f2d7",
+          "diff": "ref_tb.v.waveform.diff",
+          "scope": "waveform output only; upstream unchanged"
+        }
+      ],
+      "reference_interface_selection": {
+        "old_first_module": "MUX32_ref",
+        "selected_module": "CPU_ref",
+        "evidence": "unique reference-source module directly instantiated by supplied TB",
+        "reference_sha256": "3c0d87234bb5cca8a9e6cee34e72b585891d0d8390d5b09cd3d7641aede970de",
+        "tb_sha256": "b3451f3dcedf078b7a3f8fb64e104a537dea34f0642e143f87eabc2fd005e809",
+        "source_rewrite": false
+      },
       "wrapper_mode": "reference_model",
       "reference_source": "ref.v",
       "reference_source_sha256": "3c0d87234bb5cca8a9e6cee34e72b585891d0d8390d5b09cd3d7641aede970de",
       "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
       "resolved_tb_parameters": {},
-      "reason": "official reference/derived baseline diagnostic: candidate compilation diagnostic",
-      "seconds": 4.473,
-      "evidence_root": "../full_code_batch_v2",
+      "interface_parse_normalization": {
+        "kind": "parser-view whitespace after packed net/variable type",
+        "before_ports": [
+          "clk_i",
+          "DataOrReg",
+          "address",
+          "instr_i",
+          "reset",
+          "vout_addr",
+          "value_o_ref",
+          "is_positive_ref"
+        ],
+        "after_ports": [
+          "clk_i",
+          "DataOrReg",
+          "address",
+          "instr_i",
+          "reset",
+          "vout_addr",
+          "value_o_ref",
+          "is_positive_ref",
+          "easter_egg_ref"
+        ],
+        "verified_against": "actual generated RefModel C++ port declarations",
+        "source_rewrite": false
+      },
+      "observed_checks": 101,
+      "score_reason": "completed supplied-TB count evidence",
+      "reference_status": "pass",
+      "negative_status": "pass",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 12.438,
+      "evidence_root": "../packed_port_parse_repair",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "error",
           "commands": 3,
           "reason": "official reference/derived baseline diagnostic: candidate compilation diagnostic"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "error",
+          "commands": 3,
+          "reason": "official reference/derived baseline diagnostic: candidate compilation diagnostic"
+        },
+        {
+          "root": "interface_binding_repairs",
+          "status": "error",
+          "commands": 3,
+          "reason": "official reference/derived baseline diagnostic: candidate compilation diagnostic"
+        },
+        {
+          "root": "packed_port_parse_repair",
+          "status": "unknown",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ]
     },
@@ -4690,20 +5234,28 @@
       "functional_pass": null,
       "negative_control_detected": null,
       "commands": 4,
-      "status": "unknown",
+      "status": "error",
       "wrapper_mode": "reference_model",
       "reference_source": "ref.v",
       "reference_source_sha256": "18a390115abf23ac4954313e450025fa3db8087a06926b234b796511806fb5f9",
       "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
       "resolved_tb_parameters": {},
-      "reference_status": "unknown",
+      "observed_checks": 101,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "fail",
       "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "seconds": 15.842,
-      "evidence_root": "../full_code_batch_v2",
+      "seconds": 12.365,
+      "evidence_root": "../directed_context_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "unknown",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "error",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
         }
@@ -8687,16 +9239,22 @@
       "functional_pass": null,
       "negative_control_detected": null,
       "commands": 0,
-      "status": "adapter_unsupported",
-      "reason": "file I/O source outside bounded no-filesystem-confinement contract",
-      "seconds": 0.0,
-      "evidence_root": "../full_code_batch_v2",
+      "status": "error",
+      "reason": "missing external input asset: ['RAMINIT.mif']",
+      "seconds": 0.001,
+      "evidence_root": "../directed_context_repairs",
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "adapter_unsupported",
           "commands": 0,
           "reason": "file I/O source outside bounded no-filesystem-confinement contract"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "error",
+          "commands": 0,
+          "reason": "missing external input asset: ['RAMINIT.mif']"
         }
       ]
     },

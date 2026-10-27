@@ -1,0 +1,44 @@
+{
+  "id": "MGen/L1/Text/Number of 1s",
+  "subset": "MGen",
+  "input_files": [
+    {
+      "name": "no_1s.v",
+      "bytes": 961,
+      "sha256": "fdcb265ff140d3b4932f9003f0aa9f1ed2495491a628b634f6d9423bd6dabfe8"
+    },
+    {
+      "name": "no_1s_tb.v",
+      "bytes": 1991,
+      "sha256": "a1da43e6dea78d72037314cfccb85a494c448fbbc0da21a77e2d43dbe73cc22e"
+    }
+  ],
+  "overlays": [
+    {
+      "field": "spec_text",
+      "source": "data/SpeCom/L1/Text/Number of 1s/no_1s_spec.txt",
+      "sha256": "a2b455e65c220620d3f558123ffe9a8e51571fbd1ea02bccfe911461569d8ebc",
+      "reason": "same case name and byte-identical RTL in SpeCom; explicit cross-subset reuse",
+      "fidelity": "structural-input-overlay",
+      "matched_rtl_sha256": "fdcb265ff140d3b4932f9003f0aa9f1ed2495491a628b634f6d9423bd6dabfe8"
+    }
+  ],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": true,
+  "negative_control_detected": true,
+  "commands": 6,
+  "status": "pass",
+  "wrapper_mode": "dut_replacement",
+  "reference_source": "no_1s.v",
+  "reference_source_sha256": "fdcb265ff140d3b4932f9003f0aa9f1ed2495491a628b634f6d9423bd6dabfe8",
+  "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+  "resolved_tb_parameters": {},
+  "observed_checks": 1,
+  "score_reason": "explicit supplied-TB failed check",
+  "reference_status": "pass",
+  "negative_status": "fail",
+  "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+  "seconds": 13.737
+}

@@ -1,0 +1,64 @@
+{
+  "id": "MGen/L2/Text/GS_52",
+  "subset": "MGen",
+  "input_files": [
+    {
+      "name": ".fsm.sch.verilog.xml",
+      "bytes": 56,
+      "sha256": "4b9dad72827b173a43d570c924aad53b345e21485e3fa3a1deadf098783684bb"
+    },
+    {
+      "name": "dut.f",
+      "bytes": 27,
+      "sha256": "226e3502e2775fc7fa817cd87f55727565227b6fdef662d81b0458b10d3e2c61"
+    },
+    {
+      "name": "dut.v",
+      "bytes": 4207,
+      "sha256": "5d949a0d99f2dafe4e90ae8167a3ffa9f4318bb92577cc90fb6f32d02fd90e3f"
+    },
+    {
+      "name": "makefile",
+      "bytes": 1000,
+      "sha256": "5a347956af99cde28ff4cf0a688d8bdaa6fd44b14388cf399a62e55dfded3ee2"
+    },
+    {
+      "name": "ref.v",
+      "bytes": 4337,
+      "sha256": "b93c55277d0ffd5c34f418966dc2128f3a8e5acda28f271323f23f5e56f0c2a1"
+    },
+    {
+      "name": "ref_tb.v",
+      "bytes": 6455,
+      "sha256": "fd473d8505ed560b1af9b464901fe48f8ad5ca5c603f059fe65a514f7655b294"
+    },
+    {
+      "name": "spec.txt",
+      "bytes": 8253,
+      "sha256": "8392d91cf5899b89d3cf1d66d330698b009876dc74aa3bd70ecfc5bcf7946597"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": null,
+  "negative_control_detected": null,
+  "commands": 4,
+  "status": "error",
+  "wrapper_mode": "reference_model",
+  "reference_source": "ref.v",
+  "reference_source_sha256": "b93c55277d0ffd5c34f418966dc2128f3a8e5acda28f271323f23f5e56f0c2a1",
+  "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+  "resolved_tb_parameters": {
+    "AWIDTH": 3,
+    "RAM_DEPTH": 8,
+    "ALMOST_EMPTY_THRESH": 1,
+    "ALMOST_FULL_THRESH": 6
+  },
+  "observed_checks": 100,
+  "score_reason": "explicit failed check overrides any success/count text",
+  "reference_status": "fail",
+  "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
+  "seconds": 13.217
+}

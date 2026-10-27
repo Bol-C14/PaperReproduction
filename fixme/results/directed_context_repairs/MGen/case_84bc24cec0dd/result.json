@@ -1,0 +1,46 @@
+{
+  "id": "MGen/L1/Text/n bit universal shift register",
+  "subset": "MGen",
+  "input_files": [
+    {
+      "name": "univ_shift.v",
+      "bytes": 906,
+      "sha256": "b8905e766ab0f05c484662f3183af1cbf741d9831f9ff081b258a6256f9474e8"
+    },
+    {
+      "name": "univ_shift_tb.v",
+      "bytes": 1309,
+      "sha256": "f5cdd1d82b5a4c35aff24d461b0e4e30c94f88792666b075a0e96202cc407afa"
+    }
+  ],
+  "overlays": [
+    {
+      "field": "spec_text",
+      "source": "data/SpeCom/L1/Text/n bit universal shift register/univ_shift_spec.txt",
+      "sha256": "efe746bd01f1dddd6a37cdb5b040bc5e1a18f9d626d9650aa7381477537baeb9",
+      "reason": "same case name and byte-identical RTL in SpeCom; explicit cross-subset reuse",
+      "fidelity": "structural-input-overlay",
+      "matched_rtl_sha256": "b8905e766ab0f05c484662f3183af1cbf741d9831f9ff081b258a6256f9474e8"
+    }
+  ],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": true,
+  "negative_control_detected": true,
+  "commands": 6,
+  "status": "pass",
+  "wrapper_mode": "dut_replacement",
+  "reference_source": "univ_shift.v",
+  "reference_source_sha256": "b8905e766ab0f05c484662f3183af1cbf741d9831f9ff081b258a6256f9474e8",
+  "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+  "resolved_tb_parameters": {
+    "n": 4
+  },
+  "observed_checks": 20,
+  "score_reason": "explicit supplied-TB failed check",
+  "reference_status": "pass",
+  "negative_status": "fail",
+  "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+  "seconds": 12.734
+}

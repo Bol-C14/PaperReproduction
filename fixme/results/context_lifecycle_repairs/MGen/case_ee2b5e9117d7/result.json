@@ -1,0 +1,66 @@
+{
+  "id": "MGen/L3/Text/GA_89",
+  "subset": "MGen",
+  "input_files": [
+    {
+      "name": ".fsm.sch.verilog.xml",
+      "bytes": 56,
+      "sha256": "4b9dad72827b173a43d570c924aad53b345e21485e3fa3a1deadf098783684bb"
+    },
+    {
+      "name": "dut.f",
+      "bytes": 27,
+      "sha256": "85f962db6f0a138db67a6c64fb84664cd2459a96548439499529589bb912a8bc"
+    },
+    {
+      "name": "dut.v",
+      "bytes": 9185,
+      "sha256": "858db937a69e16d2f81e0650e2d62b6a460596f01ea218a3c1b694ac3873bfc6"
+    },
+    {
+      "name": "makefile",
+      "bytes": 865,
+      "sha256": "de1974fd4efad8cbbc2765709ba76331fc80e47c0896457754c9a7680734b5dc"
+    },
+    {
+      "name": "ref.v",
+      "bytes": 9825,
+      "sha256": "bebc7d3f208e68991010bc3c2bb8c5f2bc5e17e4a07af9778905b79f88d38a54"
+    },
+    {
+      "name": "ref_tb.v",
+      "bytes": 8399,
+      "sha256": "38cfb9dfa03de1231f31c78d3deb6483d89b90a9796515f725872cfbc17a4b1a"
+    },
+    {
+      "name": "spec.txt",
+      "bytes": 9810,
+      "sha256": "8a0a5f233d8403f11f1090d0062a9bebd7ee06ea210a3ad8b8dcdf15afc68fc5"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": true,
+  "negative_control_detected": true,
+  "commands": 6,
+  "status": "pass",
+  "wrapper_mode": "reference_model",
+  "reference_source": "ref.v",
+  "reference_source_sha256": "bebc7d3f208e68991010bc3c2bb8c5f2bc5e17e4a07af9778905b79f88d38a54",
+  "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+  "resolved_tb_parameters": {},
+  "reference_lifecycle": {
+    "model_context_ownership": "explicit unique owners",
+    "cleanup": "TB final calls ref_model_release before outer main context destruction",
+    "active_RTL_behavior_changed": false,
+    "diff": "tb_lifecycle.diff"
+  },
+  "observed_checks": 1004,
+  "score_reason": "explicit failed check overrides any success/count text",
+  "reference_status": "pass",
+  "negative_status": "fail",
+  "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+  "seconds": 14.015
+}

@@ -1,0 +1,7 @@
+#include "RefModel.h"
+struct CallerContextGuard {
+ VerilatedContext* caller;
+ CallerContextGuard(): caller(Verilated::threadContextp()) {}
+ ~CallerContextGuard(){ Verilated::threadContextp(caller); }
+};
+extern "C" void ref_model_eval(unsigned long long clk,unsigned long long rst,unsigned long long enable,unsigned long long rmode,unsigned long long opa,unsigned long long opb,unsigned long long in_except,unsigned long long exponent_in,unsigned long long mantissa_in,unsigned long long fpu_op,unsigned long long* ref_out,unsigned long long* ref_ex_enable,unsigned long long* ref_underflow,unsigned long long* ref_overflow,unsigned long long* ref_inexact,unsigned long long* ref_exception,unsigned long long* ref_invalid){CallerContextGuard restore_caller;static VerilatedContext context;static RefModel model(&context);Verilated::threadContextp(&context);model.clk=clk;model.rst=rst;model.enable=enable;model.rmode=rmode;model.opa=opa;model.opb=opb;model.in_except=in_except;model.exponent_in=exponent_in;model.mantissa_in=mantissa_in;model.fpu_op=fpu_op;model.eval();*ref_out=model.ref_out;*ref_ex_enable=model.ref_ex_enable;*ref_underflow=model.ref_underflow;*ref_overflow=model.ref_overflow;*ref_inexact=model.ref_inexact;*ref_exception=model.ref_exception;*ref_invalid=model.ref_invalid;}

@@ -1,0 +1,13 @@
+--- tb.before_lifecycle
++++ tb.with_lifecycle
+@@ -1,3 +1,4 @@
++import "DPI-C" function void ref_model_release();
+ `timescale 1ns/1ps
+ module dff_async_tb        ;
+ reg d, clk, reset          ;     //register declaration for d, clock and reset
+@@ -35,4 +36,5 @@
+             end
+          endtask
+ 
++final begin ref_model_release(); end
+ endmodule                                             //end of d flip-flop testbench

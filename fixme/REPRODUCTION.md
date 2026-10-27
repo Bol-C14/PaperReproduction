@@ -132,3 +132,10 @@ Full-code update: all 231 public code cases have adapter outcomes, including the
 previously unattempted 227. See BATCH_EXECUTION.md for the 85 reference calibration
 passes, 72 unknowns, 22 errors and 52 explicit contract refusals; these are not model
 scores. The current all-482 execution matrix is results/final_coverage_selected.
+
+
+Latest directed-repair update: DIRECTED_REPAIRS.md supersedes earlier code-outcome
+totals. The authoritative matrix has 108 reference-calibration passes, 43 unknowns,
+30 errors and 50 adapter-contract refusals across 231 code keys. Context leakage,
+post-finish resource lifetime and exact oracle parsing were fixed without a full
+sweep or model calls; old evidence remains retained.

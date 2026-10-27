@@ -1,0 +1,44 @@
+{
+  "id": "MGen/L1/Text/Mux expresseion",
+  "subset": "MGen",
+  "input_files": [
+    {
+      "name": "mux_always.v",
+      "bytes": 370,
+      "sha256": "57c2b4e86f9d1a46767e5fdf7e8a62d8180c437135753e8eb8d2e50a26960094"
+    },
+    {
+      "name": "mux_always_tb.v",
+      "bytes": 1184,
+      "sha256": "d03b5cc3c1798dceb64bede790f253cd83f18d7b0b10a77185b39a59ed7f216a"
+    }
+  ],
+  "overlays": [
+    {
+      "field": "spec_text",
+      "source": "data/SpeCom/L1/Text/Mux expresseion/mux_always_spec.txt",
+      "sha256": "6ec1be656cadeeb6a2b43d170cb320cbebd894517ff8e7268dc1e48ed55adb8f",
+      "reason": "same case name and byte-identical RTL in SpeCom; explicit cross-subset reuse",
+      "fidelity": "structural-input-overlay",
+      "matched_rtl_sha256": "57c2b4e86f9d1a46767e5fdf7e8a62d8180c437135753e8eb8d2e50a26960094"
+    }
+  ],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": true,
+  "negative_control_detected": true,
+  "commands": 6,
+  "status": "pass",
+  "wrapper_mode": "dut_replacement",
+  "reference_source": "mux_always.v",
+  "reference_source_sha256": "57c2b4e86f9d1a46767e5fdf7e8a62d8180c437135753e8eb8d2e50a26960094",
+  "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+  "resolved_tb_parameters": {},
+  "observed_checks": 100,
+  "score_reason": "explicit supplied-TB failed check",
+  "reference_status": "pass",
+  "negative_status": "fail",
+  "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+  "seconds": 12.795
+}

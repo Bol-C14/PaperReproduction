@@ -1,0 +1,15 @@
+--- ref_tb.v
++++ ref_tb.v.without_fsdb
+@@ -367,9 +367,9 @@
+ 
+     initial begin
+         $dumpfile("sim.fsdb");
+-		$fsdbDumpMDA();
+-		$fsdbDumpvars();
+-	  	$fsdbDumpMDA();
++		/* omitted diagnostic FSDB output: $fsdbDumpMDA(); */
++		/* omitted diagnostic FSDB output: $fsdbDumpvars(); */
++	  	/* omitted diagnostic FSDB output: $fsdbDumpMDA(); */
+ 
+     end
+ 

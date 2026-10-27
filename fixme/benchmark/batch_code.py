@@ -6,10 +6,11 @@ source RTL, plus output perturbation negative. SVAGen: direct output-assignment
 invariants only, plus true RTL mutation and constant-property control.
 All substitutions and unsupported contracts are explicit per case.
 """
-import argparse,ast,operator,collections,concurrent.futures,dataclasses,hashlib,json,logging,os,pathlib,re,shutil,signal,subprocess,sys,time,xml.etree.ElementTree as ET
+import argparse,ast,operator,difflib,collections,concurrent.futures,dataclasses,hashlib,json,logging,os,pathlib,re,shutil,signal,subprocess,sys,time,xml.etree.ElementTree as ET
 from isolation import confine
 from evaluation import command_state,property_counts,formal_score
-P=argparse.ArgumentParser();P.add_argument('--upstream',required=True);P.add_argument('--tools',required=True);P.add_argument('--audit',required=True);P.add_argument('--output',required=True);P.add_argument('--limit',type=int);P.add_argument('--cases',nargs='*');P.add_argument('--workers',type=int,default=2);a=P.parse_args()
+from mgen_support import CONTEXT_GUARD_CPP,mgen_score
+P=argparse.ArgumentParser();P.add_argument('--upstream',required=True);P.add_argument('--tools',required=True);P.add_argument('--audit',required=True);P.add_argument('--output',required=True);P.add_argument('--limit',type=int);P.add_argument('--cases',nargs='*');P.add_argument('--workers',type=int,default=2);P.add_argument('--simulation-timeout',type=int,default=3,choices=range(1,31));a=P.parse_args()
 u=pathlib.Path(a.upstream).resolve();tools=pathlib.Path(a.tools).resolve();out=pathlib.Path(a.output).resolve();audit=json.loads(pathlib.Path(a.audit).read_text());out.mkdir(parents=True,exist_ok=True)
 if any(out.iterdir()):raise SystemExit('output directory must be empty')
 sys.path.insert(0,str(u));from src.utils import file_finder as ff
@@ -64,7 +65,15 @@ class Case:
   srcs=[]
   for f in self.dir.iterdir():
    if f.suffix.lower() not in ['.v','.sv']:continue
-   text=f.read_text(errors='replace');clean=strip(text)
+   original=f.read_text(errors='replace');text=original
+   fsdb=list(re.finditer(r'\$fsdbDump(?:file|vars|MDA|SVA)\s*\(([^;()]*)\)\s*;',strip(text)))
+   if fsdb:
+    # Known diagnostic-only PLI calls with simple arguments; no nested function evaluation.
+    text=re.sub(r'\$fsdbDump(?:file|vars|MDA|SVA)\s*\(([^;()]*)\)\s*;',lambda m:'/* omitted diagnostic FSDB output: '+m[0].replace('*/','')+' */',text)
+    diff=''.join(difflib.unified_diff(original.splitlines(True),text.splitlines(True),fromfile=f.name,tofile=f.name+'.without_fsdb'))
+    (self.w/(f.name+'.waveform.diff')).write_text(diff)
+    self.result.setdefault('staging_overlays',[]).append({'file':f.name,'kind':'diagnostic-only FSDB PLI removal','source_sha256':sha(f),'staged_sha256':hashlib.sha256(text.encode()).hexdigest(),'diff':f.name+'.waveform.diff','scope':'waveform output only; upstream unchanged'})
+   clean=strip(text)
    if re.search(r'\$(system|c\b)|import\s+"DPI|`verilator',clean):return self.stop('adapter_unsupported','source requests process/foreign-code execution outside reviewed fixture contract')
    calls=re.findall(r'\$(readmemh|readmemb|fopen|fread|fwrite|writememh|writememb)\s*\(([^;]*)',clean)
    if calls:
@@ -73,7 +82,22 @@ class Case:
      quoted=re.findall(r'"([^\"]+)"',args)
      if kind in ['readmemh','readmemb']:
       if quoted:read_paths.append(quoted[0])
-      else:dynamic_read=True
+      else:
+       parameter=re.match(r'\s*(\w+)\s*,',args)
+       name=parameter[1] if parameter else None
+       definition=re.search(r'\bparameter\s+(?:string\s+)?'+re.escape(name)+r'\s*=\s*"([^"]*)"',clean) if name else None
+       if definition:
+        default=definition[1]
+        tb=ff.find_tb_file(self.dir)
+        override=bool(tb and re.search(r'\.'+re.escape(name)+r'\s*\(',strip(tb.read_text())))
+        guard=re.search(r'if\s*\(([^()]*)\)\s*\$'+kind+r'\s*\(\s*'+re.escape(name)+r'\s*,',clean)
+        comparisons=re.findall(re.escape(name)+r'\s*!=\s*"([^"]*)"',guard[1]) if guard else []
+        supported_guard=bool(guard and re.fullmatch(r'\s*'+re.escape(name)+r'\s*!=\s*"[^"]*"(?:\s*&&\s*'+re.escape(name)+r'\s*!=\s*"[^"]*")*\s*',guard[1]))
+        if not override and supported_guard and default in comparisons:
+         self.result.setdefault('inactive_file_dependencies',[]).append({'file':f.name,'parameter':name,'default':default,'guard':guard[1],'reason':'all-default read is statically disabled; no TB override; source not rewritten'})
+        elif not override:read_paths.append(default)
+        else:dynamic_read=True
+       else:dynamic_read=True
      elif kind=='fopen':
       if not quoted:return self.stop('adapter_unsupported','dynamic fopen path cannot be confined by this host')
       name=quoted[0];mode=quoted[1] if len(quoted)>1 else 'w'
@@ -186,6 +210,17 @@ class Case:
  def mgen(self):
   ev=MGenEvaluator(self.w,None,{})
   interface,mode,interface_path=ev._select_wrapper_interface(self.dir)
+  if interface_path and mode=='reference_model':
+   supplied_tb=ff.find_tb_file(self.dir)
+   if supplied_tb:
+    tb_binding_source=strip(supplied_tb.read_text());ref_source=interface_path.read_text()
+    instantiated=[name for name in ff.extract_verilog_module_names(ref_source) if re.search(r'\b'+re.escape(name)+r'\s*(?:#\s*\(.*?\)\s*)?\w+\s*\(',tb_binding_source,re.S)]
+    if len(instantiated)==1 and interface and instantiated[0]!=interface.name:
+     selected=ff.parse_verilog_module_interface(ref_source,instantiated[0])
+     if not selected or not selected.ports:return self.stop('error','TB-selected reference module has no parsed ports')
+     self.result['reference_interface_selection']={'old_first_module':interface.name,'selected_module':selected.name,'evidence':'unique reference-source module directly instantiated by supplied TB','reference_sha256':sha(interface_path),'tb_sha256':sha(supplied_tb),'source_rewrite':False}
+     interface=selected
+    elif len(instantiated)>1:return self.stop('adapter_unsupported','multiple directly instantiated reference modules require multi-model DPI adapter')
   if not interface or not interface.ports:return self.stop('adapter_unsupported','official DPI interface parser has no usable ports')
   if any(p.direction=='inout' for p in interface.ports):return self.stop('adapter_unsupported','official longint DPI inout contract not ported')
   src=self.w/interface_path.name
@@ -195,23 +230,38 @@ class Case:
   tb_path=ff.find_tb_file(self.dir)
   if not tb_path:return self.stop('error','missing golden testbench')
   tb_clean=strip(tb_path.read_text())
-  binding_match=re.search(r'\b'+re.escape(interface.name)+r'\s*#\s*\((.*?)\)\s+\w+\s*\(',tb_clean,re.S)
+  binding_match=re.search(r'\b'+re.escape(interface.name)+r'\s*#\s*\((.*?)\)\s*\w+\s*\(',tb_clean,re.S)
   params={};param_args=[]
   if binding_match:
    pairs=re.findall(r'\.([A-Za-z_]\w*)\s*\(([^()]*)\)',binding_match[1])
    if not pairs:return self.stop('adapter_unsupported','positional/complex parameter bindings need explicit elaboration adapter')
    bindings=dict(re.findall(r'\b(?:localparam|parameter)\s+(?:integer\s+)?(\w+)\s*=\s*([^;,]+)',tb_clean))
-   try:params={name:const_value(value,bindings) for name,value in pairs}
+   def resolve_binding(value):
+    value=value.strip();seen=set()
+    while value in bindings and value not in seen:seen.add(value);value=bindings[value].strip()
+    if re.fullmatch(r'"[^"\\]*"',value):return value[1:-1]
+    return const_value(value,bindings)
+   try:params={name:resolve_binding(value) for name,value in pairs}
    except Exception as ex:return self.stop('adapter_unsupported','unresolved reference TB parameter: '+str(ex))
-   param_args=['-G'+name+'='+str(value) for name,value in params.items()]
+   param_args=['-G'+name+'='+(json.dumps(value) if isinstance(value,str) else str(value)) for name,value in params.items()]
+  if params and not re.search(r'\bparameter\b',strip(src.read_text())):
+   self.result['interface_conflict']={'parameter_bindings':params,'declared_reference_parameters':[],'decision':'do not discard TB bindings or invent source parameters'}
+   return self.stop('error','TB/source parameter interface conflict: named bindings supplied to a parameterless reference')
   self.result['resolved_tb_parameters']=params
   cmd=[str(tools/'usr/bin/verilator'),'--cc','--timing','-Wno-fatal','--prefix','RefModel','--top-module',interface.name,'--Mdir','ref_obj',*param_args,str(src)]
   e,log=self.command(cmd,'reference_cpp_emit',20)
   if not self.check(e,log):return
   header=(self.w/'ref_obj/RefModel.h').read_text();meta={m[0]:int(m[1])+1 for m in re.findall(r'VL_(?:IN|OUT)(?:8|16|64|W)?\s*\(\s*&?(\w+)\s*,\s*(\d+)\s*,\s*0(?:\s*,\s*\d+)?\s*\)',header)}
+  if set(meta)!={p.name for p in interface.ports}:
+   parse_view=re.sub(r'\b(reg|wire|logic)(?=\[)',r'\1 ',interface_path.read_text())
+   reparsed=ff.parse_verilog_module_interface(parse_view,interface.name)
+   if reparsed and {p.name for p in reparsed.ports}==set(meta):
+    self.result['interface_parse_normalization']={'kind':'parser-view whitespace after packed net/variable type','before_ports':[p.name for p in interface.ports],'after_ports':[p.name for p in reparsed.ports],'verified_against':'actual generated RefModel C++ port declarations','source_rewrite':False}
+    interface=reparsed
+   else:return self.stop('adapter_unsupported','official parsed port set differs from actual elaborated C++ ports; no silent omission')
   if any(p.name not in meta or meta[p.name]>64 for p in interface.ports):return self.stop('adapter_unsupported','DPI requires scalar/vector <=64-bit resolved ports; complex or wider port found')
   # Resolve parameter widths using actual compiled interface, not guessed expressions.
-  normalized=VerilogModuleInterface(interface.name,[VerilogPort(p.name,p.direction,f'[{meta[p.name]-1}:0]' if meta[p.name]>1 else '') for p in interface.ports],['parameter '+name+' = '+str(value) for name,value in params.items()])
+  normalized=VerilogModuleInterface(interface.name,[VerilogPort(p.name,p.direction,f'[{meta[p.name]-1}:0]' if meta[p.name]>1 else '') for p in interface.ports],['parameter '+name+' = '+(json.dumps(value) if isinstance(value,str) else str(value)) for name,value in params.items()])
   wrapper=ev._generate_wrapper(normalized);(self.w/'ref_wrapper.sv').write_text(wrapper)
   e,log=self.command(['/usr/bin/make','-C','ref_obj','-f','RefModel.mk','-j1'],'reference_cpp_build',45)
   if not self.check(e,log):return
@@ -222,12 +272,46 @@ class Case:
   body.append('model.eval();')
   for p in interface.ports:
    if p.direction=='output':body.append('*'+p.name+'=model.'+p.name+';')
-  cpp='#include "RefModel.h"\nextern "C" void ref_model_eval('+','.join(args)+'){static VerilatedContext context;static RefModel model(&context);'+''.join(body)+'}\n';(self.w/'response.cpp').write_text(cpp)
+  cpp='#include "RefModel.h"\n#include <memory>\n'+CONTEXT_GUARD_CPP+'''struct ReferenceOwner {
+ std::unique_ptr<VerilatedContext> context;
+ std::unique_ptr<RefModel> model;
+ ReferenceOwner():context(new VerilatedContext),model(new RefModel(context.get())){}
+};
+static std::unique_ptr<ReferenceOwner> reference_owner;
+extern "C" void ref_model_release(){CallerContextGuard restore_caller;if(reference_owner){Verilated::threadContextp(reference_owner->context.get());reference_owner->model->final();reference_owner->model.reset();reference_owner->context.reset();reference_owner.reset();}}
+'''+ 'extern "C" void ref_model_eval('+','.join(args)+'){CallerContextGuard restore_caller;if(!reference_owner)reference_owner.reset(new ReferenceOwner);Verilated::threadContextp(reference_owner->context.get());RefModel& model=*reference_owner->model;'+''.join(body)+'}\n';(self.w/'response.cpp').write_text(cpp)
   tb=ff.find_tb_file(self.dir)
   if not tb:return self.stop('error','missing golden testbench')
-  tbtext=(self.w/tb.name).read_text();counter=bool(re.search(r'integer[^;]*\btotal_tests\b',strip(tbtext)) and re.search(r'integer[^;]*\bfailed_tests\b',strip(tbtext)))
+  tbtext=(self.w/tb.name).read_text()
+  rtl_for_alias=ff.find_rtl_file(self.dir)
+  if mode=='reference_model' and rtl_for_alias:
+   staged=self.w/rtl_for_alias.name;dut_text=staged.read_text();names=ff.extract_verilog_module_names(dut_text)
+   top_instance=re.search(r'\btop\s+(\w+)\s*\((.*?)\)\s*;',strip(tbtext),re.S)
+   if len(names)==1 and names[0]!='top' and top_instance:
+    dut_interface=ff.parse_verilog_module_interface(dut_text,names[0]);bound=set(re.findall(r'\.(\w+)\s*\(',top_instance[2]))
+    declared={p.name for p in dut_interface.ports} if dut_interface else set()
+    if declared and bound==declared:
+     renamed,count=re.subn(r'(?m)^(\s*module\s+)'+re.escape(names[0])+r'\b',r'\g<1>top',dut_text,count=1)
+     if count!=1:return self.stop('error','module alias declaration anchor not unique')
+     diff=''.join(difflib.unified_diff(dut_text.splitlines(True),renamed.splitlines(True),fromfile=rtl_for_alias.name,tofile=rtl_for_alias.name+'.module_alias'))
+     (self.w/(rtl_for_alias.name+'.module_alias.diff')).write_text(diff);staged.write_text(renamed)
+     self.result.setdefault('staging_overlays',[]).append({'file':rtl_for_alias.name,'kind':'module-name alias for exact named-port match','source_sha256':sha(rtl_for_alias),'staged_sha256':sha(staged),'from_module':names[0],'to_module':'top','matched_port_names':sorted(bound),'diff':rtl_for_alias.name+'.module_alias.diff','scope':'only module declaration name changes; no port/default/body/parameter changes'})
+    else:
+     self.result['interface_conflict']={'declared_module':names[0],'TB_module':'top','declared_ports':sorted(declared),'TB_ports':sorted(bound)}
+     return self.stop('error','TB/source module interface conflict: alias cannot be justified by exact named-port match')
+  counter=bool(re.search(r'integer[^;]*\btotal_tests\b',strip(tbtext)) and re.search(r'integer[^;]*\bfailed_tests\b',strip(tbtext)))
   if counter:tbtext=tbtext.replace('$finish', '$display("HARNESS_COUNTS checks=%0d failures=%0d",total_tests,failed_tests); $finish')
-  (self.w/'golden_tb.sv').write_text(tbtext);top=ev._parse_tb_top(tbtext)
+  top=ev._parse_tb_top(tbtext)
+  module_match=re.search(r'\bmodule\s+'+re.escape(top)+r'\b',strip(tbtext))
+  # Find the actual declaration in the retained source, then its non-nested module end.
+  declaration=re.search(r'(?m)^\s*module\s+'+re.escape(top)+r'\b',tbtext)
+  ending=re.search(r'\bendmodule\b',tbtext[declaration.end():]) if declaration else None
+  if not ending:return self.stop('error','cannot locate TB finalization insertion point')
+  position=declaration.end()+ending.start();before_lifecycle=tbtext
+  tbtext='import "DPI-C" function void ref_model_release();\n'+tbtext[:position]+'final begin ref_model_release(); end\n'+tbtext[position:]
+  (self.w/'tb_lifecycle.diff').write_text(''.join(difflib.unified_diff(before_lifecycle.splitlines(True),tbtext.splitlines(True),fromfile='tb.before_lifecycle',tofile='tb.with_lifecycle')))
+  self.result['reference_lifecycle']={'model_context_ownership':'explicit unique owners','cleanup':'TB final calls ref_model_release before outer main context destruction','active_RTL_behavior_changed':False,'diff':'tb_lifecycle.diff'}
+  (self.w/'golden_tb.sv').write_text(tbtext)
   rtl=ff.find_rtl_file(self.dir);files=[str(self.w/'ref_wrapper.sv'),str(self.w/'golden_tb.sv')]
   if rtl and mode=='reference_model' and rtl!=interface_path:files.insert(0,str(self.w/rtl.name))
   archive=self.w/'ref_obj/libRefModel.a'
@@ -237,15 +321,10 @@ class Case:
    cmd=[str(tools/'usr/bin/verilator'),'--binary','--timing','-Wno-fatal','--top-module',top,'--Mdir','dpi_obj','-CFLAGS','-I'+str(self.w/'ref_obj'),'-LDFLAGS',str(archive),*files,str(self.w/'response.cpp')]
    e,log=self.command(cmd,label+'_compile',50)
    if not self.check(e,log):return None,None
-   return self.command([str(self.w/'dpi_obj'/('V'+top))],label+'_simulate',3)
+   return self.command([str(self.w/'dpi_obj'/('V'+top))],label+'_simulate',a.simulation_timeout)
   def score(e,log):
    if not e:return None
-   status,_=command_state(e,log,'simulation')
-   if status:return status
-   reports=re.findall(r'HARNESS_COUNTS checks=(\d+) failures=(\d+)',log)
-   if reports:checks,bad=map(int,reports[-1]);self.result['observed_checks']=checks;return 'pass' if checks>0 and bad==0 else ('fail' if bad else 'unknown')
-   checks=len(re.findall(r'Test case Passed',log,re.I));bad=bool(re.search(r'Test case Failed|TEST_FAIL|mismatch|FATAL',log,re.I));self.result['observed_checks']=checks
-   return 'fail' if bad else ('pass' if checks>0 else 'unknown')
+   scored=mgen_score(e,log);self.result['observed_checks']=scored['checks'];self.result['score_reason']=scored['reason'];return scored['status']
   e,log=dpi('positive');positive=score(e,log)
   if positive is None:return
   self.result['reference_status']=positive

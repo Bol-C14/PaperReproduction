@@ -1,0 +1,116 @@
+{
+  "kind": "reference-calibration-not-model-score",
+  "live_llm": false,
+  "case_count": 1,
+  "max_workers": 1,
+  "case_budget_seconds": 150,
+  "results": [
+    {
+      "id": "MGen/L3/Text/GA_94",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": ".fsm.sch.verilog.xml",
+          "bytes": 56,
+          "sha256": "4b9dad72827b173a43d570c924aad53b345e21485e3fa3a1deadf098783684bb"
+        },
+        {
+          "name": "dut.f",
+          "bytes": 27,
+          "sha256": "85f962db6f0a138db67a6c64fb84664cd2459a96548439499529589bb912a8bc"
+        },
+        {
+          "name": "dut.v",
+          "bytes": 36641,
+          "sha256": "0f6024c4530ab27bedfa3621615876b8b1953d29b4df79ee73508c73c1300fdf"
+        },
+        {
+          "name": "makefile",
+          "bytes": 865,
+          "sha256": "de1974fd4efad8cbbc2765709ba76331fc80e47c0896457754c9a7680734b5dc"
+        },
+        {
+          "name": "ref.v",
+          "bytes": 37215,
+          "sha256": "3c0d87234bb5cca8a9e6cee34e72b585891d0d8390d5b09cd3d7641aede970de"
+        },
+        {
+          "name": "ref_tb.v",
+          "bytes": 2829,
+          "sha256": "b3451f3dcedf078b7a3f8fb64e104a537dea34f0642e143f87eabc2fd005e809"
+        },
+        {
+          "name": "spec.txt",
+          "bytes": 8888,
+          "sha256": "b7363ca0bd80b88298ce9a4b4139fe213a13f2c4100e89e33b9529d0830e66af"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": false,
+      "commands": 6,
+      "status": "unknown",
+      "staging_overlays": [
+        {
+          "file": "ref_tb.v",
+          "kind": "diagnostic-only FSDB PLI removal",
+          "source_sha256": "b3451f3dcedf078b7a3f8fb64e104a537dea34f0642e143f87eabc2fd005e809",
+          "staged_sha256": "4bd954beb8b984379ee828163b19b9034bac0ac28a245ac75dac2f2a0f02f2d7",
+          "diff": "ref_tb.v.waveform.diff",
+          "scope": "waveform output only; upstream unchanged"
+        }
+      ],
+      "reference_interface_selection": {
+        "old_first_module": "MUX32_ref",
+        "selected_module": "CPU_ref",
+        "evidence": "unique reference-source module directly instantiated by supplied TB",
+        "reference_sha256": "3c0d87234bb5cca8a9e6cee34e72b585891d0d8390d5b09cd3d7641aede970de",
+        "tb_sha256": "b3451f3dcedf078b7a3f8fb64e104a537dea34f0642e143f87eabc2fd005e809",
+        "source_rewrite": false
+      },
+      "wrapper_mode": "reference_model",
+      "reference_source": "ref.v",
+      "reference_source_sha256": "3c0d87234bb5cca8a9e6cee34e72b585891d0d8390d5b09cd3d7641aede970de",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {},
+      "interface_parse_normalization": {
+        "kind": "parser-view whitespace after packed net/variable type",
+        "before_ports": [
+          "clk_i",
+          "DataOrReg",
+          "address",
+          "instr_i",
+          "reset",
+          "vout_addr",
+          "value_o_ref",
+          "is_positive_ref"
+        ],
+        "after_ports": [
+          "clk_i",
+          "DataOrReg",
+          "address",
+          "instr_i",
+          "reset",
+          "vout_addr",
+          "value_o_ref",
+          "is_positive_ref",
+          "easter_egg_ref"
+        ],
+        "verified_against": "actual generated RefModel C++ port declarations",
+        "source_rewrite": false
+      },
+      "observed_checks": 101,
+      "score_reason": "completed supplied-TB count evidence",
+      "reference_status": "pass",
+      "negative_status": "pass",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 12.438
+    }
+  ],
+  "statuses": {
+    "unknown": 1
+  }
+}

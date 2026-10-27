@@ -1,0 +1,43 @@
+{
+  "id": "MGen/L1/Text/3 bit up_down counter",
+  "subset": "MGen",
+  "input_files": [
+    {
+      "name": "cntr_3ud.v",
+      "bytes": 1129,
+      "sha256": "13674f0afadc4fd047d79cbf7f13949f142ef53aa1f62756d49468af66a099bd"
+    },
+    {
+      "name": "cntr_3ud_tb.v",
+      "bytes": 2245,
+      "sha256": "79edcd1e734a225e5c758341580d97fbaf9cbffb781521a5f2b5f585e3616dd6"
+    }
+  ],
+  "overlays": [
+    {
+      "field": "spec_text",
+      "source": "data/SpeCom/L1/Text/3 bit up_down counter/cntr_3ud_spec.txt",
+      "sha256": "76dc40431d9e5fefaf1767e8add63dfe23ae045d6b30c15787fb5c4d213fea96",
+      "reason": "same case name and byte-identical RTL in SpeCom; explicit cross-subset reuse",
+      "fidelity": "structural-input-overlay",
+      "matched_rtl_sha256": "13674f0afadc4fd047d79cbf7f13949f142ef53aa1f62756d49468af66a099bd"
+    }
+  ],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": null,
+  "negative_control_detected": null,
+  "commands": 4,
+  "status": "error",
+  "wrapper_mode": "dut_replacement",
+  "reference_source": "cntr_3ud.v",
+  "reference_source_sha256": "13674f0afadc4fd047d79cbf7f13949f142ef53aa1f62756d49468af66a099bd",
+  "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+  "resolved_tb_parameters": {},
+  "observed_checks": 11,
+  "score_reason": "explicit supplied-TB failed check",
+  "reference_status": "fail",
+  "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
+  "seconds": 12.257
+}

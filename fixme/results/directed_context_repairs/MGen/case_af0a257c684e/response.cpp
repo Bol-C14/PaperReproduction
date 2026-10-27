@@ -1,0 +1,7 @@
+#include "RefModel.h"
+struct CallerContextGuard {
+ VerilatedContext* caller;
+ CallerContextGuard(): caller(Verilated::threadContextp()) {}
+ ~CallerContextGuard(){ Verilated::threadContextp(caller); }
+};
+extern "C" void ref_model_eval(unsigned long long clock,unsigned long long clk_en,unsigned long long aclr,unsigned long long dataa,unsigned long long datab,unsigned long long* ref_result,unsigned long long* ref_overflow,unsigned long long* ref_underflow,unsigned long long* ref_zero,unsigned long long* ref_denormal,unsigned long long* ref_indefinite,unsigned long long* ref_nan){CallerContextGuard restore_caller;static VerilatedContext context;static RefModel model(&context);Verilated::threadContextp(&context);model.clock=clock;model.clk_en=clk_en;model.aclr=aclr;model.dataa=dataa;model.datab=datab;model.eval();*ref_result=model.ref_result ^ 1ULL;*ref_overflow=model.ref_overflow;*ref_underflow=model.ref_underflow;*ref_zero=model.ref_zero;*ref_denormal=model.ref_denormal;*ref_indefinite=model.ref_indefinite;*ref_nan=model.ref_nan;}

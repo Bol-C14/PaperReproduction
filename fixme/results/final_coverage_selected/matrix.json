@@ -6,21 +6,21 @@
     "code_adapter_cases": 231,
     "code_tool_invoked": 199,
     "code_preflight_only": 32,
-    "code_ever_tool_invoked": 200,
-    "total_recorded_command_attempts": 848,
-    "code_commands": 720,
+    "code_ever_tool_invoked": 201,
+    "total_recorded_command_attempts": 1089,
+    "code_commands": 776,
     "code_by_subset": {
       "MGen": {
-        "error": 17,
-        "pass": 5,
-        "unknown": 38,
-        "adapter_unsupported": 21
+        "error": 24,
+        "pass": 28,
+        "adapter_unsupported": 20,
+        "unknown": 9
       },
       "TBGen": {
         "unknown": 34,
-        "adapter_unsupported": 20,
+        "adapter_unsupported": 19,
         "pass": 49,
-        "error": 5
+        "error": 6
       },
       "SVAGen": {
         "adapter_unsupported": 11,
@@ -33,13 +33,11 @@
     "final_states": {
       "reference_scorer_checked": 199,
       "data_or_reference_error": 52,
-      "reference_calibration_pass": 85,
-      "resource_or_external_kill_unknown": 4,
-      "reference_or_adapter_error": 19,
-      "proof_or_oracle_unknown": 39,
-      "timeout_unknown": 29,
-      "adapter_contract_unsupported": 52,
-      "data_dependency_error": 3
+      "reference_calibration_pass": 108,
+      "reference_or_adapter_error": 26,
+      "adapter_contract_unsupported": 50,
+      "proof_or_oracle_unknown": 43,
+      "data_dependency_error": 4
     },
     "schema_complete_structural": 430,
     "unattempted_code_cases": 0,
@@ -2828,18 +2826,24 @@
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "error",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
         }
       ],
-      "adapter_status": "unknown",
+      "adapter_status": "error",
       "tool_commands": 4,
       "tools_executed": true,
       "negative_control_detected": null,
       "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "reference_status": "unknown",
+      "reference_status": "fail",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_88d712279904/result.json",
+      "result_path": "../directed_context_repairs/MGen/case_88d712279904/result.json",
       "command_timeouts": 0,
-      "final_state": "resource_or_external_kill_unknown"
+      "final_state": "reference_or_adapter_error"
     },
     {
       "id": "MGen/L1/Text/4 bit FA using HA",
@@ -2918,18 +2922,24 @@
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "exact_lexical_repairs",
+          "status": "error",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
         }
       ],
-      "adapter_status": "unknown",
+      "adapter_status": "error",
       "tool_commands": 4,
       "tools_executed": true,
       "negative_control_detected": null,
       "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "reference_status": "unknown",
+      "reference_status": "fail",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_2dec7a0b0c9e/result.json",
+      "result_path": "../exact_lexical_repairs/MGen/case_2dec7a0b0c9e/result.json",
       "command_timeouts": 0,
-      "final_state": "proof_or_oracle_unknown"
+      "final_state": "reference_or_adapter_error"
     },
     {
       "id": "MGen/L1/Text/Async DFF",
@@ -2948,18 +2958,30 @@
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "context_async_trial",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
+        },
+        {
+          "root": "context_lifecycle_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ],
-      "adapter_status": "unknown",
-      "tool_commands": 4,
+      "adapter_status": "pass",
+      "tool_commands": 6,
       "tools_executed": true,
-      "negative_control_detected": null,
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "reference_status": "unknown",
+      "negative_control_detected": true,
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "reference_status": "pass",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_f541a0476ac4/result.json",
-      "command_timeouts": 1,
-      "final_state": "timeout_unknown"
+      "result_path": "../context_lifecycle_repairs/MGen/case_f541a0476ac4/result.json",
+      "command_timeouts": 0,
+      "final_state": "reference_calibration_pass"
     },
     {
       "id": "MGen/L1/Text/Async FIFO",
@@ -3068,6 +3090,12 @@
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "unknown",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
         }
       ],
       "adapter_status": "unknown",
@@ -3077,9 +3105,9 @@
       "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
       "reference_status": "unknown",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_3082d912ec6b/result.json",
-      "command_timeouts": 1,
-      "final_state": "timeout_unknown"
+      "result_path": "../directed_context_repairs/MGen/case_3082d912ec6b/result.json",
+      "command_timeouts": 0,
+      "final_state": "proof_or_oracle_unknown"
     },
     {
       "id": "MGen/L1/Text/Dual Port RAM",
@@ -3158,6 +3186,12 @@
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "unknown",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
         }
       ],
       "adapter_status": "unknown",
@@ -3167,9 +3201,9 @@
       "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
       "reference_status": "unknown",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_b22508632b34/result.json",
-      "command_timeouts": 1,
-      "final_state": "timeout_unknown"
+      "result_path": "../directed_context_repairs/MGen/case_b22508632b34/result.json",
+      "command_timeouts": 0,
+      "final_state": "proof_or_oracle_unknown"
     },
     {
       "id": "MGen/L1/Text/Mealy Overlap",
@@ -3188,6 +3222,12 @@
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "unknown",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
         }
       ],
       "adapter_status": "unknown",
@@ -3197,9 +3237,9 @@
       "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
       "reference_status": "unknown",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_1a4bd66c7227/result.json",
-      "command_timeouts": 1,
-      "final_state": "timeout_unknown"
+      "result_path": "../directed_context_repairs/MGen/case_1a4bd66c7227/result.json",
+      "command_timeouts": 0,
+      "final_state": "proof_or_oracle_unknown"
     },
     {
       "id": "MGen/L1/Text/Moore Nonoverlap",
@@ -3308,18 +3348,24 @@
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "exact_lexical_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ],
-      "adapter_status": "unknown",
-      "tool_commands": 4,
+      "adapter_status": "pass",
+      "tool_commands": 6,
       "tools_executed": true,
-      "negative_control_detected": null,
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "reference_status": "unknown",
+      "negative_control_detected": true,
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "reference_status": "pass",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_84e89bc27bdd/result.json",
+      "result_path": "../exact_lexical_repairs/MGen/case_84e89bc27bdd/result.json",
       "command_timeouts": 0,
-      "final_state": "proof_or_oracle_unknown"
+      "final_state": "reference_calibration_pass"
     },
     {
       "id": "MGen/L1/Text/Mux using case",
@@ -3338,18 +3384,24 @@
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "exact_lexical_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ],
-      "adapter_status": "unknown",
-      "tool_commands": 4,
+      "adapter_status": "pass",
+      "tool_commands": 6,
       "tools_executed": true,
-      "negative_control_detected": null,
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "reference_status": "unknown",
+      "negative_control_detected": true,
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "reference_status": "pass",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_4cf5d6909225/result.json",
+      "result_path": "../exact_lexical_repairs/MGen/case_4cf5d6909225/result.json",
       "command_timeouts": 0,
-      "final_state": "proof_or_oracle_unknown"
+      "final_state": "reference_calibration_pass"
     },
     {
       "id": "MGen/L1/Text/Number of 1s",
@@ -3368,18 +3420,24 @@
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ],
-      "adapter_status": "unknown",
-      "tool_commands": 4,
+      "adapter_status": "pass",
+      "tool_commands": 6,
       "tools_executed": true,
-      "negative_control_detected": null,
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "reference_status": "unknown",
+      "negative_control_detected": true,
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "reference_status": "pass",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_4bfd5673cacc/result.json",
-      "command_timeouts": 1,
-      "final_state": "timeout_unknown"
+      "result_path": "../directed_context_repairs/MGen/case_4bfd5673cacc/result.json",
+      "command_timeouts": 0,
+      "final_state": "reference_calibration_pass"
     },
     {
       "id": "MGen/L1/Text/PIPO",
@@ -3398,6 +3456,12 @@
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "unknown",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
         }
       ],
       "adapter_status": "unknown",
@@ -3407,9 +3471,9 @@
       "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
       "reference_status": "unknown",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_232b0ad158bb/result.json",
-      "command_timeouts": 1,
-      "final_state": "timeout_unknown"
+      "result_path": "../directed_context_repairs/MGen/case_232b0ad158bb/result.json",
+      "command_timeouts": 0,
+      "final_state": "proof_or_oracle_unknown"
     },
     {
       "id": "MGen/L1/Text/Sequential Multiplier",
@@ -3488,18 +3552,24 @@
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ],
-      "adapter_status": "unknown",
-      "tool_commands": 4,
+      "adapter_status": "pass",
+      "tool_commands": 6,
       "tools_executed": true,
-      "negative_control_detected": null,
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "reference_status": "unknown",
+      "negative_control_detected": true,
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "reference_status": "pass",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_47fc1ee19601/result.json",
-      "command_timeouts": 1,
-      "final_state": "timeout_unknown"
+      "result_path": "../directed_context_repairs/MGen/case_47fc1ee19601/result.json",
+      "command_timeouts": 0,
+      "final_state": "reference_calibration_pass"
     },
     {
       "id": "MGen/L1/Text/Sync FIFO",
@@ -3518,6 +3588,12 @@
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "unknown",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
         }
       ],
       "adapter_status": "unknown",
@@ -3527,9 +3603,9 @@
       "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
       "reference_status": "unknown",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_0a202db81e25/result.json",
-      "command_timeouts": 1,
-      "final_state": "timeout_unknown"
+      "result_path": "../directed_context_repairs/MGen/case_0a202db81e25/result.json",
+      "command_timeouts": 0,
+      "final_state": "proof_or_oracle_unknown"
     },
     {
       "id": "MGen/L1/Text/n bit universal shift register",
@@ -3548,18 +3624,24 @@
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ],
-      "adapter_status": "unknown",
-      "tool_commands": 4,
+      "adapter_status": "pass",
+      "tool_commands": 6,
       "tools_executed": true,
-      "negative_control_detected": null,
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "reference_status": "unknown",
+      "negative_control_detected": true,
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "reference_status": "pass",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_84bc24cec0dd/result.json",
+      "result_path": "../directed_context_repairs/MGen/case_84bc24cec0dd/result.json",
       "command_timeouts": 0,
-      "final_state": "resource_or_external_kill_unknown"
+      "final_state": "reference_calibration_pass"
     },
     {
       "id": "MGen/L1/MultiModal/1",
@@ -3698,18 +3780,24 @@
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ],
-      "adapter_status": "unknown",
-      "tool_commands": 4,
+      "adapter_status": "pass",
+      "tool_commands": 6,
       "tools_executed": true,
-      "negative_control_detected": null,
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "reference_status": "unknown",
+      "negative_control_detected": true,
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "reference_status": "pass",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_987f4f66aea7/result.json",
-      "command_timeouts": 1,
-      "final_state": "timeout_unknown"
+      "result_path": "../directed_context_repairs/MGen/case_987f4f66aea7/result.json",
+      "command_timeouts": 0,
+      "final_state": "reference_calibration_pass"
     },
     {
       "id": "MGen/L2/Text/GA_81",
@@ -3728,18 +3816,24 @@
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "error",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
         }
       ],
-      "adapter_status": "unknown",
+      "adapter_status": "error",
       "tool_commands": 4,
       "tools_executed": true,
       "negative_control_detected": null,
       "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "reference_status": "unknown",
+      "reference_status": "fail",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_69504305608c/result.json",
-      "command_timeouts": 1,
-      "final_state": "timeout_unknown"
+      "result_path": "../directed_context_repairs/MGen/case_69504305608c/result.json",
+      "command_timeouts": 0,
+      "final_state": "reference_or_adapter_error"
     },
     {
       "id": "MGen/L2/Text/GA_82",
@@ -3758,18 +3852,24 @@
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ],
-      "adapter_status": "unknown",
-      "tool_commands": 4,
+      "adapter_status": "pass",
+      "tool_commands": 6,
       "tools_executed": true,
-      "negative_control_detected": null,
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "reference_status": "unknown",
+      "negative_control_detected": true,
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "reference_status": "pass",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_ca8439cebf93/result.json",
-      "command_timeouts": 1,
-      "final_state": "timeout_unknown"
+      "result_path": "../directed_context_repairs/MGen/case_ca8439cebf93/result.json",
+      "command_timeouts": 0,
+      "final_state": "reference_calibration_pass"
     },
     {
       "id": "MGen/L2/Text/GA_85",
@@ -3811,25 +3911,37 @@
       "live_llm": false,
       "is_model_score": false,
       "prior_pilot_input": false,
-      "ever_tools_executed": false,
+      "ever_tools_executed": true,
       "attempt_history": [
         {
           "root": "full_code_batch_v2",
           "status": "adapter_unsupported",
           "commands": 0,
           "reason": "file I/O source outside bounded no-filesystem-confinement contract"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "error",
+          "commands": 3,
+          "reason": "official reference/derived baseline diagnostic: candidate compilation diagnostic"
+        },
+        {
+          "root": "interface_binding_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ],
-      "adapter_status": "adapter_unsupported",
-      "tool_commands": 0,
-      "tools_executed": false,
-      "negative_control_detected": null,
-      "reason": "file I/O source outside bounded no-filesystem-confinement contract",
-      "reference_status": null,
-      "eda_attempt": "preflight_only",
-      "result_path": "../full_code_batch_v2/MGen/case_a89dbe687467/result.json",
+      "adapter_status": "pass",
+      "tool_commands": 6,
+      "tools_executed": true,
+      "negative_control_detected": true,
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "reference_status": "pass",
+      "eda_attempt": "tool_invoked",
+      "result_path": "../interface_binding_repairs/MGen/case_a89dbe687467/result.json",
       "command_timeouts": 0,
-      "final_state": "adapter_contract_unsupported"
+      "final_state": "reference_calibration_pass"
     },
     {
       "id": "MGen/L2/Text/GP_33",
@@ -3848,18 +3960,24 @@
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "error",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
         }
       ],
-      "adapter_status": "unknown",
+      "adapter_status": "error",
       "tool_commands": 4,
       "tools_executed": true,
       "negative_control_detected": null,
       "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "reference_status": "unknown",
+      "reference_status": "fail",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_eb3b88a1357b/result.json",
-      "command_timeouts": 1,
-      "final_state": "timeout_unknown"
+      "result_path": "../directed_context_repairs/MGen/case_eb3b88a1357b/result.json",
+      "command_timeouts": 0,
+      "final_state": "reference_or_adapter_error"
     },
     {
       "id": "MGen/L2/Text/GS_35",
@@ -3878,18 +3996,24 @@
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ],
-      "adapter_status": "unknown",
-      "tool_commands": 4,
+      "adapter_status": "pass",
+      "tool_commands": 6,
       "tools_executed": true,
-      "negative_control_detected": null,
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "reference_status": "unknown",
+      "negative_control_detected": true,
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "reference_status": "pass",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_3e0cd3c63a3a/result.json",
-      "command_timeouts": 1,
-      "final_state": "timeout_unknown"
+      "result_path": "../directed_context_repairs/MGen/case_3e0cd3c63a3a/result.json",
+      "command_timeouts": 0,
+      "final_state": "reference_calibration_pass"
     },
     {
       "id": "MGen/L2/Text/GS_37",
@@ -4058,18 +4182,30 @@
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "unknown",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "remaining_measured_budgets",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ],
-      "adapter_status": "unknown",
-      "tool_commands": 4,
+      "adapter_status": "pass",
+      "tool_commands": 6,
       "tools_executed": true,
-      "negative_control_detected": null,
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "reference_status": "unknown",
+      "negative_control_detected": true,
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "reference_status": "pass",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_0ef53e4d604f/result.json",
-      "command_timeouts": 1,
-      "final_state": "timeout_unknown"
+      "result_path": "../remaining_measured_budgets/MGen/case_0ef53e4d604f/result.json",
+      "command_timeouts": 0,
+      "final_state": "reference_calibration_pass"
     },
     {
       "id": "MGen/L2/Text/GS_49",
@@ -4088,18 +4224,24 @@
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ],
-      "adapter_status": "unknown",
-      "tool_commands": 4,
+      "adapter_status": "pass",
+      "tool_commands": 6,
       "tools_executed": true,
-      "negative_control_detected": null,
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "reference_status": "unknown",
+      "negative_control_detected": true,
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "reference_status": "pass",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_4f8fb76ddad2/result.json",
-      "command_timeouts": 1,
-      "final_state": "timeout_unknown"
+      "result_path": "../directed_context_repairs/MGen/case_4f8fb76ddad2/result.json",
+      "command_timeouts": 0,
+      "final_state": "reference_calibration_pass"
     },
     {
       "id": "MGen/L2/Text/GS_50",
@@ -4148,18 +4290,24 @@
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "error",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
         }
       ],
-      "adapter_status": "unknown",
+      "adapter_status": "error",
       "tool_commands": 4,
       "tools_executed": true,
       "negative_control_detected": null,
       "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "reference_status": "unknown",
+      "reference_status": "fail",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_8f0880840867/result.json",
-      "command_timeouts": 1,
-      "final_state": "timeout_unknown"
+      "result_path": "../directed_context_repairs/MGen/case_8f0880840867/result.json",
+      "command_timeouts": 0,
+      "final_state": "reference_or_adapter_error"
     },
     {
       "id": "MGen/L2/Text/GS_53",
@@ -4178,18 +4326,24 @@
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ],
-      "adapter_status": "unknown",
-      "tool_commands": 4,
+      "adapter_status": "pass",
+      "tool_commands": 6,
       "tools_executed": true,
-      "negative_control_detected": null,
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "reference_status": "unknown",
+      "negative_control_detected": true,
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "reference_status": "pass",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_437e21942578/result.json",
-      "command_timeouts": 1,
-      "final_state": "timeout_unknown"
+      "result_path": "../directed_context_repairs/MGen/case_437e21942578/result.json",
+      "command_timeouts": 0,
+      "final_state": "reference_calibration_pass"
     },
     {
       "id": "MGen/L2/Text/GS_54",
@@ -4238,18 +4392,24 @@
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "error",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
         }
       ],
-      "adapter_status": "unknown",
+      "adapter_status": "error",
       "tool_commands": 4,
       "tools_executed": true,
       "negative_control_detected": null,
       "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "reference_status": "unknown",
+      "reference_status": "fail",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_f4c6ed63cb96/result.json",
-      "command_timeouts": 1,
-      "final_state": "timeout_unknown"
+      "result_path": "../directed_context_repairs/MGen/case_f4c6ed63cb96/result.json",
+      "command_timeouts": 0,
+      "final_state": "reference_or_adapter_error"
     },
     {
       "id": "MGen/L2/Text/GS_58",
@@ -4268,18 +4428,24 @@
           "status": "error",
           "commands": 3,
           "reason": "official reference/derived baseline diagnostic: candidate compilation diagnostic"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ],
-      "adapter_status": "error",
-      "tool_commands": 3,
+      "adapter_status": "pass",
+      "tool_commands": 6,
       "tools_executed": true,
-      "negative_control_detected": null,
-      "reason": "official reference/derived baseline diagnostic: candidate compilation diagnostic",
-      "reference_status": null,
+      "negative_control_detected": true,
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "reference_status": "pass",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_e6e5c1422e07/result.json",
+      "result_path": "../directed_context_repairs/MGen/case_e6e5c1422e07/result.json",
       "command_timeouts": 0,
-      "final_state": "reference_or_adapter_error"
+      "final_state": "reference_calibration_pass"
     },
     {
       "id": "MGen/L2/Text/GS_59",
@@ -4298,18 +4464,24 @@
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ],
-      "adapter_status": "unknown",
-      "tool_commands": 4,
+      "adapter_status": "pass",
+      "tool_commands": 6,
       "tools_executed": true,
-      "negative_control_detected": null,
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "reference_status": "unknown",
+      "negative_control_detected": true,
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "reference_status": "pass",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_c1d8b13f6ab9/result.json",
-      "command_timeouts": 1,
-      "final_state": "timeout_unknown"
+      "result_path": "../directed_context_repairs/MGen/case_c1d8b13f6ab9/result.json",
+      "command_timeouts": 0,
+      "final_state": "reference_calibration_pass"
     },
     {
       "id": "MGen/L2/Text/GS_61",
@@ -4388,18 +4560,24 @@
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ],
-      "adapter_status": "unknown",
-      "tool_commands": 4,
+      "adapter_status": "pass",
+      "tool_commands": 6,
       "tools_executed": true,
-      "negative_control_detected": null,
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "reference_status": "unknown",
+      "negative_control_detected": true,
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "reference_status": "pass",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_1e0d22369a8e/result.json",
-      "command_timeouts": 1,
-      "final_state": "timeout_unknown"
+      "result_path": "../directed_context_repairs/MGen/case_1e0d22369a8e/result.json",
+      "command_timeouts": 0,
+      "final_state": "reference_calibration_pass"
     },
     {
       "id": "MGen/L3/Text/GA_67",
@@ -4418,16 +4596,22 @@
           "status": "error",
           "commands": 1,
           "reason": "official reference/derived baseline diagnostic: candidate compilation diagnostic"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "error",
+          "commands": 0,
+          "reason": "TB/source parameter interface conflict: named bindings supplied to a parameterless reference"
         }
       ],
       "adapter_status": "error",
-      "tool_commands": 1,
-      "tools_executed": true,
+      "tool_commands": 0,
+      "tools_executed": false,
       "negative_control_detected": null,
-      "reason": "official reference/derived baseline diagnostic: candidate compilation diagnostic",
+      "reason": "TB/source parameter interface conflict: named bindings supplied to a parameterless reference",
       "reference_status": null,
-      "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_f3e852be8de8/result.json",
+      "eda_attempt": "preflight_only",
+      "result_path": "../directed_context_repairs/MGen/case_f3e852be8de8/result.json",
       "command_timeouts": 0,
       "final_state": "reference_or_adapter_error"
     },
@@ -4478,18 +4662,24 @@
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ],
-      "adapter_status": "unknown",
-      "tool_commands": 4,
+      "adapter_status": "pass",
+      "tool_commands": 6,
       "tools_executed": true,
-      "negative_control_detected": null,
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "reference_status": "unknown",
+      "negative_control_detected": true,
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "reference_status": "pass",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_0e1337272ded/result.json",
-      "command_timeouts": 1,
-      "final_state": "timeout_unknown"
+      "result_path": "../directed_context_repairs/MGen/case_0e1337272ded/result.json",
+      "command_timeouts": 0,
+      "final_state": "reference_calibration_pass"
     },
     {
       "id": "MGen/L3/Text/GA_70",
@@ -4526,18 +4716,24 @@
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "error",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
         }
       ],
-      "adapter_status": "unknown",
+      "adapter_status": "error",
       "tool_commands": 4,
       "tools_executed": true,
       "negative_control_detected": null,
       "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "reference_status": "unknown",
+      "reference_status": "fail",
       "eda_attempt": "tool_invoked",
-      "result_path": "../read_dependency_fix/MGen/case_ee3f06e46edb/result.json",
-      "command_timeouts": 1,
-      "final_state": "timeout_unknown"
+      "result_path": "../directed_context_repairs/MGen/case_ee3f06e46edb/result.json",
+      "command_timeouts": 0,
+      "final_state": "reference_or_adapter_error"
     },
     {
       "id": "MGen/L3/Text/GA_71",
@@ -4616,18 +4812,30 @@
           "status": "error",
           "commands": 3,
           "reason": "official reference/derived baseline diagnostic: candidate compilation diagnostic"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "unknown",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "ga74_measured_budget",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ],
-      "adapter_status": "error",
-      "tool_commands": 3,
+      "adapter_status": "pass",
+      "tool_commands": 6,
       "tools_executed": true,
-      "negative_control_detected": null,
-      "reason": "official reference/derived baseline diagnostic: candidate compilation diagnostic",
-      "reference_status": null,
+      "negative_control_detected": true,
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "reference_status": "pass",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_befae6f7d510/result.json",
+      "result_path": "../ga74_measured_budget/MGen/case_befae6f7d510/result.json",
       "command_timeouts": 0,
-      "final_state": "reference_or_adapter_error"
+      "final_state": "reference_calibration_pass"
     },
     {
       "id": "MGen/L3/Text/GA_75",
@@ -4736,18 +4944,24 @@
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ],
-      "adapter_status": "unknown",
-      "tool_commands": 4,
+      "adapter_status": "pass",
+      "tool_commands": 6,
       "tools_executed": true,
-      "negative_control_detected": null,
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "reference_status": "unknown",
+      "negative_control_detected": true,
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "reference_status": "pass",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_f521733fca53/result.json",
-      "command_timeouts": 1,
-      "final_state": "timeout_unknown"
+      "result_path": "../directed_context_repairs/MGen/case_f521733fca53/result.json",
+      "command_timeouts": 0,
+      "final_state": "reference_calibration_pass"
     },
     {
       "id": "MGen/L3/Text/GA_80",
@@ -4796,18 +5010,24 @@
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "unknown",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ],
       "adapter_status": "unknown",
-      "tool_commands": 4,
+      "tool_commands": 6,
       "tools_executed": true,
-      "negative_control_detected": null,
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "reference_status": "unknown",
+      "negative_control_detected": false,
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "reference_status": "pass",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_af0a257c684e/result.json",
+      "result_path": "../directed_context_repairs/MGen/case_af0a257c684e/result.json",
       "command_timeouts": 0,
-      "final_state": "resource_or_external_kill_unknown"
+      "final_state": "proof_or_oracle_unknown"
     },
     {
       "id": "MGen/L3/Text/GA_84",
@@ -4826,18 +5046,24 @@
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "error",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
         }
       ],
-      "adapter_status": "unknown",
+      "adapter_status": "error",
       "tool_commands": 4,
       "tools_executed": true,
       "negative_control_detected": null,
       "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "reference_status": "unknown",
+      "reference_status": "fail",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_708222e2d0bc/result.json",
-      "command_timeouts": 1,
-      "final_state": "timeout_unknown"
+      "result_path": "../directed_context_repairs/MGen/case_708222e2d0bc/result.json",
+      "command_timeouts": 0,
+      "final_state": "reference_or_adapter_error"
     },
     {
       "id": "MGen/L3/Text/GA_86",
@@ -4856,18 +5082,24 @@
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ],
-      "adapter_status": "unknown",
-      "tool_commands": 4,
+      "adapter_status": "pass",
+      "tool_commands": 6,
       "tools_executed": true,
-      "negative_control_detected": null,
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "reference_status": "unknown",
+      "negative_control_detected": true,
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "reference_status": "pass",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_5af3e6827832/result.json",
-      "command_timeouts": 1,
-      "final_state": "timeout_unknown"
+      "result_path": "../directed_context_repairs/MGen/case_5af3e6827832/result.json",
+      "command_timeouts": 0,
+      "final_state": "reference_calibration_pass"
     },
     {
       "id": "MGen/L3/Text/GA_87",
@@ -4916,18 +5148,24 @@
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ],
-      "adapter_status": "unknown",
-      "tool_commands": 4,
+      "adapter_status": "pass",
+      "tool_commands": 6,
       "tools_executed": true,
-      "negative_control_detected": null,
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "reference_status": "unknown",
+      "negative_control_detected": true,
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "reference_status": "pass",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_1fcf7a8fd389/result.json",
+      "result_path": "../directed_context_repairs/MGen/case_1fcf7a8fd389/result.json",
       "command_timeouts": 0,
-      "final_state": "resource_or_external_kill_unknown"
+      "final_state": "reference_calibration_pass"
     },
     {
       "id": "MGen/L3/Text/GA_89",
@@ -4946,18 +5184,36 @@
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "unknown",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "remaining_measured_budgets",
+          "status": "unknown",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "context_lifecycle_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ],
-      "adapter_status": "unknown",
-      "tool_commands": 4,
+      "adapter_status": "pass",
+      "tool_commands": 6,
       "tools_executed": true,
-      "negative_control_detected": null,
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "reference_status": "unknown",
+      "negative_control_detected": true,
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "reference_status": "pass",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_ee2b5e9117d7/result.json",
-      "command_timeouts": 1,
-      "final_state": "timeout_unknown"
+      "result_path": "../context_lifecycle_repairs/MGen/case_ee2b5e9117d7/result.json",
+      "command_timeouts": 0,
+      "final_state": "reference_calibration_pass"
     },
     {
       "id": "MGen/L3/Text/GA_90",
@@ -4976,18 +5232,24 @@
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "pass",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ],
-      "adapter_status": "unknown",
-      "tool_commands": 4,
+      "adapter_status": "pass",
+      "tool_commands": 6,
       "tools_executed": true,
-      "negative_control_detected": null,
-      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "reference_status": "unknown",
+      "negative_control_detected": true,
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "reference_status": "pass",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_1b8d4405a0fd/result.json",
-      "command_timeouts": 1,
-      "final_state": "timeout_unknown"
+      "result_path": "../directed_context_repairs/MGen/case_1b8d4405a0fd/result.json",
+      "command_timeouts": 0,
+      "final_state": "reference_calibration_pass"
     },
     {
       "id": "MGen/L3/Text/GA_91",
@@ -5006,18 +5268,24 @@
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "error",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
         }
       ],
-      "adapter_status": "unknown",
+      "adapter_status": "error",
       "tool_commands": 4,
       "tools_executed": true,
       "negative_control_detected": null,
       "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "reference_status": "unknown",
+      "reference_status": "fail",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_7e3d71d5a4c7/result.json",
-      "command_timeouts": 1,
-      "final_state": "timeout_unknown"
+      "result_path": "../directed_context_repairs/MGen/case_7e3d71d5a4c7/result.json",
+      "command_timeouts": 0,
+      "final_state": "reference_or_adapter_error"
     },
     {
       "id": "MGen/L3/Text/GA_92",
@@ -5096,18 +5364,36 @@
           "status": "error",
           "commands": 3,
           "reason": "official reference/derived baseline diagnostic: candidate compilation diagnostic"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "error",
+          "commands": 3,
+          "reason": "official reference/derived baseline diagnostic: candidate compilation diagnostic"
+        },
+        {
+          "root": "interface_binding_repairs",
+          "status": "error",
+          "commands": 3,
+          "reason": "official reference/derived baseline diagnostic: candidate compilation diagnostic"
+        },
+        {
+          "root": "packed_port_parse_repair",
+          "status": "unknown",
+          "commands": 6,
+          "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative"
         }
       ],
-      "adapter_status": "error",
-      "tool_commands": 3,
+      "adapter_status": "unknown",
+      "tool_commands": 6,
       "tools_executed": true,
-      "negative_control_detected": null,
-      "reason": "official reference/derived baseline diagnostic: candidate compilation diagnostic",
-      "reference_status": null,
+      "negative_control_detected": false,
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "reference_status": "pass",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_f2a6dfee7009/result.json",
+      "result_path": "../packed_port_parse_repair/MGen/case_f2a6dfee7009/result.json",
       "command_timeouts": 0,
-      "final_state": "reference_or_adapter_error"
+      "final_state": "proof_or_oracle_unknown"
     },
     {
       "id": "MGen/L3/Text/GA_95",
@@ -5126,18 +5412,24 @@
           "status": "unknown",
           "commands": 4,
           "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "error",
+          "commands": 4,
+          "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks"
         }
       ],
-      "adapter_status": "unknown",
+      "adapter_status": "error",
       "tool_commands": 4,
       "tools_executed": true,
       "negative_control_detected": null,
       "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
-      "reference_status": "unknown",
+      "reference_status": "fail",
       "eda_attempt": "tool_invoked",
-      "result_path": "../full_code_batch_v2/MGen/case_5fe5e3c94560/result.json",
-      "command_timeouts": 1,
-      "final_state": "timeout_unknown"
+      "result_path": "../directed_context_repairs/MGen/case_5fe5e3c94560/result.json",
+      "command_timeouts": 0,
+      "final_state": "reference_or_adapter_error"
     },
     {
       "id": "MGen/L3/Text/GA_96",
@@ -6338,18 +6630,24 @@
           "status": "adapter_unsupported",
           "commands": 0,
           "reason": "file I/O source outside bounded no-filesystem-confinement contract"
+        },
+        {
+          "root": "directed_context_repairs",
+          "status": "error",
+          "commands": 0,
+          "reason": "missing external input asset: ['RAMINIT.mif']"
         }
       ],
-      "adapter_status": "adapter_unsupported",
+      "adapter_status": "error",
       "tool_commands": 0,
       "tools_executed": false,
       "negative_control_detected": null,
-      "reason": "file I/O source outside bounded no-filesystem-confinement contract",
+      "reason": "missing external input asset: ['RAMINIT.mif']",
       "reference_status": null,
       "eda_attempt": "preflight_only",
-      "result_path": "../full_code_batch_v2/TBGen/case_7e25a5773c16/result.json",
+      "result_path": "../directed_context_repairs/TBGen/case_7e25a5773c16/result.json",
       "command_timeouts": 0,
-      "final_state": "adapter_contract_unsupported"
+      "final_state": "data_dependency_error"
     },
     {
       "id": "TBGen/L2/Text/IDEX_Stage",

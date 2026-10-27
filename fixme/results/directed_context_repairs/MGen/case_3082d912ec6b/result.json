@@ -1,0 +1,48 @@
+{
+  "id": "MGen/L1/Text/Custom Design",
+  "subset": "MGen",
+  "input_files": [
+    {
+      "name": "Custom Design.png",
+      "bytes": 14627,
+      "sha256": "e676d88fc045deee79ae952bbf94b0dfc620b76b955215b432d13eb7e28dca2d"
+    },
+    {
+      "name": "custdesign.v",
+      "bytes": 855,
+      "sha256": "8f4eba519023bcc1d1d3adef79d91758476e19a1c335c81834ca6523ea16acf1"
+    },
+    {
+      "name": "custdesign_tb.v",
+      "bytes": 271,
+      "sha256": "2da6c0c1b24787d96d210a5abae4d8299e1950bc6380f597d605d40f44c9e639"
+    }
+  ],
+  "overlays": [
+    {
+      "field": "spec_text",
+      "source": "data/SpeCom/L1/Text/Custom Design/custdesign_spec.txt",
+      "sha256": "f1ea66e4d55159bc2066dd10045cda3c21c73ca9663cfac136c3e96cda157c29",
+      "reason": "same case name and byte-identical RTL in SpeCom; explicit cross-subset reuse",
+      "fidelity": "structural-input-overlay",
+      "matched_rtl_sha256": "8f4eba519023bcc1d1d3adef79d91758476e19a1c335c81834ca6523ea16acf1"
+    }
+  ],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": null,
+  "negative_control_detected": null,
+  "commands": 4,
+  "status": "unknown",
+  "wrapper_mode": "dut_replacement",
+  "reference_source": "custdesign.v",
+  "reference_source_sha256": "8f4eba519023bcc1d1d3adef79d91758476e19a1c335c81834ca6523ea16acf1",
+  "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+  "resolved_tb_parameters": {},
+  "observed_checks": 0,
+  "score_reason": "no recognized check evidence",
+  "reference_status": "unknown",
+  "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
+  "seconds": 12.055
+}

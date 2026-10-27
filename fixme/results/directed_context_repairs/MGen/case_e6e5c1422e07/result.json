@@ -1,0 +1,90 @@
+{
+  "id": "MGen/L2/Text/GS_58",
+  "subset": "MGen",
+  "input_files": [
+    {
+      "name": ".fsm.sch.verilog.xml",
+      "bytes": 56,
+      "sha256": "4b9dad72827b173a43d570c924aad53b345e21485e3fa3a1deadf098783684bb"
+    },
+    {
+      "name": "dut.f",
+      "bytes": 27,
+      "sha256": "85f962db6f0a138db67a6c64fb84664cd2459a96548439499529589bb912a8bc"
+    },
+    {
+      "name": "dut.v",
+      "bytes": 3207,
+      "sha256": "27e1d221da4ca9749460c1de0b058fcf7d0464d7363912fde637da28b4cefc36"
+    },
+    {
+      "name": "makefile",
+      "bytes": 1000,
+      "sha256": "5a347956af99cde28ff4cf0a688d8bdaa6fd44b14388cf399a62e55dfded3ee2"
+    },
+    {
+      "name": "ref.v",
+      "bytes": 3280,
+      "sha256": "6c2709499a78cd1197e2a803876800983e8c8b0da67a8c76a25ad23556ee0995"
+    },
+    {
+      "name": "ref_tb.v",
+      "bytes": 6505,
+      "sha256": "b19a36b0e7ca0ee09bfb18b3546d385f065c52d66379f6a9b904c507ea03a563"
+    },
+    {
+      "name": "spec.txt",
+      "bytes": 8694,
+      "sha256": "0ddc1dd8fc9facc11083c34954dc4b521b10182898916d163e952618a97f24c5"
+    }
+  ],
+  "overlays": [],
+  "live_llm": false,
+  "kind": "reference-calibration-not-model-score",
+  "fidelity": "structural-substituted",
+  "functional_pass": true,
+  "negative_control_detected": true,
+  "commands": 6,
+  "status": "pass",
+  "wrapper_mode": "reference_model",
+  "reference_source": "ref.v",
+  "reference_source_sha256": "6c2709499a78cd1197e2a803876800983e8c8b0da67a8c76a25ad23556ee0995",
+  "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+  "resolved_tb_parameters": {},
+  "staging_overlays": [
+    {
+      "file": "dut.v",
+      "kind": "module-name alias for exact named-port match",
+      "source_sha256": "27e1d221da4ca9749460c1de0b058fcf7d0464d7363912fde637da28b4cefc36",
+      "staged_sha256": "186edc9c7afb6b69c315085d6bd03f2a6675cd58c7136d1b45069c22d98dc749",
+      "from_module": "omsp_watchdog",
+      "to_module": "top",
+      "matched_port_names": [
+        "aclk_en",
+        "dbg_freeze",
+        "mclk",
+        "nmi",
+        "nmi_evt",
+        "nmie",
+        "per_addr",
+        "per_din",
+        "per_dout",
+        "per_en",
+        "per_wen",
+        "puc",
+        "smclk_en",
+        "wdtifg_set",
+        "wdtpw_error",
+        "wdttmsel"
+      ],
+      "diff": "dut.v.module_alias.diff",
+      "scope": "only module declaration name changes; no port/default/body/parameter changes"
+    }
+  ],
+  "observed_checks": 100,
+  "score_reason": "explicit failed check overrides any success/count text",
+  "reference_status": "pass",
+  "negative_status": "fail",
+  "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+  "seconds": 13.329
+}

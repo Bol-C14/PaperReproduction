@@ -1,0 +1,7 @@
+#include "RefModel.h"
+struct CallerContextGuard {
+ VerilatedContext* caller;
+ CallerContextGuard(): caller(Verilated::threadContextp()) {}
+ ~CallerContextGuard(){ Verilated::threadContextp(caller); }
+};
+extern "C" void ref_model_eval(unsigned long long i_data_clk,unsigned long long i_ce,unsigned long long i_trigger,unsigned long long i_data,unsigned long long i_wb_clk,unsigned long long i_wb_cyc,unsigned long long i_wb_stb,unsigned long long i_wb_we,unsigned long long i_wb_addr,unsigned long long i_wb_data,unsigned long long* o_wb_ack_ref,unsigned long long* o_wb_stall_ref,unsigned long long* o_wb_data_ref,unsigned long long* o_interrupt_ref){CallerContextGuard restore_caller;static VerilatedContext context;static RefModel model(&context);Verilated::threadContextp(&context);model.i_data_clk=i_data_clk;model.i_ce=i_ce;model.i_trigger=i_trigger;model.i_data=i_data;model.i_wb_clk=i_wb_clk;model.i_wb_cyc=i_wb_cyc;model.i_wb_stb=i_wb_stb;model.i_wb_we=i_wb_we;model.i_wb_addr=i_wb_addr;model.i_wb_data=i_wb_data;model.eval();*o_wb_ack_ref=model.o_wb_ack_ref;*o_wb_stall_ref=model.o_wb_stall_ref;*o_wb_data_ref=model.o_wb_data_ref;*o_interrupt_ref=model.o_interrupt_ref;}

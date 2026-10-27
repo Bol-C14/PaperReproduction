@@ -1,0 +1,2222 @@
+{
+  "kind": "reference-calibration-not-model-score",
+  "live_llm": false,
+  "case_count": 38,
+  "max_workers": 2,
+  "case_budget_seconds": 150,
+  "results": [
+    {
+      "id": "MGen/L1/Text/3 bit up_down counter",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": "cntr_3ud.v",
+          "bytes": 1129,
+          "sha256": "13674f0afadc4fd047d79cbf7f13949f142ef53aa1f62756d49468af66a099bd"
+        },
+        {
+          "name": "cntr_3ud_tb.v",
+          "bytes": 2245,
+          "sha256": "79edcd1e734a225e5c758341580d97fbaf9cbffb781521a5f2b5f585e3616dd6"
+        }
+      ],
+      "overlays": [
+        {
+          "field": "spec_text",
+          "source": "data/SpeCom/L1/Text/3 bit up_down counter/cntr_3ud_spec.txt",
+          "sha256": "76dc40431d9e5fefaf1767e8add63dfe23ae045d6b30c15787fb5c4d213fea96",
+          "reason": "same case name and byte-identical RTL in SpeCom; explicit cross-subset reuse",
+          "fidelity": "structural-input-overlay",
+          "matched_rtl_sha256": "13674f0afadc4fd047d79cbf7f13949f142ef53aa1f62756d49468af66a099bd"
+        }
+      ],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 4,
+      "status": "error",
+      "wrapper_mode": "dut_replacement",
+      "reference_source": "cntr_3ud.v",
+      "reference_source_sha256": "13674f0afadc4fd047d79cbf7f13949f142ef53aa1f62756d49468af66a099bd",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {},
+      "observed_checks": 11,
+      "score_reason": "explicit supplied-TB failed check",
+      "reference_status": "fail",
+      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
+      "seconds": 12.257
+    },
+    {
+      "id": "MGen/L1/Text/Custom Design",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": "Custom Design.png",
+          "bytes": 14627,
+          "sha256": "e676d88fc045deee79ae952bbf94b0dfc620b76b955215b432d13eb7e28dca2d"
+        },
+        {
+          "name": "custdesign.v",
+          "bytes": 855,
+          "sha256": "8f4eba519023bcc1d1d3adef79d91758476e19a1c335c81834ca6523ea16acf1"
+        },
+        {
+          "name": "custdesign_tb.v",
+          "bytes": 271,
+          "sha256": "2da6c0c1b24787d96d210a5abae4d8299e1950bc6380f597d605d40f44c9e639"
+        }
+      ],
+      "overlays": [
+        {
+          "field": "spec_text",
+          "source": "data/SpeCom/L1/Text/Custom Design/custdesign_spec.txt",
+          "sha256": "f1ea66e4d55159bc2066dd10045cda3c21c73ca9663cfac136c3e96cda157c29",
+          "reason": "same case name and byte-identical RTL in SpeCom; explicit cross-subset reuse",
+          "fidelity": "structural-input-overlay",
+          "matched_rtl_sha256": "8f4eba519023bcc1d1d3adef79d91758476e19a1c335c81834ca6523ea16acf1"
+        }
+      ],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 4,
+      "status": "unknown",
+      "wrapper_mode": "dut_replacement",
+      "reference_source": "custdesign.v",
+      "reference_source_sha256": "8f4eba519023bcc1d1d3adef79d91758476e19a1c335c81834ca6523ea16acf1",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {},
+      "observed_checks": 0,
+      "score_reason": "no recognized check evidence",
+      "reference_status": "unknown",
+      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
+      "seconds": 12.055
+    },
+    {
+      "id": "MGen/L1/Text/Mealy Nonoverlap",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": "mealy_nonol.v",
+          "bytes": 2074,
+          "sha256": "fb92d609830d29347c8ec3eb6887455024f231bd1279d918a32fa7a2f3095240"
+        },
+        {
+          "name": "mealy_nonol_tb.v",
+          "bytes": 4530,
+          "sha256": "c590b8a200b9939aa602662e1a7e90ca86094981ec56af20fa32eef9abac5a09"
+        }
+      ],
+      "overlays": [
+        {
+          "field": "spec_text",
+          "source": "data/SpeCom/L1/Text/Mealy Nonoverlap/mealy_nonol_spec.txt",
+          "sha256": "330d08b27989cd92301f41073a2fe5a0a6774c2bb3b33402d41459941b7c631e",
+          "reason": "same case name and byte-identical RTL in SpeCom; explicit cross-subset reuse",
+          "fidelity": "structural-input-overlay",
+          "matched_rtl_sha256": "fb92d609830d29347c8ec3eb6887455024f231bd1279d918a32fa7a2f3095240"
+        }
+      ],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 4,
+      "status": "unknown",
+      "wrapper_mode": "dut_replacement",
+      "reference_source": "mealy_nonol.v",
+      "reference_source_sha256": "fb92d609830d29347c8ec3eb6887455024f231bd1279d918a32fa7a2f3095240",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {},
+      "observed_checks": 0,
+      "score_reason": "no recognized check evidence",
+      "reference_status": "unknown",
+      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
+      "seconds": 12.584
+    },
+    {
+      "id": "MGen/L1/Text/Mealy Overlap",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": "mealy_ol.v",
+          "bytes": 3055,
+          "sha256": "8bc8173bfda358e9d47cc6d8269f044617faf490edcf1d52453ae1118ef3f517"
+        },
+        {
+          "name": "mealy_ol_tb.v",
+          "bytes": 3854,
+          "sha256": "2139c0e9c4618e97610c466ca3fc38c1e546ffcdcdd908ececbf2711b9281e74"
+        }
+      ],
+      "overlays": [
+        {
+          "field": "spec_text",
+          "source": "data/SpeCom/L1/Text/Mealy Overlap/mealy_ol_spec.txt",
+          "sha256": "804cc870b1efb7967c94e51eef3364f8a50d6718310a9c4d8737aac067c7b058",
+          "reason": "same case name and byte-identical RTL in SpeCom; explicit cross-subset reuse",
+          "fidelity": "structural-input-overlay",
+          "matched_rtl_sha256": "8bc8173bfda358e9d47cc6d8269f044617faf490edcf1d52453ae1118ef3f517"
+        }
+      ],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 4,
+      "status": "unknown",
+      "wrapper_mode": "dut_replacement",
+      "reference_source": "mealy_ol.v",
+      "reference_source_sha256": "8bc8173bfda358e9d47cc6d8269f044617faf490edcf1d52453ae1118ef3f517",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {},
+      "observed_checks": 0,
+      "score_reason": "no recognized check evidence",
+      "reference_status": "unknown",
+      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
+      "seconds": 12.879
+    },
+    {
+      "id": "MGen/L1/Text/Number of 1s",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": "no_1s.v",
+          "bytes": 961,
+          "sha256": "fdcb265ff140d3b4932f9003f0aa9f1ed2495491a628b634f6d9423bd6dabfe8"
+        },
+        {
+          "name": "no_1s_tb.v",
+          "bytes": 1991,
+          "sha256": "a1da43e6dea78d72037314cfccb85a494c448fbbc0da21a77e2d43dbe73cc22e"
+        }
+      ],
+      "overlays": [
+        {
+          "field": "spec_text",
+          "source": "data/SpeCom/L1/Text/Number of 1s/no_1s_spec.txt",
+          "sha256": "a2b455e65c220620d3f558123ffe9a8e51571fbd1ea02bccfe911461569d8ebc",
+          "reason": "same case name and byte-identical RTL in SpeCom; explicit cross-subset reuse",
+          "fidelity": "structural-input-overlay",
+          "matched_rtl_sha256": "fdcb265ff140d3b4932f9003f0aa9f1ed2495491a628b634f6d9423bd6dabfe8"
+        }
+      ],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
+      "wrapper_mode": "dut_replacement",
+      "reference_source": "no_1s.v",
+      "reference_source_sha256": "fdcb265ff140d3b4932f9003f0aa9f1ed2495491a628b634f6d9423bd6dabfe8",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {},
+      "observed_checks": 1,
+      "score_reason": "explicit supplied-TB failed check",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 13.737
+    },
+    {
+      "id": "MGen/L1/Text/PIPO",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": "pipo_shift.v",
+          "bytes": 2133,
+          "sha256": "88ee60217b666051b1a4c8471b9703fce863a6e26e70dafaf49239fe454f7d93"
+        },
+        {
+          "name": "pipo_shift_tb.v",
+          "bytes": 1189,
+          "sha256": "8cc36c963b9d9a68d23df9962c0fa6d9aec226ce78918f1e3cc519fbcf9e5eb6"
+        }
+      ],
+      "overlays": [
+        {
+          "field": "spec_text",
+          "source": "data/SpeCom/L1/Text/PIPO/pipo_shit_spec.txt",
+          "sha256": "7f9bd5764abafac0efb5b9d562e7e2b3a4d2f8f7b54ca0226dc146705a2d6d14",
+          "reason": "same case name and byte-identical RTL in SpeCom; explicit cross-subset reuse",
+          "fidelity": "structural-input-overlay",
+          "matched_rtl_sha256": "88ee60217b666051b1a4c8471b9703fce863a6e26e70dafaf49239fe454f7d93"
+        }
+      ],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 4,
+      "status": "unknown",
+      "wrapper_mode": "dut_replacement",
+      "reference_source": "pipo_shift.v",
+      "reference_source_sha256": "88ee60217b666051b1a4c8471b9703fce863a6e26e70dafaf49239fe454f7d93",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {},
+      "observed_checks": 0,
+      "score_reason": "no recognized check evidence",
+      "reference_status": "unknown",
+      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
+      "seconds": 12.811
+    },
+    {
+      "id": "MGen/L1/Text/Sync DFF",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": "dff_sync.v",
+          "bytes": 710,
+          "sha256": "b32079e096317a5b84bed75cdc9e72092032839fe429279cb743983f969f783c"
+        },
+        {
+          "name": "dff_sync_tb.v",
+          "bytes": 1475,
+          "sha256": "f3d50d4d5474f3c84137b985033832737e60c916ce03593244e58cee1cca7c8a"
+        }
+      ],
+      "overlays": [
+        {
+          "field": "spec_text",
+          "source": "data/SpeCom/L1/Text/Sync DFF/dff_sync_spec.txt",
+          "sha256": "39b7da1a3123671ae8c9d618dd0ea5ea91b61f7f6a943d89b41636c654c802cc",
+          "reason": "same case name and byte-identical RTL in SpeCom; explicit cross-subset reuse",
+          "fidelity": "structural-input-overlay",
+          "matched_rtl_sha256": "b32079e096317a5b84bed75cdc9e72092032839fe429279cb743983f969f783c"
+        }
+      ],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
+      "wrapper_mode": "dut_replacement",
+      "reference_source": "dff_sync.v",
+      "reference_source_sha256": "b32079e096317a5b84bed75cdc9e72092032839fe429279cb743983f969f783c",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {},
+      "observed_checks": 49,
+      "score_reason": "explicit supplied-TB failed check",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 12.856
+    },
+    {
+      "id": "MGen/L1/Text/Sync FIFO",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": "syncfifo.v",
+          "bytes": 3833,
+          "sha256": "ab9699cf80cb4b05b9703e2fe2557d7cb98da42f9e443f042bf0b13e220fa67b"
+        },
+        {
+          "name": "syncfifo_tb.v",
+          "bytes": 1561,
+          "sha256": "b2e578ca3c7edbb7f10d8d667bc49e5991d208c432890af0155805da59b73874"
+        }
+      ],
+      "overlays": [
+        {
+          "field": "spec_text",
+          "source": "data/SpeCom/L1/Text/Sync FIFO/syncfifo_spec.txt",
+          "sha256": "1fa8e55fcbe97015918ed128af41740bc3088da4391e3746a95d87aeab3f6390",
+          "reason": "same case name and byte-identical RTL in SpeCom; explicit cross-subset reuse",
+          "fidelity": "structural-input-overlay",
+          "matched_rtl_sha256": "ab9699cf80cb4b05b9703e2fe2557d7cb98da42f9e443f042bf0b13e220fa67b"
+        }
+      ],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 4,
+      "status": "unknown",
+      "wrapper_mode": "dut_replacement",
+      "reference_source": "syncfifo.v",
+      "reference_source_sha256": "ab9699cf80cb4b05b9703e2fe2557d7cb98da42f9e443f042bf0b13e220fa67b",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {},
+      "observed_checks": 0,
+      "score_reason": "no recognized check evidence",
+      "reference_status": "unknown",
+      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
+      "seconds": 11.958
+    },
+    {
+      "id": "MGen/L1/Text/n bit universal shift register",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": "univ_shift.v",
+          "bytes": 906,
+          "sha256": "b8905e766ab0f05c484662f3183af1cbf741d9831f9ff081b258a6256f9474e8"
+        },
+        {
+          "name": "univ_shift_tb.v",
+          "bytes": 1309,
+          "sha256": "f5cdd1d82b5a4c35aff24d461b0e4e30c94f88792666b075a0e96202cc407afa"
+        }
+      ],
+      "overlays": [
+        {
+          "field": "spec_text",
+          "source": "data/SpeCom/L1/Text/n bit universal shift register/univ_shift_spec.txt",
+          "sha256": "efe746bd01f1dddd6a37cdb5b040bc5e1a18f9d626d9650aa7381477537baeb9",
+          "reason": "same case name and byte-identical RTL in SpeCom; explicit cross-subset reuse",
+          "fidelity": "structural-input-overlay",
+          "matched_rtl_sha256": "b8905e766ab0f05c484662f3183af1cbf741d9831f9ff081b258a6256f9474e8"
+        }
+      ],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
+      "wrapper_mode": "dut_replacement",
+      "reference_source": "univ_shift.v",
+      "reference_source_sha256": "b8905e766ab0f05c484662f3183af1cbf741d9831f9ff081b258a6256f9474e8",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {
+        "n": 4
+      },
+      "observed_checks": 20,
+      "score_reason": "explicit supplied-TB failed check",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 12.734
+    },
+    {
+      "id": "MGen/L2/Text/GA_76",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": ".fsm.sch.verilog.xml",
+          "bytes": 56,
+          "sha256": "4b9dad72827b173a43d570c924aad53b345e21485e3fa3a1deadf098783684bb"
+        },
+        {
+          "name": "dut.f",
+          "bytes": 27,
+          "sha256": "85f962db6f0a138db67a6c64fb84664cd2459a96548439499529589bb912a8bc"
+        },
+        {
+          "name": "dut.v",
+          "bytes": 5453,
+          "sha256": "667b8fde32526ca6403e9be1322ffa110d66df3b46764c87253d959b4bc1f721"
+        },
+        {
+          "name": "makefile",
+          "bytes": 865,
+          "sha256": "de1974fd4efad8cbbc2765709ba76331fc80e47c0896457754c9a7680734b5dc"
+        },
+        {
+          "name": "ref.v",
+          "bytes": 5524,
+          "sha256": "8df6da97f1a2455752426bfeec2696945992b92663f50a1b5ca6fe766f6de8f4"
+        },
+        {
+          "name": "ref_tb.v",
+          "bytes": 6009,
+          "sha256": "9f29dea14c8f771e8b6fc85bb01ce8493810cecc7df0ac3cdc82d9a1018300a1"
+        },
+        {
+          "name": "spec.txt",
+          "bytes": 7999,
+          "sha256": "5ad6c9ca53ab3204cfac0a4f70d53c004f7d39ab20ef0ba3376b46ff8118ce7c"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
+      "wrapper_mode": "reference_model",
+      "reference_source": "ref.v",
+      "reference_source_sha256": "8df6da97f1a2455752426bfeec2696945992b92663f50a1b5ca6fe766f6de8f4",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {
+        "LGMEM": 10,
+        "BUSW": 32
+      },
+      "observed_checks": 1004,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 12.393
+    },
+    {
+      "id": "MGen/L2/Text/GA_81",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": ".fsm.sch.verilog.xml",
+          "bytes": 56,
+          "sha256": "4b9dad72827b173a43d570c924aad53b345e21485e3fa3a1deadf098783684bb"
+        },
+        {
+          "name": "dut.f",
+          "bytes": 27,
+          "sha256": "85f962db6f0a138db67a6c64fb84664cd2459a96548439499529589bb912a8bc"
+        },
+        {
+          "name": "dut.v",
+          "bytes": 5404,
+          "sha256": "a8a9ef26218ef6c95311fd7657f0a0f16907c7a9ef303febed8f4875bfa4bffc"
+        },
+        {
+          "name": "makefile",
+          "bytes": 865,
+          "sha256": "de1974fd4efad8cbbc2765709ba76331fc80e47c0896457754c9a7680734b5dc"
+        },
+        {
+          "name": "ref.v",
+          "bytes": 5664,
+          "sha256": "61c1c0ddefcdbc382b494c4464ce19b5148c3187245edd09a673d49c37faa285"
+        },
+        {
+          "name": "ref_tb.v",
+          "bytes": 9046,
+          "sha256": "8916f4590e1deea2641b4025a3e87536734b739b087fac960f3ce8dbed572930"
+        },
+        {
+          "name": "spec.txt",
+          "bytes": 8461,
+          "sha256": "ca5a16c3d832197d4f70992b5ac60989be95567c2da9f851fc8793ee3b1189db"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 4,
+      "status": "error",
+      "wrapper_mode": "reference_model",
+      "reference_source": "ref.v",
+      "reference_source_sha256": "61c1c0ddefcdbc382b494c4464ce19b5148c3187245edd09a673d49c37faa285",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {},
+      "observed_checks": 102,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "fail",
+      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
+      "seconds": 12.211
+    },
+    {
+      "id": "MGen/L2/Text/GA_82",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": ".fsm.sch.verilog.xml",
+          "bytes": 56,
+          "sha256": "4b9dad72827b173a43d570c924aad53b345e21485e3fa3a1deadf098783684bb"
+        },
+        {
+          "name": "dut.f",
+          "bytes": 27,
+          "sha256": "85f962db6f0a138db67a6c64fb84664cd2459a96548439499529589bb912a8bc"
+        },
+        {
+          "name": "dut.v",
+          "bytes": 4842,
+          "sha256": "ceaf8dfb62ef48944a06ca4dd5060fdefe1f7a6bdd2cdb138234881a0faa6045"
+        },
+        {
+          "name": "makefile",
+          "bytes": 865,
+          "sha256": "de1974fd4efad8cbbc2765709ba76331fc80e47c0896457754c9a7680734b5dc"
+        },
+        {
+          "name": "ref.v",
+          "bytes": 4874,
+          "sha256": "f458c6b30325585339cc2af1d308577d9216b03090aa6a46f4084c4e77c4e419"
+        },
+        {
+          "name": "ref_tb.v",
+          "bytes": 8287,
+          "sha256": "0fe2360631446dcf51f3461fd9f230fc0e8f99572d1dee153e0f507f947dbd8c"
+        },
+        {
+          "name": "spec.txt",
+          "bytes": 6936,
+          "sha256": "8da1967946d9e89072981441987fb1b5b6bd6c077994024eceadb2a9ba7d7ae0"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
+      "wrapper_mode": "reference_model",
+      "reference_source": "ref.v",
+      "reference_source_sha256": "f458c6b30325585339cc2af1d308577d9216b03090aa6a46f4084c4e77c4e419",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {},
+      "observed_checks": 217,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 13.271
+    },
+    {
+      "id": "MGen/L2/Text/GA_97",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": ".fsm.sch.verilog.xml",
+          "bytes": 56,
+          "sha256": "4b9dad72827b173a43d570c924aad53b345e21485e3fa3a1deadf098783684bb"
+        },
+        {
+          "name": "dut.f",
+          "bytes": 27,
+          "sha256": "85f962db6f0a138db67a6c64fb84664cd2459a96548439499529589bb912a8bc"
+        },
+        {
+          "name": "dut.v",
+          "bytes": 7140,
+          "sha256": "580a077c85ea42623179ae641e28473a6257fb3792a6b0186b172b84cd063a23"
+        },
+        {
+          "name": "makefile",
+          "bytes": 833,
+          "sha256": "26d17d574745250ecb4280cc81084655327e43be445c6d52d89846c40d21e8cf"
+        },
+        {
+          "name": "ref.v",
+          "bytes": 7178,
+          "sha256": "1ee9cef28298d5182bec2c1bb32389f4177de21c0d53ca720cfcf671cd93c9a0"
+        },
+        {
+          "name": "ref_tb.v",
+          "bytes": 5449,
+          "sha256": "2049a90c4e3aa0c60bb6c27b01d086e706ae1fb287ca2a7baf4b25fd59de387b"
+        },
+        {
+          "name": "spec.txt",
+          "bytes": 7681,
+          "sha256": "49d573a0ec24762a5b432dbe5bd7f3b2fa7f2bce7c2c9ba729740a67f14b4e55"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 3,
+      "status": "error",
+      "staging_overlays": [
+        {
+          "file": "ref_tb.v",
+          "kind": "diagnostic-only FSDB PLI removal",
+          "source_sha256": "2049a90c4e3aa0c60bb6c27b01d086e706ae1fb287ca2a7baf4b25fd59de387b",
+          "staged_sha256": "bef55da69c8dcf5b345e714e34d289787739e816609729c3c06452cb4783e55c",
+          "diff": "ref_tb.v.waveform.diff",
+          "scope": "waveform output only; upstream unchanged"
+        }
+      ],
+      "inactive_file_dependencies": [
+        {
+          "file": "dut.v",
+          "parameter": "lpm_file",
+          "default": "NONE",
+          "guard": "lpm_file != \"NONE\" && lpm_file != \"none\"",
+          "reason": "all-default read is statically disabled; no TB override; source not rewritten"
+        },
+        {
+          "file": "ref.v",
+          "parameter": "lpm_file",
+          "default": "NONE",
+          "guard": "lpm_file != \"NONE\" && lpm_file != \"none\"",
+          "reason": "all-default read is statically disabled; no TB override; source not rewritten"
+        }
+      ],
+      "wrapper_mode": "reference_model",
+      "reference_source": "ref.v",
+      "reference_source_sha256": "1ee9cef28298d5182bec2c1bb32389f4177de21c0d53ca720cfcf671cd93c9a0",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {},
+      "reason": "official reference/derived baseline diagnostic: candidate compilation diagnostic",
+      "seconds": 4.928
+    },
+    {
+      "id": "MGen/L2/Text/GP_33",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": ".fsm.sch.verilog.xml",
+          "bytes": 56,
+          "sha256": "4b9dad72827b173a43d570c924aad53b345e21485e3fa3a1deadf098783684bb"
+        },
+        {
+          "name": "dut.f",
+          "bytes": 19,
+          "sha256": "7c4847ddab87ef10fded57f5d896a09ac9c3a4568922132eedd4e1e6b1b93ba8"
+        },
+        {
+          "name": "dut.v",
+          "bytes": 3829,
+          "sha256": "61f68611d3b558eb9d989706c8536721d2afe106730e34e91c7bf36deac36d4e"
+        },
+        {
+          "name": "makefile",
+          "bytes": 865,
+          "sha256": "de1974fd4efad8cbbc2765709ba76331fc80e47c0896457754c9a7680734b5dc"
+        },
+        {
+          "name": "ref_tb.v",
+          "bytes": 5544,
+          "sha256": "85d0736ce2b0ce84974fbbf07a63a73dd57365a9f304acc98bf7278e43b15a28"
+        },
+        {
+          "name": "spec.txt",
+          "bytes": 7502,
+          "sha256": "babaccab10adb43ee5c5a7abc3ea9109bacab21d5b6a9c1b5b6d2a5e8029f314"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 4,
+      "status": "error",
+      "wrapper_mode": "dut_replacement",
+      "reference_source": "dut.v",
+      "reference_source_sha256": "61f68611d3b558eb9d989706c8536721d2afe106730e34e91c7bf36deac36d4e",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {},
+      "observed_checks": 160,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "fail",
+      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
+      "seconds": 16.076
+    },
+    {
+      "id": "MGen/L2/Text/GS_35",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": ".fsm.sch.verilog.xml",
+          "bytes": 388,
+          "sha256": "54190250dc165676d64f8fa74cf44e55053ead736224d00dae8f05546465e3af"
+        },
+        {
+          "name": "dut.f",
+          "bytes": 27,
+          "sha256": "85f962db6f0a138db67a6c64fb84664cd2459a96548439499529589bb912a8bc"
+        },
+        {
+          "name": "dut.v",
+          "bytes": 2316,
+          "sha256": "844c50c7ac86a14e88af68179f6542e8d13e4679fc9458123fb60b849e33f6ad"
+        },
+        {
+          "name": "makefile",
+          "bytes": 1000,
+          "sha256": "5a347956af99cde28ff4cf0a688d8bdaa6fd44b14388cf399a62e55dfded3ee2"
+        },
+        {
+          "name": "ref.v",
+          "bytes": 2440,
+          "sha256": "41cfd6fb0a055c2bc39ffff2a25e6fb3fedc30af5a4c9cb993ac43c15dfe5821"
+        },
+        {
+          "name": "ref_tb.v",
+          "bytes": 2834,
+          "sha256": "7336dd52ea674d361005b0553d03284b0e98307e1c87e7d4589d6c52c26e88f2"
+        },
+        {
+          "name": "spec.txt",
+          "bytes": 9430,
+          "sha256": "dfe67c460a5e44faba42a32e93425ba317eb0e6dd870895ecb665a7d9c04f96a"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
+      "wrapper_mode": "reference_model",
+      "reference_source": "ref.v",
+      "reference_source_sha256": "41cfd6fb0a055c2bc39ffff2a25e6fb3fedc30af5a4c9cb993ac43c15dfe5821",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {},
+      "observed_checks": 200,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 13.699
+    },
+    {
+      "id": "MGen/L2/Text/GS_46",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": ".fsm.sch.verilog.xml",
+          "bytes": 397,
+          "sha256": "71cef13f80e9987057e46f646d1cbaae5f117beb4916fa694e35b15b21508f4a"
+        },
+        {
+          "name": "dut.f",
+          "bytes": 27,
+          "sha256": "85f962db6f0a138db67a6c64fb84664cd2459a96548439499529589bb912a8bc"
+        },
+        {
+          "name": "dut.v",
+          "bytes": 1855,
+          "sha256": "df21165e1b50fa6a3d7f9ffb4fa2e05673ed68445274100438bd7105300d7a35"
+        },
+        {
+          "name": "makefile",
+          "bytes": 1000,
+          "sha256": "5a347956af99cde28ff4cf0a688d8bdaa6fd44b14388cf399a62e55dfded3ee2"
+        },
+        {
+          "name": "ref.v",
+          "bytes": 1951,
+          "sha256": "cd1c4dd377e62648e0f3f82187389dce0ebdf622312ebc4e05a0919ea594a742"
+        },
+        {
+          "name": "ref_tb.v",
+          "bytes": 4152,
+          "sha256": "48017beb1106ed62cb3ba01c8618f1394a51804a589c8ca7ab0d68e8f1468a88"
+        },
+        {
+          "name": "spec.txt",
+          "bytes": 7575,
+          "sha256": "0f6a28f46ffce250c1817422c68913ec5a3679a4b19c3011f5b772b6fcd5c928"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 4,
+      "status": "unknown",
+      "wrapper_mode": "reference_model",
+      "reference_source": "ref.v",
+      "reference_source_sha256": "cd1c4dd377e62648e0f3f82187389dce0ebdf622312ebc4e05a0919ea594a742",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {},
+      "observed_checks": null,
+      "score_reason": "wall timeout",
+      "reference_status": "unknown",
+      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
+      "seconds": 15.304
+    },
+    {
+      "id": "MGen/L2/Text/GS_49",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": ".fsm.sch.verilog.xml",
+          "bytes": 56,
+          "sha256": "4b9dad72827b173a43d570c924aad53b345e21485e3fa3a1deadf098783684bb"
+        },
+        {
+          "name": "dut.f",
+          "bytes": 27,
+          "sha256": "85f962db6f0a138db67a6c64fb84664cd2459a96548439499529589bb912a8bc"
+        },
+        {
+          "name": "dut.v",
+          "bytes": 2815,
+          "sha256": "6d20638ad8522177157ab15c077bc6bd2fd2ec9d336188b116a22b07c9500792"
+        },
+        {
+          "name": "makefile",
+          "bytes": 1000,
+          "sha256": "5a347956af99cde28ff4cf0a688d8bdaa6fd44b14388cf399a62e55dfded3ee2"
+        },
+        {
+          "name": "ref.v",
+          "bytes": 2939,
+          "sha256": "eb58cf1be4dabe1f94e0cb65b7b9e4fb86f68bc5586d0f8ed00a86d03a52429f"
+        },
+        {
+          "name": "ref_tb.v",
+          "bytes": 5424,
+          "sha256": "02857410e3c70abb75ac814d6196cd2e90c52ab93423ebe30549d73c9c799289"
+        },
+        {
+          "name": "spec.txt",
+          "bytes": 7686,
+          "sha256": "7f2e48a85f864cd816d2da8e51e9f3a7941e34240904b1e133476092aab23fee"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
+      "wrapper_mode": "reference_model",
+      "reference_source": "ref.v",
+      "reference_source_sha256": "eb58cf1be4dabe1f94e0cb65b7b9e4fb86f68bc5586d0f8ed00a86d03a52429f",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {
+        "BW": 32
+      },
+      "observed_checks": 100,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 13.188
+    },
+    {
+      "id": "MGen/L2/Text/GS_52",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": ".fsm.sch.verilog.xml",
+          "bytes": 56,
+          "sha256": "4b9dad72827b173a43d570c924aad53b345e21485e3fa3a1deadf098783684bb"
+        },
+        {
+          "name": "dut.f",
+          "bytes": 27,
+          "sha256": "226e3502e2775fc7fa817cd87f55727565227b6fdef662d81b0458b10d3e2c61"
+        },
+        {
+          "name": "dut.v",
+          "bytes": 4207,
+          "sha256": "5d949a0d99f2dafe4e90ae8167a3ffa9f4318bb92577cc90fb6f32d02fd90e3f"
+        },
+        {
+          "name": "makefile",
+          "bytes": 1000,
+          "sha256": "5a347956af99cde28ff4cf0a688d8bdaa6fd44b14388cf399a62e55dfded3ee2"
+        },
+        {
+          "name": "ref.v",
+          "bytes": 4337,
+          "sha256": "b93c55277d0ffd5c34f418966dc2128f3a8e5acda28f271323f23f5e56f0c2a1"
+        },
+        {
+          "name": "ref_tb.v",
+          "bytes": 6455,
+          "sha256": "fd473d8505ed560b1af9b464901fe48f8ad5ca5c603f059fe65a514f7655b294"
+        },
+        {
+          "name": "spec.txt",
+          "bytes": 8253,
+          "sha256": "8392d91cf5899b89d3cf1d66d330698b009876dc74aa3bd70ecfc5bcf7946597"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 4,
+      "status": "error",
+      "wrapper_mode": "reference_model",
+      "reference_source": "ref.v",
+      "reference_source_sha256": "b93c55277d0ffd5c34f418966dc2128f3a8e5acda28f271323f23f5e56f0c2a1",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {
+        "AWIDTH": 3,
+        "RAM_DEPTH": 8,
+        "ALMOST_EMPTY_THRESH": 1,
+        "ALMOST_FULL_THRESH": 6
+      },
+      "observed_checks": 100,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "fail",
+      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
+      "seconds": 13.217
+    },
+    {
+      "id": "MGen/L2/Text/GS_53",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": ".fsm.sch.verilog.xml",
+          "bytes": 394,
+          "sha256": "8af73b34a920e9dd5b0b0c5723c41a4f8034ed1be6b6965ea0a48d0c297900c4"
+        },
+        {
+          "name": "dut.f",
+          "bytes": 27,
+          "sha256": "85f962db6f0a138db67a6c64fb84664cd2459a96548439499529589bb912a8bc"
+        },
+        {
+          "name": "dut.v",
+          "bytes": 3708,
+          "sha256": "2cd2d8ca6958aca7455c3f9acb49714367d23afb6d31baffa4dff3289f0e2bc6"
+        },
+        {
+          "name": "makefile",
+          "bytes": 1000,
+          "sha256": "5a347956af99cde28ff4cf0a688d8bdaa6fd44b14388cf399a62e55dfded3ee2"
+        },
+        {
+          "name": "ref.v",
+          "bytes": 3917,
+          "sha256": "1de85b2bd0bdf24d834b39cf1d30ec7fcef0e74614df9ad7bd1eb1dd8577f6b1"
+        },
+        {
+          "name": "ref_tb.v",
+          "bytes": 4372,
+          "sha256": "576e6577356ac3de88e532c1a1a7b5407f0d13cef96e99013b1acd109b59d19f"
+        },
+        {
+          "name": "spec.txt",
+          "bytes": 10683,
+          "sha256": "4c13eb8df89cf1c874afebb14b1bfd0b31006192cefe014b9236f85a03a780e4"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
+      "wrapper_mode": "reference_model",
+      "reference_source": "ref.v",
+      "reference_source_sha256": "1de85b2bd0bdf24d834b39cf1d30ec7fcef0e74614df9ad7bd1eb1dd8577f6b1",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {},
+      "observed_checks": 100,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 16.925
+    },
+    {
+      "id": "MGen/L2/Text/GS_56",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": ".fsm.sch.verilog.xml",
+          "bytes": 56,
+          "sha256": "4b9dad72827b173a43d570c924aad53b345e21485e3fa3a1deadf098783684bb"
+        },
+        {
+          "name": "dut.f",
+          "bytes": 27,
+          "sha256": "85f962db6f0a138db67a6c64fb84664cd2459a96548439499529589bb912a8bc"
+        },
+        {
+          "name": "dut.v",
+          "bytes": 1413,
+          "sha256": "2768cfbb18f79c53a49d772679c71d2f08223a9d567eff16fddade9a7f9e07ee"
+        },
+        {
+          "name": "makefile",
+          "bytes": 1000,
+          "sha256": "5a347956af99cde28ff4cf0a688d8bdaa6fd44b14388cf399a62e55dfded3ee2"
+        },
+        {
+          "name": "ref.v",
+          "bytes": 1438,
+          "sha256": "47789937213427d31f50bad34eac07adb94deec985ea5ba38d6222749de316c7"
+        },
+        {
+          "name": "ref_tb.v",
+          "bytes": 2162,
+          "sha256": "bb9cd076e3ecfbfabbce9c02279cb3bbd3a645b90214ff358f6370299c962223"
+        },
+        {
+          "name": "spec.txt",
+          "bytes": 6775,
+          "sha256": "02835c53f1c64bf39c69413c53c10d249a4bca814c7bdbd28f367b8ad6102020"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 4,
+      "status": "error",
+      "wrapper_mode": "reference_model",
+      "reference_source": "ref.v",
+      "reference_source_sha256": "47789937213427d31f50bad34eac07adb94deec985ea5ba38d6222749de316c7",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {},
+      "observed_checks": 100,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "fail",
+      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
+      "seconds": 11.853
+    },
+    {
+      "id": "MGen/L2/Text/GS_58",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": ".fsm.sch.verilog.xml",
+          "bytes": 56,
+          "sha256": "4b9dad72827b173a43d570c924aad53b345e21485e3fa3a1deadf098783684bb"
+        },
+        {
+          "name": "dut.f",
+          "bytes": 27,
+          "sha256": "85f962db6f0a138db67a6c64fb84664cd2459a96548439499529589bb912a8bc"
+        },
+        {
+          "name": "dut.v",
+          "bytes": 3207,
+          "sha256": "27e1d221da4ca9749460c1de0b058fcf7d0464d7363912fde637da28b4cefc36"
+        },
+        {
+          "name": "makefile",
+          "bytes": 1000,
+          "sha256": "5a347956af99cde28ff4cf0a688d8bdaa6fd44b14388cf399a62e55dfded3ee2"
+        },
+        {
+          "name": "ref.v",
+          "bytes": 3280,
+          "sha256": "6c2709499a78cd1197e2a803876800983e8c8b0da67a8c76a25ad23556ee0995"
+        },
+        {
+          "name": "ref_tb.v",
+          "bytes": 6505,
+          "sha256": "b19a36b0e7ca0ee09bfb18b3546d385f065c52d66379f6a9b904c507ea03a563"
+        },
+        {
+          "name": "spec.txt",
+          "bytes": 8694,
+          "sha256": "0ddc1dd8fc9facc11083c34954dc4b521b10182898916d163e952618a97f24c5"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
+      "wrapper_mode": "reference_model",
+      "reference_source": "ref.v",
+      "reference_source_sha256": "6c2709499a78cd1197e2a803876800983e8c8b0da67a8c76a25ad23556ee0995",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {},
+      "staging_overlays": [
+        {
+          "file": "dut.v",
+          "kind": "module-name alias for exact named-port match",
+          "source_sha256": "27e1d221da4ca9749460c1de0b058fcf7d0464d7363912fde637da28b4cefc36",
+          "staged_sha256": "186edc9c7afb6b69c315085d6bd03f2a6675cd58c7136d1b45069c22d98dc749",
+          "from_module": "omsp_watchdog",
+          "to_module": "top",
+          "matched_port_names": [
+            "aclk_en",
+            "dbg_freeze",
+            "mclk",
+            "nmi",
+            "nmi_evt",
+            "nmie",
+            "per_addr",
+            "per_din",
+            "per_dout",
+            "per_en",
+            "per_wen",
+            "puc",
+            "smclk_en",
+            "wdtifg_set",
+            "wdtpw_error",
+            "wdttmsel"
+          ],
+          "diff": "dut.v.module_alias.diff",
+          "scope": "only module declaration name changes; no port/default/body/parameter changes"
+        }
+      ],
+      "observed_checks": 100,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 13.329
+    },
+    {
+      "id": "MGen/L2/Text/GS_59",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": ".fsm.sch.verilog.xml",
+          "bytes": 56,
+          "sha256": "4b9dad72827b173a43d570c924aad53b345e21485e3fa3a1deadf098783684bb"
+        },
+        {
+          "name": "dut.f",
+          "bytes": 27,
+          "sha256": "85f962db6f0a138db67a6c64fb84664cd2459a96548439499529589bb912a8bc"
+        },
+        {
+          "name": "dut.v",
+          "bytes": 1780,
+          "sha256": "5fe5561cfb355f41c321fb0d64359d669a7018f13aacdd6debd730b79f0d82f5"
+        },
+        {
+          "name": "makefile",
+          "bytes": 1000,
+          "sha256": "5a347956af99cde28ff4cf0a688d8bdaa6fd44b14388cf399a62e55dfded3ee2"
+        },
+        {
+          "name": "ref.v",
+          "bytes": 2002,
+          "sha256": "865fed79cf8c27d2af40eb352b1a07009ec7991d2213ca83ed49a812479829a2"
+        },
+        {
+          "name": "ref_tb.v",
+          "bytes": 7162,
+          "sha256": "3e9b2f384f3cf0fbd2f86439f37c656e1140126268252263462fcb71afdcfe7f"
+        },
+        {
+          "name": "spec.txt",
+          "bytes": 8245,
+          "sha256": "76a683276b5b7e2340984c8f144a0357fc3df56ded27f4d2f4ecdc3dc7437e14"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
+      "wrapper_mode": "reference_model",
+      "reference_source": "ref.v",
+      "reference_source_sha256": "865fed79cf8c27d2af40eb352b1a07009ec7991d2213ca83ed49a812479829a2",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {
+        "ADDRESS_WIDTH": 32,
+        "AUX_WIDTH": 1
+      },
+      "observed_checks": 100,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 13.411
+    },
+    {
+      "id": "MGen/L2/Text/GS_66",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": ".fsm.sch.verilog.xml",
+          "bytes": 3618,
+          "sha256": "905221ae7db0218419b0ca4c0708c67ceed67853f6d16a9e050cf223eb6229ec"
+        },
+        {
+          "name": "dut.f",
+          "bytes": 27,
+          "sha256": "85f962db6f0a138db67a6c64fb84664cd2459a96548439499529589bb912a8bc"
+        },
+        {
+          "name": "dut.v",
+          "bytes": 1993,
+          "sha256": "be569b6b6d330b52dfba8e2e57cdae78a6effd35fd526981b2232eb52b8032a2"
+        },
+        {
+          "name": "makefile",
+          "bytes": 1000,
+          "sha256": "5a347956af99cde28ff4cf0a688d8bdaa6fd44b14388cf399a62e55dfded3ee2"
+        },
+        {
+          "name": "ref.v",
+          "bytes": 2009,
+          "sha256": "61b99f52d7bd879d346b2b0d976993f61a0c55ff270b59782e77fce108c51efa"
+        },
+        {
+          "name": "ref_tb.v",
+          "bytes": 3929,
+          "sha256": "8c131971d7d944e5d53995df55fc0df430a686e7fcd11819110849ef95fd8c81"
+        },
+        {
+          "name": "spec.txt",
+          "bytes": 7961,
+          "sha256": "8cf51e4d92aa796689df26a6e0522831fac8218ba94fc026cac610af4d22c4f0"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
+      "wrapper_mode": "reference_model",
+      "reference_source": "ref.v",
+      "reference_source_sha256": "61b99f52d7bd879d346b2b0d976993f61a0c55ff270b59782e77fce108c51efa",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {
+        "GSHARE_WIDTH": 4,
+        "PHT_LEN": 16
+      },
+      "observed_checks": 100,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 12.996
+    },
+    {
+      "id": "MGen/L3/Text/GA_67",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": ".fsm.sch.verilog.xml",
+          "bytes": 642,
+          "sha256": "57e44f1a299fa017f2a33872ed9c88299024e23dad7cd2749d8dfae8c068d152"
+        },
+        {
+          "name": "dut.f",
+          "bytes": 27,
+          "sha256": "85f962db6f0a138db67a6c64fb84664cd2459a96548439499529589bb912a8bc"
+        },
+        {
+          "name": "dut.v",
+          "bytes": 5562,
+          "sha256": "2e569ac3ded88fe652d3910ace1b2dff0ab5eb5c9b648a525c3d93d87f72c0b8"
+        },
+        {
+          "name": "makefile",
+          "bytes": 874,
+          "sha256": "1ed610b3f900c43854aa439d0f8595382f87e739e36896024208217abf4d247f"
+        },
+        {
+          "name": "ref.v",
+          "bytes": 5842,
+          "sha256": "cfef0ec0d523a3085d47a02912d0c91e5086e5a2b7840e2d4cf1c913de48c9ed"
+        },
+        {
+          "name": "ref_tb.v",
+          "bytes": 8486,
+          "sha256": "2d359d986b709275448ad5863de5adb046af90de7263ff8ff2d304f368726a87"
+        },
+        {
+          "name": "spec.txt",
+          "bytes": 8223,
+          "sha256": "909f68979220001f50843734c905e276c586236264aad555f1073f78e9f926da"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 0,
+      "status": "error",
+      "staging_overlays": [
+        {
+          "file": "ref_tb.v",
+          "kind": "diagnostic-only FSDB PLI removal",
+          "source_sha256": "2d359d986b709275448ad5863de5adb046af90de7263ff8ff2d304f368726a87",
+          "staged_sha256": "40772c9f97aa23496fe8958d1ea5204f7d596078c31e686ed71a9532f3e6901d",
+          "diff": "ref_tb.v.waveform.diff",
+          "scope": "waveform output only; upstream unchanged"
+        }
+      ],
+      "wrapper_mode": "reference_model",
+      "reference_source": "ref.v",
+      "reference_source_sha256": "cfef0ec0d523a3085d47a02912d0c91e5086e5a2b7840e2d4cf1c913de48c9ed",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "interface_conflict": {
+        "parameter_bindings": {
+          "W": 8,
+          "D": 8
+        },
+        "declared_reference_parameters": [],
+        "decision": "do not discard TB bindings or invent source parameters"
+      },
+      "reason": "TB/source parameter interface conflict: named bindings supplied to a parameterless reference",
+      "seconds": 0.003
+    },
+    {
+      "id": "MGen/L3/Text/GA_69",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": ".fsm.sch.verilog.xml",
+          "bytes": 56,
+          "sha256": "4b9dad72827b173a43d570c924aad53b345e21485e3fa3a1deadf098783684bb"
+        },
+        {
+          "name": "dut.f",
+          "bytes": 27,
+          "sha256": "85f962db6f0a138db67a6c64fb84664cd2459a96548439499529589bb912a8bc"
+        },
+        {
+          "name": "dut.v",
+          "bytes": 9941,
+          "sha256": "b73625c023ab120f793c7e5c3166786ca99e2da59a4d7ffbf4befd62c4aff41f"
+        },
+        {
+          "name": "makefile",
+          "bytes": 865,
+          "sha256": "de1974fd4efad8cbbc2765709ba76331fc80e47c0896457754c9a7680734b5dc"
+        },
+        {
+          "name": "ref.v",
+          "bytes": 10392,
+          "sha256": "63c7904eb0a1a016610d5887dd7a275b80596c7f4be780f297db44b4bf578e0e"
+        },
+        {
+          "name": "ref_tb.v",
+          "bytes": 25834,
+          "sha256": "3324a42052e87d480593844d4ab356d4ba4b5cc2d42b6391096617640d23ed47"
+        },
+        {
+          "name": "spec.txt",
+          "bytes": 8518,
+          "sha256": "1ddeb63b6a0c83357fd16be9367864e52d3a0b2f4386e890a0b79fb212a4b638"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
+      "wrapper_mode": "reference_model",
+      "reference_source": "ref.v",
+      "reference_source_sha256": "63c7904eb0a1a016610d5887dd7a275b80596c7f4be780f297db44b4bf578e0e",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {},
+      "observed_checks": 266,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 13.7
+    },
+    {
+      "id": "MGen/L3/Text/GA_70",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": ".fsm.sch.verilog.xml",
+          "bytes": 56,
+          "sha256": "4b9dad72827b173a43d570c924aad53b345e21485e3fa3a1deadf098783684bb"
+        },
+        {
+          "name": "dut.f",
+          "bytes": 27,
+          "sha256": "85f962db6f0a138db67a6c64fb84664cd2459a96548439499529589bb912a8bc"
+        },
+        {
+          "name": "dut.v",
+          "bytes": 16044,
+          "sha256": "a7d9d23624daf2c59bf049c03640ff875c80adfa7fcad7152e984a49828a8866"
+        },
+        {
+          "name": "fpu_div_ref",
+          "bytes": 14168,
+          "sha256": "be5f78534fb3eb5fb9d923d11e03ace17060f744fc995e416f58fe1feecff794"
+        },
+        {
+          "name": "fpu_div_ref.cpp",
+          "bytes": 1241,
+          "sha256": "f5131fc928b4ca397b6b7648951b2b49be2c5310eb74b2d66378deee8d71ef3e"
+        },
+        {
+          "name": "makefile",
+          "bytes": 865,
+          "sha256": "de1974fd4efad8cbbc2765709ba76331fc80e47c0896457754c9a7680734b5dc"
+        },
+        {
+          "name": "ref.v",
+          "bytes": 16103,
+          "sha256": "a376a97bde92464f84da6518d69f441cde1d0ecb6cd9a2afc3d66580ec191e77"
+        },
+        {
+          "name": "ref_output.txt",
+          "bytes": 21,
+          "sha256": "8f8c6255fbc4fc8ea637036352e20e56d954b46a8c87f4ef3aba6df7ac1ff379"
+        },
+        {
+          "name": "ref_tb.v",
+          "bytes": 3229,
+          "sha256": "6687ea1b536eeac8528f211895a3d8cfc1337e5da61f03ddafe6315f9480ed44"
+        },
+        {
+          "name": "spec.txt",
+          "bytes": 7944,
+          "sha256": "4f75440713b49d90bc353a8200761335bb137eaa25ec829e04d1faf06ec4e724"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 4,
+      "status": "error",
+      "staged_read_dependencies": [
+        {
+          "name": "ref_output.txt",
+          "sha256": "8f8c6255fbc4fc8ea637036352e20e56d954b46a8c87f4ef3aba6df7ac1ff379"
+        }
+      ],
+      "wrapper_mode": "reference_model",
+      "reference_source": "ref.v",
+      "reference_source_sha256": "a376a97bde92464f84da6518d69f441cde1d0ecb6cd9a2afc3d66580ec191e77",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {},
+      "observed_checks": 0,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "fail",
+      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
+      "seconds": 13.875
+    },
+    {
+      "id": "MGen/L3/Text/GA_74",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": ".fsm.sch.verilog.xml",
+          "bytes": 56,
+          "sha256": "4b9dad72827b173a43d570c924aad53b345e21485e3fa3a1deadf098783684bb"
+        },
+        {
+          "name": "dut.f",
+          "bytes": 27,
+          "sha256": "85f962db6f0a138db67a6c64fb84664cd2459a96548439499529589bb912a8bc"
+        },
+        {
+          "name": "dut.v",
+          "bytes": 8719,
+          "sha256": "0457cc97e1783e4b7a662eb24287979f6c770c9a617a09d39b9994ef1db2ee46"
+        },
+        {
+          "name": "makefile",
+          "bytes": 883,
+          "sha256": "7f64eec6872ce372b253cfa6410b4749891a0c03d2d92187f08f05808dc15bf8"
+        },
+        {
+          "name": "ref.v",
+          "bytes": 8783,
+          "sha256": "d044ed72a6dbcb267293857330e8cae8c8b76c016cd7dd0dffac19019d0ff605"
+        },
+        {
+          "name": "ref_tb.v",
+          "bytes": 4059,
+          "sha256": "dd3743a24146d57e497d89aa84871ebead6608073f0da7727229a44905a737a0"
+        },
+        {
+          "name": "spec.txt",
+          "bytes": 8479,
+          "sha256": "33a2ea01ddab7781791d3bcb6df73f0ffb5a2771e209df3c37bf28750feb0f87"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 4,
+      "status": "unknown",
+      "staging_overlays": [
+        {
+          "file": "ref_tb.v",
+          "kind": "diagnostic-only FSDB PLI removal",
+          "source_sha256": "dd3743a24146d57e497d89aa84871ebead6608073f0da7727229a44905a737a0",
+          "staged_sha256": "d6b6c82b439bee458b19909a822d1fa2e55ca96fa743f9db4e1701de101acfaa",
+          "diff": "ref_tb.v.waveform.diff",
+          "scope": "waveform output only; upstream unchanged"
+        }
+      ],
+      "wrapper_mode": "reference_model",
+      "reference_source": "ref.v",
+      "reference_source_sha256": "d044ed72a6dbcb267293857330e8cae8c8b76c016cd7dd0dffac19019d0ff605",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {},
+      "observed_checks": null,
+      "score_reason": "wall timeout",
+      "reference_status": "unknown",
+      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
+      "seconds": 15.265
+    },
+    {
+      "id": "MGen/L3/Text/GA_79",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": ".fsm.sch.verilog.xml",
+          "bytes": 56,
+          "sha256": "4b9dad72827b173a43d570c924aad53b345e21485e3fa3a1deadf098783684bb"
+        },
+        {
+          "name": "dut.f",
+          "bytes": 27,
+          "sha256": "85f962db6f0a138db67a6c64fb84664cd2459a96548439499529589bb912a8bc"
+        },
+        {
+          "name": "dut.v",
+          "bytes": 7247,
+          "sha256": "c960b834571e56fdcd3f81cfe7229fe5987f8b4dab083cce2246329ef6c6ea65"
+        },
+        {
+          "name": "makefile",
+          "bytes": 865,
+          "sha256": "de1974fd4efad8cbbc2765709ba76331fc80e47c0896457754c9a7680734b5dc"
+        },
+        {
+          "name": "ref.v",
+          "bytes": 7310,
+          "sha256": "5cb9410d4f048336fc43d8fac60cb04d0e78bbb33c9e9513bbb2ea41f8e7dd16"
+        },
+        {
+          "name": "ref_tb.v",
+          "bytes": 5086,
+          "sha256": "42edd6eef14ada88090192581768b5dbf1af3a350c4df7893fd790f591612744"
+        },
+        {
+          "name": "spec.txt",
+          "bytes": 8005,
+          "sha256": "e0021a6483105d0529dfc5b3fe1a95f87b0cbdb46c6c13034e78785cf7193673"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
+      "wrapper_mode": "reference_model",
+      "reference_source": "ref.v",
+      "reference_source_sha256": "5cb9410d4f048336fc43d8fac60cb04d0e78bbb33c9e9513bbb2ea41f8e7dd16",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {},
+      "observed_checks": 2006,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 13.126
+    },
+    {
+      "id": "MGen/L3/Text/GA_83",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": ".fsm.sch.verilog.xml",
+          "bytes": 56,
+          "sha256": "4b9dad72827b173a43d570c924aad53b345e21485e3fa3a1deadf098783684bb"
+        },
+        {
+          "name": "dut.f",
+          "bytes": 27,
+          "sha256": "85f962db6f0a138db67a6c64fb84664cd2459a96548439499529589bb912a8bc"
+        },
+        {
+          "name": "dut.v",
+          "bytes": 18060,
+          "sha256": "d14908abe82b059c7d66d213303fe49c25d13547a31a0ccff3144555ab0e99fd"
+        },
+        {
+          "name": "makefile",
+          "bytes": 865,
+          "sha256": "de1974fd4efad8cbbc2765709ba76331fc80e47c0896457754c9a7680734b5dc"
+        },
+        {
+          "name": "ref.v",
+          "bytes": 18927,
+          "sha256": "23297e0b18f766ad5c63adcff4c3f74e699379ddb99cfb8b08bf6fc228fb050b"
+        },
+        {
+          "name": "ref_tb.v",
+          "bytes": 4149,
+          "sha256": "0f91f466a0212c3c354883681f791966308f3722737d5472e9ee8fdfadb5cf14"
+        },
+        {
+          "name": "spec.txt",
+          "bytes": 8655,
+          "sha256": "79e250778ffdb6fd29c2e32d28cc88a3f401c01afdcdfa73ce235624f64b1e36"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": false,
+      "commands": 6,
+      "status": "unknown",
+      "wrapper_mode": "reference_model",
+      "reference_source": "ref.v",
+      "reference_source_sha256": "23297e0b18f766ad5c63adcff4c3f74e699379ddb99cfb8b08bf6fc228fb050b",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {},
+      "observed_checks": 102,
+      "score_reason": "completed supplied-TB count evidence",
+      "reference_status": "pass",
+      "negative_status": "pass",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 13.87
+    },
+    {
+      "id": "MGen/L3/Text/GA_84",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": ".fsm.sch.verilog.xml",
+          "bytes": 391,
+          "sha256": "87fa9015160f2b9d2ddfb2b31e2b7657120fe06aa08876b0379e306f9bfdb2d7"
+        },
+        {
+          "name": "dut.f",
+          "bytes": 27,
+          "sha256": "85f962db6f0a138db67a6c64fb84664cd2459a96548439499529589bb912a8bc"
+        },
+        {
+          "name": "dut.v",
+          "bytes": 7146,
+          "sha256": "4cd57dfa61f1d9d02f0b0747dcafccd02c56168816c31e168edc4b7044cc9854"
+        },
+        {
+          "name": "makefile",
+          "bytes": 865,
+          "sha256": "de1974fd4efad8cbbc2765709ba76331fc80e47c0896457754c9a7680734b5dc"
+        },
+        {
+          "name": "ref.v",
+          "bytes": 7413,
+          "sha256": "2c661126dc3f0af25fb4f6a9a3e2c991a3a18d091b43389c4590d7b885e766ad"
+        },
+        {
+          "name": "ref_tb.v",
+          "bytes": 4870,
+          "sha256": "aa934c67304bdcce61ab932588424172398c3871bb8ec852c2924d38e7e142d5"
+        },
+        {
+          "name": "spec.txt",
+          "bytes": 7582,
+          "sha256": "100cc8d549139b989971dbe72c876ef0935542bf8dabeb51628cc34ea91194f1"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 4,
+      "status": "error",
+      "wrapper_mode": "reference_model",
+      "reference_source": "ref.v",
+      "reference_source_sha256": "2c661126dc3f0af25fb4f6a9a3e2c991a3a18d091b43389c4590d7b885e766ad",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {
+        "sdram_depth": 26,
+        "sdram_columndepth": 9
+      },
+      "observed_checks": 99,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "fail",
+      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
+      "seconds": 12.716
+    },
+    {
+      "id": "MGen/L3/Text/GA_86",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": ".fsm.sch.verilog.xml",
+          "bytes": 398,
+          "sha256": "0cc6a30ead25620d2d258595502b440b8f2071e841805f8b62947106b5cad7ab"
+        },
+        {
+          "name": "dut.f",
+          "bytes": 27,
+          "sha256": "85f962db6f0a138db67a6c64fb84664cd2459a96548439499529589bb912a8bc"
+        },
+        {
+          "name": "dut.v",
+          "bytes": 5143,
+          "sha256": "e19b14cfde07868f18067478cf3bddf3737073263cbbc596fc2dac09cb46158e"
+        },
+        {
+          "name": "makefile",
+          "bytes": 865,
+          "sha256": "de1974fd4efad8cbbc2765709ba76331fc80e47c0896457754c9a7680734b5dc"
+        },
+        {
+          "name": "ref.v",
+          "bytes": 5609,
+          "sha256": "c0eebfafb2800f70ba9652f41aca22fbfd13a833b6919f3c6573cc5949a1534c"
+        },
+        {
+          "name": "ref_tb.v",
+          "bytes": 7107,
+          "sha256": "adfe026ab2bea0635521d5587a8074abff9d0ea39b265d040c56a850abbebfb2"
+        },
+        {
+          "name": "spec.txt",
+          "bytes": 8141,
+          "sha256": "34314339498f532602c99f396a8c7c2ac469dec1bf8d1b314faf64187599d3bc"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
+      "wrapper_mode": "reference_model",
+      "reference_source": "ref.v",
+      "reference_source_sha256": "c0eebfafb2800f70ba9652f41aca22fbfd13a833b6919f3c6573cc5949a1534c",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {},
+      "observed_checks": 104,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 12.833
+    },
+    {
+      "id": "MGen/L3/Text/GA_88",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": ".fsm.sch.verilog.xml",
+          "bytes": 56,
+          "sha256": "4b9dad72827b173a43d570c924aad53b345e21485e3fa3a1deadf098783684bb"
+        },
+        {
+          "name": "dut.f",
+          "bytes": 27,
+          "sha256": "85f962db6f0a138db67a6c64fb84664cd2459a96548439499529589bb912a8bc"
+        },
+        {
+          "name": "dut.v",
+          "bytes": 9296,
+          "sha256": "b0f3df68bad106a2223f3064d3b98d349cb0390ba666377a8c36eb3c07cc4846"
+        },
+        {
+          "name": "makefile",
+          "bytes": 865,
+          "sha256": "de1974fd4efad8cbbc2765709ba76331fc80e47c0896457754c9a7680734b5dc"
+        },
+        {
+          "name": "ref.v",
+          "bytes": 9850,
+          "sha256": "bfe363f3010f57d4e395955936d7cc866ba49e6fc19cfbb81ce86d21d84307eb"
+        },
+        {
+          "name": "ref_tb.v",
+          "bytes": 7461,
+          "sha256": "266ea224c8f427064bdc07afe28c6bd229b268f17bea5eef6bb2580319ce6811"
+        },
+        {
+          "name": "spec.txt",
+          "bytes": 8586,
+          "sha256": "7a70ff422ba57ea961671a7d3f1d4916d62a285f0605992136a6264b59b1df8c"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
+      "wrapper_mode": "reference_model",
+      "reference_source": "ref.v",
+      "reference_source_sha256": "bfe363f3010f57d4e395955936d7cc866ba49e6fc19cfbb81ce86d21d84307eb",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {},
+      "observed_checks": 1009,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 12.858
+    },
+    {
+      "id": "MGen/L3/Text/GA_89",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": ".fsm.sch.verilog.xml",
+          "bytes": 56,
+          "sha256": "4b9dad72827b173a43d570c924aad53b345e21485e3fa3a1deadf098783684bb"
+        },
+        {
+          "name": "dut.f",
+          "bytes": 27,
+          "sha256": "85f962db6f0a138db67a6c64fb84664cd2459a96548439499529589bb912a8bc"
+        },
+        {
+          "name": "dut.v",
+          "bytes": 9185,
+          "sha256": "858db937a69e16d2f81e0650e2d62b6a460596f01ea218a3c1b694ac3873bfc6"
+        },
+        {
+          "name": "makefile",
+          "bytes": 865,
+          "sha256": "de1974fd4efad8cbbc2765709ba76331fc80e47c0896457754c9a7680734b5dc"
+        },
+        {
+          "name": "ref.v",
+          "bytes": 9825,
+          "sha256": "bebc7d3f208e68991010bc3c2bb8c5f2bc5e17e4a07af9778905b79f88d38a54"
+        },
+        {
+          "name": "ref_tb.v",
+          "bytes": 8399,
+          "sha256": "38cfb9dfa03de1231f31c78d3deb6483d89b90a9796515f725872cfbc17a4b1a"
+        },
+        {
+          "name": "spec.txt",
+          "bytes": 9810,
+          "sha256": "8a0a5f233d8403f11f1090d0062a9bebd7ee06ea210a3ad8b8dcdf15afc68fc5"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 4,
+      "status": "unknown",
+      "wrapper_mode": "reference_model",
+      "reference_source": "ref.v",
+      "reference_source_sha256": "bebc7d3f208e68991010bc3c2bb8c5f2bc5e17e4a07af9778905b79f88d38a54",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {},
+      "observed_checks": null,
+      "score_reason": "wall timeout",
+      "reference_status": "unknown",
+      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
+      "seconds": 15.586
+    },
+    {
+      "id": "MGen/L3/Text/GA_90",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": ".fsm.sch.verilog.xml",
+          "bytes": 56,
+          "sha256": "4b9dad72827b173a43d570c924aad53b345e21485e3fa3a1deadf098783684bb"
+        },
+        {
+          "name": "dut.f",
+          "bytes": 27,
+          "sha256": "85f962db6f0a138db67a6c64fb84664cd2459a96548439499529589bb912a8bc"
+        },
+        {
+          "name": "dut.v",
+          "bytes": 8521,
+          "sha256": "17cf3acd03186b138462e2610d3a0006bf7c693ddb28ba292a12950dd9382986"
+        },
+        {
+          "name": "makefile",
+          "bytes": 865,
+          "sha256": "de1974fd4efad8cbbc2765709ba76331fc80e47c0896457754c9a7680734b5dc"
+        },
+        {
+          "name": "ref.v",
+          "bytes": 8676,
+          "sha256": "3cc85273180e0a425496b19b0065d4b8800a4fd2fdc0c693e519827e98aab5d5"
+        },
+        {
+          "name": "ref_tb.v",
+          "bytes": 8911,
+          "sha256": "dcef7695372c6453baa6df994b23cdb0ae37a383b0dd967517d3237e50a3471f"
+        },
+        {
+          "name": "spec.txt",
+          "bytes": 8632,
+          "sha256": "99abead27d21630b84be104e893d48c992a29c59723463b93f11c5b0c7970674"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
+      "wrapper_mode": "reference_model",
+      "reference_source": "ref.v",
+      "reference_source_sha256": "3cc85273180e0a425496b19b0065d4b8800a4fd2fdc0c693e519827e98aab5d5",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {},
+      "observed_checks": 104,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 13.734
+    },
+    {
+      "id": "MGen/L3/Text/GA_91",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": ".fsm.sch.verilog.xml",
+          "bytes": 56,
+          "sha256": "4b9dad72827b173a43d570c924aad53b345e21485e3fa3a1deadf098783684bb"
+        },
+        {
+          "name": "dut.f",
+          "bytes": 27,
+          "sha256": "85f962db6f0a138db67a6c64fb84664cd2459a96548439499529589bb912a8bc"
+        },
+        {
+          "name": "dut.v",
+          "bytes": 6869,
+          "sha256": "4530ed8ae832a5ffc948003e88f256cc6ef008cb26311ef5e58e72c2f89bd250"
+        },
+        {
+          "name": "makefile",
+          "bytes": 865,
+          "sha256": "de1974fd4efad8cbbc2765709ba76331fc80e47c0896457754c9a7680734b5dc"
+        },
+        {
+          "name": "ref.v",
+          "bytes": 7024,
+          "sha256": "8b18326b62f507d8f136ecd1d6d5d83a5cbeba314d8888f3dc9035e87459efa2"
+        },
+        {
+          "name": "ref_tb.v",
+          "bytes": 9038,
+          "sha256": "ac66bdcc159a76d615c936547d463a1e7e7c6aa90d5ec1735dd159fb49279686"
+        },
+        {
+          "name": "spec.txt",
+          "bytes": 8212,
+          "sha256": "0fb6b357c91037826295aad7b788dc88a170b6860e4a51f95f3ad99afbcbb0bb"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 4,
+      "status": "error",
+      "wrapper_mode": "reference_model",
+      "reference_source": "ref.v",
+      "reference_source_sha256": "8b18326b62f507d8f136ecd1d6d5d83a5cbeba314d8888f3dc9035e87459efa2",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {},
+      "observed_checks": 113,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "fail",
+      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
+      "seconds": 13.213
+    },
+    {
+      "id": "MGen/L3/Text/GA_94",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": ".fsm.sch.verilog.xml",
+          "bytes": 56,
+          "sha256": "4b9dad72827b173a43d570c924aad53b345e21485e3fa3a1deadf098783684bb"
+        },
+        {
+          "name": "dut.f",
+          "bytes": 27,
+          "sha256": "85f962db6f0a138db67a6c64fb84664cd2459a96548439499529589bb912a8bc"
+        },
+        {
+          "name": "dut.v",
+          "bytes": 36641,
+          "sha256": "0f6024c4530ab27bedfa3621615876b8b1953d29b4df79ee73508c73c1300fdf"
+        },
+        {
+          "name": "makefile",
+          "bytes": 865,
+          "sha256": "de1974fd4efad8cbbc2765709ba76331fc80e47c0896457754c9a7680734b5dc"
+        },
+        {
+          "name": "ref.v",
+          "bytes": 37215,
+          "sha256": "3c0d87234bb5cca8a9e6cee34e72b585891d0d8390d5b09cd3d7641aede970de"
+        },
+        {
+          "name": "ref_tb.v",
+          "bytes": 2829,
+          "sha256": "b3451f3dcedf078b7a3f8fb64e104a537dea34f0642e143f87eabc2fd005e809"
+        },
+        {
+          "name": "spec.txt",
+          "bytes": 8888,
+          "sha256": "b7363ca0bd80b88298ce9a4b4139fe213a13f2c4100e89e33b9529d0830e66af"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 3,
+      "status": "error",
+      "staging_overlays": [
+        {
+          "file": "ref_tb.v",
+          "kind": "diagnostic-only FSDB PLI removal",
+          "source_sha256": "b3451f3dcedf078b7a3f8fb64e104a537dea34f0642e143f87eabc2fd005e809",
+          "staged_sha256": "4bd954beb8b984379ee828163b19b9034bac0ac28a245ac75dac2f2a0f02f2d7",
+          "diff": "ref_tb.v.waveform.diff",
+          "scope": "waveform output only; upstream unchanged"
+        }
+      ],
+      "wrapper_mode": "reference_model",
+      "reference_source": "ref.v",
+      "reference_source_sha256": "3c0d87234bb5cca8a9e6cee34e72b585891d0d8390d5b09cd3d7641aede970de",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {},
+      "reason": "official reference/derived baseline diagnostic: candidate compilation diagnostic",
+      "seconds": 4.97
+    },
+    {
+      "id": "MGen/L3/Text/GA_95",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": ".fsm.sch.verilog.xml",
+          "bytes": 56,
+          "sha256": "4b9dad72827b173a43d570c924aad53b345e21485e3fa3a1deadf098783684bb"
+        },
+        {
+          "name": "dut.f",
+          "bytes": 27,
+          "sha256": "85f962db6f0a138db67a6c64fb84664cd2459a96548439499529589bb912a8bc"
+        },
+        {
+          "name": "dut.v",
+          "bytes": 6349,
+          "sha256": "d11d8561490c88c491a6d94ae4ef8df4ae1e146c980f349c7b534b4433e8299f"
+        },
+        {
+          "name": "makefile",
+          "bytes": 865,
+          "sha256": "de1974fd4efad8cbbc2765709ba76331fc80e47c0896457754c9a7680734b5dc"
+        },
+        {
+          "name": "ref.v",
+          "bytes": 6493,
+          "sha256": "18a390115abf23ac4954313e450025fa3db8087a06926b234b796511806fb5f9"
+        },
+        {
+          "name": "ref_tb.v",
+          "bytes": 8925,
+          "sha256": "7db36e8c9f000268755235188ff37a772856fcd7d82346d414629c9e1d239724"
+        },
+        {
+          "name": "spec.txt",
+          "bytes": 8319,
+          "sha256": "dd97ea5e17783871f653741002f7ac276dd8a0a5ce3eef71e7696d2f35c39b25"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 4,
+      "status": "error",
+      "wrapper_mode": "reference_model",
+      "reference_source": "ref.v",
+      "reference_source_sha256": "18a390115abf23ac4954313e450025fa3db8087a06926b234b796511806fb5f9",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {},
+      "observed_checks": 101,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "fail",
+      "reason": "official golden TB/C++ derived baseline did not establish explicit successful checks",
+      "seconds": 12.365
+    },
+    {
+      "id": "TBGen/L2/Text/BRSFmnCE",
+      "subset": "TBGen",
+      "input_files": [
+        {
+          "name": "BRSFmnCE.v",
+          "bytes": 2692,
+          "sha256": "6b8131accef34332b2afb4ad4764c782d58e1710c21f9fc9d8deb49f10a27429"
+        },
+        {
+          "name": "BRSFmnCE_spec.txt",
+          "bytes": 7368,
+          "sha256": "cfc46938434c93e60cb8a6da4e77cf028fba93c1074b63173d89e490d8637479"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 0,
+      "status": "error",
+      "reason": "missing external input asset: ['RAMINIT.mif']",
+      "seconds": 0.001
+    }
+  ],
+  "statuses": {
+    "unknown": 9,
+    "error": 13,
+    "pass": 16
+  }
+}

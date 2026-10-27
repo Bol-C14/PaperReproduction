@@ -1,0 +1,13 @@
+%Warning-LATCH: /workspace/PaperReproduction/fixme/results/interface_binding_repairs/MGen/case_a89dbe687467/ref.v:154:5: Latch inferred for signal 'ref_alt_exc_dpram.portadataout_reg_out' (not all control paths of combinational always assign a value)
+                                                                                                                       : ... Suggest use of always_latch for intentional latches
+  154 |     always @(portaena_in or portadataout_reg)
+      |     ^~~~~~
+                ... For warning description see https://verilator.org/warn/LATCH?v=5.032
+                ... Use "/* verilator lint_off LATCH */" and lint_on around source to disable this message.
+%Warning-LATCH: /workspace/PaperReproduction/fixme/results/interface_binding_repairs/MGen/case_a89dbe687467/ref.v:160:5: Latch inferred for signal 'ref_alt_exc_dpram.portbdataout_reg_out' (not all control paths of combinational always assign a value)
+                                                                                                                       : ... Suggest use of always_latch for intentional latches
+  160 |     always @(portbena_in or portbdataout_reg)
+      |     ^~~~~~
+- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev (Debian 5.032-1+b2)
+- Verilator: Built from 0.034 MB sources in 2 modules, into 0.039 MB in 7 C++ files needing 0.000 MB
+- Verilator: Walltime 0.008 s (elab=0.001, cvt=0.003, bld=0.000); cpu 0.000 s on 1 threads; alloced 9.355 MB

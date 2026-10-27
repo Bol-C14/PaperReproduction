@@ -1,0 +1,176 @@
+{
+  "kind": "reference-calibration-not-model-score",
+  "live_llm": false,
+  "case_count": 2,
+  "max_workers": 2,
+  "case_budget_seconds": 150,
+  "results": [
+    {
+      "id": "MGen/L2/Text/GA_97",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": ".fsm.sch.verilog.xml",
+          "bytes": 56,
+          "sha256": "4b9dad72827b173a43d570c924aad53b345e21485e3fa3a1deadf098783684bb"
+        },
+        {
+          "name": "dut.f",
+          "bytes": 27,
+          "sha256": "85f962db6f0a138db67a6c64fb84664cd2459a96548439499529589bb912a8bc"
+        },
+        {
+          "name": "dut.v",
+          "bytes": 7140,
+          "sha256": "580a077c85ea42623179ae641e28473a6257fb3792a6b0186b172b84cd063a23"
+        },
+        {
+          "name": "makefile",
+          "bytes": 833,
+          "sha256": "26d17d574745250ecb4280cc81084655327e43be445c6d52d89846c40d21e8cf"
+        },
+        {
+          "name": "ref.v",
+          "bytes": 7178,
+          "sha256": "1ee9cef28298d5182bec2c1bb32389f4177de21c0d53ca720cfcf671cd93c9a0"
+        },
+        {
+          "name": "ref_tb.v",
+          "bytes": 5449,
+          "sha256": "2049a90c4e3aa0c60bb6c27b01d086e706ae1fb287ca2a7baf4b25fd59de387b"
+        },
+        {
+          "name": "spec.txt",
+          "bytes": 7681,
+          "sha256": "49d573a0ec24762a5b432dbe5bd7f3b2fa7f2bce7c2c9ba729740a67f14b4e55"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": true,
+      "negative_control_detected": true,
+      "commands": 6,
+      "status": "pass",
+      "staging_overlays": [
+        {
+          "file": "ref_tb.v",
+          "kind": "diagnostic-only FSDB PLI removal",
+          "source_sha256": "2049a90c4e3aa0c60bb6c27b01d086e706ae1fb287ca2a7baf4b25fd59de387b",
+          "staged_sha256": "bef55da69c8dcf5b345e714e34d289787739e816609729c3c06452cb4783e55c",
+          "diff": "ref_tb.v.waveform.diff",
+          "scope": "waveform output only; upstream unchanged"
+        }
+      ],
+      "inactive_file_dependencies": [
+        {
+          "file": "dut.v",
+          "parameter": "lpm_file",
+          "default": "NONE",
+          "guard": "lpm_file != \"NONE\" && lpm_file != \"none\"",
+          "reason": "all-default read is statically disabled; no TB override; source not rewritten"
+        },
+        {
+          "file": "ref.v",
+          "parameter": "lpm_file",
+          "default": "NONE",
+          "guard": "lpm_file != \"NONE\" && lpm_file != \"none\"",
+          "reason": "all-default read is statically disabled; no TB override; source not rewritten"
+        }
+      ],
+      "wrapper_mode": "reference_model",
+      "reference_source": "ref.v",
+      "reference_source_sha256": "1ee9cef28298d5182bec2c1bb32389f4177de21c0d53ca720cfcf671cd93c9a0",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {
+        "operation_mode": "DUAL_PORT",
+        "output_mode": "REG"
+      },
+      "observed_checks": 200,
+      "score_reason": "explicit failed check overrides any success/count text",
+      "reference_status": "pass",
+      "negative_status": "fail",
+      "reason": "generated reference C++/DPI golden-TB calibration and output-bit negative",
+      "seconds": 13.0
+    },
+    {
+      "id": "MGen/L3/Text/GA_94",
+      "subset": "MGen",
+      "input_files": [
+        {
+          "name": ".fsm.sch.verilog.xml",
+          "bytes": 56,
+          "sha256": "4b9dad72827b173a43d570c924aad53b345e21485e3fa3a1deadf098783684bb"
+        },
+        {
+          "name": "dut.f",
+          "bytes": 27,
+          "sha256": "85f962db6f0a138db67a6c64fb84664cd2459a96548439499529589bb912a8bc"
+        },
+        {
+          "name": "dut.v",
+          "bytes": 36641,
+          "sha256": "0f6024c4530ab27bedfa3621615876b8b1953d29b4df79ee73508c73c1300fdf"
+        },
+        {
+          "name": "makefile",
+          "bytes": 865,
+          "sha256": "de1974fd4efad8cbbc2765709ba76331fc80e47c0896457754c9a7680734b5dc"
+        },
+        {
+          "name": "ref.v",
+          "bytes": 37215,
+          "sha256": "3c0d87234bb5cca8a9e6cee34e72b585891d0d8390d5b09cd3d7641aede970de"
+        },
+        {
+          "name": "ref_tb.v",
+          "bytes": 2829,
+          "sha256": "b3451f3dcedf078b7a3f8fb64e104a537dea34f0642e143f87eabc2fd005e809"
+        },
+        {
+          "name": "spec.txt",
+          "bytes": 8888,
+          "sha256": "b7363ca0bd80b88298ce9a4b4139fe213a13f2c4100e89e33b9529d0830e66af"
+        }
+      ],
+      "overlays": [],
+      "live_llm": false,
+      "kind": "reference-calibration-not-model-score",
+      "fidelity": "structural-substituted",
+      "functional_pass": null,
+      "negative_control_detected": null,
+      "commands": 3,
+      "status": "error",
+      "staging_overlays": [
+        {
+          "file": "ref_tb.v",
+          "kind": "diagnostic-only FSDB PLI removal",
+          "source_sha256": "b3451f3dcedf078b7a3f8fb64e104a537dea34f0642e143f87eabc2fd005e809",
+          "staged_sha256": "4bd954beb8b984379ee828163b19b9034bac0ac28a245ac75dac2f2a0f02f2d7",
+          "diff": "ref_tb.v.waveform.diff",
+          "scope": "waveform output only; upstream unchanged"
+        }
+      ],
+      "reference_interface_selection": {
+        "old_first_module": "MUX32_ref",
+        "selected_module": "CPU_ref",
+        "evidence": "unique reference-source module directly instantiated by supplied TB",
+        "reference_sha256": "3c0d87234bb5cca8a9e6cee34e72b585891d0d8390d5b09cd3d7641aede970de",
+        "tb_sha256": "b3451f3dcedf078b7a3f8fb64e104a537dea34f0642e143f87eabc2fd005e809",
+        "source_rewrite": false
+      },
+      "wrapper_mode": "reference_model",
+      "reference_source": "ref.v",
+      "reference_source_sha256": "3c0d87234bb5cca8a9e6cee34e72b585891d0d8390d5b09cd3d7641aede970de",
+      "semantic_contract": "two-state compiled reference; official DPI wrapper and supplied testbench; no model sampling",
+      "resolved_tb_parameters": {},
+      "reason": "official reference/derived baseline diagnostic: candidate compilation diagnostic",
+      "seconds": 5.236
+    }
+  ],
+  "statuses": {
+    "error": 1,
+    "pass": 1
+  }
+}
