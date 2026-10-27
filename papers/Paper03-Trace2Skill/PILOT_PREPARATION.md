@@ -7,7 +7,7 @@
 - Base URL：`https://models.northern-relay.com/v1`。
 - API：**Chat Completions**，远端只计划 `/chat/completions`；不用远端 Responses API。
 - 完整model ID：`Qwen/Qwen3.5-397B-A17B-FP8`。
-- Secret变量名：`NR_API_KEY`；最初未检查；收到用户完成vault设置的授权后，仅核验变量名存在性，结果 **NR_API_KEY_present=false**；未读取值、长度或任何变体，未索取凭证。
+- **当前唯一Secret变量名：`NR_KEY`**。用户2026-10-27 23:52:55 UTC改名；本任务实际存在性检查 **NR_KEY_present=false**。旧NR_API_KEY退休，不读取、不复制、不回退。历史段落中的旧名只记录此前检查，不代表当前配置。
 - 凭证到期：**2026-11-03 23:38:17 UTC**。不因系统本地时区改变含义。
 - 账号共享上限：5M tokens/day、60RPM、500kTPM、并发4。不是本任务可独占预算。本任务仍等待父线程启用，当前预留额度0。
 
@@ -28,7 +28,7 @@ python3 preflight.py
 python3 prepare_plan.py
 ```
 
-**44/44 unittest 通过。** 36项client/预算/隔离测试＋8项protocol conversion测试。主要覆盖精确model与endpoint、文本/工具call roundtrip、usage校验、token/request/RPM/TPM/单并发gate、超额配置拒绝、UTC到期与安全余量、401/403全run停止、429数字/HTTP-date Retry-After与有限重试、timeout不盲重试、截断不隐形修复、unknown tool/arguments拒绝、脱敏日志、实际子进程环境不继承synthetic secret。adapter测试在patch socket禁止网络的条件下运行；转换测试完全不含网络调用。日志见 `logs/pilot_adapter_tests.txt`，机器资源/计划见 `metrics/pilot_preflight.json` 与 `metrics/pilot_plan.json`。
+**45/45 unittest 通过。** 37项client/预算/隔离测试＋8项protocol conversion测试。主要覆盖精确model与endpoint、文本/工具call roundtrip、usage校验、token/request/RPM/TPM/单并发gate、超额配置拒绝、UTC到期与安全余量、401/403全run停止、429数字/HTTP-date Retry-After与有限重试、timeout不盲重试、截断不隐形修复、unknown tool/arguments拒绝、脱敏日志、实际子进程环境不继承synthetic secret。adapter测试在patch socket禁止网络的条件下运行；转换测试完全不含网络调用。日志见 `logs/pilot_adapter_tests.txt`，机器资源/计划见 `metrics/pilot_preflight.json` 与 `metrics/pilot_plan.json`。
 
 ## 硬预算与失败语义
 
@@ -103,3 +103,8 @@ Evolution gen1包括seed和一个初始化mutant；基于两候选实测结果�
 它是小型工具链/接口smoke，不是原CVDP schoolMIPS任务，更不是论文效果实验。故障是人工注入、测试是本轮作者编写；可在父线程后续选用其做portability canary，但不能冒充原始基线或paper task复现。当前`pilot_plan.json`仍保留原task，未悄悄替换。
 
 命令：`python3 pilot/verifier_fixture/smoke.py`。需在无凭证的白名单环境运行；当前仅运行了缺工具的拒绝路径。准备这个小fixture不改变live状态、账号budget或安全设置。
+
+
+## 最新变量迁移（当前状态优先于历史段落）
+
+用户新建`NR_KEY`后，本线程在原任务只检查了变量名存在性，结果 **NR_KEY_present=false**。环境、仓库与分支仍正常。active配置、preflight、测试与worker隔离约定已改用NR_KEY；旧NR_API_KEY不使用、不回退读取、不自动复制。仍只允许离线mock，真实模型请求0；全实验4并发、100k tokens及2026-11-03 23:38:17 UTC过期保护不变。新增一项测试证明唯一变量名及adapter没有任何环境读取/旧名fallback；45项测试在显式安全环境下通过。未修改Vault、网络或安全设置，未新建任务。

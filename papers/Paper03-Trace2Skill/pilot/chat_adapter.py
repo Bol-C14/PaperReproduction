@@ -15,6 +15,7 @@ from typing import Callable
 
 BASE_URL='https://models.northern-relay.com/v1'
 MODEL='Qwen/Qwen3.5-397B-A17B-FP8'
+SECRET_ENV='NR_KEY'  # Only accepted name; no legacy fallback or credential reads in this offline module.
 EXPIRES=dt.datetime(2026,11,3,23,38,17,tzinfo=dt.timezone.utc)
 LIVE_ENABLED=False
 class Stopped(RuntimeError): pass
@@ -164,7 +165,7 @@ class OfflineClient:
                 self.audit.append(event)
         raise Stopped('attempt ceiling')
 
-# No os.environ access. Future model-client process receives NR_API_KEY only after
+# No os.environ access. Future model-client process receives NR_KEY only after
 # secure provisioning and authorization. Tool worker gets this positive env list.
 def worker_environment(workdir:Path):
     return {'PATH':'/usr/local/bin:/usr/bin:/bin','HOME':str(workdir),'TMPDIR':str(workdir),'LANG':'C.UTF-8','LC_ALL':'C.UTF-8'}

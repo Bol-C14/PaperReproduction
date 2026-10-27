@@ -58,7 +58,7 @@ Python 3.12.14；已有 yaml/numpy/matplotlib/pydantic；缺 openai/ray/pytest�
 
 ## 第二轮无凭证准备补充
 
-已收到免费服务非秘密配置，完成Chat-only离线适配/预算/隔离44项测试；未读secret、未发真实请求。当前阻碍与最小canary计划以 [PILOT_PREPARATION.md](PILOT_PREPARATION.md) 为准。初轮“无已确认免费服务”的环境观察不再作为第二轮结论。
+已收到免费服务非秘密配置，完成Chat-only离线适配/预算/隔离45项测试；未读secret、未发真实请求。当前阻碍与最小canary计划以 [PILOT_PREPARATION.md](PILOT_PREPARATION.md) 为准。初轮“无已确认免费服务”的环境观察不再作为第二轮结论。
 
 ## Go / NoGo
 

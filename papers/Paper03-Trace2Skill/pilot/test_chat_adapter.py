@@ -142,9 +142,9 @@ class TestAdapter(unittest.TestCase):
         self.assertEqual(len(c.audit),5);self.assertTrue(all(x['mode']=='offline_mock' and 'elapsed_seconds' in x for x in c.audit))
     def test_worker_environment_and_actual_child_isolation(self):
         with tempfile.TemporaryDirectory() as d:
-            env=worker_environment(Path(d));self.assertNotIn('NR_API_KEY',env);self.assertNotIn('HTTPS_PROXY',env)
+            env=worker_environment(Path(d));self.assertNotIn('NR_KEY',env);self.assertNotIn('HTTPS_PROXY',env)
             with patch.dict(os.environ,{'FAKE_CANARY_SECRET':'synthetic-only'}):
-                out=subprocess.check_output([sys.executable,'-I','-c','import os,json; print(json.dumps({"fake": "FAKE_CANARY_SECRET" in os.environ, "nr": "NR_API_KEY" in os.environ}))'],env=env,text=True)
+                out=subprocess.check_output([sys.executable,'-I','-c','import os,json; print(json.dumps({"fake": "FAKE_CANARY_SECRET" in os.environ, "nr": "NR_KEY" in os.environ}))'],env=env,text=True)
             self.assertEqual(json.loads(out),{'fake':False,'nr':False})
 
     def test_shared_controller_caps_roles_together(self):
@@ -175,5 +175,14 @@ class TestAdapter(unittest.TestCase):
         control=ExperimentController(clock=lambda:NOW);control.budget.begin(1)
         client=control.offline_client(Mock((429,{'Retry-After':'0'},{}),(200,{},response())),counter=lambda _:10)
         self.call(client);self.assertEqual(control.budget.active,1);control.budget.end()
+
+    def test_new_secret_name_only_and_no_lookup_fallback(self):
+        self.assertEqual(SECRET_ENV,'NR_KEY')
+        import ast
+        import chat_adapter
+        tree=ast.parse(Path(chat_adapter.__file__).read_text())
+        # Offline adapter has no environment reads at all, including no legacy fallback.
+        self.assertFalse(any(isinstance(n,ast.Attribute) and n.attr in {'environ','getenv'} for n in ast.walk(tree)))
+        self.assertNotIn('NR_KEY',worker_environment(Path('/tmp')))
 
 if __name__=='__main__':unittest.main(verbosity=2)

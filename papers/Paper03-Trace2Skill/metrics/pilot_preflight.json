@@ -39,7 +39,6 @@
   "seconds_until_expiry": 604251.886055,
   "live_enabled": false,
   "credential_status": "presence-only boolean; value never read; not configured",
-  "NR_API_KEY_present": false,
   "target_domain_authorization": "unknown; no domain-specific metadata surfaced; not probed",
   "provider_account_quota": {
     "tokens_per_day": 5000000,
@@ -68,7 +67,7 @@
     "NeMo Gym live dependencies missing; Responses-based agent not wired to this Chat-only offline adapter",
     "no verified input token counter/chat-template revision; cannot admit a live call",
     "no reviewed live transport/parent activation; LIVE_ENABLED=False",
-    "NR_API_KEY not safely provisioned; task never accesses credentials"
+    "NR_KEY not safely provisioned; task never accesses credentials"
   ],
   "real_model_requests": 0,
   "real_verifier_executions": 0,
@@ -81,5 +80,8 @@
     "reason": "iverilog/vvp missing",
     "real_verifier_executions": 0,
     "is_original_cvdp_task": false
-  }
+  },
+  "secret_variable": "NR_KEY",
+  "NR_KEY_present_at_last_actual_task_check": false,
+  "legacy_secret_policy": "NR_API_KEY retired; never read, copied, or used as fallback"
 }

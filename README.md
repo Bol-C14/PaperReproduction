@@ -6,4 +6,4 @@ Start with [REPRODUCTION.md](papers/Paper03-Trace2Skill/REPRODUCTION.md), then [
 
 Branch: `reproduction/trace2skill-mlcad2026`. Cached numbers and deterministic helper behavior were checked; no new live LLM/RTL rollouts were generated. This branch was prepared locally without pushing or publishing.
 
-Follow-up: [Chat-only, credential-free canary preparation](papers/Paper03-Trace2Skill/PILOT_PREPARATION.md), 44 offline tests passed; no real model requests or verifier executions.
+Follow-up: [Chat-only, credential-free canary preparation](papers/Paper03-Trace2Skill/PILOT_PREPARATION.md), 45 offline tests passed; no real model requests or verifier executions.
