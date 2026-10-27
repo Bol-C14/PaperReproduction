@@ -11,7 +11,7 @@ python scripts/verify_artifacts.py
 ZIP 的 git/ 目录含本分支全历史 bundle 和含 binary 图的完整 root patch；RELEASE.json 给出 branch/完整 commit。恢复完整历史：
 
 ```bash
-git clone git/aspen-review.bundle restored
+git clone -b reproduction/aspen-mlcad2025 git/aspen-review.bundle restored
 git -C restored switch reproduction/aspen-mlcad2025
 ```
 
