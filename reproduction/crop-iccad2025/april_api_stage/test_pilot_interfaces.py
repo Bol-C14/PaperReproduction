@@ -23,6 +23,14 @@ class InterfaceTests(unittest.TestCase):
         self.designs = [d for d in self.manifest['designs'] if d['role'] == 'prior' or d['id'] == 'fir3']
         self.vector = [1.0] + [0.0] * 383
 
+    def test_prompt_guard_accepts_saved_key_sorting_but_not_changed_data(self):
+        from no_guidance_control import validate_original_prompt, PROMPT_PREFIX
+        actual = {'z': 1, 'a': 2}
+        saved = json.loads(json.dumps(actual, sort_keys=True))
+        self.assertEqual(validate_original_prompt(PROMPT_PREFIX+json.dumps(actual), saved), actual)
+        with self.assertRaises(ValueError):
+            validate_original_prompt(PROMPT_PREFIX+json.dumps(actual), {'z': 3, 'a': 2})
+
     def test_no_guidance_intervention_changes_only_two_context_fields(self):
         from no_guidance_control import control_context
         old = json.loads((HERE/'real_pilot_reviewed_subset/contexts/1.json').read_text())['request']

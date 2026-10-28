@@ -25,6 +25,17 @@ def control_context(configs, archive, design_summary, iteration):
     return proposal_context(configs, None, [], archive, design_summary, iteration)
 
 
+def validate_original_prompt(prompt, saved_context):
+    if not prompt.startswith(PROMPT_PREFIX):
+        raise ValueError('Original proposal prefix changed')
+    # The saved context file sorts its keys; parse the prompt itself to retain
+    # its actual serialization order rather than inventing a byte mismatch.
+    parsed = json.loads(prompt[len(PROMPT_PREFIX):])
+    if parsed != saved_context or PROMPT_PREFIX+json.dumps(parsed) != prompt:
+        raise ValueError('Original proposal context differs')
+    return parsed
+
+
 def main():
     root = Path(os.environ['PAPER_REPRO_ROOT']).resolve()
     src = Path(__file__).resolve().parents[1] / 'closed_loop'
@@ -36,7 +47,7 @@ def main():
     auth = json.loads((root/'results/crop/API_AUTHORIZED.json').read_text())
     if auth.get('approved') is not True or auth.get('payload_scope') != 'crop_public_seven_circuits_summaries_qor':
         raise SystemExit('Existing public CROP scope not authorized')
-    out = root / 'results/crop/no-guidance-control-20261028'
+    out = root / 'results/crop/no-guidance-control-20261028-v2'
     out.mkdir(parents=True, exist_ok=False)
     source_sha = subprocess.check_output(['git','-C',str(src),'rev-parse','HEAD'],text=True).strip()
     api = load_shared_api(root/'tools/shared/openrouter_shared.py',
@@ -59,8 +70,7 @@ def main():
     retrieval = json.loads((original/'retrieval.json').read_text())
     original_first = json.loads((original/'contexts/1.json').read_text())['request']
     original_prompt = json.loads((original/'generations/proposal_1_0.json').read_text())['prompt']
-    if original_prompt != PROMPT_PREFIX+json.dumps(original_first):
-        raise SystemExit('Proposal prompt is not identical to original source')
+    original_first = validate_original_prompt(original_prompt, original_first)
     study.dump(out/'protocol.json', dict(source_commit=source_sha, original_source_commit=original_budget['source_commit'],
         frozen_utc=time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()), arm='no_guidance', seed=23,
         model=api.model, temperature=0, reasoning_enabled=False, max_output_tokens=640,
@@ -74,6 +84,7 @@ def main():
         shared_module_sha256=getattr(api,'shared_module_sha256',None),
         comparison='Earlier guided trajectory versus later no-guidance run; one seed, not strictly paired',
         intervention=['retrieved_prior=null','retrieved_guidance=[]'],
+        prior_preflight_failure=dict(reason='Saved context key order versus original prompt serialization; fixed',model_calls=0,synthesis_calls=0),
         fairness_limits=['Shared cached preprocessing; compare search-only cost, not whole-pipeline cost',
                          'Fresh run in later time window; model ID is not immutable weights/provider identity',
                          'Public shared interface adds standard-tier price/parameter safety routing constraints']))
@@ -86,7 +97,7 @@ def main():
     archive=[observation(baseline)]
     study.dump(out/'target_archive.json',archive)
     guided_first=proposal_context(manifest['configs'],retrieval['selected'],retrieval['guidance'],archive,cache['design_summary'],1)
-    if guided_first != original_first:
+    if guided_first != original_first or PROMPT_PREFIX+json.dumps(guided_first) != original_prompt:
         raise SystemExit('Fresh baseline/context differs from original; no model call allowed')
     budget=AttemptBudget(max_total=6)
     for iteration in range(1,4):

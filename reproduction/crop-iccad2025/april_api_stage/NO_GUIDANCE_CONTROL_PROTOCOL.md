@@ -45,3 +45,9 @@ requests/responses/usage/failures, contexts, CEC/netlists/raw QoR and final ledg
 summary privately. Publish only reviewed code and a scanned minimal result
 subset, omitting private paths, service response IDs and shared batch IDs.
 No new LICENSE or original benchmark/model-weight redistribution is introduced.
+
+The first preflight stopped before any synthesis/model call because the saved
+context's sorted JSON keys were mistaken for a prompt-content difference. The
+corrected check parses the original prompt and checks semantic equality plus
+its actual serialization order. Preserve the failed preflight log; use a fresh
+v2 output directory. This does not add model attempts to the6-call budget.
