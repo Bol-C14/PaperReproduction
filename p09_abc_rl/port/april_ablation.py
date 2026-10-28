@@ -91,23 +91,24 @@ def main():
     assert len(state) == 26
     assert all(torch.equal(v, trainer.step_model.state_dict()[k]) for k, v in state.items())
     env = LogicSynthesisEnv.__new__(LogicSynthesisEnv)
-    env._abc = abc_py.AbcInterface()
-    env._abc.start()
     graphs, inference = {}, {}
-    try:
-        for name in bank_names + eval_names:
-            tick = time.monotonic()
-            record(dict(kind='native_graph_read', circuit=name, status='started'))
+    for name in bank_names + eval_names:
+        tick = time.monotonic()
+        record(dict(kind='native_graph_read', circuit=name, status='started'))
+        env._abc = abc_py.AbcInterface()
+        env._abc.start()
+        try:
             graph = env.extract_init_graph(str(assets / (name+'.aig')))
-            data = env.createDataFromGraphAndSequence('0 0', graph)
-            pi, val, emb = trainer.stepNgetEmbedding([data])
-            assert np.isfinite(pi).all() and np.isfinite(emb).all()
-            inference[name] = dict(nodes=graph['nodes'], edges=graph['edge_index'].shape[1], embedding=emb[0].tolist(), policy=pi[0].tolist(), seconds=time.monotonic()-tick)
-            if name in eval_names:
-                graphs[name] = graph
-            record(dict(kind='native_graph_read', circuit=name, status='finished', seconds=time.monotonic()-tick))
-    finally:
-        env._abc.end()
+        finally:
+            env._abc.end()
+        assert int(graph['edge_index'].max()) < graph['nodes']
+        data = env.createDataFromGraphAndSequence('0 0', graph)
+        pi, val, emb = trainer.stepNgetEmbedding([data])
+        assert np.isfinite(pi).all() and np.isfinite(emb).all()
+        inference[name] = dict(nodes=graph['nodes'], edges=graph['edge_index'].shape[1], embedding=emb[0].tolist(), policy=pi[0].tolist(), seconds=time.monotonic()-tick)
+        if name in eval_names:
+            graphs[name] = graph
+        record(dict(kind='native_graph_read', circuit=name, status='finished', seconds=time.monotonic()-tick))
     gates = {}
     for name in eval_names:
         gates[name] = {}
