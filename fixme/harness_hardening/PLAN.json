@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "fresh_container_executions": 13,
+  "historical_v8_trials_rerun": false,
+  "fresh_fifo_primary_cases": 7,
+  "new_fixed_negative_controls": 6,
+  "host_rejections": [
+    "missing_origin",
+    "unknown_origin",
+    "model_generated_origin",
+    "modified_bytes",
+    "modified_argv",
+    "missing_fixture_id"
+  ],
+  "pure_local_taxonomy_controls": 6,
+  "model_calls": 0,
+  "trials": [
+    {
+      "id": "hardening/correct_mux",
+      "directory": "fixtures/correct_mux",
+      "expected": "pass"
+    },
+    {
+      "id": "hardening/wrong_rtl",
+      "directory": "fixtures/wrong_rtl",
+      "expected": "fail"
+    },
+    {
+      "id": "hardening/wrong_tb",
+      "directory": "fixtures/wrong_tb",
+      "expected": "fail"
+    },
+    {
+      "id": "hardening/empty_tb",
+      "directory": "fixtures/empty_tb",
+      "expected": "unknown"
+    },
+    {
+      "id": "hardening/syntax_rtl",
+      "directory": "fixtures/syntax_rtl",
+      "expected": "task_syntax_failure"
+    },
+    {
+      "id": "hardening/syntax_tb",
+      "directory": "fixtures/syntax_tb",
+      "expected": "task_syntax_failure"
+    },
+    {
+      "id": "hardening/simulation_timeout",
+      "directory": "fixtures/simulation_timeout",
+      "expected": "unknown"
+    },
+    {
+      "id": "hardening/fake_marker",
+      "directory": "fixtures/fake_marker",
+      "expected": "unknown"
+    },
+    {
+      "id": "hardening/malformed_line",
+      "directory": "fixtures/malformed_line",
+      "expected": "unknown"
+    },
+    {
+      "id": "hardening/duplicate_line",
+      "directory": "fixtures/duplicate_line",
+      "expected": "unknown"
+    },
+    {
+      "id": "hardening/sim_output_flood",
+      "directory": "fixtures/sim_output_flood",
+      "expected": "unknown"
+    },
+    {
+      "id": "hardening/client_output_flood",
+      "directory": "fixtures/client_output_flood",
+      "expected": "unknown"
+    },
+    {
+      "id": "hardening/outer_timeout",
+      "directory": "fixtures/outer_timeout",
+      "expected": "unknown"
+    }
+  ]
+}

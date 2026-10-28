@@ -1,0 +1,392 @@
+{
+  "schema_version": 1,
+  "policy": "controller-owned complete payload + argv + image + timeout allowlist; no model inputs authorized",
+  "fixtures": {
+    "v8/compiler_snapshot_retry": {
+      "files": {
+        "inside.py": "8a909223312c3913e89db253ea798caa03b933f35f3e2764fb17e6dda8eb2708",
+        "dut.sv": "c531238b5b7befba9363a50319bf2d862412f6ea72ba3f236eae1148125843f6",
+        "tb.sv": "70abfdf428663711029157ef0b8be3c23c31a5216ba16d040af9ed2ab4477ea1"
+      },
+      "argv": [
+        "python3",
+        "/work/inside.py"
+      ],
+      "timeout": 5,
+      "image": "sha256:43775af413e0732f72c703e941c4ea8a6c73c0fd6e59fb94f527a9e8ed08bc66",
+      "oracle_policy": "historical_calibration_only"
+    },
+    "v8/correct_mux": {
+      "files": {
+        "inside.py": "f9e9f4eab510b306a9992eca656d36ecf21428066fc630d6b4b246ecb9e55234",
+        "dut.sv": "c531238b5b7befba9363a50319bf2d862412f6ea72ba3f236eae1148125843f6",
+        "tb.sv": "70abfdf428663711029157ef0b8be3c23c31a5216ba16d040af9ed2ab4477ea1"
+      },
+      "argv": [
+        "python3",
+        "/work/inside.py"
+      ],
+      "timeout": 5,
+      "image": "sha256:43775af413e0732f72c703e941c4ea8a6c73c0fd6e59fb94f527a9e8ed08bc66",
+      "oracle_policy": "historical_calibration_only"
+    },
+    "v8/empty_tb": {
+      "files": {
+        "inside.py": "f9e9f4eab510b306a9992eca656d36ecf21428066fc630d6b4b246ecb9e55234",
+        "dut.sv": "c531238b5b7befba9363a50319bf2d862412f6ea72ba3f236eae1148125843f6",
+        "tb.sv": "6e658325cc390669fad83aec7b7c56dbb34cfe335e65bf5a29459b102aaef96d"
+      },
+      "argv": [
+        "python3",
+        "/work/inside.py"
+      ],
+      "timeout": 5,
+      "image": "sha256:43775af413e0732f72c703e941c4ea8a6c73c0fd6e59fb94f527a9e8ed08bc66",
+      "oracle_policy": "historical_calibration_only"
+    },
+    "v8/simulation_timeout": {
+      "files": {
+        "inside.py": "f9e9f4eab510b306a9992eca656d36ecf21428066fc630d6b4b246ecb9e55234",
+        "dut.sv": "c531238b5b7befba9363a50319bf2d862412f6ea72ba3f236eae1148125843f6",
+        "tb.sv": "1072ce89474f36c37e0823b91642f58ef782bc161d117f8920a642c2f8332cd0"
+      },
+      "argv": [
+        "python3",
+        "/work/inside.py"
+      ],
+      "timeout": 5,
+      "image": "sha256:43775af413e0732f72c703e941c4ea8a6c73c0fd6e59fb94f527a9e8ed08bc66",
+      "oracle_policy": "historical_calibration_only"
+    },
+    "v8/syntax_rtl": {
+      "files": {
+        "inside.py": "f9e9f4eab510b306a9992eca656d36ecf21428066fc630d6b4b246ecb9e55234",
+        "dut.sv": "3c1762cac582c6867aa9e597e2ecc9d08b7114fd4c570a48912b2140ae820a68",
+        "tb.sv": "70abfdf428663711029157ef0b8be3c23c31a5216ba16d040af9ed2ab4477ea1"
+      },
+      "argv": [
+        "python3",
+        "/work/inside.py"
+      ],
+      "timeout": 5,
+      "image": "sha256:43775af413e0732f72c703e941c4ea8a6c73c0fd6e59fb94f527a9e8ed08bc66",
+      "oracle_policy": "historical_calibration_only"
+    },
+    "v8/syntax_tb": {
+      "files": {
+        "inside.py": "f9e9f4eab510b306a9992eca656d36ecf21428066fc630d6b4b246ecb9e55234",
+        "dut.sv": "c531238b5b7befba9363a50319bf2d862412f6ea72ba3f236eae1148125843f6",
+        "tb.sv": "32d1b3c9261c48b0e684649720f01425c09753661ec24149f411d5553f84f01a"
+      },
+      "argv": [
+        "python3",
+        "/work/inside.py"
+      ],
+      "timeout": 5,
+      "image": "sha256:43775af413e0732f72c703e941c4ea8a6c73c0fd6e59fb94f527a9e8ed08bc66",
+      "oracle_policy": "historical_calibration_only"
+    },
+    "v8/wrong_rtl": {
+      "files": {
+        "inside.py": "f9e9f4eab510b306a9992eca656d36ecf21428066fc630d6b4b246ecb9e55234",
+        "dut.sv": "0dad5f07501a54eb458a67cdbe09e75c89b014958787bb999a970ecef758f44a",
+        "tb.sv": "70abfdf428663711029157ef0b8be3c23c31a5216ba16d040af9ed2ab4477ea1"
+      },
+      "argv": [
+        "python3",
+        "/work/inside.py"
+      ],
+      "timeout": 5,
+      "image": "sha256:43775af413e0732f72c703e941c4ea8a6c73c0fd6e59fb94f527a9e8ed08bc66",
+      "oracle_policy": "historical_calibration_only"
+    },
+    "v8/wrong_tb": {
+      "files": {
+        "inside.py": "f9e9f4eab510b306a9992eca656d36ecf21428066fc630d6b4b246ecb9e55234",
+        "dut.sv": "c531238b5b7befba9363a50319bf2d862412f6ea72ba3f236eae1148125843f6",
+        "tb.sv": "a5a8e8f42d8197e0a258dc5da610a7a3fa7f34449bfcf8b3deb8ec44ba43f80e"
+      },
+      "argv": [
+        "python3",
+        "/work/inside.py"
+      ],
+      "timeout": 5,
+      "image": "sha256:43775af413e0732f72c703e941c4ea8a6c73c0fd6e59fb94f527a9e8ed08bc66",
+      "oracle_policy": "historical_calibration_only"
+    },
+    "v7/environment": {
+      "files": {
+        "probe.sh": "c535b2657161d3337c20ebc8989ac2807ca4c0eb7b78cb6acaa86a63fdb63463"
+      },
+      "argv": [
+        "sh",
+        "/work/probe.sh"
+      ],
+      "timeout": 5,
+      "image": "busybox@sha256:bdf57e528e45e4433820e045b29b4597825a1c9e38353532d90a01445013f82e",
+      "oracle_policy": "boundary_probe_only"
+    },
+    "v7/filesystem": {
+      "files": {
+        "probe.sh": "c16cb011930ee17285d6610599592868ae52d1d2d334ef222dff6a7db0cf8b3c"
+      },
+      "argv": [
+        "sh",
+        "/work/probe.sh"
+      ],
+      "timeout": 5,
+      "image": "busybox@sha256:bdf57e528e45e4433820e045b29b4597825a1c9e38353532d90a01445013f82e",
+      "oracle_policy": "boundary_probe_only"
+    },
+    "v7/intentional_failure": {
+      "files": {
+        "probe.sh": "144f7f5a3b65694532559a7e7d567975720583f5c5118668d84e697a658f818c"
+      },
+      "argv": [
+        "sh",
+        "/work/probe.sh"
+      ],
+      "timeout": 5,
+      "image": "busybox@sha256:bdf57e528e45e4433820e045b29b4597825a1c9e38353532d90a01445013f82e",
+      "oracle_policy": "boundary_probe_only"
+    },
+    "v7/network": {
+      "files": {
+        "probe.sh": "617597bbe9910027affae73e0fd93efc0022e3f78e673f93ee08032c8078d97a"
+      },
+      "argv": [
+        "sh",
+        "/work/probe.sh"
+      ],
+      "timeout": 5,
+      "image": "busybox@sha256:bdf57e528e45e4433820e045b29b4597825a1c9e38353532d90a01445013f82e",
+      "oracle_policy": "boundary_probe_only"
+    },
+    "v7/root_readonly": {
+      "files": {
+        "probe.sh": "c39a3668c3c1e1971d70c6b085ff43659bfc168b8c41cd8ffffbdba52b58da83"
+      },
+      "argv": [
+        "sh",
+        "/work/probe.sh"
+      ],
+      "timeout": 5,
+      "image": "busybox@sha256:bdf57e528e45e4433820e045b29b4597825a1c9e38353532d90a01445013f82e",
+      "oracle_policy": "boundary_probe_only"
+    },
+    "v7/scratch_positive": {
+      "files": {
+        "probe.sh": "75fa3b79b9f6f8d0aae45cb133d621457e8adef99650bd101317c467578d08dc"
+      },
+      "argv": [
+        "sh",
+        "/work/probe.sh"
+      ],
+      "timeout": 5,
+      "image": "busybox@sha256:bdf57e528e45e4433820e045b29b4597825a1c9e38353532d90a01445013f82e",
+      "oracle_policy": "boundary_probe_only"
+    },
+    "v7/timeout": {
+      "files": {
+        "probe.sh": "1041480700bd45c7633b8a2088e94142a53d177c70f8eef295152f127329ea41"
+      },
+      "argv": [
+        "sh",
+        "/work/probe.sh"
+      ],
+      "timeout": 1,
+      "image": "busybox@sha256:bdf57e528e45e4433820e045b29b4597825a1c9e38353532d90a01445013f82e",
+      "oracle_policy": "boundary_probe_only"
+    },
+    "v7/uid_caps_privileges": {
+      "files": {
+        "probe.sh": "e657b74d75003d71b97f57174fa6e4726b002db96df4e002278387d9f359e5d9"
+      },
+      "argv": [
+        "sh",
+        "/work/probe.sh"
+      ],
+      "timeout": 5,
+      "image": "busybox@sha256:bdf57e528e45e4433820e045b29b4597825a1c9e38353532d90a01445013f82e",
+      "oracle_policy": "boundary_probe_only"
+    },
+    "hardening/correct_mux": {
+      "files": {
+        "inside.py": "41f0b1f3af1fcdbad004b36c3a752af5c8451fc304ee71db859029f1af6f61c9",
+        "dut.sv": "c531238b5b7befba9363a50319bf2d862412f6ea72ba3f236eae1148125843f6",
+        "tb.sv": "e76b3a823f66e79ce14bdc393fda687a17f5e8041a4f4a5ad95e3306df961657"
+      },
+      "argv": [
+        "python3",
+        "/work/inside.py"
+      ],
+      "timeout": 5,
+      "image": "sha256:43775af413e0732f72c703e941c4ea8a6c73c0fd6e59fb94f527a9e8ed08bc66",
+      "oracle_policy": "trusted_fixed_mux_trace"
+    },
+    "hardening/wrong_rtl": {
+      "files": {
+        "inside.py": "41f0b1f3af1fcdbad004b36c3a752af5c8451fc304ee71db859029f1af6f61c9",
+        "dut.sv": "0dad5f07501a54eb458a67cdbe09e75c89b014958787bb999a970ecef758f44a",
+        "tb.sv": "e76b3a823f66e79ce14bdc393fda687a17f5e8041a4f4a5ad95e3306df961657"
+      },
+      "argv": [
+        "python3",
+        "/work/inside.py"
+      ],
+      "timeout": 5,
+      "image": "sha256:43775af413e0732f72c703e941c4ea8a6c73c0fd6e59fb94f527a9e8ed08bc66",
+      "oracle_policy": "trusted_fixed_mux_trace"
+    },
+    "hardening/wrong_tb": {
+      "files": {
+        "inside.py": "41f0b1f3af1fcdbad004b36c3a752af5c8451fc304ee71db859029f1af6f61c9",
+        "dut.sv": "c531238b5b7befba9363a50319bf2d862412f6ea72ba3f236eae1148125843f6",
+        "tb.sv": "ff15b3efbede15329e682383ffd188e7566a028c6eea2a6077c58b3b26bb1be7"
+      },
+      "argv": [
+        "python3",
+        "/work/inside.py"
+      ],
+      "timeout": 5,
+      "image": "sha256:43775af413e0732f72c703e941c4ea8a6c73c0fd6e59fb94f527a9e8ed08bc66",
+      "oracle_policy": "trusted_fixed_mux_trace"
+    },
+    "hardening/empty_tb": {
+      "files": {
+        "inside.py": "41f0b1f3af1fcdbad004b36c3a752af5c8451fc304ee71db859029f1af6f61c9",
+        "dut.sv": "c531238b5b7befba9363a50319bf2d862412f6ea72ba3f236eae1148125843f6",
+        "tb.sv": "6e658325cc390669fad83aec7b7c56dbb34cfe335e65bf5a29459b102aaef96d"
+      },
+      "argv": [
+        "python3",
+        "/work/inside.py"
+      ],
+      "timeout": 5,
+      "image": "sha256:43775af413e0732f72c703e941c4ea8a6c73c0fd6e59fb94f527a9e8ed08bc66",
+      "oracle_policy": "trusted_fixed_mux_trace"
+    },
+    "hardening/syntax_rtl": {
+      "files": {
+        "inside.py": "41f0b1f3af1fcdbad004b36c3a752af5c8451fc304ee71db859029f1af6f61c9",
+        "dut.sv": "1a5e69e683870922ee221ead2647db5a93d1221649e847095408c90e11e06d3e",
+        "tb.sv": "e76b3a823f66e79ce14bdc393fda687a17f5e8041a4f4a5ad95e3306df961657"
+      },
+      "argv": [
+        "python3",
+        "/work/inside.py"
+      ],
+      "timeout": 5,
+      "image": "sha256:43775af413e0732f72c703e941c4ea8a6c73c0fd6e59fb94f527a9e8ed08bc66",
+      "oracle_policy": "trusted_fixed_mux_trace"
+    },
+    "hardening/syntax_tb": {
+      "files": {
+        "inside.py": "41f0b1f3af1fcdbad004b36c3a752af5c8451fc304ee71db859029f1af6f61c9",
+        "dut.sv": "c531238b5b7befba9363a50319bf2d862412f6ea72ba3f236eae1148125843f6",
+        "tb.sv": "1a5e69e683870922ee221ead2647db5a93d1221649e847095408c90e11e06d3e"
+      },
+      "argv": [
+        "python3",
+        "/work/inside.py"
+      ],
+      "timeout": 5,
+      "image": "sha256:43775af413e0732f72c703e941c4ea8a6c73c0fd6e59fb94f527a9e8ed08bc66",
+      "oracle_policy": "trusted_fixed_mux_trace"
+    },
+    "hardening/simulation_timeout": {
+      "files": {
+        "inside.py": "41f0b1f3af1fcdbad004b36c3a752af5c8451fc304ee71db859029f1af6f61c9",
+        "dut.sv": "c531238b5b7befba9363a50319bf2d862412f6ea72ba3f236eae1148125843f6",
+        "tb.sv": "1072ce89474f36c37e0823b91642f58ef782bc161d117f8920a642c2f8332cd0"
+      },
+      "argv": [
+        "python3",
+        "/work/inside.py"
+      ],
+      "timeout": 5,
+      "image": "sha256:43775af413e0732f72c703e941c4ea8a6c73c0fd6e59fb94f527a9e8ed08bc66",
+      "oracle_policy": "trusted_fixed_mux_trace"
+    },
+    "hardening/fake_marker": {
+      "files": {
+        "inside.py": "41f0b1f3af1fcdbad004b36c3a752af5c8451fc304ee71db859029f1af6f61c9",
+        "dut.sv": "c531238b5b7befba9363a50319bf2d862412f6ea72ba3f236eae1148125843f6",
+        "tb.sv": "ec5af27ff49542aa9a2c3fe5d64fdec965788f309e050f5cca2809f14c6e4471"
+      },
+      "argv": [
+        "python3",
+        "/work/inside.py"
+      ],
+      "timeout": 5,
+      "image": "sha256:43775af413e0732f72c703e941c4ea8a6c73c0fd6e59fb94f527a9e8ed08bc66",
+      "oracle_policy": "diagnostic_only"
+    },
+    "hardening/malformed_line": {
+      "files": {
+        "inside.py": "41f0b1f3af1fcdbad004b36c3a752af5c8451fc304ee71db859029f1af6f61c9",
+        "dut.sv": "c531238b5b7befba9363a50319bf2d862412f6ea72ba3f236eae1148125843f6",
+        "tb.sv": "4c5aec2f5fa5d5e7cd1ac2440613d33140d5f11b8cfa896eccff670aae2fa709"
+      },
+      "argv": [
+        "python3",
+        "/work/inside.py"
+      ],
+      "timeout": 5,
+      "image": "sha256:43775af413e0732f72c703e941c4ea8a6c73c0fd6e59fb94f527a9e8ed08bc66",
+      "oracle_policy": "trusted_fixed_mux_trace"
+    },
+    "hardening/duplicate_line": {
+      "files": {
+        "inside.py": "41f0b1f3af1fcdbad004b36c3a752af5c8451fc304ee71db859029f1af6f61c9",
+        "dut.sv": "c531238b5b7befba9363a50319bf2d862412f6ea72ba3f236eae1148125843f6",
+        "tb.sv": "0947413f5f7079382680ad29d91413a839a989bf4fa1be58219b3c2b8482f6d7"
+      },
+      "argv": [
+        "python3",
+        "/work/inside.py"
+      ],
+      "timeout": 5,
+      "image": "sha256:43775af413e0732f72c703e941c4ea8a6c73c0fd6e59fb94f527a9e8ed08bc66",
+      "oracle_policy": "trusted_fixed_mux_trace"
+    },
+    "hardening/sim_output_flood": {
+      "files": {
+        "inside.py": "41f0b1f3af1fcdbad004b36c3a752af5c8451fc304ee71db859029f1af6f61c9",
+        "dut.sv": "c531238b5b7befba9363a50319bf2d862412f6ea72ba3f236eae1148125843f6",
+        "tb.sv": "6d740288f394fb76a5ba3faba5d260b74423014192f9098e70f866b6bb674e30"
+      },
+      "argv": [
+        "python3",
+        "/work/inside.py"
+      ],
+      "timeout": 5,
+      "image": "sha256:43775af413e0732f72c703e941c4ea8a6c73c0fd6e59fb94f527a9e8ed08bc66",
+      "oracle_policy": "trusted_fixed_mux_trace"
+    },
+    "hardening/client_output_flood": {
+      "files": {
+        "probe.sh": "ca64eb05c4bf78415bae6193743ea441e0965db03c59a1729a9fa614124bd202"
+      },
+      "argv": [
+        "sh",
+        "/work/probe.sh"
+      ],
+      "timeout": 5,
+      "image": "busybox@sha256:bdf57e528e45e4433820e045b29b4597825a1c9e38353532d90a01445013f82e",
+      "oracle_policy": "diagnostic_only"
+    },
+    "hardening/outer_timeout": {
+      "files": {
+        "probe.sh": "788b83cfab477d7da64da9773123f64a1ee4ff517680bf9e391961915a80eee6"
+      },
+      "argv": [
+        "sh",
+        "/work/probe.sh"
+      ],
+      "timeout": 1,
+      "image": "busybox@sha256:bdf57e528e45e4433820e045b29b4597825a1c9e38353532d90a01445013f82e",
+      "oracle_policy": "diagnostic_only"
+    }
+  }
+}
