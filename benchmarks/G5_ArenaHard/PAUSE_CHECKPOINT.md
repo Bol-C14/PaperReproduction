@@ -1,3 +1,5 @@
+> Historical checkpoint, retained for audit. The same task was subsequently resumed and its offline cache analysis completed; see REPRODUCTION.md for current status.
+
 # Safe scheduling checkpoint
 
 Parent requested pause on 2026-10-28 while two correction tasks resumed. G5 is paused, not canceled or completed. No G5 process remained (read-only pgrep returned no matches); no process was killed. No download/install/analysis was started after the pause.

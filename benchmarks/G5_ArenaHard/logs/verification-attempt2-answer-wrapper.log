@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "<APRIL_ROOT>/checkouts/arena-hard/verify.py", line 50, in <module>
+    if not isinstance(text,str) or question_text[q] not in text or any(t not in text for t in answer_texts[m][q]+answer_texts[base][q]):failures.append({'question_id':q,'game':gi})
+                                                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<APRIL_ROOT>/checkouts/arena-hard/verify.py", line 50, in <genexpr>
+    if not isinstance(text,str) or question_text[q] not in text or any(t not in text for t in answer_texts[m][q]+answer_texts[base][q]):failures.append({'question_id':q,'game':gi})
+                                                                       ^^^^^^^^^^^^^
+TypeError: 'in <string>' requires string as left operand, not dict

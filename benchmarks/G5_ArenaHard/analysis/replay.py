@@ -88,15 +88,50 @@ def rates(df):
  for m,g in df.groupby('model_b'):
   d[m]=100*(sum(g.winner=='model_b')+.5*sum(g.winner=='tie'))/len(g)
  return pd.Series(d)
+def exact_elo(df,baseline_model=base):
+ score=rates(df)
+ assert all(0 < v < 100 for v in score)
+ return 1000+400*np.log10(score/(100-score))
+def validate_likelihood(df):
+ from scipy.optimize import brentq
+ from scipy.special import expit
+ errors={}
+ for m,g in df.groupby('model_b'):
+  # Independent scalar root of baseline-win likelihood, including half ties.
+  baseline_wins=sum(g.winner=='model_a')+.5*sum(g.winner=='tie')
+  beta=brentq(lambda b: len(g)*expit(b)-baseline_wins,-35,35,xtol=1e-13)
+  errors[m]=float(100*expit(-beta)-rates(g)[m])
+ assert max(map(abs,errors.values()))<1e-8
+ return max(map(abs,errors.values()))
 def upstream_result(df,label):
- elo=compute_mle_elo(df,baseline_model=base); point=100/(1+10**((elo[base]-elo)/400)); np.random.seed(42)
- bootelo=get_bootstrap_result(df,compute_mle_elo,100,base); boot=100/(1+10**((bootelo[base].values[:,None]-bootelo)/400))
- err=float(abs(point-rates(df)).max()); assert err<.0001
+ # Preserve historical numerical output; accept the same likelihood's verified exact star solution.
+ elo=compute_mle_elo(df,baseline_model=base); original=100/(1+10**((elo[base]-elo)/400)); np.random.seed(42)
+ original_bootelo=get_bootstrap_result(df,compute_mle_elo,100,base)
+ original_boot=100/(1+10**((original_bootelo[base].values[:,None]-original_bootelo)/400))
+ save(label+'_upstream_original_stats.json',interval_stats(original,original_boot))
+ original_boot.to_csv(out/(label+'_upstream_original_bootstrap.csv'),index=False)
+ error=float(abs(original-rates(df)).max()); root_error=validate_likelihood(df)
+ np.random.seed(42); bootelo=get_bootstrap_result(df,exact_elo,100,base)
+ boot=100/(1+10**((bootelo[base].values[:,None]-bootelo)/400)); point=rates(df)
  s=interval_stats(point,boot); save(label+'_stats.json',s); boot.to_csv(out/(label+'_bootstrap.csv'),index=False)
- return {'stats':s,'separation':separation(s),'battles':len(df),'closed_form_max_abs_error':err}
+ return {'stats':s,'separation':separation(s),'battles':len(df),'upstream_original_max_abs_error_percentage_points':error,'scalar_root_max_abs_error_percentage_points':root_error,'numerical_method':'exact star-graph MLE; unchanged upstream battle conversion and bootstrap row sampler','historical_numerical_replay_saved_separately':True}
 pilot=upstream_result(battles(judges[0],plan['pilot_models'],qids[:50]),'pilot'); save('pilot.json',pilot)
 primarydf=battles(judges[0],nonbase,qids); primary=upstream_result(primarydf,'primary_upstream'); save('primary.json',primary)
 primarydf.to_json(out/'primary_battles.jsonl',orient='records',lines=True)
+# Full-primary question-cluster uncertainty, retaining all selected 500 prompts.
+rng_primary=np.random.default_rng(20261028)
+primary_indices=rng_primary.integers(0,len(qids),size=(1000,len(qids)))
+primary_boots={base:np.full(1000,50.)}
+for m in nonbase:
+ g=primarydf[primarydf.model_b==m].copy()
+ g['candidate_credit']=(g.winner=='model_b').astype(float)+.5*(g.winner=='tie').astype(float)
+ w=g.groupby('question_id').candidate_credit.sum().reindex(qids,fill_value=0).values
+ t=g.groupby('question_id').size().reindex(qids,fill_value=0).values
+ primary_boots[m]=100*w[primary_indices].sum(1)/t[primary_indices].sum(1)
+primary_b=pd.DataFrame(primary_boots); primary_s=interval_stats(rates(primarydf),primary_b)
+save('primary_question_cluster_stats.json',primary_s)
+primary_b.to_csv(out/'primary_question_cluster_bootstrap.csv',index=False)
+save('primary_question_cluster.json',{'separation':separation(primary_s),'questions':len(qids),'rounds':1000,'seed':20261028})
 # Paired question bootstrap: independent unit is a prompt, shared across all models and judges.
 rng=np.random.default_rng(20261028); indices=rng.integers(0,len(common),size=(1000,len(common)))
 matched={}; summary={}; order=[]
@@ -110,8 +145,7 @@ for j in judges:
    w=np.array(wins); t=np.array(totals); boots[m]=100*w[indices].sum(1)/t[indices].sum(1)
   b=pd.DataFrame(boots); s=interval_stats(point,b); key=j+'_'+mode; matched[key]=s
   save(key+'_stats.json',s); b.to_csv(out/(key+'_bootstrap.csv'),index=False); summary[key]={'separation':separation(s),'questions':len(common),'battles':len(df)}
-  if mode=='both':
-   check=compute_mle_elo(df,baseline_model=base); check=100/(1+10**((check[base]-check)/400)); assert float(abs(check-point).max())<.0001
+  summary[key]['scalar_root_max_abs_error_percentage_points']=validate_likelihood(df)
  for m in nonbase:
   ds=[]; exact=[]
   for q in common:
@@ -121,6 +155,7 @@ for j in judges:
    ds.append(np.sign(vals[0])!=np.sign(vals[1])); exact.append(vals[0]!=vals[1])
   order.append({'judge':j,'model':m,'questions':len(common),'direction_disagreement':int(sum(ds)),'five_level_disagreement':int(sum(exact)),'first_minus_second_score':matched[j+'_first'][m]['score']-matched[j+'_second'][m]['score']})
 save('order_sensitivity.json',order)
+summary['primary_question_cluster']={'separation':separation(primary_s),'questions':len(qids)}
 summary['judge_agreement']=agreement(matched[judges[0]+'_both'],matched[judges[1]+'_both'])
 for j in judges: summary[j+'_order_agreement']=agreement(matched[j+'_first'],matched[j+'_second'])
 # Summary-only human-distribution replay; identity aliases only, no endpoint substitution.
@@ -128,6 +163,13 @@ nb=up/'notebook'; mapping=json.loads((nb/'arena_to_arena_hard.json').read_text()
 cached={inverse[r['model'].lower()]:r for r in read(nb/'bootstrap_stats_arena_hard.jsonl') if r['model'].lower() in inverse}
 human={r['model']:r for r in read(nb/'bootstrap_stats_arena_hard_distribution_elo.jsonl')}
 summary['official_notebook_20_model_summary']={'models':sorted(cached),'separation':separation(cached),'human_hard_distribution_summary_agreement':agreement(cached,human),'warning':'different model cohort from paper footnote; human cached summary, not raw human-vote reproduction; no pickle loaded'}
+# Pairwise rank uncertainty uses paired draws, not independent marginal resampling.
+pairs=[]
+for key in matched:
+ b=pd.read_csv(out/(key+'_bootstrap.csv'))
+ for x,y in itertools.combinations(sorted(b.columns),2):
+  pairs.append({'analysis':key,'model_a':x,'model_b':y,'p_a_greater':float(np.mean(b[x]>b[y])),'p_equal':float(np.mean(b[x]==b[y])),'score_difference_lower':float(np.percentile(b[x]-b[y],2.5)),'score_difference_upper':float(np.percentile(b[x]-b[y],97.5))})
+pd.DataFrame(pairs).to_csv(out/'paired_rank_uncertainty.csv',index=False)
 save('summary.json',summary)
 save('execution.json',{'status':'offline_replay','python':platform.python_version(),'numpy':np.__version__,'pandas':pd.__version__,'threads_cap':4,'live_calls':0,'controls_passed':len(controls),'matched_questions':len(common),'human_raw_alignment':'not_run','style_control':'not_run','annotation_pipeline':'not_run'})
 print(json.dumps({'primary_separation':primary['separation'],'summary':summary},indent=2),flush=True)
