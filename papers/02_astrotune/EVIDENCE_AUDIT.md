@@ -48,3 +48,7 @@ RTL→AST输入不经过LLM；结构排名输出带分项分数，检索接口�
 **Go：** 将本分支作为可审查的真实EDA行为实验框架与零收益/压力结果，进一步做家族隔离的迁移研究。是否存在可推广增益，应由更大设计、可访问免费模型、严格总成本匹配和预先确定的策略再验证。当前没有需要用户批准才能完成的剩余写入动作；所有未做能力已按Not/Partially标记。
 
 **GP修订完成结果**：新24组408次真实调用全部成功（20×8次且每组≤3/6综合候选，4×62次历史成本匹配随机），0 EDA缓存命中；28条acquisition回放匹配，40次ID重排回归通过。累计3092次尝试/3088成功/4旧失败；v1/v2不混合。divider中部分修正GP arm胜过8次随机，但62次随机达到同样最佳值，n=2不足以归因或推广；multi_pipe8未见稳定优势。完整表及限制见`GP_CORRECTION.md`、`results/gp_fix_summary.md`。
+
+## v3真实布线机制复核
+
+已完成global-route→detailed-route→OpenRCX→显式SPEF回读STA，详见`ROUTING_MECHANISM.md`及`routing_v3/summary.json`。临时反转判断因缺少read_spef被撤回；核验后p9早期/最终均占优，single-parent与top-2同最佳PPA，观察regret0。15次实际工具调用（13成功/2失败，含3次明确额外时序修复校验），约37.74秒；累计3107次EDA尝试。无LLM API，未扩展divider/七阶段或donor泛化，已按负结果停止。

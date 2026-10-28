@@ -1,0 +1,84 @@
+Failed to load tclreadline
+OpenROAD 0a6d0fd469bc674417036342994520ee2e0a2727 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 1 thread(s).
+[INFO RCX-0431] Defined process_corner X with ext_model_index 0
+[INFO RCX-0029] Defined extraction corner X
+[INFO RCX-0008] extracting parasitics of verified_adder_32bit ...
+[INFO RCX-0435] Reading extraction model file /workspace/scratch/astrotune/platform/rcx_patterns.rules ...
+[INFO RCX-0436] RC segment generation verified_adder_32bit (max_merge_res 50.0) ...
+[INFO RCX-0040] Final 737 rc segments
+[INFO RCX-0439] Coupling Cap extraction verified_adder_32bit ...
+[INFO RCX-0440] Coupling threshhold is 0.1000 fF, coupling capacitance less than 0.1000 fF will be grounded.
+[INFO RCX-0043] 1711 wires to be extracted
+[INFO RCX-0442] 47% completion -- 818 wires have been extracted
+[INFO RCX-0442] 100% completion -- 1711 wires have been extracted
+[INFO RCX-0045] Extract 245 nets, 983 rsegs, 983 caps, 2310 ccs
+[INFO RCX-0015] Finished extracting verified_adder_32bit.
+[INFO RCX-0016] Writing SPEF ...
+[INFO RCX-0443] 247 nets finished
+[INFO RCX-0017] Finished writing SPEF ...
+Design area 216 u^2 20% utilization.
+worst slack 0.83
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Combinational          4.72e-05   2.34e-05   4.93e-06   7.56e-05 100.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  4.72e-05   2.34e-05   4.93e-06   7.56e-05 100.0%
+                          62.5%      31.0%       6.5%
+Startpoint: A[1] (input port clocked by core)
+Endpoint: S[30] (output port clocked by core)
+Path Group: core
+Path Type: max
+
+      Delay        Time   Description
+-----------------------------------------------------------------
+   0.000000    0.000000   clock core (rise edge)
+   0.000000    0.000000   clock network delay (ideal)
+   0.200000    0.200000 ^ input external delay
+   0.000000    0.200000 ^ A[1] (in)
+   0.026100    0.226100 v _192_/ZN (NAND2_X1)
+   0.041562    0.267662 ^ _195_/ZN (OAI21_X1)
+   0.023647    0.291309 v _198_/ZN (AOI21_X1)
+   0.039848    0.331157 ^ _201_/ZN (OAI21_X1)
+   0.023626    0.354784 v _204_/ZN (AOI21_X1)
+   0.039840    0.394624 ^ _207_/ZN (OAI21_X1)
+   0.023626    0.418251 v _210_/ZN (AOI21_X1)
+   0.041736    0.459986 ^ _213_/ZN (OAI21_X1)
+   0.024169    0.484155 v _214_/ZN (AOI21_X1)
+   0.046066    0.530222 ^ _215_/ZN (OAI21_X1)
+   0.024169    0.554391 v _216_/ZN (AOI21_X1)
+   0.046066    0.600457 ^ _217_/ZN (OAI21_X1)
+   0.024169    0.624626 v _218_/ZN (AOI21_X1)
+   0.044315    0.668941 ^ _219_/ZN (OAI21_X1)
+   0.023837    0.692778 v _220_/ZN (AOI21_X1)
+   0.058006    0.750784 ^ _221_/ZN (OAI21_X1)
+   0.034744    0.785528 v _231_/ZN (NAND4_X1)
+   0.068606    0.854134 ^ _298_/ZN (OAI21_X1)
+   0.038209    0.892343 v _299_/ZN (AOI21_X1)
+   0.041904    0.934247 ^ _301_/ZN (OAI21_X1)
+   0.037496    0.971743 ^ _302_/ZN (XNOR2_X1)
+   0.000000    0.971743 ^ S[30] (out)
+               0.971743   data arrival time
+
+   2.000000    2.000000   clock core (rise edge)
+   0.000000    2.000000   clock network delay (ideal)
+   0.000000    2.000000   clock reconvergence pessimism
+  -0.200000    1.800000   output external delay
+               1.800000   data required time
+-----------------------------------------------------------------
+               1.800000   data required time
+              -0.971743   data arrival time
+-----------------------------------------------------------------
+               0.828257   slack (MET)
+
+
+AUDIT_AREA 215.992
+AUDIT_SLACK 0.8282569309282497
+
+STDERR

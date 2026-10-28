@@ -1,0 +1,68 @@
+Failed to load tclreadline
+OpenROAD 0a6d0fd469bc674417036342994520ee2e0a2727 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 1 thread(s).
+Design area 216 u^2 41% utilization.
+worst slack 0.77
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Combinational          4.75e-05   3.25e-05   4.93e-06   8.49e-05 100.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  4.75e-05   3.25e-05   4.93e-06   8.49e-05 100.0%
+                          55.9%      38.3%       5.8%
+Startpoint: A[1] (input port clocked by core)
+Endpoint: S[30] (output port clocked by core)
+Path Group: core
+Path Type: max
+
+      Delay        Time   Description
+-----------------------------------------------------------------
+   0.000000    0.000000   clock core (rise edge)
+   0.000000    0.000000   clock network delay (ideal)
+   0.200000    0.200000 ^ input external delay
+   0.000000    0.200000 ^ A[1] (in)
+   0.027764    0.227764 v _192_/ZN (NAND2_X1)
+   0.044792    0.272556 ^ _195_/ZN (OAI21_X1)
+   0.025916    0.298472 v _198_/ZN (AOI21_X1)
+   0.043225    0.341697 ^ _201_/ZN (OAI21_X1)
+   0.025311    0.367008 v _204_/ZN (AOI21_X1)
+   0.041571    0.408579 ^ _207_/ZN (OAI21_X1)
+   0.024952    0.433531 v _210_/ZN (AOI21_X1)
+   0.044226    0.477757 ^ _213_/ZN (OAI21_X1)
+   0.026888    0.504645 v _214_/ZN (AOI21_X1)
+   0.048470    0.553115 ^ _215_/ZN (OAI21_X1)
+   0.024948    0.578063 v _216_/ZN (AOI21_X1)
+   0.047328    0.625392 ^ _217_/ZN (OAI21_X1)
+   0.025911    0.651303 v _218_/ZN (AOI21_X1)
+   0.047315    0.698617 ^ _219_/ZN (OAI21_X1)
+   0.025253    0.723870 v _220_/ZN (AOI21_X1)
+   0.061835    0.785705 ^ _221_/ZN (OAI21_X1)
+   0.039130    0.824835 v _231_/ZN (NAND4_X1)
+   0.076496    0.901331 ^ _298_/ZN (OAI21_X1)
+   0.041654    0.942985 v _299_/ZN (AOI21_X1)
+   0.043294    0.986279 ^ _301_/ZN (OAI21_X1)
+   0.039955    1.026233 ^ _302_/ZN (XNOR2_X1)
+   0.000031    1.026265 ^ S[30] (out)
+               1.026265   data arrival time
+
+   2.000000    2.000000   clock core (rise edge)
+   0.000000    2.000000   clock network delay (ideal)
+   0.000000    2.000000   clock reconvergence pessimism
+  -0.200000    1.800000   output external delay
+               1.800000   data required time
+-----------------------------------------------------------------
+               1.800000   data required time
+              -1.026265   data arrival time
+-----------------------------------------------------------------
+               0.773735   slack (MET)
+
+
+AUDIT_AREA 215.992
+AUDIT_SLACK 0.7737353199368638
+
+STDERR

@@ -47,3 +47,7 @@ flowchart LR
 单种子窄阈值探针（ratio=1.00001，后验分支覆盖，不参与性能结论）实际剪掉divider的s=1、s=2：首子QoR均104.506767531，高于当时baseline104.468927577。独立其他运行后来测到这两父的子配置QoR分别104.447881300和104.447526917，均优于当时baseline。它说明“用首个p0判整个父线程”可能错杀有潜力的父，但其余父也能补回相近终态质量；不能据此宣称最终最优值损失。覆盖数和来源以最终JSON为准，未观察部分不补oracle。
 
 GP审计修订：v1综合GP为无信息one-hot，故其调度/GP策略效用解释撤回；真实网表连续性及原始PPA记录仍成立。两次probe剪枝只说明相对当时baseline的候选机会被丢弃，probe最终104.447526917已等于被剪父后续最好值，**没有观察到最终QoR损失**。v2在≤3/6综合候选的小预算下重新检查代理选择，不升级为七阶段证据。
+
+## v3真实布线机制复核
+
+已完成global-route→detailed-route→OpenRCX→显式SPEF回读STA，详见`ROUTING_MECHANISM.md`及`routing_v3/summary.json`。临时反转判断因缺少read_spef被撤回；核验后p9早期/最终均占优，single-parent与top-2同最佳PPA，观察regret0。15次实际工具调用（13成功/2失败，含3次明确额外时序修复校验），约37.74秒；累计3107次EDA尝试。无LLM API，未扩展divider/七阶段或donor泛化，已按负结果停止。

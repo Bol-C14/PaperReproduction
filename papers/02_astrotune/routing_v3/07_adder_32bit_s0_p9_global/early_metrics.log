@@ -1,0 +1,62 @@
+
+Design area 216 u^2 41% utilization.
+worst slack 0.78
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Combinational          4.75e-05   3.25e-05   4.93e-06   8.49e-05 100.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  4.75e-05   3.25e-05   4.93e-06   8.49e-05 100.0%
+                          55.9%      38.3%       5.8%
+Startpoint: A[1] (input port clocked by core)
+Endpoint: S[30] (output port clocked by core)
+Path Group: core
+Path Type: max
+
+      Delay        Time   Description
+-----------------------------------------------------------------
+   0.000000    0.000000   clock core (rise edge)
+   0.000000    0.000000   clock network delay (ideal)
+   0.200000    0.200000 ^ input external delay
+   0.000000    0.200000 ^ A[1] (in)
+   0.027346    0.227346 v _192_/ZN (NAND2_X1)
+   0.044398    0.271744 ^ _195_/ZN (OAI21_X1)
+   0.025508    0.297252 v _198_/ZN (AOI21_X1)
+   0.043037    0.340289 ^ _201_/ZN (OAI21_X1)
+   0.025254    0.365543 v _204_/ZN (AOI21_X1)
+   0.041499    0.407042 ^ _207_/ZN (OAI21_X1)
+   0.024714    0.431756 v _210_/ZN (AOI21_X1)
+   0.043855    0.475611 ^ _213_/ZN (OAI21_X1)
+   0.026891    0.502501 v _214_/ZN (AOI21_X1)
+   0.048232    0.550733 ^ _215_/ZN (OAI21_X1)
+   0.025275    0.576008 v _216_/ZN (AOI21_X1)
+   0.047474    0.623483 ^ _217_/ZN (OAI21_X1)
+   0.025545    0.649028 v _218_/ZN (AOI21_X1)
+   0.045894    0.694921 ^ _219_/ZN (OAI21_X1)
+   0.024949    0.719870 v _220_/ZN (AOI21_X1)
+   0.061409    0.781280 ^ _221_/ZN (OAI21_X1)
+   0.038893    0.820172 v _231_/ZN (NAND4_X1)
+   0.076387    0.896559 ^ _298_/ZN (OAI21_X1)
+   0.041847    0.938406 v _299_/ZN (AOI21_X1)
+   0.043473    0.981879 ^ _301_/ZN (OAI21_X1)
+   0.040190    1.022069 ^ _302_/ZN (XNOR2_X1)
+   0.000016    1.022085 ^ S[30] (out)
+               1.022085   data arrival time
+
+   2.000000    2.000000   clock core (rise edge)
+   0.000000    2.000000   clock network delay (ideal)
+   0.000000    2.000000   clock reconvergence pessimism
+  -0.200000    1.800000   output external delay
+               1.800000   data required time
+-----------------------------------------------------------------
+               1.800000   data required time
+              -1.022085   data arrival time
+-----------------------------------------------------------------
+               0.777915   slack (MET)
+
+
+AUDIT_AREA 215.992
+AUDIT_SLACK 0.7779151987204901

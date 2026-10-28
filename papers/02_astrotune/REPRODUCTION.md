@@ -73,3 +73,7 @@ Eq8–10实现见 `src/qor.py`。本地常数：αA=αP=.5，λ1=.05，λ2=.1，
 四份请求报告齐全，另有跨阶段专项审计。`logs/raw_eda_and_validation.tar.gz`含6,907个原始日志/命令/验证输入文件；`artifacts/netlists/`保留全部20个不同映射网表并按SHA寻址，每个placement的输入均已与这些字节核对。另保留一个真实placed DEF/ODB示例。没有PDK、模型权重、编译缓存或大数据库混入仓库。审阅ZIP另包含完整独立分支git bundle、文件哈希清单；原始CSV/JSON可仅用Python标准库重算，无需EDA或网络。
 
 **GP修订完成结果**：新24组408次真实调用全部成功（20×8次且每组≤3/6综合候选，4×62次历史成本匹配随机），0 EDA缓存命中；28条acquisition回放匹配，40次ID重排回归通过。累计3092次尝试/3088成功/4旧失败；v1/v2不混合。divider中部分修正GP arm胜过8次随机，但62次随机达到同样最佳值，n=2不足以归因或推广；multi_pipe8未见稳定优势。完整表及限制见`GP_CORRECTION.md`、`results/gp_fix_summary.md`。
+
+## v3真实布线机制复核
+
+已完成global-route→detailed-route→OpenRCX→显式SPEF回读STA，详见`ROUTING_MECHANISM.md`及`routing_v3/summary.json`。临时反转判断因缺少read_spef被撤回；核验后p9早期/最终均占优，single-parent与top-2同最佳PPA，观察regret0。15次实际工具调用（13成功/2失败，含3次明确额外时序修复校验），约37.74秒；累计3107次EDA尝试。无LLM API，未扩展divider/七阶段或donor泛化，已按负结果停止。
