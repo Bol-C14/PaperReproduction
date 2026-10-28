@@ -1,0 +1,196 @@
+
+[INFO GRT-0020] Min routing layer: metal2
+[INFO GRT-0021] Max routing layer: metal6
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0088] Layer metal1  Track-Pitch = 0.1400  line-2-Via Pitch: 0.1350
+[INFO GRT-0088] Layer metal2  Track-Pitch = 0.1900  line-2-Via Pitch: 0.1400
+[INFO GRT-0088] Layer metal3  Track-Pitch = 0.1400  line-2-Via Pitch: 0.1400
+[INFO GRT-0088] Layer metal4  Track-Pitch = 0.2800  line-2-Via Pitch: 0.2800
+[INFO GRT-0088] Layer metal5  Track-Pitch = 0.2800  line-2-Via Pitch: 0.2800
+[INFO GRT-0088] Layer metal6  Track-Pitch = 0.2800  line-2-Via Pitch: 0.2800
+[INFO GRT-0019] Found 0 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 40
+[INFO GRT-0003] Macros: 0
+[INFO GRT-0004] Blockages: 0
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+metal1     Horizontal          0             0          0.00%
+metal2     Vertical        17600         11011          37.44%
+metal3     Horizontal      24000         15834          34.03%
+metal4     Vertical        11200          6396          42.89%
+metal5     Horizontal      11200          6396          42.89%
+metal6     Vertical        11200          6396          42.89%
+---------------------------------------------------------------
+
+[INFO GRT-0197] Via related to pin nodes: 6634
+[INFO GRT-0198] Via related Steiner nodes: 176
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 7391
+[INFO GRT-0112] Final usage 3D: 27117
+
+[INFO GRT-0096] Final congestion report:
+Layer         Resource        Demand        Usage (%)    Max H / Max V / Total Overflow
+---------------------------------------------------------------------------------------
+metal1               0             0            0.00%             0 /  0 /  0
+metal2           11011          1918           17.42%             0 /  0 /  0
+metal3           15834          2370           14.97%             0 /  0 /  0
+metal4            6396           435            6.80%             0 /  0 /  0
+metal5            6396           143            2.24%             0 /  0 /  0
+metal6            6396            78            1.22%             0 /  0 /  0
+---------------------------------------------------------------------------------------
+Total            46033          4944           10.74%             0 /  0 /  0
+
+[INFO GRT-0018] Total wirelength: 18152 um
+[INFO GRT-0014] Routed nets: 1344
+Design area 1454 u^2 23% utilization.
+worst slack -4.66
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Combinational          3.42e-02   3.49e-02   3.29e-05   6.91e-02 100.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  3.42e-02   3.49e-02   3.29e-05   6.91e-02 100.0%
+                          49.5%      50.5%       0.0%
+Startpoint: B[7] (input port clocked by core)
+Endpoint: odd[6] (output port clocked by core)
+Path Group: core
+Path Type: max
+
+      Delay        Time   Description
+-----------------------------------------------------------------
+   0.000000    0.000000   clock core (rise edge)
+   0.000000    0.000000   clock network delay (ideal)
+   0.200000    0.200000 v input external delay
+   0.000000    0.200000 v B[7] (in)
+   0.146172    0.346172 v _1310_/ZN (OR4_X1)
+   0.086473    0.432645 v _1313_/ZN (OR3_X1)
+   0.153853    0.586498 ^ _1314_/ZN (AOI211_X1)
+   0.047042    0.633539 v _1315_/ZN (NAND3_X1)
+   0.073925    0.707464 ^ _1316_/ZN (INV_X1)
+   0.030137    0.737602 v _1332_/ZN (AOI21_X1)
+   0.025952    0.763553 ^ _1347_/ZN (NAND2_X1)
+   0.028569    0.792122 v _1349_/ZN (NAND2_X1)
+   0.070866    0.862988 ^ _1367_/ZN (AOI211_X1)
+   0.026361    0.889349 v _1373_/ZN (AOI211_X1)
+   0.082770    0.972120 v _1395_/ZN (OR3_X1)
+   0.066319    1.038439 ^ _1397_/ZN (OAI22_X1)
+   0.033209    1.071648 v _1401_/ZN (OAI21_X1)
+   0.060215    1.131863 ^ _1402_/ZN (INV_X1)
+   0.078102    1.209965 v _1415_/Z (MUX2_X1)
+   0.059602    1.269567 ^ _1419_/ZN (XNOR2_X1)
+   0.021129    1.290696 v _1436_/ZN (OAI21_X1)
+   0.111863    1.402559 ^ _1437_/ZN (AOI221_X1)
+   0.045718    1.448277 v _1439_/ZN (OAI21_X1)
+   0.064224    1.512501 ^ _1440_/ZN (INV_X1)
+   0.076624    1.589125 v _1463_/Z (MUX2_X1)
+   0.057022    1.646147 v _1467_/ZN (OR2_X1)
+   0.028324    1.674470 ^ _1484_/ZN (AOI21_X1)
+   0.020673    1.695143 v _1487_/ZN (OAI21_X1)
+   0.038590    1.733733 ^ _1488_/ZN (AOI21_X1)
+   0.045273    1.779007 v _1492_/ZN (OAI21_X1)
+   0.079679    1.858685 ^ _1527_/ZN (AOI211_X1)
+   0.027376    1.886061 v _1529_/ZN (NOR2_X1)
+   0.080103    1.966164 ^ _1540_/ZN (AOI221_X1)
+   0.025392    1.991556 v _1541_/ZN (OAI21_X1)
+   0.034443    2.025999 ^ _1542_/ZN (AOI21_X1)
+   0.020647    2.046646 v _1543_/ZN (OAI21_X1)
+   0.241481    2.288127 ^ _1544_/ZN (AOI211_X1)
+   0.083448    2.371575 v _1591_/Z (MUX2_X1)
+   0.052287    2.423862 v _1595_/ZN (XNOR2_X1)
+   0.036900    2.460762 ^ _1609_/ZN (AOI21_X1)
+   0.018157    2.478918 v _1611_/ZN (AOI21_X1)
+   0.037909    2.516828 ^ _1614_/ZN (OAI21_X1)
+   0.018170    2.534998 v _1615_/ZN (AOI21_X1)
+   0.050542    2.585539 ^ _1618_/ZN (OAI22_X1)
+   0.034519    2.620058 v _1633_/ZN (AOI21_X1)
+   0.092610    2.712669 v _1689_/ZN (OR3_X1)
+   0.048459    2.761128 v _1694_/ZN (AND3_X1)
+   0.117637    2.878765 v _1697_/ZN (OR4_X1)
+   0.036063    2.914828 ^ _1701_/ZN (OAI221_X1)
+   0.020994    2.935822 v _1702_/ZN (AOI21_X1)
+   0.035455    2.971276 ^ _1705_/ZN (OAI21_X1)
+   0.018474    2.989750 v _1706_/ZN (AOI21_X1)
+   0.034401    3.024151 ^ _1709_/ZN (OAI21_X1)
+   0.030205    3.054357 v _1727_/ZN (AOI21_X1)
+   0.127889    3.182245 ^ _1731_/ZN (NOR2_X1)
+   0.076914    3.259159 v _1766_/Z (MUX2_X1)
+   0.054649    3.313809 ^ _1769_/ZN (NOR2_X1)
+   0.017264    3.331072 v _1770_/ZN (INV_X1)
+   0.031260    3.362332 ^ _1825_/ZN (NAND2_X1)
+   0.013977    3.376309 v _1827_/ZN (NOR3_X1)
+   0.018198    3.394507 ^ _1830_/ZN (NAND2_X1)
+   0.015205    3.409712 v _1832_/ZN (NAND2_X1)
+   0.116058    3.525769 ^ _1834_/ZN (OAI21_X1)
+   0.079071    3.604840 v _1835_/ZN (NAND2_X1)
+   0.074707    3.679547 v _1892_/Z (MUX2_X1)
+   0.036544    3.716091 v _1893_/ZN (AND2_X1)
+   0.051266    3.767358 v _1897_/ZN (OR2_X1)
+   0.072829    3.840187 ^ _1898_/ZN (NOR4_X1)
+   0.077526    3.917712 ^ _1938_/ZN (AND4_X1)
+   0.016818    3.934530 v _1948_/ZN (NAND2_X1)
+   0.052239    3.986769 ^ _1960_/ZN (OAI21_X1)
+   0.091164    4.077934 v _1963_/ZN (NAND2_X1)
+   0.091562    4.169496 ^ _2036_/Z (MUX2_X1)
+   0.053141    4.222636 ^ _2039_/ZN (XNOR2_X1)
+   0.051318    4.273954 ^ _2051_/ZN (AND3_X1)
+   0.040520    4.314474 v _2063_/ZN (NAND4_X1)
+   0.103027    4.417501 v _2070_/ZN (OR3_X1)
+   0.034141    4.451643 ^ _2071_/ZN (INV_X1)
+   0.017383    4.469025 v _2088_/ZN (NOR2_X1)
+   0.068400    4.537425 ^ _2089_/ZN (INV_X1)
+   0.079302    4.616726 v _2153_/Z (MUX2_X1)
+   0.080350    4.697076 ^ _2156_/ZN (XNOR2_X1)
+   0.043970    4.741046 v _2186_/ZN (NAND4_X1)
+   0.058104    4.799150 v _2187_/ZN (OR2_X1)
+   0.062672    4.861822 ^ _2195_/ZN (NOR3_X1)
+   0.028626    4.890447 v _2205_/ZN (NOR2_X1)
+   0.077818    4.968266 ^ _2206_/ZN (INV_X1)
+   0.086715    5.054980 v _2302_/Z (MUX2_X1)
+   0.057446    5.112426 v _2306_/ZN (XNOR2_X1)
+   0.039343    5.151769 ^ _2317_/ZN (AOI21_X1)
+   0.032208    5.183977 v _2321_/ZN (OAI221_X1)
+   0.052220    5.236196 ^ _2322_/ZN (AOI211_X1)
+   0.025978    5.262175 v _2325_/ZN (OAI21_X1)
+   0.160128    5.422303 ^ _2326_/ZN (AOI21_X1)
+   0.068479    5.490782 v _2370_/ZN (OAI211_X1)
+   0.056198    5.546980 v _2373_/ZN (AND3_X1)
+   0.101102    5.648083 ^ _2389_/ZN (NOR4_X1)
+   0.090439    5.738522 ^ _2437_/ZN (AND4_X1)
+   0.035306    5.773828 v _2463_/ZN (AOI221_X1)
+   0.122073    5.895902 ^ _2465_/ZN (NOR2_X1)
+   0.034004    5.929906 v _2466_/ZN (INV_X1)
+   0.123932    6.053838 v _2546_/ZN (OR4_X1)
+   0.083515    6.137354 ^ _2550_/ZN (NOR4_X1)
+   0.063780    6.201134 ^ _2551_/ZN (AND4_X1)
+   0.015004    6.216137 v _2552_/ZN (AOI21_X1)
+   0.172471    6.388609 ^ _2553_/ZN (OAI211_X1)
+   0.021624    6.410233 v _2590_/ZN (NAND2_X1)
+   0.049090    6.459323 ^ _2591_/ZN (OAI22_X1)
+   0.000045    6.459368 ^ odd[6] (out)
+               6.459368   data arrival time
+
+   2.000000    2.000000   clock core (rise edge)
+   0.000000    2.000000   clock network delay (ideal)
+   0.000000    2.000000   clock reconvergence pessimism
+  -0.200000    1.800000   output external delay
+               1.800000   data required time
+-----------------------------------------------------------------
+               1.800000   data required time
+              -6.459368   data arrival time
+-----------------------------------------------------------------
+              -4.659368   slack (VIOLATED)
+
+
+AUDIT_AREA 1454.488
+AUDIT_SLACK -4.659368134311233
+
+STDERR

@@ -1,0 +1,54 @@
+
+Design area 510 u^2 44% utilization.
+worst slack 1.00
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Combinational          8.95e-05   9.49e-05   1.13e-05   1.96e-04 100.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  8.95e-05   9.49e-05   1.13e-05   1.96e-04 100.0%
+                          45.7%      48.5%       5.8%
+Startpoint: B[13] (input port clocked by core)
+Endpoint: S[27] (output port clocked by core)
+Path Group: core
+Path Type: max
+
+      Delay        Time   Description
+-----------------------------------------------------------------
+   0.000000    0.000000   clock core (rise edge)
+   0.000000    0.000000   clock network delay (ideal)
+   0.200000    0.200000 ^ input external delay
+   0.000000    0.200000 ^ B[13] (in)
+   0.086160    0.286160 ^ _599_/Z (XOR2_X1)
+   0.025747    0.311907 v _600_/ZN (NAND2_X1)
+   0.089040    0.400947 ^ _601_/ZN (NOR3_X1)
+   0.027948    0.428894 v _643_/ZN (NAND2_X1)
+   0.069172    0.498066 ^ _664_/ZN (AOI21_X1)
+   0.056420    0.554486 ^ _700_/ZN (AND3_X1)
+   0.020788    0.575274 v _703_/ZN (OAI21_X1)
+   0.074701    0.649975 ^ _704_/ZN (NAND2_X1)
+   0.042266    0.692241 v _854_/ZN (NAND3_X1)
+   0.044618    0.736859 ^ _857_/ZN (NAND2_X1)
+   0.017860    0.754719 v _872_/ZN (AOI21_X1)
+   0.029000    0.783719 ^ _873_/ZN (OAI21_X1)
+   0.020535    0.804254 v _879_/ZN (NAND2_X1)
+   0.000245    0.804499 v S[27] (out)
+               0.804499   data arrival time
+
+   2.000000    2.000000   clock core (rise edge)
+   0.000000    2.000000   clock network delay (ideal)
+   0.000000    2.000000   clock reconvergence pessimism
+  -0.200000    1.800000   output external delay
+               1.800000   data required time
+-----------------------------------------------------------------
+               1.800000   data required time
+              -0.804499   data arrival time
+-----------------------------------------------------------------
+               0.995501   slack (MET)
+
+
+AUDIT_AREA 509.922
+AUDIT_SLACK 0.9955008210654611

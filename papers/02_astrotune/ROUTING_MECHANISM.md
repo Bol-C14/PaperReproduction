@@ -41,3 +41,7 @@ python3 src/summarize_routing.py
 ```
 
 新运行应单独移动原`routing_v3`为归档、重新冻结scope，不能在已耗尽15次预算的目录无界追加。当前阶段已停止，不提出额外sweep。**Go**仅针对真实布线/提取/回读接口已跑通；**No-Go**针对已证明跨阶段反转/剪枝收益、模型泛化、七阶段协同或论文完整复现。现有donor分析保持描述性，没有因routing pilot升级为家族泛化证据。
+
+## v4原任务续作结果
+
+修正链路的4点面板已完成：8次新工具调用/4次detailed+RCX+显式SPEF回读评估全部成功，约168秒。divider观察到1次placement→final严格QoR反转，early选择p0的观察regret约16.917ps；adder另一综合实现未见反转。divider的功耗与slack最优属于不同实现，不可拼成虚构PPA。每候选相同2调用/180秒额度；single/top-2仅作成本透明的机制回放，不宣称在线策略同总成本优势。累计3115尝试/3109成功/6旧失败；无LLM API，已停止。详见`ROUTING_PANEL_V4.md`。此前v3无反转结论只对应其adder s0面板，未被改写或混合。

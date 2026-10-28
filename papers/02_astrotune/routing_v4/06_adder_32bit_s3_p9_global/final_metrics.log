@@ -1,0 +1,105 @@
+
+[INFO GRT-0020] Min routing layer: metal2
+[INFO GRT-0021] Max routing layer: metal6
+[INFO GRT-0022] Global adjustment: 0%
+[INFO GRT-0023] Grid origin: (0, 0)
+[INFO GRT-0043] No OR_DEFAULT vias defined.
+[INFO GRT-0088] Layer metal1  Track-Pitch = 0.1400  line-2-Via Pitch: 0.1350
+[INFO GRT-0088] Layer metal2  Track-Pitch = 0.1900  line-2-Via Pitch: 0.1400
+[INFO GRT-0088] Layer metal3  Track-Pitch = 0.1400  line-2-Via Pitch: 0.1400
+[INFO GRT-0088] Layer metal4  Track-Pitch = 0.2800  line-2-Via Pitch: 0.2800
+[INFO GRT-0088] Layer metal5  Track-Pitch = 0.2800  line-2-Via Pitch: 0.2800
+[INFO GRT-0088] Layer metal6  Track-Pitch = 0.2800  line-2-Via Pitch: 0.2800
+[INFO GRT-0019] Found 0 clock nets.
+[INFO GRT-0001] Minimum degree: 2
+[INFO GRT-0002] Maximum degree: 14
+[INFO GRT-0003] Macros: 0
+[INFO GRT-0004] Blockages: 0
+
+[INFO GRT-0053] Routing resources analysis:
+          Routing      Original      Derated      Resource
+Layer     Direction    Resources     Resources    Reduction (%)
+---------------------------------------------------------------
+metal1     Horizontal          0             0          0.00%
+metal2     Vertical         3564          2261          36.56%
+metal3     Horizontal       4860          3039          37.47%
+metal4     Vertical         2268          1309          42.28%
+metal5     Horizontal       2268          1309          42.28%
+metal6     Vertical         2268          1309          42.28%
+---------------------------------------------------------------
+
+[INFO GRT-0197] Via related to pin nodes: 2331
+[INFO GRT-0198] Via related Steiner nodes: 28
+[INFO GRT-0199] Via filling finished.
+[INFO GRT-0111] Final number of vias: 2610
+[INFO GRT-0112] Final usage 3D: 9464
+
+[INFO GRT-0096] Final congestion report:
+Layer         Resource        Demand        Usage (%)    Max H / Max V / Total Overflow
+---------------------------------------------------------------------------------------
+metal1               0             0            0.00%             0 /  0 /  0
+metal2            2261           685           30.30%             0 /  0 /  0
+metal3            3039           768           25.27%             0 /  0 /  0
+metal4            1309           109            8.33%             0 /  0 /  0
+metal5            1309            47            3.59%             0 /  0 /  0
+metal6            1309            25            1.91%             0 /  0 /  0
+---------------------------------------------------------------------------------------
+Total             9227          1634           17.71%             0 /  0 /  0
+
+[INFO GRT-0018] Total wirelength: 6917 um
+[INFO GRT-0014] Routed nets: 560
+Design area 510 u^2 44% utilization.
+worst slack 0.98
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Combinational          8.97e-05   1.03e-04   1.13e-05   2.04e-04 100.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  8.97e-05   1.03e-04   1.13e-05   2.04e-04 100.0%
+                          43.9%      50.6%       5.5%
+Startpoint: B[13] (input port clocked by core)
+Endpoint: S[31] (output port clocked by core)
+Path Group: core
+Path Type: max
+
+      Delay        Time   Description
+-----------------------------------------------------------------
+   0.000000    0.000000   clock core (rise edge)
+   0.000000    0.000000   clock network delay (ideal)
+   0.200000    0.200000 ^ input external delay
+   0.000000    0.200000 ^ B[13] (in)
+   0.088725    0.288725 ^ _599_/Z (XOR2_X1)
+   0.027027    0.315753 v _600_/ZN (NAND2_X1)
+   0.090412    0.406164 ^ _601_/ZN (NOR3_X1)
+   0.029605    0.435769 v _643_/ZN (NAND2_X1)
+   0.072377    0.508147 ^ _664_/ZN (AOI21_X1)
+   0.057935    0.566081 ^ _700_/ZN (AND3_X1)
+   0.021389    0.587470 v _703_/ZN (OAI21_X1)
+   0.075649    0.663120 ^ _704_/ZN (NAND2_X1)
+   0.043083    0.706203 v _804_/ZN (NAND3_X1)
+   0.046833    0.753036 ^ _810_/ZN (NAND2_X1)
+   0.018962    0.771998 v _825_/ZN (AOI21_X1)
+   0.032605    0.804603 ^ _826_/ZN (OAI21_X1)
+   0.019670    0.824272 v _832_/ZN (NAND2_X1)
+   0.000155    0.824428 v S[31] (out)
+               0.824428   data arrival time
+
+   2.000000    2.000000   clock core (rise edge)
+   0.000000    2.000000   clock network delay (ideal)
+   0.000000    2.000000   clock reconvergence pessimism
+  -0.200000    1.800000   output external delay
+               1.800000   data required time
+-----------------------------------------------------------------
+               1.800000   data required time
+              -0.824428   data arrival time
+-----------------------------------------------------------------
+               0.975572   slack (MET)
+
+
+AUDIT_AREA 509.922
+AUDIT_SLACK 0.975572317209823
+
+STDERR

@@ -1,0 +1,101 @@
+{
+  "actual_new_tool_calls": 8,
+  "actual_new_detailed_evaluations": 4,
+  "actual_new_global_route_calls": 4,
+  "tool_successes": 8,
+  "tool_failures": 0,
+  "actual_total_tool_wall_s": 167.99814718500056,
+  "total_allowance_s": 720,
+  "per_candidate_calls": 2,
+  "per_candidate_time_allowance_s": 180,
+  "eda_response_cache_hits": 0,
+  "unique_detailed_configs": 4,
+  "unique_routed_hashes": 4,
+  "llm_api_calls": 0,
+  "new_synthesis_calls": 0,
+  "new_standalone_placement_calls": 0,
+  "nested_placement_repair_operations": 4,
+  "prior_attempts_preserved": 3107,
+  "cumulative_attempts": 3115,
+  "cumulative_successes": 3109,
+  "cumulative_failures": 6,
+  "comparison": [
+    {
+      "design": "div_16bit",
+      "s": 0,
+      "early_qor": {
+        "0": 104.498839650373,
+        "9": 104.50333294512534
+      },
+      "final_qor": {
+        "0": 104.58292794463628,
+        "9": 104.5660108097978
+      },
+      "strict_qor_rank_reversal": true,
+      "early_choice": 0,
+      "final_choice": 9,
+      "early_pruning_qor_regret": 0.016917134838479342,
+      "early_pareto_p": [
+        0
+      ],
+      "final_pareto_p": [
+        0,
+        9
+      ],
+      "independent_final_extrema": {
+        "area": 1454.488,
+        "power": 0.0672,
+        "slack": -4.566010809797807
+      },
+      "one_implementation_attains_all_extrema": [],
+      "prepared_history_calls_charged_to_both": 5,
+      "prepared_history_wall_s_charged_to_both": 7.418440189999956,
+      "policy_analysis": "Observed panel replay only. B=1 both policies take early-best. At B=2 top2 can inspect both; fixed-parent has only one allowed routing setting. Thus no equal-actual-EDA optimizer superiority claim; do not spend a deterministic duplicate to manufacture matching.",
+      "single_parent_cold_final_calls": 1,
+      "top2_cold_final_calls": 2,
+      "single_parent_best_final_qor": 104.58292794463628,
+      "top2_observed_best_final_qor": 104.5660108097978,
+      "replay_true_eda_calls": 0
+    },
+    {
+      "design": "adder_32bit",
+      "s": 3,
+      "early_qor": {
+        "0": 1.0,
+        "9": 1.0
+      },
+      "final_qor": {
+        "0": 1.0025510204081631,
+        "9": 1.0025510204081631
+      },
+      "strict_qor_rank_reversal": false,
+      "early_choice": 0,
+      "final_choice": 0,
+      "early_pruning_qor_regret": 0.0,
+      "early_pareto_p": [
+        0
+      ],
+      "final_pareto_p": [
+        0
+      ],
+      "independent_final_extrema": {
+        "area": 509.922,
+        "power": 0.000197,
+        "slack": 0.991248000627054
+      },
+      "one_implementation_attains_all_extrema": [
+        0
+      ],
+      "prepared_history_calls_charged_to_both": 5,
+      "prepared_history_wall_s_charged_to_both": 2.7666613929999357,
+      "policy_analysis": "Observed panel replay only. B=1 both policies take early-best. At B=2 top2 can inspect both; fixed-parent has only one allowed routing setting. Thus no equal-actual-EDA optimizer superiority claim; do not spend a deterministic duplicate to manufacture matching.",
+      "single_parent_cold_final_calls": 1,
+      "top2_cold_final_calls": 2,
+      "single_parent_best_final_qor": 1.0025510204081631,
+      "top2_observed_best_final_qor": 1.0025510204081631,
+      "replay_true_eda_calls": 0
+    }
+  ],
+  "strict_rank_reversals": 1,
+  "stop": "Frozen panel complete; no additional candidates, stages or models. Mechanism evidence only, not online-policy/LLM/7-stage/generic-family efficacy."
+}

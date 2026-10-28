@@ -27,10 +27,11 @@ puts "AUDIT_AREA [expr {$area_dbu/($dbu*$dbu)}]"
 puts "AUDIT_SLACK [sta::worst_slack -max]"
 '''
 
-def attempt(design,s,p,stage='global',input_db=None,seed=0,timeout_s=180):
- ledger=BASE/'attempts.jsonl';old=[json.loads(l) for l in ledger.read_text().splitlines()] if ledger.exists() else []
- assert len(old)<(15 if stage=='spef_audit' else 12) and sum(r['wall_s'] for r in old)<1200,'frozen routing budget exhausted'
- parent=find_parent(design,s,p);idx=len(old);out=BASE/f'{idx:02d}_{design}_s{s}_p{p}_{stage}';out.mkdir();db=Path(input_db) if input_db else ROOT/parent['out']/'placed.odb'
+def attempt(design,s,p,stage='global',input_db=None,seed=0,timeout_s=180,base=None,max_calls=None):
+ base=Path(base) if base else BASE;base.mkdir(exist_ok=True)
+ ledger=base/'attempts.jsonl';old=[json.loads(l) for l in ledger.read_text().splitlines()] if ledger.exists() else []
+ assert len(old)<(max_calls if max_calls is not None else (15 if stage=='spef_audit' else 12)) and sum(r['wall_s'] for r in old)<1200,'frozen routing budget exhausted'
+ parent=find_parent(design,s,p);idx=len(old);out=base/f'{idx:02d}_{design}_s{s}_p{p}_{stage}';out.mkdir();db=Path(input_db) if input_db else ROOT/parent['out']/'placed.odb'
  t=f'''read_liberty {PLATFORM}/cells.lib
 read_db {db}
 set_thread_count 1

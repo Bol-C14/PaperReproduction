@@ -52,3 +52,7 @@ RTL→AST输入不经过LLM；结构排名输出带分项分数，检索接口�
 ## v3真实布线机制复核
 
 已完成global-route→detailed-route→OpenRCX→显式SPEF回读STA，详见`ROUTING_MECHANISM.md`及`routing_v3/summary.json`。临时反转判断因缺少read_spef被撤回；核验后p9早期/最终均占优，single-parent与top-2同最佳PPA，观察regret0。15次实际工具调用（13成功/2失败，含3次明确额外时序修复校验），约37.74秒；累计3107次EDA尝试。无LLM API，未扩展divider/七阶段或donor泛化，已按负结果停止。
+
+## v4原任务续作结果
+
+修正链路的4点面板已完成：8次新工具调用/4次detailed+RCX+显式SPEF回读评估全部成功，约168秒。divider观察到1次placement→final严格QoR反转，early选择p0的观察regret约16.917ps；adder另一综合实现未见反转。divider的功耗与slack最优属于不同实现，不可拼成虚构PPA。每候选相同2调用/180秒额度；single/top-2仅作成本透明的机制回放，不宣称在线策略同总成本优势。累计3115尝试/3109成功/6旧失败；无LLM API，已停止。详见`ROUTING_PANEL_V4.md`。此前v3无反转结论只对应其adder s0面板，未被改写或混合。
