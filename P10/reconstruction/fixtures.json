@@ -1,0 +1,12 @@
+[
+ {"id":"F01","kind":"abs","guard":"signed_positive","expect":"valid"},
+ {"id":"F02","kind":"abs","guard":"unsigned_positive","expect":"counterexample"},
+ {"id":"F03","kind":"shift","guard_max":1,"expect":"valid"},
+ {"id":"F04","kind":"shift","guard_max":2,"expect":"counterexample"},
+ {"id":"F05","kind":"fma_shrink","expect":"valid"},
+ {"id":"F06","kind":"early_truncation","expect":"counterexample"},
+ {"id":"F07","kind":"comparison","expect":"valid"},
+ {"id":"F08","kind":"signed_range","expect":"valid_range"},
+ {"id":"F09","kind":"context_escape","expect":"counterexample"},
+ {"id":"F10","kind":"abs","guard":"empty","expect":"reject_empty"}
+]

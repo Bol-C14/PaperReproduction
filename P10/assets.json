@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "P10",
+  "title": "Constraint-Aware E-Graph Rewriting for Hardware Performance Optimization",
+  "doi": "10.1109/TCAD.2024.3483096",
+  "audit_date": "2026-10-28",
+  "environment": "/workspace/PaperReproduction/P10",
+  "scope": "Public-source asset audit only; method learning rather than bit-exact reproduction",
+  "execution": {"experiments": false, "inference": false, "eda": false, "installation": false, "service_api_calls": false, "publication": false, "license_acceptance": false, "settings_changes": false},
+  "classification": {
+    "minimum_faithful_mechanism": {"level": "L4", "confidence": "medium-high", "scope": "Bounded bitvector expression subset with ASSUME contexts, interval-union value analysis, guarded rewriting, area-delay extraction and independent equivalence checking", "reason": "Author explicitly states original software cannot be open-sourced; bounded educational reimplementation judged low cost", "cost_confidence": "medium", "not_claimed": "Full ROVER, full SV front-end or full paper metrics"},
+    "full_paper_route": {"level": "L5", "confidence": "high", "reason": "Closed original implementation, industrial benchmark constraints, commercial synthesis/EC and TSMC5 library plus unverified configuration"},
+    "closed_source_evidence": {"source": "S3", "location": "Section 1.3, printed p9 / PDF p30; Section 1.4 maps constraint-aware work to Chapter 5", "temporal_limit": "Author statement in 2025 thesis; no later full public release verified in this audit"}
+  },
+  "assets": [
+    {"id": "accepted_manuscript", "source": "S1", "url": "https://spiral.imperial.ac.uk/bitstreams/de68c6e8-a66d-42d6-ae3e-16eab9fc9782/download", "filename": "CowardTCAD25.pdf", "pages": 14, "size_as_listed": "1.03 MB", "license": "CC-BY-4.0 per repository", "status": "full_text_read_via_web_tool; local_download_HTTP_403", "local_file": null, "checksum": null, "confidence": "high"},
+    {"id": "rover_original_and_extension", "source": "S3", "status": "author_confirmed_not_open_source", "code_license": null, "commit": null, "config": "unverified", "confidence": "high_for_author_statement"},
+    {"id": "rewrite_supplement", "url": "https://figshare.com/s/e3ab2850662d24991cbc", "source": "S2 section IV-B footnote", "status": "web_tool_inaccessible; cloud_HTTP_403; stopped", "contents": "unverified", "license": "unverified", "size": null, "version": null, "confidence": "high_for_access_failure_only"},
+    {"id": "datapathbench", "url": "https://github.com/cowardsa/DatapathBench", "ref": "main, mutable", "license": "MIT repository label", "status": "README_tree_and_datapath.py_read", "role": "author_public_benchmark_alternative; not_verified_as_exact_paper_suite", "metadata": "SV, fixed-instance comb/datapath MLIR and SMTLIB examples; public code references Yosys, ABC and libraries/asap7.genlib", "limits": "External library rights not inferred from root MIT; verification WIP/TODO in one path", "downloaded": false},
+    {"id": "extraction_gym_author_fork", "url": "https://github.com/cowardsa/extraction-gym", "ref": "main, mutable", "license": "MIT text", "status": "README_Cargo.toml_LICENSE_read; data_tree_tool_restricted", "role": "extraction_harness_not_full_constraint_aware_RTL_optimizer", "metadata": {"edition": "2021", "package_version": "0.1.0", "feature": "ilp-cbc", "coin_cbc": "0.1.6 optional", "egraph_serialize_rev": "951b829a434f4008c7b45ba4ac0da1037d2da90"}, "exact_rover_cases": "unverified", "downloaded": false},
+    {"id": "egg", "url": "https://github.com/egraphs-good/egg", "license": "MIT", "role": "egraph_foundation", "paper_version": "unverified", "installed": false},
+    {"id": "slang", "url": "https://github.com/MikePopoloski/slang", "license": "MIT", "role": "SV_frontend", "paper_version": "unverified", "installed": false},
+    {"id": "cbc", "url": "https://github.com/coin-or/Cbc", "license": "EPL-2.0 in current master LICENSE", "paper_cited_release": "2.10.10", "historical_release_license": "not_separately_verified", "role": "ILP_solver", "installed": false},
+    {"id": "z3_candidate_control", "url": "https://github.com/Z3Prover/z3", "license": "MIT", "role": "proposed_bitvector_control_not_verified_paper_dependency", "installed": false},
+    {"id": "commercial_synthesis_and_ec", "source": "S2 Fig3 and Section V", "status": "required_for_original_evaluation; access_and_versions_unverified", "license": "commercial; no entitlement inspected or accepted", "settings": "unverified"},
+    {"id": "tsmc5_cell_library", "source": "S2 Section V", "status": "paper_uses_TSMC_5nm; actual_package_corner_and_rights_unverified", "license": "not_verified; no_acceptance", "downloaded": false},
+    {"id": "industrial_rtl", "source": "S3 section 1.3", "status": "author_reports_mixed_public_and_closed_Intel_inputs; exact_suite_inventory_not_verified", "license": "not_verified_for_industrial_inputs", "substitution": "public circuits alter evaluation population"},
+    {"id": "checkpoint", "status": "no_learning_checkpoint_requirement_identified_for_this_method", "downloaded": false}
+  ],
+  "mechanism_review": {
+    "guarded_rewriting": "ASSUME contexts and value-analysis guards described in full text; exact source code unavailable",
+    "value_range_analysis": "Bit-accurate unsigned interval unions with signedness and truncation conversion described; all transfer functions not checked as code",
+    "delay_model": "Fixed-architecture operator estimates, longest combinational path; not mapped STA",
+    "extraction": "Greedy minimum model delay then acyclic area-minimizing CBC ILP under delay constraints",
+    "verification": "Paper describes commercial EC over intermediate Verilog chain; no public SAT/bitvector script verified",
+    "old_rover_is_not_extension": true
+  },
+  "planning_resources_only": {"cpu_cores": "4-8", "ram_gb": 16, "disk_gb": 10, "gpu_count": 0, "bounded_implementation_effort_days": "3-7 experienced researcher working days", "full_route_effort": "weeks_or_more; unverified commercial access and missing code prevent reliable total estimate", "measured": false},
+  "substitution_fidelity": [
+    {"substitution": "handwritten explicit-width IR", "loss": "Full SystemVerilog elaboration and complete rewrite coverage"},
+    {"substitution": "public small circuits / DatapathBench", "loss": "Original industrial distribution and original aggregate improvement claims"},
+    {"substitution": "open synthesis and public technology library", "loss": "Original TSMC5 physical metrics and commercial optimization heuristics"},
+    {"substitution": "Z3 bitvector checks", "loss": "Industrial EC convergence, certificate interface and runtime"},
+    {"substitution": "extraction-gym only", "loss": "Constraint discovery, range refinement and RTL generation; insufficient alone for minimum route"}
+  ],
+  "testable_gap_control": {"gap": "Context duplication scaling with correlated muxes", "basis": "S2 max-tree case disables ASSUME or uses two passes", "proposed_control": "Sweep correlated-mux count on equivalent small circuits at fixed rules and resource limits; compare ASSUME enabled, disabled and two-stage; record graph size, memory, timeout, model area-delay and independently verify every output", "executed": false},
+  "blocked_actions": [
+    {"action": "download author accepted manuscript locally", "target": "official Spiral PDF URL", "outcome": "denied_HTTP_403", "response": "stopped_no_retry_no_bypass", "independent_completion": "full text readable through web tool"},
+    {"action": "read public rewrite supplement", "target": "https://figshare.com/s/e3ab2850662d24991cbc", "outcome": "denied_HTTP_403_in_cloud; inaccessible_in_web_tool", "response": "stopped_no_bypass", "remaining": "contents_size_version_license_unverified"}
+  ],
+  "sources": {
+    "S1": "https://spiral.imperial.ac.uk/entities/publication/b658a803-9cc4-4747-900e-cb1f42414d1f",
+    "S2": "https://spiral.imperial.ac.uk/bitstreams/de68c6e8-a66d-42d6-ae3e-16eab9fc9782/download",
+    "S3": "https://samuelcoward.co.uk/assets/pdf/Thesis_Imperial.pdf",
+    "S4": "https://samuelcoward.co.uk/publications/",
+    "S5": "https://arxiv.org/abs/2406.12421",
+    "S6": "https://github.com/cowardsa/DatapathBench",
+    "S6-code": "https://github.com/cowardsa/DatapathBench/blob/main/datapath.py",
+    "S7": "https://github.com/cowardsa/extraction-gym",
+    "S7-config": "https://github.com/cowardsa/extraction-gym/blob/main/Cargo.toml",
+    "S7-license": "https://github.com/cowardsa/extraction-gym/blob/main/LICENSE",
+    "S8": "https://github.com/egraphs-good/egg",
+    "S9": "https://github.com/MikePopoloski/slang",
+    "S10": "https://github.com/Z3Prover/z3",
+    "S11": "https://github.com/coin-or/Cbc",
+    "S11-license": "https://github.com/coin-or/Cbc/blob/master/LICENSE",
+    "S12": "https://ieeexplore.ieee.org/document/10720856/"
+  },
+  "stop_state": "audit_complete_no_implementation_or_execution"
+}
