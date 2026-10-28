@@ -1,0 +1,21 @@
+{
+  "round": "evaluator-validity-pilot-1",
+  "upstream_commit": "e875437fbb11590b71775b32d3579726d702cfc6",
+  "sampling": "purposive: three prior executable passes and one known executable blind-spot sentinel; four independent designs",
+  "model_api_calls": 0,
+  "primary_trials": 63,
+  "max_supervised_commands": 150,
+  "max_round_wall_seconds": 840,
+  "max_workers": 2,
+  "child_limits": {"cpu_seconds": 60, "address_space_bytes": 2147483648, "file_bytes": 8388608, "open_fds": 256},
+  "command_limits": {"compile_seconds": 45, "simulation_seconds": 3, "formal_seconds": 15, "solver_seconds": 5},
+  "designs": {
+    "MGen/L3/Text/GA_94": ["identity", "value_xor_1", "value_xor_128", "sign_xor_1", "egg_xor_1", "egg_xor_2", "egg_xor_4", "value_zero", "value_ones", "malformed_cpp", "nonterminating_cpp"],
+    "TBGen/L1/Text/address_mux": ["identity", "stuck_zero", "stuck_ones", "reversed_select", "upper_byte_truncation", "output_xor_1", "empty_tb"],
+    "RTLFix/L1/MultiModal/1": ["identity", "original_bug", "stuck_zero", "stuck_one", "reversed_select", "all_zero_exception"],
+    "SVAGen/L1/Text/usbh_crc16": {"dut_variants": ["identity", "covered_inversion", "covered_stuck_zero", "uncovered_inversion", "operator_error"], "property_suites": ["single_bit5", "all_outputs"], "other_trials": ["constant_identity", "constant_covered_mutant", "empty_identity", "malformed_identity"]}
+  },
+  "cross_simulators": ["Icarus 12.0", "Verilator 5.032"],
+  "formal_backend": "Yosys 0.52 combinational SAT",
+  "global_false_positive_rate_claim": false
+}
