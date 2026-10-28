@@ -1,0 +1,25 @@
+module candidate(input [15:0] a, input [15:0] b, input [15:0] c, output [15:0] out);
+wire [0:0] n0 = a < 16'd8;
+wire [0:0] n1 = b < 16'd4;
+wire [15:0] n2 = 16'd1;
+wire [0:0] n3 = n0 && n1;
+wire [15:0] n4 = n2;
+wire [0:0] z5 = n4;
+wire [0:0] n6 = z5;
+wire [15:0] n7 = b;
+wire [1:0] z8 = n7;
+wire [1:0] n9 = z8;
+wire [15:0] n10 = a;
+wire [2:0] z11 = n10;
+wire [2:0] n12 = z11;
+wire [4:0] n13 = {3'd0, n9} * {2'd0, n12};
+wire [15:0] n14 = {11'd0, n13};
+wire [4:0] z15 = n14;
+wire [4:0] n16 = z15;
+wire [4:0] n17 = {4'd0, n6} + n16;
+wire [15:0] n18 = {11'd0, n17};
+wire [15:0] n19 = c;
+wire [15:0] n20 = n1 ? n18 : n19;
+wire [15:0] n21 = n0 ? n20 : c;
+assign out = n21;
+endmodule

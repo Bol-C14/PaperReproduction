@@ -1,0 +1,16 @@
+; benchmark generated from python API
+(set-info :status unknown)
+(declare-fun c () (_ BitVec 8))
+(declare-fun a () (_ BitVec 8))
+(declare-fun b () (_ BitVec 8))
+(assert
+ (let ((?x67 (bvmul ((_ zero_extend 3) ((_ extract 2 0) ((_ extract 2 0) ((_ extract 2 0) ((_ extract 2 0) b))))) ((_ zero_extend 3) ((_ extract 2 0) ((_ extract 5 0) ((_ extract 7 0) a)))))))
+(let ((?x31 (bvmul ((_ zero_extend 3) ((_ extract 2 0) (bvneg ((_ extract 7 0) ((_ extract 7 0) a))))) ((_ zero_extend 3) ((_ extract 2 0) ((_ extract 2 0) ((_ extract 2 0) b)))))))
+(let (($x32 (and (distinct (ite (bvsgt (_ bv0 8) a) (_ bv1 1) (_ bv0 1)) (_ bv0 1)) true)))
+(let (($x10 (and (distinct (ite (= (ite (bvsgt (_ bv249 8) a) (_ bv1 1) (_ bv0 1)) (_ bv0 1)) (_ bv1 1) (_ bv0 1)) (_ bv0 1)) true)))
+(let ((?x5 (ite (and (and (distinct (ite (bvsgt (_ bv8 8) a) (_ bv1 1) (_ bv0 1)) (_ bv0 1)) true) $x10) (_ bv1 1) (_ bv0 1))))
+(let (($x26 (and (distinct ?x5 (_ bv0 1)) true)))
+(let ((?x63 (ite $x26 (ite $x32 ((_ zero_extend 2) ?x31) ((_ zero_extend 2) ((_ extract 5 0) ?x67))) c)))
+(let ((?x14 (ite $x32 (bvmul ((_ extract 7 0) (bvneg ((_ extract 7 0) a))) ((_ zero_extend 5) ((_ extract 2 0) b))) (bvmul ((_ extract 7 0) a) ((_ zero_extend 5) ((_ extract 2 0) b))))))
+(and (distinct (ite $x26 ?x14 c) ?x63) true))))))))))
+(check-sat)

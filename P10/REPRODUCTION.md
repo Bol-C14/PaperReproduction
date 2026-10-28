@@ -1,5 +1,7 @@
 # P10 bounded method reconstruction
 
+**Latest CPU extension:** [nested Combine Round 4](nested_combine_round4/REPORT.md) adds Mux assumption propagation and nested-condition conjunction in the e-graph, with 36 passing whole-module SMT/RTL proof pairs, three dual-engine negative controls and 39 actual synthesis calls. It retains the failed first attempt and matched legacy/propagate/combine controls. [Signed-union Round 3](signed_union_round3/REPORT.md) is the preceding extension. These remain authored mechanism workloads and generic synthesis, not original industrial or physical-PPA reproduction. Historical phase statements below describe their original scope and dates.
+
 **Later end-to-end tranche:** [loop/REPORT.md](loop/REPORT.md) and [mechanism coverage](loop/MECHANISM_COVERAGE.md) supersede this phase's stopping point. The earlier fixture results below are preserved; the later work adds actual egglog saturation, constrained DAG extraction, generated RTL equivalence and free synthesis with matched controls.
 
 Completed 2026-10-28 in `/workspace/PaperReproduction`, branch `reproduction/constraint-aware-rover-tcad2025`, remote `Bol-C14/PaperReproduction`. Local only; no push/PR. This is **our small reconstruction**, not released ROVER code and not a reproduction of the paper's physical results.

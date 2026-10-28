@@ -1,0 +1,18 @@
+; benchmark generated from python API
+(set-info :status unknown)
+(declare-fun c () (_ BitVec 16))
+(declare-fun a () (_ BitVec 16))
+(declare-fun b () (_ BitVec 16))
+(assert
+ (let ((?x203 ((_ extract 14 0) ((_ extract 15 0) ((_ extract 15 0) ((_ extract 15 0) ((_ extract 15 0) ((_ extract 15 0) ((_ extract 15 0) a)))))))))
+(let ((?x31 ((_ extract 2 0) ((_ extract 2 0) ((_ extract 2 0) ((_ extract 2 0) ((_ extract 2 0) ((_ extract 2 0) ((_ extract 2 0) b)))))))))
+(let ((?x88 ((_ extract 15 0) ((_ extract 15 0) (bvmul ((_ zero_extend 13) ((_ extract 2 0) ?x31)) ((_ zero_extend 1) ?x203))))))
+(let ((?x19 (bvmul ((_ zero_extend 13) ((_ extract 2 0) ((_ extract 2 0) ((_ extract 2 0) ((_ extract 2 0) ((_ extract 2 0) b)))))) ((_ extract 15 0) (bvneg ((_ extract 15 0) ((_ extract 15 0) ((_ extract 15 0) ((_ extract 15 0) ((_ extract 15 0) a))))))))))
+(let (($x46 (and (distinct (ite (bvsgt (_ bv0 16) a) (_ bv1 1) (_ bv0 1)) (_ bv0 1)) true)))
+(let (($x6 (and (distinct (ite (= (ite (bvsgt (_ bv65529 16) a) (_ bv1 1) (_ bv0 1)) (_ bv0 1)) (_ bv1 1) (_ bv0 1)) (_ bv0 1)) true)))
+(let ((?x61 (ite (and (and (distinct (ite (bvsgt (_ bv8 16) a) (_ bv1 1) (_ bv0 1)) (_ bv0 1)) true) $x6) (_ bv1 1) (_ bv0 1))))
+(let (($x68 (and (distinct ?x61 (_ bv0 1)) true)))
+(let ((?x86 (ite $x68 (ite $x46 ((_ extract 15 0) ((_ extract 15 0) ((_ extract 15 0) ((_ extract 15 0) ?x19)))) ((_ extract 15 0) ?x88)) c)))
+(let ((?x32 (ite $x46 (bvmul ((_ extract 15 0) (bvneg ((_ extract 15 0) a))) ((_ zero_extend 13) ((_ extract 2 0) b))) (bvmul ((_ extract 15 0) a) ((_ zero_extend 13) ((_ extract 2 0) b))))))
+(and (distinct (ite $x68 ?x32 c) ?x86) true))))))))))))
+(check-sat)
