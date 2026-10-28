@@ -1,0 +1,28 @@
+{
+  "status": "pass",
+  "base": "2f33a6bc2135c521af86a0277e3cd3ce8a79b66d",
+  "scope": "Entire rewritten unpublished branch payload; manifest and review excluded from their own inventory",
+  "files": 27,
+  "bytes": 67807,
+  "findings": [],
+  "excluded": [
+    "third-party README/eval/loader source copies; permission unverified",
+    "official checkpoint",
+    "official dataset NPZ",
+    "raw prediction NPZ (hashes retained)",
+    "private raw logs",
+    "venv/cache",
+    "raw HF API metadata"
+  ],
+  "rules": [
+    "private_key",
+    "credential",
+    "private_path",
+    "response_identifier",
+    "auth_header"
+  ],
+  "history_policy": "Single unpublished commit amended from the unchanged published base. Prior unpublished commit preserved only under a private ref; publish only the exact reproduction branch, never private refs or mirror/all-refs.",
+  "limitations": "Pattern scan does not establish arbitrary secret absence or dataset label correctness. Original published base is unchanged.",
+  "push": false,
+  "PR": false
+}
