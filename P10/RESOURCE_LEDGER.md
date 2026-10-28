@@ -1,10 +1,10 @@
 # P10 resource ledger — bounded pilot
 
-Start2026-10-28T10:35:15Z; final measured inventory10:39:42Z (~4m27s to inventory; reporting completed immediately afterward). Authorized setup/diagnosis ceiling2h; download ceiling2GB. Linux cloud only, no Mac access. Python3.12.14, Linux6.18.55 x86_64/glibc2.41, five available logical CPUs, total RAM18,007MiB, no swap. Solver runs single process; no extra hardware or GPU was allocated. Capacity was observed, not changed.
+Start2026-10-28T10:35:15Z; resource inventory10:39:42Z; local commit10:41:49Z (~6m34s through commit). Authorized setup/diagnosis ceiling2h; download ceiling2GB. Linux cloud only, no Mac access. Python3.12.14, Linux6.18.55 x86_64/glibc2.41, five available logical CPUs, total RAM18,007MiB, no swap. Solver runs single process; no extra hardware or GPU was allocated. Capacity was observed, not changed.
 
 | Action | Outcome / resource |
 |---|---|
-| Inspect repo, preserve other branches, create requested local branch | `reproduction/constraint-aware-rover-tcad2025`; existing `work` branch retained; origin matches Bol-C14/PaperReproduction. |
+| Inspect repo, preserve other branches, create requested local branch | `reproduction/constraint-aware-rover-tcad2025`; checkout initially reported unborn `work` (no existing commits/listed branch refs); no existing branch history overwritten; origin matches Bol-C14/PaperReproduction. |
 | Read official manuscript via web tool | Initial full-text response available. Three subsequent narrow page requests returned405; not retried. |
 | Read author thesis via web tool | Equations and chapter mapping readable. |
 | Download thesis to local sources | One attempt HTTP403, exit22, no PDF obtained; stopped. |
