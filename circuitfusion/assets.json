@@ -1,0 +1,399 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "P06",
+  "title": "CircuitFusion",
+  "audit_date_utc": "2026-10-28",
+  "mode": "asset_audit_only",
+  "classification": {
+    "full_paper_route": "L3",
+    "minimum_mechanism_route": "L2_provisional",
+    "code_status": "confirmed_exists",
+    "confidence": {
+      "code_and_resource_blockers": "high",
+      "release_completeness": "medium",
+      "pilot_budget": "medium_low"
+    },
+    "future_pilot": "conditional_go",
+    "direct_full_reproduction": "no_go_in_current_environment"
+  },
+  "environment": {
+    "cwd": "/workspace",
+    "os": "Debian 13.6",
+    "kernel": "Linux 6.18.55 x86_64",
+    "python": "3.12.14",
+    "visible_cpus": 5,
+    "cpu_quota": 4,
+    "memory_limit_bytes": 17179869184,
+    "swap": false,
+    "workspace_free_disk_approx_gib": 30,
+    "gpu": "no_device_or_nvidia_smi_discovered",
+    "tools_not_on_path": [
+      "yosys",
+      "dc_shell"
+    ],
+    "packages_not_installed_in_selected_python": [
+      "torch",
+      "dgl",
+      "transformers",
+      "accelerate",
+      "sentence-transformers",
+      "xgboost",
+      "pyverilog",
+      "flash-attn"
+    ],
+    "repository_state": "PaperReproduction unborn work branch, no commits or refs",
+    "workspace_instructions_found": false,
+    "secrets_read": false
+  },
+  "source_revision": {
+    "ref": "main",
+    "commit_sha": null,
+    "immutable_pin_verified": false,
+    "inventory_complete": false,
+    "caveat": "Web cache dates vary; recursive tree and GitHub directory pages inaccessible."
+  },
+  "assets": [
+    {
+      "id": "official_paper",
+      "kind": "paper",
+      "status": "readable",
+      "source": "https://proceedings.iclr.cc/paper_files/paper/2025/file/7ffb43adf37b3eeaba559098bc084cc6-Paper-Conference.pdf",
+      "evidence": "Official conference PDF inspected; author results not executed."
+    },
+    {
+      "id": "official_repository",
+      "kind": "code",
+      "status": "confirmed_public_partial_inventory",
+      "source": "https://github.com/hkust-zhiyao/CircuitFusion",
+      "evidence": "Root inventory and individual raw source files readable; recursive tree unavailable; no commit SHA pinned."
+    },
+    {
+      "id": "requirements",
+      "kind": "environment",
+      "status": "readable",
+      "source": "https://raw.githubusercontent.com/hkust-zhiyao/CircuitFusion/main/requirements.txt",
+      "evidence": "Conda export, Python 3.9, CUDA/DGL/flash-attn versions; installation untested."
+    },
+    {
+      "id": "pretrain_entry",
+      "kind": "code",
+      "status": "readable",
+      "source": "https://raw.githubusercontent.com/hkust-zhiyao/CircuitFusion/main/model/ckt_fusion/pretrain_align_all.py",
+      "evidence": "Requires net_enc.50.pt; separate loaders zipped; accumulation loop needs repair or explanation."
+    },
+    {
+      "id": "fusion_model",
+      "kind": "code",
+      "status": "readable",
+      "source": "https://raw.githubusercontent.com/hkust-zhiyao/CircuitFusion/main/model/ckt_fusion/models/model_pretrain.py",
+      "evidence": "Inference fusion alpha=0; matching uses 0.5. Static discrepancy, no runtime claim."
+    },
+    {
+      "id": "model_config",
+      "kind": "configuration",
+      "status": "readable",
+      "source": "https://raw.githubusercontent.com/hkust-zhiyao/CircuitFusion/main/model/ckt_fusion/configs/Pretrain.yaml",
+      "evidence": "BERT backbone, 4096-wide code inputs, 768 embeddings, batch size 2."
+    },
+    {
+      "id": "bert_config",
+      "kind": "configuration",
+      "status": "readable",
+      "source": "https://raw.githubusercontent.com/hkust-zhiyao/CircuitFusion/main/model/ckt_fusion/configs/config_bert.json",
+      "evidence": "12 layers, fusion layer 6, 512 positions."
+    },
+    {
+      "id": "dataset_loader",
+      "kind": "code",
+      "status": "readable",
+      "source": "https://raw.githubusercontent.com/hkust-zhiyao/CircuitFusion/main/model/ckt_fusion/dataset_proc/load_dataset.py",
+      "evidence": "Requires graph/context/netlist pickles and summary JSON; positional ordering."
+    },
+    {
+      "id": "graph_splitter",
+      "kind": "code",
+      "status": "readable",
+      "source": "https://raw.githubusercontent.com/hkust-zhiyao/CircuitFusion/main/dataset/dataset_graph/split_train_valid.py",
+      "evidence": "External design metadata and parent split lists referenced."
+    },
+    {
+      "id": "context_splitter",
+      "kind": "code",
+      "status": "readable",
+      "source": "https://raw.githubusercontent.com/hkust-zhiyao/CircuitFusion/main/dataset/dataset_context/split_train_valid.py",
+      "evidence": "Reads cached outputs and embeddings; active path omits cached attention masks."
+    },
+    {
+      "id": "summary_generator",
+      "kind": "code",
+      "status": "readable",
+      "source": "https://raw.githubusercontent.com/hkust-zhiyao/CircuitFusion/main/data_collect/rtl/rtl2summary/extract_summary.py",
+      "evidence": "Empty API URL/key placeholders; not called."
+    },
+    {
+      "id": "summary_vector_generator",
+      "kind": "code",
+      "status": "readable",
+      "source": "https://raw.githubusercontent.com/hkust-zhiyao/CircuitFusion/main/data_collect/rtl/rtl2summary/summary2vec.py",
+      "evidence": "Exit before save; .v input versus generator .txt output; static integration inconsistency."
+    },
+    {
+      "id": "cone_extractor",
+      "kind": "code",
+      "status": "readable",
+      "source": "https://raw.githubusercontent.com/hkust-zhiyao/CircuitFusion/main/data_collect/rtl/dataset/cone_extract.py",
+      "evidence": "Regex-based extraction; HDL coverage not executed."
+    },
+    {
+      "id": "positive_transform",
+      "kind": "code",
+      "status": "readable",
+      "source": "https://raw.githubusercontent.com/hkust-zhiyao/CircuitFusion/main/data_collect/rtl/dataset/pos_transform.py",
+      "evidence": "Yosys optimization script; no EDA executed."
+    },
+    {
+      "id": "netlist_negative_transform",
+      "kind": "code",
+      "status": "readable",
+      "source": "https://raw.githubusercontent.com/hkust-zhiyao/CircuitFusion/main/data_collect/netlist/dataset/scr_net2graph/transform_net.py",
+      "evidence": "Global design list negative selection; split isolation needs validation."
+    },
+    {
+      "id": "zero_shot_inference",
+      "kind": "code",
+      "status": "readable",
+      "source": "https://raw.githubusercontent.com/hkust-zhiyao/CircuitFusion/main/model/ckt_fusion/infer.zero_shot.py",
+      "evidence": "Known-pool per-cone labels required; absolute paths; no inference run."
+    },
+    {
+      "id": "slack_finetune",
+      "kind": "code",
+      "status": "readable",
+      "source": "https://raw.githubusercontent.com/hkust-zhiyao/CircuitFusion/main/model/ckt_fusion/finetune_slack.py",
+      "evidence": "Loads per-cone commercial labels and split metadata."
+    },
+    {
+      "id": "processed_paired_dataset",
+      "kind": "data",
+      "status": "not_verified",
+      "source": "https://github.com/hkust-zhiyao/CircuitFusion",
+      "evidence": "No complete downloadable manifest verified; issue #2 lists missing pickle."
+    },
+    {
+      "id": "circuitfusion_checkpoint",
+      "kind": "checkpoint",
+      "status": "not_verified",
+      "source": "https://github.com/hkust-zhiyao/CircuitFusion/issues/4",
+      "evidence": "Open request for publication; no releases on releases page; absence elsewhere not established."
+    },
+    {
+      "id": "netlist_checkpoint",
+      "kind": "checkpoint",
+      "status": "required_not_verified",
+      "source": "https://raw.githubusercontent.com/hkust-zhiyao/CircuitFusion/main/model/ckt_fusion/pretrain_align_all.py",
+      "evidence": "pretrain_model/pretrain_stage_0809/net_enc.50.pt is required by entry point."
+    },
+    {
+      "id": "release_channel",
+      "kind": "release",
+      "status": "no_releases_in_read_page",
+      "source": "https://github.com/hkust-zhiyao/CircuitFusion/releases",
+      "evidence": "Official page explicitly displays no releases; cache freshness applies."
+    },
+    {
+      "id": "design_metadata",
+      "kind": "split",
+      "status": "required_not_verified",
+      "source": "https://github.com/hkust-zhiyao/CircuitFusion/issues/3",
+      "evidence": "Issue requests design_lst.json; author-local paths in source."
+    },
+    {
+      "id": "train_parent_split",
+      "kind": "split",
+      "status": "exact_path_404",
+      "source": "https://raw.githubusercontent.com/hkust-zhiyao/CircuitFusion/main/dataset/dataset_js/train_lst.json",
+      "evidence": "404 is path-specific, not repository-wide absence."
+    },
+    {
+      "id": "test_parent_split",
+      "kind": "split",
+      "status": "exact_path_404",
+      "source": "https://raw.githubusercontent.com/hkust-zhiyao/CircuitFusion/main/dataset/dataset_js/test_lst.json",
+      "evidence": "404 is path-specific, not repository-wide absence."
+    },
+    {
+      "id": "valid_parent_split",
+      "kind": "split",
+      "status": "exact_path_404",
+      "source": "https://raw.githubusercontent.com/hkust-zhiyao/CircuitFusion/main/dataset/dataset_js/valid_lst.json",
+      "evidence": "404 is path-specific, not repository-wide absence."
+    },
+    {
+      "id": "nv_embed_v1",
+      "kind": "backbone",
+      "status": "metadata_visible_weights_gated",
+      "source": "https://huggingface.co/nvidia/NV-Embed-v1/tree/main",
+      "evidence": "CC-BY-NC-4.0; contact-sharing gate not accepted; approximately 15.709 GB listed shards; no weights downloaded."
+    },
+    {
+      "id": "bert_base",
+      "kind": "backbone",
+      "status": "metadata_visible_access_untested",
+      "source": "https://huggingface.co/google-bert/bert-base-uncased",
+      "evidence": "Apache-2.0 model metadata; no weights downloaded."
+    },
+    {
+      "id": "code_license",
+      "kind": "license",
+      "status": "not_established",
+      "source": "https://raw.githubusercontent.com/hkust-zhiyao/CircuitFusion/main/LICENSE",
+      "evidence": "Exact LICENSE returned 404; no root license visible; other possible licensing paths not exhaustively inventoried."
+    },
+    {
+      "id": "commercial_eda",
+      "kind": "tool",
+      "status": "required_for_original_labels_entitlement_unverified",
+      "source": "https://github.com/hkust-zhiyao/CircuitFusion",
+      "evidence": "DC/PrimeTime access not established; no tool invocation."
+    },
+    {
+      "id": "source_designs",
+      "kind": "data_provenance",
+      "status": "upstream_links_only",
+      "source": "https://github.com/hkust-zhiyao/CircuitFusion",
+      "evidence": "ITC99, OpenCores, VexRiscv, Chipyard; exact design versions and per-file licenses unresolved."
+    }
+  ],
+  "access_limitations": [
+    {
+      "action": "read public GitHub API via shell HTTPS",
+      "target": "https://github.com/hkust-zhiyao/CircuitFusion",
+      "status": "denied",
+      "reason": "network proxy tunnel 403 Forbidden",
+      "retry": false
+    },
+    {
+      "action": "recursive inventory via web",
+      "target": "https://api.github.com/repos/hkust-zhiyao/CircuitFusion/git/trees/main?recursive=1",
+      "status": "inaccessible",
+      "reason": "web tool inaccessible URL"
+    },
+    {
+      "action": "GitHub directory reads",
+      "target": "https://github.com/hkust-zhiyao/CircuitFusion/tree/main",
+      "status": "restricted",
+      "reason": "web tool restricted URL",
+      "scope": "model/ckt_fusion, dataset, data_collect"
+    },
+    {
+      "action": "model weight access",
+      "target": "https://huggingface.co/nvidia/NV-Embed-v1",
+      "status": "not_attempted",
+      "reason": "gated metadata; license/contact-sharing not accepted"
+    }
+  ],
+  "runtime_success_claimed": false,
+  "actions_not_performed": [
+    "reproduction_prompt",
+    "experiments",
+    "inference",
+    "EDA_execution",
+    "dependency_installation",
+    "model_API_calls",
+    "large_downloads",
+    "configuration_changes",
+    "push",
+    "publication",
+    "gate_acceptance"
+  ],
+  "verified_static_findings": [
+    "inference fusion alpha overwritten to zero, matching uses 0.5",
+    "summary vector script exits before saving and expects extension inconsistent with summary generator",
+    "optimizer steps and clears each batch despite accumulation_steps=128",
+    "external absolute paths and required checkpoint/data files"
+  ],
+  "unverified_risks": [
+    "modality positional pairing mismatch",
+    "parent-family near-duplicate leakage",
+    "negative mining across split boundaries",
+    "identifier shortcuts in summaries",
+    "register mapping after synthesis transformations",
+    "PPA retrieval transfer across constraints/libraries",
+    "cone parser semantic coverage"
+  ],
+  "minimum_module": {
+    "required": [
+      "register cones",
+      "HDL graph summary views",
+      "explicit RTL-netlist correspondence",
+      "small modality encoders",
+      "cross-attention fusion",
+      "within-RTL objective",
+      "implementation alignment objective"
+    ],
+    "substitutions": [
+      "small trainable text encoders",
+      "human-reviewed summaries",
+      "Yosys/ABC netlists with explicit mapping"
+    ],
+    "semantic_loss": [
+      "no original 7B semantics or long context",
+      "different summary distribution",
+      "different synthesis distribution and no original commercial PPA labels"
+    ]
+  },
+  "proposed_test": {
+    "executed": false,
+    "comparison": [
+      "correct RTL-netlist pairs",
+      "parent-stratified shuffled pairs",
+      "no alignment"
+    ],
+    "controls": [
+      "identical models and data budget",
+      "parent-family split before augmentation/mining",
+      "sample-ID assertions",
+      "name/comment anonymization"
+    ],
+    "metrics": [
+      "held-out-parent Recall@1 and Recall@5",
+      "equivalent-transformation embedding stability",
+      "parent-level bootstrap intervals"
+    ]
+  },
+  "pilot_budget_estimate": {
+    "measured": false,
+    "parents": "8-12",
+    "cones": "100-500",
+    "variants_per_cone": 2,
+    "hdl_token_cap": 512,
+    "graph_node_cap": 128,
+    "embedding_dimensions": "64-128",
+    "cpu_cores": 4,
+    "ram_gib": "8-16",
+    "generated_artifacts_gib_cap": 2,
+    "stop_budget": "one CPU-day of preparation plus small training smoke study",
+    "optional_gpu_vram_gib": "12-24",
+    "API_calls": 0,
+    "commercial_EDA_required": false,
+    "feasibility": "provisional; untested"
+  },
+  "future_pilot_gates": [
+    "resolve reuse licenses",
+    "working source download path",
+    "authorized dependency/tool setup",
+    "explicit paired sample manifest",
+    "parent-family isolation",
+    "bounded CPU/GPU budget"
+  ],
+  "remaining_blockers": [
+    "full recursive inventory and immutable revision unavailable",
+    "processed paired data and author checkpoints not verified",
+    "exact split manifests unresolved",
+    "commercial label pipeline and entitlements unavailable",
+    "gated backbone not acquired",
+    "selected runtime lacks ML/EDA dependencies and GPU"
+  ],
+  "audit_complete": true,
+  "other_paper_started": false
+}
