@@ -132,7 +132,7 @@ class AIGEncoder(torch.nn.Module):
         edge_index = batched_data.edge_index
         #adj_t = batched_data.adj_t
         batch = batched_data.batch
-        adj = SparseTensor(row=edge_index[0], col=edge_index[1])
+        adj = SparseTensor(row=edge_index[0], col=edge_index[1], sparse_sizes=(batched_data.num_nodes, batched_data.num_nodes))
 
         x = torch.cat([batched_data.node_type.reshape(-1, 1),batched_data.num_inverted_predecessors.reshape(-1, 1)], dim=1)
         h = self.node_encoder(x)
