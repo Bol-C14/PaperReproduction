@@ -1,0 +1,47 @@
+Traceback (most recent call last):
+  File "$PILOT/run.py", line 178, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "$PILOT/run.py", line 79, in main
+    cells,evidence=library(ROOT/'assets/nangate45.lib');(result/'cell_semantics.json').write_text(json.dumps(evidence,indent=2)+'\n')
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$PILOT/run.py", line 50, in library
+    expr=m[1];table=''.join(str(boolean(expr,dict(zip(inputs,bits)))) for bits in itertools.product([0,1],repeat=len(inputs)))
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$PILOT/run.py", line 50, in <genexpr>
+    expr=m[1];table=''.join(str(boolean(expr,dict(zip(inputs,bits)))) for bits in itertools.product([0,1],repeat=len(inputs)))
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "$PILOT/run.py", line 39, in boolean
+    result=combine(0);assert i==len(tokens);return result
+           ^^^^^^^^^^
+  File "$PILOT/run.py", line 34, in combine
+    v=combine(level+1)
+      ^^^^^^^^^^^^^^^^
+  File "$PILOT/run.py", line 34, in combine
+    v=combine(level+1)
+      ^^^^^^^^^^^^^^^^
+  File "$PILOT/run.py", line 34, in combine
+    v=combine(level+1)
+      ^^^^^^^^^^^^^^^^
+  File "$PILOT/run.py", line 33, in combine
+    if level==3:return atom()
+                       ^^^^^^
+  File "$PILOT/run.py", line 28, in atom
+    v=combine(0);assert tokens[i]==')';i+=1;return v
+      ^^^^^^^^^^
+  File "$PILOT/run.py", line 34, in combine
+    v=combine(level+1)
+      ^^^^^^^^^^^^^^^^
+  File "$PILOT/run.py", line 34, in combine
+    v=combine(level+1)
+      ^^^^^^^^^^^^^^^^
+  File "$PILOT/run.py", line 34, in combine
+    v=combine(level+1)
+      ^^^^^^^^^^^^^^^^
+  File "$PILOT/run.py", line 33, in combine
+    if level==3:return atom()
+                       ^^^^^^
+  File "$PILOT/run.py", line 29, in atom
+    return int(t) if t in ['0','1'] else values[t]
+                                         ~~~~~~^^^
+KeyError: 'IQ'
