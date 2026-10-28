@@ -9,3 +9,5 @@ Branch: `reproduction/trace2skill-mlcad2026`. Cached numbers and deterministic h
 Follow-up: [Chat-only, credential-free canary preparation](papers/Paper03-Trace2Skill/PILOT_PREPARATION.md), 45 offline tests passed; no real model requests or verifier executions.
 
 Latest: [verified Icarus and actual isolated RTL smoke readiness](papers/Paper03-Trace2Skill/READINESS_UPDATE.md). Four real RTL simulations, no model/API requests.
+
+Executable activation command and final scope: [EXECUTION_GUIDE.md](papers/Paper03-Trace2Skill/EXECUTION_GUIDE.md). Ordinary Chat/skill/real-verifier wiring is complete; 69 offline tests and 14 actual RTL simulations, no model requests.

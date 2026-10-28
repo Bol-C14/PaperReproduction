@@ -1,0 +1,586 @@
+{
+  "scope": "public adder infrastructure fixture; NOT CVDP; no method-advantage inference",
+  "chat_mode": "offline_mock_chat",
+  "real_model_requests": 0,
+  "admitted_chat_attempts": 14,
+  "mock_chat_attempts": 14,
+  "real_verifier_executions": 8,
+  "events": [
+    {
+      "rollout": "evolution.g1.i1.r0",
+      "arm": "evolution",
+      "generation": 1,
+      "individual": 1,
+      "skill_sha256": "472d87b01d2444188f75a711e5b6abecc6de046c2bca40b7141e84334e97d35e",
+      "status": "pass",
+      "pass": true,
+      "source_sha256": "efec5aa1aa9e10a95ab45020cbcefe9e546ad49fd39e48b584f0f3230ca31641"
+    },
+    {
+      "rollout": "fixed.g1.i0.r0",
+      "arm": "fixed",
+      "generation": 1,
+      "individual": 0,
+      "skill_sha256": "eb6969a7819803d16420b12e8d3b1bce494b3d49bbc8b8d5ad6807b748138ef4",
+      "status": "functional_fail",
+      "pass": false,
+      "source_sha256": "8f2141f7db0516c118043cdad267c87197d0b7260d4596fd6009bb7218e61468"
+    },
+    {
+      "rollout": "fixed.g1.i1.r0",
+      "arm": "fixed",
+      "generation": 1,
+      "individual": 1,
+      "skill_sha256": "eb6969a7819803d16420b12e8d3b1bce494b3d49bbc8b8d5ad6807b748138ef4",
+      "status": "pass",
+      "pass": true,
+      "source_sha256": "efec5aa1aa9e10a95ab45020cbcefe9e546ad49fd39e48b584f0f3230ca31641"
+    },
+    {
+      "rollout": "evolution.g1.i0.r0",
+      "arm": "evolution",
+      "generation": 1,
+      "individual": 0,
+      "skill_sha256": "eb6969a7819803d16420b12e8d3b1bce494b3d49bbc8b8d5ad6807b748138ef4",
+      "status": "pass",
+      "pass": true,
+      "source_sha256": "efec5aa1aa9e10a95ab45020cbcefe9e546ad49fd39e48b584f0f3230ca31641"
+    },
+    {
+      "type": "evaluated_survivor",
+      "arm": "fixed",
+      "generation": 1,
+      "individual": 1,
+      "skill_sha256": "eb6969a7819803d16420b12e8d3b1bce494b3d49bbc8b8d5ad6807b748138ef4",
+      "rule": "final real verifier pass; deterministic lowest-index tie-break"
+    },
+    {
+      "type": "evaluated_survivor",
+      "arm": "evolution",
+      "generation": 1,
+      "individual": 0,
+      "skill_sha256": "eb6969a7819803d16420b12e8d3b1bce494b3d49bbc8b8d5ad6807b748138ef4",
+      "rule": "final real verifier pass; deterministic lowest-index tie-break"
+    },
+    {
+      "rollout": "evolution.g2.i0.r0",
+      "arm": "evolution",
+      "generation": 2,
+      "individual": 0,
+      "skill_sha256": "eb6969a7819803d16420b12e8d3b1bce494b3d49bbc8b8d5ad6807b748138ef4",
+      "status": "pass",
+      "pass": true,
+      "source_sha256": "efec5aa1aa9e10a95ab45020cbcefe9e546ad49fd39e48b584f0f3230ca31641"
+    },
+    {
+      "rollout": "fixed.g2.i0.r0",
+      "arm": "fixed",
+      "generation": 2,
+      "individual": 0,
+      "skill_sha256": "eb6969a7819803d16420b12e8d3b1bce494b3d49bbc8b8d5ad6807b748138ef4",
+      "status": "functional_fail",
+      "pass": false,
+      "source_sha256": "8f2141f7db0516c118043cdad267c87197d0b7260d4596fd6009bb7218e61468"
+    },
+    {
+      "rollout": "fixed.g2.i1.r0",
+      "arm": "fixed",
+      "generation": 2,
+      "individual": 1,
+      "skill_sha256": "eb6969a7819803d16420b12e8d3b1bce494b3d49bbc8b8d5ad6807b748138ef4",
+      "status": "pass",
+      "pass": true,
+      "source_sha256": "efec5aa1aa9e10a95ab45020cbcefe9e546ad49fd39e48b584f0f3230ca31641"
+    },
+    {
+      "rollout": "evolution.g2.i1.r0",
+      "arm": "evolution",
+      "generation": 2,
+      "individual": 1,
+      "skill_sha256": "472d87b01d2444188f75a711e5b6abecc6de046c2bca40b7141e84334e97d35e",
+      "status": "pass",
+      "pass": true,
+      "source_sha256": "efec5aa1aa9e10a95ab45020cbcefe9e546ad49fd39e48b584f0f3230ca31641"
+    },
+    {
+      "type": "evaluated_survivor",
+      "arm": "fixed",
+      "generation": 2,
+      "individual": 1,
+      "skill_sha256": "eb6969a7819803d16420b12e8d3b1bce494b3d49bbc8b8d5ad6807b748138ef4",
+      "rule": "final real verifier pass; deterministic lowest-index tie-break"
+    },
+    {
+      "type": "evaluated_survivor",
+      "arm": "evolution",
+      "generation": 2,
+      "individual": 0,
+      "skill_sha256": "eb6969a7819803d16420b12e8d3b1bce494b3d49bbc8b8d5ad6807b748138ef4",
+      "rule": "final real verifier pass; deterministic lowest-index tie-break"
+    }
+  ],
+  "validated_skill_state": {
+    "fixed": [
+      {
+        "text": "Preserve the adder module ports. Implement unsigned addition with a carry bit. Use combinational RTL only. No directives or simulation-control tasks. Return only the requested artifact.",
+        "sha256": "eb6969a7819803d16420b12e8d3b1bce494b3d49bbc8b8d5ad6807b748138ef4"
+      },
+      {
+        "text": "Preserve the adder module ports. Implement unsigned addition with a carry bit. Use combinational RTL only. No directives or simulation-control tasks. Return only the requested artifact.",
+        "sha256": "eb6969a7819803d16420b12e8d3b1bce494b3d49bbc8b8d5ad6807b748138ef4"
+      }
+    ],
+    "evolution": [
+      {
+        "text": "Preserve the adder module ports. Implement unsigned addition with a carry bit. Use combinational RTL only. No directives or simulation-control tasks. Return only the requested artifact.",
+        "sha256": "eb6969a7819803d16420b12e8d3b1bce494b3d49bbc8b8d5ad6807b748138ef4"
+      },
+      {
+        "text": "Preserve the adder module ports. Implement unsigned addition with a carry bit. Use combinational RTL only. No directives or simulation-control tasks. Return only the requested artifact. Preserve both input operands and the full carry.",
+        "sha256": "472d87b01d2444188f75a711e5b6abecc6de046c2bca40b7141e84334e97d35e"
+      }
+    ]
+  },
+  "validated_lessons": {
+    "fixed": "Retain the carry bit, preserve ports, and verify addition rather than bitwise OR.",
+    "evolution": "Retain the carry bit, preserve ports, and verify addition rather than bitwise OR."
+  },
+  "verifiers": [
+    {
+      "rollout": "evolution.g1.i1.r0.attempt0",
+      "mode": "real_isolated_iverilog_public_fixture",
+      "status": "pass",
+      "pass": true,
+      "exit_code": 0,
+      "elapsed_seconds": 0.3111,
+      "source_sha256": "efec5aa1aa9e10a95ab45020cbcefe9e546ad49fd39e48b584f0f3230ca31641",
+      "output_sha256": "dd22ef0aa89d60fff5db2c3457f478d84b109a55f9dedeec0755fe6c39e675cd",
+      "image_id": "sha256:5ca5a8b42e0bd12da72852a33d5d50ef45de6e0e8949edcae6cd288d7608b509",
+      "network": "none",
+      "read_only_root": true,
+      "NR_KEY_in_worker": false
+    },
+    {
+      "rollout": "fixed.g1.i0.r0.attempt0",
+      "mode": "real_isolated_iverilog_public_fixture",
+      "status": "functional_fail",
+      "pass": false,
+      "exit_code": 1,
+      "elapsed_seconds": 0.327847,
+      "source_sha256": "8f2141f7db0516c118043cdad267c87197d0b7260d4596fd6009bb7218e61468",
+      "output_sha256": "b4cc08126fd710ac40ff35e25e1db1d2912f4616a44fc0982895071d09c747a8",
+      "image_id": "sha256:5ca5a8b42e0bd12da72852a33d5d50ef45de6e0e8949edcae6cd288d7608b509",
+      "network": "none",
+      "read_only_root": true,
+      "NR_KEY_in_worker": false
+    },
+    {
+      "rollout": "evolution.g1.i0.r0.attempt0",
+      "mode": "real_isolated_iverilog_public_fixture",
+      "status": "pass",
+      "pass": true,
+      "exit_code": 0,
+      "elapsed_seconds": 0.326785,
+      "source_sha256": "efec5aa1aa9e10a95ab45020cbcefe9e546ad49fd39e48b584f0f3230ca31641",
+      "output_sha256": "dd22ef0aa89d60fff5db2c3457f478d84b109a55f9dedeec0755fe6c39e675cd",
+      "image_id": "sha256:5ca5a8b42e0bd12da72852a33d5d50ef45de6e0e8949edcae6cd288d7608b509",
+      "network": "none",
+      "read_only_root": true,
+      "NR_KEY_in_worker": false
+    },
+    {
+      "rollout": "fixed.g1.i1.r0.attempt0",
+      "mode": "real_isolated_iverilog_public_fixture",
+      "status": "pass",
+      "pass": true,
+      "exit_code": 0,
+      "elapsed_seconds": 0.32953,
+      "source_sha256": "efec5aa1aa9e10a95ab45020cbcefe9e546ad49fd39e48b584f0f3230ca31641",
+      "output_sha256": "dd22ef0aa89d60fff5db2c3457f478d84b109a55f9dedeec0755fe6c39e675cd",
+      "image_id": "sha256:5ca5a8b42e0bd12da72852a33d5d50ef45de6e0e8949edcae6cd288d7608b509",
+      "network": "none",
+      "read_only_root": true,
+      "NR_KEY_in_worker": false
+    },
+    {
+      "rollout": "fixed.g2.i0.r0.attempt0",
+      "mode": "real_isolated_iverilog_public_fixture",
+      "status": "functional_fail",
+      "pass": false,
+      "exit_code": 1,
+      "elapsed_seconds": 0.291237,
+      "source_sha256": "8f2141f7db0516c118043cdad267c87197d0b7260d4596fd6009bb7218e61468",
+      "output_sha256": "b4cc08126fd710ac40ff35e25e1db1d2912f4616a44fc0982895071d09c747a8",
+      "image_id": "sha256:5ca5a8b42e0bd12da72852a33d5d50ef45de6e0e8949edcae6cd288d7608b509",
+      "network": "none",
+      "read_only_root": true,
+      "NR_KEY_in_worker": false
+    },
+    {
+      "rollout": "evolution.g2.i0.r0.attempt0",
+      "mode": "real_isolated_iverilog_public_fixture",
+      "status": "pass",
+      "pass": true,
+      "exit_code": 0,
+      "elapsed_seconds": 0.294675,
+      "source_sha256": "efec5aa1aa9e10a95ab45020cbcefe9e546ad49fd39e48b584f0f3230ca31641",
+      "output_sha256": "dd22ef0aa89d60fff5db2c3457f478d84b109a55f9dedeec0755fe6c39e675cd",
+      "image_id": "sha256:5ca5a8b42e0bd12da72852a33d5d50ef45de6e0e8949edcae6cd288d7608b509",
+      "network": "none",
+      "read_only_root": true,
+      "NR_KEY_in_worker": false
+    },
+    {
+      "rollout": "evolution.g2.i1.r0.attempt0",
+      "mode": "real_isolated_iverilog_public_fixture",
+      "status": "pass",
+      "pass": true,
+      "exit_code": 0,
+      "elapsed_seconds": 0.300048,
+      "source_sha256": "efec5aa1aa9e10a95ab45020cbcefe9e546ad49fd39e48b584f0f3230ca31641",
+      "output_sha256": "dd22ef0aa89d60fff5db2c3457f478d84b109a55f9dedeec0755fe6c39e675cd",
+      "image_id": "sha256:5ca5a8b42e0bd12da72852a33d5d50ef45de6e0e8949edcae6cd288d7608b509",
+      "network": "none",
+      "read_only_root": true,
+      "NR_KEY_in_worker": false
+    },
+    {
+      "rollout": "fixed.g2.i1.r0.attempt0",
+      "mode": "real_isolated_iverilog_public_fixture",
+      "status": "pass",
+      "pass": true,
+      "exit_code": 0,
+      "elapsed_seconds": 0.302519,
+      "source_sha256": "efec5aa1aa9e10a95ab45020cbcefe9e546ad49fd39e48b584f0f3230ca31641",
+      "output_sha256": "dd22ef0aa89d60fff5db2c3457f478d84b109a55f9dedeec0755fe6c39e675cd",
+      "image_id": "sha256:5ca5a8b42e0bd12da72852a33d5d50ef45de6e0e8949edcae6cd288d7608b509",
+      "network": "none",
+      "read_only_root": true,
+      "NR_KEY_in_worker": false
+    }
+  ],
+  "budget": {
+    "requests": 14,
+    "cumulative_admission_reservations": 86016,
+    "settled_known_plus_conservative_unknown_tokens": 1680,
+    "per_arm_reservations": {
+      "fixed": 43008,
+      "evolution": 43008
+    },
+    "active": 0,
+    "halted": false,
+    "provider_token_cap_proven": false,
+    "rows": [
+      {
+        "attempt_id": 0,
+        "arm": "fixed",
+        "purpose": "mutation",
+        "rollout": "initial_mutation",
+        "attempt": 1,
+        "started_utc": "2026-10-28T00:12:01.193171+00:00",
+        "reserved_tokens": 6144,
+        "input_estimate_tokens": 2546,
+        "counter": "utf8-byte-plus2048 ESTIMATE; not a proven provider token bound",
+        "charged_tokens": 120,
+        "usage_known": true,
+        "status": "success",
+        "mode": "offline_mock_chat",
+        "usage": {
+          "prompt_tokens": 80,
+          "completion_tokens": 40,
+          "total_tokens": 120
+        },
+        "http_status": 200,
+        "elapsed_seconds": 1.3e-05
+      },
+      {
+        "attempt_id": 1,
+        "arm": "evolution",
+        "purpose": "mutation",
+        "rollout": "initial_mutation",
+        "attempt": 1,
+        "started_utc": "2026-10-28T00:12:01.193838+00:00",
+        "reserved_tokens": 6144,
+        "input_estimate_tokens": 2546,
+        "counter": "utf8-byte-plus2048 ESTIMATE; not a proven provider token bound",
+        "charged_tokens": 120,
+        "usage_known": true,
+        "status": "success",
+        "mode": "offline_mock_chat",
+        "usage": {
+          "prompt_tokens": 80,
+          "completion_tokens": 40,
+          "total_tokens": 120
+        },
+        "http_status": 200,
+        "elapsed_seconds": 1.1e-05
+      },
+      {
+        "attempt_id": 2,
+        "arm": "fixed",
+        "purpose": "generation",
+        "rollout": "fixed.g1.i0.r0",
+        "attempt": 1,
+        "started_utc": "2026-10-28T00:12:01.196344+00:00",
+        "reserved_tokens": 6144,
+        "input_estimate_tokens": 2974,
+        "counter": "utf8-byte-plus2048 ESTIMATE; not a proven provider token bound",
+        "charged_tokens": 120,
+        "usage_known": true,
+        "status": "success",
+        "mode": "offline_mock_chat",
+        "usage": {
+          "prompt_tokens": 80,
+          "completion_tokens": 40,
+          "total_tokens": 120
+        },
+        "http_status": 200,
+        "elapsed_seconds": 1e-05
+      },
+      {
+        "attempt_id": 3,
+        "arm": "fixed",
+        "purpose": "generation",
+        "rollout": "fixed.g1.i1.r0",
+        "attempt": 1,
+        "started_utc": "2026-10-28T00:12:01.196757+00:00",
+        "reserved_tokens": 6144,
+        "input_estimate_tokens": 2974,
+        "counter": "utf8-byte-plus2048 ESTIMATE; not a proven provider token bound",
+        "charged_tokens": 120,
+        "usage_known": true,
+        "status": "success",
+        "mode": "offline_mock_chat",
+        "usage": {
+          "prompt_tokens": 80,
+          "completion_tokens": 40,
+          "total_tokens": 120
+        },
+        "http_status": 200,
+        "elapsed_seconds": 9e-06
+      },
+      {
+        "attempt_id": 4,
+        "arm": "evolution",
+        "purpose": "generation",
+        "rollout": "evolution.g1.i0.r0",
+        "attempt": 1,
+        "started_utc": "2026-10-28T00:12:01.197617+00:00",
+        "reserved_tokens": 6144,
+        "input_estimate_tokens": 2974,
+        "counter": "utf8-byte-plus2048 ESTIMATE; not a proven provider token bound",
+        "charged_tokens": 120,
+        "usage_known": true,
+        "status": "success",
+        "mode": "offline_mock_chat",
+        "usage": {
+          "prompt_tokens": 80,
+          "completion_tokens": 40,
+          "total_tokens": 120
+        },
+        "http_status": 200,
+        "elapsed_seconds": 8e-06
+      },
+      {
+        "attempt_id": 5,
+        "arm": "evolution",
+        "purpose": "generation",
+        "rollout": "evolution.g1.i1.r0",
+        "attempt": 1,
+        "started_utc": "2026-10-28T00:12:01.198163+00:00",
+        "reserved_tokens": 6144,
+        "input_estimate_tokens": 3023,
+        "counter": "utf8-byte-plus2048 ESTIMATE; not a proven provider token bound",
+        "charged_tokens": 120,
+        "usage_known": true,
+        "status": "success",
+        "mode": "offline_mock_chat",
+        "usage": {
+          "prompt_tokens": 80,
+          "completion_tokens": 40,
+          "total_tokens": 120
+        },
+        "http_status": 200,
+        "elapsed_seconds": 1e-05
+      },
+      {
+        "attempt_id": 6,
+        "arm": "fixed",
+        "purpose": "reflection",
+        "rollout": "g1_reflection",
+        "attempt": 1,
+        "started_utc": "2026-10-28T00:12:01.551668+00:00",
+        "reserved_tokens": 6144,
+        "input_estimate_tokens": 2694,
+        "counter": "utf8-byte-plus2048 ESTIMATE; not a proven provider token bound",
+        "charged_tokens": 120,
+        "usage_known": true,
+        "status": "success",
+        "mode": "offline_mock_chat",
+        "usage": {
+          "prompt_tokens": 80,
+          "completion_tokens": 40,
+          "total_tokens": 120
+        },
+        "http_status": 200,
+        "elapsed_seconds": 1.4e-05
+      },
+      {
+        "attempt_id": 7,
+        "arm": "fixed",
+        "purpose": "mutation",
+        "rollout": "g2_child",
+        "attempt": 1,
+        "started_utc": "2026-10-28T00:12:01.552110+00:00",
+        "reserved_tokens": 6144,
+        "input_estimate_tokens": 2660,
+        "counter": "utf8-byte-plus2048 ESTIMATE; not a proven provider token bound",
+        "charged_tokens": 120,
+        "usage_known": true,
+        "status": "success",
+        "mode": "offline_mock_chat",
+        "usage": {
+          "prompt_tokens": 80,
+          "completion_tokens": 40,
+          "total_tokens": 120
+        },
+        "http_status": 200,
+        "elapsed_seconds": 8e-06
+      },
+      {
+        "attempt_id": 8,
+        "arm": "evolution",
+        "purpose": "reflection",
+        "rollout": "g1_reflection",
+        "attempt": 1,
+        "started_utc": "2026-10-28T00:12:01.552769+00:00",
+        "reserved_tokens": 6144,
+        "input_estimate_tokens": 2682,
+        "counter": "utf8-byte-plus2048 ESTIMATE; not a proven provider token bound",
+        "charged_tokens": 120,
+        "usage_known": true,
+        "status": "success",
+        "mode": "offline_mock_chat",
+        "usage": {
+          "prompt_tokens": 80,
+          "completion_tokens": 40,
+          "total_tokens": 120
+        },
+        "http_status": 200,
+        "elapsed_seconds": 1.3e-05
+      },
+      {
+        "attempt_id": 9,
+        "arm": "evolution",
+        "purpose": "mutation",
+        "rollout": "g2_child",
+        "attempt": 1,
+        "started_utc": "2026-10-28T00:12:01.553563+00:00",
+        "reserved_tokens": 6144,
+        "input_estimate_tokens": 2660,
+        "counter": "utf8-byte-plus2048 ESTIMATE; not a proven provider token bound",
+        "charged_tokens": 120,
+        "usage_known": true,
+        "status": "success",
+        "mode": "offline_mock_chat",
+        "usage": {
+          "prompt_tokens": 80,
+          "completion_tokens": 40,
+          "total_tokens": 120
+        },
+        "http_status": 200,
+        "elapsed_seconds": 8e-06
+      },
+      {
+        "attempt_id": 10,
+        "arm": "fixed",
+        "purpose": "generation",
+        "rollout": "fixed.g2.i0.r0",
+        "attempt": 1,
+        "started_utc": "2026-10-28T00:12:01.554967+00:00",
+        "reserved_tokens": 6144,
+        "input_estimate_tokens": 2974,
+        "counter": "utf8-byte-plus2048 ESTIMATE; not a proven provider token bound",
+        "charged_tokens": 120,
+        "usage_known": true,
+        "status": "success",
+        "mode": "offline_mock_chat",
+        "usage": {
+          "prompt_tokens": 80,
+          "completion_tokens": 40,
+          "total_tokens": 120
+        },
+        "http_status": 200,
+        "elapsed_seconds": 9e-06
+      },
+      {
+        "attempt_id": 11,
+        "arm": "fixed",
+        "purpose": "generation",
+        "rollout": "fixed.g2.i1.r0",
+        "attempt": 1,
+        "started_utc": "2026-10-28T00:12:01.555400+00:00",
+        "reserved_tokens": 6144,
+        "input_estimate_tokens": 2974,
+        "counter": "utf8-byte-plus2048 ESTIMATE; not a proven provider token bound",
+        "charged_tokens": 120,
+        "usage_known": true,
+        "status": "success",
+        "mode": "offline_mock_chat",
+        "usage": {
+          "prompt_tokens": 80,
+          "completion_tokens": 40,
+          "total_tokens": 120
+        },
+        "http_status": 200,
+        "elapsed_seconds": 1e-05
+      },
+      {
+        "attempt_id": 12,
+        "arm": "evolution",
+        "purpose": "generation",
+        "rollout": "evolution.g2.i0.r0",
+        "attempt": 1,
+        "started_utc": "2026-10-28T00:12:01.555652+00:00",
+        "reserved_tokens": 6144,
+        "input_estimate_tokens": 2974,
+        "counter": "utf8-byte-plus2048 ESTIMATE; not a proven provider token bound",
+        "charged_tokens": 120,
+        "usage_known": true,
+        "status": "success",
+        "mode": "offline_mock_chat",
+        "usage": {
+          "prompt_tokens": 80,
+          "completion_tokens": 40,
+          "total_tokens": 120
+        },
+        "http_status": 200,
+        "elapsed_seconds": 9e-06
+      },
+      {
+        "attempt_id": 13,
+        "arm": "evolution",
+        "purpose": "generation",
+        "rollout": "evolution.g2.i1.r0",
+        "attempt": 1,
+        "started_utc": "2026-10-28T00:12:01.557229+00:00",
+        "reserved_tokens": 6144,
+        "input_estimate_tokens": 3023,
+        "counter": "utf8-byte-plus2048 ESTIMATE; not a proven provider token bound",
+        "charged_tokens": 120,
+        "usage_known": true,
+        "status": "success",
+        "mode": "offline_mock_chat",
+        "usage": {
+          "prompt_tokens": 80,
+          "completion_tokens": 40,
+          "total_tokens": 120
+        },
+        "http_status": 200,
+        "elapsed_seconds": 8e-06
+      }
+    ]
+  },
+  "matching": "same 50k reservation cap per arm, same nominal role slots; fixed shadow-updates discarded; realized tokens/retries may differ",
+  "test_interpretation": "Chat outputs and usage are synthetic protocol fixtures; every listed verifier is an actual isolated Icarus execution. No model-performance or evolution advantage conclusion."
+}

@@ -1,0 +1,128 @@
+{
+  "scope": "public adder infrastructure fixture; NOT CVDP; no method-advantage inference",
+  "chat_mode": "offline_mock_chat_repair_test",
+  "real_model_requests": 0,
+  "admitted_chat_attempts": 2,
+  "mock_chat_attempts": 2,
+  "real_verifier_executions": 2,
+  "events": [
+    {
+      "type": "response_artifact",
+      "purpose": "generation",
+      "arm": "evolution",
+      "rollout": "evolution.g1.i0.r0",
+      "response_sha256": "02e1bb154d3840cafd8ef14095f2c087db929dff04bc096f01f36ceff36e4b80"
+    },
+    {
+      "type": "response_artifact",
+      "purpose": "repair",
+      "arm": "evolution",
+      "rollout": "evolution.g1.i0.r0",
+      "response_sha256": "548145122ee6d111876fac4214d67f6f0d4dd12ab7928579c034d2c09dd21ea6"
+    },
+    {
+      "rollout": "evolution.g1.i0.r0",
+      "arm": "evolution",
+      "generation": 1,
+      "individual": 0,
+      "skill_sha256": "eb6969a7819803d16420b12e8d3b1bce494b3d49bbc8b8d5ad6807b748138ef4",
+      "status": "pass",
+      "pass": true,
+      "source_sha256": "efec5aa1aa9e10a95ab45020cbcefe9e546ad49fd39e48b584f0f3230ca31641"
+    }
+  ],
+  "validated_skill_state": {},
+  "validated_lessons": {},
+  "verifiers": [
+    {
+      "rollout": "evolution.g1.i0.r0.attempt0",
+      "mode": "real_isolated_iverilog_public_fixture",
+      "status": "functional_fail",
+      "pass": false,
+      "exit_code": 1,
+      "elapsed_seconds": 0.197564,
+      "source_sha256": "8f2141f7db0516c118043cdad267c87197d0b7260d4596fd6009bb7218e61468",
+      "output_sha256": "b4cc08126fd710ac40ff35e25e1db1d2912f4616a44fc0982895071d09c747a8",
+      "image_id": "sha256:5ca5a8b42e0bd12da72852a33d5d50ef45de6e0e8949edcae6cd288d7608b509",
+      "network": "none",
+      "read_only_root": true,
+      "NR_KEY_in_worker": false
+    },
+    {
+      "rollout": "evolution.g1.i0.r0.attempt1",
+      "mode": "real_isolated_iverilog_public_fixture",
+      "status": "pass",
+      "pass": true,
+      "exit_code": 0,
+      "elapsed_seconds": 0.184221,
+      "source_sha256": "efec5aa1aa9e10a95ab45020cbcefe9e546ad49fd39e48b584f0f3230ca31641",
+      "output_sha256": "dd22ef0aa89d60fff5db2c3457f478d84b109a55f9dedeec0755fe6c39e675cd",
+      "image_id": "sha256:5ca5a8b42e0bd12da72852a33d5d50ef45de6e0e8949edcae6cd288d7608b509",
+      "network": "none",
+      "read_only_root": true,
+      "NR_KEY_in_worker": false
+    }
+  ],
+  "budget": {
+    "requests": 2,
+    "cumulative_admission_reservations": 12288,
+    "settled_known_plus_conservative_unknown_tokens": 240,
+    "per_arm_reservations": {
+      "fixed": 0,
+      "evolution": 12288
+    },
+    "active": 0,
+    "halted": false,
+    "provider_token_cap_proven": false,
+    "rows": [
+      {
+        "attempt_id": 0,
+        "payload_sha256": "17ae06ebfa64c39bd1090ba38b494f5bc9ab537884a75a9c37012151b398d761",
+        "arm": "evolution",
+        "purpose": "generation",
+        "rollout": "evolution.g1.i0.r0",
+        "attempt": 1,
+        "started_utc": "2026-10-28T00:14:56.981067+00:00",
+        "reserved_tokens": 6144,
+        "input_estimate_tokens": 2974,
+        "counter": "utf8-byte-plus2048 ESTIMATE; not a proven provider token bound",
+        "charged_tokens": 120,
+        "usage_known": true,
+        "status": "success",
+        "mode": "offline_mock_chat_repair_test",
+        "usage": {
+          "prompt_tokens": 80,
+          "completion_tokens": 40,
+          "total_tokens": 120
+        },
+        "http_status": 200,
+        "elapsed_seconds": 0.000304
+      },
+      {
+        "attempt_id": 1,
+        "payload_sha256": "5dba804179d45b5aba404f9aef3f23cef89f772700bf0d076bd0d646a0f1d48a",
+        "arm": "evolution",
+        "purpose": "repair",
+        "rollout": "evolution.g1.i0.r0",
+        "attempt": 1,
+        "started_utc": "2026-10-28T00:14:57.197600+00:00",
+        "reserved_tokens": 6144,
+        "input_estimate_tokens": 3118,
+        "counter": "utf8-byte-plus2048 ESTIMATE; not a proven provider token bound",
+        "charged_tokens": 120,
+        "usage_known": true,
+        "status": "success",
+        "mode": "offline_mock_chat_repair_test",
+        "usage": {
+          "prompt_tokens": 80,
+          "completion_tokens": 40,
+          "total_tokens": 120
+        },
+        "http_status": 200,
+        "elapsed_seconds": 0.000232
+      }
+    ]
+  },
+  "matching": "same 50k reservation cap per arm, same nominal role slots; fixed shadow-updates discarded; realized tokens/retries may differ",
+  "test_interpretation": "Synthetic Chat responses, actual isolated verifier; targeted bounded repair plumbing test, no model performance claim."
+}

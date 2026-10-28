@@ -1,5 +1,6 @@
 # 第二轮：Northern Relay 免费资源的无凭证准备
 
+**当前可执行入口与最终接线状态见 [EXECUTION_GUIDE.md](EXECUTION_GUIDE.md)。此前“transport/接线未完成”和仅4次仿真是历史阶段记录，现已完成并累计14次真实fixture仿真。**
 **后续自主补环境的最新状态以 [READINESS_UPDATE.md](READINESS_UPDATE.md) 为准：Icarus与隔离真实smoke已准备，下面的缺工具段落保留为历史记录。**
 
 **状态：准备与离线接口测试完成；真实模型请求0，真实RTL/verifier执行0。** 本版本 `LIVE_ENABLED=False`，没有实现真实HTTP transport、没有启动server，也不提供绕过此锁的CLI。所有 mock 只验证接口与策略，不是live复现。

@@ -38,6 +38,15 @@ def check():
         report['alternate_real_rtl_fixture']['smoke_status']='actual host and isolated Docker controls passed; see recorded hashes/times'
         report['blockers']=[b for b in report['blockers'] if 'no simulator executable' not in b]
         report['readiness']='INFRASTRUCTURE_SMOKE_READY; LIVE_AND_CVDP_NOT_READY'
+    runtime=P/'pilot/run_canary.py'
+    if runtime.is_file() and (P/'metrics/end_to_end_fixture.json').is_file():
+        report['standalone_chat_skill_verifier_wiring']='implemented; mock Chat + real isolated verification tested'
+        report['entrypoint']='python3 pilot/run_canary.py --live --approval /workspace/private/nr-canary-approval.json --out runs/nr-fixture-canary'
+        report['token_meter']='conservative byte/template estimate; usage settlement; provider hard token bound NOT proven'
+        report['remaining_before_fixture_live']=['parent confirms secret injection and domain authorization, then explicit single-use activation']
+        report['remaining_before_original_scientific_run']=['original pinned CVDP material still HTTP403; no bypass; use recovered framework or separately documented task adaptation']
+        report['blockers']=['NR_KEY injection/domain/parent activation pending for live','original CVDP403 blocks original scientific task, not the public infrastructure fixture']
+        report['readiness']='OFFLINE_WIRING_COMPLETE; AWAIT_PARENT_CONNECTION_AND_ACTIVATION'
     (P/'metrics/pilot_preflight.json').write_text(json.dumps(report,indent=2)+'\n')
     print(json.dumps(report,indent=2))
     return report
