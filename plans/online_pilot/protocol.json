@@ -1,0 +1,114 @@
+{
+  "status": "LOCAL_FROZEN_MECHANICS; provider binding and transmission BLOCKED",
+  "parent_commit": "cf6b2eca53ea03220377e78d286b9825bca186ac",
+  "v3_archive": {
+    "path": "/workspace/deliverables/aspen-mlcad2025-review.zip",
+    "sha256": "b0de4a3f4176b23c351226e67ccde6a116344e7e11d77ab94d242e79a504d179",
+    "preserve_unchanged": true
+  },
+  "cases": [
+    {
+      "alias": "case_A",
+      "fixture": "appendix_mcm71931",
+      "width": 12
+    },
+    {
+      "alias": "case_B",
+      "fixture": "mcm593",
+      "width": 16
+    }
+  ],
+  "arms": [
+    "online_cost_action",
+    "verified_structural_openloop"
+  ],
+  "matched": {
+    "frozen_graph": true,
+    "same_existing_rule_pool": true,
+    "initial_costs": "operator1/leaf0",
+    "novelty": "existing bounded e-node exclusion; no arm-internal repeated tagged RTL",
+    "synthesis_calls_per_arm": 6,
+    "rtl_sat_calls_per_arm": 6,
+    "reference_in_budget": true,
+    "future_total_synthesis": 24,
+    "future_total_rtl_sat": 24,
+    "cache": false
+  },
+  "future_model_budget": {
+    "current_authorized_calls": 0,
+    "current_authorized_transmissions": 0,
+    "proposed_max_calls_if_later_authorized": 10,
+    "actions_after_queries": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "no_terminal_action": true,
+    "max_output_tokens_per_call": 128,
+    "retries": 0,
+    "invalid_or_missing_action": "stop arm; record failure; do not silently repair or refill quota"
+  },
+  "binding": {
+    "endpoint": null,
+    "provider": null,
+    "model": null,
+    "verified_free_quota": null,
+    "credential_source": "not read, persisted or included; parent generic authentication test is separate"
+  },
+  "controller": {
+    "online": "strict JSON one bounded action among selected nodes; persistent state; accepted snapshots; no generated proof/code execution",
+    "openloop": "existing structural_node, +3 only, no response/history input",
+    "cost_floor": 0.25,
+    "cost_ceiling": 64,
+    "rule_proposal": "disabled; published existing replay pool fixed",
+    "rule_selection": "fixed; model controls costs only",
+    "attribution": "existing deterministic named-wire cone allocation; not LLM netlist attribution"
+  },
+  "stopping": {
+    "max_one_seed": 0,
+    "fixtures": 2,
+    "coverage": "cell>=0.6 and named operator>=0.8; terminate failed arm, no fixture replacement in this pilot",
+    "no_use_of_private_inputs": true,
+    "no_unbounded_sweeps": true
+  },
+  "evaluation": {
+    "primary": "same external best generic gates over actual queries incl reference, paired depth/pointIDs retained",
+    "algorithm_output": "last emitted candidate separately; do not let openloop use response to select returned RTL",
+    "report": [
+      "unique RTL and metric pairs",
+      "duplicate/cross-arm overlap",
+      "actual EDA/SAT/model calls including failures",
+      "all time: graph/features/attribution/model/controller/novelty/EDA",
+      "API input/output tokens and known price, unknown explicitly unknown",
+      "rollback next-candidate causal trace"
+    ],
+    "claims": "No original commercial PPA or complete ASPEN/LLM-attribution claim"
+  },
+  "execution_now": {
+    "model_calls": 0,
+    "new_synthesis_calls": 0,
+    "new_rtl_sat_calls": 0,
+    "paid_cost_usd": 0,
+    "repository_data_transmissions": 0,
+    "local_preparation_seconds": 0.011796332999438164
+  },
+  "source_hash_allowlist": {
+    "appendix_mcm71931": [
+      "8f5403a33ff924d76312491fa781485cf6ddc8c674d8d80e7bbc5fbeec8bdaaf",
+      "f9def5799bd6b05de3ccaa81f4683e41c6d1c2375ea0c36f47c6de341625bd91"
+    ],
+    "mcm593": [
+      "457cf81f30ad4a526c057811df7dece74ece226a5ea2b60c0467b6978985e261",
+      "2e620056dd92acd348c7d5432016b2844b9ecfcf032b4d8c651c07701944f5a2"
+    ]
+  },
+  "provenance_boundary": "Anonymizing a private graph does not make it public; only these exact reviewed synthetic graphs and their own verified synthetic observations are allowed. Provider/auth HTTP envelope is not yet specified or authorized.",
+  "exact_blockers": [
+    "No provider/endpoint/model/free quota binding verified here",
+    "No model-call or data-transmission allocation; pasted credential alone is not free-quota evidence",
+    "No network adapter implemented; dry-run preparer has no transport",
+    "Future observed values not yet available: only example q0 bytes frozen; dynamic schema/provenance frozen"
+  ]
+}

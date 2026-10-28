@@ -1,0 +1,557 @@
+{
+  "schema": "cost-action-v1",
+  "case": "case_A",
+  "width": 12,
+  "semantics": "All values and intermediates unsigned modulo 2^W; nonnegative integer shift counts; no X/Z or sequential state.",
+  "graph": {
+    "nodes": [
+      {
+        "id": "n000",
+        "eclass": "e012",
+        "op": "Add",
+        "children": [
+          "n003",
+          "n005"
+        ]
+      },
+      {
+        "id": "n001",
+        "eclass": "e012",
+        "op": "Mul",
+        "children": [
+          "n002",
+          "n005"
+        ]
+      },
+      {
+        "id": "n002",
+        "eclass": "e000",
+        "op": "Num",
+        "children": [
+          "n052"
+        ]
+      },
+      {
+        "id": "n003",
+        "eclass": "e005",
+        "op": "Shl",
+        "children": [
+          "n023",
+          "n044"
+        ]
+      },
+      {
+        "id": "n004",
+        "eclass": "e012",
+        "op": "Sub",
+        "children": [
+          "n014",
+          "n005"
+        ]
+      },
+      {
+        "id": "n005",
+        "eclass": "e001",
+        "op": "Var",
+        "children": [
+          "n043"
+        ]
+      },
+      {
+        "id": "n006",
+        "eclass": "e019",
+        "op": "Add",
+        "children": [
+          "n009",
+          "n035"
+        ]
+      },
+      {
+        "id": "n007",
+        "eclass": "e019",
+        "op": "Mul",
+        "children": [
+          "n008",
+          "n035"
+        ]
+      },
+      {
+        "id": "n008",
+        "eclass": "e018",
+        "op": "Num",
+        "children": [
+          "n046"
+        ]
+      },
+      {
+        "id": "n009",
+        "eclass": "e006",
+        "op": "Shl",
+        "children": [
+          "n024",
+          "n044"
+        ]
+      },
+      {
+        "id": "n010",
+        "eclass": "e021",
+        "op": "Sub",
+        "children": [
+          "n026",
+          "n035"
+        ]
+      },
+      {
+        "id": "n011",
+        "eclass": "e015",
+        "op": "Mul",
+        "children": [
+          "n039",
+          "n041"
+        ]
+      },
+      {
+        "id": "n012",
+        "eclass": "e015",
+        "op": "Shl",
+        "children": [
+          "n013",
+          "n044"
+        ]
+      },
+      {
+        "id": "n013",
+        "eclass": "e011",
+        "op": "Mul",
+        "children": [
+          "n033",
+          "n034"
+        ]
+      },
+      {
+        "id": "n014",
+        "eclass": "e008",
+        "op": "Shl",
+        "children": [
+          "n034",
+          "n047"
+        ]
+      },
+      {
+        "id": "n015",
+        "eclass": "e021",
+        "op": "Add",
+        "children": [
+          "n018",
+          "n005"
+        ]
+      },
+      {
+        "id": "n016",
+        "eclass": "e021",
+        "op": "Mul",
+        "children": [
+          "n017",
+          "n005"
+        ]
+      },
+      {
+        "id": "n017",
+        "eclass": "e020",
+        "op": "Num",
+        "children": [
+          "n049"
+        ]
+      },
+      {
+        "id": "n018",
+        "eclass": "e007",
+        "op": "Shl",
+        "children": [
+          "n028",
+          "n044"
+        ]
+      },
+      {
+        "id": "n019",
+        "eclass": "e004",
+        "op": "Add",
+        "children": [
+          "n037",
+          "n035"
+        ]
+      },
+      {
+        "id": "n020",
+        "eclass": "e002",
+        "op": "Mul",
+        "children": [
+          "n021",
+          "n035"
+        ]
+      },
+      {
+        "id": "n021",
+        "eclass": "e022",
+        "op": "Num",
+        "children": [
+          "n048"
+        ]
+      },
+      {
+        "id": "n022",
+        "eclass": "e008",
+        "op": "Shl",
+        "children": [
+          "n005",
+          "n048"
+        ]
+      },
+      {
+        "id": "n023",
+        "eclass": "e002",
+        "op": "Add",
+        "children": [
+          "n013",
+          "n005"
+        ]
+      },
+      {
+        "id": "n024",
+        "eclass": "e003",
+        "op": "Mul",
+        "children": [
+          "n025",
+          "n005"
+        ]
+      },
+      {
+        "id": "n025",
+        "eclass": "e023",
+        "op": "Num",
+        "children": [
+          "n053"
+        ]
+      },
+      {
+        "id": "n026",
+        "eclass": "e009",
+        "op": "Shl",
+        "children": [
+          "n035",
+          "n051"
+        ]
+      },
+      {
+        "id": "n027",
+        "eclass": "e019",
+        "op": "Add",
+        "children": [
+          "n030",
+          "n023"
+        ]
+      },
+      {
+        "id": "n028",
+        "eclass": "e004",
+        "op": "Mul",
+        "children": [
+          "n029",
+          "n035"
+        ]
+      },
+      {
+        "id": "n029",
+        "eclass": "e024",
+        "op": "Num",
+        "children": [
+          "n045"
+        ]
+      },
+      {
+        "id": "n030",
+        "eclass": "e010",
+        "op": "Shl",
+        "children": [
+          "n005",
+          "n050"
+        ]
+      },
+      {
+        "id": "n031",
+        "eclass": "e003",
+        "op": "Add",
+        "children": [
+          "n042",
+          "n035"
+        ]
+      },
+      {
+        "id": "n032",
+        "eclass": "e015",
+        "op": "Mul",
+        "children": [
+          "n036",
+          "n005"
+        ]
+      },
+      {
+        "id": "n033",
+        "eclass": "e013",
+        "op": "Num",
+        "children": [
+          "n044"
+        ]
+      },
+      {
+        "id": "n034",
+        "eclass": "e011",
+        "op": "Shl",
+        "children": [
+          "n035",
+          "n044"
+        ]
+      },
+      {
+        "id": "n035",
+        "eclass": "e001",
+        "op": "Mul",
+        "children": [
+          "n033",
+          "n005"
+        ]
+      },
+      {
+        "id": "n036",
+        "eclass": "e014",
+        "op": "Num",
+        "children": [
+          "n050"
+        ]
+      },
+      {
+        "id": "n037",
+        "eclass": "e016",
+        "op": "Shl",
+        "children": [
+          "n004",
+          "n044"
+        ]
+      },
+      {
+        "id": "n038",
+        "eclass": "e015",
+        "op": "Mul",
+        "children": [
+          "n033",
+          "n040"
+        ]
+      },
+      {
+        "id": "n039",
+        "eclass": "e017",
+        "op": "Num",
+        "children": [
+          "n047"
+        ]
+      },
+      {
+        "id": "n040",
+        "eclass": "e015",
+        "op": "Shl",
+        "children": [
+          "n005",
+          "n047"
+        ]
+      },
+      {
+        "id": "n041",
+        "eclass": "e011",
+        "op": "Mul",
+        "children": [
+          "n039",
+          "n035"
+        ]
+      },
+      {
+        "id": "n042",
+        "eclass": "e008",
+        "op": "Shl",
+        "children": [
+          "n038",
+          "n044"
+        ]
+      },
+      {
+        "id": "n043",
+        "eclass": "e025",
+        "op": "LiteralVar",
+        "children": [],
+        "value": "x"
+      },
+      {
+        "id": "n044",
+        "eclass": "e026",
+        "op": "LiteralInt",
+        "children": [],
+        "value": 1
+      },
+      {
+        "id": "n045",
+        "eclass": "e027",
+        "op": "LiteralInt",
+        "children": [],
+        "value": 15
+      },
+      {
+        "id": "n046",
+        "eclass": "e028",
+        "op": "LiteralInt",
+        "children": [],
+        "value": 19
+      },
+      {
+        "id": "n047",
+        "eclass": "e029",
+        "op": "LiteralInt",
+        "children": [],
+        "value": 2
+      },
+      {
+        "id": "n048",
+        "eclass": "e030",
+        "op": "LiteralInt",
+        "children": [],
+        "value": 3
+      },
+      {
+        "id": "n049",
+        "eclass": "e031",
+        "op": "LiteralInt",
+        "children": [],
+        "value": 31
+      },
+      {
+        "id": "n050",
+        "eclass": "e032",
+        "op": "LiteralInt",
+        "children": [],
+        "value": 4
+      },
+      {
+        "id": "n051",
+        "eclass": "e033",
+        "op": "LiteralInt",
+        "children": [],
+        "value": 5
+      },
+      {
+        "id": "n052",
+        "eclass": "e034",
+        "op": "LiteralInt",
+        "children": [],
+        "value": 7
+      },
+      {
+        "id": "n053",
+        "eclass": "e035",
+        "op": "LiteralInt",
+        "children": [],
+        "value": 9
+      }
+    ],
+    "roots": [
+      "e012",
+      "e019",
+      "e021"
+    ]
+  },
+  "selected_nodes": [
+    "n001",
+    "n007",
+    "n016"
+  ],
+  "node_costs": {
+    "n052": 0.0,
+    "n002": 0.0,
+    "n046": 0.0,
+    "n008": 0.0,
+    "n049": 0.0,
+    "n017": 0.0,
+    "n048": 0.0,
+    "n021": 0.0,
+    "n053": 0.0,
+    "n025": 0.0,
+    "n045": 0.0,
+    "n029": 0.0,
+    "n044": 0.0,
+    "n033": 0.0,
+    "n050": 0.0,
+    "n036": 0.0,
+    "n047": 0.0,
+    "n039": 0.0,
+    "n043": 0.0,
+    "n005": 0.0,
+    "n000": 1.0,
+    "n006": 1.0,
+    "n015": 1.0,
+    "n019": 1.0,
+    "n023": 1.0,
+    "n027": 1.0,
+    "n031": 1.0,
+    "n004": 1.0,
+    "n010": 1.0,
+    "n001": 1.0,
+    "n007": 1.0,
+    "n016": 1.0,
+    "n020": 1.0,
+    "n024": 1.0,
+    "n028": 1.0,
+    "n032": 1.0,
+    "n035": 1.0,
+    "n038": 1.0,
+    "n041": 1.0,
+    "n011": 1.0,
+    "n013": 1.0,
+    "n003": 1.0,
+    "n009": 1.0,
+    "n018": 1.0,
+    "n022": 1.0,
+    "n051": 0.0,
+    "n026": 1.0,
+    "n030": 1.0,
+    "n034": 1.0,
+    "n037": 1.0,
+    "n040": 1.0,
+    "n042": 1.0,
+    "n012": 1.0,
+    "n014": 1.0
+  },
+  "attributed_cells": {
+    "n001": 67.49999999999999,
+    "n007": 104.99999999999996,
+    "n016": 134.5
+  },
+  "observations": [
+    {
+      "query": 0,
+      "generic_gates": 307,
+      "generic_depth": 19
+    }
+  ],
+  "action_space": {
+    "kind": "choose_one",
+    "choices": [
+      "increase_selected_node_by_3",
+      "decrease_selected_node_by_3_floor_0.25",
+      "restore_last_accepted_cost_snapshot"
+    ],
+    "max_cost": 64,
+    "reply_keys": [
+      "action",
+      "node"
+    ],
+    "extra_keys_forbidden": true
+  },
+  "goal": "Minimize generic gate count. Choose one bounded cost action for the next extraction. No code generation. Depth is secondary reporting, not physical delay."
+}

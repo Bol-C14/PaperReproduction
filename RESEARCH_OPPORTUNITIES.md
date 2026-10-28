@@ -1,5 +1,7 @@
 # Research opportunities and falsification pilots
 
+> 后续在线pilot仅完成本地协议/来源冻结，见plans/online_pilot/。没有新模型请求、数据发送或EDA；不是新实验结果。v3 ZIP保留不变。
+
 ## 最新有界机制轮次：归因/双向cost/后继rollback已补齐，但无稳定优势
 
 详见ATTRIBUTION_ROUND.md、configs/attribution_round.json和全部新日志results/attribution_round、logs/attribution_round。先检查原环境可恢复（egglog/Z3、5CPU、约17GiB），无LLM API、新安装或付费。只在预设64次综合硬上限内推进：4次pilot、48次完整对照、5次被裁剪FIR，共57 synthesis+57生成RTL-to-reference SAT；114条真实EDA ledger、工具失败0。此前941条另计，全任务可审计计数1055。
