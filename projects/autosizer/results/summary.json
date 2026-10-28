@@ -1,0 +1,163 @@
+{
+  "stage": "preflight_not_mechanism_reproduction",
+  "simulation_attempts": 6,
+  "upstream_commit": "1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1",
+  "protocol_commit": "beffdd177abc73392ba9bd6f51162ccf28fe7075",
+  "llm_calls": 0,
+  "optimizer_run": false,
+  "specifications_changed": false,
+  "models_fitted_or_replaced": false,
+  "nominal_cases": [
+    {
+      "attempt": 1,
+      "circuit": "inverter",
+      "variant": "original",
+      "diagnostic": false,
+      "metrics": {
+        "dc_gain_db": 23.81905,
+        "average_delay": 18.416349999999998,
+        "dynamic_power": 66.28517000000001
+      },
+      "normalized_fom": 2.4390152433256946,
+      "yaml_fom": 0.019512121946605558,
+      "status": "valid_infeasible"
+    },
+    {
+      "attempt": 2,
+      "circuit": "five_trans_ota",
+      "variant": "original",
+      "diagnostic": false,
+      "metrics": {
+        "dc_gain_db": 18.01931,
+        "ugbw": 21.32281,
+        "power_dc": 57.53192
+      },
+      "normalized_fom": 2.893981987155594,
+      "yaml_fom": 6.678419970359064,
+      "status": "valid_feasible"
+    },
+    {
+      "attempt": 3,
+      "circuit": "inverter",
+      "variant": "repaired_export",
+      "diagnostic": false,
+      "metrics": {
+        "dc_gain_db": 23.81905,
+        "average_delay": 18.41647,
+        "dynamic_power": 66.28517000000001
+      },
+      "normalized_fom": 2.4389993509299637,
+      "yaml_fom": 0.01951199480743971,
+      "status": "valid_infeasible"
+    },
+    {
+      "attempt": 4,
+      "circuit": "five_trans_ota",
+      "variant": "repaired_export",
+      "diagnostic": false,
+      "metrics": {
+        "dc_gain_db": 18.01931,
+        "ugbw": 21.32281,
+        "power_dc": 57.53192
+      },
+      "normalized_fom": 2.893981987155594,
+      "yaml_fom": 6.678419970359064,
+      "status": "valid_feasible"
+    },
+    {
+      "attempt": 5,
+      "circuit": "inverter",
+      "variant": "repaired_export",
+      "diagnostic": true,
+      "metrics": {
+        "dc_gain_db": 23.81905,
+        "average_delay": 18.41864,
+        "dynamic_power": 66.05664
+      },
+      "normalized_fom": 2.4471489837528266,
+      "yaml_fom": 0.019577191870022614,
+      "status": "valid_infeasible"
+    },
+    {
+      "attempt": 6,
+      "circuit": "five_trans_ota",
+      "variant": "repaired_export",
+      "diagnostic": true,
+      "metrics": {
+        "dc_gain_db": 18.01931,
+        "ugbw": 21.322499999999998,
+        "power_dc": 57.53192
+      },
+      "normalized_fom": 2.8939399132255628,
+      "yaml_fom": 6.6783228766743745,
+      "status": "valid_feasible"
+    }
+  ],
+  "vector_crosschecks": [
+    {
+      "attempt": 3,
+      "circuit": "inverter",
+      "diagnostic_refinement": false,
+      "independent_tphl_ps": 10.792671590814031,
+      "independent_tplh_ps": 26.0402730714488,
+      "independent_average_delay_ps": 18.416472331131416,
+      "integrated_dynamic_power_uw": 65.82582343246439,
+      "ngspice_integrated_dynamic_power_uw": 65.82583000000001,
+      "sample_mean_dynamic_power_uw": 66.28517000000001,
+      "dc_central_difference_gain_db": 23.819048990846007,
+      "source_deriv_gain_db": 23.81905,
+      "normalized_fom_using_integrated_power": 2.456018895202315,
+      "constraints_integrated": {
+        "fom>1": true,
+        "gain>20": true,
+        "delay<50": true,
+        "power<50": false
+      },
+      "status_using_integrated_power": "valid_infeasible"
+    },
+    {
+      "attempt": 4,
+      "circuit": "five_trans_ota",
+      "diagnostic_refinement": false,
+      "independent_gain_db": 18.019307319494573,
+      "independent_ugbw_mhz": 21.322814381645106,
+      "source_gain_db": 18.01931,
+      "source_ugbw_mhz": 21.32281,
+      "source_supply_power_uw": 57.53192
+    },
+    {
+      "attempt": 5,
+      "circuit": "inverter",
+      "diagnostic_refinement": true,
+      "independent_tphl_ps": 10.795138852075132,
+      "independent_tplh_ps": 26.04214104106415,
+      "independent_average_delay_ps": 18.41863994656964,
+      "integrated_dynamic_power_uw": 65.81266195553175,
+      "ngspice_integrated_dynamic_power_uw": 65.81267000000001,
+      "sample_mean_dynamic_power_uw": 66.05664,
+      "dc_central_difference_gain_db": 23.819048990846007,
+      "source_deriv_gain_db": 23.81905,
+      "normalized_fom_using_integrated_power": 2.4562209628335583,
+      "constraints_integrated": {
+        "fom>1": true,
+        "gain>20": true,
+        "delay<50": true,
+        "power<50": false
+      },
+      "status_using_integrated_power": "valid_infeasible"
+    },
+    {
+      "attempt": 6,
+      "circuit": "five_trans_ota",
+      "diagnostic_refinement": true,
+      "independent_gain_db": 18.019307319494573,
+      "independent_ugbw_mhz": 21.322501030901858,
+      "source_gain_db": 18.01931,
+      "source_ugbw_mhz": 21.322499999999998,
+      "source_supply_power_uw": 57.53192
+    }
+  ],
+  "next_phase_started": false,
+  "extra_user_resources_required_now": false,
+  "code_license_status": "Not confirmed in author repository; no publication/push performed."
+}

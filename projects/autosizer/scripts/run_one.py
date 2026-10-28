@@ -11,8 +11,11 @@ import resource
 import subprocess
 import time
 import yaml
+from classification import classify
 
 ROOT = Path(__file__).resolve().parents[1]
+if (ROOT / 'results/PHASE_CLOSED.json').exists():
+    raise SystemExit('This bounded phase is closed; parent must authorize a new protocol before more simulations')
 PROTOCOL_COMMIT = 'beffdd177abc73392ba9bd6f51162ccf28fe7075'
 parser = argparse.ArgumentParser()
 parser.add_argument('circuit', choices=['inverter', 'five_trans_ota'])
@@ -96,6 +99,7 @@ row = {'attempt': attempt_id, 'utc': now.isoformat(), 'protocol_commit': PROTOCO
        'upstream_yaml_sha256': hashlib.sha256(cfg_path.read_bytes()).hexdigest(),
        'reference_base_widths': values, 'physical_parameters': fmt | {'ota_subckt': '[see deck]'},
        'changes': changes}
+row['runner_sha256'] = hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
 ledger.append(row)
 ledger_path.write_text(json.dumps(ledger, indent=2))
 start = time.monotonic()
@@ -147,16 +151,7 @@ for clause in cfg['user_specs_metric'].split(' AND '):
     name, op, target = m.groups()
     value = normalized_fom if name == 'fom' else metrics.get(name)
     checks[clause] = None if value is None else (value > float(target) if op == '>' else value < float(target))
-if code is None:
-    status = 'tool_or_timeout_error'
-elif re.search(r'could not find|can.t open|undefined parameter|cannot find|no such.*model', stdout+stderr, re.I):
-    status = 'pdk_or_model_error'
-elif code != 0:
-    status = 'solver_or_deck_error'
-elif not valid or diagnostics:
-    status = 'measurement_invalid'
-else:
-    status = 'valid_feasible' if all(checks.values()) else 'valid_infeasible'
+status = classify(code, stdout+'\n'+stderr, valid, checks)
 row.update(status=status, raw_metrics={name: metric(name) for name in names},
            metrics=metrics, extra_raw_metrics=extra, yaml_fom=yaml_fom,
            controller_normalized_fom=normalized_fom, constraints_normalized=checks,

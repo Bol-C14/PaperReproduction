@@ -1,0 +1,75 @@
+{
+  "attempt": 1,
+  "utc": "2026-10-28T10:39:16.292868+00:00",
+  "protocol_commit": "beffdd177abc73392ba9bd6f51162ccf28fe7075",
+  "circuit": "inverter",
+  "variant": "original",
+  "diagnostic_refinement": false,
+  "status": "valid_infeasible",
+  "cwd": "/workspace/PaperReproduction/projects/autosizer/logs/01_inverter_original",
+  "command": [
+    "/workspace/PaperReproduction/projects/autosizer/tools/ngspice/usr/bin/ngspice",
+    "-n",
+    "-b",
+    "circuit.spice"
+  ],
+  "timeout_seconds": 90,
+  "deck_sha256": "1bf00277f669852444f279ff94a780891d8325a026fad47c64117c96239d0305",
+  "upstream_yaml_sha256": "35dd54d7c40c8738493c547ea0af835520765a043b35267706a9f3fe4c49a2e5",
+  "reference_base_widths": {
+    "W_pmos_base": 1.68,
+    "W_nmos_base": 1.68
+  },
+  "physical_parameters": {
+    "L": 0.15,
+    "vdd_voltage": 1.8,
+    "sweep_start": 0,
+    "sweep_end": 1.8,
+    "sweep_step": 0.01,
+    "load_cap": "10e-15",
+    "W_pmos_base": 1.68,
+    "W_nmos_base": 1.68,
+    "W_pmos": 33.6,
+    "W_nmos": 33.6,
+    "pdk_lib_path": "/workspace/PaperReproduction/projects/autosizer/tools/sky130_subset.lib.spice",
+    "subckt_name": "SKY130_INV",
+    "inst_pins": "OUT IN VSS VDD",
+    "ota_subckt": "[see deck]"
+  },
+  "changes": [
+    "PDK path/pin/parameter interpolation",
+    "explicit default temperature 27C"
+  ],
+  "wall_seconds": 0.16673792899996442,
+  "returncode": 0,
+  "child_cpu_seconds": 0.270105,
+  "child_max_rss_kib": 17356,
+  "raw_metrics": {
+    "dc_gain_db": 23.81905,
+    "average_delay": 1.841635e-11,
+    "dynamic_power": 6.628517e-05
+  },
+  "metrics": {
+    "dc_gain_db": 23.81905,
+    "average_delay": 18.416349999999998,
+    "dynamic_power": 66.28517000000001
+  },
+  "extra_raw_metrics": {
+    "tphl": null,
+    "tplh": null,
+    "dynamic_power_timeweighted": null,
+    "avg_power_calc": null,
+    "static_power_abs": null,
+    "time_mean_power": null
+  },
+  "yaml_fom": 0.019512121946605558,
+  "controller_normalized_fom": 2.4390152433256946,
+  "constraints_normalized": {
+    "fom > 1.0": true,
+    "dc_gain_db > 20": true,
+    "average_delay < 50": true,
+    "dynamic_power < 50": false
+  },
+  "yaml_fom_constraint_pass": false,
+  "error_diagnostics": []
+}

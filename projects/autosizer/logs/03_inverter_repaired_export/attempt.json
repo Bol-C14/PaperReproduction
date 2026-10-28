@@ -1,0 +1,78 @@
+{
+  "attempt": 3,
+  "utc": "2026-10-28T10:39:56.217544+00:00",
+  "protocol_commit": "beffdd177abc73392ba9bd6f51162ccf28fe7075",
+  "circuit": "inverter",
+  "variant": "repaired_export",
+  "diagnostic_refinement": false,
+  "status": "valid_infeasible",
+  "cwd": "/workspace/PaperReproduction/projects/autosizer/logs/03_inverter_repaired_export",
+  "command": [
+    "/workspace/PaperReproduction/projects/autosizer/tools/ngspice/usr/bin/ngspice",
+    "-n",
+    "-b",
+    "circuit.spice"
+  ],
+  "timeout_seconds": 90,
+  "deck_sha256": "37aa8a9873b44adcdb2c3a36969907d6d7cc0e7ae68d4ab5392413b9ddc65e54",
+  "upstream_yaml_sha256": "35dd54d7c40c8738493c547ea0af835520765a043b35267706a9f3fe4c49a2e5",
+  "reference_base_widths": {
+    "W_pmos_base": 1.68,
+    "W_nmos_base": 1.68
+  },
+  "physical_parameters": {
+    "L": 0.15,
+    "vdd_voltage": 1.8,
+    "sweep_start": 0,
+    "sweep_end": 1.8,
+    "sweep_step": 0.01,
+    "load_cap": "10e-15",
+    "W_pmos_base": 1.68,
+    "W_nmos_base": 1.68,
+    "W_pmos": 33.6,
+    "W_nmos": 33.6,
+    "pdk_lib_path": "/workspace/PaperReproduction/projects/autosizer/tools/sky130_subset.lib.spice",
+    "subckt_name": "SKY130_INV",
+    "inst_pins": "OUT IN VSS VDD",
+    "ota_subckt": "[see deck]"
+  },
+  "changes": [
+    "PDK path/pin/parameter interpolation",
+    "explicit default temperature 27C",
+    "pair opposite-direction propagation edges",
+    "report integral mean power alongside original sample mean",
+    "export DC/transient vectors"
+  ],
+  "wall_seconds": 0.1723397450000448,
+  "returncode": 0,
+  "child_cpu_seconds": 0.211522,
+  "child_max_rss_kib": 17292,
+  "raw_metrics": {
+    "dc_gain_db": 23.81905,
+    "average_delay": 1.841647e-11,
+    "dynamic_power": 6.628517e-05
+  },
+  "metrics": {
+    "dc_gain_db": 23.81905,
+    "average_delay": 18.41647,
+    "dynamic_power": 66.28517000000001
+  },
+  "extra_raw_metrics": {
+    "tphl": 1.079267e-11,
+    "tplh": 2.604027e-11,
+    "dynamic_power_timeweighted": 6.582583e-05,
+    "avg_power_calc": 6.628519e-05,
+    "static_power_abs": 1.481518e-11,
+    "time_mean_power": 6.582584e-05
+  },
+  "yaml_fom": 0.01951199480743971,
+  "controller_normalized_fom": 2.4389993509299637,
+  "constraints_normalized": {
+    "fom > 1.0": true,
+    "dc_gain_db > 20": true,
+    "average_delay < 50": true,
+    "dynamic_power < 50": false
+  },
+  "yaml_fom_constraint_pass": false,
+  "error_diagnostics": []
+}

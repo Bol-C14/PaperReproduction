@@ -1,0 +1,78 @@
+{
+  "attempt": 4,
+  "utc": "2026-10-28T10:39:56.448142+00:00",
+  "protocol_commit": "beffdd177abc73392ba9bd6f51162ccf28fe7075",
+  "circuit": "five_trans_ota",
+  "variant": "repaired_export",
+  "diagnostic_refinement": false,
+  "status": "valid_feasible",
+  "cwd": "/workspace/PaperReproduction/projects/autosizer/logs/04_five_trans_ota_repaired_export",
+  "command": [
+    "/workspace/PaperReproduction/projects/autosizer/tools/ngspice/usr/bin/ngspice",
+    "-n",
+    "-b",
+    "circuit.spice"
+  ],
+  "timeout_seconds": 90,
+  "deck_sha256": "dc0faad0f0ae0c7042727747ce334200b16bafaf970a17d5b4146b774f7f0698",
+  "upstream_yaml_sha256": "278050036f1159b141a842063367fb1aa5081aa1075ef7523c6ae85dcb703209",
+  "reference_base_widths": {
+    "W_tail_base": 1.68,
+    "W_diff_base": 1.68,
+    "W_load_base": 1.68
+  },
+  "physical_parameters": {
+    "L": 0.15,
+    "vdd": 1.8,
+    "vcm": 0.9,
+    "cload": "1e-12",
+    "ibias": "20e-6",
+    "W_tail_base": 1.68,
+    "W_diff_base": 1.68,
+    "W_load_base": 1.68,
+    "W_tail": 16.8,
+    "W_diff": 16.8,
+    "W_load": 33.6,
+    "pdk_lib_path": "/workspace/PaperReproduction/projects/autosizer/tools/sky130_subset.lib.spice",
+    "subckt_name": "FIVE_TRANSISTOR_OTA",
+    "inst_pins": "VSS VDD VOUT VINN VINP ID",
+    "ota_subckt": "[see deck]"
+  },
+  "changes": [
+    "PDK path/pin/parameter interpolation",
+    "explicit default temperature 27C",
+    "export AC magnitude and operating-point voltages; measurements unchanged"
+  ],
+  "wall_seconds": 0.1640739920001124,
+  "returncode": 0,
+  "child_cpu_seconds": 0.445974,
+  "child_max_rss_kib": 20148,
+  "raw_metrics": {
+    "dc_gain_db": 18.01931,
+    "ugbw": 21322810.0,
+    "power_dc": 5.753192e-05
+  },
+  "metrics": {
+    "dc_gain_db": 18.01931,
+    "ugbw": 21.32281,
+    "power_dc": 57.53192
+  },
+  "extra_raw_metrics": {
+    "tphl": null,
+    "tplh": null,
+    "dynamic_power_timeweighted": null,
+    "avg_power_calc": null,
+    "static_power_abs": null,
+    "time_mean_power": null
+  },
+  "yaml_fom": 6.678419970359064,
+  "controller_normalized_fom": 2.893981987155594,
+  "constraints_normalized": {
+    "fom > 0.5": true,
+    "dc_gain_db > 15": true,
+    "ugbw > 10": true,
+    "power_dc < 65": true
+  },
+  "yaml_fom_constraint_pass": true,
+  "error_diagnostics": []
+}
