@@ -1,0 +1,18 @@
+# TRACE closure results — all prespecified comparisons
+
+FSL means function-shift learning. Few-shot support adaptation is a separate added evaluation; official checkpoint comparisons are transfer with unknown inherited pretraining cost.
+
+Primary score is the mean terminal-output MAE across four held-out families; ± is sample SD across three seeds, not a confidence interval. Family data and seeds are paired. No best-seed or best-family selection.
+
+| Track | Stage | Macro output MAE ± SD | Macro non-PI MAE ± SD | Worst family output MAE | Adaptation time per family (s) |
+|---|---|---:|---:|---:|---:|
+| scratch_pretrain/direct | no_adapt | 0.115395 ± 0.009236 | 0.076228 ± 0.002839 | 0.145564 | 0.000 |
+| scratch_pretrain/direct | adapt | 0.083105 ± 0.008398 | 0.055397 ± 0.005687 | 0.104864 | 1.011 |
+| scratch_pretrain/fsl | no_adapt | 0.048243 ± 0.001094 | 0.031990 ± 0.003489 | 0.071678 | 0.000 |
+| scratch_pretrain/fsl | adapt | 0.047170 ± 0.001908 | 0.031978 ± 0.002865 | 0.068113 | 0.983 |
+| transfer_official/fsl | no_adapt | 0.044879 ± 0.000000 | 0.028271 ± 0.000000 | 0.079718 | 0.000 |
+| transfer_official/fsl | adapt | 0.041842 ± 0.000215 | 0.027760 ± 0.000043 | 0.065954 | 0.978 |
+| transfer_random/fsl | no_adapt | 0.300723 ± 0.214000 | 0.156644 ± 0.085956 | 0.422234 | 0.000 |
+| transfer_random/fsl | adapt | 0.218462 ± 0.177123 | 0.116639 ± 0.066433 | 0.337513 | 0.973 |
+
+Local-only (no learned weights): macro output MAE **0.049009**, macro non-PI MAE **0.028684**.

@@ -1,0 +1,21 @@
+{
+  "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+  "torch": "2.8.0+cpu",
+  "numpy": "2.3.5",
+  "source_commit": "b207dd94670f34ed3d51f0f8bcb5cd5be9ebaa70",
+  "base_commit": "114072d8656683c528fd2f8fda20fb7d58d9f062",
+  "official_pm_checkpoint_sha256": "19fe1e95857072e5eb838802ee21260ffe48345df85785f9f6ddd0e784cad7c0",
+  "protocol_sha256": "99a7e865ae0fbda4e2e0aad558b1c69201d008e3f1de400f883270cf6f09d946",
+  "frozen_data_sha256": "ca22b243b7e8c34aa7ba847599452970057c8fed879f64019c7da32f59341e53",
+  "source_sha256": "0e541bd719ebd5b19cc851af259a15a766cda0254101566b2dc288d64c411d68",
+  "harness_sha256": "a50f6eda846553bb172bc8b669accb7e933da420832e989f77f6f342bda8d335",
+  "commands": [
+    "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 ../pilot/.venv/bin/python run_closure.py",
+    "../pilot/.venv/bin/python verify_closure.py",
+    "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 ../pilot/.venv/bin/python check_pipeline_controls.py",
+    "../pilot/.venv/bin/python summarize.py"
+  ],
+  "no_new_installations": true,
+  "no_new_asset_downloads": true,
+  "public_paper_page_read": "https://arxiv.org/html/2509.21886v3"
+}

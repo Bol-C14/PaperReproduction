@@ -1,0 +1,276 @@
+{
+  "audit_id": "P11_TRACE",
+  "audit_date": "2026-10-28",
+  "scope": "assets_only_method_learning",
+  "environment": "selected cloud /workspace/PaperReproduction",
+  "paper": {
+    "title": "TRACE: Learning to Compute on Circuit Graphs",
+    "version": "2509.21886v3",
+    "url": "https://arxiv.org/html/2509.21886v3",
+    "doi": "https://doi.org/10.1145/3770743.3803923",
+    "doi_landing_page_verified": false
+  },
+  "repository": {
+    "url": "https://github.com/zyzheng17/TRACE_DAC26",
+    "commit": "b207dd94670f34ed3d51f0f8bcb5cd5be9ebaa70",
+    "commit_date": "2026-06-12T11:07:03+08:00",
+    "local_path": "/workspace/PaperReproduction/TRACE_DAC26_metadata",
+    "requirements_locked": false
+  },
+  "routes": [
+    {
+      "name": "minimum_faithful_mechanism",
+      "level": "L2",
+      "confidence": "medium-high",
+      "missing_fill": "tiny synthetic reconvergent graph schema, labels and learning/control evaluation; existing FSL code available",
+      "execution_verified": false
+    },
+    {
+      "name": "tutorial_backbone_only",
+      "level": "L1",
+      "confidence": "high_static_only",
+      "faithfulness_limit": "untrained architecture forward walkthrough; no FSL"
+    },
+    {
+      "name": "full_paper",
+      "level": "L3",
+      "provisional": true,
+      "confidence": "medium",
+      "reason": "dataset mapping and full task coverage unverified; repository lacks two referenced checkpoint paths, training/regeneration may be high cost"
+    }
+  ],
+  "dataset": {
+    "url": "https://huggingface.co/datasets/zyzheng23/TRACE_dataset/tree/main",
+    "status": "metadata_access_blocked_HTTP_403",
+    "reported_size_gb": 9.28,
+    "size_verified": false,
+    "size_provenance": "user delegation; not independently confirmed",
+    "revision": null,
+    "files": null,
+    "license": null,
+    "downloaded": false,
+    "unverified_is_not_absent": true
+  },
+  "checkpoints": [
+    {
+      "path": "checkpoints/trace_contrastive_aig_rec.ckpt",
+      "url": "https://raw.githubusercontent.com/zyzheng17/TRACE_DAC26/b207dd94670f34ed3d51f0f8bcb5cd5be9ebaa70/checkpoints/trace_contrastive_aig_rec.ckpt",
+      "page_url": "https://github.com/zyzheng17/TRACE_DAC26/blob/b207dd94670f34ed3d51f0f8bcb5cd5be9ebaa70/checkpoints/trace_contrastive_aig_rec.ckpt",
+      "bytes": 13308852,
+      "git_blob_id": "06c56708f1cf304c43ceddd7272d5ec631c30729",
+      "role": "AIG contrastive",
+      "tree_entry_verified": true,
+      "git_object_materialized_during_size_inspection": true,
+      "deserialized": false,
+      "compatibility_verified": false
+    },
+    {
+      "path": "checkpoints/trace_contrastive_pm_rec.ckpt",
+      "url": "https://raw.githubusercontent.com/zyzheng17/TRACE_DAC26/b207dd94670f34ed3d51f0f8bcb5cd5be9ebaa70/checkpoints/trace_contrastive_pm_rec.ckpt",
+      "page_url": "https://github.com/zyzheng17/TRACE_DAC26/blob/b207dd94670f34ed3d51f0f8bcb5cd5be9ebaa70/checkpoints/trace_contrastive_pm_rec.ckpt",
+      "bytes": 10402566,
+      "git_blob_id": "6d2ecec507fffe789532281309bd73c25f67ce96",
+      "role": "PM contrastive",
+      "tree_entry_verified": true,
+      "git_object_materialized_during_size_inspection": true,
+      "deserialized": false,
+      "compatibility_verified": false
+    },
+    {
+      "path": "checkpoints/trace_predictive_pm_probability.pth",
+      "url": "https://raw.githubusercontent.com/zyzheng17/TRACE_DAC26/b207dd94670f34ed3d51f0f8bcb5cd5be9ebaa70/checkpoints/trace_predictive_pm_probability.pth",
+      "page_url": "https://github.com/zyzheng17/TRACE_DAC26/blob/b207dd94670f34ed3d51f0f8bcb5cd5be9ebaa70/checkpoints/trace_predictive_pm_probability.pth",
+      "bytes": 4241614,
+      "git_blob_id": "14a73f6e0b4f9f19584681eec95a34ea9866f51a",
+      "role": "PM predictive FSL",
+      "tree_entry_verified": true,
+      "git_object_materialized_during_size_inspection": true,
+      "deserialized": false,
+      "compatibility_verified": false
+    }
+  ],
+  "referenced_checkpoints_not_in_pinned_tree": [
+    "checkpoints/trace_contrastive_rtl_rec.ckpt",
+    "checkpoints/trace_predictive_aig_probability.ckpt"
+  ],
+  "required_data_paths_from_code": [
+    "data/rtl/dataset_graph/data_bench/dataset_{train,valid}_{ori,pos}.pkl",
+    "data/aig/forgeeda_pm_aig_{train,test}.pt",
+    "data/pm_netlist/forgeeda_pm_pair_pkl_{train,test}.pt",
+    "data/aig/aig_predictive.pt",
+    "data/pm_netlist/iccad_dc_pm.npz"
+  ],
+  "hosted_filenames_verified": false,
+  "sources": [
+    {
+      "path": "README.md",
+      "url": "https://github.com/zyzheng17/TRACE_DAC26/blob/b207dd94670f34ed3d51f0f8bcb5cd5be9ebaa70/README.md"
+    },
+    {
+      "path": "requirements.txt",
+      "url": "https://github.com/zyzheng17/TRACE_DAC26/blob/b207dd94670f34ed3d51f0f8bcb5cd5be9ebaa70/requirements.txt"
+    },
+    {
+      "path": "computational_graph/README.md",
+      "url": "https://github.com/zyzheng17/TRACE_DAC26/blob/b207dd94670f34ed3d51f0f8bcb5cd5be9ebaa70/computational_graph/README.md"
+    },
+    {
+      "path": "computational_graph/demo.py",
+      "url": "https://github.com/zyzheng17/TRACE_DAC26/blob/b207dd94670f34ed3d51f0f8bcb5cd5be9ebaa70/computational_graph/demo.py"
+    },
+    {
+      "path": "computational_graph/expr_graphs.py",
+      "url": "https://github.com/zyzheng17/TRACE_DAC26/blob/b207dd94670f34ed3d51f0f8bcb5cd5be9ebaa70/computational_graph/expr_graphs.py"
+    },
+    {
+      "path": "computational_graph/model.py",
+      "url": "https://github.com/zyzheng17/TRACE_DAC26/blob/b207dd94670f34ed3d51f0f8bcb5cd5be9ebaa70/computational_graph/model.py"
+    },
+    {
+      "path": "computational_graph/data.py",
+      "url": "https://github.com/zyzheng17/TRACE_DAC26/blob/b207dd94670f34ed3d51f0f8bcb5cd5be9ebaa70/computational_graph/data.py"
+    },
+    {
+      "path": "tasks/contrastive/rtl/eval.py",
+      "url": "https://github.com/zyzheng17/TRACE_DAC26/blob/b207dd94670f34ed3d51f0f8bcb5cd5be9ebaa70/tasks/contrastive/rtl/eval.py"
+    },
+    {
+      "path": "tasks/contrastive/rtl/models/trace_encoder_impl.py",
+      "url": "https://github.com/zyzheng17/TRACE_DAC26/blob/b207dd94670f34ed3d51f0f8bcb5cd5be9ebaa70/tasks/contrastive/rtl/models/trace_encoder_impl.py"
+    },
+    {
+      "path": "tasks/contrastive/aig/train.py",
+      "url": "https://github.com/zyzheng17/TRACE_DAC26/blob/b207dd94670f34ed3d51f0f8bcb5cd5be9ebaa70/tasks/contrastive/aig/train.py"
+    },
+    {
+      "path": "tasks/contrastive/aig/eval.py",
+      "url": "https://github.com/zyzheng17/TRACE_DAC26/blob/b207dd94670f34ed3d51f0f8bcb5cd5be9ebaa70/tasks/contrastive/aig/eval.py"
+    },
+    {
+      "path": "tasks/contrastive/pm/train.py",
+      "url": "https://github.com/zyzheng17/TRACE_DAC26/blob/b207dd94670f34ed3d51f0f8bcb5cd5be9ebaa70/tasks/contrastive/pm/train.py"
+    },
+    {
+      "path": "tasks/contrastive/pm/eval.py",
+      "url": "https://github.com/zyzheng17/TRACE_DAC26/blob/b207dd94670f34ed3d51f0f8bcb5cd5be9ebaa70/tasks/contrastive/pm/eval.py"
+    },
+    {
+      "path": "tasks/predictive/aig/train.py",
+      "url": "https://github.com/zyzheng17/TRACE_DAC26/blob/b207dd94670f34ed3d51f0f8bcb5cd5be9ebaa70/tasks/predictive/aig/train.py"
+    },
+    {
+      "path": "tasks/predictive/aig/eval.py",
+      "url": "https://github.com/zyzheng17/TRACE_DAC26/blob/b207dd94670f34ed3d51f0f8bcb5cd5be9ebaa70/tasks/predictive/aig/eval.py"
+    },
+    {
+      "path": "tasks/predictive/aig/dataset/loader.py",
+      "url": "https://github.com/zyzheng17/TRACE_DAC26/blob/b207dd94670f34ed3d51f0f8bcb5cd5be9ebaa70/tasks/predictive/aig/dataset/loader.py"
+    },
+    {
+      "path": "tasks/predictive/aig/models/trace_core.py",
+      "url": "https://github.com/zyzheng17/TRACE_DAC26/blob/b207dd94670f34ed3d51f0f8bcb5cd5be9ebaa70/tasks/predictive/aig/models/trace_core.py"
+    },
+    {
+      "path": "tasks/predictive/aig/models/cov2prob.py",
+      "url": "https://github.com/zyzheng17/TRACE_DAC26/blob/b207dd94670f34ed3d51f0f8bcb5cd5be9ebaa70/tasks/predictive/aig/models/cov2prob.py"
+    },
+    {
+      "path": "tasks/predictive/pm/train.py",
+      "url": "https://github.com/zyzheng17/TRACE_DAC26/blob/b207dd94670f34ed3d51f0f8bcb5cd5be9ebaa70/tasks/predictive/pm/train.py"
+    },
+    {
+      "path": "tasks/predictive/pm/eval.py",
+      "url": "https://github.com/zyzheng17/TRACE_DAC26/blob/b207dd94670f34ed3d51f0f8bcb5cd5be9ebaa70/tasks/predictive/pm/eval.py"
+    },
+    {
+      "path": "tasks/predictive/pm/dataset/loader.py",
+      "url": "https://github.com/zyzheng17/TRACE_DAC26/blob/b207dd94670f34ed3d51f0f8bcb5cd5be9ebaa70/tasks/predictive/pm/dataset/loader.py"
+    },
+    {
+      "path": "tasks/predictive/pm/models/trace_trainer.py",
+      "url": "https://github.com/zyzheng17/TRACE_DAC26/blob/b207dd94670f34ed3d51f0f8bcb5cd5be9ebaa70/tasks/predictive/pm/models/trace_trainer.py"
+    }
+  ],
+  "mechanism": {
+    "ordered_inputs": true,
+    "hierarchical_level_updates": true,
+    "function_shift": "global - local_independence",
+    "aig_fsl_flag": "--learning_target covariance",
+    "aig_default": "probability_direct_regression",
+    "modalities": [
+      "RTL",
+      "AIG",
+      "PM netlist"
+    ],
+    "cross_layer_correspondence_established": false
+  },
+  "cost": {
+    "tutorial_defaults": {
+      "nodes": "4-9",
+      "batch": 1,
+      "hidden": 64,
+      "layers": 1,
+      "heads": 4,
+      "cpu_flag": true
+    },
+    "full_gpu_hours": null,
+    "required_vram_gb": null,
+    "training_defaults": {
+      "rtl_contrastive": {
+        "batch": 32,
+        "epochs": 500
+      },
+      "aig_contrastive": {
+        "batch": 1024,
+        "epochs": 100
+      },
+      "pm_contrastive": {
+        "batch": 1024,
+        "epochs": 100
+      },
+      "aig_predictive": {
+        "batch": 1,
+        "epochs": 200
+      },
+      "pm_predictive": {
+        "batch": 128,
+        "epochs": 40
+      }
+    },
+    "uncertainty": "No measurements or dependency/GPU probes; README PM example differs from defaults"
+  },
+  "proposed_control": {
+    "executed": false,
+    "gap": "semantic role preservation versus incidental node numbering",
+    "invariant": "bijective node rename preserving ports, PI semantics, levels and output mapping",
+    "sensitive": "SUB operand or MUX select/data role swap on nondegenerate input",
+    "negative_control": "commutative ADD/AND input swap",
+    "preprocessing_caveat": "tutorial topological_levels assumes topologically numbered IDs"
+  },
+  "activities": {
+    "model_execution": false,
+    "experiments": false,
+    "training": false,
+    "eda": false,
+    "installation": false,
+    "dataset_download": false,
+    "hosted_api_calls": false,
+    "publication": false,
+    "checkpoint_binary_git_objects_fetched_bytes": 27953032
+  },
+  "remaining_blockers": [
+    {
+      "action": "read public dataset tree metadata",
+      "target": "https://huggingface.co/datasets/zyzheng23/TRACE_dataset/tree/main",
+      "status": "denied",
+      "reason": "cloud CONNECT HTTP 403",
+      "retried_after_denial": false
+    },
+    {
+      "action": "read publication landing page",
+      "target": "https://doi.org/10.1145/3770743.3803923",
+      "status": "unavailable",
+      "reason": "browser redirected ACM page inaccessible"
+    }
+  ]
+}

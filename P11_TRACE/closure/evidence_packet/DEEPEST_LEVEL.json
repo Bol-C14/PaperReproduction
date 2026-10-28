@@ -1,0 +1,93 @@
+{
+  "source_commit": "b207dd94670f34ed3d51f0f8bcb5cd5be9ebaa70",
+  "path": "tasks/predictive/pm/models/trace_trainer.py",
+  "permalink": "https://github.com/zyzheng17/TRACE_DAC26/blob/b207dd94670f34ed3d51f0f8bcb5cd5be9ebaa70/tasks/predictive/pm/models/trace_trainer.py#L139-L151",
+  "source_sha256": "0e541bd719ebd5b19cc851af259a15a766cda0254101566b2dc288d64c411d68",
+  "method_lines": [
+    139,
+    151
+  ],
+  "bound_lines": [
+    142,
+    143
+  ],
+  "full_module_imported_unchanged": true,
+  "dependency_substitution": "inert pytorch_lightning.LightningModule=nn.Module inheritance symbol only; trainer constructor/orchestration not invoked",
+  "correction": "Only add +1 to max_level in a separate copied function; original source file unchanged",
+  "minimal_graph": {
+    "name": "minimal_two_PI_AND",
+    "npi": 2,
+    "nodes": [
+      {
+        "id": 0,
+        "op": "PI",
+        "semantic_identity": "x0",
+        "inputs": []
+      },
+      {
+        "id": 1,
+        "op": "PI",
+        "semantic_identity": "x1",
+        "inputs": []
+      },
+      {
+        "id": 2,
+        "op": "AND",
+        "inputs": [
+          0,
+          1
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "src": 0,
+        "dst": 2,
+        "port": 0
+      },
+      {
+        "src": 1,
+        "dst": 2,
+        "port": 1
+      }
+    ],
+    "levels": [
+      0,
+      0,
+      1
+    ],
+    "pi_prob": [
+      0.5,
+      0.5
+    ]
+  },
+  "oracle_exact": 0.25,
+  "zero_residual_original": [
+    0.5,
+    0.5,
+    0.0
+  ],
+  "zero_residual_corrected": [
+    0.5,
+    0.5,
+    0.25
+  ],
+  "official_model_residual": [
+    -0.32794347405433655,
+    -0.32794347405433655,
+    6.839688921900233e-07
+  ],
+  "identical_weights_input_original": [
+    0.5,
+    0.5,
+    0.0
+  ],
+  "identical_weights_input_corrected": [
+    0.5,
+    0.5,
+    0.2500006854534149
+  ],
+  "state_sha256_unchanged": "29455ba5ceef368ac976e93fd439c6f6df73774cdc14218403a0864a3c1c78dc",
+  "checkpoint_sha256": "19fe1e95857072e5eb838802ee21260ffe48345df85785f9f6ddd0e784cad7c0",
+  "attribution": "The loop-bound defect is in pinned upstream source, not introduced by the task port. Prior direct-clamp/dropout bugs are local harness defects, not upstream defects."
+}

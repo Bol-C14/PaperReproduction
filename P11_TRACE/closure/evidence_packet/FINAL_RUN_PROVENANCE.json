@@ -1,0 +1,213 @@
+{
+  "final_run_source_commit": "76e5cb1761ba775c0927b77c97456333a9931331",
+  "upstream_source_commit": "b207dd94670f34ed3d51f0f8bcb5cd5be9ebaa70",
+  "hashes": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "torch": "2.8.0+cpu",
+    "numpy": "2.3.5",
+    "source_commit": "b207dd94670f34ed3d51f0f8bcb5cd5be9ebaa70",
+    "base_commit": "114072d8656683c528fd2f8fda20fb7d58d9f062",
+    "official_pm_checkpoint_sha256": "19fe1e95857072e5eb838802ee21260ffe48345df85785f9f6ddd0e784cad7c0",
+    "protocol_sha256": "99a7e865ae0fbda4e2e0aad558b1c69201d008e3f1de400f883270cf6f09d946",
+    "frozen_data_sha256": "ca22b243b7e8c34aa7ba847599452970057c8fed879f64019c7da32f59341e53",
+    "source_sha256": "0e541bd719ebd5b19cc851af259a15a766cda0254101566b2dc288d64c411d68",
+    "harness_sha256": "a50f6eda846553bb172bc8b669accb7e933da420832e989f77f6f342bda8d335",
+    "commands": [
+      "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 ../pilot/.venv/bin/python run_closure.py",
+      "../pilot/.venv/bin/python verify_closure.py",
+      "OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 ../pilot/.venv/bin/python check_pipeline_controls.py",
+      "../pilot/.venv/bin/python summarize.py"
+    ],
+    "no_new_installations": true,
+    "no_new_asset_downloads": true,
+    "public_paper_page_read": "https://arxiv.org/html/2509.21886v3"
+  },
+  "config": {
+    "hidden": 128,
+    "heads": 8,
+    "transformer_layers": 2,
+    "rounds": 1,
+    "parameters": 417761,
+    "optimizer": "Adam",
+    "lr_train": 0.001,
+    "lr_adapt": 0.0001,
+    "betas": [
+      0.9,
+      0.999
+    ],
+    "eps": 1e-08,
+    "weight_decay": 0,
+    "train_steps": 240,
+    "adapt_steps": 20,
+    "batch_size": 16,
+    "loss": "L1 on all non-PI nodes",
+    "seeds": [
+      2026,
+      2027,
+      2028
+    ],
+    "dropout_seed_train": [
+      2026,
+      2027,
+      2028
+    ],
+    "dropout_seed_adapt": [
+      2126,
+      2127,
+      2128
+    ],
+    "direct": "sigmoid(unbounded readout)",
+    "function_shift": "clamp(unbounded readout,-1,1), then inclusive recursive local function + shift; no final probability clamp",
+    "torch_threads": 1,
+    "train_dropout": "source defaults; Transformer0.1, feature/head MLP0.2",
+    "batchnorm": "source BatchNorm; train mode during updates; eval mode for query; all parameters adapted"
+  },
+  "fixed_lines": {
+    "unbounded_readout": [
+      269,
+      270
+    ],
+    "direct_vs_residual": [
+      273,
+      277
+    ],
+    "dropout_pairing": [
+      311,
+      314
+    ],
+    "training_target_and_clamp": [
+      319,
+      323
+    ]
+  },
+  "original_harness_hash_verified": true,
+  "journal_sha256": "a4a1bce042f4293f4f8f3e879eb8072af84832de1c493c92e27dfcd7c38ece38",
+  "updates_by_tag": {
+    "2026_direct_pretrain": 240,
+    "2026_direct_ripple_carry_adapt": 20,
+    "2026_direct_comparator_adapt": 20,
+    "2026_direct_priority_selector_adapt": 20,
+    "2026_direct_reconvergent_mux_adapt": 20,
+    "2026_fsl_pretrain": 240,
+    "2026_fsl_ripple_carry_adapt": 20,
+    "2026_fsl_comparator_adapt": 20,
+    "2026_fsl_priority_selector_adapt": 20,
+    "2026_fsl_reconvergent_mux_adapt": 20,
+    "2026_transfer_official_ripple_carry_adapt": 20,
+    "2026_transfer_official_comparator_adapt": 20,
+    "2026_transfer_official_priority_selector_adapt": 20,
+    "2026_transfer_official_reconvergent_mux_adapt": 20,
+    "2026_transfer_random_ripple_carry_adapt": 20,
+    "2026_transfer_random_comparator_adapt": 20,
+    "2026_transfer_random_priority_selector_adapt": 20,
+    "2026_transfer_random_reconvergent_mux_adapt": 20,
+    "2027_direct_pretrain": 240,
+    "2027_direct_ripple_carry_adapt": 20,
+    "2027_direct_comparator_adapt": 20,
+    "2027_direct_priority_selector_adapt": 20,
+    "2027_direct_reconvergent_mux_adapt": 20,
+    "2027_fsl_pretrain": 240,
+    "2027_fsl_ripple_carry_adapt": 20,
+    "2027_fsl_comparator_adapt": 20,
+    "2027_fsl_priority_selector_adapt": 20,
+    "2027_fsl_reconvergent_mux_adapt": 20,
+    "2027_transfer_official_ripple_carry_adapt": 20,
+    "2027_transfer_official_comparator_adapt": 20,
+    "2027_transfer_official_priority_selector_adapt": 20,
+    "2027_transfer_official_reconvergent_mux_adapt": 20,
+    "2027_transfer_random_ripple_carry_adapt": 20,
+    "2027_transfer_random_comparator_adapt": 20,
+    "2027_transfer_random_priority_selector_adapt": 20,
+    "2027_transfer_random_reconvergent_mux_adapt": 20,
+    "2028_direct_pretrain": 240,
+    "2028_direct_ripple_carry_adapt": 20,
+    "2028_direct_comparator_adapt": 20,
+    "2028_direct_priority_selector_adapt": 20,
+    "2028_direct_reconvergent_mux_adapt": 20,
+    "2028_fsl_pretrain": 240,
+    "2028_fsl_ripple_carry_adapt": 20,
+    "2028_fsl_comparator_adapt": 20,
+    "2028_fsl_priority_selector_adapt": 20,
+    "2028_fsl_reconvergent_mux_adapt": 20,
+    "2028_transfer_official_ripple_carry_adapt": 20,
+    "2028_transfer_official_comparator_adapt": 20,
+    "2028_transfer_official_priority_selector_adapt": 20,
+    "2028_transfer_official_reconvergent_mux_adapt": 20,
+    "2028_transfer_random_ripple_carry_adapt": 20,
+    "2028_transfer_random_comparator_adapt": 20,
+    "2028_transfer_random_priority_selector_adapt": 20,
+    "2028_transfer_random_reconvergent_mux_adapt": 20
+  },
+  "failures": [
+    {
+      "attempt": 1,
+      "status": "interrupted_invalid_harness",
+      "reason": "direct sigmoid incorrectly applied after residual clamp instead of unbounded readout; violates frozen intended direct interpretation",
+      "observed": "240 pretrain steps plus at least60 adaptation steps completed; 3 family rows saved; fourth evaluation interrupted",
+      "elapsed_upper_bound_s": 40,
+      "model_settings_changed": false,
+      "fix": "Use unbounded source readout before direct sigmoid; residual clamp only for FSL. Restart all arms from original seeds. Preserve all invalid results, exclude from main aggregates.",
+      "utc": "2026-10-28T11:30:39Z"
+    },
+    {
+      "attempt": 2,
+      "status": "interrupted_seed_pairing_fix",
+      "reason": "Global torch dropout RNG was deterministic for whole run but not explicitly reset for each paired transfer adaptation. Fix seed plumbing before claiming paired support comparison.",
+      "elapsed_lower_bound_s": 40.5244577350004,
+      "completed_family_rows": 5,
+      "completed_loss_file_steps": 580,
+      "partial_update_count": "not persisted before interrupt; remaining partial updates unknown",
+      "fix": "torch.manual_seed(seed) at train entry; per-update journal added; architecture/data/budget unchanged",
+      "utc": "2026-10-28T11:31:47Z"
+    }
+  ],
+  "resource_accounting": {
+    "valid_run": {
+      "phase": "complete",
+      "utc": "2026-10-28T11:34:27Z",
+      "elapsed_s": 158.65201995299958,
+      "wall_s": 158.65199383399977,
+      "cpu_s": 159.686704789,
+      "peak_rss_kib": 357684,
+      "cuda_initialized": false,
+      "result_rows": 48,
+      "optimizer_steps": 2400
+    },
+    "invalid_attempts": [
+      {
+        "attempt": 1,
+        "wall_s_approx": 26.661353826522827,
+        "wall_precision_s": 1,
+        "completed_persisted_updates": 320,
+        "unpersisted_updates_range": [
+          0,
+          0
+        ],
+        "partial_cpu_s": null,
+        "status": "interrupted_known_harness_error_preserved"
+      },
+      {
+        "attempt": 2,
+        "wall_s_approx": 42.55194568634033,
+        "wall_precision_s": 1,
+        "completed_persisted_updates": 580,
+        "unpersisted_updates_range": [
+          0,
+          19
+        ],
+        "partial_cpu_s": null,
+        "status": "interrupted_known_harness_error_preserved"
+      }
+    ],
+    "training_and_interruption_wall_s_approx": 227.86529334686293,
+    "verification_runtime_instrumented_separately": false,
+    "downloaded_new_asset_bytes": 0,
+    "paid_resource_cost": 0,
+    "external_llm_calls": 0,
+    "gpu_used": false,
+    "disk_files_logical_bytes": 84872213,
+    "measurement_limit": "Interrupted process CPU time/peak RSS and separate verification runtime not captured. Wall estimates use logfile mtime minus second-precision logged start. No invented exact totals."
+  },
+  "setup_cost": "Closure reused existing pinned venv; no installation/download. Earlier CPU setup logs and resource ledger retained separately; historical setup process CPU not instrumented.",
+  "source_vs_port": "Deepest-level loop bound is upstream. Direct-clamp and dropout-seed bugs are local harness-only and invalid attempts were excluded. No original weights or source classes were edited."
+}
