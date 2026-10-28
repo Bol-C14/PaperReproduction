@@ -1,0 +1,155 @@
+{
+  "passed": true,
+  "actual_spice_attempts": 39,
+  "valid_spice": 39,
+  "api_attempts": 3,
+  "api_cost_accounted_usd": "0.00782799",
+  "api_usage": [
+    {
+      "prompt_tokens": 1655,
+      "completion_tokens": 886,
+      "total_tokens": 2541,
+      "cost": 0.0027115,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0027115,
+        "upstream_inference_prompt_cost": 0.0004965,
+        "upstream_inference_completions_cost": 0.002215
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 4329,
+      "completion_tokens": 680,
+      "total_tokens": 5009,
+      "cost": 0.0029987,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 0,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.0029987,
+        "upstream_inference_prompt_cost": 0.0012987,
+        "upstream_inference_completions_cost": 0.0017
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    },
+    {
+      "prompt_tokens": 5030,
+      "completion_tokens": 678,
+      "total_tokens": 5708,
+      "cost": 0.00211779,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 4023,
+        "cache_write_tokens": 0,
+        "audio_tokens": 0,
+        "video_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0.00211779,
+        "upstream_inference_prompt_cost": 0.00042279,
+        "upstream_inference_completions_cost": 0.001695
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "image_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  ],
+  "independent_waveform_checks": [
+    {
+      "attempt": 2,
+      "metrics": {
+        "dc_gain_db": 23.819048990846007,
+        "average_delay": 18.416472331131416,
+        "dynamic_power": 65.82582343246439
+      },
+      "normalized_fom": 2.456018791146894,
+      "feasible": false
+    },
+    {
+      "attempt": 3,
+      "metrics": {
+        "dc_gain_db": 23.819048990846007,
+        "average_delay": 18.41863994656964,
+        "dynamic_power": 65.81266195553175
+      },
+      "normalized_fom": 2.456220858769576,
+      "feasible": false
+    },
+    {
+      "attempt": 38,
+      "metrics": {
+        "dc_gain_db": 24.231880278994954,
+        "average_delay": 20.122233910070076,
+        "dynamic_power": 64.2332079330601
+      },
+      "normalized_fom": 2.3434803829577557,
+      "feasible": false
+    },
+    {
+      "attempt": 39,
+      "metrics": {
+        "dc_gain_db": 23.373441002744958,
+        "average_delay": 20.588637323445557,
+        "dynamic_power": 41.72210554455723
+      },
+      "normalized_fom": 3.401252276673687,
+      "feasible": true
+    }
+  ],
+  "arms": {
+    "api_guided": {
+      "common": 10,
+      "fresh_attempts": 0,
+      "observations": 10,
+      "fresh_unique": 0,
+      "fresh_valid": 0,
+      "fresh_feasible": 0,
+      "feasible_at_initialization": false,
+      "baseline_best_feasible": null,
+      "best_feasible_fom": null,
+      "improvement_over_common": null
+    },
+    "fixed_gp": {
+      "common": 10,
+      "fresh_attempts": 24,
+      "observations": 34,
+      "fresh_unique": 24,
+      "fresh_valid": 24,
+      "fresh_feasible": 7,
+      "feasible_at_initialization": false,
+      "baseline_best_feasible": null,
+      "best_feasible_fom": 3.400767278858042,
+      "improvement_over_common": null
+    }
+  },
+  "shared_common_data_exact": true,
+  "preflight_or_control_never_in_guided_prompts": true,
+  "matched_budget": false,
+  "simulator_cpu_seconds": 6.624547,
+  "simulator_wall_seconds": 6.8022512551397085,
+  "limitations": [
+    "one circuit/seed; descriptive integration only",
+    "API model/config and numerical/measurement substitutions disclosed"
+  ]
+}
