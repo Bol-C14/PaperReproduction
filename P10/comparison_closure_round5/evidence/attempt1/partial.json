@@ -1,0 +1,212 @@
+[
+  {
+    "key": "fold_off",
+    "arm": "fold_off",
+    "worker_wall_s": 0.051689812913537025,
+    "peak_rss_kib": 80412,
+    "witness_union_present": false,
+    "variants": [
+      {
+        "weight": 1,
+        "term": [
+          "Mux",
+          1,
+          [
+            "And",
+            [
+              "Slt",
+              [
+                "V",
+                "a",
+                8
+              ],
+              4
+            ],
+            [
+              "Not",
+              [
+                "Slt",
+                [
+                  "V",
+                  "a",
+                  8
+                ],
+                -3
+              ]
+            ]
+          ],
+          [
+            "Assume",
+            1,
+            [
+              "Slt",
+              [
+                "V",
+                "a",
+                8
+              ],
+              8
+            ],
+            [
+              "And",
+              [
+                "Not",
+                [
+                  "Slt",
+                  [
+                    "V",
+                    "a",
+                    8
+                  ],
+                  -3
+                ]
+              ],
+              [
+                "Slt",
+                [
+                  "V",
+                  "a",
+                  8
+                ],
+                4
+              ]
+            ]
+          ],
+          [
+            "V",
+            "b",
+            1
+          ]
+        ],
+        "proxy_area": 26,
+        "proxy_delay": 6,
+        "delay_target": 6,
+        "proof": {
+          "smt": {
+            "status": "unsat",
+            "wall_s": 8.874200284481049e-05,
+            "counterexample": null
+          },
+          "rtl": {
+            "status": "unsat",
+            "exit": 0,
+            "wall_s": 0.1350771952420473,
+            "command": [
+              "/home/shugu/work/paper-reproduction-april-20261028/envs/rover/bin/yowasp-yosys",
+              "-Q",
+              "-T",
+              "-s",
+              "verify.ys"
+            ]
+          },
+          "expected": "unsat",
+          "pass": true
+        }
+      }
+    ],
+    "pass": true
+  },
+  {
+    "key": "fold_on",
+    "arm": "fold_on",
+    "worker_wall_s": 0.06208878010511398,
+    "peak_rss_kib": 80412,
+    "witness_union_present": true,
+    "variants": [
+      {
+        "weight": 1,
+        "term": [
+          "Mux",
+          1,
+          [
+            "And",
+            [
+              "Slt",
+              [
+                "V",
+                "a",
+                8
+              ],
+              4
+            ],
+            [
+              "Not",
+              [
+                "Slt",
+                [
+                  "V",
+                  "a",
+                  8
+                ],
+                -3
+              ]
+            ]
+          ],
+          [
+            "Assume",
+            1,
+            [
+              "K",
+              1,
+              1
+            ],
+            [
+              "And",
+              [
+                "Not",
+                [
+                  "Slt",
+                  [
+                    "V",
+                    "a",
+                    8
+                  ],
+                  -3
+                ]
+              ],
+              [
+                "Slt",
+                [
+                  "V",
+                  "a",
+                  8
+                ],
+                4
+              ]
+            ]
+          ],
+          [
+            "V",
+            "b",
+            1
+          ]
+        ],
+        "proxy_area": 18,
+        "proxy_delay": 6,
+        "delay_target": 6,
+        "proof": {
+          "smt": {
+            "status": "unsat",
+            "wall_s": 0.0004492513835430145,
+            "counterexample": null
+          },
+          "rtl": {
+            "status": "unsat",
+            "exit": 0,
+            "wall_s": 0.13382748886942863,
+            "command": [
+              "/home/shugu/work/paper-reproduction-april-20261028/envs/rover/bin/yowasp-yosys",
+              "-Q",
+              "-T",
+              "-s",
+              "verify.ys"
+            ]
+          },
+          "expected": "unsat",
+          "pass": true
+        }
+      }
+    ],
+    "pass": true
+  }
+]

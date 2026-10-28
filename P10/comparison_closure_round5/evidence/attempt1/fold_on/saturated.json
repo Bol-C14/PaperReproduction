@@ -1,0 +1,576 @@
+{
+  "mode": "context_live",
+  "nested": "combine",
+  "fold_comparisons": true,
+  "history": [
+    {
+      "round": 1,
+      "nodes": 14,
+      "dynamic_unions": 1,
+      "report": "[RunScheduleOutput(RunReport([IterationReport(RuleSetReport(False, {}, datetime.timedelta(0), datetime.timedelta(0)), datetime.timedelta(0))], False, {}, {}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, True))]"
+    },
+    {
+      "round": 2,
+      "nodes": 16,
+      "dynamic_unions": 3,
+      "report": "[RunScheduleOutput(RunReport([IterationReport(RuleSetReport(False, {'(rewrite (Assume w (Assume w a c) c) (Assume w a c))': [RuleReport(None, datetime.timedelta(microseconds=19), 0)]}, datetime.timedelta(microseconds=20), datetime.timedelta(0)), datetime.timedelta(0))], False, {'(rewrite (Assume w (Assume w a c) c) (Assume w a c))': datetime.timedelta(microseconds=19)}, {'(rewrite (Assume w (Assume w a c) c) (Assume w a c))': 0}, {'': datetime.timedelta(microseconds=20)}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, True))]"
+    },
+    {
+      "round": 3,
+      "nodes": 19,
+      "dynamic_unions": 6,
+      "report": "[RunScheduleOutput(RunReport([IterationReport(RuleSetReport(True, {'(rewrite (Assume w (Assume w a c) c) (Assume w a c))': [RuleReport(None, datetime.timedelta(microseconds=23), 1), RuleReport(None, datetime.timedelta(microseconds=5), 1)]}, datetime.timedelta(microseconds=33), datetime.timedelta(microseconds=2)), datetime.timedelta(microseconds=9))], True, {'(rewrite (Assume w (Assume w a c) c) (Assume w a c))': datetime.timedelta(microseconds=29)}, {'(rewrite (Assume w (Assume w a c) c) (Assume w a c))': 2}, {'': datetime.timedelta(microseconds=33)}, {'': datetime.timedelta(microseconds=2)}, {'': datetime.timedelta(microseconds=9)}, False))]"
+    },
+    {
+      "round": 4,
+      "nodes": 23,
+      "dynamic_unions": 16,
+      "report": "[RunScheduleOutput(RunReport([IterationReport(RuleSetReport(False, {'(rewrite (Assume w (Assume w a c) c) (Assume w a c))': [RuleReport(None, datetime.timedelta(microseconds=11), 4), RuleReport(None, datetime.timedelta(microseconds=3), 2)]}, datetime.timedelta(microseconds=18), datetime.timedelta(microseconds=1)), datetime.timedelta(0))], False, {'(rewrite (Assume w (Assume w a c) c) (Assume w a c))': datetime.timedelta(microseconds=15)}, {'(rewrite (Assume w (Assume w a c) c) (Assume w a c))': 6}, {'': datetime.timedelta(microseconds=18)}, {'': datetime.timedelta(microseconds=1)}, {'': datetime.timedelta(0)}, True))]"
+    },
+    {
+      "round": 5,
+      "nodes": 23,
+      "dynamic_unions": 16,
+      "report": "[RunScheduleOutput(RunReport([IterationReport(RuleSetReport(False, {}, datetime.timedelta(0), datetime.timedelta(0)), datetime.timedelta(0))], False, {}, {}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, True))]"
+    },
+    {
+      "round": 6,
+      "nodes": 23,
+      "dynamic_unions": 16,
+      "report": "[RunScheduleOutput(RunReport([IterationReport(RuleSetReport(False, {}, datetime.timedelta(0), datetime.timedelta(0)), datetime.timedelta(0))], False, {}, {}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, True))]"
+    },
+    {
+      "round": 7,
+      "nodes": 23,
+      "dynamic_unions": 16,
+      "report": "[RunScheduleOutput(RunReport([IterationReport(RuleSetReport(False, {}, datetime.timedelta(0), datetime.timedelta(0)), datetime.timedelta(0))], False, {}, {}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, True))]"
+    },
+    {
+      "round": 8,
+      "nodes": 23,
+      "dynamic_unions": 16,
+      "report": "[RunScheduleOutput(RunReport([IterationReport(RuleSetReport(False, {}, datetime.timedelta(0), datetime.timedelta(0)), datetime.timedelta(0))], False, {}, {}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, True))]"
+    }
+  ],
+  "egraph": {
+    "nodes": {
+      "primitive-String-0": {
+        "op": "\"a\"",
+        "children": [],
+        "eclass": "String-0",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "primitive-i64-8": {
+        "op": "8",
+        "children": [],
+        "eclass": "i64-8",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-0-V": {
+        "op": "V",
+        "children": [
+          "primitive-String-0",
+          "primitive-i64-8"
+        ],
+        "eclass": "B-0",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "primitive-String-1": {
+        "op": "\"b\"",
+        "children": [],
+        "eclass": "String-1",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "primitive-i64-1": {
+        "op": "1",
+        "children": [],
+        "eclass": "i64-1",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-1-V": {
+        "op": "V",
+        "children": [
+          "primitive-String-1",
+          "primitive-i64-1"
+        ],
+        "eclass": "B-6",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-0-K": {
+        "op": "K",
+        "children": [
+          "primitive-i64-1",
+          "primitive-i64-1"
+        ],
+        "eclass": "B-10",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-0-Mux": {
+        "op": "Mux",
+        "children": [
+          "primitive-i64-1",
+          "function-0-And",
+          "function-2-Slt",
+          "function-1-V"
+        ],
+        "eclass": "B-7",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-1-Mux": {
+        "op": "Mux",
+        "children": [
+          "primitive-i64-1",
+          "function-0-And",
+          "function-1-Assume",
+          "function-1-V"
+        ],
+        "eclass": "B-7",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "primitive-i64-4": {
+        "op": "4",
+        "children": [],
+        "eclass": "i64-4",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-0-Slt": {
+        "op": "Slt",
+        "children": [
+          "function-0-V",
+          "primitive-i64-4"
+        ],
+        "eclass": "B-1",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "primitive-i64-2147483648": {
+        "op": "-3",
+        "children": [],
+        "eclass": "i64-2147483648",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-1-Slt": {
+        "op": "Slt",
+        "children": [
+          "function-0-V",
+          "primitive-i64-2147483648"
+        ],
+        "eclass": "B-2",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-2-Slt": {
+        "op": "Slt",
+        "children": [
+          "function-0-V",
+          "primitive-i64-8"
+        ],
+        "eclass": "B-5",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-0-And": {
+        "op": "And",
+        "children": [
+          "function-0-Slt",
+          "function-0-Not"
+        ],
+        "eclass": "B-4",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-1-And": {
+        "op": "And",
+        "children": [
+          "function-0-Not",
+          "function-0-Slt"
+        ],
+        "eclass": "B-14",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-0-Not": {
+        "op": "Not",
+        "children": [
+          "function-1-Slt"
+        ],
+        "eclass": "B-3",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-0-Assume": {
+        "op": "Assume",
+        "children": [
+          "primitive-i64-1",
+          "function-2-Slt",
+          "function-0-And"
+        ],
+        "eclass": "B-8",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-1-Assume": {
+        "op": "Assume",
+        "children": [
+          "primitive-i64-1",
+          "function-0-K",
+          "function-0-And"
+        ],
+        "eclass": "B-8",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-2-Assume": {
+        "op": "Assume",
+        "children": [
+          "primitive-i64-1",
+          "function-5-Assume",
+          "function-0-And"
+        ],
+        "eclass": "B-8",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-3-Assume": {
+        "op": "Assume",
+        "children": [
+          "primitive-i64-1",
+          "function-1-Assume",
+          "function-1-And"
+        ],
+        "eclass": "B-8",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-4-Assume": {
+        "op": "Assume",
+        "children": [
+          "primitive-i64-1",
+          "function-0-K",
+          "function-1-And"
+        ],
+        "eclass": "B-8",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-5-Assume": {
+        "op": "Assume",
+        "children": [
+          "primitive-i64-1",
+          "function-2-Slt",
+          "function-1-And"
+        ],
+        "eclass": "B-8",
+        "cost": 1.0,
+        "subsumed": false
+      }
+    },
+    "root_eclasses": [],
+    "class_data": {
+      "B-0": {
+        "type": "B"
+      },
+      "String-0": {
+        "type": "String"
+      },
+      "i64-8": {
+        "type": "i64"
+      },
+      "B-6": {
+        "type": "B"
+      },
+      "String-1": {
+        "type": "String"
+      },
+      "i64-1": {
+        "type": "i64"
+      },
+      "B-10": {
+        "type": "B"
+      },
+      "B-7": {
+        "type": "B",
+        "let": "$root"
+      },
+      "B-4": {
+        "type": "B"
+      },
+      "B-5": {
+        "type": "B"
+      },
+      "B-8": {
+        "type": "B"
+      },
+      "B-1": {
+        "type": "B"
+      },
+      "i64-4": {
+        "type": "i64"
+      },
+      "B-2": {
+        "type": "B"
+      },
+      "i64-2147483648": {
+        "type": "i64"
+      },
+      "B-3": {
+        "type": "B"
+      },
+      "B-14": {
+        "type": "B"
+      }
+    }
+  },
+  "dynamic_unions": [
+    "(union (Mux 1 (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3))) (Slt (V \"a\" 8) 8) (V \"b\" 1)) (Mux 1 (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3))) (Assume 1 (Slt (V \"a\" 8) 8) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (V \"b\" 1)))",
+    "(union (Assume 1 (Slt (V \"a\" 8) 8) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))))",
+    "(union (Mux 1 (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3))) (Assume 1 (Slt (V \"a\" 8) 8) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (V \"b\" 1)) (Mux 1 (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3))) (Assume 1 (Assume 1 (Slt (V \"a\" 8) 8) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (V \"b\" 1)))",
+    "(union (Mux 1 (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3))) (Slt (V \"a\" 8) 8) (V \"b\" 1)) (Mux 1 (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3))) (Assume 1 (Slt (V \"a\" 8) 8) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (V \"b\" 1)))",
+    "(union (Assume 1 (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (K 1 1) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (Slt (V \"a\" 8) 8) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (Slt (V \"a\" 8) 8) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Slt (V \"a\" 8) 8) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))))",
+    "(union (Mux 1 (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3))) (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (V \"b\" 1)) (Mux 1 (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3))) (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (V \"b\" 1)))",
+    "(union (Mux 1 (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3))) (Slt (V \"a\" 8) 8) (V \"b\" 1)) (Mux 1 (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3))) (Assume 1 (Slt (V \"a\" 8) 8) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (V \"b\" 1)))",
+    "(union (Assume 1 (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (K 1 1) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (Assume 1 (K 1 1) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (K 1 1) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (K 1 1) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (Assume 1 (K 1 1) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (K 1 1) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (Slt (V \"a\" 8) 8) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (Assume 1 (Slt (V \"a\" 8) 8) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (Slt (V \"a\" 8) 8) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (Slt (V \"a\" 8) 8) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (Slt (V \"a\" 8) 8) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (Assume 1 (Slt (V \"a\" 8) 8) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (Slt (V \"a\" 8) 8) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (Slt (V \"a\" 8) 8) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Slt (V \"a\" 8) 8) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (Assume 1 (K 1 1) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Slt (V \"a\" 8) 8) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))))",
+    "(union (Mux 1 (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3))) (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (V \"b\" 1)) (Mux 1 (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3))) (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (V \"b\" 1)))",
+    "(union (Mux 1 (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3))) (Slt (V \"a\" 8) 8) (V \"b\" 1)) (Mux 1 (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3))) (Assume 1 (Slt (V \"a\" 8) 8) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (V \"b\" 1)))",
+    "(union (Assume 1 (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (K 1 1) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (Assume 1 (K 1 1) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (K 1 1) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (K 1 1) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (Assume 1 (K 1 1) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (K 1 1) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (Slt (V \"a\" 8) 8) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (Assume 1 (Slt (V \"a\" 8) 8) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (Slt (V \"a\" 8) 8) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (Slt (V \"a\" 8) 8) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (Slt (V \"a\" 8) 8) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (Assume 1 (Slt (V \"a\" 8) 8) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (Slt (V \"a\" 8) 8) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (Slt (V \"a\" 8) 8) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Slt (V \"a\" 8) 8) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (Assume 1 (K 1 1) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Slt (V \"a\" 8) 8) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))))",
+    "(union (Mux 1 (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3))) (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (V \"b\" 1)) (Mux 1 (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3))) (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (V \"b\" 1)))",
+    "(union (Mux 1 (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3))) (Slt (V \"a\" 8) 8) (V \"b\" 1)) (Mux 1 (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3))) (Assume 1 (Slt (V \"a\" 8) 8) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (V \"b\" 1)))",
+    "(union (Assume 1 (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (K 1 1) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (Assume 1 (K 1 1) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (K 1 1) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (K 1 1) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (Assume 1 (K 1 1) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (K 1 1) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (Slt (V \"a\" 8) 8) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (Assume 1 (Slt (V \"a\" 8) 8) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (Slt (V \"a\" 8) 8) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (Slt (V \"a\" 8) 8) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (Slt (V \"a\" 8) 8) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (Assume 1 (Slt (V \"a\" 8) 8) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (Slt (V \"a\" 8) 8) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (Slt (V \"a\" 8) 8) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Slt (V \"a\" 8) 8) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (Assume 1 (K 1 1) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Slt (V \"a\" 8) 8) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))))",
+    "(union (Mux 1 (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3))) (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (V \"b\" 1)) (Mux 1 (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3))) (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (V \"b\" 1)))",
+    "(union (Mux 1 (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3))) (Slt (V \"a\" 8) 8) (V \"b\" 1)) (Mux 1 (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3))) (Assume 1 (Slt (V \"a\" 8) 8) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (V \"b\" 1)))",
+    "(union (Assume 1 (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (K 1 1) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (Assume 1 (K 1 1) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (K 1 1) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (K 1 1) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (Assume 1 (K 1 1) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (K 1 1) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (Slt (V \"a\" 8) 8) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (Assume 1 (Slt (V \"a\" 8) 8) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (Slt (V \"a\" 8) 8) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (Slt (V \"a\" 8) 8) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (Slt (V \"a\" 8) 8) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (Assume 1 (Slt (V \"a\" 8) 8) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (Slt (V \"a\" 8) 8) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (Slt (V \"a\" 8) 8) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Slt (V \"a\" 8) 8) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (Assume 1 (K 1 1) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Slt (V \"a\" 8) 8) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))))",
+    "(union (Mux 1 (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3))) (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (V \"b\" 1)) (Mux 1 (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3))) (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (V \"b\" 1)))",
+    "(union (Mux 1 (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3))) (Slt (V \"a\" 8) 8) (V \"b\" 1)) (Mux 1 (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3))) (Assume 1 (Slt (V \"a\" 8) 8) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (V \"b\" 1)))",
+    "(union (Assume 1 (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (K 1 1) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (Assume 1 (K 1 1) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (K 1 1) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (K 1 1) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (Assume 1 (K 1 1) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (K 1 1) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (Slt (V \"a\" 8) 8) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (Assume 1 (Slt (V \"a\" 8) 8) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (Slt (V \"a\" 8) 8) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (Slt (V \"a\" 8) 8) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (Slt (V \"a\" 8) 8) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (Assume 1 (Slt (V \"a\" 8) 8) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Assume 1 (Slt (V \"a\" 8) 8) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (Slt (V \"a\" 8) 8) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Slt (V \"a\" 8) 8) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))) (Assume 1 (K 1 1) (And (Not (Slt (V \"a\" 8) -3)) (Slt (V \"a\" 8) 4))))",
+    "(union (Assume 1 (Slt (V \"a\" 8) 8) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))))",
+    "(union (Mux 1 (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3))) (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (V \"b\" 1)) (Mux 1 (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3))) (Assume 1 (Assume 1 (K 1 1) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (V \"b\" 1)))",
+    "(union (Mux 1 (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3))) (Slt (V \"a\" 8) 8) (V \"b\" 1)) (Mux 1 (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3))) (Assume 1 (Slt (V \"a\" 8) 8) (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3)))) (V \"b\" 1)))"
+  ],
+  "variants": [
+    {
+      "weight": 0,
+      "term": [
+        "Mux",
+        1,
+        [
+          "And",
+          [
+            "Slt",
+            [
+              "V",
+              "a",
+              8
+            ],
+            4
+          ],
+          [
+            "Not",
+            [
+              "Slt",
+              [
+                "V",
+                "a",
+                8
+              ],
+              -3
+            ]
+          ]
+        ],
+        [
+          "Assume",
+          1,
+          [
+            "K",
+            1,
+            1
+          ],
+          [
+            "And",
+            [
+              "Slt",
+              [
+                "V",
+                "a",
+                8
+              ],
+              4
+            ],
+            [
+              "Not",
+              [
+                "Slt",
+                [
+                  "V",
+                  "a",
+                  8
+                ],
+                -3
+              ]
+            ]
+          ]
+        ],
+        [
+          "V",
+          "b",
+          1
+        ]
+      ],
+      "proxy_area": 18,
+      "proxy_delay": 6
+    },
+    {
+      "weight": 8,
+      "term": [
+        "Mux",
+        1,
+        [
+          "And",
+          [
+            "Slt",
+            [
+              "V",
+              "a",
+              8
+            ],
+            4
+          ],
+          [
+            "Not",
+            [
+              "Slt",
+              [
+                "V",
+                "a",
+                8
+              ],
+              -3
+            ]
+          ]
+        ],
+        [
+          "Assume",
+          1,
+          [
+            "K",
+            1,
+            1
+          ],
+          [
+            "And",
+            [
+              "Slt",
+              [
+                "V",
+                "a",
+                8
+              ],
+              4
+            ],
+            [
+              "Not",
+              [
+                "Slt",
+                [
+                  "V",
+                  "a",
+                  8
+                ],
+                -3
+              ]
+            ]
+          ]
+        ],
+        [
+          "V",
+          "b",
+          1
+        ]
+      ],
+      "proxy_area": 18,
+      "proxy_delay": 6
+    }
+  ],
+  "wall_seconds": 0.031368108466267586,
+  "program": "\n(datatype B (V String i64) (K i64 i64) (Add i64 B B) (Mul i64 B B)\n (Shr i64 B B) (Abs i64 B) (Mux i64 B B B) (Ult B i64)\n (Sge0 B) (Slt B i64) (And B B) (Neg i64 B) (Not B) (Assume i64 B B) (Cut i64 B) (Ext i64 B))\n(rewrite (Add w a b) (Add w b a))\n(rewrite (Mul w a b) (Mul w b a))\n(rewrite (Add w a (K w 0)) (Ext w a))\n(rewrite (Mul w a (K w 1)) (Ext w a))\n(rewrite (Abs w (Abs w a)) (Abs w a))\n(rewrite (Assume w (Assume w a c) c) (Assume w a c))\n\n(let $root (Mux 1 (And (Slt (V \"a\" 8) 4) (Not (Slt (V \"a\" 8) -3))) (Slt (V \"a\" 8) 8) (V \"b\" 1)))",
+  "shared_delay_targets": [
+    6
+  ]
+}
