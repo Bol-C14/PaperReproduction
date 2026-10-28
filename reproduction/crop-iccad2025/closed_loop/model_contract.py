@@ -10,16 +10,27 @@ DESIGN_FIELDS={'design name','design functionality','primary inputs','primary ou
                'key modules and functionalities','module interactions','design optimizations','potential applications','timing considerations'}
 
 
+def summary_fields(summary, required):
+    if not isinstance(summary, dict) or set(summary) != required:
+        raise ValueError('Expected exact summary field dictionary')
+    if any(not isinstance(v, str) or not v.strip() or len(v) > 256 for v in summary.values()):
+        raise ValueError('Summary values must be nonempty strings of at most 256 characters')
+    return summary
+
+
 def summary_cache(cache, source_sha256):
     if cache['source_sha256']!=source_sha256: raise ValueError('Summary belongs to different source bytes')
     if not cache.get('modules'): raise ValueError('Missing module summaries')
     for module in cache['modules']:
-        if set(module['summary'])!=MODULE_FIELDS: raise ValueError('Incomplete module summary fields')
-    if set(cache['design_summary'])!=DESIGN_FIELDS: raise ValueError('Incomplete circuit summary fields')
+        if not isinstance(module.get('name'), str) or not module['name'].strip():
+            raise ValueError('Missing module name')
+        summary_fields(module['summary'], MODULE_FIELDS)
+    summary_fields(cache['design_summary'], DESIGN_FIELDS)
     embedding=cache['embedding']
     if len(embedding)!=384 or any(type(v) not in (int,float) or not math.isfinite(v) for v in embedding):
         raise ValueError('Expected finite 384-dimensional all-MiniLM-L6-v2 embedding')
-    if sum(v*v for v in embedding)==0: raise ValueError('Zero embedding')
+    if not math.isclose(sum(v*v for v in embedding), 1.0, abs_tol=1e-5):
+        raise ValueError('Embedding must have L2 unit norm for comparable inner products')
     for field in ['summary_model','summary_model_revision','embedding_model','embedding_model_revision',
                   'prompt_sha256','embedding_normalization','embedding_truncation','generation_provenance']:
         if not cache.get(field): raise ValueError('Missing model provenance '+field)
@@ -28,8 +39,10 @@ def summary_cache(cache, source_sha256):
 
 def proposal(response, context):
     # Legal free-tool options only. This cannot validate unreleased industrial options.
+    if not isinstance(response, dict) or set(response) != {'configuration'}:
+        raise ValueError('Expected exact proposal envelope')
     chosen=response['configuration']
-    if set(chosen)!={'mode','noalumacc'} or type(chosen['noalumacc']) is not bool:
+    if not isinstance(chosen, dict) or set(chosen)!={'mode','noalumacc'} or type(chosen['noalumacc']) is not bool:
         raise ValueError('Expected exact legal configuration parameter dictionary')
     match=[c for c in context['legal_configs'] if c['mode']==chosen['mode'] and c['noalumacc']==chosen['noalumacc']]
     if len(match)!=1: raise ValueError('Configuration outside frozen legal pool')

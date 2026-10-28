@@ -223,7 +223,7 @@ class Study:
         opts='-noalumacc' if config['noalumacc'] else ''
         script=(f'read_verilog {design["rtl"]}\nhierarchy -check -top dut\nproc\nflatten\nopt\n'
                 f'write_json {rel}/highlevel.json\nsynth -top dut -noabc {opts}\ncheck -assert\n'
-                f'write_blif {rel}/reference.blif\nabc {abcargs}\nclean\ncheck -assert\n'
+                f'write_blif {rel}/reference.blif\nabc -exe {ABC} {abcargs}\nclean\ncheck -assert\n'
                 f'write_json {rel}/mapped.json\nwrite_blif {rel}/mapped.blif\nstat\nltp -noff\n')
         (folder/'flow.ys').write_text(script)
         row=dict(invocation=len(self.rows)+1,phase=phase,design=design['id'],config=config['id'],status='started',folder=str(rel),**labels)

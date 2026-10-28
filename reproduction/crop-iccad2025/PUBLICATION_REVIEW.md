@@ -37,3 +37,23 @@ The native tools remain usable in this cloud workspace. Their large installed fi
 ## Remote handling
 
 Read-only remote-ref inspection showed the intended CROP branch did not exist. The generic local `work` snapshot was given the dedicated paper branch name without changing or deleting `work`. Only `refs/heads/reproduction/crop-iccad2025` is pushed, using an ordinary non-forced update. Other paper branches and the repository's default branch are outside this update. An independent remote-ref read must match the full local paper-branch commit SHA before publication is reported as verified.
+
+## Dedicated CROP thread continuation
+
+The previously unpublished `e99589dd` snapshot is preserved as an ancestor. It
+adds only the API adapter/prepared driver, offline tests and setup/denial records.
+The revised stage requires an explicit runtime root, and no new deliverable
+embeds the operator's private host address, endpoint, credential or home path.
+The earlier snapshot contains a nonsecret isolated-working-directory default;
+that historical operational provenance is retained without rewriting history.
+No actual private hostname, endpoint or credential is present in those records.
+
+New Python/RTL changes are independently authored project material. Generated
+native prior logs/netlists are experiment outputs, not redistributed Yosys/ABC
+binaries or model weights. Dependency version records and existing official
+package provenance are retained. The original benchmark license remains
+unverified and no original benchmark has been imported. No blanket license for
+third-party software or model weights is asserted or changed by this update.
+The repository's lack of a project-wide LICENSE file is not represented as an
+open-source license grant. This is an authorized publication to the existing
+branch, with no new external asset redistribution.

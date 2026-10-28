@@ -1,5 +1,5 @@
 {
-  "status": "prepared_only_no_requests_sent",
+  "status": "revised_prepared_only_no_requests_sent",
   "transport": {
     "method": "POST",
     "path": "/chat/completions",
@@ -31,14 +31,17 @@
       "usage.prompt_tokens",
       "usage.completion_tokens",
       "model",
-      "id"
+      "id",
+      "choices[0].finish_reason"
     ],
     "timeout_seconds": 180,
-    "retries": "max2 consumed attempts per stage/proposal; no transport retries on denial",
+    "retries": "At most two content/schema attempts per stage; all attempts consumed. No HTTP/transport/denial retry. Stop on truncated responses.",
     "token_caps": {
       "input": 4096,
       "completion": 640
-    }
+    },
+    "token_counting": "Parent must confirm byte-BPE tokenization with <=256 chat-framing/hidden-input tokens. All messages ASCII; visible ASCII byte count plus 256 is conservatively capped at 4096. Otherwise this profile cannot run.",
+    "completion_requirement": "max_tokens must cap all billable generated tokens at640; no extra unbounded reasoning tokens"
   },
   "public_input_categories": {
     "source": "seven independently authored public educational Verilog files committed at source SHA",
@@ -80,7 +83,7 @@
       }
     ],
     "module_summary_to_design_summary": "generated six-field JSON, no private RTL or external paths",
-    "proposal_context": "public generated FIR3 design summary, eight legal Yosys/ABC configurations, nearest prior top3 QoR records, up to3 preceding fresh target observations, objective,seed and hashes",
+    "proposal_context": "Public generated FIR3 design summary; eight legal Yosys/ABC configurations; selected prior top3 within-circuit normalized QoR ratios from freshly rebuilt matched-native bank; up to3 preceding fresh target observations; objective and seed. No historical target/posthoc oracle.",
     "excluded": "No credentials, .env, private keys, private RTL, user files, other projects or posthoc target archive enter payload"
   },
   "wire_payload_byte_caps": {
@@ -115,7 +118,7 @@
     "primary outputs",
     "timing considerations"
   ],
-  "summary_values": "concise string",
+  "summary_values": "Nonempty concise string, at most256 characters per field; exact keys",
   "proposal_schema": {
     "configuration": {
       "mode": "fast|quality|area|depth",
@@ -123,11 +126,29 @@
     }
   },
   "proposal_validation": "exact keys, legal config, untried; no heuristic fallback",
-  "embedding": "Canonical all-MiniLM-L6-v2 local CPU only;384dim L2 normalization;256 token truncation explicitly recorded",
-  "evidence": "raw prompt,response,usage,timings,model revision,invalid attempts,hashes,real Yosys+ABC CEC outputs preserved",
+  "embedding": "Existing canonical all-MiniLM-L6-v2, local CPU only; no embedding endpoint, no local LLM. 384-dimensional L2-normalized vectors; max_seq_length256 with untruncated input length recorded.",
+  "evidence": "Raw prompt/completion and attempt reservations; usage/timing/model ID; invalid content and transport failure records; native tool versions; CEC plus independent256-vector checks. No credential or provider error body logging.",
   "token_budget_upper_estimate": {
     "nominal_tokens": 80512,
     "max_tokens": 161024,
     "note": "Conservative sum of input4096+output640 per attempt; provider usage records actual counts"
-  }
+  },
+  "preparation_eda_budget": {
+    "prior_circuits": 6,
+    "configs_each": 8,
+    "max_synthesis_attempts": 48,
+    "per_attempt_synthesis_seconds": 60,
+    "per_attempt_cec_seconds": 30,
+    "live_target_calls": 0,
+    "api_calls": 0,
+    "backend_policy": "Same pinned Yosys and explicit ABC for mapping/CEC as future pilot; do not pool old Debian QoR."
+  },
+  "authorization_marker_fields": [
+    "approved=true",
+    "base_url matches runtime base",
+    "model matches runtime model",
+    "payload_scope=crop_public_seven_circuits_summaries_qor",
+    "input_counting=ascii_byte_upper_bound+256",
+    "byte_bpe_and_framing_confirmed=true"
+  ]
 }

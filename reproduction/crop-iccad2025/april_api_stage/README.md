@@ -1,24 +1,56 @@
-# APRIL CROP API stage: prepared, not executed
+# APRIL CROP API stage: offline interfaces revised; live execution paused
 
-This packages an API-only extension of the existing CROP reconstruction. It has not completed the semantic/LLM method. The original 272-measurement non-model study remains unchanged; no new synthesis oracle measurement or model call has run.
+The real-model entry point remains unexecuted. `DENIAL_RECORD.json` preserves
+the prior denial and its authorization prerequisite. No API request or local
+LLM inference has occurred. The historical 272-measurement non-model study and
+its 48 archived prior QoRs are retained unchanged.
 
-## Prepared components
+[Prepared pilot protocol](PILOT_PROTOCOL.md) describes the requested service,
+public payload example, token/request bounds, scientific limitations and exact
+separation of EDA preparation from the later real-model pilot.
 
-- api_adapter.py: standard-library OpenAI-compatible /chat/completions adapter. Credentials enter only through runtime PAPER_LLM_BASE_URL, PAPER_LLM_API_KEY, and PAPER_LLM_MODEL. Network defaults off; errors omit provider bodies and auth headers.
-- api_pilot.py: two-stage module/design summaries for six public priors plus held-out FIR3, local canonical MiniLM embeddings, fixed retrieval, and up to three live LLM proposals after c0. It preserves raw prompts/completions and invalid attempts. Parent-created results/crop/API_AUTHORIZED.json authorization marker is required before any calls. Creating that marker itself requires authorization; none is supplied here.
-- test_api_adapter.py and offline-tests.log: three offline transport/schema/redaction tests passed. No endpoint contacted.
-- ONLINE_MODEL_INTERFACE.json: payload categories, schemas and bounds. Nominal 17 calls, at most 34 attempts, at most four new EDA measurements.
-- SETUP_EVIDENCE.json, requirements.freeze.txt: native Yosys0.52 build, source/binary hashes, environment versions and FIR3 parse/structural-check evidence.
-- PAUSED.json and DENIAL_RECORD.json: pending state and exact approval barrier.
+## Revised interfaces
 
-## Portability and authorization
+- `api_adapter.py` refuses network by default, requires a model-approved token
+  counter, enforces input/output/byte bounds, refuses redirects and stops on
+  transport or truncated-response failures. Credentials enter only at runtime;
+  error bodies/headers are omitted and usage fields are allowlisted.
+- `pilot_support.py` provides pure tests of semantic retrieval, within-prior
+  normalized guidance, attempt accounting, correctness-qualified observations
+  and evolving target history. It performs no model, network or EDA operations.
+- `api_pilot.py` is a prepared two-stage summary/retrieval/LLM-search driver.
+  It now has a side-effect-free import, but has **not been imported or executed**
+  during this revision. The parent must explicitly release the denied action.
+  Its authorization record must match the runtime endpoint, model, public scope
+  and confirmed byte-BPE token-counting profile. Model failures have no heuristic
+  fallback. There are at most 34 model attempts and four fresh target EDA calls.
+- `prepare_native_priors.py` is a separate CPU-only driver: at most 48 fresh
+  prior synthesis attempts, no target or model calls, explicit shared ABC for
+  both mapping and CEC, plus independent arithmetic/LUT/depth checks. It creates
+  a native bank for the future pilot instead of mixing old Debian QoRs with a
+  different tool backend. The preparation protocol and results are separate
+  from live-model evidence.
+- `test_api_adapter.py`, `test_pilot_interfaces.py` and `offline-tests-v2.log`
+  contain 13 passing offline tests, including scripted fake model responses,
+  malformed/duplicate proposals, non-normalized vectors, token bounds and a
+  deliberately failed CEC. These are interface tests, never research outcomes.
 
-PAPER_REPRO_ROOT selects an isolated APRIL-style runtime root (default /home/shugu/work/paper-reproduction-april-20261028). The packaged driver locates ../closed_loop relative to itself. Runtime root must supply tools/crop/yosys/yosys, read-only tools/abc-rl/abc/abc, canonical assets/shared/all-minilm-l6-v2, and writable results/crop. No weights or secrets are committed. API LLM use is the user's preference; local Qwen inference is disallowed and never occurred.
+## Runtime and provenance
 
-Do not execute the live entry point until the parent authorizes endpoint, credentials and public-data transmission. The preflight execution attempt was denied by automatic approval review before execution; no retry occurred. Packaging is independent of that denied operation.
+Set `PAPER_REPRO_ROOT` to the existing isolated runtime root; there is no default
+personal home path. Runtime supplies `tools/crop/yosys/yosys`, read-only
+`tools/abc-rl/abc/abc`, existing `assets/shared/all-minilm-l6-v2`, and dedicated
+`results/crop`. The driver locates `../closed_loop` beside itself. No model
+weights, third-party tool binaries, credentials or authorization marker belong
+in Git. Existing local Qwen assets remain paused and are not used.
 
-## Scientific limitations
+`SETUP_EVIDENCE.json`, `PAUSED.json`, `requirements.freeze.txt`,
+`offline-tests.log` and `PACKAGE_HASHES.e99589d.json` are historical snapshots
+from commit `e99589dd`; their hashes refer to that commit, not the revised files.
+The setup and old three-test result were not rerun to claim new evidence.
+The current status is described here and by the new preparation artifacts.
 
-Source SHA: a7b6f8dbfcc2b1c2c8a90d9c29c315388a253e7f. All seven tiny circuits have one top module, so nontrivial multilevel hierarchy is untested. The 48 archived prior QoRs came from the earlier Debian backend; fresh native Yosys/sharedABC may differ. This is cross-backend archival guidance rather than a matched-oracle comparison. A single-target, single-seed pilot cannot establish quality improvement. API model and Yosys/ABC LUT4 substitutions do not reproduce the paper's model or RTL Architect physical PPA.
-
-No completed semantic retrieval, LLM proposal or new optimization result is claimed.
+The original backend measurements remain historical evidence. Only ratios from
+one circuit/backend may serve as prior guidance; fresh target comparisons use
+one native run. Even matched tools do not make these toy circuits or LUT4
+objectives equivalent to the original industrial method, dataset or PPA.
