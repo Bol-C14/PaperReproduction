@@ -1,0 +1,35 @@
+[
+  {
+    "stage": "routing-recovery",
+    "command": [
+      "taskset",
+      "-c",
+      "0,1,2,3",
+      "podman",
+      "run",
+      "--rm",
+      "--network=none",
+      "--read-only",
+      "--cap-drop=all",
+      "--security-opt=no-new-privileges",
+      "--pids-limit=128",
+      "--memory=8g",
+      "--tmpfs=/tmp:rw,noexec,nosuid,size=128m",
+      "-e",
+      "OMP_NUM_THREADS=4",
+      "-e",
+      "QT_QPA_PLATFORM=minimal",
+      "-v",
+      "${E4_WORK_ROOT}/assets/pdagent/dataset/PlaceReasoner-Bench/bp_fe:/data:ro",
+      "-v",
+      "${E4_WORK_ROOT}/results/fluxbench/physical-v1:/out:rw",
+      "080c40706b37fb2fece6a61412d17c0e025ee87af82af28e79aa90f5d02a78ac",
+      "-no_init",
+      "-exit",
+      "/out/routing-recovery.tcl"
+    ],
+    "returncode": null,
+    "timeout": true,
+    "seconds": 300.0084168128669
+  }
+]

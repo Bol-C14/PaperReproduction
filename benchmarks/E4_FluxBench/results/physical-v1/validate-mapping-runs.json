@@ -1,0 +1,37 @@
+[
+  {
+    "id": "cell-models-recovery",
+    "command": [
+      "${E4_WORK_ROOT}/tools/verithoughts/yosys041-install/bin/yosys",
+      "-p",
+      "read_liberty -ignore_miss_func ${E4_WORK_ROOT}/assets/pdagent/dataset/PlaceReasoner-Bench/bp_fe/lib/NangateOpenCellLibrary_typical.lib; read_verilog simulation.v; hierarchy -check -top impl; write_verilog -noattr combined.v"
+    ],
+    "returncode": 0,
+    "seconds": 1.2174777369946241
+  },
+  {
+    "id": "compile-technology",
+    "command": [
+      "${E4_WORK_ROOT}/tools/cvdp/iverilog-install/bin/iverilog",
+      "-g2012",
+      "-s",
+      "tb",
+      "-o",
+      "technology.vvp",
+      "tb.v",
+      "${E4_WORK_ROOT}/assets/fluxbench/picorv32.v",
+      "combined.v"
+    ],
+    "returncode": 0,
+    "seconds": 0.9310340024530888
+  },
+  {
+    "id": "simulate-technology",
+    "command": [
+      "${E4_WORK_ROOT}/tools/cvdp/iverilog-install/bin/vvp",
+      "technology.vvp"
+    ],
+    "returncode": 1,
+    "seconds": 0.5418029241263866
+  }
+]

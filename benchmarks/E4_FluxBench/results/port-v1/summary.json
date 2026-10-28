@@ -1,0 +1,203 @@
+{
+  "task": "PICO_SYNTH_001",
+  "status": "reference_calibration",
+  "port": "synthesis_stage_only",
+  "model_calls": 0,
+  "paid_cost_usd": 0,
+  "thread_cap": 4,
+  "command_timeout_seconds": 120,
+  "runs": [
+    {
+      "id": "yosys-version",
+      "command": [
+        "${E4_WORK_ROOT}/tools/verithoughts/yosys041-install/bin/yosys",
+        "-V"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 0.005279190838336945,
+      "expected_exit": 0
+    },
+    {
+      "id": "iverilog-version",
+      "command": [
+        "${E4_WORK_ROOT}/tools/cvdp/iverilog-install/bin/iverilog",
+        "-V"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 0.05018676817417145,
+      "expected_exit": 0
+    },
+    {
+      "id": "synth-mapped",
+      "command": [
+        "${E4_WORK_ROOT}/tools/verithoughts/yosys041-install/bin/yosys",
+        "-p",
+        "read_verilog ${E4_WORK_ROOT}/assets/fluxbench/picorv32.v; synth -top picorv32 ; check -assert; rename picorv32 impl; write_verilog mapped.v; write_json mapped.json"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 3.1458754017949104,
+      "expected_exit": 0
+    },
+    {
+      "id": "reload-mapped",
+      "command": [
+        "${E4_WORK_ROOT}/tools/verithoughts/yosys041-install/bin/yosys",
+        "-p",
+        "read_verilog mapped.v; hierarchy -check -top impl; proc; check -assert; stat"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 1.8630530219525099,
+      "expected_exit": 0
+    },
+    {
+      "id": "synth-alternative",
+      "command": [
+        "${E4_WORK_ROOT}/tools/verithoughts/yosys041-install/bin/yosys",
+        "-p",
+        "read_verilog ${E4_WORK_ROOT}/assets/fluxbench/picorv32.v; synth -top picorv32 -noabc; check -assert; rename picorv32 impl; write_verilog alternative.v; write_json alternative.json"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 3.1367407720535994,
+      "expected_exit": 0
+    },
+    {
+      "id": "reload-alternative",
+      "command": [
+        "${E4_WORK_ROOT}/tools/verithoughts/yosys041-install/bin/yosys",
+        "-p",
+        "read_verilog alternative.v; hierarchy -check -top impl; proc; check -assert; stat"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 1.8716514501720667,
+      "expected_exit": 0
+    },
+    {
+      "id": "compile-mapped",
+      "command": [
+        "${E4_WORK_ROOT}/tools/cvdp/iverilog-install/bin/iverilog",
+        "-g2012",
+        "-s",
+        "tb",
+        "-o",
+        "mapped.vvp",
+        "tb.v",
+        "${E4_WORK_ROOT}/assets/fluxbench/picorv32.v",
+        "mapped.v"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 0.6718957349658012,
+      "expected_exit": 0
+    },
+    {
+      "id": "simulate-mapped",
+      "command": [
+        "${E4_WORK_ROOT}/tools/cvdp/iverilog-install/bin/vvp",
+        "mapped.vvp"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 1.1001347787678242,
+      "expected_exit": 0
+    },
+    {
+      "id": "compile-alternative",
+      "command": [
+        "${E4_WORK_ROOT}/tools/cvdp/iverilog-install/bin/iverilog",
+        "-g2012",
+        "-s",
+        "tb",
+        "-o",
+        "alternative.vvp",
+        "tb.v",
+        "${E4_WORK_ROOT}/assets/fluxbench/picorv32.v",
+        "alternative.v"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 0.6702664420008659,
+      "expected_exit": 0
+    },
+    {
+      "id": "simulate-alternative",
+      "command": [
+        "${E4_WORK_ROOT}/tools/cvdp/iverilog-install/bin/vvp",
+        "alternative.vvp"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 1.077232465147972,
+      "expected_exit": 0
+    },
+    {
+      "id": "compile-negative",
+      "command": [
+        "${E4_WORK_ROOT}/tools/cvdp/iverilog-install/bin/iverilog",
+        "-g2012",
+        "-s",
+        "tb",
+        "-o",
+        "negative.vvp",
+        "tb-negative.v",
+        "${E4_WORK_ROOT}/assets/fluxbench/picorv32.v",
+        "mapped.v"
+      ],
+      "exit_code": 0,
+      "timeout": false,
+      "seconds": 0.6724385973066092,
+      "expected_exit": 0
+    },
+    {
+      "id": "simulate-negative",
+      "command": [
+        "${E4_WORK_ROOT}/tools/cvdp/iverilog-install/bin/vvp",
+        "negative.vvp"
+      ],
+      "exit_code": 1,
+      "timeout": false,
+      "seconds": 0.21126483380794525,
+      "expected_exit": "nonzero"
+    },
+    {
+      "id": "parse-negative",
+      "command": [
+        "${E4_WORK_ROOT}/tools/verithoughts/yosys041-install/bin/yosys",
+        "-p",
+        "read_verilog invalid.v"
+      ],
+      "exit_code": 1,
+      "timeout": false,
+      "seconds": 0.008046044036746025,
+      "expected_exit": "nonzero"
+    }
+  ],
+  "tools": {
+    "${E4_WORK_ROOT}/tools/verithoughts/yosys041-install/bin/yosys": "3142ddb7105ed63c89018469e1c20dced0c37d16cc44cab1b3e70288456fb810",
+    "${E4_WORK_ROOT}/tools/cvdp/iverilog-install/bin/iverilog": "9334adece4030a6e33fa4a6900e0560d33e82c2ef142e300952f8ac8a88639e3",
+    "${E4_WORK_ROOT}/tools/cvdp/iverilog-install/bin/vvp": "6ae7ba4206d58a1fa090f2d775edf5538d3741e4bcc09abc861de88937992724"
+  },
+  "artifacts": {
+    "constraints.json": "1bda9817834ec871cd6325486817091d1f969cb5b2b62d8ee46c22f37b9179c1",
+    "mapped.v": "2cd076c0660f20a9e22469018bd08399d198aa6e53adb406afcf4de92f2ba8f7",
+    "mapped.json": "4a96efce38bc899e41b1ccc9c61b3fd3ee36740af2c9867bafcd751b78f47d7f",
+    "alternative.v": "2cd076c0660f20a9e22469018bd08399d198aa6e53adb406afcf4de92f2ba8f7",
+    "alternative.json": "4a96efce38bc899e41b1ccc9c61b3fd3ee36740af2c9867bafcd751b78f47d7f",
+    "tb.v": "97d1cec6987d9367b5ba6de99760745300602b94ccee6916e40dab97ed415610",
+    "tb-negative.v": "a6c984395e7bacb7d2d24bf0c7fbd70533ab0f8f4dd2b8d6b398b010a80b56d4",
+    "invalid.v": "b3dc033c3918347d2d8a4cd6cfa0ca4dc9491faa2a070614e03e011f47db0105"
+  },
+  "excluded_stages": [
+    "physical_implementation",
+    "ECO",
+    "STA",
+    "GDS",
+    "clock_gating_validation"
+  ],
+  "functional_scope": "1000-cycle single-program differential simulation; not formal equivalence"
+}

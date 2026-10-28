@@ -1,0 +1,56 @@
+{
+  "setup_bounds": {
+    "active_setup_hours": 2,
+    "downloads_bytes_max": 2000000000
+  },
+  "experiment_bounds": {
+    "paper_tasks": 1,
+    "cpu_threads": 4,
+    "per_command_timeout_seconds": 120,
+    "model_calls": 0,
+    "paid_cost_usd": 0
+  },
+  "selected": [
+    {
+      "id": "PICO_SYNTH_001",
+      "source_commit": "ef203c2b0a3fb793280f5114941416c425c5b461",
+      "kind": "open_tool_synthesis_stage_port",
+      "variants": [
+        "Yosys synth with ABC",
+        "Yosys synth -noabc"
+      ],
+      "controls": [
+        "differential simulation against RTL",
+        "corrupted observed address",
+        "invalid Verilog parse"
+      ],
+      "parameters": "upstream defaults",
+      "cycles": 1000,
+      "reset_cycles": 5
+    }
+  ],
+  "excluded": [
+    {
+      "id": "paper_350_700_commercial_flow",
+      "reason": "No licensed original technical package, harness, fixed tool versions or commercial runtime access"
+    },
+    {
+      "id": "NVDLA",
+      "reason": "Current site protocol differs from cited v3"
+    },
+    {
+      "id": "live_agent",
+      "reason": "No API calls authorized in initial phase"
+    },
+    {
+      "id": "physical_flow_port",
+      "reason": "This bounded port stops at synthesis; no duplicate OpenROAD installation or physical equivalence claim"
+    }
+  ],
+  "selection_order": "Written to disk before port.py transfer and launch; original timestamp field removed because it was not clock-derived.",
+  "adaptive_followup_before_execution": {
+    "reason": "Default and -noabc produced identical hashes and no ABC phase; unresolved tool-build effect",
+    "variant": "synth -noabc -noalumacc",
+    "limits": "same design, thread and per-command bounds, one additional synthesis/reload/simulation"
+  }
+}

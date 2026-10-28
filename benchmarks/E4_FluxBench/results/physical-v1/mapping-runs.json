@@ -1,0 +1,32 @@
+[
+  {
+    "id": "unmap",
+    "command": [
+      "${E4_WORK_ROOT}/tools/verithoughts/yosys041-install/bin/yosys",
+      "-p",
+      "read_verilog ${E4_WORK_ROOT}/assets/fluxbench/picorv32.v; synth -top picorv32 -noabc; dffunmap; write_blif unmapped.blif"
+    ],
+    "returncode": 0,
+    "seconds": 2.976435197517276
+  },
+  {
+    "id": "abc-map",
+    "command": [
+      "${E4_WORK_ROOT}/tools/abc-rl/abc/abc",
+      "-c",
+      "read_lib ${E4_WORK_ROOT}/assets/pdagent/dataset/PlaceReasoner-Bench/bp_fe/lib/NangateOpenCellLibrary_typical.lib; read_blif unmapped.blif; strash; map; write_verilog abc.v"
+    ],
+    "returncode": 0,
+    "seconds": 0.5197085812687874
+  },
+  {
+    "id": "dffmap",
+    "command": [
+      "${E4_WORK_ROOT}/tools/verithoughts/yosys041-install/bin/yosys",
+      "-p",
+      "read_verilog abc.v; hierarchy -top picorv32; proc; dfflibmap -liberty ${E4_WORK_ROOT}/assets/pdagent/dataset/PlaceReasoner-Bench/bp_fe/lib/NangateOpenCellLibrary_typical.lib; clean; read_liberty -lib ${E4_WORK_ROOT}/assets/pdagent/dataset/PlaceReasoner-Bench/bp_fe/lib/NangateOpenCellLibrary_typical.lib; hierarchy -check -top picorv32; check -assert; stat; write_verilog -noattr mapped.v; write_json mapped.json"
+    ],
+    "returncode": 0,
+    "seconds": 1.8058270774781704
+  }
+]

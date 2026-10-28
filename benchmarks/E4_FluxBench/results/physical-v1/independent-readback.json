@@ -1,0 +1,43 @@
+{
+  "checkpoint": "cts",
+  "command": [
+    "taskset",
+    "-c",
+    "0,1,2,3",
+    "podman",
+    "run",
+    "--rm",
+    "--network=none",
+    "--read-only",
+    "--cap-drop=all",
+    "--security-opt=no-new-privileges",
+    "--pids-limit=128",
+    "--memory=8g",
+    "--tmpfs=/tmp:rw,noexec,nosuid,size=128m",
+    "-e",
+    "OMP_NUM_THREADS=4",
+    "-e",
+    "QT_QPA_PLATFORM=minimal",
+    "-v",
+    "${E4_WORK_ROOT}/assets/pdagent/dataset/PlaceReasoner-Bench/bp_fe:/data:ro",
+    "-v",
+    "${E4_WORK_ROOT}/results/fluxbench/physical-v1:/out:rw",
+    "080c40706b37fb2fece6a61412d17c0e025ee87af82af28e79aa90f5d02a78ac",
+    "-no_init",
+    "-exit",
+    "/out/independent-readback.tcl"
+  ],
+  "returncode": 0,
+  "seconds": 1.6343367602676153,
+  "facts": [
+    "FACT instances 12699",
+    "FACT placed 12699",
+    "FACT clock_buffers 149",
+    "FACT routed_nets 0",
+    "FACT multi_terminal_unwired 12624",
+    "FACT clock core_clk period 10.000000"
+  ],
+  "timing": "placement-estimated only; not extracted/signoff",
+  "checkpoint_sha256": "8e354cbf16135268c6608838b01f79aec0b5b2f3f6db93673146925b5405406a",
+  "constraint_sha256": "17f7b8fa4b3f81cae2c1480e9344a261e381b8de51164e795e7c6491f89d4d42"
+}

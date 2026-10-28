@@ -1,0 +1,12 @@
+{
+ "id":"PICO_PHYSICAL_PORT_001",
+ "kind":"open_tool_protocol_port_not_paper_reproduction",
+ "source":"same frozen PicoRV32 source and defaults as PICO_SYNTH_001",
+ "fixed_constraints":{"clock_ns":10,"die_um":[0,0,200,200],"core_um":[10,10,190,190],"site":"FreePDK45_38x28_10R_NP_162NW_34O","routing_signal_layers":"metal2-metal6","routing_clock_layers":"metal2-metal6","threads":4},
+ "technology":"existing E3 Nangate typical Liberty plus corresponding technology/cell LEFs, read-only",
+ "bounds":{"download_bytes":0,"mapping_seconds_each":120,"physical_stage_seconds_each":300,"memory_gb":8,"one_design":true,"sweeps":0,"live_agent":false},
+ "mapping":"existing Yosys synth/dffunmap -> BLIF -> existing standalone ABC -> Yosys dfflibmap -> linked netlist; inspect and validate before physical implementation",
+ "stages":["floorplan","placement","CTS","global and detailed routing","independent database reread and timing"],
+ "GDS":"not_run unless matching cell GDS and layer mapping found; none found in initial E3 assets inspection",
+ "preflight_failure":"A relative source-path preflight failed before mapping; retained privately, rerun uses frozen absolute asset path through E4_WORK_ROOT."
+}

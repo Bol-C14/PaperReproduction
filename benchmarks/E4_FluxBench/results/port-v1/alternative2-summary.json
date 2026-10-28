@@ -1,0 +1,56 @@
+{
+  "status": "reference_calibration",
+  "reason": "ABC/noABC identical in this build; noalumacc changes actual netlist",
+  "runs": [
+    {
+      "id": "synth-alternative2",
+      "command": [
+        "${E4_WORK_ROOT}/tools/verithoughts/yosys041-install/bin/yosys",
+        "-p",
+        "read_verilog ${E4_WORK_ROOT}/assets/fluxbench/picorv32.v; synth -top picorv32 -noabc -noalumacc; check -assert; rename picorv32 impl; write_verilog alternative2.v; write_json alternative2.json"
+      ],
+      "seconds": 3.1547296717762947,
+      "exit_code": 0
+    },
+    {
+      "id": "reload-alternative2",
+      "command": [
+        "${E4_WORK_ROOT}/tools/verithoughts/yosys041-install/bin/yosys",
+        "-p",
+        "read_verilog alternative2.v; hierarchy -check -top impl; proc; check -assert; stat"
+      ],
+      "seconds": 1.9012257233262062,
+      "exit_code": 0
+    },
+    {
+      "id": "compile-alternative2",
+      "command": [
+        "${E4_WORK_ROOT}/tools/cvdp/iverilog-install/bin/iverilog",
+        "-g2012",
+        "-s",
+        "tb",
+        "-o",
+        "alternative2.vvp",
+        "tb.v",
+        "${E4_WORK_ROOT}/assets/fluxbench/picorv32.v",
+        "alternative2.v"
+      ],
+      "seconds": 0.6816436983644962,
+      "exit_code": 0
+    },
+    {
+      "id": "simulate-alternative2",
+      "command": [
+        "${E4_WORK_ROOT}/tools/cvdp/iverilog-install/bin/vvp",
+        "alternative2.vvp"
+      ],
+      "seconds": 1.1391802057623863,
+      "exit_code": 0
+    }
+  ],
+  "netlist_sha256": "2e302309fde7ac6d6e7dd7f1ce4a727f6726386044fd47327c5c625e38dc1d5a",
+  "database_sha256": "e57e4c12d06e2e6edcd21383fb965c029369fe5d172ce2d44a1d6cce59843d90",
+  "cells": 8321,
+  "cycles": 1000,
+  "fetches": 333
+}

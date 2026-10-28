@@ -1,0 +1,45 @@
+# FluxBench E4 review
+
+Audit date: 2026-10-28. Scope: public metadata, score arithmetic replay, and an open-tool synthesis-stage calibration. No live agent was evaluated.
+
+## Identity and claims
+
+[Paper v3](https://arxiv.org/html/2607.17528v3), revised July 23, 2026, describes a PicoRV32 commercial 55-nm case study at 350/700 MHz. It compares three architectures and four models, with one run per configuration. Its reported FluxEDA runs complete all stages; baseline failures concentrate on tool interactions and later flow stages. These observations support a workflow case study, not a statistically established general ranking. The paper identifies itself as invited; venue is unverified. Paper type: empirical case study. Contribution: process-aware evaluation and system-level execution lessons. CCF: unknown; no dated official classification was established.
+
+## Mechanisms and reproducibility
+
+The paper separates stage progress from final quality and describes persistent context and structured tool access as reliability mechanisms. The public record lacks enough implementation detail to isolate those mechanisms causally: interface restrictions, session persistence, orchestration and workflow knowledge are bundled. Repeated seeds, ablations and multiple designs are needed. The paper and its [FluxEDA infrastructure reference](https://arxiv.org/html/2603.25243) are distinct contributions. FluxEDA describes a managed gateway, registered capabilities and persistent backend sessions; this E4 work does not reconstruct that infrastructure.
+
+## Protocol recovered from public artifacts
+
+The [current site](https://fluxbench.net/) combines 20% gated stage progress and 80% final quality for PicoRV32. Its six final metrics use clipped normalization: area/power are inverse-ratio scores against frequency references; timing is linear between a negative floor and zero. The numerical constants are in `analysis/scorer.py`. A result receives no final-quality points before all gates complete. Equal weights for two synthesis checks and four physical checks are our reconstruction consistent with partial scores, not recovered official evaluator code.
+
+The site also contains NVDLA with different scoring and suspended ROI. Its current guide uses worker-side DC/Innovus/PrimeTime bridges and artifact acceptance. These newer contracts must not be substituted for the v3 protocol. No original benchmark repository commit, complete evaluator, technology package or run-level artifact validation was established. Public client assets are versioned by query strings and SHA-256, not an available Git commit. Token ROI's normalized USD/time transformation remains unknown; its displayed equation alone is insufficient for recomputation.
+
+## Independent evidence
+
+All 52 actual public score records reproduce within 0.00005 points; 24 are labeled historical July-21 records. This validates arithmetic given reported stage scores and metrics. It does not validate stage labels, report freshness, physical correctness or the paper's causal explanation. Original artifact records and tool traces are absent. The 24 historical records must not be pooled with 28 later entries into a new model ranking. Their historical labels also do not prove byte-faithful paper data: the 350-MHz FluxEDA/Kimi cost is $18.58 in the public snapshot versus $18.65 in v3 Table 2. The replay validates the snapshot, not unpublished original traces.
+
+Seventeen synthetic controls pass our implementation. Five exercise stage dependencies, four invalid metrics, three unknown frequencies and five metadata-evidence conditions. The proposed metadata guard rejects stale identity hashes, an invalid-GDS flag, or a bare PASS/exit-code bundle. It does not parse GDS or establish that upstream rejects such files. Invalid metrics receive zero component credit in arithmetic; that is different from rejecting an entire artifact submission. A fabricated bundle with matching metadata can still pass this illustrative guard.
+
+The single open-source PicoRV32 port produced an initial default/no-ABC pair with identical netlist hashes, followed by one genuinely different no-alumacc synthesis variant. All were independently reloaded by Yosys and compared with RTL in a 1000-cycle deterministic simulation, reaching 333 instruction fetches. An address-observation corruption failed at cycle 4 and malformed Verilog was rejected. That initial calibration stopped at synthesis. A subsequent explicitly authorized physical port is reported below. Clock-gating validation, ECO and GDS remain unrun. No FluxBench overall score is assigned to this port. Simulation is finite coverage, not proof of equivalence. The fixed fetch loop has no stores, data-dependent branches, memory backpressure or interrupts. It does not establish whole-CPU equivalence.
+
+## Prior-work boundaries and effects
+
+RTL-generation suites such as VerilogEval, RTLLM and CVDP test different contracts from fixed-RTL physical orchestration. Structured stateful tool orchestration overlaps the separate FluxEDA infrastructure contribution and general workflow systems; this case study's numerical result alone does not establish that those abstractions are new. These are scope comparisons, not a new exhaustive novelty search.
+
+Model effects: unmeasured here. Tool effects: default and no-ABC produced identical outputs with no ABC log phase, so their option names do not establish a mapping contrast. The additional no-alumacc variant produced a different hashed netlist and passed the same checks. No physical QoR inference. Runtime effects: individual subprocess wall times are in the port summary, without comparative significance. Infrastructure effects: repeated controller disconnections interrupted setup and evidence transfer, not the final tool execution; no synthesis command timed out. Original paper tool and technology effects remain inseparable from architecture effects in this reproduction.
+
+## Limits and licenses
+
+Paper license is CC BY-NC-ND 4.0; full text is retained outside the publication package. No license was established for the site implementation or original benchmark package; do not publish their HTML/JS snapshots. Public numerical facts are retained with attribution, excluding owner names. PicoRV32 is pinned under ISC and its license accompanies the source. Tool binaries, proprietary libraries, credentials, private answers and host snapshots are excluded. This package supports `offline_replay`, `reference_calibration`, and a separately labeled `partial_method_reproduction` of an open-tool physical flow. Exact paper reproduction remains `resource_blocked`; a live pilot remains `not_run`.
+
+## Bounded physical protocol port
+
+One additional case reused E3's installed OpenROAD image and exact Nangate typical Liberty/technology/cell LEFs, all read-only. No dependencies were installed and no additional assets downloaded. The original PicoRV32 and defaults were retained; the port used a 10-ns clock and fixed 200-by-200-um die, not the paper's 55-nm 350/700-MHz environment. Standalone ABC mapped combinational logic; its serialized scalar/clock interface was explicitly wrapped. An intermediate cell-model import failed on an unused clock-gate function; a subsequent finite simulation failed at cycle zero. Generic-FF lowering and procedural cleanup were corrected, after which the technology-mapped netlist passed the same 1000-cycle/333-fetch comparison. These are observed tool-interoperability failures and a recovery, not isolated causal ablations.
+
+Floorplan, placement and CTS completed. Independent CTS database reread found 12699 placed instances, 149 clock buffers, zero routed nets and 12624 multi-terminal unwired nets. Reported standard-cell area was 18601 square micrometres. With placement-estimated parasitics, setup WNS was -5.94 ns, hold WNS 0.01 ns and setup TNS -217.70 ns at a 10-ns clock. These estimates fail setup timing and are not extraction/signoff measurements. The independently exported CTS netlist passed the same finite loop, still without store, interrupt, backpressure or branch-coverage claims.
+
+Routing first hit a deprecated CLI option; a same-constraint compatibility correction resumed only that stage. Detailed routing then reached the 300-second cap during optimization, with 4117 violations in the last captured progress line. This is an interim diagnostic, not a final DRC count. No final route database, validated routed connectivity or GDS was produced. The timed-out client initially left its own container running; the exact mount/script were checked and only that container was stopped. Runners were subsequently hardened to name and verify their containers before timeout cleanup. No model effect is measured; this outcome mixes tool build, mapping adapters, constraints and the runtime cap. It provides no broad benchmark conclusion.
+
+GDS is separately blocked by missing verified matching cell GDS and layer mapping. No PDN/signoff/LVS/extracted timing/power/ECO completeness is claimed. A bounded continuation proposal is in NEXT_EXPERIMENT.md; it was not executed.

@@ -1,0 +1,47 @@
+[
+  {
+    "id": "mapped-recovery",
+    "command": [
+      "${E4_WORK_ROOT}/tools/verithoughts/yosys041-install/bin/yosys",
+      "-p",
+      "read_verilog abc.v; rename picorv32 scalar_core; read_verilog wrapper.v; hierarchy -top picorv32; flatten; proc; opt; techmap; dfflibmap -liberty ${E4_WORK_ROOT}/assets/pdagent/dataset/PlaceReasoner-Bench/bp_fe/lib/NangateOpenCellLibrary_typical.lib; hilomap -hicell LOGIC1_X1 Z -locell LOGIC0_X1 Z; clean; read_liberty -lib ${E4_WORK_ROOT}/assets/pdagent/dataset/PlaceReasoner-Bench/bp_fe/lib/NangateOpenCellLibrary_typical.lib; hierarchy -check -top picorv32; check -assert; write_verilog -noattr physical.v; write_json physical.json; rename picorv32 impl; write_verilog -noattr simulation2.v"
+    ],
+    "returncode": 0,
+    "seconds": 2.4076984990388155
+  },
+  {
+    "id": "cell-models-recovery2",
+    "command": [
+      "${E4_WORK_ROOT}/tools/verithoughts/yosys041-install/bin/yosys",
+      "-p",
+      "read_liberty -ignore_miss_func ${E4_WORK_ROOT}/assets/pdagent/dataset/PlaceReasoner-Bench/bp_fe/lib/NangateOpenCellLibrary_typical.lib; read_verilog simulation2.v; hierarchy -check -top impl; proc; opt_clean; write_verilog -noattr combined2.v"
+    ],
+    "returncode": 0,
+    "seconds": 1.3821712397038937
+  },
+  {
+    "id": "compile-technology2",
+    "command": [
+      "${E4_WORK_ROOT}/tools/cvdp/iverilog-install/bin/iverilog",
+      "-g2012",
+      "-s",
+      "tb",
+      "-o",
+      "technology2.vvp",
+      "tb.v",
+      "${E4_WORK_ROOT}/assets/fluxbench/picorv32.v",
+      "combined2.v"
+    ],
+    "returncode": 0,
+    "seconds": 0.6968373749405146
+  },
+  {
+    "id": "simulate-technology2",
+    "command": [
+      "${E4_WORK_ROOT}/tools/cvdp/iverilog-install/bin/vvp",
+      "technology2.vvp"
+    ],
+    "returncode": 0,
+    "seconds": 1.1506811268627644
+  }
+]

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "abc-interface",
+    "command": [
+      "${E4_WORK_ROOT}/tools/verithoughts/yosys041-install/bin/yosys",
+      "-p",
+      "read_verilog abc.v; proc; write_json abc-interface.json"
+    ],
+    "returncode": 0,
+    "seconds": 1.4073024541139603
+  },
+  {
+    "id": "mapped-interface",
+    "command": [
+      "${E4_WORK_ROOT}/tools/verithoughts/yosys041-install/bin/yosys",
+      "-p",
+      "read_verilog abc.v; rename picorv32 scalar_core; read_verilog wrapper.v; hierarchy -top picorv32; flatten; proc; dfflibmap -liberty ${E4_WORK_ROOT}/assets/pdagent/dataset/PlaceReasoner-Bench/bp_fe/lib/NangateOpenCellLibrary_typical.lib; clean; read_liberty -lib ${E4_WORK_ROOT}/assets/pdagent/dataset/PlaceReasoner-Bench/bp_fe/lib/NangateOpenCellLibrary_typical.lib; hierarchy -check -top picorv32; check -assert; stat; write_verilog -noattr technology.v; write_json technology.json; rename picorv32 impl; write_verilog -noattr simulation.v"
+    ],
+    "returncode": 0,
+    "seconds": 1.9724987633526325
+  },
+  {
+    "id": "cell-models",
+    "command": [
+      "${E4_WORK_ROOT}/tools/verithoughts/yosys041-install/bin/yosys",
+      "-p",
+      "read_liberty ${E4_WORK_ROOT}/assets/pdagent/dataset/PlaceReasoner-Bench/bp_fe/lib/NangateOpenCellLibrary_typical.lib; write_verilog -noattr cells.v"
+    ],
+    "returncode": 1,
+    "seconds": 0.10188457369804382
+  }
+]

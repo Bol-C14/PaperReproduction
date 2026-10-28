@@ -1,0 +1,37 @@
+[
+  {
+    "id": "cts-cell-models",
+    "command": [
+      "${E4_WORK_ROOT}/tools/verithoughts/yosys041-install/bin/yosys",
+      "-p",
+      "read_liberty -ignore_miss_func ${E4_WORK_ROOT}/assets/pdagent/dataset/PlaceReasoner-Bench/bp_fe/lib/NangateOpenCellLibrary_typical.lib; read_verilog independent-cts.v; rename picorv32 impl; hierarchy -check -top impl; proc; opt_clean; write_verilog -noattr combined-cts.v"
+    ],
+    "returncode": 0,
+    "seconds": 1.4280163701623678
+  },
+  {
+    "id": "compile-cts",
+    "command": [
+      "${E4_WORK_ROOT}/tools/cvdp/iverilog-install/bin/iverilog",
+      "-g2012",
+      "-s",
+      "tb",
+      "-o",
+      "cts.vvp",
+      "tb.v",
+      "${E4_WORK_ROOT}/assets/fluxbench/picorv32.v",
+      "combined-cts.v"
+    ],
+    "returncode": 0,
+    "seconds": 0.6863584611564875
+  },
+  {
+    "id": "simulate-cts",
+    "command": [
+      "${E4_WORK_ROOT}/tools/cvdp/iverilog-install/bin/vvp",
+      "cts.vvp"
+    ],
+    "returncode": 0,
+    "seconds": 1.229904631152749
+  }
+]

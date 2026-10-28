@@ -1,0 +1,236 @@
+{
+  "schema_version": 1,
+  "benchmark": "E4_FluxBench",
+  "audit_date": "2026-10-28",
+  "branch": "reproduction/benchmark-fluxbench",
+  "base_commit": "809ca20e003c2f5d5a723c77ead8a6de532e4539",
+  "venue": null,
+  "paper_type": "invited empirical case study (self-described)",
+  "contribution": "process-aware workflow evaluation; distinct from FluxEDA infrastructure",
+  "ccf": {
+    "status": "unknown",
+    "official_dated_list_verified": false
+  },
+  "statuses": {
+    "metadata": "metadata_audit",
+    "public_scores": "offline_replay",
+    "synthetic_scorer_controls": "reference_calibration",
+    "open_tool_port": "reference_calibration",
+    "paper_protocol": "resource_blocked",
+    "physical_flow": "partial_method_reproduction",
+    "live_agent": "not_run",
+    "post_route_validation": "not_run",
+    "gds": "resource_blocked"
+  },
+  "sources": [
+    {
+      "id": "paper-v3",
+      "url": "https://arxiv.org/html/2607.17528v3",
+      "sha256": "bae2647a2527bce75b1ed7d31bfe12d6065e401e9d2331df0953558ae56870b5",
+      "license": "CC-BY-NC-ND-4.0",
+      "redistribute_snapshot": false
+    },
+    {
+      "id": "site",
+      "url": "https://fluxbench.net/",
+      "sha256": "299db0e8578a4f2317eef42602e700e59175abe84e740822d957b11c515d6363",
+      "license": "unknown",
+      "redistribute_snapshot": false
+    },
+    {
+      "id": "leaderboard",
+      "url": "https://fluxbench.net/leaderboard-data.js?v=20260908-run-20260908-190703-8420",
+      "sha256": "6ab8d2119fd934864777648b434650c5fd175f9c9f59106885c40f160c2caa79",
+      "license": "unknown",
+      "redistribute_snapshot": false
+    },
+    {
+      "id": "app",
+      "url": "https://fluxbench.net/app.js?v=20261027-cloud-preflight-1",
+      "sha256": "f5af30696cef286501c853bf1dcd1a211bb77e4269fd1bd740e2407174eaaf19",
+      "license": "unknown",
+      "redistribute_snapshot": false
+    },
+    {
+      "id": "report-client",
+      "url": "https://fluxbench.net/evaluation-report.js?v=20261026-connectivity-open-short",
+      "sha256": "712fb5fe7746283df7fa2169c4e7c8456097cf247e3c5849208cdf758b985cb5",
+      "license": "unknown",
+      "redistribute_snapshot": false
+    },
+    {
+      "id": "docker-guide",
+      "url": "https://fluxbench.net/guides/docker-agent.en.html?v=20261026",
+      "sha256": "801397634d864a25ad5d94730488937a64982d1e40b5c001df07e828073408cf",
+      "license": "unknown",
+      "redistribute_snapshot": false
+    }
+  ],
+  "original_harness_commit": null,
+  "original_dataset_hash": null,
+  "original_container_digest": null,
+  "original_tool_versions": null,
+  "source_port": {
+    "repository": "https://github.com/YosysHQ/picorv32",
+    "commit": "ef203c2b0a3fb793280f5114941416c425c5b461",
+    "sha256": "0836050971b3c6cdd28ac3b1e5719a67fb645161912bef1e472e63995ceb0622",
+    "license": "ISC"
+  },
+  "tools": {
+    "${E4_WORK_ROOT}/tools/verithoughts/yosys041-install/bin/yosys": "3142ddb7105ed63c89018469e1c20dced0c37d16cc44cab1b3e70288456fb810",
+    "${E4_WORK_ROOT}/tools/cvdp/iverilog-install/bin/iverilog": "9334adece4030a6e33fa4a6900e0560d33e82c2ef142e300952f8ac8a88639e3",
+    "${E4_WORK_ROOT}/tools/cvdp/iverilog-install/bin/vvp": "6ae7ba4206d58a1fa090f2d775edf5538d3741e4bcc09abc861de88937992724"
+  },
+  "tool_version_labels": {
+    "yosys": "0.41 c1ad37779ee",
+    "iverilog": "13.0 stable v13_0-dirty"
+  },
+  "container": null,
+  "budgets": {
+    "paper_tasks": 1,
+    "cpu_threads": 4,
+    "per_command_timeout_seconds": 120,
+    "model_calls": 0,
+    "paid_cost_usd": 0
+  },
+  "costs": {
+    "model_calls": 0,
+    "api_usd": 0,
+    "new_services": 0
+  },
+  "scores": {
+    "records": 52,
+    "legacy": 24,
+    "later": 28,
+    "matching_at_1e_3": 52,
+    "max_absolute_delta": 4.915116913650763e-05,
+    "roi_recomputed": false
+  },
+  "synthesis_port": {
+    "task": "PICO_SYNTH_001",
+    "variants": 3,
+    "simulated_cycles_each": 1000,
+    "fetches_each": 333,
+    "subprocesses": 17,
+    "timeouts": 0,
+    "functional_equivalence_proved": false,
+    "physical_artifacts_verified": false,
+    "distinct_netlist_hashes": 2,
+    "initial_control_limitation": "default and noABC identical; no ABC phase",
+    "followup": "noABC/noalumacc differs and passes same checks"
+  },
+  "raw_evidence": {
+    "local": "results/port-v1",
+    "remote_root": "${E4_WORK_ROOT}",
+    "source_snapshots": "assets/fluxbench",
+    "generated_artifacts": "results/fluxbench/port-v1 (including alternative2)"
+  },
+  "limitations": [
+    "No exact commercial flow",
+    "No stage-label or final-artifact validation of public records",
+    "Synthetic freshness checks only inspect metadata",
+    "No Token ROI normalization",
+    "Single deterministic simulation program",
+    "No model effect measured",
+    "The fixed loop has no stores/data-dependent branches/backpressure/interrupts",
+    "CTS checkpoint fails setup; detailed route timed out; no full RTL-to-GDS",
+    "Current legacy Kimi cost differs from v3 table"
+  ],
+  "publication": {
+    "push_authorized": false,
+    "source_snapshots_excluded": true,
+    "hidden_tests": false,
+    "credentials": false,
+    "sanitized_derivatives": true,
+    "original_local_ref": "private/fluxbench-original-40d0713",
+    "push_only_target_branch": true
+  },
+  "physical_port": {
+    "task": "PICO_PHYSICAL_PORT_001",
+    "source": "same frozen PicoRV32",
+    "constraints": "PHYSICAL_SELECTION.json",
+    "environment": {
+      "openroad_version": "26Q2-1164-g08f67ee5ec",
+      "image_id": "080c40706b37fb2fece6a61412d17c0e025ee87af82af28e79aa90f5d02a78ac",
+      "image_digest": "sha256:186f8145bc026ac679920b109192aa3eddc1e9bc3b26fefae44e5d78d547b0cb",
+      "assets": [
+        {
+          "name": "NangateOpenCellLibrary_typical.lib",
+          "bytes": 6692032,
+          "sha256": "8d540a4d4cf6d09d27c87ad067857a9c0c2eeb023ab7a56e058cd3113db4e9b1"
+        },
+        {
+          "name": "NangateOpenCellLibrary.tech.lef",
+          "bytes": 19485,
+          "sha256": "834a79295054cd4209178d1bade67c353863c47bb4b3c22ee38b862b7cec37f2"
+        },
+        {
+          "name": "NangateOpenCellLibrary.macro.mod.lef",
+          "bytes": 255903,
+          "sha256": "a43aea339f12a57a63497783e508ba16f3da2dc056d3247dec7d99707c2dedef"
+        },
+        {
+          "name": "abc",
+          "bytes": 76613448,
+          "sha256": "a1b5018f7c5bda200430ece7905deba357519b49f92069953b970a616fe94620"
+        }
+      ],
+      "license_note": "Existing E3 data reused read-only; library and image contents not redistributed; no matching GDS/layer map found."
+    },
+    "completed": [
+      "technology mapping with finite trace calibration",
+      "floorplan",
+      "placement",
+      "CTS",
+      "independent CTS database reread",
+      "independent CTS netlist finite trace"
+    ],
+    "failed_or_incomplete": [
+      "initial source-path preflight",
+      "unused clock-gate behavioral import",
+      "initial mapped finite simulation",
+      "SDC helper compatibility",
+      "deprecated routing CLI",
+      "detailed route timeout",
+      "setup timing at 10ns"
+    ],
+    "not_run": [
+      "post-route functional check",
+      "GDS",
+      "LVS",
+      "extracted timing",
+      "power",
+      "PDN/signoff",
+      "ECO"
+    ],
+    "structured_execution_records": 23,
+    "route": {
+      "client_timeout_seconds": 300.0084168128669,
+      "final_database": false,
+      "interim_violations": 4117,
+      "final_drc": null,
+      "container_survived_client_timeout": true,
+      "verified_owned_container_stopped": true,
+      "container_overshoot_seconds": null
+    },
+    "independent_cts": {
+      "instances": 12699,
+      "placed": 12699,
+      "clock_buffers": 149,
+      "routed_nets": 0,
+      "multi_terminal_unwired": 12624,
+      "clock_period_ns": 10,
+      "area_um2": 18601,
+      "setup_wns_ns": -5.94,
+      "hold_wns_ns": 0.01,
+      "setup_tns_ns": -217.7,
+      "parasitics": "placement-estimated",
+      "cycles": 1000,
+      "fetches": 333,
+      "functional_equivalence_proved": false
+    },
+    "gds_gap": "No verified matching cell GDS or layer mapping; no additional assets downloaded",
+    "new_download_bytes": 0,
+    "api_calls": 0
+  }
+}
