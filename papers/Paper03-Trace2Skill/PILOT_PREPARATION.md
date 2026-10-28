@@ -1,5 +1,7 @@
 # 第二轮：Northern Relay 免费资源的无凭证准备
 
+**后续自主补环境的最新状态以 [READINESS_UPDATE.md](READINESS_UPDATE.md) 为准：Icarus与隔离真实smoke已准备，下面的缺工具段落保留为历史记录。**
+
 **状态：准备与离线接口测试完成；真实模型请求0，真实RTL/verifier执行0。** 本版本 `LIVE_ENABLED=False`，没有实现真实HTTP transport、没有启动server，也不提供绕过此锁的CLI。所有 mock 只验证接口与策略，不是live复现。
 
 沿用 `reproduction/trace2skill-mlcad2026` 和原环境；未安装软件、未pull/build镜像、未配置或读取凭证值、未调用服务的任何路径（包括models listing/health probe），未push/PR。收到的非秘密服务配置仅写入源码与计划：

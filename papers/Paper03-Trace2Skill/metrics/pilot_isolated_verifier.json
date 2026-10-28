@@ -1,0 +1,60 @@
+{
+  "status": "REAL_DOCKER_RTL_SMOKE_PASSED",
+  "image_id": "sha256:5ca5a8b42e0bd12da72852a33d5d50ef45de6e0e8949edcae6cd288d7608b509",
+  "real_verifier_executions": 2,
+  "new_model_requests": 0,
+  "controls": [
+    {
+      "control": "positive",
+      "exit_code": 0,
+      "elapsed_seconds": 0.1780192240003089,
+      "output": "VCD info: dumpfile dump.vcd opened for output.\nPASS: 256 exhaustive input pairs\n/work/tb.sv:16: $finish called at 256000 (1ps)",
+      "source_sha256": "3ac5a464a43f59b5c8b5e6cbdde69b89a2c0c3717149428dc43eb53a4825c46e",
+      "isolation": {
+        "network_mode": "none",
+        "read_only_root": true,
+        "privileged": false,
+        "cap_drop": [
+          "ALL"
+        ],
+        "security_opt": [
+          "no-new-privileges:true"
+        ],
+        "user": "65534:65534",
+        "memory_bytes": 268435456,
+        "pids_limit": 64,
+        "nano_cpus": 1000000000,
+        "NR_KEY_in_container_env": false,
+        "docker_socket_absent_checked": true,
+        "root_write_rejected_checked": true,
+        "source_write_rejected_checked": true
+      }
+    },
+    {
+      "control": "negative",
+      "exit_code": 1,
+      "elapsed_seconds": 0.15908637900065514,
+      "output": "VCD info: dumpfile dump.vcd opened for output.\nFATAL: /work/tb.sv:12: adder mismatch\n       Time: 18000  Scope: tb",
+      "source_sha256": "8c571dabf393da540b4d8a0197145d907c6d69dfd232293ee97ddb3d80d89c18",
+      "isolation": {
+        "network_mode": "none",
+        "read_only_root": true,
+        "privileged": false,
+        "cap_drop": [
+          "ALL"
+        ],
+        "security_opt": [
+          "no-new-privileges:true"
+        ],
+        "user": "65534:65534",
+        "memory_bytes": 268435456,
+        "pids_limit": 64,
+        "nano_cpus": 1000000000,
+        "NR_KEY_in_container_env": false,
+        "docker_socket_absent_checked": true,
+        "root_write_rejected_checked": true,
+        "source_write_rejected_checked": true
+      }
+    }
+  ]
+}

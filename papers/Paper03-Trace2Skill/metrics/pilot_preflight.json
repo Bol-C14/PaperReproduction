@@ -1,10 +1,10 @@
 {
-  "checked_at_utc": "2026-10-27T23:47:25.113945+00:00",
+  "checked_at_utc": "2026-10-28T00:05:23.601973+00:00",
   "python": "3.12.14",
   "tools": {
     "docker": "/usr/local/bin/docker",
-    "iverilog": null,
-    "vvp": null,
+    "iverilog": "/workspace/free-tools/bin/iverilog",
+    "vvp": "/workspace/free-tools/bin/vvp",
     "verilator": null,
     "yosys": null,
     "ollama": null
@@ -16,7 +16,7 @@
     },
     "images": {
       "exit_code": 0,
-      "value": ""
+      "value": "trace2skill-local/iverilog:12.0-debian-verified\n<none>:<none>"
     }
   },
   "dependencies": {
@@ -36,9 +36,10 @@
   "base_url": "https://models.northern-relay.com/v1",
   "api": "Chat Completions only; never probed",
   "expiry_utc": "2026-11-03T23:38:17+00:00",
-  "seconds_until_expiry": 604251.886055,
+  "seconds_until_expiry": 603173.398027,
   "live_enabled": false,
   "credential_status": "presence-only boolean; value never read; not configured",
+  "NR_KEY_present": false,
   "target_domain_authorization": "unknown; no domain-specific metadata surfaced; not probed",
   "provider_account_quota": {
     "tokens_per_day": 5000000,
@@ -60,28 +61,38 @@
     "safety_margin_seconds": 60
   },
   "budget_approval": "pending parent activation; zero reserved from account",
-  "readiness": "NO_GO",
+  "vault_scope": "All environments explicitly accepted by user; no narrowing required",
+  "alternate_real_rtl_fixture": {
+    "source": "cocotb/cocotb v1.9.2 CC0 adder",
+    "is_original_cvdp_task": false,
+    "smoke_status": "actual host and isolated Docker controls passed; see recorded hashes/times"
+  },
+  "readiness": "INFRASTRUCTURE_SMOKE_READY; LIVE_AND_CVDP_NOT_READY",
   "blockers": [
     "real pinned task bytes inaccessible (HTTP403)",
-    "no simulator executable or prepared verifier image",
     "NeMo Gym live dependencies missing; Responses-based agent not wired to this Chat-only offline adapter",
     "no verified input token counter/chat-template revision; cannot admit a live call",
     "no reviewed live transport/parent activation; LIVE_ENABLED=False",
     "NR_KEY not safely provisioned; task never accesses credentials"
   ],
   "real_model_requests": 0,
-  "real_verifier_executions": 0,
-  "vault_scope": "All environments explicitly accepted by user; no narrowing required",
-  "vault_type": "parent reports ordinary Environment variable; not independently inspected; safety judged by injection/isolation rather than blanket prohibition",
-  "alternate_real_rtl_fixture": {
-    "source": "cocotb/cocotb v1.9.2 CC0 adder example",
-    "source_blob_verified": true,
-    "smoke_status": "NOT_RUN",
-    "reason": "iverilog/vvp missing",
-    "real_verifier_executions": 0,
-    "is_original_cvdp_task": false
-  },
-  "secret_variable": "NR_KEY",
-  "NR_KEY_present_at_last_actual_task_check": false,
-  "legacy_secret_policy": "NR_API_KEY retired; never read, copied, or used as fallback"
+  "real_verifier_executions": 4,
+  "verified_local_toolchain": {
+    "package_version": "12.0-2+b1",
+    "package_sha256": "febe027d2d3f5a7e570844d55758339ab5490acc09f404f214a8719d89d07056",
+    "inrelease_sha256": "0584fba32e13e0ab8285fb16c27adea1ec03a73669c18702821094fd6ca86675",
+    "packages_index_sha256": "7778d3e3f303b7ddb8ce0fe7c8d57473a076c6bf2e8f241f75421d2396352498",
+    "debian_trusted_keyring_sha256": "506b815cbb32d9b6066b4a2aa524071e071761e7e7f68c3ac74f3061ba852017",
+    "signature_verified": true,
+    "installation": "workspace extraction only; no dpkg install, no host settings changed",
+    "prefix": "/workspace/free-tools/iverilog/root",
+    "bin_wrappers": "/workspace/free-tools/bin",
+    "docker_image_id": "sha256:5ca5a8b42e0bd12da72852a33d5d50ef45de6e0e8949edcae6cd288d7608b509",
+    "host_real_verifier_executions": 2,
+    "isolated_real_verifier_executions": 2,
+    "failed_container_initializations": 1,
+    "total_actual_rtl_simulations": 4,
+    "real_model_requests": 0,
+    "failed_image_fix": "bin/lib64/work directories initially mode0700 due umask; chmod local build directories0755, tmp01777, then no-cache build; no host permissions/security settings changed"
+  }
 }
