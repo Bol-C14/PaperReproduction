@@ -1,0 +1,133 @@
+{
+  "status": "prepared_only_no_requests_sent",
+  "transport": {
+    "method": "POST",
+    "path": "/chat/completions",
+    "base_url": "parent supplied authorized OpenAI-compatible endpoint only",
+    "credentials": "parent supplied; no historic credential discovery",
+    "request_fields": {
+      "model": "parent selected identifier",
+      "messages": [
+        {
+          "role": "system",
+          "content": "JSON-only precise RTL assistant"
+        },
+        {
+          "role": "user",
+          "content": "public RTL or generated summary or proposal context"
+        }
+      ],
+      "temperature": 0,
+      "max_tokens": 640,
+      "stream": false
+    },
+    "optional_fields": {
+      "response_format": {
+        "type": "json_object"
+      }
+    },
+    "response_fields": [
+      "choices[0].message.content",
+      "usage.prompt_tokens",
+      "usage.completion_tokens",
+      "model",
+      "id"
+    ],
+    "timeout_seconds": 180,
+    "retries": "max2 consumed attempts per stage/proposal; no transport retries on denial",
+    "token_caps": {
+      "input": 4096,
+      "completion": 640
+    }
+  },
+  "public_input_categories": {
+    "source": "seven independently authored public educational Verilog files committed at source SHA",
+    "files": [
+      {
+        "path": "circuits/sumtree.v",
+        "bytes": 227,
+        "sha256": "212c5e14ee1e3d668df8a8cbc6a2f92c8d86cafc55d995f8c53937f18b8e5d1a"
+      },
+      {
+        "path": "circuits/multiply.v",
+        "bytes": 151,
+        "sha256": "f2d7c31c179de90eb455ffa61ef9fbe9a7e467b491edb4f63b0ba111ee19b5bd"
+      },
+      {
+        "path": "circuits/alu.v",
+        "bytes": 231,
+        "sha256": "59ed682ac5a3b37b47f1e4d5fc6661ce53b6edb4cbdf2a0797932d1a73f72824"
+      },
+      {
+        "path": "circuits/barrel.v",
+        "bytes": 190,
+        "sha256": "42dac18ecec03f5c87554205df46c5fd78e12e58214914b5d34900b48395407f"
+      },
+      {
+        "path": "circuits/minmax.v",
+        "bytes": 231,
+        "sha256": "e59ddba685036d56a38c597e155ff56bf5632b78da8cbe94f42f0e4a228e387b"
+      },
+      {
+        "path": "circuits/popcount.v",
+        "bytes": 216,
+        "sha256": "96511a1d7d223e4c2d7d17a7992ba74efe7ae02b38b336066b4f3eae2de46293"
+      },
+      {
+        "path": "circuits/fir3.v",
+        "bytes": 239,
+        "sha256": "d7e374b03941af88462c7423213aac7c1c799a8e8b66b58f48e74dada8b3092c"
+      }
+    ],
+    "module_summary_to_design_summary": "generated six-field JSON, no private RTL or external paths",
+    "proposal_context": "public generated FIR3 design summary, eight legal Yosys/ABC configurations, nearest prior top3 QoR records, up to3 preceding fresh target observations, objective,seed and hashes",
+    "excluded": "No credentials, .env, private keys, private RTL, user files, other projects or posthoc target archive enter payload"
+  },
+  "wire_payload_byte_caps": {
+    "summary_request": 12000,
+    "proposal_request": 18000
+  },
+  "calls": {
+    "module": 7,
+    "design": 7,
+    "proposal": 3,
+    "max_attempts_each": 2,
+    "max_total_attempts": 34,
+    "nominal_total": 17
+  },
+  "summary_module_fields": [
+    "critical submodules",
+    "design choices",
+    "inputs",
+    "outputs",
+    "overall functionality",
+    "timing constraints"
+  ],
+  "summary_design_fields": [
+    "design functionality",
+    "design name",
+    "design optimizations",
+    "key design characteristics",
+    "key modules and functionalities",
+    "module interactions",
+    "potential applications",
+    "primary inputs",
+    "primary outputs",
+    "timing considerations"
+  ],
+  "summary_values": "concise string",
+  "proposal_schema": {
+    "configuration": {
+      "mode": "fast|quality|area|depth",
+      "noalumacc": "boolean"
+    }
+  },
+  "proposal_validation": "exact keys, legal config, untried; no heuristic fallback",
+  "embedding": "Canonical all-MiniLM-L6-v2 local CPU only;384dim L2 normalization;256 token truncation explicitly recorded",
+  "evidence": "raw prompt,response,usage,timings,model revision,invalid attempts,hashes,real Yosys+ABC CEC outputs preserved",
+  "token_budget_upper_estimate": {
+    "nominal_tokens": 80512,
+    "max_tokens": 161024,
+    "note": "Conservative sum of input4096+output640 per attempt; provider usage records actual counts"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "action": "Execute api_pilot.py to verify its preflight gate",
+  "target": "tools/crop/api_pilot.py",
+  "outcome": "DENIED_BEFORE_EXECUTION",
+  "reason": "This action was rejected due to unacceptable risk. Reason: The command executes the model pilot, which can make up to 34 external API calls using runtime credentials and transmit project-derived payloads; no trusted authorization for the endpoint, credentials, or data scope is present, despite the internal gate.",
+  "response": "No retry or workaround; only static packaging proceeded.",
+  "api_calls": 0,
+  "qwen_model_loads": 0,
+  "qwen_generated_tokens": 0,
+  "remaining_status": "API endpoint,credentials and public-data authorization pending; not inference failure"
+}
