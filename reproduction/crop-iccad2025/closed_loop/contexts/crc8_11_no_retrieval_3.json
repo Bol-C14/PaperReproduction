@@ -1,0 +1,138 @@
+{
+  "proposal_origin": "new non-LLM baseline",
+  "request": {
+    "arm": "no_retrieval",
+    "iteration": 3,
+    "legal_configs": [
+      {
+        "id": "c0",
+        "mode": "fast",
+        "noalumacc": false
+      },
+      {
+        "id": "c1",
+        "mode": "quality",
+        "noalumacc": false
+      },
+      {
+        "id": "c2",
+        "mode": "area",
+        "noalumacc": false
+      },
+      {
+        "id": "c3",
+        "mode": "depth",
+        "noalumacc": false
+      },
+      {
+        "id": "c4",
+        "mode": "fast",
+        "noalumacc": true
+      },
+      {
+        "id": "c5",
+        "mode": "quality",
+        "noalumacc": true
+      },
+      {
+        "id": "c6",
+        "mode": "area",
+        "noalumacc": true
+      },
+      {
+        "id": "c7",
+        "mode": "depth",
+        "noalumacc": true
+      }
+    ],
+    "objective": "LUT4 count * maximum unit LUT depth; lower is better",
+    "prior_db_hash": "b24a759b1443b1d1f1af15b7b32d4d0ee38e16bb1bfd57ad0fd9bd2cc1d5f262",
+    "retrieved_guidance": [],
+    "retrieved_prior": null,
+    "seed": 11,
+    "semantic_component": "NOT RUN",
+    "similarities": [
+      [
+        0.11471279670147923,
+        "sumtree"
+      ],
+      [
+        0.12034531880698497,
+        "multiply"
+      ],
+      [
+        0.8296213318964651,
+        "alu"
+      ],
+      [
+        0.5197257920198532,
+        "barrel"
+      ],
+      [
+        0.7090530821233729,
+        "minmax"
+      ],
+      [
+        0.077266935931554,
+        "popcount"
+      ]
+    ],
+    "target_history": [
+      {
+        "config": "c0",
+        "invocation": 105,
+        "objective": 92,
+        "status": "ok"
+      },
+      {
+        "config": "c6",
+        "invocation": 106,
+        "objective": 144,
+        "status": "ok"
+      },
+      {
+        "config": "c3",
+        "invocation": 107,
+        "objective": 92,
+        "status": "ok"
+      }
+    ],
+    "target_history_hash": "0ec69b1cb21597ebb0805891ff3556f23c352e713dde9dc0cd2e74693e4badbc"
+  },
+  "response": {
+    "candidate_scores": [
+      {
+        "config": "c1",
+        "exploration": 0.14413893162496613,
+        "lcb": 0.9298401379606125,
+        "predicted_mean": 1.0739790695855786
+      },
+      {
+        "config": "c2",
+        "exploration": 0.12624009358811258,
+        "lcb": 1.062165703513337,
+        "predicted_mean": 1.1884057971014494
+      },
+      {
+        "config": "c7",
+        "exploration": 0.14413893162496613,
+        "lcb": 1.1014802292344184,
+        "predicted_mean": 1.2456191608593845
+      },
+      {
+        "config": "c4",
+        "exploration": 0.14413893162496613,
+        "lcb": 1.1014802292344184,
+        "predicted_mean": 1.2456191608593845
+      },
+      {
+        "config": "c5",
+        "exploration": 0.17273249087815074,
+        "lcb": 1.18000182927835,
+        "predicted_mean": 1.3527343201565007
+      }
+    ],
+    "config": "c1",
+    "reason": "categorical kernel LCB using current target history and optional fixed prior guidance"
+  }
+}

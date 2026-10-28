@@ -1,0 +1,187 @@
+{
+  "creator": "Yosys 0.52 (git sha1 fee39a3284c90249e1d9684cf6944ffbbcbb8f90)",
+  "modules": {
+    "dut": {
+      "attributes": {
+        "top": "00000000000000000000000000000001",
+        "src": "circuits/minmax.v:2.1-4.10"
+      },
+      "ports": {
+        "x": {
+          "direction": "input",
+          "bits": [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33 ]
+        },
+        "y": {
+          "direction": "output",
+          "bits": [ 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 ]
+        }
+      },
+      "cells": {
+        "$gt$circuits/minmax.v:3$3": {
+          "hide_name": 1,
+          "type": "$gt",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000001000",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "circuits/minmax.v:3.79-3.82"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 18, 19, 20, 21, 22, 23, 24, 25 ],
+            "B": [ 26, 27, 28, 29, 30, 31, 32, 33 ],
+            "Y": [ 50 ]
+          }
+        },
+        "$lt$circuits/minmax.v:3$1": {
+          "hide_name": 1,
+          "type": "$lt",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000001000",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "circuits/minmax.v:3.68-3.71"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 2, 3, 4, 5, 6, 7, 8, 9 ],
+            "B": [ 10, 11, 12, 13, 14, 15, 16, 17 ],
+            "Y": [ 51 ]
+          }
+        },
+        "$ternary$circuits/minmax.v:3$2": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "circuits/minmax.v:3.68-3.75"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 10, 11, 12, 13, 14, 15, 16, 17 ],
+            "B": [ 2, 3, 4, 5, 6, 7, 8, 9 ],
+            "S": [ 51 ],
+            "Y": [ 34, 35, 36, 37, 38, 39, 40, 41 ]
+          }
+        },
+        "$ternary$circuits/minmax.v:3$4": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "circuits/minmax.v:3.79-3.86"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 26, 27, 28, 29, 30, 31, 32, 33 ],
+            "B": [ 18, 19, 20, 21, 22, 23, 24, 25 ],
+            "S": [ 50 ],
+            "Y": [ 42, 43, 44, 45, 46, 47, 48, 49 ]
+          }
+        }
+      },
+      "netnames": {
+        "$gt$circuits/minmax.v:3$3_Y": {
+          "hide_name": 1,
+          "bits": [ 50 ],
+          "attributes": {
+            "src": "circuits/minmax.v:3.79-3.82"
+          }
+        },
+        "$lt$circuits/minmax.v:3$1_Y": {
+          "hide_name": 1,
+          "bits": [ 51 ],
+          "attributes": {
+            "src": "circuits/minmax.v:3.68-3.71"
+          }
+        },
+        "a": {
+          "hide_name": 0,
+          "bits": [ 2, 3, 4, 5, 6, 7, 8, 9 ],
+          "attributes": {
+            "src": "circuits/minmax.v:3.12-3.13"
+          }
+        },
+        "b": {
+          "hide_name": 0,
+          "bits": [ 10, 11, 12, 13, 14, 15, 16, 17 ],
+          "attributes": {
+            "src": "circuits/minmax.v:3.21-3.22"
+          }
+        },
+        "c": {
+          "hide_name": 0,
+          "bits": [ 18, 19, 20, 21, 22, 23, 24, 25 ],
+          "attributes": {
+            "src": "circuits/minmax.v:3.31-3.32"
+          }
+        },
+        "d": {
+          "hide_name": 0,
+          "bits": [ 26, 27, 28, 29, 30, 31, 32, 33 ],
+          "attributes": {
+            "src": "circuits/minmax.v:3.42-3.43"
+          }
+        },
+        "hi": {
+          "hide_name": 0,
+          "bits": [ 42, 43, 44, 45, 46, 47, 48, 49 ],
+          "attributes": {
+            "src": "circuits/minmax.v:3.76-3.78"
+          }
+        },
+        "lo": {
+          "hide_name": 0,
+          "bits": [ 34, 35, 36, 37, 38, 39, 40, 41 ],
+          "attributes": {
+            "src": "circuits/minmax.v:3.65-3.67"
+          }
+        },
+        "x": {
+          "hide_name": 0,
+          "bits": [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33 ],
+          "attributes": {
+            "src": "circuits/minmax.v:2.25-2.26"
+          }
+        },
+        "y": {
+          "hide_name": 0,
+          "bits": [ 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49 ],
+          "attributes": {
+            "src": "circuits/minmax.v:2.42-2.43"
+          }
+        }
+      }
+    }
+  }
+}

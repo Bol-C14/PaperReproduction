@@ -1,0 +1,154 @@
+{
+  "proposal_origin": "new non-LLM baseline",
+  "request": {
+    "arm": "random_retrieval",
+    "iteration": 2,
+    "legal_configs": [
+      {
+        "id": "c0",
+        "mode": "fast",
+        "noalumacc": false
+      },
+      {
+        "id": "c1",
+        "mode": "quality",
+        "noalumacc": false
+      },
+      {
+        "id": "c2",
+        "mode": "area",
+        "noalumacc": false
+      },
+      {
+        "id": "c3",
+        "mode": "depth",
+        "noalumacc": false
+      },
+      {
+        "id": "c4",
+        "mode": "fast",
+        "noalumacc": true
+      },
+      {
+        "id": "c5",
+        "mode": "quality",
+        "noalumacc": true
+      },
+      {
+        "id": "c6",
+        "mode": "area",
+        "noalumacc": true
+      },
+      {
+        "id": "c7",
+        "mode": "depth",
+        "noalumacc": true
+      }
+    ],
+    "objective": "LUT4 count * maximum unit LUT depth; lower is better",
+    "prior_db_hash": "b24a759b1443b1d1f1af15b7b32d4d0ee38e16bb1bfd57ad0fd9bd2cc1d5f262",
+    "retrieved_guidance": [
+      {
+        "config": "c1",
+        "normalized_objective": 0.9428571428571428,
+        "objective": 264
+      },
+      {
+        "config": "c5",
+        "normalized_objective": 0.9428571428571428,
+        "objective": 264
+      },
+      {
+        "config": "c0",
+        "normalized_objective": 1.0,
+        "objective": 280
+      }
+    ],
+    "retrieved_prior": "alu",
+    "seed": 23,
+    "semantic_component": "NOT RUN",
+    "similarities": [
+      [
+        0.11471279670147923,
+        "sumtree"
+      ],
+      [
+        0.12034531880698497,
+        "multiply"
+      ],
+      [
+        0.8296213318964651,
+        "alu"
+      ],
+      [
+        0.5197257920198532,
+        "barrel"
+      ],
+      [
+        0.7090530821233729,
+        "minmax"
+      ],
+      [
+        0.077266935931554,
+        "popcount"
+      ]
+    ],
+    "target_history": [
+      {
+        "config": "c0",
+        "invocation": 117,
+        "objective": 92,
+        "status": "ok"
+      },
+      {
+        "config": "c7",
+        "invocation": 118,
+        "objective": 92,
+        "status": "ok"
+      }
+    ],
+    "target_history_hash": "de3864bf9fc620c24b4cdbda940756b209a527d7712979abf1786740cffebd14"
+  },
+  "response": {
+    "candidate_scores": [
+      {
+        "config": "c6",
+        "exploration": 0.1508000400596624,
+        "lcb": 0.8315167492348782,
+        "predicted_mean": 0.9823167892945406
+      },
+      {
+        "config": "c2",
+        "exploration": 0.13964203970450487,
+        "lcb": 0.8451947703403528,
+        "predicted_mean": 0.9848368100448577
+      },
+      {
+        "config": "c5",
+        "exploration": 0.11505171467599044,
+        "lcb": 0.8507741309093494,
+        "predicted_mean": 0.9658258455853398
+      },
+      {
+        "config": "c1",
+        "exploration": 0.10986052309164705,
+        "lcb": 0.8589796589773326,
+        "predicted_mean": 0.9688401820689797
+      },
+      {
+        "config": "c3",
+        "exploration": 0.12318604167916153,
+        "lcb": 0.865013980020559,
+        "predicted_mean": 0.9882000216997204
+      },
+      {
+        "config": "c4",
+        "exploration": 0.12318604167916153,
+        "lcb": 0.865013980020559,
+        "predicted_mean": 0.9882000216997204
+      }
+    ],
+    "config": "c6",
+    "reason": "categorical kernel LCB using current target history and optional fixed prior guidance"
+  }
+}

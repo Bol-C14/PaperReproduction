@@ -1,0 +1,138 @@
+{
+  "proposal_origin": "new non-LLM baseline",
+  "request": {
+    "arm": "no_retrieval",
+    "iteration": 1,
+    "legal_configs": [
+      {
+        "id": "c0",
+        "mode": "fast",
+        "noalumacc": false
+      },
+      {
+        "id": "c1",
+        "mode": "quality",
+        "noalumacc": false
+      },
+      {
+        "id": "c2",
+        "mode": "area",
+        "noalumacc": false
+      },
+      {
+        "id": "c3",
+        "mode": "depth",
+        "noalumacc": false
+      },
+      {
+        "id": "c4",
+        "mode": "fast",
+        "noalumacc": true
+      },
+      {
+        "id": "c5",
+        "mode": "quality",
+        "noalumacc": true
+      },
+      {
+        "id": "c6",
+        "mode": "area",
+        "noalumacc": true
+      },
+      {
+        "id": "c7",
+        "mode": "depth",
+        "noalumacc": true
+      }
+    ],
+    "objective": "LUT4 count * maximum unit LUT depth; lower is better",
+    "prior_db_hash": "b24a759b1443b1d1f1af15b7b32d4d0ee38e16bb1bfd57ad0fd9bd2cc1d5f262",
+    "retrieved_guidance": [],
+    "retrieved_prior": null,
+    "seed": 37,
+    "semantic_component": "NOT RUN",
+    "similarities": [
+      [
+        0.8085621512184387,
+        "sumtree"
+      ],
+      [
+        0.17504747882917007,
+        "multiply"
+      ],
+      [
+        0.8338796766320417,
+        "alu"
+      ],
+      [
+        0.44902345042952213,
+        "barrel"
+      ],
+      [
+        0.6860003728103752,
+        "minmax"
+      ],
+      [
+        0.8022113188960752,
+        "popcount"
+      ]
+    ],
+    "target_history": [
+      {
+        "config": "c0",
+        "invocation": 233,
+        "objective": 800,
+        "status": "ok"
+      }
+    ],
+    "target_history_hash": "f41a62f27efe529614ec5240045478cc5bfcd50cb6ae411f61c362446d56aaa7"
+  },
+  "response": {
+    "candidate_scores": [
+      {
+        "config": "c6",
+        "exploration": 0.3984140307283856,
+        "lcb": 0.6015859692716143,
+        "predicted_mean": 1.0
+      },
+      {
+        "config": "c7",
+        "exploration": 0.3984140307283856,
+        "lcb": 0.6015859692716143,
+        "predicted_mean": 1.0
+      },
+      {
+        "config": "c5",
+        "exploration": 0.3984140307283856,
+        "lcb": 0.6015859692716143,
+        "predicted_mean": 1.0
+      },
+      {
+        "config": "c3",
+        "exploration": 0.21865425604686103,
+        "lcb": 0.7813457439531389,
+        "predicted_mean": 1.0
+      },
+      {
+        "config": "c2",
+        "exploration": 0.21865425604686103,
+        "lcb": 0.7813457439531389,
+        "predicted_mean": 1.0
+      },
+      {
+        "config": "c1",
+        "exploration": 0.21865425604686103,
+        "lcb": 0.7813457439531389,
+        "predicted_mean": 1.0
+      },
+      {
+        "config": "c4",
+        "exploration": 0.21865425604686103,
+        "lcb": 0.7813457439531389,
+        "predicted_mean": 1.0
+      }
+    ],
+    "config": "c6",
+    "reason": "categorical kernel LCB using current target history and optional fixed prior guidance"
+  }
+}

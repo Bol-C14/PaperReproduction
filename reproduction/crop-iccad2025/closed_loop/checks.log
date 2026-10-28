@@ -1,0 +1,71 @@
+{
+  "abc_equivalence_proofs": 272,
+  "arms": {
+    "no_retrieval": {
+      "mean_best_over_initial": 0.9089417555373257,
+      "mean_best_over_oracle": 1.0199771689497716,
+      "oracle_hits": 9,
+      "target_seed_cases": 12
+    },
+    "random_retrieval": {
+      "mean_best_over_initial": 0.8966091269256273,
+      "mean_best_over_oracle": 1.0066590563165905,
+      "oracle_hits": 11,
+      "target_seed_cases": 12
+    },
+    "random_search": {
+      "mean_best_over_initial": 0.9063986296372736,
+      "mean_best_over_oracle": 1.0171059914210598,
+      "oracle_hits": 9,
+      "target_seed_cases": 12
+    },
+    "structural": {
+      "mean_best_over_initial": 0.9027754412314765,
+      "mean_best_over_oracle": 1.0133181126331812,
+      "oracle_hits": 10,
+      "target_seed_cases": 12
+    }
+  },
+  "checks": [
+    "exact matched online budgets",
+    "no repeated config within trace",
+    "common initialization",
+    "per-query archives isolated",
+    "proposal replay identical",
+    "no oracle information in search",
+    "identical repeated measurement metrics",
+    "stable pre-synthesis structural features",
+    "formal CEC success logs",
+    "reported objective equals raw metric product"
+  ],
+  "feedback_counterfactual_changed_decisions": 49,
+  "feedback_counterfactual_changed_scores": 69,
+  "feedback_counterfactual_comparisons": 72,
+  "independent_reference_vector_checks": 69632,
+  "measurement_calls": 272,
+  "mutation_control": {
+    "error": "Independent mismatch x=0 got=1 expected=0",
+    "status": "invalid mapped output correctly rejected"
+  },
+  "phase_seconds": {
+    "history": 12.948083684998892,
+    "online": 55.71765105500208,
+    "posthoc_oracle": 9.551330230997792
+  },
+  "structural_paired_outcomes": {
+    "no_retrieval": {
+      "tie": 11,
+      "win": 1
+    },
+    "random_retrieval": {
+      "loss": 1,
+      "tie": 11
+    },
+    "random_search": {
+      "loss": 1,
+      "tie": 9,
+      "win": 2
+    }
+  },
+  "unique_design_configuration_pairs": 80
+}

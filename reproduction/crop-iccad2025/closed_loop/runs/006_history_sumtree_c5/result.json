@@ -1,0 +1,34 @@
+{
+  "cec_returncode": 0,
+  "cec_seconds": 0.11492425400001594,
+  "commands": [
+    [
+      "/workspace/PaperReproduction/reproduction/crop-iccad2025/closed_loop/native/root/usr/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "runs/006_history_sumtree_c5/flow.ys"
+    ],
+    [
+      "/workspace/PaperReproduction/reproduction/crop-iccad2025/closed_loop/native/root/usr/bin/yosys-abc",
+      "-c",
+      "cec runs/006_history_sumtree_c5/reference.blif runs/006_history_sumtree_c5/mapped.blif"
+    ]
+  ],
+  "config": "c5",
+  "design": "sumtree",
+  "elapsed_seconds": 0.3319978239996999,
+  "folder": "runs/006_history_sumtree_c5",
+  "formal": "ABC CEC: equivalent",
+  "independent": "Python arithmetic versus LUT truth tables: pass",
+  "invocation": 6,
+  "lut_count": 52,
+  "lut_depth": 9,
+  "objective": 468,
+  "phase": "history",
+  "status": "ok",
+  "synthesis_returncode": 0,
+  "synthesis_seconds": 0.21459895199996026,
+  "vectors_checked": 256,
+  "vectors_sha256": "18297502fc46c883b5ade5ad60f7f11ae9a01961aa35c39ec2072b8ceed0b360"
+}

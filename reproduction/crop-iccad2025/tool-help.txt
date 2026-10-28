@@ -1,0 +1,481 @@
+
+-- Running command `help abc; help synth; help equiv_simple; help ltp; help simplemap; help abc9' --
+
+    abc [options] [selection]
+
+This pass uses the ABC tool [1] for technology mapping of yosys's internal gate
+library to a target architecture.
+
+    -exe <command>
+        use the specified command instead of "<yosys-bindir>/yosys-abc" to execute ABC.
+        This can e.g. be used to call a specific version of ABC or a wrapper.
+
+    -script <file>
+        use the specified ABC script file instead of the default script.
+
+        if <file> starts with a plus sign (+), then the rest of the filename
+        string is interpreted as the command string to be passed to ABC. The
+        leading plus sign is removed and all commas (,) in the string are
+        replaced with blanks before the string is passed to ABC.
+
+        if no -script parameter is given, the following scripts are used:
+
+        for -liberty/-genlib without -constr:
+          strash; &get -n; &fraig -x; &put; scorr; dc2; dretime; strash;
+               &get -n; &dch -f; &nf {D}; &put
+
+        for -liberty/-genlib with -constr:
+          strash; &get -n; &fraig -x; &put; scorr; dc2; dretime; strash;
+               &get -n; &dch -f; &nf {D}; &put; buffer; upsize {D};
+               dnsize {D}; stime -p
+
+        for -lut/-luts (only one LUT size):
+          strash; &get -n; &fraig -x; &put; scorr; dc2; dretime; strash;
+               dch -f; if; mfs2; lutpack {S}
+
+        for -lut/-luts (different LUT sizes):
+          strash; &get -n; &fraig -x; &put; scorr; dc2; dretime; strash;
+               dch -f; if; mfs2
+
+        for -sop:
+          strash; &get -n; &fraig -x; &put; scorr; dc2; dretime; strash;
+               dch -f; cover {I} {P}
+
+        otherwise:
+          strash; &get -n; &fraig -x; &put; scorr; dc2; dretime; strash;
+               &get -n; &dch -f; &nf {D}; &put
+
+    -fast
+        use different default scripts that are slightly faster (at the cost
+        of output quality):
+
+        for -liberty/-genlib without -constr:
+          strash; dretime; map {D}
+
+        for -liberty/-genlib with -constr:
+          strash; dretime; map {D}; buffer; upsize {D}; dnsize {D};
+               stime -p
+
+        for -lut/-luts:
+          strash; dretime; if
+
+        for -sop:
+          strash; dretime; cover {I} {P}
+
+        otherwise:
+          strash; dretime; map
+
+    -liberty <file>
+        generate netlists for the specified cell library (using the liberty
+        file format).
+
+    -dont_use <cell_name>
+        generate netlists for the specified cell library (using the liberty
+        file format).
+
+    -genlib <file>
+        generate netlists for the specified cell library (using the SIS Genlib
+        file format).
+
+    -constr <file>
+        pass this file with timing constraints to ABC.
+        use with -liberty/-genlib.
+
+        a constr file contains two lines:
+            set_driving_cell <cell_name>
+            set_load <floating_point_number>
+
+        the set_driving_cell statement defines which cell type is assumed to
+        drive the primary inputs and the set_load statement sets the load in
+        femtofarads for each primary output.
+
+    -D <picoseconds>
+        set delay target. the string {D} in the default scripts above is
+        replaced by this option when used, and an empty string otherwise.
+        this also replaces 'dretime' with 'dretime; retime -o {D}' in the
+        default scripts above.
+
+    -I <num>
+        maximum number of SOP inputs.
+        (replaces {I} in the default scripts above)
+
+    -P <num>
+        maximum number of SOP products.
+        (replaces {P} in the default scripts above)
+
+    -S <num>
+        maximum number of LUT inputs shared.
+        (replaces {S} in the default scripts above, default: -S 1)
+
+    -lut <width>
+        generate netlist using luts of (max) the specified width.
+
+    -lut <w1>:<w2>
+        generate netlist using luts of (max) the specified width <w2>. All
+        luts with width <= <w1> have constant cost. for luts larger than <w1>
+        the area cost doubles with each additional input bit. the delay cost
+        is still constant for all lut widths.
+
+    -luts <cost1>,<cost2>,<cost3>,<sizeN>:<cost4-N>,..
+        generate netlist using luts. Use the specified costs for luts with 1,
+        2, 3, .. inputs.
+
+    -sop
+        map to sum-of-product cells and inverters
+
+    -g type1,type2,...
+        Map to the specified list of gate types. Supported gates types are:
+           AND, NAND, OR, NOR, XOR, XNOR, ANDNOT, ORNOT, MUX,
+           NMUX, AOI3, OAI3, AOI4, OAI4.
+        (The NOT gate is always added to this list automatically.)
+
+        The following aliases can be used to reference common sets of gate
+        types:
+          simple: AND OR XOR MUX
+          cmos2:  NAND NOR
+          cmos3:  NAND NOR AOI3 OAI3
+          cmos4:  NAND NOR AOI3 OAI3 AOI4 OAI4
+          cmos:   NAND NOR AOI3 OAI3 AOI4 OAI4 NMUX MUX XOR XNOR
+          gates:  AND NAND OR NOR XOR XNOR ANDNOT ORNOT
+          aig:    AND NAND OR NOR ANDNOT ORNOT
+
+        The alias 'all' represent the full set of all gate types.
+
+        Prefix a gate type with a '-' to remove it from the list. For example
+        the arguments 'AND,OR,XOR' and 'simple,-MUX' are equivalent.
+
+        The default is 'all,-NMUX,-AOI3,-OAI3,-AOI4,-OAI4'.
+
+    -dff
+        also pass $_DFF_?_ and $_DFFE_??_ cells through ABC. modules with many
+        clock domains are automatically partitioned in clock domains and each
+        domain is passed through ABC independently.
+
+    -clk [!]<clock-signal-name>[,[!]<enable-signal-name>]
+        use only the specified clock domain. this is like -dff, but only FF
+        cells that belong to the specified clock domain are used.
+
+    -keepff
+        set the "keep" attribute on flip-flop output wires. (and thus preserve
+        them, for example for equivalence checking.)
+
+    -nocleanup
+        when this option is used, the temporary files created by this pass
+        are not removed. this is useful for debugging.
+
+    -showtmp
+        print the temp dir name in log. usually this is suppressed so that the
+        command output is identical across runs.
+
+    -markgroups
+        set a 'abcgroup' attribute on all objects created by ABC. The value of
+        this attribute is a unique integer for each ABC process started. This
+        is useful for debugging the partitioning of clock domains.
+
+    -dress
+        run the 'dress' command after all other ABC commands. This aims to
+        preserve naming by an equivalence check between the original and
+        post-ABC netlists (experimental).
+
+When no target cell library is specified the Yosys standard cell library is
+loaded into ABC before the ABC script is executed.
+
+Note that this is a logic optimization pass within Yosys that is calling ABC
+internally. This is not going to "run ABC on your design". It will instead run
+ABC on logic snippets extracted from your design. You will not get any useful
+output when passing an ABC script that writes a file. Instead write your full
+design as BLIF file with write_blif and then load that into ABC externally if
+you want to use ABC to convert your design into another format.
+
+[1] http://www.eecs.berkeley.edu/~alanmi/abc/
+
+
+    synth [options]
+
+This command runs the default synthesis script. This command does not operate
+on partly selected designs.
+
+    -top <module>
+        use the specified module as top module (default='top')
+
+    -auto-top
+        automatically determine the top of the design hierarchy
+
+    -flatten
+        flatten the design before synthesis. this will pass '-auto-top' to
+        'hierarchy' if no top module is specified.
+
+    -encfile <file>
+        passed to 'fsm_recode' via 'fsm'
+
+    -lut <k>
+        perform synthesis for a k-LUT architecture.
+
+    -nofsm
+        do not run FSM optimization
+
+    -noabc
+        do not run abc (as if yosys was compiled without ABC support)
+
+    -booth
+        run the booth pass to map $mul to Booth encoded multipliers
+
+    -noalumacc
+        do not run 'alumacc' pass. i.e. keep arithmetic operators in
+        their direct form ($add, $sub, etc.).
+
+    -nordff
+        passed to 'memory'. prohibits merging of FFs into memory read ports
+
+    -noshare
+        do not run SAT-based resource sharing
+
+    -run <from_label>[:<to_label>]
+        only run the commands between the labels (see below). an empty
+        from label is synonymous to 'begin', and empty to label is
+        synonymous to the end of the command list.
+
+    -abc9
+        use new ABC9 flow (EXPERIMENTAL)
+
+    -flowmap
+        use FlowMap LUT techmapping instead of ABC
+
+    -no-rw-check
+        marks all recognized read ports as "return don't-care value on
+        read/write collision" (same result as setting the no_rw_check
+        attribute on all memories).
+
+    -extra-map filename
+        source extra rules from the given file to complement the default
+        mapping library in the `techmap` step. this option can be
+        repeated.
+
+The following commands are executed by this synthesis command:
+
+    begin:
+        hierarchy -check [-top <top> | -auto-top]
+
+    coarse:
+        proc
+        flatten      (if -flatten)
+        opt_expr
+        opt_clean
+        check
+        opt -nodffe -nosdff
+        fsm          (unless -nofsm)
+        opt
+        wreduce
+        peepopt
+        opt_clean
+        techmap -map +/cmp2lut.v -map +/cmp2lcu.v     (if -lut)
+        booth        (if -booth)
+        alumacc      (unless -noalumacc)
+        share        (unless -noshare)
+        opt
+        memory -nomap
+        opt_clean
+
+    fine:
+        opt -fast -full
+        memory_map
+        opt -full
+        techmap                      (unless -extra-map)
+        techmap -map +/techmap.v -map <inject>      (if -extra-map)
+        techmap -map +/gate2lut.v    (if -noabc and -lut)
+        clean; opt_lut               (if -noabc and -lut)
+        flowmap -maxlut K            (if -flowmap and -lut)
+        opt -fast
+        abc -fast           (unless -noabc, unless -lut)
+        abc -fast -lut k    (unless -noabc, if -lut)
+        opt -fast           (unless -noabc)
+
+    check:
+        hierarchy -check
+        stat
+        check
+
+
+    equiv_simple [options] [selection]
+
+This command tries to prove $equiv cells using a simple direct SAT approach.
+
+    -v
+        verbose output
+
+    -undef
+        enable modelling of undef states
+
+    -short
+        create shorter input cones that stop at shared nodes. This yields
+        simpler SAT problems but sometimes fails to prove equivalence.
+
+    -nogroup
+        disabling grouping of $equiv cells by output wire
+
+    -seq <N>
+        the max. number of time steps to be considered (default = 1)
+
+
+    ltp [options] [selection]
+
+This command prints the longest topological path in the design. (Only considers
+paths within a single module, so the design must be flattened.)
+
+    -noff
+        automatically exclude FF cell types
+
+
+    simplemap [selection]
+
+This pass maps a small selection of simple coarse-grain cells to yosys gate
+primitives. The following internal cell types are mapped by this pass:
+
+  $not, $pos, $and, $or, $xor, $xnor
+  $reduce_and, $reduce_or, $reduce_xor, $reduce_xnor, $reduce_bool
+  $logic_not, $logic_and, $logic_or, $mux, $tribuf
+  $sr, $ff, $dff, $dffe, $dffsr, $dffsre, $adff, $adffe, $aldff, $aldffe, $sdff,
+  $sdffe, $sdffce, $dlatch, $adlatch, $dlatchsr
+
+
+    abc9 [options] [selection]
+
+This script pass performs a sequence of commands to facilitate the use of the
+ABC tool [1] for technology mapping of the current design to a target FPGA
+architecture. Only fully-selected modules are supported.
+
+    -run <from_label>:<to_label>
+        only run the commands between the labels (see below). an empty
+        from label is synonymous to 'begin', and empty to label is
+        synonymous to the end of the command list.
+
+    -exe <command>
+        use the specified command instead of "<yosys-bindir>/yosys-abc" to execute ABC.
+        This can e.g. be used to call a specific version of ABC or a wrapper.
+
+    -script <file>
+        use the specified ABC script file instead of the default script.
+
+        if <file> starts with a plus sign (+), then the rest of the filename
+        string is interpreted as the command string to be passed to ABC. The
+        leading plus sign is removed and all commas (,) in the string are
+        replaced with blanks before the string is passed to ABC.
+
+        if no -script parameter is given, the following scripts are used:
+          &scorr; &sweep; &dc2; &dch -f; &ps; &if {C} {W} {D} {R} -v; &mfs
+
+    -fast
+        use different default scripts that are slightly faster (at the cost
+        of output quality):
+          &if {C} {W} {D} {R} -v
+
+    -D <picoseconds>
+        set delay target. the string {D} in the default scripts above is
+        replaced by this option when used, and an empty string otherwise
+        (indicating best possible delay).
+
+    -lut <width>
+        generate netlist using luts of (max) the specified width.
+
+    -lut <w1>:<w2>
+        generate netlist using luts of (max) the specified width <w2>. All
+        luts with width <= <w1> have constant cost. for luts larger than <w1>
+        the area cost doubles with each additional input bit. the delay cost
+        is still constant for all lut widths.
+
+    -lut <file>
+        pass this file with lut library to ABC.
+
+    -luts <cost1>,<cost2>,<cost3>,<sizeN>:<cost4-N>,..
+        generate netlist using luts. Use the specified costs for luts with 1,
+        2, 3, .. inputs.
+
+    -maxlut <width>
+        when auto-generating the lut library, discard all luts equal to or
+        greater than this size (applicable when neither -lut nor -luts is
+        specified).
+
+    -dff
+        also pass $_DFF_[NP]_ cells through to ABC. modules with many clock
+        domains are supported and automatically partitioned by ABC.
+
+    -nocleanup
+        when this option is used, the temporary files created by this pass
+        are not removed. this is useful for debugging.
+
+    -showtmp
+        print the temp dir name in log. usually this is suppressed so that the
+        command output is identical across runs.
+
+    -box <file>
+        pass this file with box library to ABC.
+
+Note that this is a logic optimization pass within Yosys that is calling ABC
+internally. This is not going to "run ABC on your design". It will instead run
+ABC on logic snippets extracted from your design. You will not get any useful
+output when passing an ABC script that writes a file. Instead write your full
+design as an XAIGER file with `write_xaiger' and then load that into ABC
+externally if you want to use ABC to convert your design into another format.
+
+[1] http://www.eecs.berkeley.edu/~alanmi/abc/
+
+
+    check:
+        abc9_ops -check [-dff]    (option if -dff)
+
+    map:
+        abc9_ops -prep_hier [-dff]    (option if -dff)
+        scc -specify -set_attr abc9_scc_id {}
+        abc9_ops -prep_bypass [-prep_dff]    (option if -dff)
+        design -stash $abc9
+        design -load $abc9_map
+        proc
+        wbflip
+        techmap -wb -map %$abc9 -map +/techmap.v A:abc9_flop
+        opt -nodffe -nosdff
+        abc9_ops -prep_dff_submod                                                     (only if -dff)
+        setattr -set submod "$abc9_flop" t:$_DFF_?_ %ci* %co* t:$_DFF_?_ %d           (only if -dff)
+        submod                                                                        (only if -dff)
+        setattr -mod -set whitebox 1 -set abc9_flop 1 -set abc9_box 1 *_$abc9_flop    (only if -dff)
+        foreach module in design
+            rename <module-name>_$abc9_flop _TECHMAP_REPLACE_                         (only if -dff)
+        abc9_ops -prep_dff_unmap                                                      (only if -dff)
+        design -copy-to $abc9 =*_$abc9_flop                                           (only if -dff)
+        delete =*_$abc9_flop                                                          (only if -dff)
+        design -stash $abc9_map
+        design -load $abc9
+        design -delete $abc9
+        techmap -wb -max_iter 1 -map %$abc9_map -map +/abc9_map.v [-D DFF]    (option if -dff)
+        design -delete $abc9_map
+
+    pre:
+        read_verilog -icells -lib -specify +/abc9_model.v
+        abc9_ops -break_scc -prep_delays -prep_xaiger [-dff]    (option for -dff)
+        abc9_ops -prep_lut <maxlut>    (skip if -lut or -luts)
+        abc9_ops -prep_box    (skip if -box)
+        design -stash $abc9
+        design -load $abc9_holes
+        techmap -wb -map %$abc9 -map +/techmap.v
+        opt -purge
+        aigmap
+        design -stash $abc9_holes
+        design -load $abc9
+        design -delete $abc9
+
+    exe:
+        aigmap
+        foreach module in selection
+            abc9_ops -write_lut <abc-temp-dir>/input.lut    (skip if '-lut' or '-luts')
+            abc9_ops -write_box <abc-temp-dir>/input.box    (skip if '-box')
+            write_xaiger -map <abc-temp-dir>/input.sym [-dff] <abc-temp-dir>/input.xaig
+            abc9_exe [options] -cwd <abc-temp-dir> -lut [<abc-temp-dir>/input.lut] -box [<abc-temp-dir>/input.box]
+            read_aiger -xaiger -wideports -module_name <module-name>$abc9 -map <abc-temp-dir>/input.sym <abc-temp-dir>/output.aig
+            abc9_ops -reintegrate [-dff]
+
+    unmap:
+        techmap -wb -map %$abc9_unmap -map +/abc9_unmap.v
+        design -delete $abc9_unmap
+        design -delete $abc9_holes
+        delete =*_$abc9_byp
+        setattr -mod -unset abc9_box_id
+

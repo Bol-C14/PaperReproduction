@@ -1,0 +1,39 @@
+{
+  "arm": "no_retrieval",
+  "cec_returncode": 0,
+  "cec_seconds": 0.1145048719999977,
+  "commands": [
+    [
+      "/workspace/PaperReproduction/reproduction/crop-iccad2025/closed_loop/native/root/usr/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "runs/203_online_manhattan_c3/flow.ys"
+    ],
+    [
+      "/workspace/PaperReproduction/reproduction/crop-iccad2025/closed_loop/native/root/usr/bin/yosys-abc",
+      "-c",
+      "cec runs/203_online_manhattan_c3/reference.blif runs/203_online_manhattan_c3/mapped.blif"
+    ]
+  ],
+  "config": "c3",
+  "context": "contexts/manhattan_11_no_retrieval_2.json",
+  "design": "manhattan",
+  "elapsed_seconds": 0.2821390290000636,
+  "folder": "runs/203_online_manhattan_c3",
+  "formal": "ABC CEC: equivalent",
+  "independent": "Python arithmetic versus LUT truth tables: pass",
+  "invocation": 203,
+  "iteration": 2,
+  "lut_count": 104,
+  "lut_depth": 8,
+  "objective": 832,
+  "phase": "online",
+  "retrieved": null,
+  "seed": 11,
+  "status": "ok",
+  "synthesis_returncode": 0,
+  "synthesis_seconds": 0.16457337299971186,
+  "vectors_checked": 256,
+  "vectors_sha256": "18297502fc46c883b5ade5ad60f7f11ae9a01961aa35c39ec2072b8ceed0b360"
+}

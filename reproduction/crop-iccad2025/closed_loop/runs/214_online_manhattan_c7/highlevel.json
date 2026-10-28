@@ -1,0 +1,335 @@
+{
+  "creator": "Yosys 0.52 (git sha1 fee39a3284c90249e1d9684cf6944ffbbcbb8f90)",
+  "modules": {
+    "dut": {
+      "attributes": {
+        "top": "00000000000000000000000000000001",
+        "src": "circuits/manhattan.v:2.1-4.10"
+      },
+      "ports": {
+        "x": {
+          "direction": "input",
+          "bits": [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33 ]
+        },
+        "y": {
+          "direction": "output",
+          "bits": [ 34, 35, 36, 37, 38, 39, 40, 41, 42, 43 ]
+        }
+      },
+      "cells": {
+        "$add$circuits/manhattan.v:3$9": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001010",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000001010",
+            "Y_WIDTH": "00000000000000000000000000001010"
+          },
+          "attributes": {
+            "src": "circuits/manhattan.v:3.105-3.124"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 44, 45, 46, 47, 48, 49, 50, 51, "0", "0" ],
+            "B": [ 52, 53, 54, 55, 56, 57, 58, 59, "0", "0" ],
+            "Y": [ 34, 35, 36, 37, 38, 39, 40, 41, 42, 43 ]
+          }
+        },
+        "$gt$circuits/manhattan.v:3$1": {
+          "hide_name": 1,
+          "type": "$gt",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000001000",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "circuits/manhattan.v:3.68-3.71"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 2, 3, 4, 5, 6, 7, 8, 9 ],
+            "B": [ 10, 11, 12, 13, 14, 15, 16, 17 ],
+            "Y": [ 60 ]
+          }
+        },
+        "$gt$circuits/manhattan.v:3$5": {
+          "hide_name": 1,
+          "type": "$gt",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000001000",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+            "src": "circuits/manhattan.v:3.83-3.86"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 18, 19, 20, 21, 22, 23, 24, 25 ],
+            "B": [ 26, 27, 28, 29, 30, 31, 32, 33 ],
+            "Y": [ 61 ]
+          }
+        },
+        "$sub$circuits/manhattan.v:3$2": {
+          "hide_name": 1,
+          "type": "$sub",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000001000",
+            "Y_WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "circuits/manhattan.v:3.72-3.75"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 2, 3, 4, 5, 6, 7, 8, 9 ],
+            "B": [ 10, 11, 12, 13, 14, 15, 16, 17 ],
+            "Y": [ 62, 63, 64, 65, 66, 67, 68, 69 ]
+          }
+        },
+        "$sub$circuits/manhattan.v:3$3": {
+          "hide_name": 1,
+          "type": "$sub",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000001000",
+            "Y_WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "circuits/manhattan.v:3.76-3.79"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 10, 11, 12, 13, 14, 15, 16, 17 ],
+            "B": [ 2, 3, 4, 5, 6, 7, 8, 9 ],
+            "Y": [ 70, 71, 72, 73, 74, 75, 76, 77 ]
+          }
+        },
+        "$sub$circuits/manhattan.v:3$6": {
+          "hide_name": 1,
+          "type": "$sub",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000001000",
+            "Y_WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "circuits/manhattan.v:3.87-3.90"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 18, 19, 20, 21, 22, 23, 24, 25 ],
+            "B": [ 26, 27, 28, 29, 30, 31, 32, 33 ],
+            "Y": [ 78, 79, 80, 81, 82, 83, 84, 85 ]
+          }
+        },
+        "$sub$circuits/manhattan.v:3$7": {
+          "hide_name": 1,
+          "type": "$sub",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000001000",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000001000",
+            "Y_WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "circuits/manhattan.v:3.91-3.94"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 26, 27, 28, 29, 30, 31, 32, 33 ],
+            "B": [ 18, 19, 20, 21, 22, 23, 24, 25 ],
+            "Y": [ 86, 87, 88, 89, 90, 91, 92, 93 ]
+          }
+        },
+        "$ternary$circuits/manhattan.v:3$4": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "circuits/manhattan.v:3.68-3.79"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 70, 71, 72, 73, 74, 75, 76, 77 ],
+            "B": [ 62, 63, 64, 65, 66, 67, 68, 69 ],
+            "S": [ 60 ],
+            "Y": [ 44, 45, 46, 47, 48, 49, 50, 51 ]
+          }
+        },
+        "$ternary$circuits/manhattan.v:3$8": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000001000"
+          },
+          "attributes": {
+            "src": "circuits/manhattan.v:3.83-3.94"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 86, 87, 88, 89, 90, 91, 92, 93 ],
+            "B": [ 78, 79, 80, 81, 82, 83, 84, 85 ],
+            "S": [ 61 ],
+            "Y": [ 52, 53, 54, 55, 56, 57, 58, 59 ]
+          }
+        }
+      },
+      "netnames": {
+        "$gt$circuits/manhattan.v:3$1_Y": {
+          "hide_name": 1,
+          "bits": [ 60 ],
+          "attributes": {
+            "src": "circuits/manhattan.v:3.68-3.71"
+          }
+        },
+        "$gt$circuits/manhattan.v:3$5_Y": {
+          "hide_name": 1,
+          "bits": [ 61 ],
+          "attributes": {
+            "src": "circuits/manhattan.v:3.83-3.86"
+          }
+        },
+        "$sub$circuits/manhattan.v:3$2_Y": {
+          "hide_name": 1,
+          "bits": [ 62, 63, 64, 65, 66, 67, 68, 69 ],
+          "attributes": {
+            "src": "circuits/manhattan.v:3.72-3.75"
+          }
+        },
+        "$sub$circuits/manhattan.v:3$3_Y": {
+          "hide_name": 1,
+          "bits": [ 70, 71, 72, 73, 74, 75, 76, 77 ],
+          "attributes": {
+            "src": "circuits/manhattan.v:3.76-3.79"
+          }
+        },
+        "$sub$circuits/manhattan.v:3$6_Y": {
+          "hide_name": 1,
+          "bits": [ 78, 79, 80, 81, 82, 83, 84, 85 ],
+          "attributes": {
+            "src": "circuits/manhattan.v:3.87-3.90"
+          }
+        },
+        "$sub$circuits/manhattan.v:3$7_Y": {
+          "hide_name": 1,
+          "bits": [ 86, 87, 88, 89, 90, 91, 92, 93 ],
+          "attributes": {
+            "src": "circuits/manhattan.v:3.91-3.94"
+          }
+        },
+        "a": {
+          "hide_name": 0,
+          "bits": [ 2, 3, 4, 5, 6, 7, 8, 9 ],
+          "attributes": {
+            "src": "circuits/manhattan.v:3.12-3.13"
+          }
+        },
+        "b": {
+          "hide_name": 0,
+          "bits": [ 10, 11, 12, 13, 14, 15, 16, 17 ],
+          "attributes": {
+            "src": "circuits/manhattan.v:3.21-3.22"
+          }
+        },
+        "c": {
+          "hide_name": 0,
+          "bits": [ 18, 19, 20, 21, 22, 23, 24, 25 ],
+          "attributes": {
+            "src": "circuits/manhattan.v:3.31-3.32"
+          }
+        },
+        "d": {
+          "hide_name": 0,
+          "bits": [ 26, 27, 28, 29, 30, 31, 32, 33 ],
+          "attributes": {
+            "src": "circuits/manhattan.v:3.42-3.43"
+          }
+        },
+        "dx": {
+          "hide_name": 0,
+          "bits": [ 44, 45, 46, 47, 48, 49, 50, 51 ],
+          "attributes": {
+            "src": "circuits/manhattan.v:3.65-3.67"
+          }
+        },
+        "dy": {
+          "hide_name": 0,
+          "bits": [ 52, 53, 54, 55, 56, 57, 58, 59 ],
+          "attributes": {
+            "src": "circuits/manhattan.v:3.80-3.82"
+          }
+        },
+        "x": {
+          "hide_name": 0,
+          "bits": [ 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33 ],
+          "attributes": {
+            "src": "circuits/manhattan.v:2.25-2.26"
+          }
+        },
+        "y": {
+          "hide_name": 0,
+          "bits": [ 34, 35, 36, 37, 38, 39, 40, 41, 42, 43 ],
+          "attributes": {
+            "src": "circuits/manhattan.v:2.41-2.42"
+          }
+        }
+      }
+    }
+  }
+}

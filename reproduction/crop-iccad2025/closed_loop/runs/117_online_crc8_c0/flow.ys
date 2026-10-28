@@ -1,0 +1,16 @@
+read_verilog circuits/crc8.v
+hierarchy -check -top dut
+proc
+flatten
+opt
+write_json runs/117_online_crc8_c0/highlevel.json
+synth -top dut -noabc 
+check -assert
+write_blif runs/117_online_crc8_c0/reference.blif
+abc -fast -lut 4
+clean
+check -assert
+write_json runs/117_online_crc8_c0/mapped.json
+write_blif runs/117_online_crc8_c0/mapped.blif
+stat
+ltp -noff

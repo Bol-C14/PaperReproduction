@@ -1,0 +1,154 @@
+{
+  "proposal_origin": "new non-LLM baseline",
+  "request": {
+    "arm": "structural",
+    "iteration": 1,
+    "legal_configs": [
+      {
+        "id": "c0",
+        "mode": "fast",
+        "noalumacc": false
+      },
+      {
+        "id": "c1",
+        "mode": "quality",
+        "noalumacc": false
+      },
+      {
+        "id": "c2",
+        "mode": "area",
+        "noalumacc": false
+      },
+      {
+        "id": "c3",
+        "mode": "depth",
+        "noalumacc": false
+      },
+      {
+        "id": "c4",
+        "mode": "fast",
+        "noalumacc": true
+      },
+      {
+        "id": "c5",
+        "mode": "quality",
+        "noalumacc": true
+      },
+      {
+        "id": "c6",
+        "mode": "area",
+        "noalumacc": true
+      },
+      {
+        "id": "c7",
+        "mode": "depth",
+        "noalumacc": true
+      }
+    ],
+    "objective": "LUT4 count * maximum unit LUT depth; lower is better",
+    "prior_db_hash": "b24a759b1443b1d1f1af15b7b32d4d0ee38e16bb1bfd57ad0fd9bd2cc1d5f262",
+    "retrieved_guidance": [
+      {
+        "config": "c0",
+        "normalized_objective": 1.0,
+        "objective": 1683
+      },
+      {
+        "config": "c4",
+        "normalized_objective": 1.0,
+        "objective": 1683
+      },
+      {
+        "config": "c3",
+        "normalized_objective": 1.1229946524064172,
+        "objective": 1890
+      }
+    ],
+    "retrieved_prior": "multiply",
+    "seed": 37,
+    "semantic_component": "NOT RUN",
+    "similarities": [
+      [
+        0.7337337941113982,
+        "sumtree"
+      ],
+      [
+        0.7741016163917595,
+        "multiply"
+      ],
+      [
+        0.4254755605872164,
+        "alu"
+      ],
+      [
+        0.13342757190174076,
+        "barrel"
+      ],
+      [
+        0.20080985244916036,
+        "minmax"
+      ],
+      [
+        0.7183750876772528,
+        "popcount"
+      ]
+    ],
+    "target_history": [
+      {
+        "config": "c0",
+        "invocation": 81,
+        "objective": 3784,
+        "status": "ok"
+      }
+    ],
+    "target_history_hash": "74b70c5d9486fb1caeb17f6563b873d28311c941f3ee862e730cc07c059a603f"
+  },
+  "response": {
+    "candidate_scores": [
+      {
+        "config": "c6",
+        "exploration": 0.2082526867685595,
+        "lcb": 0.8085495929907147,
+        "predicted_mean": 1.0168022797592742
+      },
+      {
+        "config": "c5",
+        "exploration": 0.2082526867685595,
+        "lcb": 0.8085495929907147,
+        "predicted_mean": 1.0168022797592742
+      },
+      {
+        "config": "c7",
+        "exploration": 0.18147041723564808,
+        "lcb": 0.8608892011518667,
+        "predicted_mean": 1.0423596183875148
+      },
+      {
+        "config": "c2",
+        "exploration": 0.14910026202415025,
+        "lcb": 0.8794952038736187,
+        "predicted_mean": 1.028595465897769
+      },
+      {
+        "config": "c1",
+        "exploration": 0.14910026202415025,
+        "lcb": 0.8794952038736187,
+        "predicted_mean": 1.028595465897769
+      },
+      {
+        "config": "c4",
+        "exploration": 0.12017134863617332,
+        "lcb": 0.885423506619474,
+        "predicted_mean": 1.0055948552556473
+      },
+      {
+        "config": "c3",
+        "exploration": 0.12017134863617332,
+        "lcb": 0.9415017276709874,
+        "predicted_mean": 1.0616730763071607
+      }
+    ],
+    "config": "c6",
+    "reason": "categorical kernel LCB using current target history and optional fixed prior guidance"
+  }
+}

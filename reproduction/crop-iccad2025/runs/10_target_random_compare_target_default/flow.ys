@@ -1,0 +1,18 @@
+read_verilog fixtures/compare_target.v
+hierarchy -check -top dut
+proc
+flatten
+opt
+design -save reference
+synth -top dut -noabc
+check -assert
+write_json runs/10_target_random_compare_target_default/mapped.json
+stat
+ltp -noff
+design -save mapped
+design -reset
+design -copy-from reference -as gold dut
+design -copy-from mapped -as gate dut
+miter -equiv -flatten gold gate miter
+hierarchy -check -top miter
+sat -verify -prove trigger 0 -show-inputs -show-outputs

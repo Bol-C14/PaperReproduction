@@ -1,0 +1,75 @@
+{
+  "freeze": "before all synthesis measurements",
+  "max_measurement_invocations": 12,
+  "families": 3,
+  "designs": [
+    {
+      "id": "adder_prior",
+      "family": "adder",
+      "role": "prior",
+      "width": 8,
+      "path": "fixtures/adder_prior.v",
+      "origin": "newly authored inspectable educational RTL; not RTLRewriter or industrial assets"
+    },
+    {
+      "id": "adder_target",
+      "family": "adder",
+      "role": "target",
+      "width": 12,
+      "path": "fixtures/adder_target.v",
+      "origin": "newly authored inspectable educational RTL; not RTLRewriter or industrial assets"
+    },
+    {
+      "id": "compare_prior",
+      "family": "compare",
+      "role": "prior",
+      "width": 8,
+      "path": "fixtures/compare_prior.v",
+      "origin": "newly authored inspectable educational RTL; not RTLRewriter or industrial assets"
+    },
+    {
+      "id": "compare_target",
+      "family": "compare",
+      "role": "target",
+      "width": 12,
+      "path": "fixtures/compare_target.v",
+      "origin": "newly authored inspectable educational RTL; not RTLRewriter or industrial assets"
+    },
+    {
+      "id": "mux_prior",
+      "family": "mux",
+      "role": "prior",
+      "width": 8,
+      "path": "fixtures/mux_prior.v",
+      "origin": "newly authored inspectable educational RTL; not RTLRewriter or industrial assets"
+    },
+    {
+      "id": "mux_target",
+      "family": "mux",
+      "role": "target",
+      "width": 12,
+      "path": "fixtures/mux_target.v",
+      "origin": "newly authored inspectable educational RTL; not RTLRewriter or industrial assets"
+    }
+  ],
+  "configs": {
+    "default": {
+      "synth_options": "-noabc"
+    },
+    "noalumacc": {
+      "synth_options": "-noabc -noalumacc"
+    }
+  },
+  "objective": "lexicographic minimum (generic primitive gate count, maximum unit gate depth); both are proxies, not physical PPA",
+  "semantic_component": "not run; no model/API/embedding access",
+  "controls": [
+    "structural expression-count nearest prior",
+    "uniform random prior, seed 7"
+  ],
+  "top_k_history": 1,
+  "target_trials_per_arm": 1,
+  "source_trials_per_design": 2,
+  "source_total_trials": 6,
+  "target_total_trials": 6,
+  "fixture_limitations": "Width-scaled same-family counterparts; deliberate smoke test, not unseen-architecture generalization or paper replication."
+}

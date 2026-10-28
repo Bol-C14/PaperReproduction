@@ -1,0 +1,16 @@
+read_verilog circuits/minmax.v
+hierarchy -check -top dut
+proc
+flatten
+opt
+write_json runs/037_history_minmax_c4/highlevel.json
+synth -top dut -noabc -noalumacc
+check -assert
+write_blif runs/037_history_minmax_c4/reference.blif
+abc -fast -lut 4
+clean
+check -assert
+write_json runs/037_history_minmax_c4/mapped.json
+write_blif runs/037_history_minmax_c4/mapped.blif
+stat
+ltp -noff

@@ -1,0 +1,39 @@
+{
+  "arm": "structural",
+  "cec_returncode": 0,
+  "cec_seconds": 0.0644341950001035,
+  "commands": [
+    [
+      "/workspace/PaperReproduction/reproduction/crop-iccad2025/closed_loop/native/root/usr/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "runs/146_online_priority_c6/flow.ys"
+    ],
+    [
+      "/workspace/PaperReproduction/reproduction/crop-iccad2025/closed_loop/native/root/usr/bin/yosys-abc",
+      "-c",
+      "cec runs/146_online_priority_c6/reference.blif runs/146_online_priority_c6/mapped.blif"
+    ]
+  ],
+  "config": "c6",
+  "context": "contexts/priority_11_structural_1.json",
+  "design": "priority",
+  "elapsed_seconds": 0.2323285570000735,
+  "folder": "runs/146_online_priority_c6",
+  "formal": "ABC CEC: equivalent",
+  "independent": "Python arithmetic versus LUT truth tables: pass",
+  "invocation": 146,
+  "iteration": 1,
+  "lut_count": 36,
+  "lut_depth": 10,
+  "objective": 360,
+  "phase": "online",
+  "retrieved": "minmax",
+  "seed": 11,
+  "status": "ok",
+  "synthesis_returncode": 0,
+  "synthesis_seconds": 0.16545139899972128,
+  "vectors_checked": 256,
+  "vectors_sha256": "18297502fc46c883b5ade5ad60f7f11ae9a01961aa35c39ec2072b8ceed0b360"
+}

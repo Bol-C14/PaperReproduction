@@ -1,0 +1,34 @@
+{
+  "cec_returncode": 0,
+  "cec_seconds": 0.11469425499990393,
+  "commands": [
+    [
+      "/workspace/PaperReproduction/reproduction/crop-iccad2025/closed_loop/native/root/usr/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "runs/269_posthoc_oracle_manhattan_c4/flow.ys"
+    ],
+    [
+      "/workspace/PaperReproduction/reproduction/crop-iccad2025/closed_loop/native/root/usr/bin/yosys-abc",
+      "-c",
+      "cec runs/269_posthoc_oracle_manhattan_c4/reference.blif runs/269_posthoc_oracle_manhattan_c4/mapped.blif"
+    ]
+  ],
+  "config": "c4",
+  "design": "manhattan",
+  "elapsed_seconds": 0.2823080860002847,
+  "folder": "runs/269_posthoc_oracle_manhattan_c4",
+  "formal": "ABC CEC: equivalent",
+  "independent": "Python arithmetic versus LUT truth tables: pass",
+  "invocation": 269,
+  "lut_count": 100,
+  "lut_depth": 8,
+  "objective": 800,
+  "phase": "posthoc_oracle",
+  "status": "ok",
+  "synthesis_returncode": 0,
+  "synthesis_seconds": 0.1645991669997784,
+  "vectors_checked": 256,
+  "vectors_sha256": "18297502fc46c883b5ade5ad60f7f11ae9a01961aa35c39ec2072b8ceed0b360"
+}

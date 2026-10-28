@@ -1,0 +1,16 @@
+read_verilog circuits/manhattan.v
+hierarchy -check -top dut
+proc
+flatten
+opt
+write_json runs/207_online_manhattan_c3/highlevel.json
+synth -top dut -noabc 
+check -assert
+write_blif runs/207_online_manhattan_c3/reference.blif
+abc -lut 4 -script abc_scripts/depth.abc
+clean
+check -assert
+write_json runs/207_online_manhattan_c3/mapped.json
+write_blif runs/207_online_manhattan_c3/mapped.blif
+stat
+ltp -noff

@@ -1,0 +1,16 @@
+read_verilog circuits/multiply.v
+hierarchy -check -top dut
+proc
+flatten
+opt
+write_json runs/016_history_multiply_c7/highlevel.json
+synth -top dut -noabc -noalumacc
+check -assert
+write_blif runs/016_history_multiply_c7/reference.blif
+abc -lut 4 -script abc_scripts/depth.abc
+clean
+check -assert
+write_json runs/016_history_multiply_c7/mapped.json
+write_blif runs/016_history_multiply_c7/mapped.blif
+stat
+ltp -noff

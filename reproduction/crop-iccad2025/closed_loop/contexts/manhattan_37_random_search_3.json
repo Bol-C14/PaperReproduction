@@ -1,0 +1,107 @@
+{
+  "proposal_origin": "new non-LLM baseline",
+  "request": {
+    "arm": "random_search",
+    "iteration": 3,
+    "legal_configs": [
+      {
+        "id": "c0",
+        "mode": "fast",
+        "noalumacc": false
+      },
+      {
+        "id": "c1",
+        "mode": "quality",
+        "noalumacc": false
+      },
+      {
+        "id": "c2",
+        "mode": "area",
+        "noalumacc": false
+      },
+      {
+        "id": "c3",
+        "mode": "depth",
+        "noalumacc": false
+      },
+      {
+        "id": "c4",
+        "mode": "fast",
+        "noalumacc": true
+      },
+      {
+        "id": "c5",
+        "mode": "quality",
+        "noalumacc": true
+      },
+      {
+        "id": "c6",
+        "mode": "area",
+        "noalumacc": true
+      },
+      {
+        "id": "c7",
+        "mode": "depth",
+        "noalumacc": true
+      }
+    ],
+    "objective": "LUT4 count * maximum unit LUT depth; lower is better",
+    "prior_db_hash": "b24a759b1443b1d1f1af15b7b32d4d0ee38e16bb1bfd57ad0fd9bd2cc1d5f262",
+    "retrieved_guidance": [],
+    "retrieved_prior": null,
+    "seed": 37,
+    "semantic_component": "NOT RUN",
+    "similarities": [
+      [
+        0.8085621512184387,
+        "sumtree"
+      ],
+      [
+        0.17504747882917007,
+        "multiply"
+      ],
+      [
+        0.8338796766320417,
+        "alu"
+      ],
+      [
+        0.44902345042952213,
+        "barrel"
+      ],
+      [
+        0.6860003728103752,
+        "minmax"
+      ],
+      [
+        0.8022113188960752,
+        "popcount"
+      ]
+    ],
+    "target_history": [
+      {
+        "config": "c0",
+        "invocation": 237,
+        "objective": 800,
+        "status": "ok"
+      },
+      {
+        "config": "c6",
+        "invocation": 238,
+        "objective": 957,
+        "status": "ok"
+      },
+      {
+        "config": "c5",
+        "invocation": 239,
+        "objective": 968,
+        "status": "ok"
+      }
+    ],
+    "target_history_hash": "b5b12f875daa7d0b0417416f7831b6c42ab2b0f996db0a787a68c4b35488d24b"
+  },
+  "response": {
+    "candidate_scores": [],
+    "config": "c4",
+    "reason": "uniform untried configuration"
+  }
+}

@@ -1,0 +1,16 @@
+read_verilog circuits/priority.v
+hierarchy -check -top dut
+proc
+flatten
+opt
+write_json runs/153_online_priority_c0/highlevel.json
+synth -top dut -noabc 
+check -assert
+write_blif runs/153_online_priority_c0/reference.blif
+abc -fast -lut 4
+clean
+check -assert
+write_json runs/153_online_priority_c0/mapped.json
+write_blif runs/153_online_priority_c0/mapped.blif
+stat
+ltp -noff

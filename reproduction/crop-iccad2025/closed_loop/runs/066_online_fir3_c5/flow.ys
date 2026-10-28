@@ -1,0 +1,16 @@
+read_verilog circuits/fir3.v
+hierarchy -check -top dut
+proc
+flatten
+opt
+write_json runs/066_online_fir3_c5/highlevel.json
+synth -top dut -noabc -noalumacc
+check -assert
+write_blif runs/066_online_fir3_c5/reference.blif
+abc -lut 4
+clean
+check -assert
+write_json runs/066_online_fir3_c5/mapped.json
+write_blif runs/066_online_fir3_c5/mapped.blif
+stat
+ltp -noff

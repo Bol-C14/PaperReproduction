@@ -1,0 +1,101 @@
+{
+  "proposal_origin": "new non-LLM baseline",
+  "request": {
+    "arm": "random_search",
+    "iteration": 2,
+    "legal_configs": [
+      {
+        "id": "c0",
+        "mode": "fast",
+        "noalumacc": false
+      },
+      {
+        "id": "c1",
+        "mode": "quality",
+        "noalumacc": false
+      },
+      {
+        "id": "c2",
+        "mode": "area",
+        "noalumacc": false
+      },
+      {
+        "id": "c3",
+        "mode": "depth",
+        "noalumacc": false
+      },
+      {
+        "id": "c4",
+        "mode": "fast",
+        "noalumacc": true
+      },
+      {
+        "id": "c5",
+        "mode": "quality",
+        "noalumacc": true
+      },
+      {
+        "id": "c6",
+        "mode": "area",
+        "noalumacc": true
+      },
+      {
+        "id": "c7",
+        "mode": "depth",
+        "noalumacc": true
+      }
+    ],
+    "objective": "LUT4 count * maximum unit LUT depth; lower is better",
+    "prior_db_hash": "b24a759b1443b1d1f1af15b7b32d4d0ee38e16bb1bfd57ad0fd9bd2cc1d5f262",
+    "retrieved_guidance": [],
+    "retrieved_prior": null,
+    "seed": 37,
+    "semantic_component": "NOT RUN",
+    "similarities": [
+      [
+        0.7337337941113982,
+        "sumtree"
+      ],
+      [
+        0.7741016163917595,
+        "multiply"
+      ],
+      [
+        0.4254755605872164,
+        "alu"
+      ],
+      [
+        0.13342757190174076,
+        "barrel"
+      ],
+      [
+        0.20080985244916036,
+        "minmax"
+      ],
+      [
+        0.7183750876772528,
+        "popcount"
+      ]
+    ],
+    "target_history": [
+      {
+        "config": "c0",
+        "invocation": 93,
+        "objective": 3784,
+        "status": "ok"
+      },
+      {
+        "config": "c6",
+        "invocation": 94,
+        "objective": 4260,
+        "status": "ok"
+      }
+    ],
+    "target_history_hash": "ea75d06a5203ea42c02f745510fc67653bc5bb58ba7da100882d7c9b7c6440b5"
+  },
+  "response": {
+    "candidate_scores": [],
+    "config": "c5",
+    "reason": "uniform untried configuration"
+  }
+}

@@ -1,0 +1,82 @@
+{
+  "paper_id": "P15",
+  "title": "CROP: Circuit Retrieval and Optimization with Parameter Guidance using LLMs",
+  "venue": "ICCAD 2025",
+  "audit_date": "2026-10-28",
+  "workspace": "/workspace/PaperReproduction/P15_CROP",
+  "scope": "asset audit only; method learning",
+  "official_code": {
+    "status": "unverified",
+    "url": null,
+    "confirmed_absent": false,
+    "evidence": ["author_publications", "author_github"],
+    "search_boundary": "Paper and author publication links, author-linked GitHub overview, title/author searches; repository listing restricted. No guessed CROP repository accepted."
+  },
+  "routes": {
+    "minimum_faithful_mechanism": {
+      "level": null,
+      "conditional_level_if_no_code_confirmed": "L4",
+      "cost_profile": "low-cost reconstruction on small public RTL; actual transfer additionally requires histories and an oracle",
+      "confidence": "medium",
+      "reason_unassigned": "Neither code presence nor code absence is confirmed."
+    },
+    "full_paper": {
+      "level": null,
+      "conditional_level_if_no_code_confirmed": "L5",
+      "cost_profile": "high-cost authorized industrial access and evaluation",
+      "confidence": "high for access dependency; low for code absence",
+      "reason_unassigned": "Neither code presence nor code absence is confirmed."
+    }
+  },
+  "paper_method_record": {
+    "source": "paper",
+    "algorithm": "Summarize RTL modules, summarize their concatenation, embed; maximum-inner-product nearest-design retrieval supplies top-k historical configurations/QoR to iterative validated LLM search with accumulated results.",
+    "module_fields": ["inputs", "outputs", "functionality", "critical submodules", "design choices", "timing"],
+    "design_fields": ["name", "functionality", "inputs", "outputs", "characteristics", "modules", "interactions", "optimizations", "applications", "timing"],
+    "models": {"summary": "GPT-4o", "embedding": "all-MiniLM-L6-v2", "search": "OpenAI o1"},
+    "evaluation_backend": "Synopsys RTL Architect; DC/ICC II are introductory examples",
+    "search_space": "31 discrete placement parameters; >2.8e15 configurations; Table IV examples, not full executable schema",
+    "example_options": {"density_control_version": [1,2,3], "congestion_mode": [1,2], "power_mode": [0,1,2,3,4]},
+    "retrieval_evaluation": "96 embeddings, 14 categories; precision@1 0.906",
+    "industrial_evaluation": "Prior/Target proprietary processor cores: 111K cells each, 7nm/5nm",
+    "budgets": "Table VI checkpoints: 5/10/50/75 trials; BO ten random starts; RAG ablation two runs per condition",
+    "cost_evidence": "50-trial EDA runtime share 98.79%; no absolute runtime or token/call/dollar budget established",
+    "unknowns": ["guidance k", "exact prompts", "model snapshots", "complete options", "prior-history generation budget", "query manifest", "self-exclusion", "retry/failure handling", "hardware"],
+    "fidelity_caution": "Power optimization can sacrifice timing."
+  },
+  "assets": [
+    {"id":"benchmark", "status":"public root and README verified; files/subset unverified", "source":"benchmark", "local_copy":false, "license":"unverified", "revision":"master, not immutable-pinned"},
+    {"id":"embedding_checkpoint", "status":"public metadata verified; not downloaded", "source":"embedding_files", "file":"model.safetensors", "size_MB":90.9, "repository_total_MB":977, "license_metadata":"Apache-2.0", "architecture":{"layers":6,"hidden_width":384,"sentence_max_tokens":256}, "revision":"main, not immutable-pinned"},
+    {"id":"crop_source_and_configs", "status":"unverified", "local_copy":false},
+    {"id":"query_manifest_and_labels", "status":"unverified", "local_copy":false},
+    {"id":"summary_and_embedding_cache", "status":"unverified", "local_copy":false},
+    {"id":"prior_configuration_qor_history", "status":"unverified", "local_copy":false},
+    {"id":"commercial_llm_access", "status":"not tested; no calls made", "checkpoint_download":"not established"},
+    {"id":"industrial_rtl_technology_constraints", "status":"proprietary designs described; public artifact access unverified", "local_copy":false},
+    {"id":"rtl_architect_license_and_install", "status":"not probed; authorization required for future execution"},
+    {"id":"astro_infrastructure", "status":"not established in selected checkout; future infrastructure-only port if verified"}
+  ],
+  "control": {"status":"proposed, not implemented", "description":"Semantic versus structural versus seeded random retrieval with identical accessible history and oracle budgets; see report."},
+  "access_outcomes": [
+    {"target":"paper HTML via public browser", "status":"readable"},
+    {"target":"paper direct shell GET", "status":"denied", "reason":"proxy tunnel 403 Forbidden", "retry":false},
+    {"target":"IEEE publication", "status":"gated", "reason":"JavaScript robot verification", "bypass":false},
+    {"target":"author GitHub repository listing", "status":"restricted by web tool", "conclusion":"not evidence of code absence"},
+    {"target":"benchmark short directory", "status":"restricted by web tool"},
+    {"target":"guessed benchmark directory README", "status":"404", "conclusion":"not evidence directory absent"}
+  ],
+  "sources": {
+    "paper":"https://arxiv.org/html/2507.02128v2",
+    "publication":"https://ieeexplore.ieee.org/document/11240643/",
+    "author_publications":"https://jpan.me/publications/",
+    "author_home":"https://jpan.me/",
+    "author_github":"https://github.com/panjingyu",
+    "benchmark_paper":"https://arxiv.org/abs/2409.11414",
+    "benchmark":"https://github.com/yaoxufeng/RTLRewriter-Bench",
+    "embedding_files":"https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/tree/main",
+    "embedding_config":"https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/raw/main/config.json",
+    "embedding_sentence_config":"https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/blob/main/sentence_bert_config.json"
+  },
+  "activity": {"experiments":0,"inference":0,"installations":0,"model_api_calls":0,"large_downloads":0,"settings_changes":0,"license_acceptance":0,"publications":0},
+  "remaining_blockers":"Official implementation and exact released manifests/configurations/history remain unverified; industrial route needs authorized design/tool/technology assets. Audit complete; stop."
+}

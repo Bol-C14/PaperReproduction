@@ -1,0 +1,34 @@
+{
+  "cec_returncode": 0,
+  "cec_seconds": 0.06440334700027961,
+  "commands": [
+    [
+      "/workspace/PaperReproduction/reproduction/crop-iccad2025/closed_loop/native/root/usr/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "runs/262_posthoc_oracle_priority_c5/flow.ys"
+    ],
+    [
+      "/workspace/PaperReproduction/reproduction/crop-iccad2025/closed_loop/native/root/usr/bin/yosys-abc",
+      "-c",
+      "cec runs/262_posthoc_oracle_priority_c5/reference.blif runs/262_posthoc_oracle_priority_c5/mapped.blif"
+    ]
+  ],
+  "config": "c5",
+  "design": "priority",
+  "elapsed_seconds": 0.23136118100001113,
+  "folder": "runs/262_posthoc_oracle_priority_c5",
+  "formal": "ABC CEC: equivalent",
+  "independent": "Python arithmetic versus LUT truth tables: pass",
+  "invocation": 262,
+  "lut_count": 40,
+  "lut_depth": 10,
+  "objective": 400,
+  "phase": "posthoc_oracle",
+  "status": "ok",
+  "synthesis_returncode": 0,
+  "synthesis_seconds": 0.1644684729999426,
+  "vectors_checked": 256,
+  "vectors_sha256": "18297502fc46c883b5ade5ad60f7f11ae9a01961aa35c39ec2072b8ceed0b360"
+}

@@ -1,0 +1,39 @@
+{
+  "arm": "random_retrieval",
+  "cec_returncode": 0,
+  "cec_seconds": 0.2648998639997444,
+  "commands": [
+    [
+      "/workspace/PaperReproduction/reproduction/crop-iccad2025/closed_loop/native/root/usr/bin/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "runs/055_online_fir3_c3/flow.ys"
+    ],
+    [
+      "/workspace/PaperReproduction/reproduction/crop-iccad2025/closed_loop/native/root/usr/bin/yosys-abc",
+      "-c",
+      "cec runs/055_online_fir3_c3/reference.blif runs/055_online_fir3_c3/mapped.blif"
+    ]
+  ],
+  "config": "c3",
+  "context": "contexts/fir3_11_random_retrieval_2.json",
+  "design": "fir3",
+  "elapsed_seconds": 0.4358720649997849,
+  "folder": "runs/055_online_fir3_c3",
+  "formal": "ABC CEC: equivalent",
+  "independent": "Python arithmetic versus LUT truth tables: pass",
+  "invocation": 55,
+  "iteration": 2,
+  "lut_count": 374,
+  "lut_depth": 11,
+  "objective": 4114,
+  "phase": "online",
+  "retrieved": "barrel",
+  "seed": 11,
+  "status": "ok",
+  "synthesis_returncode": 0,
+  "synthesis_seconds": 0.16444782100006705,
+  "vectors_checked": 256,
+  "vectors_sha256": "d5797bb151c7e1923556f3d6450d299e384aefb4345be3723d2cfd85c9af150a"
+}

@@ -1,0 +1,155 @@
+
+-- Running command `read_verilog circuits/priority.v; hierarchy -check -top dut; proc; flatten; opt; write_json features/priority/highlevel.json' --
+
+1. Executing Verilog-2005 frontend: circuits/priority.v
+Parsing Verilog input from `circuits/priority.v' to AST representation.
+Generating RTLIL representation for module `\dut'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \dut
+
+2.2. Analyzing design hierarchy..
+Top module:  \dut
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 32 switch rules as full_case in process $proc$circuits/priority.v:3$2 in module dut.
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 2 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~32 debug messages>
+
+3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\dut.$proc$circuits/priority.v:3$2'.
+     1/32: $32\index[4:0]
+     2/32: $31\index[4:0]
+     3/32: $30\index[4:0]
+     4/32: $29\index[4:0]
+     5/32: $28\index[4:0]
+     6/32: $27\index[4:0]
+     7/32: $26\index[4:0]
+     8/32: $25\index[4:0]
+     9/32: $24\index[4:0]
+    10/32: $23\index[4:0]
+    11/32: $22\index[4:0]
+    12/32: $21\index[4:0]
+    13/32: $20\index[4:0]
+    14/32: $19\index[4:0]
+    15/32: $18\index[4:0]
+    16/32: $17\index[4:0]
+    17/32: $16\index[4:0]
+    18/32: $15\index[4:0]
+    19/32: $14\index[4:0]
+    20/32: $13\index[4:0]
+    21/32: $12\index[4:0]
+    22/32: $11\index[4:0]
+    23/32: $10\index[4:0]
+    24/32: $9\index[4:0]
+    25/32: $8\index[4:0]
+    26/32: $7\index[4:0]
+    27/32: $6\index[4:0]
+    28/32: $5\index[4:0]
+    29/32: $4\index[4:0]
+    30/32: $3\index[4:0]
+    31/32: $2\index[4:0]
+    32/32: $1\index[4:0]
+
+3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\dut.\i' from process `\dut.$proc$circuits/priority.v:3$2'.
+No latch inferred for signal `\dut.\index' from process `\dut.$proc$circuits/priority.v:3$2'.
+
+3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Found and cleaned up 32 empty switches in `\dut.$proc$circuits/priority.v:3$2'.
+Removing empty process `dut.$proc$circuits/priority.v:3$2'.
+Cleaned up 32 empty switches.
+
+3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+4. Executing FLATTEN pass (flatten design).
+
+5. Executing OPT pass (performing simple optimizations).
+
+5.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+5.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dut'.
+Removed a total of 0 cells.
+
+5.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dut..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~1 debug messages>
+
+5.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dut.
+Performed a total of 0 changes.
+
+5.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dut'.
+Removed a total of 0 cells.
+
+5.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+Removed 0 unused cells and 67 unused wires.
+<suppressed ~1 debug messages>
+
+5.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+5.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dut..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~1 debug messages>
+
+5.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dut.
+Performed a total of 0 changes.
+
+5.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dut'.
+Removed a total of 0 cells.
+
+5.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+
+5.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+5.16. Finished OPT passes. (There is nothing left to do.)
+
+6. Executing JSON backend.
