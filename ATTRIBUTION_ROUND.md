@@ -25,7 +25,7 @@
 
 ## 匹配真实预算的小对照
 
-每个完整臂6次真实综合+6次实际生成RTL-to-reference SAT，无臂内重复RTL。所有方法采用同一有界novelty约束：对已见RTL，分支禁止选中e-nodes，寻找下一个tree-cost候选；每query最多64个子问题。这个机制避免固定策略重复浪费预算，不是预测量候选PPA的oracle，也不是全局完整k-best求解保证。
+每个完整臂6次真实综合+6次实际生成RTL-to-reference SAT，无臂内重复RTL。所有方法采用同一有界novelty约束：对已见RTL，分支禁止选中e-nodes，寻找下一个tree-cost候选；每query最多从heap弹出64个子问题（还会求解子分支以排队，不表示总solver调用≤64；提取耗时已计入）。这个机制避免固定策略重复浪费预算，不是预测量候选PPA的oracle，也不是全局完整k-best求解保证。
 
 - fixed：统一静态operator cost=1，按上述next-best结构约束探索；不是只反复抽同一个点。
 - random：seed0，对节点cost抽[0.25,1,3,10]，不读response；仅一个seed，不能作统计优势结论。
