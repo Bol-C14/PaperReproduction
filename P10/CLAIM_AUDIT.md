@@ -1,5 +1,7 @@
 # P10 claim audit
 
+**Historical fixture-phase audit.** For later implemented mechanisms and controlled synthesis evidence, see [loop/REPORT.md](loop/REPORT.md) and [loop/MECHANISM_COVERAGE.md](loop/MECHANISM_COVERAGE.md). Statements below that extraction/synthesis was not implemented describe the earlier milestone; they are not the current overall status.
+
 This file concerns our bounded pilot; the earlier `ASSET_AUDIT.md` is a historical audit-only snapshot and its “no execution” statement describes that earlier phase.
 
 Primary sources: [accepted paper](https://spiral.imperial.ac.uk/bitstreams/de68c6e8-a66d-42d6-ae3e-16eab9fc9782/download), [author thesis](https://samuelcoward.co.uk/assets/pdf/Thesis_Imperial.pdf). Accepted-paper page numbers below are printed manuscript pages, not journal pages. The full paper was recovered in the previous audit; attempted narrow re-access returned405. Thesis Chapter5 supplied cross-checkable equations/tables. No unavailable artifact contents were invented.

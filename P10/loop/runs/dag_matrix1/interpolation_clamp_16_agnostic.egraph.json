@@ -1,0 +1,1386 @@
+{
+  "mode": "agnostic",
+  "history": [
+    {
+      "round": 1,
+      "nodes": 23,
+      "dynamic_unions": 6,
+      "report": "[RunScheduleOutput(RunReport([IterationReport(RuleSetReport(True, {'(rewrite (Add w a b) (Add w b a))': [RuleReport(None, datetime.timedelta(microseconds=7), 1)], '(rewrite (Mul w a b) (Mul w b a))': [RuleReport(None, datetime.timedelta(microseconds=2), 2)]}, datetime.timedelta(microseconds=14), datetime.timedelta(microseconds=1)), datetime.timedelta(0))], True, {'(rewrite (Add w a b) (Add w b a))': datetime.timedelta(microseconds=7), '(rewrite (Mul w a b) (Mul w b a))': datetime.timedelta(microseconds=2)}, {'(rewrite (Add w a b) (Add w b a))': 1, '(rewrite (Mul w a b) (Mul w b a))': 2}, {'': datetime.timedelta(microseconds=14)}, {'': datetime.timedelta(microseconds=1)}, {'': datetime.timedelta(0)}, False))]"
+    },
+    {
+      "round": 2,
+      "nodes": 41,
+      "dynamic_unions": 6,
+      "report": "[RunScheduleOutput(RunReport([IterationReport(RuleSetReport(True, {'(rewrite (Mul w a b) (Mul w b a))': [RuleReport(None, datetime.timedelta(microseconds=1), 6)], '(rewrite (Add w a b) (Add w b a))': [RuleReport(None, datetime.timedelta(microseconds=4), 3)]}, datetime.timedelta(microseconds=10), datetime.timedelta(microseconds=4)), datetime.timedelta(microseconds=6))], True, {'(rewrite (Add w a b) (Add w b a))': datetime.timedelta(microseconds=4), '(rewrite (Mul w a b) (Mul w b a))': datetime.timedelta(microseconds=1)}, {'(rewrite (Mul w a b) (Mul w b a))': 6, '(rewrite (Add w a b) (Add w b a))': 3}, {'': datetime.timedelta(microseconds=10)}, {'': datetime.timedelta(microseconds=4)}, {'': datetime.timedelta(microseconds=6)}, False))]"
+    },
+    {
+      "round": 3,
+      "nodes": 41,
+      "dynamic_unions": 6,
+      "report": "[RunScheduleOutput(RunReport([IterationReport(RuleSetReport(False, {'(rewrite (Mul w a b) (Mul w b a))': [RuleReport(None, datetime.timedelta(microseconds=1), 2)], '(rewrite (Add w a b) (Add w b a))': [RuleReport(None, datetime.timedelta(microseconds=3), 1)]}, datetime.timedelta(microseconds=9), datetime.timedelta(microseconds=2)), datetime.timedelta(0))], False, {'(rewrite (Mul w a b) (Mul w b a))': datetime.timedelta(microseconds=1), '(rewrite (Add w a b) (Add w b a))': datetime.timedelta(microseconds=3)}, {'(rewrite (Add w a b) (Add w b a))': 1, '(rewrite (Mul w a b) (Mul w b a))': 2}, {'': datetime.timedelta(microseconds=9)}, {'': datetime.timedelta(microseconds=2)}, {'': datetime.timedelta(0)}, True))]"
+    },
+    {
+      "round": 4,
+      "nodes": 41,
+      "dynamic_unions": 6,
+      "report": "[RunScheduleOutput(RunReport([IterationReport(RuleSetReport(False, {}, datetime.timedelta(0), datetime.timedelta(0)), datetime.timedelta(0))], False, {}, {}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, True))]"
+    },
+    {
+      "round": 5,
+      "nodes": 41,
+      "dynamic_unions": 6,
+      "report": "[RunScheduleOutput(RunReport([IterationReport(RuleSetReport(False, {}, datetime.timedelta(0), datetime.timedelta(0)), datetime.timedelta(0))], False, {}, {}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, True))]"
+    },
+    {
+      "round": 6,
+      "nodes": 41,
+      "dynamic_unions": 6,
+      "report": "[RunScheduleOutput(RunReport([IterationReport(RuleSetReport(False, {}, datetime.timedelta(0), datetime.timedelta(0)), datetime.timedelta(0))], False, {}, {}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, True))]"
+    },
+    {
+      "round": 7,
+      "nodes": 41,
+      "dynamic_unions": 6,
+      "report": "[RunScheduleOutput(RunReport([IterationReport(RuleSetReport(False, {}, datetime.timedelta(0), datetime.timedelta(0)), datetime.timedelta(0))], False, {}, {}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, True))]"
+    },
+    {
+      "round": 8,
+      "nodes": 41,
+      "dynamic_unions": 6,
+      "report": "[RunScheduleOutput(RunReport([IterationReport(RuleSetReport(False, {}, datetime.timedelta(0), datetime.timedelta(0)), datetime.timedelta(0))], False, {}, {}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, True))]"
+    }
+  ],
+  "egraph": {
+    "nodes": {
+      "primitive-String-0": {
+        "op": "\"a\"",
+        "children": [],
+        "eclass": "String-0",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "primitive-i64-16": {
+        "op": "16",
+        "children": [],
+        "eclass": "i64-16",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-0-V": {
+        "op": "V",
+        "children": [
+          "primitive-String-0",
+          "primitive-i64-16"
+        ],
+        "eclass": "B-0",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "primitive-String-1": {
+        "op": "\"b\"",
+        "children": [],
+        "eclass": "String-1",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-1-V": {
+        "op": "V",
+        "children": [
+          "primitive-String-1",
+          "primitive-i64-16"
+        ],
+        "eclass": "B-4",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "primitive-i64-3": {
+        "op": "3",
+        "children": [],
+        "eclass": "i64-3",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-0-K": {
+        "op": "K",
+        "children": [
+          "primitive-i64-16",
+          "primitive-i64-3"
+        ],
+        "eclass": "B-2",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "primitive-i64-5": {
+        "op": "5",
+        "children": [],
+        "eclass": "i64-5",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-1-K": {
+        "op": "K",
+        "children": [
+          "primitive-i64-16",
+          "primitive-i64-5"
+        ],
+        "eclass": "B-6",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "primitive-i64-127": {
+        "op": "127",
+        "children": [],
+        "eclass": "i64-127",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-2-K": {
+        "op": "K",
+        "children": [
+          "primitive-i64-16",
+          "primitive-i64-127"
+        ],
+        "eclass": "B-10",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-0-Add": {
+        "op": "Add",
+        "children": [
+          "primitive-i64-16",
+          "function-2-Mul",
+          "function-3-Mul"
+        ],
+        "eclass": "B-8",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-1-Add": {
+        "op": "Add",
+        "children": [
+          "primitive-i64-16",
+          "function-2-Ext",
+          "function-1-Ext"
+        ],
+        "eclass": "B-8",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "primitive-i64-7": {
+        "op": "7",
+        "children": [],
+        "eclass": "i64-7",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-2-Add": {
+        "op": "Add",
+        "children": [
+          "primitive-i64-7",
+          "function-2-Cut",
+          "function-3-Cut"
+        ],
+        "eclass": "B-14",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-3-Add": {
+        "op": "Add",
+        "children": [
+          "primitive-i64-7",
+          "function-3-Cut",
+          "function-2-Cut"
+        ],
+        "eclass": "B-14",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-0-Mul": {
+        "op": "Mul",
+        "children": [
+          "primitive-i64-16",
+          "function-0-Cut",
+          "function-0-K"
+        ],
+        "eclass": "B-3",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-1-Mul": {
+        "op": "Mul",
+        "children": [
+          "primitive-i64-16",
+          "function-1-Cut",
+          "function-1-K"
+        ],
+        "eclass": "B-7",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-2-Mul": {
+        "op": "Mul",
+        "children": [
+          "primitive-i64-16",
+          "function-0-K",
+          "function-0-Cut"
+        ],
+        "eclass": "B-3",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-3-Mul": {
+        "op": "Mul",
+        "children": [
+          "primitive-i64-16",
+          "function-1-K",
+          "function-1-Cut"
+        ],
+        "eclass": "B-7",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "primitive-i64-6": {
+        "op": "6",
+        "children": [],
+        "eclass": "i64-6",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-4-Mul": {
+        "op": "Mul",
+        "children": [
+          "primitive-i64-6",
+          "function-4-Cut",
+          "function-5-Cut"
+        ],
+        "eclass": "B-20",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-5-Mul": {
+        "op": "Mul",
+        "children": [
+          "primitive-i64-7",
+          "function-6-Cut",
+          "function-7-Cut"
+        ],
+        "eclass": "B-24",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-6-Mul": {
+        "op": "Mul",
+        "children": [
+          "primitive-i64-6",
+          "function-5-Cut",
+          "function-4-Cut"
+        ],
+        "eclass": "B-20",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-7-Mul": {
+        "op": "Mul",
+        "children": [
+          "primitive-i64-7",
+          "function-7-Cut",
+          "function-6-Cut"
+        ],
+        "eclass": "B-24",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-0-Mux": {
+        "op": "Mux",
+        "children": [
+          "primitive-i64-16",
+          "function-0-Ult",
+          "function-0-Add",
+          "function-2-K"
+        ],
+        "eclass": "B-11",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "primitive-i64-128": {
+        "op": "128",
+        "children": [],
+        "eclass": "i64-128",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-0-Ult": {
+        "op": "Ult",
+        "children": [
+          "function-1-Add",
+          "primitive-i64-128"
+        ],
+        "eclass": "B-9",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "primitive-i64-4": {
+        "op": "4",
+        "children": [],
+        "eclass": "i64-4",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-0-Cut": {
+        "op": "Cut",
+        "children": [
+          "primitive-i64-4",
+          "function-0-V"
+        ],
+        "eclass": "B-1",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-1-Cut": {
+        "op": "Cut",
+        "children": [
+          "primitive-i64-4",
+          "function-1-V"
+        ],
+        "eclass": "B-5",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-2-Cut": {
+        "op": "Cut",
+        "children": [
+          "primitive-i64-6",
+          "function-1-Ext"
+        ],
+        "eclass": "B-12",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-3-Cut": {
+        "op": "Cut",
+        "children": [
+          "primitive-i64-7",
+          "function-2-Ext"
+        ],
+        "eclass": "B-13",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-4-Cut": {
+        "op": "Cut",
+        "children": [
+          "primitive-i64-4",
+          "function-0-Cut"
+        ],
+        "eclass": "B-18",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "primitive-i64-2": {
+        "op": "2",
+        "children": [],
+        "eclass": "i64-2",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-5-Cut": {
+        "op": "Cut",
+        "children": [
+          "primitive-i64-2",
+          "function-0-K"
+        ],
+        "eclass": "B-19",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-6-Cut": {
+        "op": "Cut",
+        "children": [
+          "primitive-i64-4",
+          "function-1-Cut"
+        ],
+        "eclass": "B-22",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-7-Cut": {
+        "op": "Cut",
+        "children": [
+          "primitive-i64-3",
+          "function-1-K"
+        ],
+        "eclass": "B-23",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-0-Ext": {
+        "op": "Ext",
+        "children": [
+          "primitive-i64-16",
+          "function-3-Add"
+        ],
+        "eclass": "B-8",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-1-Ext": {
+        "op": "Ext",
+        "children": [
+          "primitive-i64-16",
+          "function-6-Mul"
+        ],
+        "eclass": "B-3",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-2-Ext": {
+        "op": "Ext",
+        "children": [
+          "primitive-i64-16",
+          "function-7-Mul"
+        ],
+        "eclass": "B-7",
+        "cost": 1.0,
+        "subsumed": false
+      }
+    },
+    "root_eclasses": [],
+    "class_data": {
+      "B-0": {
+        "type": "B"
+      },
+      "String-0": {
+        "type": "String"
+      },
+      "i64-16": {
+        "type": "i64"
+      },
+      "B-4": {
+        "type": "B"
+      },
+      "String-1": {
+        "type": "String"
+      },
+      "B-2": {
+        "type": "B"
+      },
+      "i64-3": {
+        "type": "i64"
+      },
+      "B-6": {
+        "type": "B"
+      },
+      "i64-5": {
+        "type": "i64"
+      },
+      "B-10": {
+        "type": "B"
+      },
+      "i64-127": {
+        "type": "i64"
+      },
+      "B-8": {
+        "type": "B"
+      },
+      "B-3": {
+        "type": "B"
+      },
+      "B-7": {
+        "type": "B"
+      },
+      "B-14": {
+        "type": "B"
+      },
+      "i64-7": {
+        "type": "i64"
+      },
+      "B-12": {
+        "type": "B"
+      },
+      "B-13": {
+        "type": "B"
+      },
+      "B-1": {
+        "type": "B"
+      },
+      "B-5": {
+        "type": "B"
+      },
+      "B-20": {
+        "type": "B"
+      },
+      "i64-6": {
+        "type": "i64"
+      },
+      "B-18": {
+        "type": "B"
+      },
+      "B-19": {
+        "type": "B"
+      },
+      "B-24": {
+        "type": "B"
+      },
+      "B-22": {
+        "type": "B"
+      },
+      "B-23": {
+        "type": "B"
+      },
+      "B-11": {
+        "type": "B",
+        "let": "$root"
+      },
+      "B-9": {
+        "type": "B"
+      },
+      "i64-128": {
+        "type": "i64"
+      },
+      "i64-4": {
+        "type": "i64"
+      },
+      "i64-2": {
+        "type": "i64"
+      }
+    }
+  },
+  "dynamic_unions": [
+    "(union (Add 16 (Mul 16 (Cut 4 (V \"a\" 16)) (K 16 3)) (Mul 16 (Cut 4 (V \"b\" 16)) (K 16 5))) (Ext 16 (Add 7 (Cut 6 (Mul 16 (Cut 4 (V \"a\" 16)) (K 16 3))) (Cut 7 (Mul 16 (Cut 4 (V \"b\" 16)) (K 16 5))))))",
+    "(union (Add 16 (Mul 16 (Cut 4 (V \"b\" 16)) (K 16 5)) (Mul 16 (Cut 4 (V \"a\" 16)) (K 16 3))) (Ext 16 (Add 7 (Cut 7 (Mul 16 (Cut 4 (V \"b\" 16)) (K 16 5))) (Cut 6 (Mul 16 (Cut 4 (V \"a\" 16)) (K 16 3))))))",
+    "(union (Mul 16 (Cut 4 (V \"a\" 16)) (K 16 3)) (Ext 16 (Mul 6 (Cut 4 (Cut 4 (V \"a\" 16))) (Cut 2 (K 16 3)))))",
+    "(union (Mul 16 (Cut 4 (V \"b\" 16)) (K 16 5)) (Ext 16 (Mul 7 (Cut 4 (Cut 4 (V \"b\" 16))) (Cut 3 (K 16 5)))))",
+    "(union (Mul 16 (K 16 3) (Cut 4 (V \"a\" 16))) (Ext 16 (Mul 6 (Cut 2 (K 16 3)) (Cut 4 (Cut 4 (V \"a\" 16))))))",
+    "(union (Mul 16 (K 16 5) (Cut 4 (V \"b\" 16))) (Ext 16 (Mul 7 (Cut 3 (K 16 5)) (Cut 4 (Cut 4 (V \"b\" 16))))))",
+    "(union (Add 16 (Ext 16 (Mul 6 (Cut 4 (Cut 4 (V \"a\" 16))) (Cut 2 (K 16 3)))) (Ext 16 (Mul 7 (Cut 4 (Cut 4 (V \"b\" 16))) (Cut 3 (K 16 5))))) (Ext 16 (Add 7 (Cut 6 (Ext 16 (Mul 6 (Cut 4 (Cut 4 (V \"a\" 16))) (Cut 2 (K 16 3))))) (Cut 7 (Ext 16 (Mul 7 (Cut 4 (Cut 4 (V \"b\" 16))) (Cut 3 (K 16 5))))))))",
+    "(union (Add 16 (Ext 16 (Mul 7 (Cut 4 (Cut 4 (V \"b\" 16))) (Cut 3 (K 16 5)))) (Ext 16 (Mul 6 (Cut 4 (Cut 4 (V \"a\" 16))) (Cut 2 (K 16 3))))) (Ext 16 (Add 7 (Cut 7 (Ext 16 (Mul 7 (Cut 4 (Cut 4 (V \"b\" 16))) (Cut 3 (K 16 5))))) (Cut 6 (Ext 16 (Mul 6 (Cut 4 (Cut 4 (V \"a\" 16))) (Cut 2 (K 16 3))))))))",
+    "(union (Mul 16 (Cut 4 (V \"a\" 16)) (K 16 3)) (Ext 16 (Mul 6 (Cut 4 (Cut 4 (V \"a\" 16))) (Cut 2 (K 16 3)))))",
+    "(union (Mul 16 (Cut 4 (V \"b\" 16)) (K 16 5)) (Ext 16 (Mul 7 (Cut 4 (Cut 4 (V \"b\" 16))) (Cut 3 (K 16 5)))))",
+    "(union (Mul 16 (K 16 3) (Cut 4 (V \"a\" 16))) (Ext 16 (Mul 6 (Cut 2 (K 16 3)) (Cut 4 (Cut 4 (V \"a\" 16))))))",
+    "(union (Mul 16 (K 16 5) (Cut 4 (V \"b\" 16))) (Ext 16 (Mul 7 (Cut 3 (K 16 5)) (Cut 4 (Cut 4 (V \"b\" 16))))))",
+    "(union (Add 16 (Ext 16 (Mul 6 (Cut 4 (Cut 4 (V \"a\" 16))) (Cut 2 (K 16 3)))) (Ext 16 (Mul 7 (Cut 4 (Cut 4 (V \"b\" 16))) (Cut 3 (K 16 5))))) (Ext 16 (Add 7 (Cut 6 (Ext 16 (Mul 6 (Cut 4 (Cut 4 (V \"a\" 16))) (Cut 2 (K 16 3))))) (Cut 7 (Ext 16 (Mul 7 (Cut 4 (Cut 4 (V \"b\" 16))) (Cut 3 (K 16 5))))))))",
+    "(union (Add 16 (Ext 16 (Mul 7 (Cut 4 (Cut 4 (V \"b\" 16))) (Cut 3 (K 16 5)))) (Ext 16 (Mul 6 (Cut 4 (Cut 4 (V \"a\" 16))) (Cut 2 (K 16 3))))) (Ext 16 (Add 7 (Cut 7 (Ext 16 (Mul 7 (Cut 4 (Cut 4 (V \"b\" 16))) (Cut 3 (K 16 5))))) (Cut 6 (Ext 16 (Mul 6 (Cut 4 (Cut 4 (V \"a\" 16))) (Cut 2 (K 16 3))))))))",
+    "(union (Mul 16 (Cut 4 (V \"a\" 16)) (K 16 3)) (Ext 16 (Mul 6 (Cut 4 (Cut 4 (V \"a\" 16))) (Cut 2 (K 16 3)))))",
+    "(union (Mul 16 (Cut 4 (V \"b\" 16)) (K 16 5)) (Ext 16 (Mul 7 (Cut 4 (Cut 4 (V \"b\" 16))) (Cut 3 (K 16 5)))))",
+    "(union (Mul 16 (K 16 3) (Cut 4 (V \"a\" 16))) (Ext 16 (Mul 6 (Cut 2 (K 16 3)) (Cut 4 (Cut 4 (V \"a\" 16))))))",
+    "(union (Mul 16 (K 16 5) (Cut 4 (V \"b\" 16))) (Ext 16 (Mul 7 (Cut 3 (K 16 5)) (Cut 4 (Cut 4 (V \"b\" 16))))))",
+    "(union (Add 16 (Ext 16 (Mul 6 (Cut 4 (Cut 4 (V \"a\" 16))) (Cut 2 (K 16 3)))) (Ext 16 (Mul 7 (Cut 4 (Cut 4 (V \"b\" 16))) (Cut 3 (K 16 5))))) (Ext 16 (Add 7 (Cut 6 (Ext 16 (Mul 6 (Cut 4 (Cut 4 (V \"a\" 16))) (Cut 2 (K 16 3))))) (Cut 7 (Ext 16 (Mul 7 (Cut 4 (Cut 4 (V \"b\" 16))) (Cut 3 (K 16 5))))))))",
+    "(union (Add 16 (Ext 16 (Mul 7 (Cut 4 (Cut 4 (V \"b\" 16))) (Cut 3 (K 16 5)))) (Ext 16 (Mul 6 (Cut 4 (Cut 4 (V \"a\" 16))) (Cut 2 (K 16 3))))) (Ext 16 (Add 7 (Cut 7 (Ext 16 (Mul 7 (Cut 4 (Cut 4 (V \"b\" 16))) (Cut 3 (K 16 5))))) (Cut 6 (Ext 16 (Mul 6 (Cut 4 (Cut 4 (V \"a\" 16))) (Cut 2 (K 16 3))))))))",
+    "(union (Mul 16 (Cut 4 (V \"a\" 16)) (K 16 3)) (Ext 16 (Mul 6 (Cut 4 (Cut 4 (V \"a\" 16))) (Cut 2 (K 16 3)))))",
+    "(union (Mul 16 (Cut 4 (V \"b\" 16)) (K 16 5)) (Ext 16 (Mul 7 (Cut 4 (Cut 4 (V \"b\" 16))) (Cut 3 (K 16 5)))))",
+    "(union (Mul 16 (K 16 3) (Cut 4 (V \"a\" 16))) (Ext 16 (Mul 6 (Cut 2 (K 16 3)) (Cut 4 (Cut 4 (V \"a\" 16))))))",
+    "(union (Mul 16 (K 16 5) (Cut 4 (V \"b\" 16))) (Ext 16 (Mul 7 (Cut 3 (K 16 5)) (Cut 4 (Cut 4 (V \"b\" 16))))))",
+    "(union (Add 16 (Ext 16 (Mul 6 (Cut 4 (Cut 4 (V \"a\" 16))) (Cut 2 (K 16 3)))) (Ext 16 (Mul 7 (Cut 4 (Cut 4 (V \"b\" 16))) (Cut 3 (K 16 5))))) (Ext 16 (Add 7 (Cut 6 (Ext 16 (Mul 6 (Cut 4 (Cut 4 (V \"a\" 16))) (Cut 2 (K 16 3))))) (Cut 7 (Ext 16 (Mul 7 (Cut 4 (Cut 4 (V \"b\" 16))) (Cut 3 (K 16 5))))))))",
+    "(union (Add 16 (Ext 16 (Mul 7 (Cut 4 (Cut 4 (V \"b\" 16))) (Cut 3 (K 16 5)))) (Ext 16 (Mul 6 (Cut 4 (Cut 4 (V \"a\" 16))) (Cut 2 (K 16 3))))) (Ext 16 (Add 7 (Cut 7 (Ext 16 (Mul 7 (Cut 4 (Cut 4 (V \"b\" 16))) (Cut 3 (K 16 5))))) (Cut 6 (Ext 16 (Mul 6 (Cut 4 (Cut 4 (V \"a\" 16))) (Cut 2 (K 16 3))))))))",
+    "(union (Mul 16 (Cut 4 (V \"a\" 16)) (K 16 3)) (Ext 16 (Mul 6 (Cut 4 (Cut 4 (V \"a\" 16))) (Cut 2 (K 16 3)))))",
+    "(union (Mul 16 (Cut 4 (V \"b\" 16)) (K 16 5)) (Ext 16 (Mul 7 (Cut 4 (Cut 4 (V \"b\" 16))) (Cut 3 (K 16 5)))))",
+    "(union (Mul 16 (K 16 3) (Cut 4 (V \"a\" 16))) (Ext 16 (Mul 6 (Cut 2 (K 16 3)) (Cut 4 (Cut 4 (V \"a\" 16))))))",
+    "(union (Mul 16 (K 16 5) (Cut 4 (V \"b\" 16))) (Ext 16 (Mul 7 (Cut 3 (K 16 5)) (Cut 4 (Cut 4 (V \"b\" 16))))))",
+    "(union (Add 16 (Ext 16 (Mul 6 (Cut 4 (Cut 4 (V \"a\" 16))) (Cut 2 (K 16 3)))) (Ext 16 (Mul 7 (Cut 4 (Cut 4 (V \"b\" 16))) (Cut 3 (K 16 5))))) (Ext 16 (Add 7 (Cut 6 (Ext 16 (Mul 6 (Cut 4 (Cut 4 (V \"a\" 16))) (Cut 2 (K 16 3))))) (Cut 7 (Ext 16 (Mul 7 (Cut 4 (Cut 4 (V \"b\" 16))) (Cut 3 (K 16 5))))))))",
+    "(union (Add 16 (Ext 16 (Mul 7 (Cut 4 (Cut 4 (V \"b\" 16))) (Cut 3 (K 16 5)))) (Ext 16 (Mul 6 (Cut 4 (Cut 4 (V \"a\" 16))) (Cut 2 (K 16 3))))) (Ext 16 (Add 7 (Cut 7 (Ext 16 (Mul 7 (Cut 4 (Cut 4 (V \"b\" 16))) (Cut 3 (K 16 5))))) (Cut 6 (Ext 16 (Mul 6 (Cut 4 (Cut 4 (V \"a\" 16))) (Cut 2 (K 16 3))))))))",
+    "(union (Mul 16 (Cut 4 (V \"a\" 16)) (K 16 3)) (Ext 16 (Mul 6 (Cut 4 (Cut 4 (V \"a\" 16))) (Cut 2 (K 16 3)))))",
+    "(union (Mul 16 (Cut 4 (V \"b\" 16)) (K 16 5)) (Ext 16 (Mul 7 (Cut 4 (Cut 4 (V \"b\" 16))) (Cut 3 (K 16 5)))))",
+    "(union (Mul 16 (K 16 3) (Cut 4 (V \"a\" 16))) (Ext 16 (Mul 6 (Cut 2 (K 16 3)) (Cut 4 (Cut 4 (V \"a\" 16))))))",
+    "(union (Mul 16 (K 16 5) (Cut 4 (V \"b\" 16))) (Ext 16 (Mul 7 (Cut 3 (K 16 5)) (Cut 4 (Cut 4 (V \"b\" 16))))))",
+    "(union (Add 16 (Ext 16 (Mul 6 (Cut 4 (Cut 4 (V \"a\" 16))) (Cut 2 (K 16 3)))) (Ext 16 (Mul 7 (Cut 4 (Cut 4 (V \"b\" 16))) (Cut 3 (K 16 5))))) (Ext 16 (Add 7 (Cut 6 (Ext 16 (Mul 6 (Cut 4 (Cut 4 (V \"a\" 16))) (Cut 2 (K 16 3))))) (Cut 7 (Ext 16 (Mul 7 (Cut 4 (Cut 4 (V \"b\" 16))) (Cut 3 (K 16 5))))))))",
+    "(union (Add 16 (Ext 16 (Mul 7 (Cut 4 (Cut 4 (V \"b\" 16))) (Cut 3 (K 16 5)))) (Ext 16 (Mul 6 (Cut 4 (Cut 4 (V \"a\" 16))) (Cut 2 (K 16 3))))) (Ext 16 (Add 7 (Cut 7 (Ext 16 (Mul 7 (Cut 4 (Cut 4 (V \"b\" 16))) (Cut 3 (K 16 5))))) (Cut 6 (Ext 16 (Mul 6 (Cut 4 (Cut 4 (V \"a\" 16))) (Cut 2 (K 16 3))))))))",
+    "(union (Mul 16 (Cut 4 (V \"a\" 16)) (K 16 3)) (Ext 16 (Mul 6 (Cut 4 (Cut 4 (V \"a\" 16))) (Cut 2 (K 16 3)))))",
+    "(union (Mul 16 (Cut 4 (V \"b\" 16)) (K 16 5)) (Ext 16 (Mul 7 (Cut 4 (Cut 4 (V \"b\" 16))) (Cut 3 (K 16 5)))))",
+    "(union (Mul 16 (K 16 3) (Cut 4 (V \"a\" 16))) (Ext 16 (Mul 6 (Cut 2 (K 16 3)) (Cut 4 (Cut 4 (V \"a\" 16))))))",
+    "(union (Mul 16 (K 16 5) (Cut 4 (V \"b\" 16))) (Ext 16 (Mul 7 (Cut 3 (K 16 5)) (Cut 4 (Cut 4 (V \"b\" 16))))))",
+    "(union (Add 16 (Ext 16 (Mul 6 (Cut 4 (Cut 4 (V \"a\" 16))) (Cut 2 (K 16 3)))) (Ext 16 (Mul 7 (Cut 4 (Cut 4 (V \"b\" 16))) (Cut 3 (K 16 5))))) (Ext 16 (Add 7 (Cut 6 (Ext 16 (Mul 6 (Cut 4 (Cut 4 (V \"a\" 16))) (Cut 2 (K 16 3))))) (Cut 7 (Ext 16 (Mul 7 (Cut 4 (Cut 4 (V \"b\" 16))) (Cut 3 (K 16 5))))))))",
+    "(union (Add 16 (Ext 16 (Mul 7 (Cut 4 (Cut 4 (V \"b\" 16))) (Cut 3 (K 16 5)))) (Ext 16 (Mul 6 (Cut 4 (Cut 4 (V \"a\" 16))) (Cut 2 (K 16 3))))) (Ext 16 (Add 7 (Cut 7 (Ext 16 (Mul 7 (Cut 4 (Cut 4 (V \"b\" 16))) (Cut 3 (K 16 5))))) (Cut 6 (Ext 16 (Mul 6 (Cut 4 (Cut 4 (V \"a\" 16))) (Cut 2 (K 16 3))))))))",
+    "(union (Mul 16 (Cut 4 (V \"a\" 16)) (K 16 3)) (Ext 16 (Mul 6 (Cut 4 (Cut 4 (V \"a\" 16))) (Cut 2 (K 16 3)))))",
+    "(union (Mul 16 (Cut 4 (V \"b\" 16)) (K 16 5)) (Ext 16 (Mul 7 (Cut 4 (Cut 4 (V \"b\" 16))) (Cut 3 (K 16 5)))))",
+    "(union (Mul 16 (K 16 3) (Cut 4 (V \"a\" 16))) (Ext 16 (Mul 6 (Cut 2 (K 16 3)) (Cut 4 (Cut 4 (V \"a\" 16))))))",
+    "(union (Mul 16 (K 16 5) (Cut 4 (V \"b\" 16))) (Ext 16 (Mul 7 (Cut 3 (K 16 5)) (Cut 4 (Cut 4 (V \"b\" 16))))))"
+  ],
+  "variants": [
+    {
+      "weight": 1,
+      "term": [
+        "Mux",
+        16,
+        [
+          "Ult",
+          [
+            "Ext",
+            16,
+            [
+              "Add",
+              7,
+              [
+                "Cut",
+                7,
+                [
+                  "Ext",
+                  16,
+                  [
+                    "Mul",
+                    7,
+                    [
+                      "Cut",
+                      4,
+                      [
+                        "Cut",
+                        4,
+                        [
+                          "V",
+                          "b",
+                          16
+                        ]
+                      ]
+                    ],
+                    [
+                      "Cut",
+                      3,
+                      [
+                        "K",
+                        16,
+                        5
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "Cut",
+                6,
+                [
+                  "Ext",
+                  16,
+                  [
+                    "Mul",
+                    6,
+                    [
+                      "Cut",
+                      2,
+                      [
+                        "K",
+                        16,
+                        3
+                      ]
+                    ],
+                    [
+                      "Cut",
+                      4,
+                      [
+                        "Cut",
+                        4,
+                        [
+                          "V",
+                          "a",
+                          16
+                        ]
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ],
+          128
+        ],
+        [
+          "Ext",
+          16,
+          [
+            "Add",
+            7,
+            [
+              "Cut",
+              7,
+              [
+                "Ext",
+                16,
+                [
+                  "Mul",
+                  7,
+                  [
+                    "Cut",
+                    4,
+                    [
+                      "Cut",
+                      4,
+                      [
+                        "V",
+                        "b",
+                        16
+                      ]
+                    ]
+                  ],
+                  [
+                    "Cut",
+                    3,
+                    [
+                      "K",
+                      16,
+                      5
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            [
+              "Cut",
+              6,
+              [
+                "Ext",
+                16,
+                [
+                  "Mul",
+                  6,
+                  [
+                    "Cut",
+                    2,
+                    [
+                      "K",
+                      16,
+                      3
+                    ]
+                  ],
+                  [
+                    "Cut",
+                    4,
+                    [
+                      "Cut",
+                      4,
+                      [
+                        "V",
+                        "a",
+                        16
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ],
+        [
+          "K",
+          16,
+          127
+        ]
+      ],
+      "proxy_area": 124,
+      "proxy_delay": 17,
+      "delay_target": 17
+    },
+    {
+      "weight": 2,
+      "term": [
+        "Mux",
+        16,
+        [
+          "Ult",
+          [
+            "Ext",
+            16,
+            [
+              "Add",
+              7,
+              [
+                "Cut",
+                7,
+                [
+                  "Ext",
+                  16,
+                  [
+                    "Mul",
+                    7,
+                    [
+                      "Cut",
+                      4,
+                      [
+                        "Cut",
+                        4,
+                        [
+                          "V",
+                          "b",
+                          16
+                        ]
+                      ]
+                    ],
+                    [
+                      "Cut",
+                      3,
+                      [
+                        "K",
+                        16,
+                        5
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "Cut",
+                6,
+                [
+                  "Ext",
+                  16,
+                  [
+                    "Mul",
+                    6,
+                    [
+                      "Cut",
+                      4,
+                      [
+                        "Cut",
+                        4,
+                        [
+                          "V",
+                          "a",
+                          16
+                        ]
+                      ]
+                    ],
+                    [
+                      "Cut",
+                      2,
+                      [
+                        "K",
+                        16,
+                        3
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ],
+          128
+        ],
+        [
+          "Ext",
+          16,
+          [
+            "Add",
+            7,
+            [
+              "Cut",
+              7,
+              [
+                "Ext",
+                16,
+                [
+                  "Mul",
+                  7,
+                  [
+                    "Cut",
+                    4,
+                    [
+                      "Cut",
+                      4,
+                      [
+                        "V",
+                        "b",
+                        16
+                      ]
+                    ]
+                  ],
+                  [
+                    "Cut",
+                    3,
+                    [
+                      "K",
+                      16,
+                      5
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            [
+              "Cut",
+              6,
+              [
+                "Ext",
+                16,
+                [
+                  "Mul",
+                  6,
+                  [
+                    "Cut",
+                    4,
+                    [
+                      "Cut",
+                      4,
+                      [
+                        "V",
+                        "a",
+                        16
+                      ]
+                    ]
+                  ],
+                  [
+                    "Cut",
+                    2,
+                    [
+                      "K",
+                      16,
+                      3
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ],
+        [
+          "K",
+          16,
+          127
+        ]
+      ],
+      "proxy_area": 124,
+      "proxy_delay": 27,
+      "delay_target": 34
+    }
+  ],
+  "wall_seconds": 0.054929306999838445,
+  "program": "\n(datatype B (V String i64) (K i64 i64) (Add i64 B B) (Mul i64 B B)\n (Shr i64 B B) (Abs i64 B) (Mux i64 B B B) (Ult B i64)\n (Sge0 B) (Not B) (Assume i64 B B) (Cut i64 B) (Ext i64 B))\n(rewrite (Add w a b) (Add w b a))\n(rewrite (Mul w a b) (Mul w b a))\n(rewrite (Add w a (K w 0)) (Ext w a))\n(rewrite (Mul w a (K w 1)) (Ext w a))\n(rewrite (Abs w (Abs w a)) (Abs w a))\n\n(let $root (Mux 16 (Ult (Add 16 (Mul 16 (Cut 4 (V \"a\" 16)) (K 16 3)) (Mul 16 (Cut 4 (V \"b\" 16)) (K 16 5))) 128) (Add 16 (Mul 16 (Cut 4 (V \"a\" 16)) (K 16 3)) (Mul 16 (Cut 4 (V \"b\" 16)) (K 16 5))) (K 16 127)))",
+  "tree_variants": [
+    {
+      "weight": 0,
+      "term": [
+        "Mux",
+        16,
+        [
+          "Ult",
+          [
+            "Ext",
+            16,
+            [
+              "Add",
+              7,
+              [
+                "Cut",
+                6,
+                [
+                  "Ext",
+                  16,
+                  [
+                    "Mul",
+                    6,
+                    [
+                      "Cut",
+                      4,
+                      [
+                        "Cut",
+                        4,
+                        [
+                          "V",
+                          "a",
+                          16
+                        ]
+                      ]
+                    ],
+                    [
+                      "Cut",
+                      2,
+                      [
+                        "K",
+                        16,
+                        3
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "Cut",
+                7,
+                [
+                  "Ext",
+                  16,
+                  [
+                    "Mul",
+                    7,
+                    [
+                      "Cut",
+                      4,
+                      [
+                        "Cut",
+                        4,
+                        [
+                          "V",
+                          "b",
+                          16
+                        ]
+                      ]
+                    ],
+                    [
+                      "Cut",
+                      3,
+                      [
+                        "K",
+                        16,
+                        5
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ],
+          128
+        ],
+        [
+          "Ext",
+          16,
+          [
+            "Add",
+            7,
+            [
+              "Cut",
+              6,
+              [
+                "Ext",
+                16,
+                [
+                  "Mul",
+                  6,
+                  [
+                    "Cut",
+                    4,
+                    [
+                      "Cut",
+                      4,
+                      [
+                        "V",
+                        "a",
+                        16
+                      ]
+                    ]
+                  ],
+                  [
+                    "Cut",
+                    2,
+                    [
+                      "K",
+                      16,
+                      3
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            [
+              "Cut",
+              7,
+              [
+                "Ext",
+                16,
+                [
+                  "Mul",
+                  7,
+                  [
+                    "Cut",
+                    4,
+                    [
+                      "Cut",
+                      4,
+                      [
+                        "V",
+                        "b",
+                        16
+                      ]
+                    ]
+                  ],
+                  [
+                    "Cut",
+                    3,
+                    [
+                      "K",
+                      16,
+                      5
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ],
+        [
+          "K",
+          16,
+          127
+        ]
+      ],
+      "proxy_area": 216,
+      "proxy_delay": 17
+    },
+    {
+      "weight": 8,
+      "term": [
+        "Mux",
+        16,
+        [
+          "Ult",
+          [
+            "Ext",
+            16,
+            [
+              "Add",
+              7,
+              [
+                "Cut",
+                6,
+                [
+                  "Ext",
+                  16,
+                  [
+                    "Mul",
+                    6,
+                    [
+                      "Cut",
+                      4,
+                      [
+                        "Cut",
+                        4,
+                        [
+                          "V",
+                          "a",
+                          16
+                        ]
+                      ]
+                    ],
+                    [
+                      "Cut",
+                      2,
+                      [
+                        "K",
+                        16,
+                        3
+                      ]
+                    ]
+                  ]
+                ]
+              ],
+              [
+                "Cut",
+                7,
+                [
+                  "Ext",
+                  16,
+                  [
+                    "Mul",
+                    7,
+                    [
+                      "Cut",
+                      4,
+                      [
+                        "Cut",
+                        4,
+                        [
+                          "V",
+                          "b",
+                          16
+                        ]
+                      ]
+                    ],
+                    [
+                      "Cut",
+                      3,
+                      [
+                        "K",
+                        16,
+                        5
+                      ]
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ],
+          128
+        ],
+        [
+          "Ext",
+          16,
+          [
+            "Add",
+            7,
+            [
+              "Cut",
+              6,
+              [
+                "Ext",
+                16,
+                [
+                  "Mul",
+                  6,
+                  [
+                    "Cut",
+                    4,
+                    [
+                      "Cut",
+                      4,
+                      [
+                        "V",
+                        "a",
+                        16
+                      ]
+                    ]
+                  ],
+                  [
+                    "Cut",
+                    2,
+                    [
+                      "K",
+                      16,
+                      3
+                    ]
+                  ]
+                ]
+              ]
+            ],
+            [
+              "Cut",
+              7,
+              [
+                "Ext",
+                16,
+                [
+                  "Mul",
+                  7,
+                  [
+                    "Cut",
+                    4,
+                    [
+                      "Cut",
+                      4,
+                      [
+                        "V",
+                        "b",
+                        16
+                      ]
+                    ]
+                  ],
+                  [
+                    "Cut",
+                    3,
+                    [
+                      "K",
+                      16,
+                      5
+                    ]
+                  ]
+                ]
+              ]
+            ]
+          ]
+        ],
+        [
+          "K",
+          16,
+          127
+        ]
+      ],
+      "proxy_area": 216,
+      "proxy_delay": 17
+    }
+  ],
+  "dag_reports": [
+    {
+      "status": "sat",
+      "wall_seconds": 0.03531530300006125,
+      "target": null,
+      "lower": "17",
+      "upper": "17",
+      "area": 124,
+      "delay": 17,
+      "selected_node_ids": [
+        "function-0-V",
+        "function-0-Cut",
+        "function-2-K",
+        "function-0-Mux",
+        "function-2-Cut",
+        "function-3-Cut",
+        "function-3-Add",
+        "function-4-Cut",
+        "function-5-Cut",
+        "function-0-K",
+        "function-6-Mul",
+        "function-6-Cut",
+        "function-7-Cut",
+        "function-7-Mul",
+        "function-1-Ext",
+        "function-1-V",
+        "function-1-Cut",
+        "function-1-K",
+        "function-2-Ext",
+        "function-0-Ext",
+        "function-0-Ult"
+      ]
+    },
+    {
+      "status": "sat",
+      "wall_seconds": 0.0495311730001049,
+      "target": 17,
+      "lower": "124",
+      "upper": "124",
+      "area": 124,
+      "delay": 17,
+      "selected_node_ids": [
+        "function-0-V",
+        "function-0-Cut",
+        "function-2-K",
+        "function-0-Mux",
+        "function-2-Cut",
+        "function-3-Cut",
+        "function-3-Add",
+        "function-4-Cut",
+        "function-5-Cut",
+        "function-0-K",
+        "function-6-Mul",
+        "function-6-Cut",
+        "function-7-Cut",
+        "function-5-Mul",
+        "function-1-Ext",
+        "function-1-V",
+        "function-1-Cut",
+        "function-1-K",
+        "function-2-Ext",
+        "function-0-Ext",
+        "function-0-Ult"
+      ]
+    },
+    {
+      "status": "sat",
+      "wall_seconds": 0.07769473499956803,
+      "target": 34,
+      "lower": "124",
+      "upper": "124",
+      "area": 124,
+      "delay": 27,
+      "selected_node_ids": [
+        "function-0-V",
+        "function-0-Cut",
+        "function-2-K",
+        "function-0-Mux",
+        "function-2-Cut",
+        "function-3-Cut",
+        "function-3-Add",
+        "function-4-Cut",
+        "function-5-Cut",
+        "function-0-K",
+        "function-4-Mul",
+        "function-6-Cut",
+        "function-7-Cut",
+        "function-5-Mul",
+        "function-1-Ext",
+        "function-1-V",
+        "function-1-Cut",
+        "function-1-K",
+        "function-2-Ext",
+        "function-0-Ext",
+        "function-0-Ult"
+      ]
+    }
+  ],
+  "cpu_seconds": 0.30590705000000007,
+  "peak_rss_kib": 75928
+}

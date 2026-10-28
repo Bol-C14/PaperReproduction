@@ -1,5 +1,7 @@
 # P10 bounded method reconstruction
 
+**Later end-to-end tranche:** [loop/REPORT.md](loop/REPORT.md) and [mechanism coverage](loop/MECHANISM_COVERAGE.md) supersede this phase's stopping point. The earlier fixture results below are preserved; the later work adds actual egglog saturation, constrained DAG extraction, generated RTL equivalence and free synthesis with matched controls.
+
 Completed 2026-10-28 in `/workspace/PaperReproduction`, branch `reproduction/constraint-aware-rover-tcad2025`, remote `Bol-C14/PaperReproduction`. Local only; no push/PR. This is **our small reconstruction**, not released ROVER code and not a reproduction of the paper's physical results.
 
 The final attempt satisfied all ten frozen fixture expectations: four valid rewrites, one signed-range analysis, four deliberately invalid proposals detected, and one empty-domain rejection. No UNKNOWN, timeout or runtime error occurred. This establishes these finite-width identities and rejection controls only.

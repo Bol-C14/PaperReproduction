@@ -1,5 +1,7 @@
 # P10 resource ledger — bounded pilot
 
+Later end-to-end resource accounting is recorded separately in [loop/RESOURCE_LEDGER.md](loop/RESOURCE_LEDGER.md); the figures below remain the original fixture-phase record.
+
 Start2026-10-28T10:35:15Z; resource inventory10:39:42Z; local commit10:41:49Z (~6m34s through commit). Authorized setup/diagnosis ceiling2h; download ceiling2GB. Linux cloud only, no Mac access. Python3.12.14, Linux6.18.55 x86_64/glibc2.41, five available logical CPUs, total RAM18,007MiB, no swap. Solver runs single process; no extra hardware or GPU was allocated. Capacity was observed, not changed.
 
 | Action | Outcome / resource |

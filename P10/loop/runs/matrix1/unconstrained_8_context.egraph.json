@@ -1,0 +1,253 @@
+{
+  "mode": "context",
+  "history": [
+    {
+      "round": 1,
+      "nodes": 11,
+      "dynamic_unions": 0,
+      "report": "[RunScheduleOutput(RunReport([IterationReport(RuleSetReport(True, {'(rewrite (Add w a b) (Add w b a))': [RuleReport(None, datetime.timedelta(microseconds=11), 1)], '(rewrite (Mul w a b) (Mul w b a))': [RuleReport(None, datetime.timedelta(microseconds=4), 1)]}, datetime.timedelta(microseconds=27), datetime.timedelta(microseconds=3)), datetime.timedelta(0))], True, {'(rewrite (Add w a b) (Add w b a))': datetime.timedelta(microseconds=11), '(rewrite (Mul w a b) (Mul w b a))': datetime.timedelta(microseconds=4)}, {'(rewrite (Add w a b) (Add w b a))': 1, '(rewrite (Mul w a b) (Mul w b a))': 1}, {'': datetime.timedelta(microseconds=27)}, {'': datetime.timedelta(microseconds=3)}, {'': datetime.timedelta(0)}, False))]"
+    },
+    {
+      "round": 2,
+      "nodes": 11,
+      "dynamic_unions": 0,
+      "report": "[RunScheduleOutput(RunReport([IterationReport(RuleSetReport(False, {'(rewrite (Add w a b) (Add w b a))': [RuleReport(None, datetime.timedelta(microseconds=2), 1)], '(rewrite (Mul w a b) (Mul w b a))': [RuleReport(None, datetime.timedelta(0), 1)]}, datetime.timedelta(microseconds=7), datetime.timedelta(microseconds=2)), datetime.timedelta(0))], False, {'(rewrite (Mul w a b) (Mul w b a))': datetime.timedelta(0), '(rewrite (Add w a b) (Add w b a))': datetime.timedelta(microseconds=2)}, {'(rewrite (Mul w a b) (Mul w b a))': 1, '(rewrite (Add w a b) (Add w b a))': 1}, {'': datetime.timedelta(microseconds=7)}, {'': datetime.timedelta(microseconds=2)}, {'': datetime.timedelta(0)}, True))]"
+    },
+    {
+      "round": 3,
+      "nodes": 11,
+      "dynamic_unions": 0,
+      "report": "[RunScheduleOutput(RunReport([IterationReport(RuleSetReport(False, {}, datetime.timedelta(0), datetime.timedelta(0)), datetime.timedelta(0))], False, {}, {}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, True))]"
+    },
+    {
+      "round": 4,
+      "nodes": 11,
+      "dynamic_unions": 0,
+      "report": "[RunScheduleOutput(RunReport([IterationReport(RuleSetReport(False, {}, datetime.timedelta(0), datetime.timedelta(0)), datetime.timedelta(0))], False, {}, {}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, True))]"
+    },
+    {
+      "round": 5,
+      "nodes": 11,
+      "dynamic_unions": 0,
+      "report": "[RunScheduleOutput(RunReport([IterationReport(RuleSetReport(False, {}, datetime.timedelta(0), datetime.timedelta(0)), datetime.timedelta(0))], False, {}, {}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, True))]"
+    },
+    {
+      "round": 6,
+      "nodes": 11,
+      "dynamic_unions": 0,
+      "report": "[RunScheduleOutput(RunReport([IterationReport(RuleSetReport(False, {}, datetime.timedelta(0), datetime.timedelta(0)), datetime.timedelta(0))], False, {}, {}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, True))]"
+    },
+    {
+      "round": 7,
+      "nodes": 11,
+      "dynamic_unions": 0,
+      "report": "[RunScheduleOutput(RunReport([IterationReport(RuleSetReport(False, {}, datetime.timedelta(0), datetime.timedelta(0)), datetime.timedelta(0))], False, {}, {}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, True))]"
+    },
+    {
+      "round": 8,
+      "nodes": 11,
+      "dynamic_unions": 0,
+      "report": "[RunScheduleOutput(RunReport([IterationReport(RuleSetReport(False, {}, datetime.timedelta(0), datetime.timedelta(0)), datetime.timedelta(0))], False, {}, {}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, True))]"
+    }
+  ],
+  "egraph": {
+    "nodes": {
+      "primitive-String-0": {
+        "op": "\"a\"",
+        "children": [],
+        "eclass": "String-0",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "primitive-i64-8": {
+        "op": "8",
+        "children": [],
+        "eclass": "i64-8",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-0-V": {
+        "op": "V",
+        "children": [
+          "primitive-String-0",
+          "primitive-i64-8"
+        ],
+        "eclass": "B-0",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "primitive-String-1": {
+        "op": "\"b\"",
+        "children": [],
+        "eclass": "String-1",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-1-V": {
+        "op": "V",
+        "children": [
+          "primitive-String-1",
+          "primitive-i64-8"
+        ],
+        "eclass": "B-1",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "primitive-String-2": {
+        "op": "\"c\"",
+        "children": [],
+        "eclass": "String-2",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-2-V": {
+        "op": "V",
+        "children": [
+          "primitive-String-2",
+          "primitive-i64-8"
+        ],
+        "eclass": "B-3",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-0-Add": {
+        "op": "Add",
+        "children": [
+          "primitive-i64-8",
+          "function-1-Mul",
+          "function-2-V"
+        ],
+        "eclass": "B-4",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-1-Add": {
+        "op": "Add",
+        "children": [
+          "primitive-i64-8",
+          "function-2-V",
+          "function-0-Mul"
+        ],
+        "eclass": "B-4",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-0-Mul": {
+        "op": "Mul",
+        "children": [
+          "primitive-i64-8",
+          "function-0-V",
+          "function-1-V"
+        ],
+        "eclass": "B-2",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-1-Mul": {
+        "op": "Mul",
+        "children": [
+          "primitive-i64-8",
+          "function-1-V",
+          "function-0-V"
+        ],
+        "eclass": "B-2",
+        "cost": 1.0,
+        "subsumed": false
+      }
+    },
+    "root_eclasses": [],
+    "class_data": {
+      "B-0": {
+        "type": "B"
+      },
+      "String-0": {
+        "type": "String"
+      },
+      "i64-8": {
+        "type": "i64"
+      },
+      "B-1": {
+        "type": "B"
+      },
+      "String-1": {
+        "type": "String"
+      },
+      "B-3": {
+        "type": "B"
+      },
+      "String-2": {
+        "type": "String"
+      },
+      "B-4": {
+        "type": "B",
+        "let": "$root"
+      },
+      "B-2": {
+        "type": "B"
+      }
+    }
+  },
+  "dynamic_unions": [],
+  "variants": [
+    {
+      "weight": 0,
+      "term": [
+        "Add",
+        8,
+        [
+          "Mul",
+          8,
+          [
+            "V",
+            "a",
+            8
+          ],
+          [
+            "V",
+            "b",
+            8
+          ]
+        ],
+        [
+          "V",
+          "c",
+          8
+        ]
+      ],
+      "proxy_area": 72,
+      "proxy_delay": 11
+    },
+    {
+      "weight": 8,
+      "term": [
+        "Add",
+        8,
+        [
+          "Mul",
+          8,
+          [
+            "V",
+            "a",
+            8
+          ],
+          [
+            "V",
+            "b",
+            8
+          ]
+        ],
+        [
+          "V",
+          "c",
+          8
+        ]
+      ],
+      "proxy_area": 72,
+      "proxy_delay": 11
+    }
+  ],
+  "wall_seconds": 0.011119520999272936,
+  "program": "\n(datatype B (V String i64) (K i64 i64) (Add i64 B B) (Mul i64 B B)\n (Shr i64 B B) (Abs i64 B) (Mux i64 B B B) (Ult B i64)\n (Sge0 B) (Not B) (Assume i64 B B) (Cut i64 B) (Ext i64 B))\n(rewrite (Add w a b) (Add w b a))\n(rewrite (Mul w a b) (Mul w b a))\n(rewrite (Add w a (K w 0)) a)\n(rewrite (Mul w a (K w 1)) a)\n(rewrite (Abs w (Abs w a)) (Abs w a))\n\n(rewrite (Mux w c a b) (Mux w c (Assume w a c) (Assume w b (Not c))))\n\n(let $root (Add 8 (Mul 8 (V \"a\" 8) (V \"b\" 8)) (V \"c\" 8)))",
+  "cpu_seconds": 0.011366690000000013,
+  "peak_rss_kib": 79836
+}

@@ -1,0 +1,6 @@
+read_verilog design.v
+hierarchy -top candidate
+synth -top candidate -noabc
+opt_clean
+write_json mapped.json
+stat

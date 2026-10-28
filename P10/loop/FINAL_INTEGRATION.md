@@ -1,0 +1,3 @@
+# Final integrated comparison protocol
+
+Frozen before integrated execution. The final executable already supports combining the independently tested live-class filter with completed operand-width rules and DAG extraction. Run `context_live` on the same12 circuits at the SAME v4 component costs, rewrite/solver/node budgets and two relative delay targets, then compare to agnostic/context/no-VRA from width_matrix1. This closes the combined path without retuning based on output metrics. Keep both unfiltered and filtered results, all SAT checks, and losses/ties. Pilot first bounded_fma8 for this combined configuration; then full12 if valid. No further feature additions in this tranche.

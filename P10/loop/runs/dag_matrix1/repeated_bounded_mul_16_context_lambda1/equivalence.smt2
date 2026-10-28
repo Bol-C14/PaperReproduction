@@ -1,0 +1,15 @@
+; benchmark generated from python API
+(set-info :status unknown)
+(declare-fun c () (_ BitVec 16))
+(declare-fun a () (_ BitVec 16))
+(declare-fun b () (_ BitVec 16))
+(assert
+ (let ((?x10 ((_ extract 1 0) ((_ extract 15 0) ((_ extract 15 0) ((_ extract 15 0) ((_ extract 15 0) ((_ extract 15 0) ((_ extract 15 0) a)))))))))
+(let ((?x124 ((_ extract 2 0) ((_ extract 2 0) ((_ extract 2 0) ((_ extract 2 0) ((_ extract 2 0) ((_ extract 2 0) ((_ extract 2 0) b)))))))))
+(let ((?x70 ((_ extract 4 0) ((_ zero_extend 11) (bvmul ((_ zero_extend 2) ((_ extract 2 0) ?x124)) ((_ zero_extend 3) ?x10))))))
+(let ((?x17 ((_ zero_extend 1) ?x70)))
+(let (($x25 (and (distinct (ite (bvult a (_ bv4 16)) (_ bv1 1) (_ bv0 1)) (_ bv0 1)) true)))
+(let ((?x21 (ite $x25 ((_ zero_extend 10) (bvadd ?x17 ?x17)) ((_ extract 15 0) ((_ extract 15 0) ((_ extract 15 0) ((_ extract 15 0) ((_ extract 15 0) ((_ extract 15 0) c)))))))))
+(let ((?x19 ((_ extract 15 0) (bvmul ((_ extract 15 0) a) ((_ zero_extend 13) ((_ extract 2 0) b))))))
+(and (distinct (ite $x25 (bvadd ?x19 ?x19) c) ?x21) true)))))))))
+(check-sat)

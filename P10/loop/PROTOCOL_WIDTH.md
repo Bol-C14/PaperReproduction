@@ -1,0 +1,7 @@
+# Full operand-width rule extension v4
+
+Frozen before these experiments. Coverage review found the previous implementation narrowed arithmetic operands only if result width could also shrink. Paper Table5.4 (thesis printed p101) independently assigns p'=bw(A[a]), q'=bw(A[b]), r'=bw(A[a op b]); r' may equal original r. Implement that full side condition, including modulo-result multiplication with a bounded input. This is a mechanism completion, not selection based on synthesized candidate metrics.
+
+The component proxy must distinguish different operand widths: multiplication area=p*q, delay=ceil(log2(max(2,p)))+ceil(log2(max(2,q)))+1. It reduces to the earlier w*w /2log(w)+1 proxy for equally wide operands. All other costs unchanged. This is still an uncalibrated substitute, not a recovered gate model. Changing an existing node's cost is not hidden: retain all v1–v3 results, use a new version/matrix. No technology or workload tuning.
+
+Pilot bounded_fma8 at identical eight rounds/5000nodes/60s worker/5s solver. If successful, run unchanged12-circuit three-mode DAG matrix, with agnostic and no-VRA controls under the SAME v4 rule/cost policy. Do not compare new context against old-cost agnostic for primary claims. Live-class filtering is disabled in this matrix to isolate width-rule coverage; its independent v3 evidence remains. Same relative delay-target policies (dmin and2*dmin), independent whole-domain Z3 and parsed-RTL Yosys SAT, free synth and negative-control evidence. No reranking by synthesis results.

@@ -1,0 +1,3 @@
+module miter(input [7:0] a, input [7:0] b,output mismatch); wire [7:0] refout,testout;
+original u_original(.a(a), .b(b), .out(refout));candidate u_candidate(.a(a), .b(b), .out(testout));
+assign mismatch = |(refout ^ testout); endmodule

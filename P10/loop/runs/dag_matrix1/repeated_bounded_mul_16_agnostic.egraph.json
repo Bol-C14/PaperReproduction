@@ -1,0 +1,562 @@
+{
+  "mode": "agnostic",
+  "history": [
+    {
+      "round": 1,
+      "nodes": 15,
+      "dynamic_unions": 0,
+      "report": "[RunScheduleOutput(RunReport([IterationReport(RuleSetReport(True, {'(rewrite (Add w a b) (Add w b a))': [RuleReport(None, datetime.timedelta(microseconds=6), 1)], '(rewrite (Mul w a b) (Mul w b a))': [RuleReport(None, datetime.timedelta(microseconds=2), 1)]}, datetime.timedelta(microseconds=13), datetime.timedelta(microseconds=1)), datetime.timedelta(0))], True, {'(rewrite (Add w a b) (Add w b a))': datetime.timedelta(microseconds=6), '(rewrite (Mul w a b) (Mul w b a))': datetime.timedelta(microseconds=2)}, {'(rewrite (Add w a b) (Add w b a))': 1, '(rewrite (Mul w a b) (Mul w b a))': 1}, {'': datetime.timedelta(microseconds=13)}, {'': datetime.timedelta(microseconds=1)}, {'': datetime.timedelta(0)}, False))]"
+    },
+    {
+      "round": 2,
+      "nodes": 15,
+      "dynamic_unions": 0,
+      "report": "[RunScheduleOutput(RunReport([IterationReport(RuleSetReport(False, {'(rewrite (Mul w a b) (Mul w b a))': [RuleReport(None, datetime.timedelta(microseconds=4), 1)]}, datetime.timedelta(microseconds=11), datetime.timedelta(microseconds=2)), datetime.timedelta(0))], False, {'(rewrite (Mul w a b) (Mul w b a))': datetime.timedelta(microseconds=4)}, {'(rewrite (Mul w a b) (Mul w b a))': 1}, {'': datetime.timedelta(microseconds=11)}, {'': datetime.timedelta(microseconds=2)}, {'': datetime.timedelta(0)}, True))]"
+    },
+    {
+      "round": 3,
+      "nodes": 15,
+      "dynamic_unions": 0,
+      "report": "[RunScheduleOutput(RunReport([IterationReport(RuleSetReport(False, {}, datetime.timedelta(0), datetime.timedelta(0)), datetime.timedelta(0))], False, {}, {}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, True))]"
+    },
+    {
+      "round": 4,
+      "nodes": 15,
+      "dynamic_unions": 0,
+      "report": "[RunScheduleOutput(RunReport([IterationReport(RuleSetReport(False, {}, datetime.timedelta(0), datetime.timedelta(0)), datetime.timedelta(0))], False, {}, {}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, True))]"
+    },
+    {
+      "round": 5,
+      "nodes": 15,
+      "dynamic_unions": 0,
+      "report": "[RunScheduleOutput(RunReport([IterationReport(RuleSetReport(False, {}, datetime.timedelta(0), datetime.timedelta(0)), datetime.timedelta(0))], False, {}, {}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, True))]"
+    },
+    {
+      "round": 6,
+      "nodes": 15,
+      "dynamic_unions": 0,
+      "report": "[RunScheduleOutput(RunReport([IterationReport(RuleSetReport(False, {}, datetime.timedelta(0), datetime.timedelta(0)), datetime.timedelta(0))], False, {}, {}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, True))]"
+    },
+    {
+      "round": 7,
+      "nodes": 15,
+      "dynamic_unions": 0,
+      "report": "[RunScheduleOutput(RunReport([IterationReport(RuleSetReport(False, {}, datetime.timedelta(0), datetime.timedelta(0)), datetime.timedelta(0))], False, {}, {}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, True))]"
+    },
+    {
+      "round": 8,
+      "nodes": 15,
+      "dynamic_unions": 0,
+      "report": "[RunScheduleOutput(RunReport([IterationReport(RuleSetReport(False, {}, datetime.timedelta(0), datetime.timedelta(0)), datetime.timedelta(0))], False, {}, {}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, {'': datetime.timedelta(0)}, True))]"
+    }
+  ],
+  "egraph": {
+    "nodes": {
+      "primitive-String-0": {
+        "op": "\"a\"",
+        "children": [],
+        "eclass": "String-0",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "primitive-i64-16": {
+        "op": "16",
+        "children": [],
+        "eclass": "i64-16",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-0-V": {
+        "op": "V",
+        "children": [
+          "primitive-String-0",
+          "primitive-i64-16"
+        ],
+        "eclass": "B-0",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "primitive-String-1": {
+        "op": "\"b\"",
+        "children": [],
+        "eclass": "String-1",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-1-V": {
+        "op": "V",
+        "children": [
+          "primitive-String-1",
+          "primitive-i64-16"
+        ],
+        "eclass": "B-2",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "primitive-String-2": {
+        "op": "\"c\"",
+        "children": [],
+        "eclass": "String-2",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-2-V": {
+        "op": "V",
+        "children": [
+          "primitive-String-2",
+          "primitive-i64-16"
+        ],
+        "eclass": "B-6",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-0-Add": {
+        "op": "Add",
+        "children": [
+          "primitive-i64-16",
+          "function-1-Mul",
+          "function-0-Mul"
+        ],
+        "eclass": "B-5",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-0-Mul": {
+        "op": "Mul",
+        "children": [
+          "primitive-i64-16",
+          "function-0-V",
+          "function-0-Cut"
+        ],
+        "eclass": "B-4",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-1-Mul": {
+        "op": "Mul",
+        "children": [
+          "primitive-i64-16",
+          "function-0-Cut",
+          "function-0-V"
+        ],
+        "eclass": "B-4",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-0-Mux": {
+        "op": "Mux",
+        "children": [
+          "primitive-i64-16",
+          "function-0-Ult",
+          "function-0-Add",
+          "function-2-V"
+        ],
+        "eclass": "B-7",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "primitive-i64-4": {
+        "op": "4",
+        "children": [],
+        "eclass": "i64-4",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-0-Ult": {
+        "op": "Ult",
+        "children": [
+          "function-0-V",
+          "primitive-i64-4"
+        ],
+        "eclass": "B-1",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "primitive-i64-3": {
+        "op": "3",
+        "children": [],
+        "eclass": "i64-3",
+        "cost": 1.0,
+        "subsumed": false
+      },
+      "function-0-Cut": {
+        "op": "Cut",
+        "children": [
+          "primitive-i64-3",
+          "function-1-V"
+        ],
+        "eclass": "B-3",
+        "cost": 1.0,
+        "subsumed": false
+      }
+    },
+    "root_eclasses": [],
+    "class_data": {
+      "B-0": {
+        "type": "B"
+      },
+      "String-0": {
+        "type": "String"
+      },
+      "i64-16": {
+        "type": "i64"
+      },
+      "B-2": {
+        "type": "B"
+      },
+      "String-1": {
+        "type": "String"
+      },
+      "B-6": {
+        "type": "B"
+      },
+      "String-2": {
+        "type": "String"
+      },
+      "B-5": {
+        "type": "B"
+      },
+      "B-4": {
+        "type": "B"
+      },
+      "B-3": {
+        "type": "B"
+      },
+      "B-7": {
+        "type": "B",
+        "let": "$root"
+      },
+      "B-1": {
+        "type": "B"
+      },
+      "i64-4": {
+        "type": "i64"
+      },
+      "i64-3": {
+        "type": "i64"
+      }
+    }
+  },
+  "dynamic_unions": [],
+  "variants": [
+    {
+      "weight": 1,
+      "term": [
+        "Mux",
+        16,
+        [
+          "Ult",
+          [
+            "V",
+            "a",
+            16
+          ],
+          4
+        ],
+        [
+          "Add",
+          16,
+          [
+            "Mul",
+            16,
+            [
+              "Cut",
+              3,
+              [
+                "V",
+                "b",
+                16
+              ]
+            ],
+            [
+              "V",
+              "a",
+              16
+            ]
+          ],
+          [
+            "Mul",
+            16,
+            [
+              "Cut",
+              3,
+              [
+                "V",
+                "b",
+                16
+              ]
+            ],
+            [
+              "V",
+              "a",
+              16
+            ]
+          ]
+        ],
+        [
+          "V",
+          "c",
+          16
+        ]
+      ],
+      "proxy_area": 304,
+      "proxy_delay": 15,
+      "delay_target": 15
+    },
+    {
+      "weight": 2,
+      "term": [
+        "Mux",
+        16,
+        [
+          "Ult",
+          [
+            "V",
+            "a",
+            16
+          ],
+          4
+        ],
+        [
+          "Add",
+          16,
+          [
+            "Mul",
+            16,
+            [
+              "V",
+              "a",
+              16
+            ],
+            [
+              "Cut",
+              3,
+              [
+                "V",
+                "b",
+                16
+              ]
+            ]
+          ],
+          [
+            "Mul",
+            16,
+            [
+              "V",
+              "a",
+              16
+            ],
+            [
+              "Cut",
+              3,
+              [
+                "V",
+                "b",
+                16
+              ]
+            ]
+          ]
+        ],
+        [
+          "V",
+          "c",
+          16
+        ]
+      ],
+      "proxy_area": 304,
+      "proxy_delay": 15,
+      "delay_target": 30
+    }
+  ],
+  "wall_seconds": 0.010885880999921937,
+  "program": "\n(datatype B (V String i64) (K i64 i64) (Add i64 B B) (Mul i64 B B)\n (Shr i64 B B) (Abs i64 B) (Mux i64 B B B) (Ult B i64)\n (Sge0 B) (Not B) (Assume i64 B B) (Cut i64 B) (Ext i64 B))\n(rewrite (Add w a b) (Add w b a))\n(rewrite (Mul w a b) (Mul w b a))\n(rewrite (Add w a (K w 0)) (Ext w a))\n(rewrite (Mul w a (K w 1)) (Ext w a))\n(rewrite (Abs w (Abs w a)) (Abs w a))\n\n(let $root (Mux 16 (Ult (V \"a\" 16) 4) (Add 16 (Mul 16 (V \"a\" 16) (Cut 3 (V \"b\" 16))) (Mul 16 (V \"a\" 16) (Cut 3 (V \"b\" 16)))) (V \"c\" 16)))",
+  "tree_variants": [
+    {
+      "weight": 0,
+      "term": [
+        "Mux",
+        16,
+        [
+          "Ult",
+          [
+            "V",
+            "a",
+            16
+          ],
+          4
+        ],
+        [
+          "Add",
+          16,
+          [
+            "Mul",
+            16,
+            [
+              "V",
+              "a",
+              16
+            ],
+            [
+              "Cut",
+              3,
+              [
+                "V",
+                "b",
+                16
+              ]
+            ]
+          ],
+          [
+            "Mul",
+            16,
+            [
+              "V",
+              "a",
+              16
+            ],
+            [
+              "Cut",
+              3,
+              [
+                "V",
+                "b",
+                16
+              ]
+            ]
+          ]
+        ],
+        [
+          "V",
+          "c",
+          16
+        ]
+      ],
+      "proxy_area": 560,
+      "proxy_delay": 15
+    },
+    {
+      "weight": 8,
+      "term": [
+        "Mux",
+        16,
+        [
+          "Ult",
+          [
+            "V",
+            "a",
+            16
+          ],
+          4
+        ],
+        [
+          "Add",
+          16,
+          [
+            "Mul",
+            16,
+            [
+              "V",
+              "a",
+              16
+            ],
+            [
+              "Cut",
+              3,
+              [
+                "V",
+                "b",
+                16
+              ]
+            ]
+          ],
+          [
+            "Mul",
+            16,
+            [
+              "V",
+              "a",
+              16
+            ],
+            [
+              "Cut",
+              3,
+              [
+                "V",
+                "b",
+                16
+              ]
+            ]
+          ]
+        ],
+        [
+          "V",
+          "c",
+          16
+        ]
+      ],
+      "proxy_area": 560,
+      "proxy_delay": 15
+    }
+  ],
+  "dag_reports": [
+    {
+      "status": "sat",
+      "wall_seconds": 0.05305652399965766,
+      "target": null,
+      "lower": "15",
+      "upper": "15",
+      "area": 304,
+      "delay": 15,
+      "selected_node_ids": [
+        "function-0-V",
+        "function-0-Ult",
+        "function-1-V",
+        "function-0-Cut",
+        "function-0-Mul",
+        "function-0-Add",
+        "function-2-V",
+        "function-0-Mux"
+      ]
+    },
+    {
+      "status": "sat",
+      "wall_seconds": 0.028807299000618514,
+      "target": 15,
+      "lower": "304",
+      "upper": "304",
+      "area": 304,
+      "delay": 15,
+      "selected_node_ids": [
+        "function-0-V",
+        "function-0-Ult",
+        "function-1-V",
+        "function-0-Cut",
+        "function-1-Mul",
+        "function-0-Add",
+        "function-2-V",
+        "function-0-Mux"
+      ]
+    },
+    {
+      "status": "sat",
+      "wall_seconds": 0.02679313299995556,
+      "target": 30,
+      "lower": "304",
+      "upper": "304",
+      "area": 304,
+      "delay": 15,
+      "selected_node_ids": [
+        "function-0-V",
+        "function-0-Ult",
+        "function-1-V",
+        "function-0-Cut",
+        "function-0-Mul",
+        "function-0-Add",
+        "function-2-V",
+        "function-0-Mux"
+      ]
+    }
+  ],
+  "cpu_seconds": 0.22770597800000003,
+  "peak_rss_kib": 84248
+}
