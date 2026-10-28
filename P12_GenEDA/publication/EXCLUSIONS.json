@@ -1,0 +1,174 @@
+{
+  "scope": "Public publication omissions; originals retained locally; no backup archive included",
+  "large_or_reconstructible_omissions": [
+    {
+      "location": "P12_GenEDA/validation/downloads/torch-2.5.1+cpu-cp312-cp312-linux_x86_64.whl",
+      "sha256": "4856f9d6925121d13c2df07aa7580b767f449dfe71ae5acde9c27535d5da4840",
+      "size_bytes": 174642530,
+      "provenance": "Official https://download.pytorch.org/whl/cpu index, torch 2.5.1+cpu, CPython3.12 Linux x86_64",
+      "recovery_requires_external_access": true,
+      "reason": "Replaceable package wheel, not research result"
+    },
+    {
+      "location": "P12_GenEDA/validation/runtime",
+      "file_count": 12882,
+      "size_bytes": 697108857,
+      "tree_manifest_sha256": "39530c9a9fe09c7f57a889d2a883057cae45d9fa9da1be17e702d2d3dd0517c7",
+      "tree_hash_algorithm": "SHA256 of sorted compact JSON [{path,sha256,size_bytes}], sort_keys=true",
+      "provenance": "Local --no-deps isolated installation of the official pinned wheel",
+      "recovery_requires_external_access": true,
+      "reason": "Replaceable installed environment; wheel/hash and dependency versions are recorded"
+    },
+    {
+      "location": "P12_GenEDA_source/.git",
+      "file_count": 127,
+      "size_bytes": 10348292,
+      "tree_manifest_sha256": "7564e13f0b758907098eb5050299823f71ccca469c38cf8f3afbfd9955f10f0c",
+      "tree_hash_algorithm": "SHA256 of sorted compact JSON [{path,sha256,size_bytes}], sort_keys=true",
+      "provenance": "Filtered shallow official GitHub clone at commit 0a19fde3f1c1e56f49a367bf5f1914de84e1c951",
+      "recovery_requires_external_access": true,
+      "reason": "Partial upstream object cache; not this paper branch history; may contain public upstream credential blobs"
+    },
+    {
+      "location": "P12_GenEDA_source (materialized files excluding .git)",
+      "file_count": 68,
+      "size_bytes": 217205,
+      "tree_manifest_sha256": "9139101e15a0ffb115e1b4d64f0a39dbf2d88403eeb790389391e44c1ff0eae0",
+      "tree_hash_algorithm": "SHA256 of sorted compact JSON [{path,sha256,size_bytes}], sort_keys=true",
+      "provenance": "Selected files from same official upstream commit",
+      "recovery_requires_external_access": true,
+      "reason": "Ignored upstream working source includes apparent credentials; exact used, non-sensitive projector/insertion/collator copies are already tracked",
+      "credential_pattern_files": [
+        {
+          "path": "benchmark/task2/eval/analyze_embed_similarity.py",
+          "finding_count": 1,
+          "rules": [
+            "credential_assignment"
+          ]
+        },
+        {
+          "path": "benchmark/task2/eval/analyze_openai.py",
+          "finding_count": 1,
+          "rules": [
+            "credential_assignment"
+          ]
+        },
+        {
+          "path": "model/predict_align/model/inference/run_deepseek.py",
+          "finding_count": 2,
+          "rules": [
+            "credential_assignment",
+            "provider_secret_key"
+          ]
+        },
+        {
+          "path": "model/predict_align/model/inference/run_deepseek_abl_wo_CoT.py",
+          "finding_count": 2,
+          "rules": [
+            "credential_assignment",
+            "provider_secret_key"
+          ]
+        },
+        {
+          "path": "model/predict_align/model/inference/run_deepseek_bl.py",
+          "finding_count": 2,
+          "rules": [
+            "credential_assignment",
+            "provider_secret_key"
+          ]
+        },
+        {
+          "path": "model/predict_align/model/inference/run_gpt.py",
+          "finding_count": 1,
+          "rules": [
+            "credential_assignment"
+          ]
+        }
+      ]
+    },
+    {
+      "location": "P12_GenEDA/validation/__pycache__",
+      "file_count": 1,
+      "size_bytes": 15688,
+      "tree_manifest_sha256": "daabc7f609b62405690dbd328e2d19a5f73e5d4674caa4d1ace44776a2ad0976",
+      "tree_hash_algorithm": "SHA256 of sorted compact JSON [{path,sha256,size_bytes}], sort_keys=true",
+      "recovery_requires_external_access": false,
+      "reason": "Generated Python bytecode cache; regenerated locally"
+    },
+    {
+      "location": "P12_GenEDA/generation_v1/__pycache__",
+      "file_count": 7,
+      "size_bytes": 66817,
+      "tree_manifest_sha256": "193095fbc3ac52d84965f0d804a4a816cf9e28bf4bc22662c723b390f72d8e8e",
+      "tree_hash_algorithm": "SHA256 of sorted compact JSON [{path,sha256,size_bytes}], sort_keys=true",
+      "recovery_requires_external_access": false,
+      "reason": "Generated Python bytecode cache; regenerated locally"
+    },
+    {
+      "location": "P12_GenEDA/publication/__pycache__",
+      "file_count": 1,
+      "size_bytes": 4363,
+      "tree_manifest_sha256": "1ede6987bd3e7049e2feaf10ea9d84c0f35f7d39b361c1e8cb023319daead4c0",
+      "provenance": "Generated publication-scanner Python bytecode",
+      "recovery_requires_external_access": false,
+      "reason": "Replaceable bytecode cache; source is tracked"
+    }
+  ],
+  "omitted_upstream_benchmark_blobs": [
+    {
+      "path": "benchmark/task1/data/Task1_summary.json",
+      "logical_size_bytes": 47588869,
+      "sha256": "9af272a8e6adf996921e0f95fb937d147100d64cf913b9c5cb68e62ce41b2515",
+      "git_blob_oid": "423c5f447d908295278df956dd28d3f2695ea361",
+      "location": "Cached blob in ignored P12_GenEDA_source/.git",
+      "provenance": "https://github.com/hkust-zhiyao/GenEDA/blob/0a19fde3f1c1e56f49a367bf5f1914de84e1c951/benchmark/task1/data/Task1_summary.json",
+      "included": false,
+      "recovery_requires_external_access": true,
+      "reason": "Full upstream benchmarks omitted; the exact 96-example study subset is included and is sufficient for the completed study."
+    },
+    {
+      "path": "benchmark/task1/data/Task1_summary_GenEDA.json",
+      "logical_size_bytes": 13371453,
+      "sha256": "56da609d0c9e41adea13c192c0e24be20e27b43d6b38b498c79b5ab413ebce54",
+      "git_blob_oid": "535ddd1e53ea2c9ef2022403baf0b856413dcb67",
+      "location": "Cached blob in ignored P12_GenEDA_source/.git",
+      "provenance": "https://github.com/hkust-zhiyao/GenEDA/blob/0a19fde3f1c1e56f49a367bf5f1914de84e1c951/benchmark/task1/data/Task1_summary_GenEDA.json",
+      "included": false,
+      "recovery_requires_external_access": true,
+      "reason": "Full upstream benchmarks omitted; the exact 96-example study subset is included and is sufficient for the completed study."
+    },
+    {
+      "path": "benchmark/task2/data/Task2_implementation.json",
+      "logical_size_bytes": 47491747,
+      "sha256": "7c5a3ba8c8a87c3bebbfed4cb7dcd38129f43e182080a20eb4a55ab7a412bb86",
+      "git_blob_oid": "a3981d6f037d9c0e64f9a63067da9ab9fd6d765b",
+      "location": "Cached blob in ignored P12_GenEDA_source/.git",
+      "provenance": "https://github.com/hkust-zhiyao/GenEDA/blob/0a19fde3f1c1e56f49a367bf5f1914de84e1c951/benchmark/task2/data/Task2_implementation.json",
+      "included": false,
+      "recovery_requires_external_access": true,
+      "reason": "Full upstream benchmarks omitted; the exact 96-example study subset is included and is sufficient for the completed study."
+    },
+    {
+      "path": "benchmark/task2/data/Task2_implementation_GenEDA.json",
+      "logical_size_bytes": 13276085,
+      "sha256": "e7f12ffcc6c2458de20fae23e9d4e69b58f89ad17f093d714356809c145a3259",
+      "git_blob_oid": "9ec2e422db263bf4f50bafb536aaf8df6e55ca79",
+      "location": "Cached blob in ignored P12_GenEDA_source/.git",
+      "provenance": "https://github.com/hkust-zhiyao/GenEDA/blob/0a19fde3f1c1e56f49a367bf5f1914de84e1c951/benchmark/task2/data/Task2_implementation_GenEDA.json",
+      "included": false,
+      "recovery_requires_external_access": true,
+      "reason": "Full upstream benchmarks omitted; the exact 96-example study subset is included and is sufficient for the completed study."
+    }
+  ],
+  "sensitive_and_unrelated_categories_excluded": [
+    "Credentials/private keys/auth/cookies/environment dumps",
+    "Git credential/config/reflog metadata outside reachable branch objects",
+    "Installed environments and caches",
+    "Local backup staging and official Library helpers outside repository",
+    "Unrelated /workspace files"
+  ],
+  "publication_has_no_recovery_archive": true,
+  "installed_dependency_versions_file": "P12_GenEDA/validation/results/environment_versions.json",
+  "preserved_small_study_data": "P12_GenEDA/generation_v1/frozen_study.json.gz",
+  "preserved_model_checkpoints": "24 locally trained NPZ checkpoints, each below 0.8MB; no foundation model weights"
+}
