@@ -1,0 +1,53 @@
+{
+  "family": "RTLFix",
+  "design": "RTLFix/L1/MultiModal/1",
+  "variant": "stuck_one",
+  "backend": "verilator",
+  "oracle": "independent_exhaustive",
+  "injection_diff": {
+    "path": "cases/c_cd881eba00dcbffc/injection.diff",
+    "sha256": "3380d68e677819355a1adcca5eb8fcc553836d19dfee2faef6304f4d4aaf8c74"
+  },
+  "decision": {
+    "status": "fail",
+    "checks": 64,
+    "failures": 32,
+    "unknown_values": 0
+  },
+  "upstream_generic_parser": {
+    "success": true,
+    "details": {
+      "return_code": 0,
+      "has_test_pass": false,
+      "has_error": false
+    },
+    "mode": "exact pinned VCSRunner method on captured free-simulator log; no VCS execution"
+  },
+  "simulation_event": {
+    "index": 83,
+    "command": [
+      "/workspace/PaperReproduction/fixme/evaluator_validity/pilot_1/cases/c_cd881eba00dcbffc/obj/Vcalibration_tb"
+    ],
+    "cwd": "cases/c_cd881eba00dcbffc",
+    "log": "cases/c_cd881eba00dcbffc/083_simulate.log",
+    "timeout_seconds": 3,
+    "input_bindings": {
+      "input.sv": {
+        "sha256": "09010021401e7391a7f07176302bed0fff5aff26ccc3b8080801e5bb353e1e37",
+        "artifact": "cases/c_cd881eba00dcbffc/input.sv"
+      },
+      "bench.sv": {
+        "sha256": "eeb20df8896fb0be42db9432a8cb8c3b195ba7b737f64ab52e99e29567b02e89",
+        "artifact": "cases/c_cd881eba00dcbffc/bench.sv"
+      }
+    },
+    "credential_environment": "allowlist only; no inherited API/connector credentials",
+    "filesystem_boundary": "no host FS sandbox; reviewed fixed recipes only",
+    "status": "completed",
+    "returncode": 0,
+    "seconds": 0.0055
+  },
+  "source_sha256": "09010021401e7391a7f07176302bed0fff5aff26ccc3b8080801e5bb353e1e37",
+  "bench_sha256": "eeb20df8896fb0be42db9432a8cb8c3b195ba7b737f64ab52e99e29567b02e89",
+  "role": "fixed fault-injection control; not LLM output"
+}

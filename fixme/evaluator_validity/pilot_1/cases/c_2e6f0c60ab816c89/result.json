@@ -1,0 +1,42 @@
+{
+  "family": "MGen",
+  "design": "MGen/L3/Text/GA_94",
+  "variant": "malformed_cpp",
+  "backend": "verilator_DPI",
+  "oracle": "unchanged_official_CPU_TB",
+  "injection_diff": {
+    "path": "cases/c_2e6f0c60ab816c89/injection.diff",
+    "sha256": "457129d258b1d86f8540dbfd1db80bc39cd6c067c205e53487e01afc2908cabd"
+  },
+  "decision": {
+    "status": "fail",
+    "stage": "compile"
+  },
+  "activation": null,
+  "compile_event": {
+    "index": 36,
+    "command": [
+      "/usr/bin/make",
+      "-C",
+      "obj",
+      "-f",
+      "Vtb.mk",
+      "-j1"
+    ],
+    "cwd": "ga94_shared",
+    "log": "ga94_shared/036_candidate_compile.log",
+    "timeout_seconds": 45,
+    "input_bindings": {
+      "response.cpp": {
+        "artifact": "cases/c_2e6f0c60ab816c89/response.cpp",
+        "sha256": "b5a1e0472af781c97aa91db2c66ba10f039d8d75a401d5f5f2967aa19c8c0e91"
+      }
+    },
+    "credential_environment": "allowlist only; no inherited API/connector credentials",
+    "filesystem_boundary": "no host FS sandbox; reviewed fixed recipes only",
+    "status": "completed",
+    "returncode": 2,
+    "seconds": 0.8207
+  },
+  "role": "fixed reference-response mutation; not model output"
+}

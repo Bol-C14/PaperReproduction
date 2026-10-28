@@ -1,0 +1,164 @@
+%Warning-NULLPORT: ref.v:25:1: Null port on module (perhaps extraneous comma)
+   25 | );
+      | ^
+                   ... For warning description see https://verilator.org/warn/NULLPORT?v=5.032
+                   ... Use "/* verilator lint_off NULLPORT */" and lint_on around source to disable this message.
+%Warning-NULLPORT: ref.v:204:1: Null port on module (perhaps extraneous comma)
+  204 | );
+      | ^
+%Warning-NULLPORT: ref.v:719:1: Null port on module (perhaps extraneous comma)
+  719 | );
+      | ^
+%Warning-NULLPORT: ref.v:821:1: Null port on module (perhaps extraneous comma)
+  821 | );
+      | ^
+%Warning-NULLPORT: ref.v:978:1: Null port on module (perhaps extraneous comma)
+  978 | );
+      | ^
+%Warning-PINMISSING: ref.v:1234:8: Cell has missing pin: '__pinNumber6'
+ 1234 | PC_ref PC_ref(
+      |        ^~~~~~
+                     ref.v:25:1: ... Location of port declaration
+   25 | );
+      | ^
+%Warning-PINMISSING: ref.v:1280:11: Cell has missing pin: '__pinNumber11'
+ 1280 | IF_ID_ref IF_ID_ref(
+      |           ^~~~~~~~~
+                     ref.v:204:1: ... Location of port declaration
+  204 | );
+      | ^
+%Warning-PINMISSING: ref.v:1386:18: Cell has missing pin: '__pinNumber6'
+ 1386 | HazradDetect_ref HazradDetect_ref(
+      |                  ^~~~~~~~~~~~~~~~
+                     ref.v:719:1: ... Location of port declaration
+  719 | );
+      | ^
+%Warning-PINMISSING: ref.v:1394:17: Cell has missing pin: '__pinNumber16'
+ 1394 | MUX_Control_ref MUX_Control_ref(
+      |                 ^~~~~~~~~~~~~~~
+                     ref.v:978:1: ... Location of port declaration
+  978 | );
+      | ^
+%Warning-PINMISSING: ref.v:1439:12: Cell has missing pin: '__pinNumber25'
+ 1439 | EX_MEM_ref EX_MEM_ref(
+      |            ^~~~~~~~~~
+                     ref.v:821:1: ... Location of port declaration
+  821 | );
+      | ^
+%Warning-WIDTHEXPAND: ref.v:991:14: Operator ASSIGNDLY expects 5 bits on the Assign RHS, but Assign RHS's CONST '4'h0' generates 4 bits.
+                                  : ... note: In instance 'CPU_ref.MUX_Control_ref'
+  991 |     RegDst_o <= 4'b0000;  
+      |              ^~
+%Warning-WIDTHEXPAND: ref.v:412:26: Operator ADD expects 32 bits on the LHS, but LHS's VARREF 's1' generates 16 bits.
+                                  : ... note: In instance 'CPU_ref.VALU_ref'
+  412 |                 v_o = (s1+s2+s3+s4);
+      |                          ^
+%Warning-WIDTHEXPAND: ref.v:412:26: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 's2' generates 16 bits.
+                                  : ... note: In instance 'CPU_ref.VALU_ref'
+  412 |                 v_o = (s1+s2+s3+s4);
+      |                          ^
+%Warning-WIDTHEXPAND: ref.v:412:29: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 's3' generates 16 bits.
+                                  : ... note: In instance 'CPU_ref.VALU_ref'
+  412 |                 v_o = (s1+s2+s3+s4);
+      |                             ^
+%Warning-WIDTHEXPAND: ref.v:412:32: Operator ADD expects 32 bits on the RHS, but RHS's VARREF 's4' generates 16 bits.
+                                  : ... note: In instance 'CPU_ref.VALU_ref'
+  412 |                 v_o = (s1+s2+s3+s4);
+      |                                ^
+%Warning-WIDTHTRUNC: ref.v:148:31: Logical operator COND expects 1 bit on the Conditional Test, but Conditional Test's SUB generates 32 bits.
+                                 : ... note: In instance 'CPU_ref.ALU_ref'
+  148 | Zero_o   = (data1_i - data2_i)?0:1;
+      |                               ^
+%Warning-COMBDLY: ref.v:1210:49: Non-blocking assignment '<=' in combinational logic process
+                               : ... This will be executed as a blocking assignment '='!
+ 1210 |     if(instr_i == 8'b1010_1010)easter_flag_next <= 1;
+      |                                                 ^~
+                  *** See https://verilator.org/warn/COMBDLY before disabling this,
+                  else you may end up with different sim results.
+%Warning-COMBDLY: ref.v:991:14: Non-blocking assignment '<=' in combinational logic process
+                              : ... This will be executed as a blocking assignment '='!
+  991 |     RegDst_o <= 4'b0000;  
+      |              ^~
+%Warning-COMBDLY: ref.v:992:13: Non-blocking assignment '<=' in combinational logic process
+                              : ... This will be executed as a blocking assignment '='!
+  992 |     ALUOp_o <= 2'b00;
+      |             ^~
+%Warning-COMBDLY: ref.v:993:14: Non-blocking assignment '<=' in combinational logic process
+                              : ... This will be executed as a blocking assignment '='!
+  993 |     ALUSrc_o <= 1'b0; 
+      |              ^~
+%Warning-COMBDLY: ref.v:994:16: Non-blocking assignment '<=' in combinational logic process
+                              : ... This will be executed as a blocking assignment '='!
+  994 |     RegWrite_o <= 1'b0;
+      |                ^~
+%Warning-COMBDLY: ref.v:995:16: Non-blocking assignment '<=' in combinational logic process
+                              : ... This will be executed as a blocking assignment '='!
+  995 |     MemToReg_o <= 1'b0;
+      |                ^~
+%Warning-COMBDLY: ref.v:996:15: Non-blocking assignment '<=' in combinational logic process
+                              : ... This will be executed as a blocking assignment '='!
+  996 |     MemRead_o <= 1'b0;
+      |               ^~
+%Warning-COMBDLY: ref.v:997:16: Non-blocking assignment '<=' in combinational logic process
+                              : ... This will be executed as a blocking assignment '='!
+  997 |     MemWrite_o <= 1'b0;
+      |                ^~
+%Warning-COMBDLY: ref.v:1011:14: Non-blocking assignment '<=' in combinational logic process
+                               : ... This will be executed as a blocking assignment '='!
+ 1011 |     RegDst_o <= RegDst_i;  
+      |              ^~
+%Warning-COMBDLY: ref.v:1012:13: Non-blocking assignment '<=' in combinational logic process
+                               : ... This will be executed as a blocking assignment '='!
+ 1012 |     ALUOp_o <= ALUOp_i;
+      |             ^~
+%Warning-COMBDLY: ref.v:1013:14: Non-blocking assignment '<=' in combinational logic process
+                               : ... This will be executed as a blocking assignment '='!
+ 1013 |     ALUSrc_o <= ALUSrc_i; 
+      |              ^~
+%Warning-COMBDLY: ref.v:1014:16: Non-blocking assignment '<=' in combinational logic process
+                               : ... This will be executed as a blocking assignment '='!
+ 1014 |     RegWrite_o <= RegWrite_i;
+      |                ^~
+%Warning-COMBDLY: ref.v:1015:16: Non-blocking assignment '<=' in combinational logic process
+                               : ... This will be executed as a blocking assignment '='!
+ 1015 |     MemToReg_o <= MemToReg_i;
+      |                ^~
+%Warning-COMBDLY: ref.v:1016:15: Non-blocking assignment '<=' in combinational logic process
+                               : ... This will be executed as a blocking assignment '='!
+ 1016 |     MemRead_o <= MemRead_i;
+      |               ^~
+%Warning-COMBDLY: ref.v:1017:16: Non-blocking assignment '<=' in combinational logic process
+                               : ... This will be executed as a blocking assignment '='!
+ 1017 |     MemWrite_o <= MemWrite_i;
+      |                ^~
+%Warning-COMBDLY: ref.v:1001:14: Non-blocking assignment '<=' in combinational logic process
+                               : ... This will be executed as a blocking assignment '='!
+ 1001 |     RegDst_o <= RegDst_i;  
+      |              ^~
+%Warning-COMBDLY: ref.v:1002:13: Non-blocking assignment '<=' in combinational logic process
+                               : ... This will be executed as a blocking assignment '='!
+ 1002 |     ALUOp_o <= ALUOp_i;
+      |             ^~
+%Warning-COMBDLY: ref.v:1003:14: Non-blocking assignment '<=' in combinational logic process
+                               : ... This will be executed as a blocking assignment '='!
+ 1003 |     ALUSrc_o <= ALUSrc_i; 
+      |              ^~
+%Warning-COMBDLY: ref.v:1004:16: Non-blocking assignment '<=' in combinational logic process
+                               : ... This will be executed as a blocking assignment '='!
+ 1004 |     RegWrite_o <= RegWrite_i;
+      |                ^~
+%Warning-COMBDLY: ref.v:1005:16: Non-blocking assignment '<=' in combinational logic process
+                               : ... This will be executed as a blocking assignment '='!
+ 1005 |     MemToReg_o <= MemToReg_i;
+      |                ^~
+%Warning-COMBDLY: ref.v:1006:15: Non-blocking assignment '<=' in combinational logic process
+                               : ... This will be executed as a blocking assignment '='!
+ 1006 |     MemRead_o <= MemRead_i;
+      |               ^~
+%Warning-COMBDLY: ref.v:1007:16: Non-blocking assignment '<=' in combinational logic process
+                               : ... This will be executed as a blocking assignment '='!
+ 1007 |     MemWrite_o <= MemWrite_i;
+      |                ^~
+- V e r i l a t i o n   R e p o r t: Verilator 5.032 2025-01-01 rev (Debian 5.032-1+b2)
+- Verilator: Built from 0.063 MB sources in 23 modules, into 0.149 MB in 8 C++ files needing 0.000 MB
+- Verilator: Walltime 0.040 s (elab=0.003, cvt=0.021, bld=0.000); cpu 0.040 s on 1 threads; alloced 11.562 MB

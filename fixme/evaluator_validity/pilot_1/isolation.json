@@ -1,0 +1,29 @@
+{
+  "event": {
+    "index": 0,
+    "command": [
+      "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/bin/python3",
+      "-c",
+      "import os,socket,resource,json; r={\"synthetic_env_absent\":\"VALIDITY_SYNTHETIC_CANARY\" not in os.environ,\"as_limit\":resource.getrlimit(resource.RLIMIT_AS)[0],\"file_limit\":resource.getrlimit(resource.RLIMIT_FSIZE)[0]};\ntry: socket.socket();r[\"network_denied\"]=False\nexcept PermissionError:r[\"network_denied\"]=True\np='/workspace/PaperReproduction/fixme/evaluator_validity/pilot_1/owned_sibling_canary.txt'\ntry:\n r[\"sibling_read_allowed\"]=bool(open(p).read());open(p,\"a\").write(\"\\nprobe\");r[\"sibling_write_allowed\"]=True\nexcept OSError:r[\"sibling_write_allowed\"]=False\nprint(json.dumps(r))"
+    ],
+    "cwd": "cases/c_3624d3181d5c4f8a",
+    "log": "cases/c_3624d3181d5c4f8a/000_boundary_probe.log",
+    "timeout_seconds": 3,
+    "input_bindings": {},
+    "credential_environment": "allowlist only; no inherited API/connector credentials",
+    "filesystem_boundary": "no host FS sandbox; reviewed fixed recipes only",
+    "status": "completed",
+    "returncode": 0,
+    "seconds": 0.0354
+  },
+  "probe": {
+    "synthetic_env_absent": true,
+    "as_limit": 2147483648,
+    "file_limit": 8388608,
+    "network_denied": true,
+    "sibling_read_allowed": true,
+    "sibling_write_allowed": true
+  },
+  "host_configuration_changed": false,
+  "threat_model": "only reviewed pinned source and fixed mutations; arbitrary untrusted execution prohibited"
+}

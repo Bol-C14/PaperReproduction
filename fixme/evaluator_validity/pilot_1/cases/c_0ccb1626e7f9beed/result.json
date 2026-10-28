@@ -1,0 +1,52 @@
+{
+  "family": "MGen",
+  "design": "MGen/L3/Text/GA_94",
+  "variant": "value_zero",
+  "backend": "verilator_DPI",
+  "oracle": "unchanged_official_CPU_TB",
+  "injection_diff": {
+    "path": "cases/c_0ccb1626e7f9beed/injection.diff",
+    "sha256": "3d626be39c979496f8fe63fbfb9daf3eb095c09214b4904605b1beb5cbc9d2fb"
+  },
+  "decision": {
+    "status": "pass",
+    "reason": "completed supplied-TB count evidence",
+    "checks": 101
+  },
+  "activation": {
+    "calls": 1217,
+    "changed_calls": 0
+  },
+  "simulation_event": {
+    "index": 33,
+    "command": [
+      "/workspace/PaperReproduction/fixme/evaluator_validity/pilot_1/ga94_shared/obj/Vtb"
+    ],
+    "cwd": "ga94_shared",
+    "log": "ga94_shared/033_candidate_simulate.log",
+    "timeout_seconds": 3,
+    "input_bindings": {
+      "response.cpp": {
+        "artifact": "cases/c_0ccb1626e7f9beed/response.cpp",
+        "sha256": "68a55e51c1200bbe267267448d48d5932ba1fba2e58d9a93503c5ef8b2eed280"
+      },
+      "binary_sha256": "b074b18bc6359903f2ec26f8afe6a4fb23d8b7037e9e5b04962895ed18120b81"
+    },
+    "credential_environment": "allowlist only; no inherited API/connector credentials",
+    "filesystem_boundary": "no host FS sandbox; reviewed fixed recipes only",
+    "status": "completed",
+    "returncode": 0,
+    "seconds": 0.0109
+  },
+  "source_sha256": "68a55e51c1200bbe267267448d48d5932ba1fba2e58d9a93503c5ef8b2eed280",
+  "upstream_generic_parser": {
+    "success": true,
+    "details": {
+      "return_code": 0,
+      "has_test_pass": true,
+      "has_error": true
+    },
+    "mode": "exact pinned VCSRunner method on captured free-simulator log; no VCS execution"
+  },
+  "role": "fixed reference-response mutation; not LLM output"
+}

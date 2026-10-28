@@ -1,0 +1,28 @@
+-Info: bench.sv:30: $dumpvar ignored, as Verilated without --trace
+Testing 4:1 Multiplexer
+s1 s0 | d0 d1 d2 d3 | mux1_out mux2_out | y | expected_y
+0  0  | 0  1  1  0  |    0        1     | 0 |     0
+0  1  | 0  1  1  0  |    1        0     | 0 |     1
+ERROR: Output y mismatch: expected 1, got 0
+1  0  | 0  1  0  0  |    0        0     | 0 |     0
+1  1  | 0  1  1  1  |    1        1     | 0 |     1
+ERROR: Output y mismatch: expected 1, got 0
+0  0  | 1  0  0  1  |    1        0     | 0 |     1
+ERROR: Output y mismatch: expected 1, got 0
+1  1  | 1  0  1  1  |    0        1     | 0 |     1
+ERROR: Output y mismatch: expected 1, got 0
+
+============================================================
+Test Summary:
+Total Tests: 6
+Passed: 2
+Failed: 4
+
+*** SOME TESTS FAILED ***
+============================================================
+
+Test completed
+- bench.sv:83: Verilog $finish
+- S i m u l a t i o n   R e p o r t: Verilator 5.032 2025-01-01
+- Verilator: $finish at 60ns; walltime 0.000 s; speed 327.772 us/s
+- Verilator: cpu 0.000 s on 1 threads; alloced 32 MB

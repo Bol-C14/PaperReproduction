@@ -1,0 +1,44 @@
+{
+  "family": "SVAGen",
+  "design": "SVAGen/L1/Text/usbh_crc16",
+  "variant": "covered_inversion",
+  "backend": "yosys",
+  "oracle": "single_bit5",
+  "injection_diff": {
+    "path": "cases/c_457dcf33e02a1354/injection.diff",
+    "sha256": "1c5a62a446f3c69a87840d34cd5c1866448ec239c787ca97bf826094f2177657"
+  },
+  "decision": {
+    "status": "fail",
+    "raw_proof": "falsified"
+  },
+  "property_counts": {
+    "assert": 1,
+    "assume": 0,
+    "cover": 0
+  },
+  "event": {
+    "index": 101,
+    "command": [
+      "/workspace/PaperReproduction/.cache/fixme/tools/usr/bin/yosys",
+      "-Q",
+      "-T",
+      "-p",
+      "read_verilog -formal -sv input.sv; prep -top usbh_crc16; flatten; chformal -lower; write_json properties.json; sat -timeout 5 -prove-asserts -verify -show-inputs -show-outputs"
+    ],
+    "cwd": "cases/c_457dcf33e02a1354",
+    "log": "cases/c_457dcf33e02a1354/101_formal.log",
+    "timeout_seconds": 15,
+    "input_bindings": {
+      "input.sv": "8dbfd058a27b185188e7b5052471173324c34633f72aaac901d12116040b2414"
+    },
+    "credential_environment": "allowlist only; no inherited API/connector credentials",
+    "filesystem_boundary": "no host FS sandbox; reviewed fixed recipes only",
+    "status": "completed",
+    "returncode": 1,
+    "seconds": 0.0349
+  },
+  "source_sha256": "997fbdf2444795e166f1c3ea3166993ea4b3bdad7c7538216aefe208c259e4b2",
+  "property_sha256": "2b354a0ab0031c4183088eaa5c23d39425b747bd49ed858a42ea5e6f5ec08b1d",
+  "scope": "combinational binary-input property proof; coverage sensitivity, not independent specification correctness"
+}

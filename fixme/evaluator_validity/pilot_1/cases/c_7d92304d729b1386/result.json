@@ -1,0 +1,54 @@
+{
+  "family": "TBGen",
+  "design": "TBGen/L1/Text/address_mux",
+  "variant": "reversed_select",
+  "backend": "icarus",
+  "oracle": "64-vector-binary-checker",
+  "injection_diff": {
+    "path": "cases/c_7d92304d729b1386/injection.diff",
+    "sha256": "55498061c21bb88a4e24599eb0e25e7fa844d559252b5d8dd3ee7de4c5e6f802"
+  },
+  "decision": {
+    "status": "fail",
+    "checks": 64,
+    "failures": 64,
+    "unknown_values": 0
+  },
+  "upstream_generic_parser": {
+    "success": true,
+    "details": {
+      "return_code": 0,
+      "has_test_pass": false,
+      "has_error": false
+    },
+    "mode": "exact pinned VCSRunner method on captured free-simulator log; no VCS execution"
+  },
+  "simulation_event": {
+    "index": 31,
+    "command": [
+      "/workspace/PaperReproduction/.cache/fixme/tools/usr/bin/vvp",
+      "simulation.vvp"
+    ],
+    "cwd": "cases/c_7d92304d729b1386",
+    "log": "cases/c_7d92304d729b1386/031_simulate.log",
+    "timeout_seconds": 3,
+    "input_bindings": {
+      "input.sv": {
+        "sha256": "742cfa2f325d80b1b056f88ab82c7c0fb9dc452c662451933cddca035773ccd1",
+        "artifact": "cases/c_7d92304d729b1386/input.sv"
+      },
+      "bench.sv": {
+        "sha256": "4027d4af4246ebdec49a6b0378fe8033944e164fffd031af68b92b65411dee7f",
+        "artifact": "cases/c_7d92304d729b1386/bench.sv"
+      }
+    },
+    "credential_environment": "allowlist only; no inherited API/connector credentials",
+    "filesystem_boundary": "no host FS sandbox; reviewed fixed recipes only",
+    "status": "completed",
+    "returncode": 0,
+    "seconds": 0.0101
+  },
+  "source_sha256": "742cfa2f325d80b1b056f88ab82c7c0fb9dc452c662451933cddca035773ccd1",
+  "bench_sha256": "4027d4af4246ebdec49a6b0378fe8033944e164fffd031af68b92b65411dee7f",
+  "role": "fixed fault-injection control; not LLM output"
+}

@@ -1,0 +1,11 @@
+--- original
++++ candidate
+@@ -20,7 +20,7 @@
+ assign crc_o[8] =     data_i[1] ^ data_i[2] ^ crc_i[2] ^ crc_i[1];
+ assign crc_o[7] =     data_i[0] ^ data_i[1] ^ crc_i[15] ^ crc_i[1] ^ crc_i[0];
+ assign crc_o[6] =     data_i[0] ^ crc_i[14] ^ crc_i[0];
+-assign crc_o[5] =     crc_i[13];
++assign crc_o[5] = 1'b0;
+ assign crc_o[4] =     crc_i[12];
+ assign crc_o[3] =     crc_i[11];
+ assign crc_o[2] =     crc_i[10];

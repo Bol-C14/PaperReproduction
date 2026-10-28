@@ -91,3 +91,7 @@ totals. The authoritative matrix has 108 reference-calibration passes, 43 unknow
 30 errors and 50 adapter-contract refusals across 231 code keys. Context leakage,
 post-finish resource lifetime and exact oracle parsing were fixed without a full
 sweep or model calls; old evidence remains retained.
+
+## Preregistered evaluator-validity follow-up
+
+See [evaluator_validity/REPORT.md](evaluator_validity/REPORT.md) and its frozen plan, raw evidence and selected CSV. Four independent designs, 63 primary trials plus 14 targeted vector-generation compatibility retries test activated mutations, parser fallback, independent mux truth tables and property scope. This adds falsifiable evaluator evidence without upgrading reference calibration to model scores or estimating corpus-wide false-positive rates. `python3 fixme/benchmark/validate_validity.py` validates the saved evidence offline.

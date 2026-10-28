@@ -1,0 +1,73 @@
+`timescale 1ns/1ps
+module calibration_tb;reg select;reg[15:0]in0,in1;wire[15:0]out;integer i;integer checks=0;integer failures=0;integer unknowns=0;
+address_mux dut(select,in0,in1,out);reg[15:0]expected;
+initial begin select=0;in0=0;in1=0;
+for(i=0;i<64;i=i+1) begin case(i)
+0:begin select=1'b0;in0=16'h4532;in1=16'h0759;end
+1:begin select=1'b1;in0=16'h2afa;in1=16'hab02;end
+2:begin select=1'b0;in0=16'hb90d;in1=16'h1f84;end
+3:begin select=1'b1;in0=16'h7eb2;in1=16'h472d;end
+4:begin select=1'b0;in0=16'he7c5;in1=16'h8ce1;end
+5:begin select=1'b1;in0=16'h50b6;in1=16'hfa4d;end
+6:begin select=1'b0;in0=16'h9047;in1=16'h89a2;end
+7:begin select=1'b1;in0=16'h6e71;in1=16'hc036;end
+8:begin select=1'b0;in0=16'hdc0f;in1=16'h2073;end
+9:begin select=1'b1;in0=16'h16a2;in1=16'hacb9;end
+10:begin select=1'b0;in0=16'hf86d;in1=16'hcc9f;end
+11:begin select=1'b1;in0=16'h4fce;in1=16'h2586;end
+12:begin select=1'b0;in0=16'h9708;in1=16'hff11;end
+13:begin select=1'b1;in0=16'hf7eb;in1=16'hdbb0;end
+14:begin select=1'b0;in0=16'h160e;in1=16'h173b;end
+15:begin select=1'b1;in0=16'h6290;in1=16'haf1e;end
+16:begin select=1'b0;in0=16'h0467;in1=16'hf18d;end
+17:begin select=1'b1;in0=16'hdf0f;in1=16'hffb9;end
+18:begin select=1'b0;in0=16'h1bc1;in1=16'h5d79;end
+19:begin select=1'b1;in0=16'h3081;in1=16'hea04;end
+20:begin select=1'b0;in0=16'h2a0a;in1=16'h7f1f;end
+21:begin select=1'b1;in0=16'hb467;in1=16'h552f;end
+22:begin select=1'b0;in0=16'h1762;in1=16'ha17c;end
+23:begin select=1'b1;in0=16'hca8a;in1=16'h9b1b;end
+24:begin select=1'b0;in0=16'h667c;in1=16'hcc72;end
+25:begin select=1'b1;in0=16'h2d4f;in1=16'hd6e3;end
+26:begin select=1'b0;in0=16'h303e;in1=16'h3a1b;end
+27:begin select=1'b1;in0=16'hef1c;in1=16'hf93d;end
+28:begin select=1'b0;in0=16'he634;in1=16'h2770;end
+29:begin select=1'b1;in0=16'hbcce;in1=16'h1475;end
+30:begin select=1'b0;in0=16'heab1;in1=16'h88d6;end
+31:begin select=1'b1;in0=16'h722d;in1=16'h2e19;end
+32:begin select=1'b0;in0=16'h31e1;in1=16'hdd94;end
+33:begin select=1'b1;in0=16'h5ae9;in1=16'h1ade;end
+34:begin select=1'b0;in0=16'h146f;in1=16'hb7a2;end
+35:begin select=1'b1;in0=16'h6102;in1=16'h6a68;end
+36:begin select=1'b0;in0=16'h4c68;in1=16'hf19a;end
+37:begin select=1'b1;in0=16'h383b;in1=16'hb564;end
+38:begin select=1'b0;in0=16'h99c6;in1=16'h3cd3;end
+39:begin select=1'b1;in0=16'h9fb1;in1=16'h2182;end
+40:begin select=1'b0;in0=16'h1c2c;in1=16'hb85a;end
+41:begin select=1'b1;in0=16'h2339;in1=16'hdcd2;end
+42:begin select=1'b0;in0=16'h8028;in1=16'h1bf3;end
+43:begin select=1'b1;in0=16'hb9a6;in1=16'h2645;end
+44:begin select=1'b0;in0=16'h9ce0;in1=16'h8888;end
+45:begin select=1'b1;in0=16'h6aaa;in1=16'h0c14;end
+46:begin select=1'b0;in0=16'h785a;in1=16'hcd7e;end
+47:begin select=1'b1;in0=16'h8b2f;in1=16'h61f7;end
+48:begin select=1'b0;in0=16'hf398;in1=16'ha580;end
+49:begin select=1'b1;in0=16'h992b;in1=16'h13af;end
+50:begin select=1'b0;in0=16'h3f07;in1=16'h861d;end
+51:begin select=1'b1;in0=16'h6c9c;in1=16'h46ae;end
+52:begin select=1'b0;in0=16'h75c6;in1=16'h840c;end
+53:begin select=1'b1;in0=16'hab8f;in1=16'hdf22;end
+54:begin select=1'b0;in0=16'h1a61;in1=16'h8ee9;end
+55:begin select=1'b1;in0=16'hc7ea;in1=16'hd6d0;end
+56:begin select=1'b0;in0=16'h04a4;in1=16'h29b2;end
+57:begin select=1'b1;in0=16'h1ed0;in1=16'hb611;end
+58:begin select=1'b0;in0=16'hd63d;in1=16'h6694;end
+59:begin select=1'b1;in0=16'h014a;in1=16'h5bbe;end
+60:begin select=1'b0;in0=16'h56f4;in1=16'hf9c1;end
+61:begin select=1'b1;in0=16'h4f4c;in1=16'hd854;end
+62:begin select=1'b0;in0=16'h3738;in1=16'h3e2a;end
+63:begin select=1'b1;in0=16'ha064;in1=16'hf112;end
+endcase expected=select?in1:in0;#2;
+if((^out)===1'bx)unknowns=unknowns+1;else begin checks=checks+1;if(out!==expected)failures=failures+1;end end
+$display("VALIDITY_CHECKS checks=%0d failures=%0d unknown=%0d",checks,failures,unknowns);
+if(failures==0 && unknowns==0)$display("TEST_PASS");else $display("TEST_FAIL");$finish;end endmodule

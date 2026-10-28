@@ -42,3 +42,7 @@ empty placeholders, and explicit overlays recover 26 specs plus one filename
 matching failure. This narrows the remaining asset problem without proving why
 original assets are absent. Generic EDA coverage beyond the four pilot design
 inputs remains open; the read-only all-case audit is not an EDA benchmark run.
+
+## Bounded validity findings
+
+The preregistered follow-up in `evaluator_validity/REPORT.md` confirms a GA94 comparator blind spot and one supplied mux testbench coverage gap, reproduces a pinned generic parser weakness on captured free-tool logs, and distinguishes constant/empty proofs from adequate checking. Source-derived CRC properties establish mutation sensitivity rather than independent specification correctness. Nineteen same-input binary combinational backend pairs agree after explicit random-vector portability repair; this does not resolve four-state or sequential semantics. The sample is purposive and supports no corpus-wide false-positive estimate. Filesystem confinement is absent and explicitly probed; arbitrary untrusted-code expansion remains out of scope until a disposable credential-free filesystem environment is available.
