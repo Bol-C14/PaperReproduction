@@ -1,0 +1,12 @@
+# Frozen CPU pilot protocol — 2026-10-28
+
+Scope: local PaperReproduction branch reproduction/deepgate4-iclr2025; upstream DeepGate4 commit 85e20742a2d4702426f94e86666cdcdb408fba8a. Maximum 2 hours setup and 2 GB downloads; existing CPU and 16 GiB cgroup RAM; no GPU, paid resources, APIs, full training, publication or push.
+
+Bounded milestone:
+1. Inspect the two released checkpoint ZIP/pickle structures using zipfile/pickletools and a non-executing symbolic metadata interpreter. Never unpickle or call torch.load on remote weights. Compare tensor names/shapes against the sparse DG4 architecture; do not silently accept partial weights.
+2. Install a small isolated CPU-only PyTorch/PyG environment, pinned and recorded. Import the actual unfused tokenizer and sparse-transformer classes. Separate original-source limitations, compatibility repairs, and method adaptation.
+3. Allocate history for fixture IDs only, with explicit bounds and no pinned host requirement on CPU; test push/pull/reset and original-history parity with a small reference. Keep upstream files unchanged. At most 12-layer hidden-128 model and tiny graphs, no optimizer or training loop.
+4. Use an authored, exhaustively labelled two-input AIG (AND and explicit NOT, including reconvergence). Record exact 4-row truth tables, probabilities and pairwise normalized truth-table distances, checked against known values. Labels are fixture ground truth, not model-accuracy predictions.
+5. On fixed-seed random weights in eval mode, check finite embeddings/shapes, consistent relabelling/permutation equivariance (including edges, levels, IDs and features), and history update-once behavior. Negative controls: incorrect feature-to-node alignment and altered logic must change relevant outputs/labels. Include an upstream-semantics run; any functional correction is a separately named repaired variant. Do not claim output-label accuracy or learned quality without a complete compatible checkpoint.
+
+Predeclared tolerances: permutation allclose atol=1e-5, rtol=1e-4; altered/alignment control max absolute difference >1e-6 where inputs differ. Fixed seeds 0, 1, 2; graph sizes <=16 nodes, <=4 truth assignments; 1 CPU thread per torch process. Counterexamples are valid scientific negatives, not reasons for tuning the protocol. Count executed commands, failed installs/imports/tests and any retries; write raw JSON/logs, replay commands, dependency lock, elapsed/download/RSS ledger. Stop after this milestone or a resource/access gate. CUDA speedup and full-paper quality are out of scope.

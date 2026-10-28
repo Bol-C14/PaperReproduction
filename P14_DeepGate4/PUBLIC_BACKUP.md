@@ -1,0 +1,13 @@
+# Public branch backup
+
+Destination: existing public `Bol-C14/PaperReproduction`, branch `reproduction/deepgate4-iclr2025`. The user authorized this public backup on 2026-10-28. Repository visibility is unchanged. No PR, merge, force push, branch deletion or new research run is part of this operation.
+
+Remote refs and default HEAD were read before preparation. The target paper branch was absent. The local paper branch had no prior commits, so this backup starts with a single root commit containing only this paper's work. No unrelated remote branch or inherited history is included. No local original was destroyed or rewritten; no sanitization/recovery remapping was needed.
+
+Contents: asset audit and machine-readable inventory; original frozen protocol; authored CPU adaptation and static checkpoint-inspection source; setup/replay/recovery commands; pinned source and checkpoint provenance; exact labels, actual numerical metrics and raw generated embeddings; package-version/resource metadata; both successful and failed test evidence, and failure/resource ledgers. Scientific claims remain limited to the documented CPU integration pilot; no learned DG4 quality or GPU speedup result is asserted.
+
+Exclusions: third-party source/data/checkpoint payloads with unresolved license terms; installed environments, caches, archives, and unrelated files. Source/checkpoint hashes and recovery URLs are recorded in `pilot/source_provenance.json` and `pilot/checkpoint_fetch.json`. No locally trained checkpoint was produced. The small user-produced `pilot/raw_embeddings.npz` is included. No indispensable user-produced output is left outside this backup. No private recovery archive was created in this environment or uploaded as part of this operation; any archive elsewhere is untouched.
+
+Inspection covers all proposed staged files, followed by all reachable objects and metadata in the final local commit before push: credential/API-key patterns, private keys, auth/cookie header values, credentialed URLs, JWTs, high-entropy literal review, internal service domains, credential file paths, and file-purpose review for unrelated/private content. The NPZ artifact is inspected with `allow_pickle=False` and contains numeric float32 8×256 embeddings only. `environment.json` records package versions, executable path and CPU/memory capacity, not environment-variable values, cookies or credentials. The original experimental evidence is unchanged.
+
+`pilot/check_public_backup.py` is a read-only scan helper. The final exact commit SHA and independent post-push ref verification are returned in the task result. All-object scanning can be repeated using `--ref HEAD`. Scanner results are an inspection aid, not a guarantee against every conceivable secret.

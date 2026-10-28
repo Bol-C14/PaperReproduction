@@ -1,0 +1,65 @@
+{
+  "started_utc": "2026-10-28T10:48:39.656895+00:00",
+  "finished_utc": "2026-10-28T10:58:17.397408+00:00",
+  "wall_seconds_including_setup_and_authoring": 577.7405281066895,
+  "setup_time_limit_seconds": 7200,
+  "download_limit_bytes": 2000000000,
+  "checkpoint_download_exact_bytes": 15705442,
+  "package_downloads_log_visible_mib": 198.3,
+  "package_download_precision": "uv reports rounded sizes only for larger downloads; small wheels, index responses and protocol overhead not metered",
+  "estimated_total_download_mib_including_small_dependencies": 220,
+  "download_limit_status": "well below 2 GB from install logs and checkpoint sizes; exact whole-session network counter was not captured",
+  "workspace_disk_logical_bytes": {
+    ".venv": 843689067,
+    ".uv-cache": 802332014,
+    ".checkpoint-cache": 15705442
+  },
+  "pilot_process_peak_rss_kib": 414696,
+  "pilot_test_seconds": 1.4156771860002664,
+  "torch_cpu_threads": 1,
+  "cgroup_memory_bytes": 17179869184,
+  "cgroup_cpu_cores": 4,
+  "gpu_used": false,
+  "paid_resources": false,
+  "service_API_calls": false,
+  "optimizer_steps": 0,
+  "training_runs": 0,
+  "full_dataset_downloads": 0,
+  "push_or_publication": false,
+  "third_party_weight_loading": "none; symbolic tensor metadata only",
+  "failed_attempts": [
+    {
+      "id": "F1",
+      "action": "initial git ls-tree HEAD inventory",
+      "outcome": "exit 128, repository had no HEAD commit",
+      "resolution": "used existing source checkout and switched unborn local branch; no remote fetch/push"
+    },
+    {
+      "id": "F2",
+      "action": "install optional torch_scatter CPU wheel from data.pyg.org",
+      "outcome": "network tunnel unsuccessful after client reports three retries",
+      "resolution": "no further fetch retry; native CPU PyG scatter-mean path with analytical parity test"
+    },
+    {
+      "id": "F3",
+      "action": "first symbolic metadata reader run",
+      "outcome": "APPENDS evaluated target before popping marked list; AttributeError",
+      "resolution": "local parser fixed; checkpoint metadata parsed, callable rejection test passes"
+    },
+    {
+      "id": "F4",
+      "action": "first pilot suite",
+      "outcome": "5 methods run; 1 error in history fixture test, others pass",
+      "resolution": "fixture now supplies n_id as upstream chunked-push contract requires; no production semantics altered"
+    }
+  ],
+  "final_suite": {
+    "tests_run": 6,
+    "failures": 0,
+    "errors": 0,
+    "successful": true
+  },
+  "resource_gate_reached": false,
+  "stopping_reason": "bounded CPU functional/integration milestone complete; no full learned DG4 checkpoint and no GPU speedup claim",
+  "timing_coverage_note": "Wall timer begins at frozen protocol creation; initial read-only diagnostics and branch selection preceded it by approximately one minute."
+}

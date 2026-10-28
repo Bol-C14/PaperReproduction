@@ -1,0 +1,570 @@
+{
+  "protocol": "PROTOCOL.md",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "device": "cpu",
+  "versions": {
+    "torch": "2.6.0+cpu",
+    "pyg": "2.6.1"
+  },
+  "torch_cuda_build": null,
+  "adaptations": {
+    "upstream_commit": "85e20742a2d4702426f94e86666cdcdb408fba8a",
+    "capacity": 16,
+    "initializer_constant_replacements": [
+      {
+        "line": 168,
+        "old": 10000000,
+        "new": 16
+      },
+      {
+        "line": 169,
+        "old": 1000000,
+        "new": 16
+      },
+      {
+        "line": 163,
+        "old": 10000000,
+        "new": 16
+      },
+      {
+        "line": 164,
+        "old": 10000000,
+        "new": 16
+      },
+      {
+        "line": 166,
+        "old": 1000000,
+        "new": 16
+      },
+      {
+        "line": 167,
+        "old": 1000000,
+        "new": 16
+      }
+    ],
+    "original_files_unchanged": true,
+    "source_sha256": {
+      "dg4.py": "702fde22ec27946a83270c84f67d2fde42b4127474b5c70562a3dbeacc9dc529",
+      "dg2.py": "483fb5b147f374965f0acece604a883ba00ae38e2f6b268f17ea5d6f0a1a2d66",
+      "plain_tf_linear.py": "58d13b504fd5ac780c6ab4496ec4bd819e77321be67f946727d348c25563cb91",
+      "history.py": "1140c9160c1f20223b8b364b2ed475527c7322232eae6b5ee38124f5f160ddd2",
+      "tfmlp.py": "97464a408e12e4ccc4c667f8cdd0fdfc1f0df6969d0f0f0bacd1dfa97a06dde4",
+      "mlp.py": "84a632ec285b9ab0bbc8e1f0afe8791a5e5135141793b5e25c8b04d0ce1f43df"
+    },
+    "import_repairs": [
+      "remove unused deepgate import from tokenizer",
+      "omit unused baseline/GraphGym imports and parser import",
+      "use PyG native scatter mean instead of unavailable torch_scatter",
+      "omit relative sys.path mutation"
+    ],
+    "cpu_adapter": "unpinned history bounded to fixture capacity; original push/pull/reset inherited; out-of-bound fixture IDs rejected",
+    "functional_variant": "upstream semantics retained as baseline; RepairedDeepGate4 changes only all_update_hs scatter input hf_tf to hs_tf"
+  },
+  "checks": {
+    "logic": {
+      "assignments": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "truth_table_rows": [
+        [
+          0,
+          0,
+          1,
+          0,
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          0,
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0,
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          1,
+          0,
+          0,
+          0,
+          0
+        ]
+      ],
+      "probabilities": [
+        0.5,
+        0.5,
+        0.5,
+        0.25,
+        0.75,
+        0.25,
+        0.5,
+        0.25
+      ],
+      "pairwise_hamming_distance": [
+        [
+          0.0,
+          0.5,
+          1.0,
+          0.25,
+          0.75,
+          0.75,
+          0.5,
+          0.25
+        ],
+        [
+          0.5,
+          0.0,
+          0.5,
+          0.25,
+          0.75,
+          0.25,
+          1.0,
+          0.75
+        ],
+        [
+          1.0,
+          0.5,
+          0.0,
+          0.75,
+          0.25,
+          0.25,
+          0.5,
+          0.75
+        ],
+        [
+          0.25,
+          0.25,
+          0.75,
+          0.0,
+          1.0,
+          0.5,
+          0.75,
+          0.5
+        ],
+        [
+          0.75,
+          0.75,
+          0.25,
+          1.0,
+          0.0,
+          0.5,
+          0.25,
+          0.5
+        ],
+        [
+          0.75,
+          0.25,
+          0.25,
+          0.5,
+          0.5,
+          0.0,
+          0.75,
+          0.5
+        ],
+        [
+          0.5,
+          1.0,
+          0.5,
+          0.75,
+          0.25,
+          0.75,
+          0.0,
+          0.25
+        ],
+        [
+          0.25,
+          0.75,
+          0.75,
+          0.5,
+          0.5,
+          0.5,
+          0.25,
+          0.0
+        ]
+      ],
+      "label_assertions": true
+    },
+    "history": {
+      "bounded_cpu_bytes_8x4": 128,
+      "upstream_push_pull_parity": true,
+      "reset_and_bounds": true,
+      "native_scatter_mean_reference": true
+    },
+    "checkpoint_safety": {
+      "unsupported_GLOBAL_rejected": true,
+      "torch_load_used": false,
+      "pickle_load_used": false
+    },
+    "checkpoint_coverage": [
+      {
+        "file": "model_last.pth",
+        "epoch": 20,
+        "checkpoint_tensors": 64,
+        "tokenizer_total": 64,
+        "full_model_tensors": 492,
+        "transformer_tensor_count": 144,
+        "transformer_coverage": 0,
+        "full_model_compatible": false
+      },
+      {
+        "file": "model_last_workload.pth",
+        "epoch": 50,
+        "checkpoint_tensors": 64,
+        "tokenizer_total": 64,
+        "full_model_tensors": 492,
+        "transformer_tensor_count": 144,
+        "transformer_coverage": 0,
+        "full_model_compatible": false
+      }
+    ],
+    "architecture": {
+      "tokenizer_module": "p14_upstream.dg2",
+      "sparse_module": "p14_upstream.plain_tf_linear",
+      "sparse_layers": 12,
+      "parameters": 7371314,
+      "four_history_bytes": 32768
+    },
+    "capacity_equivalence": {
+      "capacities": [
+        8,
+        16
+      ],
+      "max_abs": 0.0,
+      "exact_equal": true
+    }
+  },
+  "runs": [
+    {
+      "seed": 0,
+      "variant": "upstream_semantics",
+      "embedding_shape": [
+        8,
+        256
+      ],
+      "finite": true,
+      "l2_norm": 39.868309020996094,
+      "embedding_sha256": "2955767d22db861aedb31b1bc005a8f3f1820c35790a6893879d0e37f041bdf2",
+      "permutations": [
+        {
+          "order": [
+            1,
+            0,
+            6,
+            3,
+            2,
+            7,
+            5,
+            4
+          ],
+          "max_abs": 0.0,
+          "allclose": true
+        },
+        {
+          "order": [
+            7,
+            2,
+            0,
+            5,
+            1,
+            4,
+            6,
+            3
+          ],
+          "max_abs": 7.152557373046875e-07,
+          "allclose": true
+        }
+      ],
+      "non_pi_function_vs_structure_max_abs": 0.0,
+      "update_once_repeat_max_abs": 0.0,
+      "misaligned_PI_history_max_abs": 3.0105299949645996,
+      "altered_logic_embedding_max_abs": 0.6415846347808838,
+      "altered_logic_truth_table_bit_changes": 2,
+      "two_cone_update_once": true,
+      "two_cone_vs_single_cone_max_abs": 1.823380470275879
+    },
+    {
+      "seed": 0,
+      "variant": "structural_history_repair",
+      "embedding_shape": [
+        8,
+        256
+      ],
+      "finite": true,
+      "l2_norm": 47.40412521362305,
+      "embedding_sha256": "bc9e202121ae568eab3f4e9d1c2b392b0edb8aa658dda3407c4af02b7b960655",
+      "permutations": [
+        {
+          "order": [
+            1,
+            0,
+            6,
+            3,
+            2,
+            7,
+            5,
+            4
+          ],
+          "max_abs": 0.0,
+          "allclose": true
+        },
+        {
+          "order": [
+            7,
+            2,
+            0,
+            5,
+            1,
+            4,
+            6,
+            3
+          ],
+          "max_abs": 7.152557373046875e-07,
+          "allclose": true
+        }
+      ],
+      "non_pi_function_vs_structure_max_abs": 5.947908401489258,
+      "update_once_repeat_max_abs": 0.0,
+      "misaligned_PI_history_max_abs": 4.52324914932251,
+      "altered_logic_embedding_max_abs": 3.1763458251953125,
+      "altered_logic_truth_table_bit_changes": 2,
+      "two_cone_update_once": true,
+      "two_cone_vs_single_cone_max_abs": 1.7229198217391968
+    },
+    {
+      "seed": 1,
+      "variant": "upstream_semantics",
+      "embedding_shape": [
+        8,
+        256
+      ],
+      "finite": true,
+      "l2_norm": 42.1345329284668,
+      "embedding_sha256": "502737591dac7948723a29b89f8e80c50a036f6f6400f291590244bd1d2100bf",
+      "permutations": [
+        {
+          "order": [
+            1,
+            0,
+            6,
+            3,
+            2,
+            7,
+            5,
+            4
+          ],
+          "max_abs": 0.0,
+          "allclose": true
+        },
+        {
+          "order": [
+            7,
+            2,
+            0,
+            5,
+            1,
+            4,
+            6,
+            3
+          ],
+          "max_abs": 4.76837158203125e-07,
+          "allclose": true
+        }
+      ],
+      "non_pi_function_vs_structure_max_abs": 0.0,
+      "update_once_repeat_max_abs": 0.0,
+      "misaligned_PI_history_max_abs": 2.691816806793213,
+      "altered_logic_embedding_max_abs": 0.5615448355674744,
+      "altered_logic_truth_table_bit_changes": 2,
+      "two_cone_update_once": true,
+      "two_cone_vs_single_cone_max_abs": 1.657989501953125
+    },
+    {
+      "seed": 1,
+      "variant": "structural_history_repair",
+      "embedding_shape": [
+        8,
+        256
+      ],
+      "finite": true,
+      "l2_norm": 47.8075065612793,
+      "embedding_sha256": "d4098d56045097ed341322d416759c010221fbdecf26dfaf275ece5685240b89",
+      "permutations": [
+        {
+          "order": [
+            1,
+            0,
+            6,
+            3,
+            2,
+            7,
+            5,
+            4
+          ],
+          "max_abs": 0.0,
+          "allclose": true
+        },
+        {
+          "order": [
+            7,
+            2,
+            0,
+            5,
+            1,
+            4,
+            6,
+            3
+          ],
+          "max_abs": 4.76837158203125e-07,
+          "allclose": true
+        }
+      ],
+      "non_pi_function_vs_structure_max_abs": 5.280045509338379,
+      "update_once_repeat_max_abs": 0.0,
+      "misaligned_PI_history_max_abs": 3.1418628692626953,
+      "altered_logic_embedding_max_abs": 2.031684160232544,
+      "altered_logic_truth_table_bit_changes": 2,
+      "two_cone_update_once": true,
+      "two_cone_vs_single_cone_max_abs": 2.1514101028442383
+    },
+    {
+      "seed": 2,
+      "variant": "upstream_semantics",
+      "embedding_shape": [
+        8,
+        256
+      ],
+      "finite": true,
+      "l2_norm": 41.757545471191406,
+      "embedding_sha256": "3701e9c123d1ecaff3854a0283f5af3be5c48930404753cc787d48fba8927bb0",
+      "permutations": [
+        {
+          "order": [
+            1,
+            0,
+            6,
+            3,
+            2,
+            7,
+            5,
+            4
+          ],
+          "max_abs": 0.0,
+          "allclose": true
+        },
+        {
+          "order": [
+            7,
+            2,
+            0,
+            5,
+            1,
+            4,
+            6,
+            3
+          ],
+          "max_abs": 7.152557373046875e-07,
+          "allclose": true
+        }
+      ],
+      "non_pi_function_vs_structure_max_abs": 0.0,
+      "update_once_repeat_max_abs": 0.0,
+      "misaligned_PI_history_max_abs": 3.688112258911133,
+      "altered_logic_embedding_max_abs": 0.7090016603469849,
+      "altered_logic_truth_table_bit_changes": 2,
+      "two_cone_update_once": true,
+      "two_cone_vs_single_cone_max_abs": 1.897276520729065
+    },
+    {
+      "seed": 2,
+      "variant": "structural_history_repair",
+      "embedding_shape": [
+        8,
+        256
+      ],
+      "finite": true,
+      "l2_norm": 46.809837341308594,
+      "embedding_sha256": "945f54cdbd378e618499831271d322cb34d1a2274064abf6f9049e7421549aa9",
+      "permutations": [
+        {
+          "order": [
+            1,
+            0,
+            6,
+            3,
+            2,
+            7,
+            5,
+            4
+          ],
+          "max_abs": 0.0,
+          "allclose": true
+        },
+        {
+          "order": [
+            7,
+            2,
+            0,
+            5,
+            1,
+            4,
+            6,
+            3
+          ],
+          "max_abs": 7.152557373046875e-07,
+          "allclose": true
+        }
+      ],
+      "non_pi_function_vs_structure_max_abs": 5.668940544128418,
+      "update_once_repeat_max_abs": 0.0,
+      "misaligned_PI_history_max_abs": 4.205141067504883,
+      "altered_logic_embedding_max_abs": 2.8488268852233887,
+      "altered_logic_truth_table_bit_changes": 2,
+      "two_cone_update_once": true,
+      "two_cone_vs_single_cone_max_abs": 1.9604320526123047
+    }
+  ],
+  "test_result": {
+    "tests_run": 6,
+    "failures": 0,
+    "errors": 0,
+    "successful": true
+  },
+  "elapsed_seconds": 1.4156771860002664,
+  "process_max_rss_kib": 414696
+}

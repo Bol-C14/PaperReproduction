@@ -1,0 +1,53 @@
+{
+  "upstream_commit": "85e20742a2d4702426f94e86666cdcdb408fba8a",
+  "capacity": 16,
+  "initializer_constant_replacements": [
+    {
+      "line": 168,
+      "old": 10000000,
+      "new": 16
+    },
+    {
+      "line": 169,
+      "old": 1000000,
+      "new": 16
+    },
+    {
+      "line": 163,
+      "old": 10000000,
+      "new": 16
+    },
+    {
+      "line": 164,
+      "old": 10000000,
+      "new": 16
+    },
+    {
+      "line": 166,
+      "old": 1000000,
+      "new": 16
+    },
+    {
+      "line": 167,
+      "old": 1000000,
+      "new": 16
+    }
+  ],
+  "original_files_unchanged": true,
+  "source_sha256": {
+    "dg4.py": "702fde22ec27946a83270c84f67d2fde42b4127474b5c70562a3dbeacc9dc529",
+    "dg2.py": "483fb5b147f374965f0acece604a883ba00ae38e2f6b268f17ea5d6f0a1a2d66",
+    "plain_tf_linear.py": "58d13b504fd5ac780c6ab4496ec4bd819e77321be67f946727d348c25563cb91",
+    "history.py": "1140c9160c1f20223b8b364b2ed475527c7322232eae6b5ee38124f5f160ddd2",
+    "tfmlp.py": "97464a408e12e4ccc4c667f8cdd0fdfc1f0df6969d0f0f0bacd1dfa97a06dde4",
+    "mlp.py": "84a632ec285b9ab0bbc8e1f0afe8791a5e5135141793b5e25c8b04d0ce1f43df"
+  },
+  "import_repairs": [
+    "remove unused deepgate import from tokenizer",
+    "omit unused baseline/GraphGym imports and parser import",
+    "use PyG native scatter mean instead of unavailable torch_scatter",
+    "omit relative sys.path mutation"
+  ],
+  "cpu_adapter": "unpinned history bounded to fixture capacity; original push/pull/reset inherited; out-of-bound fixture IDs rejected",
+  "functional_variant": "upstream semantics retained as baseline; RepairedDeepGate4 changes only all_update_hs scatter input hf_tf to hs_tf"
+}

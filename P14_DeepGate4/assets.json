@@ -1,0 +1,315 @@
+{
+  "paper_id": "P14",
+  "title": "DeepGate4: Efficient and Effective Representation Learning for Circuit Design at Scale",
+  "venue": "ICLR 2025",
+  "audit_date": "2026-10-28",
+  "audit_type": "assets_only",
+  "goal": "method learning, not bit exact",
+  "workspace": "/workspace/PaperReproduction/P14_DeepGate4",
+  "requested_model": "GPT-6.1-sol medium",
+  "repository": {
+    "url": "https://github.com/zyzheng17/DeepGate4-ICLR-25",
+    "commit": "85e20742a2d4702426f94e86666cdcdb408fba8a",
+    "tree_inventory": "tree.txt"
+  },
+  "classification": {
+    "minimum_faithful_mechanism": {
+      "level": "L2",
+      "confidence": "medium",
+      "provisional": true,
+      "scope": "unfused sparse DeepGate4 on released samples",
+      "fills": [
+        "consistent dependency stack",
+        "entrypoint and small integration fixes",
+        "checkpoint identity/coverage verification"
+      ],
+      "fidelity_limit": "mechanism study, not published representation quality or fused speedup",
+      "pilot_status": "working CPU tiny-fixture adaptation; six final test groups pass; no learned accuracy claim"
+    },
+    "released_pretrained_inference": {
+      "level": "L3",
+      "conditional": false,
+      "readiness": "not supplied by the two audited released checkpoints",
+      "confidence": "high for these two files; other external full-model releases unverified",
+      "reason": "Both files match 64/64 tokenizer tensors, with 0/144 sparse transformer tensors. Full DG4 weights require recovery elsewhere or high-cost training."
+    },
+    "full_paper": {
+      "level": "L3",
+      "confidence": "high for practical barriers; medium for external release completeness",
+      "fills": [
+        "complete processed benchmark assets/manifests and exact checkpoints",
+        "custom fused CUDA implementation/build and numerical equivalence",
+        "benchmark-scale preparation/training if assets cannot be recovered"
+      ]
+    }
+  },
+  "assets": [
+    {
+      "id": "model_last.pth",
+      "type": "checkpoint",
+      "path": "trained/model_last.pth",
+      "source": "https://github.com/zyzheng17/DeepGate4-ICLR-25/blob/85e20742a2d4702426f94e86666cdcdb408fba8a/trained/model_last.pth",
+      "git_blob_sha1": "c0663c81375f4df7a7740db3e4ad6180cecc5ed5",
+      "display_size": "7.49 MB",
+      "status": "verified tokenizer-only tensor coverage; not full sparse DG4 weights",
+      "payload_downloaded_intentionally": false,
+      "deserialized": false,
+      "license": "unspecified in inspected release",
+      "confidence": "high existence; low compatibility",
+      "initial_audit_status": "public file metadata verified; architecture/training provenance unverified",
+      "pilot_update": {
+        "payload_downloaded": true,
+        "inspection": "non-executing symbolic ZIP/pickle metadata only",
+        "deserialized": false,
+        "framework_weight_loading": false,
+        "state_dict_tensors": 64,
+        "tokenizer_name_shape_matches": 64,
+        "sparse_transformer_matches": 0,
+        "full_sparse_model_compatible": false,
+        "epoch": 20,
+        "bytes": 7852721
+      }
+    },
+    {
+      "id": "model_last_workload.pth",
+      "type": "checkpoint",
+      "path": "trained/model_last_workload.pth",
+      "source": "https://github.com/zyzheng17/DeepGate4-ICLR-25/blob/85e20742a2d4702426f94e86666cdcdb408fba8a/trained/model_last_workload.pth",
+      "git_blob_sha1": "85bf4a4655e2b844ad93a0812ffeec4b0bba8757",
+      "display_size": "7.49 MB",
+      "status": "verified tokenizer-only tensor coverage; not full sparse DG4 weights",
+      "payload_downloaded_intentionally": false,
+      "deserialized": false,
+      "license": "unspecified in inspected release",
+      "confidence": "high existence; low compatibility",
+      "initial_audit_status": "public file metadata verified; architecture/training provenance unverified",
+      "pilot_update": {
+        "payload_downloaded": true,
+        "inspection": "non-executing symbolic ZIP/pickle metadata only",
+        "deserialized": false,
+        "framework_weight_loading": false,
+        "state_dict_tensors": 64,
+        "tokenizer_name_shape_matches": 64,
+        "sparse_transformer_matches": 0,
+        "full_sparse_model_compatible": false,
+        "epoch": 50,
+        "bytes": 7852721
+      }
+    },
+    {
+      "id": "b11_opt_C.pkl",
+      "type": "processed_sample",
+      "path": "sample_data/b11_opt_C.pkl",
+      "bytes": 2885107,
+      "git_blob_sha1": "54ec503139b018aa30f5574e4247e9d8f33d66a4",
+      "status": "Git metadata verified; content/schema unverified",
+      "deserialized": false,
+      "license": "unspecified",
+      "source": "https://github.com/zyzheng17/DeepGate4-ICLR-25/blob/85e20742a2d4702426f94e86666cdcdb408fba8a/sample_data/b11_opt_C.pkl",
+      "confidence": "high metadata"
+    },
+    {
+      "id": "b12_opt_C.pkl",
+      "type": "processed_sample",
+      "path": "sample_data/b12_opt_C.pkl",
+      "bytes": 7666902,
+      "git_blob_sha1": "ae1adf6f2bad49753adef0170e8784b06929eca6",
+      "status": "Git metadata verified; content/schema unverified",
+      "deserialized": false,
+      "license": "unspecified",
+      "source": "https://github.com/zyzheng17/DeepGate4-ICLR-25/blob/85e20742a2d4702426f94e86666cdcdb408fba8a/sample_data/b12_opt_C.pkl",
+      "confidence": "high metadata"
+    },
+    {
+      "id": "raw_samples",
+      "type": "AIG inputs",
+      "files": [
+        {
+          "path": "raw_sample_data/b11_opt_C.aig",
+          "bytes": 1699
+        },
+        {
+          "path": "raw_sample_data/b12_opt_C.aig",
+          "bytes": 3401
+        }
+      ],
+      "status": "public tree metadata verified",
+      "license": "unspecified",
+      "source": "https://github.com/zyzheng17/DeepGate4-ICLR-25/blob/85e20742a2d4702426f94e86666cdcdb408fba8a/raw_sample_data",
+      "confidence": "high metadata"
+    },
+    {
+      "id": "unfused_model",
+      "type": "code",
+      "paths": [
+        "src/models/dg4.py",
+        "src/models/dg2.py",
+        "src/models/plain_tf_linear.py",
+        "src/models/history.py",
+        "src/trainer/dg4_trainer.py"
+      ],
+      "status": "source inspected; not executed",
+      "source": "https://github.com/zyzheng17/DeepGate4-ICLR-25/blob/85e20742a2d4702426f94e86666cdcdb408fba8a/src/models/dg4.py",
+      "license": "no standalone license in pinned tree",
+      "confidence": "high source availability"
+    },
+    {
+      "id": "fused_kernel",
+      "type": "CUDA system path",
+      "status": "not present in audited tree; external release unverified",
+      "evidence": "complete tree inventory lacks .cu/.cuh/custom build/bindings; sparse path uses PyG GATConv",
+      "source": "https://github.com/zyzheng17/DeepGate4-ICLR-25/blob/85e20742a2d4702426f94e86666cdcdb408fba8a/src/models/plain_tf_linear.py",
+      "confidence": "high scoped absence; no claim of global absence"
+    },
+    {
+      "id": "environment",
+      "type": "dependency specification",
+      "status": "published but not a verified install recipe",
+      "risks": [
+        "torch 2.0.1 vs pt21cu118 compiled wheels",
+        "deepgate not pinned",
+        "eager baseline imports",
+        "Trainer forces CUDA"
+      ],
+      "source": "https://github.com/zyzheng17/DeepGate4-ICLR-25/blob/85e20742a2d4702426f94e86666cdcdb408fba8a/requirements.txt",
+      "confidence": "high static observations"
+    },
+    {
+      "id": "simulator",
+      "type": "CPU preprocessing code",
+      "status": "source present; not compiled or run",
+      "source": "https://github.com/zyzheng17/DeepGate4-ICLR-25/blob/85e20742a2d4702426f94e86666cdcdb408fba8a/simulator/simulator.cpp",
+      "license": "unspecified",
+      "confidence": "high"
+    },
+    {
+      "id": "full_benchmarks",
+      "type": "data",
+      "status": "only two samples confirmed in release; full processed benchmark assets externally unverified",
+      "sources": [
+        "https://github.com/lsils/benchmarks",
+        "https://github.com/zyzheng17/DeepGate4-ICLR-25/blob/85e20742a2d4702426f94e86666cdcdb408fba8a/src/dg_datasets/data_preparation.py"
+      ],
+      "license": "EPFL MIT; exact ITC99/derived data terms unverified",
+      "confidence": "medium"
+    },
+    {
+      "id": "handmade_image_processing",
+      "type": "scaling data",
+      "status": "exact source/netlist/processed graph unverified",
+      "source": "https://proceedings.iclr.cc/paper_files/paper/2025/file/d75f561eaaf2cb754bc8d7e36d8af362-Paper-Conference.pdf",
+      "confidence": "medium"
+    }
+  ],
+  "resources": {
+    "paper_hardware": "one NVIDIA A800; VRAM SKU unverified",
+    "paper_training": {
+      "epochs": 200,
+      "batch_size": 1,
+      "mini_batch_size": 128,
+      "hidden": 128,
+      "optimizer": "Adam",
+      "lr": 0.0001,
+      "reported_dg4_training_memory": "7.53G",
+      "reported_parameters": 7370000
+    },
+    "code_host_history": {
+      "bytes_float32_hidden128": 11264000000,
+      "gib_approx": 10.49,
+      "pinned": true,
+      "scope": "four CPU histories only, excludes other allocations"
+    },
+    "planning_only": {
+      "host_ram_gb": 32,
+      "gpu_vram_gb": 16,
+      "status": "unmeasured conservative small-unfused starting budget; not a verified minimum"
+    },
+    "cloud_gpu": "unprobed",
+    "large_graph_route": "handmade image processing source and exact graph unverified; synthetic scaling duplicates original"
+  },
+  "substitutions": [
+    {
+      "name": "unfused PyG path",
+      "preserves": "intended architecture after equivalence/integration checks",
+      "loses": "custom CUDA speedup validation"
+    },
+    {
+      "name": "sample-only learning",
+      "preserves": "cone/history/attention learning mechanism",
+      "loses": "full benchmark and OOD quality"
+    },
+    {
+      "name": "CPU function port",
+      "preserves": "functional mechanism after portability corrections",
+      "loses": "GPU timing and VRAM claims"
+    },
+    {
+      "name": "public EPFL reconversion",
+      "preserves": "benchmark family",
+      "loses": "exact optimized topology/label sampling unless matched"
+    }
+  ],
+  "testable_gap_control": {
+    "gap": "checkpoint identity and complete sparse-DG4 parameter coverage",
+    "control": "manifest of tensor names/shapes/dtypes; require complete tokenizer, transformer, encoding and needed heads; report dropped/missing/reinitialized tensors",
+    "executed": false
+  },
+  "audit_actions": {
+    "experiments": false,
+    "inference": false,
+    "EDA": false,
+    "installation": false,
+    "compilation": false,
+    "CUDA_execution": false,
+    "service_API_calls": false,
+    "publication": false,
+    "license_acceptance": false,
+    "large_weight_download": false,
+    "checkpoint_deserialization": false,
+    "small_git_binary_objects": "Some sample/image objects were lazily fetched by initial Git size enumeration, which was stopped; none were deserialized or analyzed."
+  },
+  "access": {
+    "gates_bypassed": false,
+    "approval_denial": false,
+    "web_tree_rendering": "some directory pages restricted by web retrieval; public normal Git tree succeeded",
+    "python_deepgate_root_LICENSE": "HTTP 404; other licensing locations unverified"
+  },
+  "remaining_blockers": [
+    "complete DG4 checkpoint provenance/coverage unverified",
+    "full processed datasets and handmade scaling graph unverified",
+    "custom fused path absent from audited tree, external release unverified",
+    "dependency ABI and shipped integration assumptions",
+    "DG4 code/data/checkpoint license terms unspecified"
+  ],
+  "sources": {
+    "paper": "https://proceedings.iclr.cc/paper_files/paper/2025/file/d75f561eaaf2cb754bc8d7e36d8af362-Paper-Conference.pdf",
+    "official_readme": "https://github.com/zyzheng17/DeepGate4-ICLR-25/blob/85e20742a2d4702426f94e86666cdcdb408fba8a/README.md",
+    "code_base": "https://github.com/zyzheng17/DeepGate4-ICLR-25/blob/85e20742a2d4702426f94e86666cdcdb408fba8a/",
+    "checkpoint_pages": [
+      "https://github.com/zyzheng17/DeepGate4-ICLR-25/blob/main/trained/model_last.pth",
+      "https://github.com/zyzheng17/DeepGate4-ICLR-25/blob/main/trained/model_last_workload.pth"
+    ],
+    "dependency": "https://github.com/zshi0616/python-deepgate",
+    "epfl": "https://github.com/lsils/benchmarks",
+    "abc": "https://github.com/berkeley-abc/abc",
+    "historical_data_lead": "https://github.com/zyzheng17/DeepGate4-ICLR-25/issues/1"
+  },
+  "pilot": {
+    "date": "2026-10-28",
+    "branch": "reproduction/deepgate4-iclr2025",
+    "report": "pilot/README.md",
+    "protocol": "pilot/PROTOCOL.md",
+    "metrics": "pilot/raw_metrics.json",
+    "ledger": "pilot/resource_ledger.json",
+    "test_log": "pilot/tests_attempt2.log",
+    "final_test_groups": 6,
+    "successful": true,
+    "peak_rss_kib": 414696,
+    "checkpoint_bytes_downloaded": 15705442,
+    "unsafe_remote_weight_loading": false,
+    "random_full_model_weights": true,
+    "learned_quality_evaluated": false,
+    "GPU_speedup_evaluated": false,
+    "milestone_complete": true
+  }
+}
