@@ -1,0 +1,260 @@
+{
+  "status": "offline_replay",
+  "selection_count": 20,
+  "calibrated_tasks": 19,
+  "quarantined": [
+    {
+      "task_id": "HumanEval/32",
+      "reason": "upstream special-oracle successful branches omit result/progress bookkeeping; reference replay fails"
+    }
+  ],
+  "models": {
+    "chatgpt": {
+      "unique_cached_programs": 20,
+      "evaluator_invalid": 1,
+      "base_pass": 13,
+      "augmented_pass": 12,
+      "base_false_accepts": [
+        "HumanEval/140"
+      ],
+      "base_definite_fail": 6,
+      "augmented_unknown": 0,
+      "reduction_projection": {
+        "samples": {
+          "pass": 12,
+          "missed_vs_full": [],
+          "unknown": []
+        },
+        "coverage": {
+          "pass": 13,
+          "missed_vs_full": [
+            "HumanEval/140"
+          ],
+          "unknown": []
+        },
+        "mutation": {
+          "pass": 13,
+          "missed_vs_full": [
+            "HumanEval/140"
+          ],
+          "unknown": []
+        },
+        "combined": {
+          "pass": 12,
+          "missed_vs_full": [],
+          "unknown": []
+        }
+      }
+    },
+    "codegen-2b": {
+      "unique_cached_programs": 20,
+      "evaluator_invalid": 1,
+      "base_pass": 5,
+      "augmented_pass": 4,
+      "base_false_accepts": [
+        "HumanEval/124"
+      ],
+      "base_definite_fail": 14,
+      "augmented_unknown": 0,
+      "reduction_projection": {
+        "samples": {
+          "pass": 4,
+          "missed_vs_full": [],
+          "unknown": []
+        },
+        "coverage": {
+          "pass": 4,
+          "missed_vs_full": [],
+          "unknown": []
+        },
+        "mutation": {
+          "pass": 4,
+          "missed_vs_full": [],
+          "unknown": []
+        },
+        "combined": {
+          "pass": 4,
+          "missed_vs_full": [],
+          "unknown": []
+        }
+      }
+    },
+    "gpt-4": {
+      "unique_cached_programs": 20,
+      "evaluator_invalid": 1,
+      "base_pass": 15,
+      "augmented_pass": 14,
+      "base_false_accepts": [
+        "HumanEval/124"
+      ],
+      "base_definite_fail": 4,
+      "augmented_unknown": 0,
+      "reduction_projection": {
+        "samples": {
+          "pass": 15,
+          "missed_vs_full": [
+            "HumanEval/124"
+          ],
+          "unknown": []
+        },
+        "coverage": {
+          "pass": 15,
+          "missed_vs_full": [
+            "HumanEval/124"
+          ],
+          "unknown": []
+        },
+        "mutation": {
+          "pass": 15,
+          "missed_vs_full": [
+            "HumanEval/124"
+          ],
+          "unknown": []
+        },
+        "combined": {
+          "pass": 15,
+          "missed_vs_full": [
+            "HumanEval/124"
+          ],
+          "unknown": []
+        }
+      }
+    }
+  },
+  "timeouts": [
+    {
+      "model": "chatgpt",
+      "task_id": "HumanEval/163",
+      "suite": "plus",
+      "recorded": 747,
+      "expected": 982,
+      "base_failed": true
+    },
+    {
+      "model": "gpt-4",
+      "task_id": "HumanEval/129",
+      "suite": "plus",
+      "recorded": 118,
+      "expected": 189,
+      "base_failed": true
+    },
+    {
+      "model": "gpt-4",
+      "task_id": "HumanEval/163",
+      "suite": "plus",
+      "recorded": 442,
+      "expected": 982,
+      "base_failed": true
+    }
+  ],
+  "all_selected_tasks": [
+    "HumanEval/0",
+    "HumanEval/1",
+    "HumanEval/2",
+    "HumanEval/3",
+    "HumanEval/6",
+    "HumanEval/9",
+    "HumanEval/28",
+    "HumanEval/32",
+    "HumanEval/35",
+    "HumanEval/53",
+    "HumanEval/58",
+    "HumanEval/75",
+    "HumanEval/99",
+    "HumanEval/114",
+    "HumanEval/124",
+    "HumanEval/129",
+    "HumanEval/140",
+    "HumanEval/148",
+    "HumanEval/160",
+    "HumanEval/163"
+  ],
+  "tests": {
+    "base": 211,
+    "plus": 14005,
+    "reduced_plus": {
+      "samples": 15,
+      "coverage": 23,
+      "mutation": 7,
+      "combined": 29
+    }
+  },
+  "contracts": {
+    "base": 311,
+    "plus": 14793,
+    "violations": [
+      {
+        "task_id": "HumanEval/32",
+        "suite": "plus",
+        "count": 69
+      }
+    ]
+  },
+  "implementation_mutants_calibrated": {
+    "generated": 11,
+    "killed": 7,
+    "survived_unresolved": 4,
+    "no_eligible_comparison": [
+      "HumanEval/2",
+      "HumanEval/9",
+      "HumanEval/28",
+      "HumanEval/35",
+      "HumanEval/53",
+      "HumanEval/58",
+      "HumanEval/140",
+      "HumanEval/160"
+    ],
+    "known_equivalent_wrapper_pass": 19,
+    "equivalent_wrapper_evaluator_invalid": 1
+  },
+  "rank_uncertainty": {
+    "method": "paired task bootstrap; 20000 draws; seed 20261028; descriptive only for purposive calibrated19",
+    "comparisons": {
+      "gpt-4_minus_chatgpt": {
+        "difference": 0.10526315789473684,
+        "percentile_95": [
+          0.0,
+          0.2631578947368421
+        ],
+        "paired_discordance_a_only": 2,
+        "paired_discordance_b_only": 0
+      },
+      "chatgpt_minus_codegen-2b": {
+        "difference": 0.42105263157894735,
+        "percentile_95": [
+          0.21052631578947367,
+          0.631578947368421
+        ],
+        "paired_discordance_a_only": 8,
+        "paired_discordance_b_only": 0
+      },
+      "gpt-4_minus_codegen-2b": {
+        "difference": 0.5263157894736842,
+        "percentile_95": [
+          0.3157894736842105,
+          0.7368421052631579
+        ],
+        "paired_discordance_a_only": 10,
+        "paired_discordance_b_only": 0
+      }
+    }
+  },
+  "combined_actual_rerun": {
+    "chatgpt": {
+      "completed_tasks": 19,
+      "pass": 12,
+      "matches_frozen_projection": true
+    },
+    "codegen-2b": {
+      "completed_tasks": 19,
+      "pass": 4,
+      "matches_frozen_projection": true
+    },
+    "gpt-4": {
+      "completed_tasks": 19,
+      "pass": 15,
+      "matches_frozen_projection": true
+    }
+  },
+  "cost_usd": 0
+}

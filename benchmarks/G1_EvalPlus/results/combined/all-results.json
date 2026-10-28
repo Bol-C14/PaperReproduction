@@ -1,0 +1,3653 @@
+[
+  {
+    "task_id": "HumanEval/0",
+    "variants": {
+      "reference": {
+        "source_sha256": "8a5ef48dad7efb1cebfec51b05941aa78eab9c3c8cd4377b6b2903b1f92793c6",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 7
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true
+          ],
+          "expected_count": 3
+        }
+      },
+      "chatgpt": {
+        "source_sha256": "1309e2d8145390c2e50b2c18c10d849a0abaa2e27f74124c8cba59feaeff854b",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 7
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true
+          ],
+          "expected_count": 3
+        }
+      },
+      "codegen-2b": {
+        "source_sha256": "dfd234c5f546f14b922a30e338422afacac8c74afdb7cacd2ceeb4a98eced412",
+        "base": {
+          "status": "fail",
+          "details": [
+            true,
+            false,
+            true,
+            false,
+            true,
+            true,
+            false
+          ],
+          "expected_count": 7
+        },
+        "plus": {
+          "status": "fail",
+          "details": [
+            false,
+            true,
+            false
+          ],
+          "expected_count": 3
+        }
+      },
+      "gpt-4": {
+        "source_sha256": "6f3c55207564722663064cb802ac858819916b5a71e3be3e0e9c14cf20c5adfa",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 7
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true
+          ],
+          "expected_count": 3
+        }
+      }
+    },
+    "contracts": {
+      "base": {
+        "count": 7,
+        "invalid": [],
+        "contract_present": true
+      },
+      "plus": {
+        "count": 3,
+        "invalid": [],
+        "contract_present": true
+      }
+    },
+    "coverage_arcs": [
+      [
+        [
+          -1,
+          14
+        ],
+        [
+          14,
+          15
+        ],
+        [
+          15,
+          16
+        ],
+        [
+          15,
+          18
+        ],
+        [
+          16,
+          15
+        ]
+      ],
+      [
+        [
+          -1,
+          14
+        ],
+        [
+          14,
+          15
+        ],
+        [
+          15,
+          16
+        ],
+        [
+          16,
+          15
+        ],
+        [
+          16,
+          17
+        ]
+      ],
+      [
+        [
+          -1,
+          14
+        ],
+        [
+          14,
+          15
+        ],
+        [
+          15,
+          16
+        ],
+        [
+          15,
+          18
+        ],
+        [
+          16,
+          15
+        ]
+      ]
+    ],
+    "base_reference_output_sha256": "b48d6cd28893eef88896bbda8bcea1acb6d0ca6c89f44844901f998eaaef6554",
+    "plus_reference_output_sha256": "4b2540a20f85d2860ad7ed47c0ccf5e4519d95713b156643ad3b64db35e28b0c",
+    "independent_oracle": {
+      "base": {
+        "checked": 7,
+        "mismatches": [],
+        "unknown": []
+      },
+      "plus": {
+        "checked": 3,
+        "mismatches": [],
+        "unknown": []
+      }
+    },
+    "phase": "combined",
+    "implementation_mutation": {
+      "line": 16,
+      "from": "Lt",
+      "to": "LtE"
+    },
+    "status": "completed"
+  },
+  {
+    "task_id": "HumanEval/1",
+    "variants": {
+      "reference": {
+        "source_sha256": "9b43e220572145bff52614774a7ed436129c1ff4145d92f929070a766572752a",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 4
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true
+          ],
+          "expected_count": 1
+        }
+      },
+      "chatgpt": {
+        "source_sha256": "6b241296d4e88c08f594ae2efc5655bef8ed74af3172d50b45b5f33fc5be24e6",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 4
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true
+          ],
+          "expected_count": 1
+        }
+      },
+      "codegen-2b": {
+        "source_sha256": "335daa787b08144de42728596e9e3f05e384b6ed608ecbea2bc967d68f705c9b",
+        "base": {
+          "status": "fail",
+          "details": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "expected_count": 4
+        },
+        "plus": {
+          "status": "fail",
+          "details": [
+            false
+          ],
+          "expected_count": 1
+        }
+      },
+      "gpt-4": {
+        "source_sha256": "fe393638e2ac4a5623f8e11f47859b935d11c78b045d524901d973eb870e26b7",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 4
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true
+          ],
+          "expected_count": 1
+        }
+      }
+    },
+    "contracts": {
+      "base": {
+        "count": 4,
+        "invalid": [],
+        "contract_present": true
+      },
+      "plus": {
+        "count": 1,
+        "invalid": [],
+        "contract_present": true
+      }
+    },
+    "coverage_arcs": [
+      [
+        [
+          -1,
+          14
+        ],
+        [
+          14,
+          15
+        ],
+        [
+          15,
+          16
+        ],
+        [
+          15,
+          22
+        ],
+        [
+          16,
+          17
+        ],
+        [
+          17,
+          18
+        ],
+        [
+          18,
+          19
+        ],
+        [
+          19,
+          15
+        ],
+        [
+          19,
+          20
+        ],
+        [
+          20,
+          21
+        ],
+        [
+          21,
+          15
+        ]
+      ]
+    ],
+    "base_reference_output_sha256": "3d26f7c1c0cac27d6b27c7ecb71ae825bbe76e127338a853acd6b2028c3d9036",
+    "plus_reference_output_sha256": "deda8851114d0c8fbe79daa3589793261d39d3af535948f314e011e747ffc9d1",
+    "independent_oracle": {
+      "base": {
+        "checked": 4,
+        "mismatches": [],
+        "unknown": []
+      },
+      "plus": {
+        "checked": 1,
+        "mismatches": [],
+        "unknown": []
+      }
+    },
+    "phase": "combined",
+    "implementation_mutation": {
+      "line": 16,
+      "from": "Eq",
+      "to": "NotEq"
+    },
+    "status": "completed"
+  },
+  {
+    "task_id": "HumanEval/2",
+    "variants": {
+      "reference": {
+        "source_sha256": "f8d2ea2882143ac7415256c5c0cbd074e8e215a4f07c31ad2d3a2f13eba8bfd1",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true
+          ],
+          "expected_count": 3
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true
+          ],
+          "expected_count": 1
+        }
+      },
+      "chatgpt": {
+        "source_sha256": "f1266c6a627a1fbd77536fe854fdd9424426834b12b568ccc60d08b7b614de6f",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true
+          ],
+          "expected_count": 3
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true
+          ],
+          "expected_count": 1
+        }
+      },
+      "codegen-2b": {
+        "source_sha256": "dcf6480cbd8fc3fa5102ced75156b52529d4044fc1091bfe2f4b9d88105b385c",
+        "base": {
+          "status": "fail",
+          "details": [
+            false,
+            false,
+            false
+          ],
+          "expected_count": 3
+        },
+        "plus": {
+          "status": "fail",
+          "details": [
+            false
+          ],
+          "expected_count": 1
+        }
+      },
+      "gpt-4": {
+        "source_sha256": "f1266c6a627a1fbd77536fe854fdd9424426834b12b568ccc60d08b7b614de6f",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true
+          ],
+          "expected_count": 3
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true
+          ],
+          "expected_count": 1
+        }
+      }
+    },
+    "contracts": {
+      "base": {
+        "count": 3,
+        "invalid": [],
+        "contract_present": true
+      },
+      "plus": {
+        "count": 1,
+        "invalid": [],
+        "contract_present": true
+      }
+    },
+    "coverage_arcs": [
+      [
+        [
+          -1,
+          14
+        ]
+      ]
+    ],
+    "base_reference_output_sha256": "f41c6234bc10ec75d89b909ab16376c3d42299ce96681a4d5a2748d0b54ebbf4",
+    "plus_reference_output_sha256": "ff44a2b91b521b27e77493b9dc80076d46a94061a0cd5d4c8ae3ec844fddadd6",
+    "independent_oracle": {
+      "base": {
+        "checked": 3,
+        "mismatches": [],
+        "unknown": []
+      },
+      "plus": {
+        "checked": 1,
+        "mismatches": [],
+        "unknown": []
+      }
+    },
+    "phase": "combined",
+    "implementation_mutation": {
+      "status": "not_run",
+      "reason": "no eligible comparison"
+    },
+    "status": "completed"
+  },
+  {
+    "task_id": "HumanEval/3",
+    "variants": {
+      "reference": {
+        "source_sha256": "fb2c4f1d4451bc944eea67386d9da629208cd9c8bf046ff7843fa003df4cc3ff",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 6
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true
+          ],
+          "expected_count": 3
+        }
+      },
+      "chatgpt": {
+        "source_sha256": "e605fde2b4aa52fbba1dc56c0d8f0fdaf0e5f7366c23d2fdfe188c8d2e407c43",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 6
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true
+          ],
+          "expected_count": 3
+        }
+      },
+      "codegen-2b": {
+        "source_sha256": "1d7cd985a31de3a6dd3dfb2575498df1396bfee55a38ddbba81e8359e7dab8f9",
+        "base": {
+          "status": "fail",
+          "details": [
+            true,
+            false,
+            true,
+            false,
+            true,
+            true
+          ],
+          "expected_count": 6
+        },
+        "plus": {
+          "status": "fail",
+          "details": [
+            true,
+            false,
+            true
+          ],
+          "expected_count": 3
+        }
+      },
+      "gpt-4": {
+        "source_sha256": "ab89823807dd7350e04c69b36afb4a1a274185b436714eeec19b97af7e56f30e",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 6
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true
+          ],
+          "expected_count": 3
+        }
+      }
+    },
+    "contracts": {
+      "base": {
+        "count": 6,
+        "invalid": [],
+        "contract_present": true
+      },
+      "plus": {
+        "count": 3,
+        "invalid": [],
+        "contract_present": true
+      }
+    },
+    "coverage_arcs": [
+      [
+        [
+          -1,
+          14
+        ],
+        [
+          14,
+          15
+        ],
+        [
+          15,
+          16
+        ],
+        [
+          15,
+          19
+        ],
+        [
+          16,
+          17
+        ],
+        [
+          17,
+          15
+        ]
+      ],
+      [
+        [
+          -1,
+          14
+        ],
+        [
+          14,
+          15
+        ],
+        [
+          15,
+          16
+        ],
+        [
+          15,
+          19
+        ],
+        [
+          16,
+          17
+        ],
+        [
+          17,
+          15
+        ]
+      ],
+      [
+        [
+          -1,
+          14
+        ],
+        [
+          14,
+          15
+        ],
+        [
+          15,
+          16
+        ],
+        [
+          16,
+          17
+        ],
+        [
+          17,
+          18
+        ]
+      ]
+    ],
+    "base_reference_output_sha256": "4a070e89669f5a05921078aed2bb364a1bf1b2217dd4a6bde9296f9f300bd384",
+    "plus_reference_output_sha256": "526aea4896b586bad5d66bac07d7988983d2a27f5acaf421daa192d04915b42b",
+    "independent_oracle": {
+      "base": {
+        "checked": 6,
+        "mismatches": [],
+        "unknown": []
+      },
+      "plus": {
+        "checked": 3,
+        "mismatches": [],
+        "unknown": []
+      }
+    },
+    "phase": "combined",
+    "implementation_mutation": {
+      "line": 17,
+      "from": "Lt",
+      "to": "LtE"
+    },
+    "status": "completed"
+  },
+  {
+    "task_id": "HumanEval/6",
+    "variants": {
+      "reference": {
+        "source_sha256": "00f00bbf0ee78bf1a3e390e1b59201bb1ba0975177a7477e7fd627926f729935",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true
+          ],
+          "expected_count": 3
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true,
+            true
+          ],
+          "expected_count": 2
+        }
+      },
+      "chatgpt": {
+        "source_sha256": "4f0e3f518dd23b89565fcc05c387ec758e4d9985f38b3616ada3bf0740690bb7",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true
+          ],
+          "expected_count": 3
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true,
+            true
+          ],
+          "expected_count": 2
+        }
+      },
+      "codegen-2b": {
+        "source_sha256": "db6b324150e9787c2919e84dc679bf82127f1ce6818a21d078e20709d183786d",
+        "base": {
+          "status": "fail",
+          "details": [
+            false,
+            false,
+            false
+          ],
+          "expected_count": 3
+        },
+        "plus": {
+          "status": "fail",
+          "details": [
+            false,
+            false
+          ],
+          "expected_count": 2
+        }
+      },
+      "gpt-4": {
+        "source_sha256": "054cbbe8e6d913a9e9c7b493ad95cf259d9f35b0baad856c62b0c7261098ace1",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true
+          ],
+          "expected_count": 3
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true,
+            true
+          ],
+          "expected_count": 2
+        }
+      }
+    },
+    "contracts": {
+      "base": {
+        "count": 3,
+        "invalid": [],
+        "contract_present": true
+      },
+      "plus": {
+        "count": 2,
+        "invalid": [],
+        "contract_present": true
+      }
+    },
+    "coverage_arcs": [
+      [
+        [
+          -1,
+          14
+        ],
+        [
+          14,
+          22
+        ],
+        [
+          22,
+          22
+        ]
+      ],
+      [
+        [
+          -1,
+          14
+        ],
+        [
+          -1,
+          15
+        ],
+        [
+          14,
+          22
+        ],
+        [
+          15,
+          16
+        ],
+        [
+          16,
+          17
+        ],
+        [
+          16,
+          20
+        ],
+        [
+          17,
+          18
+        ],
+        [
+          18,
+          19
+        ],
+        [
+          19,
+          16
+        ],
+        [
+          22,
+          22
+        ]
+      ]
+    ],
+    "base_reference_output_sha256": "b920d2f5e400766fb3dd47a4a88fbe778b29c82865728c305d0cc9fb40bc1440",
+    "plus_reference_output_sha256": "6091c3c0e83c77324588f81d4b9de04187026203eea5db4378390d88a5e33005",
+    "independent_oracle": {
+      "base": {
+        "checked": 3,
+        "mismatches": [],
+        "unknown": []
+      },
+      "plus": {
+        "checked": 2,
+        "mismatches": [],
+        "unknown": []
+      }
+    },
+    "phase": "combined",
+    "implementation_mutation": {
+      "line": 17,
+      "from": "Eq",
+      "to": "NotEq"
+    },
+    "status": "completed"
+  },
+  {
+    "task_id": "HumanEval/9",
+    "variants": {
+      "reference": {
+        "source_sha256": "e90721b447547d991edcfea97874e6ef8d4a936097f12de93db860ded1b5dc0c",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 4
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true
+          ],
+          "expected_count": 1
+        }
+      },
+      "chatgpt": {
+        "source_sha256": "79e782f4b605ae91f22cdbb75b6649ac4e0139e8a56c15840765bd79e06e67fe",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 4
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true
+          ],
+          "expected_count": 1
+        }
+      },
+      "codegen-2b": {
+        "source_sha256": "5ea165087c77022afc73564079215fd05bc2a948862fb8bba407021b9d88bc35",
+        "base": {
+          "status": "fail",
+          "details": [
+            true,
+            false,
+            false,
+            false
+          ],
+          "expected_count": 4
+        },
+        "plus": {
+          "status": "fail",
+          "details": [
+            false
+          ],
+          "expected_count": 1
+        }
+      },
+      "gpt-4": {
+        "source_sha256": "89cf1ca6482b12e1c1e9efb752b43083c992987ff7a16f93cf28404e2f7aedfd",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 4
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true
+          ],
+          "expected_count": 1
+        }
+      }
+    },
+    "contracts": {
+      "base": {
+        "count": 4,
+        "invalid": [],
+        "contract_present": true
+      },
+      "plus": {
+        "count": 1,
+        "invalid": [],
+        "contract_present": true
+      }
+    },
+    "coverage_arcs": [
+      [
+        [
+          -1,
+          11
+        ],
+        [
+          11,
+          11
+        ]
+      ]
+    ],
+    "base_reference_output_sha256": "77f8093298a9ef799ca964e63cd8bac1a6adf91a869e2475c4505b5ad99fe329",
+    "plus_reference_output_sha256": "90bae46a196717e32ddd31d24830349f395e41e8aa3658754665a3af29d171da",
+    "independent_oracle": {
+      "base": {
+        "checked": 4,
+        "mismatches": [],
+        "unknown": []
+      },
+      "plus": {
+        "checked": 1,
+        "mismatches": [],
+        "unknown": []
+      }
+    },
+    "phase": "combined",
+    "implementation_mutation": {
+      "status": "not_run",
+      "reason": "no eligible comparison"
+    },
+    "status": "completed"
+  },
+  {
+    "task_id": "HumanEval/28",
+    "variants": {
+      "reference": {
+        "source_sha256": "cd02a1c0338e92c3d6d85fcde42a6cdcde4fe025d272593426679b8d886769d3",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true
+          ],
+          "expected_count": 3
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true
+          ],
+          "expected_count": 1
+        }
+      },
+      "chatgpt": {
+        "source_sha256": "bbe7fce65cb8d7c3bb4d8a7df0618695af38d756b486fd7963e2d57c367f47e6",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true
+          ],
+          "expected_count": 3
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true
+          ],
+          "expected_count": 1
+        }
+      },
+      "codegen-2b": {
+        "source_sha256": "20b3ae17f801de428dfb7d23ad325f31448040487b9d5a03b2644e67e61af641",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true
+          ],
+          "expected_count": 3
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true
+          ],
+          "expected_count": 1
+        }
+      },
+      "gpt-4": {
+        "source_sha256": "beb0ff55e1ab13194393b779ad03c15c870bc2882f6f829e7418c8c06c79495f",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true
+          ],
+          "expected_count": 3
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true
+          ],
+          "expected_count": 1
+        }
+      }
+    },
+    "contracts": {
+      "base": {
+        "count": 3,
+        "invalid": [],
+        "contract_present": true
+      },
+      "plus": {
+        "count": 1,
+        "invalid": [],
+        "contract_present": true
+      }
+    },
+    "coverage_arcs": [
+      [
+        [
+          -1,
+          12
+        ]
+      ]
+    ],
+    "base_reference_output_sha256": "90341869260b92eb40114f0135ccb932fc97aa4160098fe007bbab90b9fedfe0",
+    "plus_reference_output_sha256": "b5f45fedbbdfacbadfaf761894e960c7bf16fe8b64067117b0f0c1b86a741b61",
+    "independent_oracle": {
+      "base": {
+        "checked": 3,
+        "mismatches": [],
+        "unknown": []
+      },
+      "plus": {
+        "checked": 1,
+        "mismatches": [],
+        "unknown": []
+      }
+    },
+    "phase": "combined",
+    "implementation_mutation": {
+      "status": "not_run",
+      "reason": "no eligible comparison"
+    },
+    "status": "completed"
+  },
+  {
+    "task_id": "HumanEval/35",
+    "variants": {
+      "reference": {
+        "source_sha256": "eb4a48523aec44dedc46d1b78000c225f693d5e1f824a7949ae541cd586f67ad",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true
+          ],
+          "expected_count": 2
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true
+          ],
+          "expected_count": 1
+        }
+      },
+      "chatgpt": {
+        "source_sha256": "0a4e9d243342be6386d6e342cdb208ad5435625c052a73620a8025cdf81570df",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true
+          ],
+          "expected_count": 2
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true
+          ],
+          "expected_count": 1
+        }
+      },
+      "codegen-2b": {
+        "source_sha256": "e67be3961c41ac954d878e036dfa0dbb21b869290477a2ef44e46beee98699c4",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true
+          ],
+          "expected_count": 2
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true
+          ],
+          "expected_count": 1
+        }
+      },
+      "gpt-4": {
+        "source_sha256": "cae430480dfb0bc14e1daa9600cdf1c4f8f79054aba0b5c0aba6f2b5a16a3fd9",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true
+          ],
+          "expected_count": 2
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true
+          ],
+          "expected_count": 1
+        }
+      }
+    },
+    "contracts": {
+      "base": {
+        "count": 2,
+        "invalid": [],
+        "contract_present": true
+      },
+      "plus": {
+        "count": 1,
+        "invalid": [],
+        "contract_present": true
+      }
+    },
+    "coverage_arcs": [
+      [
+        [
+          -1,
+          11
+        ]
+      ]
+    ],
+    "base_reference_output_sha256": "19e82dfd736cc763eaefab47db64915cd23510a072838f9db879f66cf1668f2a",
+    "plus_reference_output_sha256": "d0bca111f8628137adc4c16f123496dcdd1d590d06cb5d9acd68b39fe656fb97",
+    "independent_oracle": {
+      "base": {
+        "checked": 2,
+        "mismatches": [],
+        "unknown": []
+      },
+      "plus": {
+        "checked": 1,
+        "mismatches": [],
+        "unknown": []
+      }
+    },
+    "phase": "combined",
+    "implementation_mutation": {
+      "status": "not_run",
+      "reason": "no eligible comparison"
+    },
+    "status": "completed"
+  },
+  {
+    "task_id": "HumanEval/53",
+    "variants": {
+      "reference": {
+        "source_sha256": "99219dfb63b67a6c6fcc5ae22b1bbdece94ebb12e34e3cb8bdb20018bbbe339f",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 105
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true
+          ],
+          "expected_count": 1
+        }
+      },
+      "chatgpt": {
+        "source_sha256": "da56e0ed184f795b9ca691411cf24e6c5d806e4d9697a0d0282425004d1610f7",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 105
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true
+          ],
+          "expected_count": 1
+        }
+      },
+      "codegen-2b": {
+        "source_sha256": "23393194b0d346cd658b4702214818f23217839ca7e017afb812b5f4e593f6eb",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 105
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true
+          ],
+          "expected_count": 1
+        }
+      },
+      "gpt-4": {
+        "source_sha256": "c2dbf285dfc790c5c89afe7e233c3bf9c5cab23e790c2a8377aabe93b1b8905a",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 105
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true
+          ],
+          "expected_count": 1
+        }
+      }
+    },
+    "contracts": {
+      "base": {
+        "count": 105,
+        "invalid": [],
+        "contract_present": true
+      },
+      "plus": {
+        "count": 1,
+        "invalid": [],
+        "contract_present": true
+      }
+    },
+    "coverage_arcs": [
+      [
+        [
+          -1,
+          11
+        ]
+      ]
+    ],
+    "base_reference_output_sha256": "07d081471d11a7cd538cf48ad0b45c9eb4fb733d6669dfd7630c9f4183ab9c37",
+    "plus_reference_output_sha256": "080a9ed428559ef602668b4c00f114f1a11c3f6b02a435f0bdc154578e4d7f22",
+    "independent_oracle": {
+      "base": {
+        "checked": 105,
+        "mismatches": [],
+        "unknown": []
+      },
+      "plus": {
+        "checked": 1,
+        "mismatches": [],
+        "unknown": []
+      }
+    },
+    "phase": "combined",
+    "implementation_mutation": {
+      "status": "not_run",
+      "reason": "no eligible comparison"
+    },
+    "status": "completed"
+  },
+  {
+    "task_id": "HumanEval/58",
+    "variants": {
+      "reference": {
+        "source_sha256": "e13a573038e90f81675e67963d514ffb98f03fc89ec4a602579b51b279a87d31",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 4
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true
+          ],
+          "expected_count": 1
+        }
+      },
+      "chatgpt": {
+        "source_sha256": "1e423a184a76ae95c95f924fad117a73270922efa1a5be8bfb651877f8106a15",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 4
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true
+          ],
+          "expected_count": 1
+        }
+      },
+      "codegen-2b": {
+        "source_sha256": "cfad66bae2295d30cf8215bd8f878477b812375b892b558097e806d2c127ad35",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 4
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true
+          ],
+          "expected_count": 1
+        }
+      },
+      "gpt-4": {
+        "source_sha256": "4ea938357aab34cc8508e48f3589c666903ea4edbd551b13e24fb3a244b93272",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 4
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true
+          ],
+          "expected_count": 1
+        }
+      }
+    },
+    "contracts": {
+      "base": {
+        "count": 4,
+        "invalid": [],
+        "contract_present": true
+      },
+      "plus": {
+        "count": 1,
+        "invalid": [],
+        "contract_present": true
+      }
+    },
+    "coverage_arcs": [
+      [
+        [
+          -1,
+          12
+        ]
+      ]
+    ],
+    "base_reference_output_sha256": "256b6af14f201ba4fc807b63742cc78f9fe04f80ec632c03bb3ff21b202a657e",
+    "plus_reference_output_sha256": "4f6f1e9b8e7389cd920695e1f62808765b07297631ff05574a6dc0e577c1a736",
+    "independent_oracle": {
+      "base": {
+        "checked": 4,
+        "mismatches": [],
+        "unknown": []
+      },
+      "plus": {
+        "checked": 1,
+        "mismatches": [],
+        "unknown": []
+      }
+    },
+    "phase": "combined",
+    "implementation_mutation": {
+      "status": "not_run",
+      "reason": "no eligible comparison"
+    },
+    "status": "completed"
+  },
+  {
+    "task_id": "HumanEval/75",
+    "variants": {
+      "reference": {
+        "source_sha256": "b98ae11334012de04256b8281fa8decde5665fd4c40c2450cda613bee7fcfff7",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 4
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true,
+            true
+          ],
+          "expected_count": 2
+        }
+      },
+      "chatgpt": {
+        "source_sha256": "77f624f2c828f7c0142523664657331e544637c9632066b8e6c7a3073c321aad",
+        "base": {
+          "status": "fail",
+          "details": [
+            true,
+            true,
+            false,
+            true
+          ],
+          "expected_count": 4
+        },
+        "plus": {
+          "status": "fail",
+          "details": [
+            true,
+            false
+          ],
+          "expected_count": 2
+        }
+      },
+      "codegen-2b": {
+        "source_sha256": "3c7f201725640e10820700f7e940c70aa9649dd47f1ddfb6fbba3f0eccea2fdb",
+        "base": {
+          "status": "fail",
+          "details": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "expected_count": 4
+        },
+        "plus": {
+          "status": "fail",
+          "details": [
+            false,
+            false
+          ],
+          "expected_count": 2
+        }
+      },
+      "gpt-4": {
+        "source_sha256": "d15ab6968ba82c011a9bd87f1f391c60ffb41e2495b89a5bbefc91b3f2a06cc9",
+        "base": {
+          "status": "fail",
+          "details": [
+            true,
+            true,
+            false,
+            true
+          ],
+          "expected_count": 4
+        },
+        "plus": {
+          "status": "fail",
+          "details": [
+            true,
+            false
+          ],
+          "expected_count": 2
+        }
+      }
+    },
+    "contracts": {
+      "base": {
+        "count": 4,
+        "invalid": [],
+        "contract_present": true
+      },
+      "plus": {
+        "count": 2,
+        "invalid": [],
+        "contract_present": true
+      }
+    },
+    "coverage_arcs": [
+      [
+        [
+          -1,
+          11
+        ],
+        [
+          11,
+          12
+        ],
+        [
+          12,
+          13
+        ],
+        [
+          13,
+          14
+        ],
+        [
+          13,
+          17
+        ],
+        [
+          14,
+          13
+        ],
+        [
+          14,
+          15
+        ],
+        [
+          15,
+          13
+        ],
+        [
+          15,
+          16
+        ],
+        [
+          16,
+          15
+        ],
+        [
+          17,
+          18
+        ],
+        [
+          18,
+          19
+        ],
+        [
+          18,
+          22
+        ],
+        [
+          19,
+          18
+        ],
+        [
+          19,
+          20
+        ],
+        [
+          20,
+          21
+        ],
+        [
+          21,
+          19
+        ]
+      ],
+      [
+        [
+          -1,
+          11
+        ],
+        [
+          11,
+          12
+        ],
+        [
+          12,
+          13
+        ],
+        [
+          13,
+          14
+        ],
+        [
+          13,
+          17
+        ],
+        [
+          14,
+          13
+        ],
+        [
+          14,
+          15
+        ],
+        [
+          15,
+          13
+        ],
+        [
+          15,
+          16
+        ],
+        [
+          16,
+          15
+        ],
+        [
+          17,
+          18
+        ],
+        [
+          18,
+          19
+        ],
+        [
+          18,
+          22
+        ],
+        [
+          19,
+          18
+        ],
+        [
+          19,
+          20
+        ],
+        [
+          20,
+          21
+        ],
+        [
+          21,
+          19
+        ]
+      ]
+    ],
+    "base_reference_output_sha256": "bbe33e406322c7b788a61a60a2ce6933769f6fdee1a87b97837924d2194986d3",
+    "plus_reference_output_sha256": "a7b670548611f51a01dc651fdc03929ce2e264b509acb89f356a26af7d4ca440",
+    "independent_oracle": {
+      "base": {
+        "checked": 4,
+        "mismatches": [],
+        "unknown": []
+      },
+      "plus": {
+        "checked": 2,
+        "mismatches": [],
+        "unknown": []
+      }
+    },
+    "phase": "combined",
+    "implementation_mutation": {
+      "line": 11,
+      "from": "LtE",
+      "to": "Lt"
+    },
+    "status": "completed"
+  },
+  {
+    "task_id": "HumanEval/99",
+    "variants": {
+      "reference": {
+        "source_sha256": "7a9c805c74ffe559b72d49793d82382ef3b10a784e5ad2a655c8f79641a0da43",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 5
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true
+          ],
+          "expected_count": 3
+        }
+      },
+      "chatgpt": {
+        "source_sha256": "7bf289daaaec3fdb4dac3f7b044c2ecf49070c811c83c713dad82d74ab4b5493",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 5
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true
+          ],
+          "expected_count": 3
+        }
+      },
+      "codegen-2b": {
+        "source_sha256": "da97fadedd327a4261b6caf532a44d85e1a5e79c2e4eff071e98cd2cbbb3863a",
+        "base": {
+          "status": "fail",
+          "details": [
+            true,
+            false,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 5
+        },
+        "plus": {
+          "status": "fail",
+          "details": [
+            true,
+            true,
+            false
+          ],
+          "expected_count": 3
+        }
+      },
+      "gpt-4": {
+        "source_sha256": "b693d2f4d4ead4e665d0b340ecf0ddcbd88e64f6311c5fcbdb584c506f37cf32",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 5
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true
+          ],
+          "expected_count": 3
+        }
+      }
+    },
+    "contracts": {
+      "base": {
+        "count": 5,
+        "invalid": [],
+        "contract_present": true
+      },
+      "plus": {
+        "count": 3,
+        "invalid": [],
+        "contract_present": true
+      }
+    },
+    "coverage_arcs": [
+      [
+        [
+          -1,
+          22
+        ],
+        [
+          -1,
+          23
+        ],
+        [
+          22,
+          29
+        ],
+        [
+          23,
+          24
+        ]
+      ],
+      [
+        [
+          -1,
+          22
+        ],
+        [
+          -1,
+          23
+        ],
+        [
+          22,
+          29
+        ],
+        [
+          23,
+          25
+        ],
+        [
+          25,
+          26
+        ]
+      ],
+      [
+        [
+          -1,
+          22
+        ],
+        [
+          -1,
+          23
+        ],
+        [
+          22,
+          29
+        ],
+        [
+          23,
+          25
+        ],
+        [
+          25,
+          28
+        ]
+      ]
+    ],
+    "base_reference_output_sha256": "3fca0c5c06c8146f251889fa9f73feac0d9d653121ec18d473a4dee2ebed52b1",
+    "plus_reference_output_sha256": "a9686cb11b2eb0fc70414b98452c3ab4baf5f16256f503813aded05a8d3bdb42",
+    "independent_oracle": {
+      "base": {
+        "checked": 5,
+        "mismatches": [],
+        "unknown": []
+      },
+      "plus": {
+        "checked": 3,
+        "mismatches": [],
+        "unknown": []
+      }
+    },
+    "phase": "combined",
+    "implementation_mutation": {
+      "line": 23,
+      "from": "NotEq",
+      "to": "Eq"
+    },
+    "status": "completed"
+  },
+  {
+    "task_id": "HumanEval/114",
+    "variants": {
+      "reference": {
+        "source_sha256": "b9e4874d7de946541627e39c9ce804b31c293a9ff61d2080a6365a5d8f68f7cf",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 12
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true
+          ],
+          "expected_count": 1
+        }
+      },
+      "chatgpt": {
+        "source_sha256": "015c572dad633bc774857c09208728ae4d200250df880907fc1e58db6285961f",
+        "base": {
+          "status": "fail",
+          "details": [
+            false,
+            false,
+            false,
+            true,
+            true,
+            false,
+            false,
+            false,
+            false,
+            true,
+            true,
+            false
+          ],
+          "expected_count": 12
+        },
+        "plus": {
+          "status": "fail",
+          "details": [
+            false
+          ],
+          "expected_count": 1
+        }
+      },
+      "codegen-2b": {
+        "source_sha256": "cbf88de177b933ac20b5c5372360c329bcd4639593cab431dc2bcb797fc4a7b0",
+        "base": {
+          "status": "fail",
+          "details": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "expected_count": 12
+        },
+        "plus": {
+          "status": "fail",
+          "details": [
+            false
+          ],
+          "expected_count": 1
+        }
+      },
+      "gpt-4": {
+        "source_sha256": "33abca2a638da1957798d8649c26c77554824d424290f6da02d496e43d715beb",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 12
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true
+          ],
+          "expected_count": 1
+        }
+      }
+    },
+    "contracts": {
+      "base": {
+        "count": 12,
+        "invalid": [],
+        "contract_present": true
+      },
+      "plus": {
+        "count": 1,
+        "invalid": [],
+        "contract_present": true
+      }
+    },
+    "coverage_arcs": [
+      [
+        [
+          -1,
+          12
+        ],
+        [
+          12,
+          13
+        ],
+        [
+          13,
+          14
+        ],
+        [
+          14,
+          15
+        ],
+        [
+          14,
+          18
+        ],
+        [
+          15,
+          16
+        ],
+        [
+          16,
+          17
+        ],
+        [
+          17,
+          14
+        ]
+      ]
+    ],
+    "base_reference_output_sha256": "bd27eef1e7d9affdb1f471c5db9ae095ce555b04fb4b69ecbd241d7be1b93f0c",
+    "plus_reference_output_sha256": "fdfb0d4617975fbf725321c76f8ef3c27b633e42ef9714505849e0a51ad1bcfa",
+    "independent_oracle": {
+      "base": {
+        "checked": 12,
+        "mismatches": [],
+        "unknown": []
+      },
+      "plus": {
+        "checked": 1,
+        "mismatches": [],
+        "unknown": []
+      }
+    },
+    "phase": "combined",
+    "implementation_mutation": {
+      "line": 17,
+      "from": "GtE",
+      "to": "Gt"
+    },
+    "status": "completed"
+  },
+  {
+    "task_id": "HumanEval/124",
+    "variants": {
+      "reference": {
+        "source_sha256": "dcc7164eec236945c8329998151af3fb8b308283f63597886a1f8b37a5bfa7f0",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 16
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true
+          ],
+          "expected_count": 1
+        }
+      },
+      "chatgpt": {
+        "source_sha256": "b2f98e7ad193bcc9a9f9b267be345e6342676068fe58748db56180de23e803a5",
+        "base": {
+          "status": "fail",
+          "details": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "expected_count": 16
+        },
+        "plus": {
+          "status": "fail",
+          "details": [
+            false
+          ],
+          "expected_count": 1
+        }
+      },
+      "codegen-2b": {
+        "source_sha256": "c9f2f64e54224b3690eac3221ceff7b2d5133eb8595ad41e6b3608e9ed939257",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 16
+        },
+        "plus": {
+          "status": "fail",
+          "details": [
+            false
+          ],
+          "expected_count": 1
+        }
+      },
+      "gpt-4": {
+        "source_sha256": "a9dc915b4c9e337263ec7f7225a5c1520da2e3dfb73edcae9460765325a4e516",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 16
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true
+          ],
+          "expected_count": 1
+        }
+      }
+    },
+    "contracts": {
+      "base": {
+        "count": 16,
+        "invalid": [],
+        "contract_present": true
+      },
+      "plus": {
+        "count": 1,
+        "invalid": [],
+        "contract_present": true
+      }
+    },
+    "coverage_arcs": [
+      [
+        [
+          -1,
+          23
+        ],
+        [
+          23,
+          24
+        ],
+        [
+          24,
+          25
+        ],
+        [
+          25,
+          26
+        ],
+        [
+          26,
+          27
+        ],
+        [
+          27,
+          28
+        ],
+        [
+          28,
+          29
+        ],
+        [
+          29,
+          30
+        ],
+        [
+          30,
+          31
+        ]
+      ]
+    ],
+    "base_reference_output_sha256": "b629cb8212891a1ddf638d3d77520d8fda8ba9c5c9af2213d0d1d27a75a2abcb",
+    "plus_reference_output_sha256": "b78c88a26a2b512a2964fc4160ddb4d32e2aed8b01219ab5e3666b633572b336",
+    "independent_oracle": {
+      "base": {
+        "checked": 16,
+        "mismatches": [],
+        "unknown": []
+      },
+      "plus": {
+        "checked": 1,
+        "mismatches": [],
+        "unknown": []
+      }
+    },
+    "phase": "combined",
+    "implementation_mutation": {
+      "line": 24,
+      "from": "NotEq",
+      "to": "Eq"
+    },
+    "status": "completed"
+  },
+  {
+    "task_id": "HumanEval/129",
+    "variants": {
+      "reference": {
+        "source_sha256": "960baf7c7033b3b203f82db85fbed3cb298f85dbf9ed70d7e6f7f2c3e06c7f20",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 10
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true,
+            true
+          ],
+          "expected_count": 2
+        }
+      },
+      "chatgpt": {
+        "source_sha256": "41f7c18ef068a116f204ebe21b5e0f128b791a065978e4ff7348b1117db9450d",
+        "base": {
+          "status": "fail",
+          "details": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "expected_count": 10
+        },
+        "plus": {
+          "status": "fail",
+          "details": [
+            false,
+            false
+          ],
+          "expected_count": 2
+        }
+      },
+      "codegen-2b": {
+        "source_sha256": "394cf29ba6c6de0bf4ba00ad16ff771297b0e72606ef634fc0456360852b4ac2",
+        "base": {
+          "status": "fail",
+          "details": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "expected_count": 10
+        },
+        "plus": {
+          "status": "fail",
+          "details": [
+            false,
+            false
+          ],
+          "expected_count": 2
+        }
+      },
+      "gpt-4": {
+        "source_sha256": "72c316ff095ea3cb06dd756434071262bc4c0b1be0afbb886542caba3679c9c9",
+        "base": {
+          "status": "fail",
+          "details": [
+            false,
+            true,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "expected_count": 10
+        },
+        "plus": {
+          "status": "fail",
+          "details": [
+            true,
+            false
+          ],
+          "expected_count": 2
+        }
+      }
+    },
+    "contracts": {
+      "base": {
+        "count": 10,
+        "invalid": [],
+        "contract_present": true
+      },
+      "plus": {
+        "count": 2,
+        "invalid": [],
+        "contract_present": true
+      }
+    },
+    "coverage_arcs": [
+      [
+        [
+          -1,
+          34
+        ],
+        [
+          34,
+          35
+        ],
+        [
+          35,
+          36
+        ],
+        [
+          36,
+          37
+        ],
+        [
+          36,
+          40
+        ],
+        [
+          37,
+          36
+        ],
+        [
+          37,
+          38
+        ],
+        [
+          38,
+          37
+        ],
+        [
+          38,
+          39
+        ],
+        [
+          39,
+          37
+        ],
+        [
+          40,
+          41
+        ],
+        [
+          41,
+          42
+        ],
+        [
+          42,
+          43
+        ],
+        [
+          43,
+          44
+        ],
+        [
+          44,
+          45
+        ],
+        [
+          45,
+          45
+        ]
+      ],
+      [
+        [
+          -1,
+          34
+        ],
+        [
+          34,
+          35
+        ],
+        [
+          35,
+          36
+        ],
+        [
+          36,
+          37
+        ],
+        [
+          36,
+          40
+        ],
+        [
+          37,
+          36
+        ],
+        [
+          37,
+          38
+        ],
+        [
+          38,
+          37
+        ],
+        [
+          38,
+          39
+        ],
+        [
+          39,
+          37
+        ],
+        [
+          40,
+          41
+        ],
+        [
+          41,
+          42
+        ],
+        [
+          42,
+          43
+        ],
+        [
+          43,
+          44
+        ],
+        [
+          44,
+          45
+        ],
+        [
+          45,
+          45
+        ]
+      ]
+    ],
+    "base_reference_output_sha256": "fd22e4feaf66051f153e52a5d7e1988c4a4c333da838d8da57f1f96c2e0149fd",
+    "plus_reference_output_sha256": "40c8ec4d2aa5a8f849faf6a794c6e9217e1eb764c4a868168bf872c183720b64",
+    "independent_oracle": {
+      "base": {
+        "checked": 10,
+        "mismatches": [],
+        "unknown": []
+      },
+      "plus": {
+        "checked": 2,
+        "mismatches": [],
+        "unknown": []
+      }
+    },
+    "phase": "combined",
+    "implementation_mutation": {
+      "line": 41,
+      "from": "Gt",
+      "to": "GtE"
+    },
+    "status": "completed"
+  },
+  {
+    "task_id": "HumanEval/140",
+    "variants": {
+      "reference": {
+        "source_sha256": "61fdee54f736059ce6be549aee48c5b8bd387ff7574e881193373967bce83f25",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 5
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true,
+            true
+          ],
+          "expected_count": 2
+        }
+      },
+      "chatgpt": {
+        "source_sha256": "2d8f990019020f578d930d9fc6b95b24919bd73e9241d9f06b724077f12046da",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 5
+        },
+        "plus": {
+          "status": "fail",
+          "details": [
+            true,
+            false
+          ],
+          "expected_count": 2
+        }
+      },
+      "codegen-2b": {
+        "source_sha256": "4c6aabda855108dd72ae4cbc9c4fa10ac7d7fcef971cf7984be1716c499a236a",
+        "base": {
+          "status": "fail",
+          "details": [
+            true,
+            true,
+            true,
+            false,
+            false
+          ],
+          "expected_count": 5
+        },
+        "plus": {
+          "status": "fail",
+          "details": [
+            false,
+            false
+          ],
+          "expected_count": 2
+        }
+      },
+      "gpt-4": {
+        "source_sha256": "a666603bb439be6822f93fda0cb5da5e8752d258fdc51339c126493785bfd95e",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 5
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true,
+            true
+          ],
+          "expected_count": 2
+        }
+      }
+    },
+    "contracts": {
+      "base": {
+        "count": 5,
+        "invalid": [],
+        "contract_present": true
+      },
+      "plus": {
+        "count": 2,
+        "invalid": [],
+        "contract_present": true
+      }
+    },
+    "coverage_arcs": [
+      [
+        [
+          -1,
+          14
+        ],
+        [
+          14,
+          15
+        ],
+        [
+          15,
+          16
+        ],
+        [
+          15,
+          17
+        ],
+        [
+          16,
+          15
+        ]
+      ],
+      [
+        [
+          -1,
+          14
+        ],
+        [
+          14,
+          15
+        ],
+        [
+          15,
+          16
+        ],
+        [
+          15,
+          17
+        ],
+        [
+          16,
+          15
+        ]
+      ]
+    ],
+    "base_reference_output_sha256": "c0991ed47a4dc750784f6d9d78862dbc27d04edc055e50f7e01455027508916e",
+    "plus_reference_output_sha256": "7a6c98da8f4c12192545761b2788cc94b15ba87f5db82c14b0ddae480efaabd6",
+    "independent_oracle": {
+      "base": {
+        "checked": 5,
+        "mismatches": [],
+        "unknown": []
+      },
+      "plus": {
+        "checked": 2,
+        "mismatches": [],
+        "unknown": []
+      }
+    },
+    "phase": "combined",
+    "implementation_mutation": {
+      "status": "not_run",
+      "reason": "no eligible comparison"
+    },
+    "status": "completed"
+  },
+  {
+    "task_id": "HumanEval/148",
+    "variants": {
+      "reference": {
+        "source_sha256": "8d16e27ebabcc207693bd504475d19d655dfb2c44ef164171e5f8715b511972f",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 11
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true
+          ],
+          "expected_count": 1
+        }
+      },
+      "chatgpt": {
+        "source_sha256": "d9a730b7f8f5ba2f33eef1d157f9f17c090abcc5c61f1e21a849722cd42ae02e",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 11
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true
+          ],
+          "expected_count": 1
+        }
+      },
+      "codegen-2b": {
+        "source_sha256": "dbcd8df40823ee93dccd477b8adfab17f8d2ae4c4663a1d8881cb3dd911ea317",
+        "base": {
+          "status": "fail",
+          "details": [
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false,
+            false
+          ],
+          "expected_count": 11
+        },
+        "plus": {
+          "status": "fail",
+          "details": [
+            false
+          ],
+          "expected_count": 1
+        }
+      },
+      "gpt-4": {
+        "source_sha256": "64cea3524594e92974cd6a0cd2154c0de033bc7f12da355fdd6654c3b903b014",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 11
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true
+          ],
+          "expected_count": 1
+        }
+      }
+    },
+    "contracts": {
+      "base": {
+        "count": 11,
+        "invalid": [],
+        "contract_present": true
+      },
+      "plus": {
+        "count": 1,
+        "invalid": [],
+        "contract_present": true
+      }
+    },
+    "coverage_arcs": [
+      [
+        [
+          -1,
+          19
+        ],
+        [
+          19,
+          20
+        ],
+        [
+          20,
+          21
+        ],
+        [
+          21,
+          22
+        ],
+        [
+          22,
+          23
+        ]
+      ]
+    ],
+    "base_reference_output_sha256": "62c629205b00254787f74cd3428780deba7042a92542c9a1c232863b16662b13",
+    "plus_reference_output_sha256": "81e590b1e9bb365e65a0e8fe2f9b6dd6e641ccaf42dba20c5206215ffa41efdc",
+    "independent_oracle": {
+      "base": {
+        "checked": 11,
+        "mismatches": [],
+        "unknown": []
+      },
+      "plus": {
+        "checked": 1,
+        "mismatches": [],
+        "unknown": []
+      }
+    },
+    "phase": "combined",
+    "implementation_mutation": {
+      "line": 22,
+      "from": "Gt",
+      "to": "GtE"
+    },
+    "status": "completed"
+  },
+  {
+    "task_id": "HumanEval/160",
+    "variants": {
+      "reference": {
+        "source_sha256": "daa6933bce4f25f3412753cd44e066ea0846e71b13c02147fc5cfcc7a26a4f15",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true
+          ],
+          "expected_count": 3
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true
+          ],
+          "expected_count": 1
+        }
+      },
+      "chatgpt": {
+        "source_sha256": "a40f336cb1beb03e73a368a1c0eb3c036760645f4b0280ffd099b511d5b6ed42",
+        "base": {
+          "status": "fail",
+          "details": [
+            true,
+            false,
+            true
+          ],
+          "expected_count": 3
+        },
+        "plus": {
+          "status": "fail",
+          "details": [
+            false
+          ],
+          "expected_count": 1
+        }
+      },
+      "codegen-2b": {
+        "source_sha256": "e4f8170dfbd45ba81b84c8544316bf6c2130fa3c9e4267e8e333ac97ca56b45f",
+        "base": {
+          "status": "fail",
+          "details": [
+            false,
+            false,
+            false
+          ],
+          "expected_count": 3
+        },
+        "plus": {
+          "status": "fail",
+          "details": [
+            false
+          ],
+          "expected_count": 1
+        }
+      },
+      "gpt-4": {
+        "source_sha256": "90da8d82cb81808d99166308fd18f67697f091ee9e62aaad2df620111b8c4d98",
+        "base": {
+          "status": "fail",
+          "details": [
+            true,
+            false,
+            true
+          ],
+          "expected_count": 3
+        },
+        "plus": {
+          "status": "fail",
+          "details": [
+            false
+          ],
+          "expected_count": 1
+        }
+      }
+    },
+    "contracts": {
+      "base": {
+        "count": 3,
+        "invalid": [],
+        "contract_present": true
+      },
+      "plus": {
+        "count": 1,
+        "invalid": [],
+        "contract_present": true
+      }
+    },
+    "coverage_arcs": [
+      [
+        [
+          -1,
+          29
+        ],
+        [
+          29,
+          30
+        ],
+        [
+          30,
+          31
+        ],
+        [
+          30,
+          32
+        ],
+        [
+          31,
+          30
+        ],
+        [
+          32,
+          33
+        ]
+      ]
+    ],
+    "base_reference_output_sha256": "b7d45649f1ef141d158cc072cc6028475873aa3a115e9478d4235c1e769ae677",
+    "plus_reference_output_sha256": "fe94b827f0455bee6f4a6a265286f827f18748ede569565ee827058085bad146",
+    "independent_oracle": {
+      "base": {
+        "checked": 3,
+        "mismatches": [],
+        "unknown": []
+      },
+      "plus": {
+        "checked": 1,
+        "mismatches": [],
+        "unknown": []
+      }
+    },
+    "phase": "combined",
+    "implementation_mutation": {
+      "status": "not_run",
+      "reason": "no eligible comparison"
+    },
+    "status": "completed"
+  },
+  {
+    "task_id": "HumanEval/163",
+    "variants": {
+      "reference": {
+        "source_sha256": "5f845fdaec1737ec995b8ac6c823addf5e498cdb2d5415c3d882f1f427c70ff8",
+        "base": {
+          "status": "pass",
+          "details": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "expected_count": 4
+        },
+        "plus": {
+          "status": "pass",
+          "details": [
+            true
+          ],
+          "expected_count": 1
+        }
+      },
+      "chatgpt": {
+        "source_sha256": "59f66ac2c7ae985f4462b1fc9fd4cae3229aaf4d3ed0074f2ca0539addd75cc2",
+        "base": {
+          "status": "fail",
+          "details": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "expected_count": 4
+        },
+        "plus": {
+          "status": "fail",
+          "details": [
+            false
+          ],
+          "expected_count": 1
+        }
+      },
+      "codegen-2b": {
+        "source_sha256": "ab219b515527d8f3a413389650aeeeb518646a6c18bd6d5c1eeddc49a5427be4",
+        "base": {
+          "status": "fail",
+          "details": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "expected_count": 4
+        },
+        "plus": {
+          "status": "fail",
+          "details": [
+            false
+          ],
+          "expected_count": 1
+        }
+      },
+      "gpt-4": {
+        "source_sha256": "b512a741e8666014903699188c4db4b7c5bdb5116b1533dc337f1a0f769d15c8",
+        "base": {
+          "status": "fail",
+          "details": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "expected_count": 4
+        },
+        "plus": {
+          "status": "fail",
+          "details": [
+            false
+          ],
+          "expected_count": 1
+        }
+      }
+    },
+    "contracts": {
+      "base": {
+        "count": 4,
+        "invalid": [],
+        "contract_present": true
+      },
+      "plus": {
+        "count": 1,
+        "invalid": [],
+        "contract_present": true
+      }
+    },
+    "coverage_arcs": [
+      [
+        [
+          -1,
+          14
+        ],
+        [
+          14,
+          15
+        ],
+        [
+          15,
+          15
+        ]
+      ]
+    ],
+    "base_reference_output_sha256": "609c6dacf05e5494195274dcee7107596875a1f77156f8bf27e55c20ff83f11d",
+    "plus_reference_output_sha256": "130f72d1ed2d1b027258e0d88f0142d5950335ecbf1598f250fdb2f72fc9399e",
+    "independent_oracle": {
+      "base": {
+        "checked": 4,
+        "mismatches": [],
+        "unknown": []
+      },
+      "plus": {
+        "checked": 1,
+        "mismatches": [],
+        "unknown": []
+      }
+    },
+    "phase": "combined",
+    "implementation_mutation": {
+      "line": 14,
+      "from": "Gt",
+      "to": "GtE"
+    },
+    "status": "completed"
+  },
+  {
+    "task_id": "HumanEval/32",
+    "status": "invalid_evaluator",
+    "reason": "root oracle skips bookkeeping; preserved original results, excluded reduced rerun"
+  }
+]

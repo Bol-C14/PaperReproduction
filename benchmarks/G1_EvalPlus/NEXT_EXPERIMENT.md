@@ -1,0 +1,10 @@
+# Next bounded experiment
+
+Current free-scope cached evaluator replay is complete. No G1 process or paid request remains. Do not expand to new models, tasks, services or publication without parent direction.
+
+1. Prioritize the pinned task32 evaluator bug: add a synthetic linear-root regression and propose a small upstream-compatible fix in a separate local adapter/diff. Do not alter upstream or contact authors. Compare original and corrected verdict vectors on the same 20 selected programs per model; preserve original evidence. Acceptance: successful roots populate full vectors, wrong roots fail, and no non-root regression changes.
+2. Separately inspect the 69 contract rejections and seven Horner residual discrepancies with high-precision polynomial evaluation and explicit numerical semantics. Do not infer contract/output invalidity from floating summation order alone. Freeze any data filtering before model rescoring.
+3. If original-paper reproduction is required, resolve exact historical dataset/harness versions and hashes and replay the identical cached programs. Do not label current-data 200 ms timeout sensitivity as exact paper reproduction. Current historical result remains not_run.
+4. If full TSR is required, run the upstream branch-coverage/mutmut requirements on only the same tasks with a cap of 20 mutants/task and four CPUs; retain equivalent and unresolved survivors separately. Preserve the existing development/held-out model separation. This would replace the explicitly bounded arc/comparison ports, not retrospectively relabel them.
+
+Caps for any authorized continuation: four CPU threads, no new unique cached programs beyond frozen60, $0 paid API/cloud, no model generation, no perf/security changes, no push. Cache archive-specific rights remain unresolved; keep caches, reference/oracle source, hidden test contents and full witnesses private. Parent must audit the existing publication payload before any release. Full private raw evidence and helper remain available for independent review.
