@@ -13,6 +13,8 @@ from check import independent_metrics,rescore,waveforms
 def verify(root):
     manifest=json.loads((root/'EXPORT_MANIFEST.json').read_text());entries=manifest['files']
     byname={x['file']:x for x in entries}
+    actual={str(p.relative_to(root)) for p in root.rglob('*') if p.is_file()}
+    assert actual==set(byname)|{'EXPORT_MANIFEST.json'}, 'Artifact inventory differs from manifest'
     for item in entries:
         data=(root/item['file']).read_bytes()
         assert len(data)==item['public_bytes'] and hashlib.sha256(data).hexdigest()==item['public_sha256']
