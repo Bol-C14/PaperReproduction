@@ -60,7 +60,7 @@ class Trainer:
         
         #self.lr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=40, gamma=0.1)
         #self.lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(self.optimizer, T_max=40)
-        self.lr_scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(self.optimizer,mode='min',patience=4,verbose=True)
+        self.lr_scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(self.optimizer,mode='min',patience=4)
         
     def scheduler_step(self,val_loss):
         self.lr_scheduler.step(val_loss)

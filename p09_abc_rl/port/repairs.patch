@@ -78,6 +78,15 @@
              weightsForGradOn = ["denseLayer.weight", "denseLayer.bias", "dense_p1.weight", "dense_p1.bias", \
                                  "dense_p2.weight", "dense_p2.bias", "dense_v1.weight", "dense_v1.bias", "dense_v2.weight", "dense_v2.bias"]
              
+@@ -60,7 +60,7 @@
+         
+         #self.lr_scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=40, gamma=0.1)
+         #self.lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(self.optimizer, T_max=40)
+-        self.lr_scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(self.optimizer,mode='min',patience=4,verbose=True)
++        self.lr_scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(self.optimizer,mode='min',patience=4)
+         
+     def scheduler_step(self,val_loss):
+         self.lr_scheduler.step(val_loss)
 @@ -115,7 +115,7 @@
  
          return valLoss,policyLoss

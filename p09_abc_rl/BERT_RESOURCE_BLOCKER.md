@@ -1,3 +1,5 @@
+> Historical preflight record. The authorized APRIL real CPU pilot subsequently completed; see [APRIL_REPORT.md](APRIL_REPORT.md) and [APRIL_PROTOCOL.json](APRIL_PROTOCOL.json). The earlier blocker is resolved for this pilot.
+
 # BERT asset blocker clarification — no new request or experiment
 
 This clarification uses only saved headers, code and checkpoint inspection. The completed result remains seven passing tests, structural-only checkpoint loading, zero policy inference and zero ABC evaluations. No denied download was retried.

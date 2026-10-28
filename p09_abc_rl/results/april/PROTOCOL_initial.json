@@ -1,0 +1,36 @@
+{
+  "frozen_utc": "2026-10-28T14:34:02.675307+00:00",
+  "phase": "real CPU bounded guided-search mechanism pilot",
+  "runtime_cores": 8,
+  "seed": 566,
+  "evaluation_circuits": [
+    "sin",
+    "cavlc"
+  ],
+  "train_only_retrieval_subset": [
+    "alu2",
+    "int2float"
+  ],
+  "training_history": "source TTSPLIT5001 lists 22; paper 23; checkpoint provenance unproven",
+  "threshold": 0.007,
+  "scaling": 100.0,
+  "horizon": 10,
+  "budget": {
+    "baselines": 2,
+    "root_initialization_included_in_search": true,
+    "evaluated_recipes_per_arm_per_circuit": 3,
+    "search_evaluations": 12,
+    "winner_cec": 4,
+    "total_planned": 18,
+    "reserved_diagnostics": 2,
+    "hard_cap": 20
+  },
+  "control": "uniform PUCT priors and policy-independent random starting action; same RNG seed per arm",
+  "adaptive": "upstream unnormalized pi**beta priors, beta from real nearest cosine distance; argmax starting action plus uniform rollout suffix",
+  "mechanisms": "upstream MCTSNode select_leaf/PUCT/incorporate_estimates/backup; initial native graph and original BERT recipe convention; lazy recipe prefixes evaluate full recipe in native ABC",
+  "objective": "author 7nm library map; topo; stime Area*Delay",
+  "cec": "compare each arm winner un-mapped AIG with original; mapping correctness not separately certified",
+  "scope": "subset-bank mechanism port, no full training or full-paper numerical claim",
+  "preflight_native_graph_reads": 4,
+  "runner_sha256": "3dba8e5631637f389af9885cf36cd4344026c6ce630f71d90a396d77dbdca6e5"
+}

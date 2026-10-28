@@ -1,3 +1,5 @@
+> Historical preflight record. The authorized APRIL real CPU pilot subsequently completed; see [APRIL_REPORT.md](APRIL_REPORT.md) and [APRIL_PROTOCOL.json](APRIL_PROTOCOL.json). The earlier blocker is resolved for this pilot.
+
 # Frozen P09 bounded pilot protocol
 
 Frozen UTC: 2026-10-28T10:35:06Z. Parent repository base: f85c69748506854273c5816d29646d6a70f5f468 (existing ASPEN branch). Branch: reproduction/abc-rl-iclr2024. No root/other-paper files will change. Upstream source revision: db6186cb4018963b5bc15926772c3edc0c2873f1. Commit containing this protocol is recorded by the runner before tests.

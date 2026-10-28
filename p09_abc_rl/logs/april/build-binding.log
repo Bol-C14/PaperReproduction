@@ -1,0 +1,24 @@
+Build binding
+In file included from /home/shugu/work/paper-reproduction-april-20261028/envs/abc-rl/lib64/python3.12/site-packages/pybind11/include/pybind11/attr.h:13,
+                 from /home/shugu/work/paper-reproduction-april-20261028/envs/abc-rl/lib64/python3.12/site-packages/pybind11/include/pybind11/detail/class.h:12,
+                 from /home/shugu/work/paper-reproduction-april-20261028/envs/abc-rl/lib64/python3.12/site-packages/pybind11/include/pybind11/pybind11.h:12,
+                 from /home/shugu/work/paper-reproduction-april-20261028/tools/abc-rl/abc_py/src/api/AbcInterfaceAPI.cpp:8:
+/home/shugu/work/paper-reproduction-april-20261028/envs/abc-rl/lib64/python3.12/site-packages/pybind11/include/pybind11/detail/common.h:274:10: fatal error: Python.h: No such file or directory
+  274 | #include <Python.h>
+      |          ^~~~~~~~~~
+compilation terminated.
+In file included from /home/shugu/work/paper-reproduction-april-20261028/envs/abc-rl/lib64/python3.12/site-packages/pybind11/include/pybind11/attr.h:13,
+                 from /home/shugu/work/paper-reproduction-april-20261028/envs/abc-rl/lib64/python3.12/site-packages/pybind11/include/pybind11/detail/class.h:12,
+                 from /home/shugu/work/paper-reproduction-april-20261028/envs/abc-rl/lib64/python3.12/site-packages/pybind11/include/pybind11/pybind11.h:12,
+                 from /home/shugu/work/paper-reproduction-april-20261028/tools/abc-rl/abc_py/src/api/api.cpp:8:
+/home/shugu/work/paper-reproduction-april-20261028/envs/abc-rl/lib64/python3.12/site-packages/pybind11/include/pybind11/detail/common.h:274:10: fatal error: Python.h: No such file or directory
+  274 | #include <Python.h>
+      |          ^~~~~~~~~~
+compilation terminated.
+Traceback (most recent call last):
+  File "/home/shugu/work/paper-reproduction-april-20261028/tools/abc-rl/build-binding.py", line 10, in <module>
+    print('Build binding',flush=True);subprocess.run(cmd,check=True,timeout=300)
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib64/python3.12/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['g++', '-O2', '-shared', '-std=c++14', '-fPIC', '-fopenmp', '-DLIN64', '-DSIZEOF_VOID_P=8', '-DSIZEOF_LONG=8', '-DSIZEOF_INT=4', '-I/usr/include/python3.12', '-I/home/shugu/work/paper-reproduction-april-20261028/envs/abc-rl/lib64/python3.12/site-packages/pybind11/include', '-I/home/shugu/work/paper-reproduction-april-20261028/tools/abc-rl/binding-build/include', '-I/home/shugu/work/paper-reproduction-april-20261028/tools/abc-rl/abc/src', '-I/home/shugu/work/paper-reproduction-april-20261028/tools/abc-rl/abc_py/src', '/home/shugu/work/paper-reproduction-april-20261028/tools/abc-rl/abc_py/src/api/AbcInterfaceAPI.cpp', '/home/shugu/work/paper-reproduction-april-20261028/tools/abc-rl/abc_py/src/api/api.cpp', '/home/shugu/work/paper-reproduction-april-20261028/tools/abc-rl/abc_py/src/interface/AbcInterface.cpp', '/home/shugu/work/paper-reproduction-april-20261028/tools/abc-rl/abc_py/src/util/MsgPrinter.cpp', '/home/shugu/work/paper-reproduction-april-20261028/tools/abc-rl/abc/libabc.a', '-lz', '-lbz2', '-ldl', '-lpthread', '-o', '/home/shugu/work/paper-reproduction-april-20261028/envs/abc-rl/lib/python3.12/site-packages/abc_py.cpython-312-x86_64-linux-gnu.so']' returned non-zero exit status 1.

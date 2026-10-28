@@ -6,7 +6,7 @@ CHANGES={
  'cosine_scorer.py':[("trainer = Trainer(preTrainedGraphModel=None)","trainer = Trainer(preTrainedGraphModel=modelPath)")],
  'LogicSynthesisEnv.py':[("while(depth+1 <= self.ep_length):","while(depth+1 < self.ep_length):"),("BERT_MODEL_NAME = 'bert-base-cased'","BERT_MODEL_NAME = os.environ.get('ABC_RL_BERT_PATH', 'bert-base-cased')")],
  'LogicSynthesisPolicy.py':[("import numpy as np","import os\nimport numpy as np"),("BERT_MODEL_NAME = 'bert-base-cased'","BERT_MODEL_NAME = os.environ.get('ABC_RL_BERT_PATH', 'bert-base-cased')"),("bert_model.to('cuda')","bert_model.to(os.environ.get('ABC_RL_DEVICE', 'cpu'))"),("aigEmbedding = torch.round(aigEmbedding,decimals=3)","if not self.training:\n            aigEmbedding = torch.round(aigEmbedding,decimals=3)")],
- 'trainer.py':[("device='cuda'","device='cpu'"),("torch.load(self.preTrainedGraphModel),strict=False","torch.load(self.preTrainedGraphModel, map_location=self.device, weights_only=True),strict=True")],
+ 'trainer.py':[("patience=4,verbose=True","patience=4"),("device='cuda'","device='cpu'"),("torch.load(self.preTrainedGraphModel),strict=False","torch.load(self.preTrainedGraphModel, map_location=self.device, weights_only=True),strict=True")],
 }
 def main():
  out=ROOT/'port/repaired';out.mkdir(exist_ok=True)

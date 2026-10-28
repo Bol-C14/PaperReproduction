@@ -1,0 +1,79 @@
+{
+  "evaluation_correctness_calls": 18,
+  "evaluation_calls": 14,
+  "cec_calls": 4,
+  "failed_native_evaluation_calls": 0,
+  "failed_python_attempts": 1,
+  "initial_native_calls_before_resume": 2,
+  "resumed_without_repeat": true,
+  "graph_extraction_reads": 12,
+  "native_graph_reads_counted_separately_from_objective_calls": true,
+  "cec": [
+    {
+      "id": 5,
+      "circuit": "sin",
+      "arm": "unguided",
+      "log": "abc_05.log",
+      "equivalent": true
+    },
+    {
+      "id": 9,
+      "circuit": "sin",
+      "arm": "adaptive",
+      "log": "abc_09.log",
+      "equivalent": true
+    },
+    {
+      "id": 14,
+      "circuit": "cavlc",
+      "arm": "unguided",
+      "log": "abc_14.log",
+      "equivalent": true
+    },
+    {
+      "id": 18,
+      "circuit": "cavlc",
+      "arm": "adaptive",
+      "log": "abc_18.log",
+      "equivalent": true
+    }
+  ],
+  "table": [
+    {
+      "circuit": "sin",
+      "resyn2_adp": 21155722.5152,
+      "unguided": {
+        "area": 5572.36,
+        "delay": 3571.16,
+        "adp": 19899789.137599997,
+        "improvement_vs_resyn2_pct": 5.936613021359294,
+        "recipe": "refactor -z; rewrite -z; rewrite; resub; refactor; resub -z; refactor -z; rewrite -z; refactor -z; resub -z"
+      },
+      "adaptive": {
+        "area": 5504.24,
+        "delay": 3538.73,
+        "adp": 19478019.2152,
+        "improvement_vs_resyn2_pct": 7.930257634994986,
+        "recipe": "rewrite -z; resub -z; rewrite -z; resub; rewrite -z; refactor; refactor -z; balance; resub; resub"
+      }
+    },
+    {
+      "circuit": "cavlc",
+      "resyn2_adp": 124922.45599999999,
+      "unguided": {
+        "area": 436.7,
+        "delay": 271.77,
+        "adp": 118681.95899999999,
+        "improvement_vs_resyn2_pct": 4.995496566285896,
+        "recipe": "refactor -z; rewrite -z; rewrite; resub; refactor; resub -z; refactor -z; rewrite -z; refactor -z; resub -z"
+      },
+      "adaptive": {
+        "area": 448.36,
+        "delay": 249.93,
+        "adp": 112058.61480000001,
+        "improvement_vs_resyn2_pct": 10.297461010532793,
+        "recipe": "rewrite -z; resub; balance; resub; resub -z; rewrite; refactor -z; rewrite; refactor -z; rewrite -z"
+      }
+    }
+  ]
+}

@@ -1,3 +1,5 @@
+> Historical preflight record. The authorized APRIL real CPU pilot subsequently completed; see [APRIL_REPORT.md](APRIL_REPORT.md) and [APRIL_PROTOCOL.json](APRIL_PROTOCOL.json). The earlier blocker is resolved for this pilot.
+
 # P09 bounded CPU gate — completed, behavioral pilot blocked
 
 Branch: `reproduction/abc-rl-iclr2024`. Base: `f85c69748506854273c5816d29646d6a70f5f468`. Protocol frozen at `2026-10-28T10:35:06Z` in commit `088ba14` before tests. All changes are inside `p09_abc_rl/`; inherited ASPEN files and other branches are preserved. No push or PR.

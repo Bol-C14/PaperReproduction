@@ -1,0 +1,21 @@
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+Users of this version of Gym should be able to simply replace 'import gym' with 'import gymnasium as gym' in the vast majority of cases.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Truncation was not explicitly activated but `max_length` is provided a specific value, please use `truncation=True` to explicitly truncate examples to max length. Defaulting to 'longest_first' truncation strategy. If you encode pairs of sequences (GLUE-style) with the tokenizer you can select this strategy more precisely by providing a specific strategy to `truncation`.
+/home/shugu/work/paper-reproduction-april-20261028/envs/abc-rl/lib64/python3.12/site-packages/transformers/tokenization_utils_base.py:2681: FutureWarning: The `pad_to_max_length` argument is deprecated and will be removed in a future version, use `padding=True` or `padding='longest'` to pad to the longest sequence in the batch, or use `padding='max_length'` to pad to a max length. In this case, you can give a specific length with `max_length` (e.g. `max_length=45`) or leave max_length to None to pad to the maximal input size of the model (e.g. 512 for Bert).
+  warnings.warn(
+/home/shugu/work/paper-reproduction-april-20261028/envs/abc-rl/lib64/python3.12/site-packages/torch_sparse/tensor.py:574: UserWarning: Sparse CSR tensor support is in beta state. If you miss a functionality in the sparse tensor support, please submit a feature request to https://github.com/pytorch/pytorch/issues. (Triggered internally at /pytorch/aten/src/ATen/SparseCsrTensorImpl.cpp:53.)
+  return torch.sparse_csr_tensor(rowptr, col, value, self.sizes())
+Traceback (most recent call last):
+  File "/home/shugu/work/paper-reproduction-april-20261028/checkouts/abc-rl/p09_abc_rl/port/april_pilot.py", line 75, in <module>
+    leaf=root.select_leaf();prefix=leaf.state
+         ^^^^^^^^^^^^^^^^^^
+  File "/home/shugu/work/paper-reproduction-april-20261028/checkouts/abc-rl/p09_abc_rl/port/repaired/mcts.py", line 186, in select_leaf
+    current = current.maybe_add_child(best_move)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shugu/work/paper-reproduction-april-20261028/checkouts/abc-rl/p09_abc_rl/port/repaired/mcts.py", line 234, in maybe_add_child
+    new_pt_state = os.path.splitext(new_state)[0]+'.pt.zip'
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen posixpath>", line 118, in splitext
+TypeError: expected str, bytes or os.PathLike object, not tuple
