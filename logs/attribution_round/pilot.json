@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/workspace/PaperReproduction/scripts/attribution_round.py", line 122, in <module>
+    if a.pilot:pilot()
+               ^^^^^^^
+  File "/workspace/PaperReproduction/scripts/attribution_round.py", line 117, in pilot
+    item=C['fixtures'][0];g,info=graph_for(item['name']);c=initial_costs(g);ts,ex=extract(g,c);m=evaluate(g,ex,item['name'],item['width'],'pilot_tagged_mcm_w12');save(O/'pilot_attribution.json',dict(metrics=m,extraction=ex,costs=c));assert m['coverage']>=C['attribution_gate'],'STOP attribution coverage below gate';print(json.dumps({k:v for k,v in m.items() if k not in ['cell_to_enodes','terms']},indent=2))
+                                                                                                                                                                                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: '>=' not supported between instances of 'float' and 'str'

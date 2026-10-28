@@ -47,6 +47,37 @@ def metrics_and_attribution(path,src,line_nodes):
   assert len(rest)<len(pending),'netlist cycle/undriven';pending=rest
  depth=max(known[b] for v in m['ports'].values() if v['direction']=='output' for b in v['bits'])
  return dict(gates=len(nodes),depth=depth,attribution=allocation,mapped_cells=mapped,multi_source_cells=multi,unmapped_cells=len(nodes)-mapped,coverage=mapped/max(1,len(nodes)),cell_to_enodes=cell_map)
+def cone_attribution(path,g,ex):
+ m=json.loads(path.read_text())['modules']['top'];cells=m['cells'];net=m['netnames'];ns=g['nodes'];choices=ex['choices'];drivers={}
+ for ident,cell in cells.items():
+  for p,bs in cell['connections'].items():
+   if cell['port_directions'][p]=='output':
+    for bit in bs:drivers[bit]=ident
+ owners={i:set() for i in cells};selected=[i for i in ex['used_nodes'] if ns[i]['op'] in OPS];missing=[];cones={}
+ def signal(i):return net.get('n_'+hashlib.sha256(i.encode()).hexdigest()[:12],{}).get('bits')
+ for nid in selected:
+  bits=signal(nid)
+  if bits is None:missing.append(nid);continue
+  boundary=set()
+  for child in ns[nid]['children']:
+   cn=choices[ns[child]['eclass']]
+   if ns[cn]['op'] in OPS:boundary.update(signal(cn) or [])
+  todo=list(bits);seen=set();cone=set()
+  while todo:
+   bit=todo.pop()
+   if bit in seen or bit in boundary:continue
+   seen.add(bit);cellid=drivers.get(bit)
+   if cellid is None:continue
+   cone.add(cellid);cell=cells[cellid]
+   todo.extend(b for p,bs in cell['connections'].items() if cell['port_directions'][p]=='input' for b in bs)
+  cones[nid]=sorted(cone)
+  for cellid in cone:owners[cellid].add(nid)
+ allocation={nid:0.0 for nid in selected}
+ for values in owners.values():
+  for nid in values:allocation[nid]+=1/len(values)
+ mapped=sum(bool(v) for v in owners.values())
+ return dict(attribution=allocation,mapped_cells=mapped,multi_source_cells=sum(len(v)>1 for v in owners.values()),unmapped_cells=len(cells)-mapped,coverage=mapped/max(1,len(cells)),cell_to_enodes={i:sorted(v) for i,v in owners.items()},cones=cones,missing_named_nodes=missing,named_node_coverage=(len(selected)-len(missing))/max(1,len(selected)),attribution_method='named-wire boundary fan-in cones; shared cells fractional; heuristic ownership, not marginal causal area')
+
 def invoke(command,ident,kind):
  ledger=L/'eda_invocations.jsonl';count=sum(1 for l in ledger.read_text().splitlines() if json.loads(l)['kind']=='synthesis') if ledger.exists() else 0
  assert kind!='synthesis' or count<C['maximum_total_synthesis_calls']
@@ -59,7 +90,7 @@ def invoke(command,ident,kind):
 def evaluate(g,ex,name,w,ident):
  text,lines,ts,vs=tagged(g,ex,w);refs,_=reference(name,w);v={s:BitVec(s,w) for s in vs};sol=Solver();sol.set(timeout=5000);sol.add(Or(*[zexpr(t,w,v)!=zexpr(r,w,v) for t,r in zip(ts,refs)]));t=time.perf_counter();z=str(sol.check());zt=time.perf_counter()-t;assert z=='unsat'
  src=O/'rtl'/f'{ident}.v';src.parent.mkdir(exist_ok=True);src.write_text(text);dest=Path('results/netlists/attribution_round')/f'{ident}.json';dest.parent.mkdir(parents=True,exist_ok=True)
- st=invoke(f'read_verilog {src}; synth -top top -noabc; write_json {dest}',ident,'synthesis');m=metrics_and_attribution(dest,src,lines)
+ st=invoke(f'read_verilog {src}; synth -top top -noabc; write_json {dest}',ident,'synthesis');m=metrics_and_attribution(dest,src,lines);m['cell_source_coverage']=m['coverage'];m.update(cone_attribution(dest,g,ex))
  mit=text.replace('module top(','module dut(')+'module miter('+','.join(f'input [{w-1}:0] {s}' for s in vs)+',output bad);\n'
  for i,r in enumerate(refs):mit+=f'wire [{w-1}:0] y{i}; wire [{w-1}:0] r{i} = {emit(r,w)};\n'
  mit+='dut d('+','.join(f'.{s}({s})' for s in vs)+','+','.join(f'.y{i}(y{i})' for i in range(len(refs)))+');\nassign bad = '+' | '.join(f'(|(y{i} ^ r{i}))' for i in range(len(refs)))+';\nendmodule\n'
@@ -114,7 +145,7 @@ def preflight():
  save(O/'preflight.json',result);print(json.dumps(result,indent=2))
 
 def pilot():
- item=C['fixtures'][0];g,info=graph_for(item['name']);c=initial_costs(g);ts,ex=extract(g,c);m=evaluate(g,ex,item['name'],item['width'],'pilot_tagged_mcm_w12');save(O/'pilot_attribution.json',dict(metrics=m,extraction=ex,costs=c));assert m['coverage']>=C['attribution_gate'],'STOP attribution coverage below gate';print(json.dumps({k:v for k,v in m.items() if k not in ['cell_to_enodes','terms']},indent=2))
+ item=C['fixtures'][0];g,info=graph_for(item['name']);c=initial_costs(g);ts,ex=extract(g,c);m=evaluate(g,ex,item['name'],item['width'],'pilot_tagged_mcm_w12');save(O/'pilot_attribution.json',dict(metrics=m,extraction=ex,costs=c));assert m['coverage']>=C['attribution_min_coverage'],'STOP attribution coverage below gate';print(json.dumps({k:v for k,v in m.items() if k not in ['cell_to_enodes','terms']},indent=2))
 
 if __name__=='__main__':
  p=argparse.ArgumentParser();p.add_argument('--preflight',action='store_true');p.add_argument('--pilot',action='store_true');a=p.parse_args();O.mkdir(exist_ok=True);L.mkdir(exist_ok=True)
