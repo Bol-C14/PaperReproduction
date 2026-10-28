@@ -1,5 +1,12 @@
 # ABC-RL real CPU pilot on APRIL — completed
 
+**Subsequent correction:** the full-bank audit found stale fanins when abc_py
+interfaces are reused across circuits. This pilot reused an interface; its
+retrieval embeddings/gates cannot support an uncontaminated retrieval claim.
+Its separate native ADP/CEC evidence remains valid for the evaluated recipes.
+See [ABLATION_METHOD.md](ABLATION_METHOD.md) for the diagnosis and corrected
+multi-seed design. Original values and logs below are retained unchanged.
+
 On 2026-10-28 the bounded mechanism pilot completed with the released neural checkpoint, canonical cased BERT, native ABC graph extraction, upstream MCTSNode PUCT/backup, automatic cosine retrieval gate, real 7nm mapped Area*Delay, and winner equivalence checking. This supersedes the earlier structural-only preflight and BERT download blocker. It is not a full-paper numerical reproduction.
 
 | Circuit | resyn2 ADP | Unguided best ADP | Adaptive best ADP | Unguided improvement vs resyn2 | Adaptive improvement vs resyn2 |

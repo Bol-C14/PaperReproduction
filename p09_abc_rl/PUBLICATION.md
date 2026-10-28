@@ -1,5 +1,10 @@
 # Public Round2 export
 
+> Historical publication record. Commit3308ca50 subsequently added and published
+> the real APRIL pilot. Current method and scientific caveats, including the
+> graph-lifecycle correction, are in [ABLATION_METHOD.md](ABLATION_METHOD.md).
+> The BERT and native-tool blockers below describe the earlier phase.
+
 This branch publishes the P09 ABC-RL research source, preserved upstream text snapshots and license, separate repair patch, frozen protocol, dependency pins, actual unit/structural-load logs, metrics, failure evidence and methodology/status reports. No new research run was added for publication.
 
 Scientific status remains: seven deterministic contract tests passed; real author-checkpoint26tensor structural CPU load passed using fail-closed external-encoder placeholders. No policy inference, circuit/ABC evaluation, equivalence evaluation or training ran. No full-paper or behavioral reproduction is claimed. Read REPRODUCTION.md and BERT_RESOURCE_BLOCKER.md before interpreting results. Inference compatibility is not established by structural state loading.

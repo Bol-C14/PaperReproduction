@@ -17,8 +17,10 @@ assert ledger['elapsed_seconds']<ledger['setup_limit_seconds']
 assert ledger['total_download_conservative_bound_bytes']<ledger['download_limit_bytes']
 assert 'HTTP/1.1 403' in (ROOT/'logs/bert_config_headers.txt').read_text()
 changes=subprocess.check_output(['git','diff','f85c69748506854273c5816d29646d6a70f5f468','--name-only'],cwd=ROOT.parent,text=True).splitlines()
-assert all(p.startswith('p09_abc_rl/') for p in changes),changes
+# Public export commit16f5980 deliberately replaced the inherited root landing
+# page with P09 status. Other inherited ASPEN paths remain outside this work.
+assert all(p.startswith('p09_abc_rl/') or p=='README.md' for p in changes),changes
 checkpoint=ROOT/'assets/nn_model.pt'
 if checkpoint.exists():
  assert hashlib.sha256(checkpoint.read_bytes()).hexdigest()=='d4747eeff16c7247acf8f1480a33f2239a1a51adaac78a0a6e915c5ba12164f5'
-print('PASS: original-source hashes, unit/structural evidence, gate403, limits, no ABC claims, and paper-local changes')
+print('PASS: historical preflight source hashes, unit/structural evidence, gate403 and limits; scope includes the P09 root landing page. Current native experiments have separate evidence.')
