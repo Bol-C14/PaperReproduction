@@ -1,0 +1,146 @@
+# Fair API-vs-fixed-GP pilot — draft, not execution authorization
+
+This next protocol is prepared after the synthetic bridge pilot at commit
+`af730024262bef23cd44a97654979e4c48e121d4`. Nothing here launches SPICE, makes an
+API call, reopens an old run root or grants API authorization. The backend,
+model, secure designated runtime values, public payload scope, chat tokenizer and
+monetary cap must still be approved. Freeze this draft and a new timestamped
+runtime manifest before a future run. The older bridge CLI is not a fair runner:
+it hardcodes different initial domains and a test-controller label. Do not call
+it with an API adapter and relabel the result.
+
+## Question and treatment
+
+For one released inverter and seed 11, does adding actual model-guided domain and
+inner-algorithm decisions after identical initial information change constrained
+search outcomes relative to a fixed full-domain GP-UCB policy? This is a paired
+integration pilot, not a statistically supported method comparison or the paper's
+24-task result. Model guidance is the sole assigned treatment. Domain updates and
+random-versus-GP choices are bundled consequences of that treatment; this design
+does not isolate circuit understanding, range selection and reflection separately.
+
+Both arms use the same released full 9x9 initial domain, variable mapping,
+simulator/PDK/testbench, 27 C, corrected measurement definitions, target constraints,
+scorer, fixed numerical GP implementation/hyperparameters, initialization evidence,
+attempt limits, numerical-thread settings and proposal RNG implementation/seed.
+A model cannot change topology, source measurements, thresholds, GP kernel/UCB,
+physical simulator parameters or budget. Every proposal is selected by the same
+random/GP engines over legal unseen points. The fixed control always uses the full
+grid; the guided arm may choose a valid subset or active/fixed domain and select
+random versus the exact same GP port. Both have access to all 81 released points.
+The model cannot see control decisions/results, previous pilot/oracle observations
+or any test-controller prose.
+
+## Exact common observations and real-call accounting
+
+`PLAN.json` freezes ten distinct seed-11 initial indices sampled without measured
+labels from the full domain. Its literal list, source hash and domain are
+canonical; the future runner reads it instead of resampling. No seed/initial-set
+change is permitted after inspecting outcomes, even if a common point saturates
+the small problem's headroom.
+
+1. Three separately charged preflight calls: source, corrected and refined center
+   measurements. These are safety/measurement checks, never optimizer observations.
+2. Measure the ten common points **once**, serially. Every attempted launch,
+   failure, missing metric and invalid row remains in the common ledger. Preserve
+   raw deck/stdout/stderr hashes and process outcome; never replace failed common
+   points. Before either adaptive arm starts, freeze common row JSON and its hash.
+3. Both arms receive deep copies of that exact ten-row dataset, with identical
+   values, invalid statuses, ordering and initial full domain. No arm resimulates
+   initialization for a different observation and no common measurement is counted
+   as two physical SPICE calls. Models receive only the approved public projection.
+4. Each arm has exactly 24 **fresh attempted launches**, as two 12-attempt batches.
+   Maintain separate histories/proposal RNG streams initialized from the same seed.
+   Exclude common and own past indices; no cross-arm cache. If arms propose the
+   same post-initial point, launch and charge it separately for each arm.
+5. Each arm selects its incumbent once and gets one separately charged refined
+   winner validation, without replacing the selection after a failure.
+
+Accounting is explicit: 10 common + 24 guided + 24 control = **58 physical search
+launches**, yielding 34 observations per arm (10 common + 24 fresh). Add 3 preflight
+and 2 validations for **63 stage attempted launches**, the hard cap. The common
+physical cost is a separate ten-call pool; if amortizing costs, each arm receives
+five common calls plus 24 fresh = 29, never the misleading claim of 34 independent
+physical calls per arm. Validation is one additional physical call per arm.
+
+The 24-call limit counts attempted launches, including timeout/solver/measurement
+failure. Distinguish attempted-launch IDs, successful process spawns and valid
+measurements. A future launcher sets spawn confirmation only after successful
+`Popen`, stores a unique spawn ID plus local PID/start-time evidence, and journals
+before/after process execution. A stale launch-pending record must be reconciled,
+not rerun. Full matched-budget interpretation requires 24 confirmed fresh process
+spawns per arm; an OS launch failure or early stop is disclosed as an incomplete
+comparison, not silently refilled. `plan.py` checks declared accounting but cannot
+itself prove that an OS process executed; raw process evidence is also mandatory.
+
+Never force a model to continue after stop and never use heuristic filler.
+An invalid model response receives at most one prescribed schema correction;
+otherwise stop that arm and retain evidence. Preserve the independent control
+up to its own cap if safe. Report actual unequal budgets and do not label them a
+matched full-budget efficacy result. No conditional post-result seed extension.
+
+## Five model decisions and fixed numerical policy
+
+Only after the common dataset is frozen: actual circuit understanding from public
+source (no model-generated prose is injected), initial domain selection using that
+understanding plus common observations, first 12-attempt random/GP decision,
+outer regeneration after twelve guided attempts, and second 12-attempt decision.
+Thus reflection sees 22 observations (10 common + 12 guided), not twelve total.
+All model fields and raw output/error must be preserved. Initial/domain decisions
+cover each variable exactly once with legal released values and at least twelve
+unseen combinations. The nine-value grid cannot provide twelve combinations if
+one variable is fixed; reject rather than silently unfix or shrink the batch.
+Unchanged domains are valid and honestly reported. Four endpoints/domains are not
+four independent statistical replicates.
+
+Both GP engines start with the same common valid observations and use only their
+own new history thereafter. There is no extra ten-point random warm-up after the
+common set: initialization is already consumed. Use the existing fixed
+scikit-learn port (indices/8, normalize_y, Constant(1)*Matern nu=2.5 length=.35 +
+white noise 1e-6, UCB mean+2sd, no kernel fitting). With <3 valid measurements,
+use the same logged random fallback in either arm. Invalid data are never zero
+fitness labels. A model choosing random changes policy; it cannot choose different
+GP internals. This remains an explicitly named numerical/backend substitution.
+
+The prior request proposal's five nominal / ten maximum calls and output caps
+remain: 1,536 understanding; 768 initial domain; 256 each inner decision;
+768 outer reflection. At most 81,920 input chat tokens and 7,168 output tokens
+across ten attempts, with <=8,192 chat tokens (framing included) and 24 KiB
+serialized messages per request. Provider reasoning-token billing needs a separate
+approved cap. Reflection now includes up to 22 rows, so the previous payload
+shape/max-history description is superseded for this draft. Before authorization,
+serialize and locally count the largest full request plus allowed schema-retry
+history against the selected tokenizer. If it does not fit, stop for protocol
+revision before sending; do not silently truncate rows or relax token caps.
+
+## Metrics, endpoints and interpretation
+
+Retain the source strict targets: normalized FoM >1, gain >20 dB, average delay
+<50 ps and dynamic power <50 uW. FoM=(gain_dB/20)/((delay_ps/50)*(power_uW/50)).
+The gain normalization uses the numerical dB metric as specified by the existing
+normalization port; it is not a linear-power gain ratio. Source YAML fallback
+`gain/(delay*power)` is a different value (normalized FoM is 125 times fallback
+for these targets), kept separately and never used to check normalized FoM >1.
+
+Primary descriptive endpoint: best strictly feasible normalized FoM among all 34
+observations at the fixed budget, and improvement over the common feasible
+incumbent. With no feasible design, report null best-feasible objective and
+least violation separately. Secondary: fresh attempt to first **new** feasibility,
+feasible fraction among fresh calls, invalid/failed counts, chosen domains/methods,
+API attempted calls/tokens/cost and wall/CPU time. If initialization is already
+feasible, report feasibility at initialization (fresh count 0); if it already
+saturates available headroom, report the ceiling without changing the protocol.
+No three-seed inference, paper success-rate claim or isolated reflection causal
+claim follows from this single seed. Different adaptive trajectories are expected;
+different initial information or numerical engines are prohibited.
+
+Freeze/check simulator executable and every pinned PDK dependency, testbench and
+source hashes. Keep write-before-launch ledger and all failure outputs. Check
+independent stdout scaling and waveform reconstruction, including a static-power
+term integrated directly from the 10..90 ps waveform interval. Independently
+rescore every attempt and audit both selected refined winners, with 0.001 physical
+unit tolerance; near-threshold disagreements remain failures/uncertainty, never
+rounded into feasibility. Preflight/validation samples never enter search history.
+Use APRIL CPU24..31, serial processes, one numerical-library thread, existing
+15 CPU s /20 wall s /2 GiB per-process limits and a fresh two-hour deadline.
+No global environment changes, new model download or paid GPU is required.
