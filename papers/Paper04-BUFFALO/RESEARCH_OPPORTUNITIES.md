@@ -1,0 +1,29 @@
+# Research opportunities grounded in the audit
+
+The central question remains open: how much comes from joint serialization, commercial teacher/data scale, pretrained model capacity, additional search/evaluator budget, and GRPO? Local geometry-aware search improves these three cases without learning, and preference weights change fixed-pool selection. That is evidence to demand controls, not evidence against the trained approach.
+
+| Question | Evidence motivating it | Minimal discriminating experiment | Current decision |
+|---|---|---|---|
+| Does serialization help beyond a strong generator prior? | Complete DFS jointly exposes topology/cell/location, but grammar is ambiguous | Same model/data/budget with full-tree and staged serialization; measure validity, topology diversity and actualSTA | No-Go until checkpoint/data; local grammar round-trip Partial |
+| Teacher imitation or RL? | >20M commercially generated pairs; SFT already improves some table rows | SFT-only vs real net-GRPO at same per-net candidate/evaluator budget; report total teacher/train cost | Not executed |
+| More sampling or better policy? | Local first1/2/4/8 selection improves without learning | Equal actualSTA budget across heuristic/beam/best-of-N/SFT/GRPO; separate amortized cost curves | Go for archived local budget curve; paper attribution Not |
+| Does conditioning alter generation? | Weighted objectives described; exact inference preference interface unspecified | Fix input/seed/budget, vary generation conditioning then evaluate all outputs under every preference | Fixed-pool reranking Partial only |
+| Can legality be guaranteed while retaining exploration? | Load-only prose conflicts with nested examples; penalty is soft | Publish a grammar and state mask; reject duplicate/missing sinks, bad types/coords, and adversarial syntax; then compare constrained/unconstrained trained decoding | Seven local mutations passed; full mask Not |
+| Is area a reliable power proxy? | Table IV power rises in five rows despite timing gains | Activity/corner-controlled power evaluation of the same candidates; report area/power disagreement and failures | No power tool/physical flow; Not |
+| Does local timing transfer to full chip? | Alg3 uses netGrad/fullSTA; local cuts omit cross-net effects | Separate SFT, netRL, +netselection, +chipRL with identical downstream flow and budget | No INSTA or original scripts; Not |
+| Are groups/regularizer implemented as intended? | Area normalization and KL direction differ between formulas/pseudocode | Unit tests for zero mean/variance, illegal penalties and exact KL; code-level author artifact audit | Numerical ambiguity replicated; actual author code unknown |
+| How robust is generalization? | No established design-family split or teacher cost accounting | Group by source design/netfamily; deduplicate geometric/topological transforms; test fanout/load/library shifts separately | Local cases are validation fixtures, no generalization claim |
+
+Most immediately useful action is obtaining licensed authors' tokenizer/masks, SFT checkpoint and a small paired dataset plus exact netGRPO/fullchip export/evaluator scripts. That would let a cheap offline recomputation precede any training. Avoid enlarging the present sweep: its purpose is already satisfied and it cannot resolve trained-mechanism causality.
+
+For an implementable free follow-up, add one legal placed public benchmark with actual LEF/DEF/SPEF and a physical flow, then compare the same geometric/random methods without changing budgets. This would address the current assumed-geometry limitation, not substitute for model or GRPO reproduction. First calibrate OpenTimer against another free STA engine and inspect the retained normalized_voltage warning; do not move to large benchmarks until metric agreement and constraints are understood.
+
+Closeout: nondefault timing/load and fanout configuration consistency is now checked without new STA. A future electrical-legality extension should explicitly observe input A as well as output Y slew; existing Y-only measurements cannot establish input-pin limits. The current best-of-eight synthetic geometry results use more area than random, while the AES cut uses equal area, so none is presented as a Pareto-dominance proof.
+
+## Bounded feasibility follow-up (2026-10-28)
+
+See [FEASIBILITY_DIAGNOSIS.md](FEASIBILITY_DIAGNOSIS.md). Exactly9 predeclared configurations (three archived baseline replays plus two shallow x8 alternatives per net) were evaluated, separately from the original matched-budget comparison. All9 pass declared structural/cap/fanout and newly measured A/Y-slew checks, with no tool/constraint-contract errors, but all9 still violate80ps timing. Near-source shallow alternatives reduce worst arrival to115–131ps. These measurements improve on the selected baseline, not establish optimality, general Pareto dominance or infeasibility. Earlier Y-only data and the original51-case comparison remain unchanged. SFT/netGRPO/fullchip/power/physical claims remain Not.
+
+## Provenance and local envelope follow-up
+
+[PROVENANCE_AND_ENVELOPE.md](PROVENANCE_AND_ENVELOPE.md) establishes that80ps, input slew, cut output load and RC are local assumptions, not paper/artifact targets. Independent old-log checks find no unit/path mismatch but identify .5fF terminal-load extrapolation below the1.44fF Liberty grid. Twelve predeclared STA calls preserve a before/after replay and evaluate three same-boundary corrected-load actions per net. All actual targets remain80ps. Corrected results expose smaller/slower versus larger/faster choices; Pareto status is per-net/per-load and pairs area/delay from the same implementation. All actual runs still violate80ps. Relaxed target-grid arithmetic is explicitly counterfactual, not paper reproduction. No APIs, model training, paid resources or new physical claims. Old evidence and v3 remain preserved.

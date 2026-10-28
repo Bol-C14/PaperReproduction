@@ -1,0 +1,22 @@
+module pilot(a, clk, y0, y1, y2, y3, y4, y5, y6, y7, y8, y9, y10, y11);
+input a, clk;
+output y0, y1, y2, y3, y4, y5, y6, y7, y8, y9, y10, y11;
+wire nD, nB0, nB1, nB2, nB3;
+BUFx2_ASAP7_75t_R D (.A(a), .Y(nD));
+BUFx2_ASAP7_75t_R B0 (.A(nD), .Y(nB0));
+BUFx2_ASAP7_75t_R L9 (.A(nB0), .Y(y9));
+BUFx2_ASAP7_75t_R L10 (.A(nB0), .Y(y10));
+BUFx2_ASAP7_75t_R L2 (.A(nB0), .Y(y2));
+BUFx2_ASAP7_75t_R B1 (.A(nD), .Y(nB1));
+BUFx2_ASAP7_75t_R L8 (.A(nB1), .Y(y8));
+BUFx2_ASAP7_75t_R L0 (.A(nB1), .Y(y0));
+BUFx2_ASAP7_75t_R L6 (.A(nB1), .Y(y6));
+BUFx2_ASAP7_75t_R B2 (.A(nD), .Y(nB2));
+BUFx2_ASAP7_75t_R L3 (.A(nB2), .Y(y3));
+BUFx2_ASAP7_75t_R L5 (.A(nB2), .Y(y5));
+BUFx2_ASAP7_75t_R L7 (.A(nB2), .Y(y7));
+BUFx2_ASAP7_75t_R B3 (.A(nD), .Y(nB3));
+BUFx2_ASAP7_75t_R L4 (.A(nB3), .Y(y4));
+BUFx2_ASAP7_75t_R L11 (.A(nB3), .Y(y11));
+BUFx2_ASAP7_75t_R L1 (.A(nB3), .Y(y1));
+endmodule

@@ -1,0 +1,36 @@
+2026-10-27 UTC; initial workspace observations from interactive tool outputs.
+This file transcribes observed outputs; preflight.stdout.json is direct redirected output.
+No secrets, auth headers, cookies or environment values included.
+
+pwd: /workspace
+Repository: /workspace/PaperReproduction
+Initial git status --short --branch: ## No commits yet on work
+Initial git log --all --oneline -5: empty
+Initial repository contents: .git only
+AGENTS.md / .agents instructions: no readable matching files found in repository; /workspace/.agents contained no files.
+origin: https://github.com/Bol-C14/PaperReproduction.git
+
+git ls-remote https://github.com/Bol-C14/PaperReproduction.git HEAD
+exit 0; empty stdout. No remote commit established.
+git -C /workspace/PaperReproduction fetch origin
+fatal: couldn't find remote ref HEAD
+
+gh api repos/Bol-C14/PaperReproduction --jq '{full_name,default_branch,size,empty:(.size==0)}'
+Get "https://api.github.com/repos/Bol-C14/PaperReproduction": Forbidden
+gh api repos/Bol-C14/PaperReproduction/branches --jq '.[].name'
+Get "https://api.github.com/repos/Bol-C14/PaperReproduction/branches": Forbidden
+Repository provenance / existing branches remain unverified. Empty local mirror is not evidence that the real user repository is empty.
+
+curl -L --fail --max-time 60 https://research.nvidia.com/labs/electronic-design-automation/papers/thomas_BUFFALO_iccad25.pdf -o /tmp/buffalo.pdf
+curl: (22) The requested URL returned error: 403
+Later HEAD diagnostic: HTTP/1.1 403 Forbidden; curl: (56) CONNECT tunnel failed, response 403
+No PDF bytes or full text acquired. Do not automatically retry blocked targets.
+
+Web official publication page opened successfully; title, four authors, October 2025, ICCAD, and preprint link visible.
+Web preprint open and official link resolution: Failed to parse PDF. Full text unavailable through that route too.
+Web exact title / filename searches: no usable primary full-text or official code result in returned search results.
+A ResearchGate metadata result states DOI 10.1109/ICCAD66269.2025.11240744 and no full text; not used to infer methods.
+
+No OpenROAD/OpenSTA/Yosys/nvidia-smi in PATH; torch and transformers import specs absent.
+No checkpoint or cell library acquired or licensed. No installation attempted.
+No model API called; no payment, credential creation, push, PR, publication or security changes.

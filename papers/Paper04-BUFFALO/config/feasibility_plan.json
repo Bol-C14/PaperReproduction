@@ -1,0 +1,14 @@
+{
+  "declared_before_evaluation": true,
+  "cases": ["clustered", "spread", "aes_cut"],
+  "configurations_per_case": ["archived_geometric_3", "shallow_x8_10pct", "shallow_x8_50pct"],
+  "maximum_configurations": 9,
+  "baseline": "Exact archived geometric-3 tree, fresh diagnostic STA; same input/geometry/RC/constraints.",
+  "alternatives": "Sort sinks by y then x, consecutive groups of at most max_fanout=4; one BUFx8 per group. Place each buffer 10% or 50% of the way from source to its group centroid, rounded to integer coordinates. Preserve source and every sink.",
+  "candidate_selection": "No selection after new feedback; exactly two fixed alternatives per case.",
+  "unchanged": ["source cell", "sink identity and cells", "required_ps", "input slew", "output loads", "RC", "library and corner", "fanout and capacitance limits"],
+  "new_observations": ["input A and output Y rise/fall slew and arrival", "output required times and slack", "critical path cell versus wire delay"],
+  "model_calls": 0,
+  "training": false,
+  "paid_compute": false
+}

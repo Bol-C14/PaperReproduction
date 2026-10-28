@@ -1,0 +1,19 @@
+{
+  "declared_before_evaluation": true,
+  "maximum_new_sta_calls": 12,
+  "cases": ["clustered", "spread", "aes_cut"],
+  "configurations_per_case": [
+    {"label": "envelope_old_x8_10pct_load0p5", "buffer_cell": "BUFx8_ASAP7_75t_R", "centroid_fraction": 0.1, "output_load_ff": 0.5, "purpose": "Same-implementation replay before correction; diagnostic only, exclude from corrected-load Pareto pool."},
+    {"label": "envelope_x8_10pct_load1p44", "buffer_cell": "BUFx8_ASAP7_75t_R", "centroid_fraction": 0.1, "output_load_ff": 1.44, "purpose": "Paired load-domain correction; fixed shallow topology."},
+    {"label": "envelope_x4f_10pct_load1p44", "buffer_cell": "BUFx4f_ASAP7_75t_R", "centroid_fraction": 0.1, "output_load_ff": 1.44, "purpose": "Buffer-size control at same topology, location and corrected endpoint load."},
+    {"label": "envelope_x8_25pct_load1p44", "buffer_cell": "BUFx8_ASAP7_75t_R", "centroid_fraction": 0.25, "output_load_ff": 1.44, "purpose": "Placement control at same topology, size and corrected endpoint load."}
+  ],
+  "choice_basis": "Existing allowlisted x4f/x8 sizes and previously defined geometric shallow construction; no hidden labels, oracle search or adaptive proposals.",
+  "required_ps_remains": 80,
+  "counterfactual_required_grid_ps": [80, 100, 120, 160, 200],
+  "counterfactual_note": "Postprocess fixed measured arrivals only, no altered-target STA and no paper-performance claim.",
+  "pareto_axes": ["inserted_buffer_area", "same_implementation_max_arrival_ps"],
+  "pareto_grouping": "Separate each net and endpoint-load setting; corrected primary pool uses1.44fF only. Exclude declared-invalid or tool-error configurations.",
+  "calls_include_errors": true,
+  "api_or_training": false
+}
