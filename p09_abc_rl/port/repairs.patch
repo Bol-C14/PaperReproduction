@@ -1,0 +1,116 @@
+--- upstream/LogicSynthesisEnv.py
++++ port/repaired/LogicSynthesisEnv.py
+@@ -25,7 +25,7 @@
+ 
+ NUM_LENGTH_EPISODES = 10
+ RESYN2_CMD =  "balance; rewrite; refactor; balance; rewrite; rewrite -z; balance; refactor -z; rewrite -z; balance;"
+-BERT_MODEL_NAME = 'bert-base-cased'
++BERT_MODEL_NAME = os.environ.get('ABC_RL_BERT_PATH', 'bert-base-cased')
+ tz = BertTokenizer.from_pretrained(BERT_MODEL_NAME)
+ 
+ 
+@@ -200,7 +200,7 @@
+ 
+     def get_montecarlo_return(self,startingAction,state,depth):
+         synthesisCmd=synthesisOpToPosDic[startingAction]+";"
+-        while(depth+1 <= self.ep_length):
++        while(depth+1 < self.ep_length):
+             i = np.random.randint(0, len(synthesisOpToPosDic.keys()))
+             synthesisCmd += (synthesisOpToPosDic[i]+";")
+             depth+=1
+--- upstream/LogicSynthesisPolicy.py
++++ port/repaired/LogicSynthesisPolicy.py
+@@ -1,3 +1,4 @@
++import os
+ import numpy as np
+ import torch
+ import torch.nn as nn
+@@ -10,9 +11,9 @@
+ from torch_geometric.loader import DataLoader
+ from transformers import BertModel
+ from torch_sparse import SparseTensor
+-BERT_MODEL_NAME = 'bert-base-cased'
++BERT_MODEL_NAME = os.environ.get('ABC_RL_BERT_PATH', 'bert-base-cased')
+ bert_model = BertModel.from_pretrained(BERT_MODEL_NAME, return_dict=True)
+-bert_model.to('cuda')
++bert_model.to(os.environ.get('ABC_RL_DEVICE', 'cpu'))
+ bert_model.eval()
+             
+ 
+@@ -154,7 +155,8 @@
+             finalReadouts.append(self.readout[0](h,batch))
+             finalReadouts.append(self.readout[1](h,batch))
+         aigEmbedding = torch.cat(finalReadouts,dim=1)
+-        aigEmbedding = torch.round(aigEmbedding,decimals=3)
++        if not self.training:
++            aigEmbedding = torch.round(aigEmbedding,decimals=3)
+         return aigEmbedding
+ 
+ 
+--- upstream/cosine_scorer.py
++++ port/repaired/cosine_scorer.py
+@@ -222,7 +222,7 @@
+         print("Pre-trained model not found")
+         exit(1)
+     #trainer = Trainer(preTrainedGraphModel=modelPath)
+-    trainer = Trainer(preTrainedGraphModel=None)
++    trainer = Trainer(preTrainedGraphModel=modelPath)
+     
+     destRootAIGPaths = {} #Split for train and test AIGs
+     for idx in range(len(trainTestBenchmarkSplit.keys())):
+--- upstream/trainer.py
++++ port/repaired/trainer.py
+@@ -17,7 +17,7 @@
+     derived via the tree search.
+     """
+ 
+-    def __init__(self,preTrainedGraphModel=None,device='cuda',learning_rate=0.01,batch_size=32,isCritic=False):
++    def __init__(self,preTrainedGraphModel=None,device='cpu',learning_rate=0.01,batch_size=32,isCritic=False):
+         self.step_model = LogicSynthesisPolicy(readout_type=['mean','max']) # NYU-MLDA parameterize this
+         self.device = device
+         self.preTrainedGraphModel = preTrainedGraphModel
+@@ -27,7 +27,7 @@
+         
+         if not self.preTrainedGraphModel is None:
+             ## Load all the keys from GCN layers trained for node prediction
+-            self.step_model.load_state_dict(torch.load(self.preTrainedGraphModel),strict=False)
++            self.step_model.load_state_dict(torch.load(self.preTrainedGraphModel, map_location=self.device, weights_only=True),strict=True)
+             weightsForGradOn = ["denseLayer.weight", "denseLayer.bias", "dense_p1.weight", "dense_p1.bias", \
+                                 "dense_p2.weight", "dense_p2.bias", "dense_v1.weight", "dense_v1.bias", "dense_v2.weight", "dense_v2.bias"]
+             
+@@ -115,7 +115,7 @@
+ 
+         return valLoss,policyLoss
+     
+-    def step(self,aigData,device='cuda'):
++    def step(self,aigData,device='cpu'):
+         """
+         Returns policy and value estimates for given observations.
+         :param obs: Array of shape [N] containing N observations.
+@@ -130,7 +130,7 @@
+             _, pi, v,_,_ = self.step_model(batchedAIG)
+             return pi.detach().cpu().numpy(), v.detach().cpu().numpy()
+ 
+-    def stepNgetEmbedding(self,aigData,device='cuda'):
++    def stepNgetEmbedding(self,aigData,device='cpu'):
+         """
+         Returns policy and value estimates for given observations.
+         :param obs: Array of shape [N] containing N observations.
+@@ -145,7 +145,7 @@
+             logits, pi,v,finalEmbed,aigEmbed = self.step_model(batchedAIG)
+             return pi.detach().cpu().numpy(), v.detach().cpu().numpy(),aigEmbed.detach().cpu().numpy()
+         
+-    def stepNgetLogits(self,aigData,device='cuda'):
++    def stepNgetLogits(self,aigData,device='cpu'):
+         """
+         Returns policy and value estimates for given observations.
+         :param obs: Array of shape [N] containing N observations.
+@@ -161,7 +161,7 @@
+             return pi.detach().cpu().numpy(), v.detach().cpu().numpy(),logits.detach().cpu().numpy()
+         
+         
+-    def stepNgetFullEmbedding(self,aigData,device='cuda'):
++    def stepNgetFullEmbedding(self,aigData,device='cpu'):
+         """
+         Returns policy and value estimates for given observations.
+         :param obs: Array of shape [N] containing N observations.
