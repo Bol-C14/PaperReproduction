@@ -53,7 +53,7 @@ def audit(root):
     common=json.loads((root/'common.json').read_text())
     assert digest(common)==ledger['common_sha256']
     assert [r['indices'] for r in common]==PLAN['initial_indices']
-    assert len(rows)==len(ledger['spice'])<=63
+    assert len(rows)==len(ledger['spice'])<=ledger.get('physical_spice_cap',63)
     assert [r['attempt'] for r in rows]==list(range(1,len(rows)+1))
     byid={r['project_attempt_id']:r for r in rows}
     assert len(byid)==len(rows)
@@ -91,14 +91,14 @@ def audit(root):
             else:costs.append(Decimal(api['maximum_token_cost_usd']))
         else:costs.append(Decimal(api['maximum_token_cost_usd']))
     report={'passed':True,'actual_spice_attempts':len(rows),'valid_spice':sum(r['measurement_valid'] for r in rows),
-            'api_attempts':len(ledger['api']),'api_cost_accounted_usd':str(sum(costs,Decimal(0))),
+            'api_attempts':len(ledger['api'])+ledger.get('carried_api_attempts',0),'new_api_attempts':len(ledger['api']),'api_cost_accounted_usd':str(sum(costs,Decimal(0))+Decimal(ledger.get('prior_api_cost_usd','0'))),
             'api_usage':usage,'independent_waveform_checks':checks,'arms':summaries,
             'shared_common_data_exact':True,'preflight_or_control_never_in_guided_prompts':True,
             'matched_budget':all(s['fresh_attempts']==24 for s in summaries.values()),
             'simulator_cpu_seconds':sum(r['cpu_seconds'] for r in rows),
             'simulator_wall_seconds':sum(r['wall_seconds'] for r in rows),
             'limitations':['one circuit/seed; descriptive integration only','API model/config and numerical/measurement substitutions disclosed']}
-    assert len(ledger['api'])<=10
+    assert len(ledger['api'])+ledger.get('carried_api_attempts',0)<=10
     atomic(root/'checks.json',report)
     print(json.dumps({k:report[k] for k in ('passed','actual_spice_attempts','api_attempts','api_cost_accounted_usd','matched_budget','arms')},indent=2))
 

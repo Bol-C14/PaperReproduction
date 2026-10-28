@@ -60,7 +60,7 @@ class AttemptLedger:
     def reserve_spice(self,*,kind,indices,arm=None,retry_of=None):
         rows=self.data['spice']
         if tuple(indices) not in DOMAIN:raise ValueError('Illegal released grid point')
-        if len(rows)>=PLAN['physical_stage_attempt_cap']:raise BudgetError('Stage SPICE cap')
+        if len(rows)>=self.data.get('physical_spice_cap',PLAN['physical_stage_attempt_cap']):raise BudgetError('Stage SPICE cap')
         if kind=='search':
             if self.remaining(arm)<=0:raise BudgetError('Current arm SPICE cap')
         elif kind in ('preflight','common','validation'):
@@ -97,7 +97,7 @@ class AttemptLedger:
         rows=self.data['api'];output=CAPS['output_per_stage'][stage]
         if any(r['status'] in ('attempt_pending','provider_or_usage_mismatch') for r in rows):
             raise BudgetError('Unresolved/policy-mismatched API attempt requires reconciliation')
-        if len(rows)>=10 or sum(r['stage']==stage for r in rows)>=2:raise BudgetError('API attempt cap')
+        if len(rows)+self.data.get('carried_api_attempts',0)>=10 or sum(r['stage']==stage for r in rows)>=2:raise BudgetError('API attempt cap')
         tokens=check['input_tokens_upper_bound']
         if type(tokens) is not int or not 0<tokens<=CAPS['input_chat_tokens_per_request']:raise InputLimitExceeded('Invalid certified input bound')
         if sum(r['input_tokens_reserved'] for r in rows)+tokens>CAPS['input_chat_tokens_total']:raise BudgetError('Total input cap')
@@ -161,6 +161,8 @@ def build_messages(stage,*,ledger,common_rows,arm_rows,understanding=None,domain
     context.update(measurement_port='27 C; paired opposite output edges at 0.9 V; 0..4 ns integral mean supply power minus static 10..90 ps mean',
                    normalization='(gain_dB/20)/((delay_ps/50)*(power_uW/50)); all strict clauses required',
                    units={'dc_gain_db':'dB','average_delay':'ps','dynamic_power':'uW'},
+                   optimization_variables=['W_pmos_base','W_nmos_base'],
+                   variable_schema_rule='Only these two names may appear in variables_to_optimize or variables_fixed. Never list immutable params (L, vdd_voltage, sweep_start, sweep_end, sweep_step, load_cap) in either map. If both widths are optimized, variables_fixed MUST be {}.',
                    initial_domain=PLAN['initial_domain'],domain=domain,
                    understanding=understanding,
                    history=[] if stage=='circuit_understanding' else [project_row(r) for r in all_rows],
@@ -169,11 +171,11 @@ def build_messages(stage,*,ledger,common_rows,arm_rows,understanding=None,domain
                    gp_port='Common ten-point initialization already consumed; no extra warmup. Indices/8; normalized y; fixed Constant(1)*Matern(nu=2.5,length=.35)+WhiteKernel(1e-6); UCB mean+2sd; invalid excluded; random if <3 valid.')
     instructions={
         'circuit_understanding':'Return circuit_topology_overview, optimization_variables_mapping, optimization_variables_impact, variable_interactions, key_insights_for_optimization as nonempty JSON fields; use public topology only.',
-        'initial_search_space':'Return optimization_configuration with variables_to_optimize {name:{search_space:[released values]}}, variables_fixed {name:{fixed_value:released value}}, reasoning, search_space_summary. Cover each variable once; >=12 unseen combinations.',
+        'initial_search_space':'Return optimization_configuration with variables_to_optimize {name:{search_space:[released values]}}, variables_fixed {name:{fixed_value:released value}}, reasoning, search_space_summary. Cover W_pmos_base and W_nmos_base exactly once and no other name; variables_fixed={} when both are optimized; >=12 unseen combinations.',
         'inner_first':'Return {action:search|stop,method:random|bayesian,n_samples:12,parameters:{},reasoning:nonempty string}. Stop is honored; exact numerical port and batch cap fixed.',
         'outer_regeneration':'Reflect on actual common+fresh measurements. Return initial domain schema with >=12 unseen combinations and honest change/no-change reasoning. Preserve all observations; no invented results.',
         'inner_second':'Return same inner decision schema, n_samples:12 for search or stop; twelve fresh attempts remain, independent of ten common observations.'}
-    messages=[{'role':'system','content':'AutoSizer fair API pilot. Return exactly one JSON object. No invented measurements or access to control/oracle results.'},
+    messages=[{'role':'system','content':'AutoSizer fair API pilot. Maximize best strictly feasible normalized FoM within the fresh-attempt budget; finding one feasible design alone does not exhaust this objective. A justified stop is still honored. Return exactly one JSON object. No invented measurements or access to control/oracle results.'},
               {'role':'user','content':json.dumps({'stage':stage,'instruction':instructions[stage],'context':context},ensure_ascii=False,separators=(',',':'))}]
     if re.search(r'/(?:home|Users)/[^\s"\x27]+',json.dumps(messages)):
         raise ValueError('Runtime/private paths cannot enter model messages')

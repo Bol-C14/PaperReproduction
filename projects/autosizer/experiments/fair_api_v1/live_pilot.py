@@ -10,6 +10,7 @@ import itertools
 import json
 import os
 import subprocess
+import shutil
 import sys
 import traceback
 import numpy as np
@@ -45,7 +46,7 @@ def domain(value):
 def freeze(args,shared_module):
     args.root.mkdir(parents=True,exist_ok=False)
     now=dt.datetime.now(dt.timezone.utc)
-    files=list(HERE.glob('*.py'))+[HERE/'PROTOCOL.md',HERE/'OPENROUTER_PENDING_CONFIG.json',HERE/'PLAN.json',
+    files=list(HERE.glob('*.py'))+[HERE/'SCHEMA_REPAIR_CONTINUATION.md',HERE/'COST_ENVELOPE_PROTOCOL.md',HERE/'PROTOCOL.md',HERE/'OPENROUTER_PENDING_CONFIG.json',HERE/'PLAN.json',
           PROJECT/'upstream/inverter.yaml',PROJECT/'experiments/bridge_v1/bridge.py',
           PROJECT/'experiments/optimization_v1/scripts/engine.py',PROJECT/'experiments/optimization_v1/scripts/search.py']
     p={'stage':'fair_api_v1_actual','created_utc':now.isoformat(),'deadline_utc':(now+dt.timedelta(hours=2)).isoformat(),
@@ -61,6 +62,14 @@ def freeze(args,shared_module):
        'source_normalization':'(gain_dB/20)/((delay_ps/50)*(dynamic_power_uW/50)); strict clauses all required',
        'substitutions':['OpenRouter standard Google AI Studio route','reasoning explicitly off','JSON output cap and no top_k through this route','corrected paired-edge/time-weighted measurement port','fixed scikit-learn GP-UCB numerical port']}
     if p['affinity']!=list(range(24,32)):raise RuntimeError('Expected CPU24-31 affinity')
+    if getattr(args,'resume_from',None):
+        old=json.loads((args.resume_from/'protocol.json').read_text())
+        for f in ('upstream/inverter.yaml','experiments/bridge_v1/bridge.py','experiments/optimization_v1/scripts/engine.py','experiments/optimization_v1/scripts/search.py'):
+            if old['files_sha256'][f]!=sha(PROJECT/f):raise RuntimeError('Physical/numerical source changed; cannot carry observations')
+        if old['binary_sha256']!=p['binary_sha256'] or old['selector_sha256']!=p['selector_sha256']:raise RuntimeError('Runtime changed; cannot carry observations')
+        p.update(max_simulator_attempts=64,continuation_of=args.resume_from.name,source_protocol_sha256=sha(args.resume_from/'protocol.json'),
+                 carried_spice_attempts=39,carried_api_attempts=3,max_new_api_attempts=7,
+                 revision='Explicit allowed-variable schema correction; failed phase intact; carry common/control data without remeasurement; prior guided winner validation becomes a charged diagnostic')
     atomic(args.root/'protocol.json',p)
     return Simulator(args.root,args.binary,args.selector)
 
@@ -76,10 +85,30 @@ def run(args):
     if client.config.public_settings().get('chat_model')!='google/gemini-2.5-flash':
         raise RuntimeError('Shared configured model differs from frozen pilot')
     sim=freeze(args,args.shared_module)
+    continuing=bool(getattr(args,'resume_from',None))
+    if continuing:
+        old=args.resume_from
+        previous=json.loads((old/'project_ledger.json').read_text())
+        if len(previous['api'])!=3 or sum(r['kind']=='search' and r['arm']=='api_guided' for r in previous['spice'])!=0:
+            raise RuntimeError('Continuation state differs; do not duplicate unknown work')
+        carried=json.loads(json.dumps(previous));carried['api']=[]
+        carried['carried_api_attempts']=3;carried['physical_spice_cap']=64
+        carried['prior_api_cost_usd']=json.loads((old/'checks.json').read_text())['api_cost_accounted_usd']
+        for row in carried['spice']:
+            if row['kind']=='validation' and row['arm']=='api_guided':
+                row.update(kind='failed_phase_diagnostic',source_kind='validation')
+        atomic(args.root/'project_ledger.json',carried)
+        for name in ('attempts','api'):
+            shutil.copytree(old/name,args.root/('prior_api' if name=='api' else name),dirs_exist_ok=True)
+        for name in ('common.json','fixed_gp_history.json','preflight.json','preflight_checks.json','raw_attempt_map.json','decisions.json'):
+            shutil.copy2(old/name,args.root/name)
+        atomic(args.root/'carry_forward_manifest.json',{'source_run':old.name,
+             'files':{str(p.relative_to(old)):sha(p) for p in sorted(old.rglob('*')) if p.is_file()},
+             'unchanged_physical_measurements':True,'no_prior_control_data_in_model_prompts':True})
     ledger=AttemptLedger(args.root/'project_ledger.json')
     controller=SharedController(client,ledger,run_id=args.root.name,token_counter=None,evidence_dir=args.root/'api')
     controller.check_interface()
-    rawmap={}
+    rawmap=json.loads((args.root/'raw_attempt_map.json').read_text()) if continuing else {}
     def measured(point,origin,kind='search',mode='corrected',export=False,refined=False,attempt=None):
         own=attempt or ledger.reserve_spice(kind=kind,indices=point,arm=origin if kind in ('search','validation') else None)
         raw=sim.evaluate(point,origin,mode=mode,export=export,refined=refined)
@@ -91,20 +120,24 @@ def run(args):
         if attempt is not None:return raw
         row=public_observation(raw,own,'common' if kind=='common' else origin)
         return row
-    # All calls here are new, charged measurements. Safety samples are excluded.
-    preflight=[measured([4,4],'preflight_source',kind='preflight',mode='original',export=True),
-               measured([4,4],'preflight_corrected',kind='preflight',export=True),
-               measured([4,4],'preflight_refined',kind='preflight',export=True,refined=True)]
-    atomic(args.root/'preflight.json',preflight)
-    if not all(r['measurement_valid'] for r in preflight[1:]):raise RuntimeError('Preflight invalid')
-    # New independent vectors/units checker, never an optimizer observation.
-    from audit_live import audit_preflight
-    audit_preflight(args.root)
-    common=[measured(p,'common',kind='common') for p in PLAN['initial_indices']]
-    ledger.freeze_common(common);atomic(args.root/'common.json',common)
+    if continuing:
+        common=json.loads((args.root/'common.json').read_text())
+        ledger.freeze_common(common)
+    else:
+        # All calls here are new, charged measurements. Safety samples are excluded.
+        preflight=[measured([4,4],'preflight_source',kind='preflight',mode='original',export=True),
+                   measured([4,4],'preflight_corrected',kind='preflight',export=True),
+                   measured([4,4],'preflight_refined',kind='preflight',export=True,refined=True)]
+        atomic(args.root/'preflight.json',preflight)
+        if not all(r['measurement_valid'] for r in preflight[1:]):raise RuntimeError('Preflight invalid')
+        # New independent vectors/units checker, never an optimizer observation.
+        from audit_live import audit_preflight
+        audit_preflight(args.root)
+        common=[measured(p,'common',kind='common') for p in PLAN['initial_indices']]
+        ledger.freeze_common(common);atomic(args.root/'common.json',common)
     guided=FairBatchRunner(ledger,'api_guided',common)
     rng=np.random.default_rng(11)
-    decisions=[]
+    decisions=json.loads((args.root/'decisions.json').read_text()) if continuing else []
     failure=None
     def model(stage,cu=None,points=None):
         messages=build_messages(stage,ledger=ledger,common_rows=common,arm_rows=guided.history,understanding=cu,
@@ -131,7 +164,11 @@ def run(args):
             return point
         runner.run_batch(12,propose=propose,evaluate=lambda p,a:measured(p,runner.arm,attempt=a))
     try:
-        cu=model('circuit_understanding')
+        if continuing:
+            prior=args.root/'prior_api/api_01/response.json'
+            cu=json.loads(json.loads(prior.read_text())['choices'][0]['message']['content'])
+            atomic(args.root/'understanding_provenance.json',{'source':'prior_api/api_01/response.json','source_sha256':sha(prior),'actual_online_model_output':True,'synthetic':False})
+        else:cu=model('circuit_understanding')
         initial=model('initial_search_space',cu)
         points=domain(initial)
         decision=model('inner_first',cu,points)
@@ -147,12 +184,14 @@ def run(args):
         # No exception message or config dump; complete source/error files stay local.
     control=FairBatchRunner(ledger,'fixed_gp',common)
     rng=np.random.default_rng(11) # Same initial RNG state; numerical policy differs only by model decisions.
-    for _ in range(2):search_batch(control,'bayesian',list(itertools.product(range(9),repeat=2)))
+    if not continuing:
+        for _ in range(2):search_batch(control,'bayesian',list(itertools.product(range(9),repeat=2)))
     for arm,history in [('api_guided',guided.history),('fixed_gp',control.history)]:
+        if continuing and arm=='fixed_gp':continue # Its actual refined winner measurement is carried unchanged.
         winner=incumbent(common+history)
         if winner:measured(winner['indices'],arm,kind='validation',export=True,refined=True)
     atomic(args.root/'raw_attempt_map.json',rawmap)
-    atomic(args.root/'execution_summary.json',{'guided_failure':failure,'api_attempts':len(ledger.data['api']),
+    atomic(args.root/'execution_summary.json',{'guided_failure':failure,'api_attempts':len(ledger.data['api'])+ledger.data.get('carried_api_attempts',0),'new_api_attempts':len(ledger.data['api']),
           'guided_fresh':ledger.used('api_guided'),'control_fresh':ledger.used('fixed_gp'),
           'common':len(common),'spice_attempts':len(ledger.data['spice']),
           'matched_budget':ledger.used('api_guided')==ledger.used('fixed_gp')==24})
@@ -162,6 +201,6 @@ def run(args):
 if __name__=='__main__':
     parser=argparse.ArgumentParser()
     parser.add_argument('--root',type=Path,required=True);parser.add_argument('--binary',type=Path,required=True)
-    parser.add_argument('--selector',type=Path,required=True);parser.add_argument('--shared-module',type=Path,required=True)
+    parser.add_argument('--resume-from',type=Path);parser.add_argument('--selector',type=Path,required=True);parser.add_argument('--shared-module',type=Path,required=True)
     args=parser.parse_args()
     with threadpool_limits(limits=1):run(args)

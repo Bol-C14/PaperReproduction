@@ -84,6 +84,11 @@ class SharedController:
             value=parse_json(content)
             if not isinstance(value,dict):raise ValueError('JSON object required')
             source_stage='inner_iteration' if stage in ('inner_first','inner_second') else stage
+            if source_stage in ('initial_search_space','outer_regeneration'):
+                cfg=value.get('optimization_configuration',{})
+                names=set(cfg.get('variables_to_optimize',{}))|set(cfg.get('variables_fixed',{}))
+                extra=names-{'W_pmos_base','W_nmos_base'}
+                if extra:raise ValueError('Unexpected names '+','.join(sorted(extra))+'. Only W_pmos_base and W_nmos_base are optimization variables; immutable params must NOT appear in either variable map; variables_fixed={} if both widths active.')
             validate(source_stage,value,remaining=self.ledger.remaining('api_guided'))
             if source_stage=='inner_iteration' and value['action']=='search' and value['n_samples']!=12:
                 raise ValueError('Exact twelve-attempt batch required')

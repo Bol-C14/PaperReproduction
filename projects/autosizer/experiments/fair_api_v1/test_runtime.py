@@ -63,6 +63,9 @@ class MockExtendedShared:
         if self.kind=='failure':raise RuntimeError('MOCK_TRANSPORT_FAILURE')
         stage=json.loads(messages[1]['content'])['stage']
         value=CU if stage=='circuit_understanding' else DOMAIN_RESPONSE if stage in ('initial_search_space','outer_regeneration') else {'action':'search','method':'bayesian','n_samples':12,'parameters':{},'reasoning':'SYNTHETIC ONLY'}
+        if self.kind=='extra_fixed' and stage in ('initial_search_space','outer_regeneration'):
+            import copy
+            value=copy.deepcopy(value);value['optimization_configuration']['variables_fixed']={'L':{'fixed_value':.15}}
         content='invalid JSON' if self.kind=='invalid' else json.dumps(value)
         return {'id':'MOCK_ONLY','model':'google/gemini-2.5-flash','provider':'Google AI Studio','service_tier':'default',
                 'choices':[{'message':{'content':content},'finish_reason':'stop'}],
@@ -206,7 +209,7 @@ class RuntimeTests(unittest.TestCase):
             def __new__(cls,config):return client
         shared.Client=Factory
         args=SimpleNamespace(root=root,shared_module=Path('MOCK_SHARED/openrouter_shared.py'),binary=Path('MOCK_NGSPICE'),selector=Path('MOCK_SELECTOR'))
-        with patch.dict(sys.modules,{'openrouter_shared':shared}),patch.object(live_pilot,'freeze',freeze),patch.object(audit_live,'audit_preflight',lambda root:None),patch.object(audit_live,'audit',lambda root:None),patch('socket.socket',side_effect=AssertionError('Network forbidden')):
+        with patch.dict(sys.modules,{'openrouter_shared':shared}),patch.object(live_pilot,'freeze',freeze),patch.object(audit_live,'audit_preflight',lambda root:(root/'preflight_checks.json').write_text('{"passed":true,"mock_only":true}')),patch.object(audit_live,'audit',lambda root:None),patch('socket.socket',side_effect=AssertionError('Network forbidden')):
             live_pilot.run(args)
         result=json.loads((root/'execution_summary.json').read_text())
         self.assertEqual((simulator.count,len(client.calls)),(63,5))
@@ -215,6 +218,42 @@ class RuntimeTests(unittest.TestCase):
         final_request=json.loads((root/'api/api_05/request.json').read_text())
         context=json.loads(final_request['messages'][1]['content'])['context']
         self.assertEqual((len(context['history']),context['remaining_attempts']),(22,12))
+    def test_schema_repair_continuation_reuses_measurements_and_global_request_count(self):
+        import sys,copy
+        import live_pilot,audit_live
+        prior=self.root/'MOCK_FAILED_PHASE';target=self.root/'MOCK_CONTINUATION'
+        clients=[MockExtendedShared('extra_fixed'),MockExtendedShared()]
+        current={'root':None,'client':None,'evaluations':0}
+        class FakeSimulator:
+            def evaluate(self,point,origin,mode='corrected',export=False,refined=False):
+                current['evaluations']+=1
+                root=current['root'];number=len(list((root/'attempts').glob('[0-9]*')))+1
+                result=observation('MOCK',point,origin)
+                result.update(attempt=number,returncode=0,mode=mode,export=export,refined=refined)
+                (root/'attempts'/f'{number:03d}').mkdir(parents=True)
+                return result
+        def freeze(args,module):
+            args.root.mkdir();(args.root/'attempts').mkdir()
+            (args.root/'protocol.json').write_text('{"mock_only":true}')
+            current['root']=args.root;return FakeSimulator()
+        class Factory:
+            chat=MockExtendedShared.chat
+            def __new__(cls,config):return current['client']
+        shared=SimpleNamespace(load_config=lambda:None,Client=Factory)
+        def audit(root):
+            (root/'checks.json').write_text('{"api_cost_accounted_usd":"0.00165"}')
+        def arguments(root,resume=None):return SimpleNamespace(root=root,resume_from=resume,shared_module=Path('MOCK_SHARED/openrouter_shared.py'),binary=Path('MOCK_NGSPICE'),selector=Path('MOCK_SELECTOR'))
+        with patch.dict(sys.modules,{'openrouter_shared':shared}),patch.object(live_pilot,'freeze',freeze),patch.object(audit_live,'audit_preflight',lambda root:(root/'preflight_checks.json').write_text('{"passed":true,"mock_only":true}')),patch.object(audit_live,'audit',audit),patch('socket.socket',side_effect=AssertionError('Network forbidden')):
+            current['client']=clients[0];live_pilot.run(arguments(prior))
+            self.assertEqual((current['evaluations'],len(clients[0].calls)),(39,3))
+            control_before=(prior/'fixed_gp_history.json').read_bytes()
+            current['client']=clients[1];live_pilot.run(arguments(target,prior))
+        result=json.loads((target/'execution_summary.json').read_text())
+        self.assertEqual((current['evaluations'],result['spice_attempts']),(64,64))
+        self.assertEqual((len(clients[1].calls),result['api_attempts']),(4,7))
+        self.assertTrue(result['matched_budget'])
+        self.assertEqual((target/'fixed_gp_history.json').read_bytes(),control_before)
+        self.assertEqual((prior/'fixed_gp_history.json').read_bytes(),control_before)
     @unittest.skipUnless(os.environ.get('AUTOSIZER_SHARED_MODULE_PATH'),'Explicit read-only shared module source path not provided')
     def test_actual_installed_shared_contract_probe_never_reads_config(self):
         spec=importlib.util.spec_from_file_location('shared_interface_readonly',os.environ['AUTOSIZER_SHARED_MODULE_PATH'])
