@@ -1,0 +1,228 @@
+{
+  "snapshot_utc": "2026-10-28T15:12:14.929985+00:00",
+  "source": "https://openrouter.ai/api/v1/models",
+  "raw_model_catalog_sha256": "fcad095c77147cd04fa3fc28a1a265d9cca645bb5d2e11029fe22d14892924a0",
+  "unauthenticated_model_directory_reads_only": true,
+  "model_calls": 0,
+  "credentials_accessed": false,
+  "budget": {
+    "max_attempted_requests": 10,
+    "max_input_chat_tokens_total": 81920,
+    "max_output_tokens_total": 7168,
+    "formula": "input_total * prompt_USD_per_token + billable_generated_total * completion_USD_per_token",
+    "conditional": "Assumes generated cap includes all billed reasoning or reasoning is disabled; no tools, extra cache-write charges, paid plugins or price increase. Not an account-wide spend enforcement claim."
+  },
+  "selected_candidates": [
+    {
+      "model_id": "google/gemini-2.5-flash",
+      "canonical_slug": "google/gemini-2.5-flash",
+      "context_length": 1048576,
+      "supported_parameters": [
+        "include_reasoning",
+        "max_tokens",
+        "reasoning",
+        "response_format",
+        "seed",
+        "stop",
+        "structured_outputs",
+        "temperature",
+        "tool_choice",
+        "tools",
+        "top_p"
+      ],
+      "reasoning_catalog": {
+        "mandatory": false
+      },
+      "catalog_prompt_usd_per_million": "0.3000000",
+      "catalog_completion_usd_per_million": "2.5000000",
+      "catalog_text_token_cost_at_caps_usd": "0.0424960",
+      "endpoints": [
+        {
+          "provider_tag": "google-ai-studio/flex",
+          "status_as_reported": 0,
+          "prompt_usd_per_million": "0.15000000",
+          "completion_usd_per_million": "1.25000000",
+          "text_token_cost_at_caps_usd": "0.02124800"
+        },
+        {
+          "provider_tag": "google-ai-studio",
+          "status_as_reported": 0,
+          "prompt_usd_per_million": "0.3000000",
+          "completion_usd_per_million": "2.5000000",
+          "text_token_cost_at_caps_usd": "0.0424960"
+        },
+        {
+          "provider_tag": "google-ai-studio/priority",
+          "status_as_reported": 0,
+          "prompt_usd_per_million": "0.54000000",
+          "completion_usd_per_million": "4.5000000",
+          "text_token_cost_at_caps_usd": "0.07649280"
+        }
+      ],
+      "endpoint_source": "https://openrouter.ai/api/v1/models/google/gemini-2.5-flash/endpoints",
+      "raw_endpoint_catalog_sha256": "3cb3952afe64c526e6eec0b9ac960dc733426d4d47c279175502e757397b54f3"
+    },
+    {
+      "model_id": "google/gemini-2.5-flash-lite",
+      "canonical_slug": "google/gemini-2.5-flash-lite",
+      "context_length": 1048576,
+      "supported_parameters": [
+        "include_reasoning",
+        "max_tokens",
+        "reasoning",
+        "response_format",
+        "seed",
+        "stop",
+        "structured_outputs",
+        "temperature",
+        "tool_choice",
+        "tools",
+        "top_p"
+      ],
+      "reasoning_catalog": {
+        "mandatory": false
+      },
+      "catalog_prompt_usd_per_million": "0.1000000",
+      "catalog_completion_usd_per_million": "0.4000000",
+      "catalog_text_token_cost_at_caps_usd": "0.0110592",
+      "endpoints": [
+        {
+          "provider_tag": "google-ai-studio/flex",
+          "status_as_reported": 0,
+          "prompt_usd_per_million": "0.05000000",
+          "completion_usd_per_million": "0.2000000",
+          "text_token_cost_at_caps_usd": "0.00552960"
+        },
+        {
+          "provider_tag": "google-ai-studio",
+          "status_as_reported": 0,
+          "prompt_usd_per_million": "0.1000000",
+          "completion_usd_per_million": "0.4000000",
+          "text_token_cost_at_caps_usd": "0.0110592"
+        },
+        {
+          "provider_tag": "google-ai-studio/priority",
+          "status_as_reported": 0,
+          "prompt_usd_per_million": "0.18000000",
+          "completion_usd_per_million": "0.72000000",
+          "text_token_cost_at_caps_usd": "0.01990656"
+        }
+      ],
+      "endpoint_source": "https://openrouter.ai/api/v1/models/google/gemini-2.5-flash-lite/endpoints",
+      "raw_endpoint_catalog_sha256": "22657d212b6401f44662591fbe9557b5ec6a5b6eddf0b51bda041618a8d0d5c8"
+    },
+    {
+      "model_id": "anthropic/claude-sonnet-4.6",
+      "canonical_slug": "anthropic/claude-4.6-sonnet-20260217",
+      "context_length": 1000000,
+      "supported_parameters": [
+        "include_reasoning",
+        "max_completion_tokens",
+        "max_tokens",
+        "reasoning",
+        "reasoning_effort",
+        "response_format",
+        "stop",
+        "structured_outputs",
+        "temperature",
+        "tool_choice",
+        "tools",
+        "top_k",
+        "top_p",
+        "verbosity"
+      ],
+      "reasoning_catalog": {
+        "mandatory": false,
+        "supported_efforts": [
+          "max",
+          "high",
+          "medium",
+          "low",
+          "none"
+        ],
+        "default_effort": "medium"
+      },
+      "catalog_prompt_usd_per_million": "3.000000",
+      "catalog_completion_usd_per_million": "15.000000",
+      "catalog_text_token_cost_at_caps_usd": "0.353280",
+      "endpoints": [
+        {
+          "provider_tag": "claude-on-aws",
+          "status_as_reported": 0,
+          "prompt_usd_per_million": "3.000000",
+          "completion_usd_per_million": "15.000000",
+          "text_token_cost_at_caps_usd": "0.353280"
+        },
+        {
+          "provider_tag": "azure/global",
+          "status_as_reported": 0,
+          "prompt_usd_per_million": "3.000000",
+          "completion_usd_per_million": "15.000000",
+          "text_token_cost_at_caps_usd": "0.353280"
+        },
+        {
+          "provider_tag": "anthropic",
+          "status_as_reported": 0,
+          "prompt_usd_per_million": "3.000000",
+          "completion_usd_per_million": "15.000000",
+          "text_token_cost_at_caps_usd": "0.353280"
+        },
+        {
+          "provider_tag": "amazon-bedrock/global",
+          "status_as_reported": 0,
+          "prompt_usd_per_million": "3.000000",
+          "completion_usd_per_million": "15.000000",
+          "text_token_cost_at_caps_usd": "0.353280"
+        },
+        {
+          "provider_tag": "google-vertex/global",
+          "status_as_reported": 0,
+          "prompt_usd_per_million": "3.000000",
+          "completion_usd_per_million": "15.000000",
+          "text_token_cost_at_caps_usd": "0.353280"
+        },
+        {
+          "provider_tag": "amazon-bedrock/us",
+          "status_as_reported": 0,
+          "prompt_usd_per_million": "3.3000000",
+          "completion_usd_per_million": "16.5000000",
+          "text_token_cost_at_caps_usd": "0.3886080"
+        },
+        {
+          "provider_tag": "amazon-bedrock/eu-west-1",
+          "status_as_reported": 0,
+          "prompt_usd_per_million": "3.3000000",
+          "completion_usd_per_million": "16.5000000",
+          "text_token_cost_at_caps_usd": "0.3886080"
+        },
+        {
+          "provider_tag": "google-vertex/europe",
+          "status_as_reported": 0,
+          "prompt_usd_per_million": "3.3000000",
+          "completion_usd_per_million": "16.5000000",
+          "text_token_cost_at_caps_usd": "0.3886080"
+        },
+        {
+          "provider_tag": "google-vertex/us-east5",
+          "status_as_reported": 0,
+          "prompt_usd_per_million": "3.3000000",
+          "completion_usd_per_million": "16.5000000",
+          "text_token_cost_at_caps_usd": "0.3886080"
+        }
+      ],
+      "endpoint_source": "https://openrouter.ai/api/v1/models/anthropic/claude-4.6-sonnet-20260217/endpoints",
+      "raw_endpoint_catalog_sha256": "d5556c975d9aac5b28a5f17aac433fa2d53beee285a5a5d46d6883d5ef767107"
+    }
+  ],
+  "deferred_candidate": {
+    "model_id": "qwen/qwen3-coder",
+    "reason": "Official endpoint directory returned only nonzero status codes (-2,-5); no live availability inferred and no alternate route tested."
+  },
+  "offline_payload_size_check": {
+    "case": "Archived test-controller 22-row projection only; never transmit as fair-pilot evidence",
+    "serialized_messages_utf8_bytes": 15328,
+    "serialized_byte_cap": 24576,
+    "exact_model_tokens": null,
+    "limitation": "Real understanding/domain/correction output is not yet available; model-specific chat tokenizer/framing required before sends."
+  }
+}
