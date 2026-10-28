@@ -46,7 +46,7 @@ deck = deck.replace('\n', '\n.temp 27\n', 1)
 changes = ['PDK path/pin/parameter interpolation', 'explicit default temperature 27C']
 if args.variant == 'repaired_export':
     if args.circuit == 'inverter':
-        old = deck[deck.index('    * Measure propagation delays'):deck.index('    print dynamic_power')]
+        old = deck[deck.index('* Measure propagation delays'):deck.index('print dynamic_power')]
         new = '''    * Narrow repair: physically paired inverter response edges
     meas tran tphl TRIG v(IN) VAL=0.9 RISE=1 TARG v(OUT) VAL=0.9 FALL=1
     meas tran tplh TRIG v(IN) VAL=0.9 FALL=1 TARG v(OUT) VAL=0.9 RISE=1
@@ -59,15 +59,15 @@ if args.variant == 'repaired_export':
     wrdata tran.tsv v(IN) v(OUT) power
 '''
         deck = deck.replace(old, new)
-        deck = deck.replace('    print dc_gain_db', '''    set wr_singlescale
+        deck = deck.replace('print dc_gain_db', '''    set wr_singlescale
     set wr_vecnames
     wrdata dc.tsv v(IN) v(OUT)
     print dc_gain_db''')
         changes += ['pair opposite-direction propagation edges',
                     'report integral mean power alongside original sample mean', 'export DC/transient vectors']
     else:
-        deck = deck.replace('    print power_dc', '    print power_dc v(VOUT) v(xota.source) v(xota.net8) i(VDD)')
-        deck = deck.replace('    quit', '''    let gain_mag = mag(vout_ac)
+        deck = deck.replace('print power_dc', 'print power_dc v(VOUT) v(xota.source) v(xota.net8) i(VDD)')
+        deck = deck.replace('quit', '''    let gain_mag = mag(vout_ac)
     set wr_singlescale
     set wr_vecnames
     wrdata ac.tsv gain_mag
