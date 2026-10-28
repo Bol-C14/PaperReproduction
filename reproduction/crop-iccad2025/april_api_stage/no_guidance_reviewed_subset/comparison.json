@@ -1,0 +1,99 @@
+{
+  "seed": 23,
+  "model": "google/gemini-2.5-flash",
+  "original_source_commit": "dd7ce623a19ec6857232c8b406b6e8e606163baa",
+  "control_model_source_commit": "cd0f34e73304ad34ad328d2cd8380de9c0d1022c",
+  "cached_preprocessing_reused": true,
+  "guided": {
+    "configs": [
+      "c0",
+      "c2",
+      "c1",
+      "c4"
+    ],
+    "objectives": [
+      3784,
+      4992,
+      3978,
+      4212
+    ],
+    "search_requests": 3,
+    "search_cost_usd": "0.0007446",
+    "prompt_tokens": 2082,
+    "completion_tokens": 48
+  },
+  "no_guidance": {
+    "configs": [
+      "c0",
+      "c2",
+      "c1",
+      "c4"
+    ],
+    "objectives": [
+      3784,
+      4992,
+      3978,
+      4212
+    ],
+    "search_requests": 3,
+    "search_cost_usd": "0.0006195",
+    "prompt_tokens": 1665,
+    "completion_tokens": 48
+  },
+  "context_difference_audit": [
+    {
+      "iteration": 1,
+      "changed_fields": [
+        "retrieved_guidance",
+        "retrieved_prior"
+      ],
+      "other_prompt_bytes_equal": true
+    },
+    {
+      "iteration": 2,
+      "changed_fields": [
+        "retrieved_guidance",
+        "retrieved_prior"
+      ],
+      "other_prompt_bytes_equal": true
+    },
+    {
+      "iteration": 3,
+      "changed_fields": [
+        "retrieved_guidance",
+        "retrieved_prior"
+      ],
+      "other_prompt_bytes_equal": true
+    }
+  ],
+  "same_raw_metrics": true,
+  "best_guided": 3784,
+  "best_no_guidance": 3784,
+  "independent_vector_checks": 1024,
+  "cec_positive_logs": 4,
+  "fresh_baseline_synthesis_calls": 1,
+  "subsequent_synthesis_calls": 3,
+  "preflight_failures": [
+    {
+      "reason": "Top-level JSON key ordering guard defect",
+      "model_calls": 0,
+      "synthesis_calls": 0
+    },
+    {
+      "reason": "Nested JSON key ordering guard defect",
+      "model_calls": 0,
+      "successful_baseline_reused": true
+    }
+  ],
+  "cumulative_experiment_requests": 20,
+  "cumulative_experiment_cost_usd": "0.0098335",
+  "remaining_experiment_requests": 13,
+  "conclusion": "No observed guidance advantage in this single later control; not strict paired or statistical evidence",
+  "limitations": [
+    "One seed; earlier guided trajectory versus later control",
+    "Shared cached preprocessing; compare search-only cost, not complete pipeline cost",
+    "Model/provider weight revision was not immutable across time windows",
+    "Shared safety routing policy updated between runs",
+    "Educational workload and LUT4 proxy, not full paper or industrial PPA reproduction"
+  ]
+}

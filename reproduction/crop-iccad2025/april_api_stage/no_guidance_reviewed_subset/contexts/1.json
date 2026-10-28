@@ -1,0 +1,80 @@
+{
+  "chosen": "c2",
+  "request": {
+    "arm": "semantic_llm",
+    "comparison_policy": "Prior ratios are guidance only; target QoR comparisons use this fresh native run only",
+    "design_summary": {
+      "design functionality": "Computes sum of three 6-bit products from 36-bit input, truncating to 14 bits",
+      "design name": "dut",
+      "design optimizations": "Direct mapping of arithmetic operations",
+      "key design characteristics": "Combinational logic, 6-bit multiplication, 14-bit addition",
+      "key modules and functionalities": "Three 6-bit unsigned multipliers, one 14-bit adder tree",
+      "module interactions": "Multipliers feed into the adder tree",
+      "potential applications": "Digital signal processing, custom arithmetic units",
+      "primary inputs": "x: 36-bit unsigned input",
+      "primary outputs": "y: 14-bit unsigned output",
+      "timing considerations": "Critical path through multipliers and adder tree"
+    },
+    "iteration": 1,
+    "legal_configs": [
+      {
+        "id": "c0",
+        "mode": "fast",
+        "noalumacc": false
+      },
+      {
+        "id": "c1",
+        "mode": "quality",
+        "noalumacc": false
+      },
+      {
+        "id": "c2",
+        "mode": "area",
+        "noalumacc": false
+      },
+      {
+        "id": "c3",
+        "mode": "depth",
+        "noalumacc": false
+      },
+      {
+        "id": "c4",
+        "mode": "fast",
+        "noalumacc": true
+      },
+      {
+        "id": "c5",
+        "mode": "quality",
+        "noalumacc": true
+      },
+      {
+        "id": "c6",
+        "mode": "area",
+        "noalumacc": true
+      },
+      {
+        "id": "c7",
+        "mode": "depth",
+        "noalumacc": true
+      }
+    ],
+    "objective": "LUT4 count * maximum unit LUT depth; lower is better",
+    "retrieved_guidance": [],
+    "retrieved_prior": null,
+    "seed": 23,
+    "target_history": [
+      {
+        "config": "c0",
+        "invocation": 1,
+        "objective": 3784,
+        "status": "ok"
+      }
+    ]
+  },
+  "response": {
+    "configuration": {
+      "mode": "area",
+      "noalumacc": false
+    }
+  }
+}
