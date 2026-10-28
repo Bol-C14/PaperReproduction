@@ -1,0 +1,60 @@
+[
+  {
+    "id": "cvdp_copilot_lfsr_0001",
+    "variant": "reference",
+    "suite": "independent specification assertions",
+    "exit": 0,
+    "assertions_completed": true,
+    "stdout": "INDEPENDENT_ASSERTIONS_COMPLETED\n/src/check.sv:1: $finish called at 4 (1s)\n",
+    "stderr": ""
+  },
+  {
+    "id": "cvdp_copilot_lfsr_0001",
+    "variant": "incorrect_constant_zero",
+    "suite": "independent specification assertions",
+    "exit": 1,
+    "assertions_completed": false,
+    "stdout": "FATAL: /src/check.sv:1: seed not loaded\n       Time: 2  Scope: independent_tb\n",
+    "stderr": ""
+  },
+  {
+    "id": "cvdp_copilot_lfsr_0001",
+    "variant": "equivalent_vector",
+    "suite": "independent specification assertions",
+    "exit": 0,
+    "assertions_completed": true,
+    "stdout": "INDEPENDENT_ASSERTIONS_COMPLETED\n/src/check.sv:1: $finish called at 4 (1s)\n",
+    "stderr": ""
+  },
+  {
+    "id": "cvdp_agentic_fixed_arbiter_0001",
+    "variant": "reference",
+    "suite": "independent specification assertions",
+    "exit": 1,
+    "assertions_completed": false,
+    "stdout": "FATAL: /src/check.sv:1: override must select one lowest bit\n       Time: 4000  Scope: independent_tb\n",
+    "stderr": ""
+  },
+  {
+    "id": "cvdp_agentic_fixed_arbiter_0001",
+    "variant": "spec_onehot_override",
+    "suite": "independent specification assertions",
+    "exit": 0,
+    "assertions_completed": true,
+    "stdout": "INDEPENDENT_ASSERTIONS_COMPLETED\n/src/check.sv:1: $finish called at 4000 (1ps)\n",
+    "stderr": ""
+  },
+  {
+    "id": "cvdp_agentic_fixed_arbiter_0001",
+    "variant": "spec_onehot_override",
+    "suite": "upstream harness on spec-conforming alternative",
+    "exit": 0,
+    "testcases": [
+      {
+        "name": "test_fixed_priority_arbiter",
+        "failed": false
+      }
+    ],
+    "observed_harness_pass": true
+  }
+]

@@ -1,0 +1,53 @@
+[
+  {
+    "id": "cvdp_copilot_cont_adder_0042",
+    "variant": "no_op",
+    "status": "offline_replay",
+    "tool": "Verilator 5.038",
+    "required_command": "verilator --lint-only -Wall -Wno-EOFNEWLINE /src/lint_config.vlt $VERILOG_SOURCES > lint_results.log 2>&1",
+    "verilog_sources": "/code/rtl/cont_adder.sv",
+    "exit": 1,
+    "pytest_testcases": [
+      {
+        "name": "test_lint",
+        "failure": true,
+        "error": false,
+        "skipped": false
+      }
+    ],
+    "observed_lint_pass": false,
+    "diagnostic_classes": [
+      "GENERAL_ERROR",
+      "UNUSEDPARAM",
+      "WIDTHEXPAND",
+      "WIDTHTRUNC"
+    ],
+    "diagnostic_summary": "WIDTHEXPAND, WIDTHTRUNC and UNUSEDPARAM warnings are fatal under original -Wall policy",
+    "full_task_pass": false,
+    "timeout": false
+  },
+  {
+    "id": "cvdp_copilot_cont_adder_0042",
+    "variant": "invalid",
+    "status": "offline_replay",
+    "tool": "Verilator 5.038",
+    "required_command": "verilator --lint-only -Wall -Wno-EOFNEWLINE /src/lint_config.vlt $VERILOG_SOURCES > lint_results.log 2>&1",
+    "verilog_sources": "/code/rtl/cont_adder.sv",
+    "exit": 1,
+    "pytest_testcases": [
+      {
+        "name": "test_lint",
+        "failure": true,
+        "error": false,
+        "skipped": false
+      }
+    ],
+    "observed_lint_pass": false,
+    "diagnostic_classes": [
+      "GENERAL_ERROR"
+    ],
+    "diagnostic_summary": "syntax error in deliberately malformed input",
+    "full_task_pass": false,
+    "timeout": false
+  }
+]
