@@ -4,7 +4,8 @@ from pathlib import Path
 from z3 import BitVec,Or,Solver
 from behavior_engine import build,extract,initial_costs,emit,zexpr,reference as legacy_reference,FIXTURES
 ROOT=Path(__file__).resolve().parents[1];os.chdir(ROOT)
-C=json.loads(Path('configs/attribution_round.json').read_text());O=Path('results/attribution_round');L=Path('logs/attribution_round');OPS={'Add','Sub','Mul','Shl'}
+C=json.loads(Path('configs/attribution_round.json').read_text());RUN_DIR=Path(os.environ.get('ASPEN_ATTRIBUTION_RUN_ROOT','.'));assert not RUN_DIR.is_absolute() and '..' not in RUN_DIR.parts
+O=RUN_DIR/'results/attribution_round';L=RUN_DIR/'logs/attribution_round';O.mkdir(parents=True,exist_ok=True);L.mkdir(parents=True,exist_ok=True);OPS={'Add','Sub','Mul','Shl'}
 def save(p,v):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(v,indent=2))
 def sha(v):return hashlib.sha256(json.dumps(v,sort_keys=True).encode()).hexdigest()
 FIXTURES['mcm593']=['(Mul (Num 5) (Var \"x\"))','(Mul (Num 93) (Var \"x\"))']
@@ -93,7 +94,7 @@ def invoke(command,ident,kind):
  return dt
 def evaluate(g,ex,name,w,ident):
  text,lines,ts,vs=tagged(g,ex,w);refs,_=reference(name,w);v={s:BitVec(s,w) for s in vs};sol=Solver();sol.set(timeout=5000);sol.add(Or(*[zexpr(t,w,v)!=zexpr(r,w,v) for t,r in zip(ts,refs)]));t=time.perf_counter();z=str(sol.check());zt=time.perf_counter()-t;assert z=='unsat'
- src=O/'rtl'/f'{ident}.v';src.parent.mkdir(exist_ok=True);src.write_text(text);dest=Path('results/netlists/attribution_round')/f'{ident}.json';dest.parent.mkdir(parents=True,exist_ok=True)
+ src=O/'rtl'/f'{ident}.v';src.parent.mkdir(exist_ok=True);src.write_text(text);dest=RUN_DIR/'results/netlists/attribution_round'/f'{ident}.json';dest.parent.mkdir(parents=True,exist_ok=True)
  st=invoke(f'read_verilog {src}; synth -top top -noabc; write_json {dest}',ident,'synthesis');m=metrics_and_attribution(dest,src,lines);m['cell_source_coverage']=m['coverage'];m.update(cone_attribution(dest,g,ex))
  mit=text.replace('module top(','module dut(')+'module miter('+','.join(f'input [{w-1}:0] {s}' for s in vs)+',output bad);\n'
  for i,r in enumerate(refs):mit+=f'wire [{w-1}:0] y{i}; wire [{w-1}:0] r{i} = {emit(r,w)};\n'
@@ -153,16 +154,11 @@ def preflight(items=None):
 def pilot():
  item=C['fixtures'][0];g,info=graph_for(item['name']);c=initial_costs(g);ts,ex=extract(g,c);m=evaluate(g,ex,item['name'],item['width'],'pilot_tagged_mcm_w12');save(O/'pilot_attribution.json',dict(metrics=m,extraction=ex,costs=c));assert m['coverage']>=C['attribution_min_coverage'],'STOP attribution coverage below gate';print(json.dumps({k:v for k,v in m.items() if k not in ['cell_to_enodes','terms']},indent=2))
 
-if __name__=='__main__':
- p=argparse.ArgumentParser();p.add_argument('--preflight',action='store_true');p.add_argument('--pilot',action='store_true');a=p.parse_args();O.mkdir(exist_ok=True);L.mkdir(exist_ok=True)
- if a.preflight:preflight()
- if a.pilot:pilot()
-
 def compare(items=None):
  assert (O/'mechanism_tests.json').exists(), 'mechanism gate not complete'
  summary=[]
  for item in (items or C['fixtures']):
-  name,w=item['name'],item['width'];assert not list((O/'sessions').glob(f'{name}_w{w}_*.json')), 'case already completed'
+  name,w=item['name'],item['width'];assert not list((O/'sessions').glob(f'{name}_w{w}_*.json')) and not list((O/'runs').glob(f'{name}_w{w}_*.json')) and not list((O/'failures').glob(f'{name}_w{w}_*.json')), 'case already has records; use fresh run root'
   g=json.loads((O/'graphs'/f'{name}.json').read_text());gsha=sha(g)
   for policy in C['strategies']:
    wall=time.perf_counter();costs=initial_costs(g);accepted_costs=dict(costs);best_score=float('inf');seen=set();records=[];rng=random.Random(0);controller_seconds=0;extract_seconds=0
@@ -194,3 +190,30 @@ def compare(items=None):
     if r['action']['rollback']:assert records[q+1]['metrics']['rtl_sha256']==r['action']['actual_successor_rtl_sha']
    b=min(r['metrics']['gates'] for r in records);last=records[-1];s=dict(fixture=name,width=w,policy=policy,graph_sha256=gsha,queries=len(records),true_synthesis_calls=len(records),rtl_sat_calls=len(records),unique_rtl=len(seen),duplicate_rate=0,last_candidate=dict(id=last['id'],gates=last['metrics']['gates'],depth=last['metrics']['depth']),external_best_gates=b,external_best_point_ids=[r['id'] for r in records if r['metrics']['gates']==b],observed_paired_metrics=[dict(id=r['id'],gates=r['metrics']['gates'],depth=r['metrics']['depth']) for r in records],wall_seconds=time.perf_counter()-wall,controller_seconds=controller_seconds,extraction_seconds=extract_seconds,offline_eda_oracle=0,model_calls=0,record_ids=[r['id'] for r in records]);save(O/'sessions'/f'{name}_w{w}_{policy}.json',s);summary.append(s);print(json.dumps(s),flush=True)
  save(O/'comparison_summary.json',[json.loads(p.read_text()) for p in sorted((O/'sessions').glob('*.json'))])
+
+
+def pilot_suite():
+ assert not (O/'pilot_successors.json').exists(), 'pilot suite exists; choose fresh run root'
+ records=[]
+ for name,w in [('appendix_mcm71931',12),('fir_style_12_41_21',12)]:
+  g,info=graph_for(name);c=initial_costs(g);_,ex=extract(g,c);ident='pilot_tagged_mcm_w12' if name=='appendix_mcm71931' else 'pilot_tagged_fir_w12';m=evaluate(g,ex,name,w,ident)
+  assert m['coverage']>=.6 and m['named_node_coverage']>=.8
+  save(O/f'pilot_base_{name}.json',dict(metrics=m,extraction=ex,costs=c))
+  if name=='appendix_mcm71931':save(O/'pilot_boundary_attribution.json',dict(metrics=m,extraction=ex,costs=c))
+  new,d=numerical_update(c,m,w);_,ex2=extract(g,new);m2=evaluate(g,ex2,name,w,'pilot_attributed_successor_'+name)
+  records.append(dict(name=name,width=w,base=m,successor=m2,cost_deltas=d,extraction_before=ex,extraction_after=ex2,costs_before=c,costs_after=new))
+ save(O/'pilot_successors.json',records);print('Completed four-call pilot suite; no model API.')
+
+if __name__=='__main__':
+ p=argparse.ArgumentParser();p.add_argument('--preflight',action='store_true');p.add_argument('--pilot-suite',action='store_true');p.add_argument('--compare-primary',action='store_true');p.add_argument('--preflight-reserve',action='store_true');p.add_argument('--compare-reserve',action='store_true');a=p.parse_args()
+ if a.preflight:preflight()
+ if a.pilot_suite:pilot_suite()
+ if a.compare_primary:
+  try:compare()
+  except RuntimeError as err:
+   if str(err)!='attribution gate failed':raise
+   print(json.dumps(dict(status='gated branch stopped; remaining FIR arms not executed',reason=str(err))))
+ if a.preflight_reserve:preflight([C['reserve_fixture']])
+ if a.compare_reserve:
+  assert list((O/'failures').glob('fir*.json')), 'reserve requires documented FIR gate failure'
+  compare([C['reserve_fixture']])

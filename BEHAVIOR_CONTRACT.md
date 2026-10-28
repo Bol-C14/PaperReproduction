@@ -1,5 +1,19 @@
 # 行为复现契约（当前主要成功标准）
 
+## 最新有界机制轮次：归因/双向cost/后继rollback已补齐，但无稳定优势
+
+详见ATTRIBUTION_ROUND.md、configs/attribution_round.json和全部新日志results/attribution_round、logs/attribution_round。先检查原环境可恢复（egglog/Z3、5CPU、约17GiB），无LLM API、新安装或付费。只在预设64次综合硬上限内推进：4次pilot、48次完整对照、5次被裁剪FIR，共57 synthesis+57生成RTL-to-reference SAT；114条真实EDA ledger、工具失败0。此前941条另计，全任务可审计计数1055。
+
+cell src归因路线实测0覆盖，已裁剪；替代为保留命名运算wire的门级fan-in边界锥，共享cell均分，属于启发式而非因果边际面积。FIR在固定策略第5点丢失3/7运算边界（仅57.14%），按先行门槛停止，保留其346门/depth24的失败归因点和全部花费；以前瞻提交3a5a66c记录有界修订，用预先列出的MCM(5,93)W16替代完整对照，未运行剩余FIR策略。
+
+两个完成条件为MCM71931 W12与MCM593 W16，每臂固定6次真实综合/SAT、同冻结图、同规则池/宽度/工具、同有界next-best去重约束。57次共28份unique tagged RTL，所有完整臂6/6无重复；不等于28份独立硬件结构。均已保存原始代表JSON网表、实际候选/配对depth和重算脚本。归因、cost增加/下降和rollback的纯抽取干预测试均改变后继；实际数值策略8项上调、4项下调、9次rollback（7次非终止），其中2次确实改变执行的下一条新候选，反事实只做抽取而未额外综合。
+
+外部best/最后candidate门数：W12 fixed237/237、random266/341、numerical217/355、open-loop217/237；W16 fixed326/355、random326/402、numerical326/340、open-loop326/355。数值策略best只追平开放环，且W12最后更差；W16全未改善基线。**本轮完成机制验证和受控比较，但不支持数值归因策略有稳定质量优势。** 一个seed、小型构造，不泛化为LLM/ASPEN优劣。best是统一会话后评估，不是开放环或数值策略偷偷返回的最佳RTL。
+
+当前新替代策略已实现显式双向cost和有后继作用的rollback；下文旧轮次“未实现cost下降”仅指旧策略。LLM和原论文K-way归因仍未实现。SAT仍只证明生成RTL对reference，而非综合网表等价；gate/depth不是商业PPA。锥覆盖/命名边界可能丢失，失败已暴露而未强行修成正结果。到此停止本轮，不开新sweep。
+
+## 此前轮次记录（原样保留范围与历史计数）
+
 ## 最新因果审计：开放环对照未显示response增益
 
 预注册提交297cfc80f338e4d79ebecf40889fbab3a68da22f固定“相同结构节点选择、静态规则、永远+3、不读response、不rollback”的开放环，再新增3会话×7次真实综合及7次RTL SAT，复用既有feedback controls。MCM-expanded两者轨迹均146,146,146,130,146,146,130；FIR-initial均162,162,162,158,162,162,158；x×11均59,59,59,61,59,59,61。最后输出分别为(130,11)、(158,18)、(61,10)；统一外部best-gates为130、158、59（对应depth11、18、11），开放环不使用这些response选择输出。三个条件的逐步RTL hashes亦相同。

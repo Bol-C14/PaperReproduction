@@ -1,5 +1,13 @@
 # ASPEN MLCAD 2025：行为复现与批判性审评
 
+当前新轮次见[ATTRIBUTION_ROUND.md](ATTRIBUTION_ROUND.md)：已完成归因、cost增减及持续rollback的后继作用验证，并跑完8个6-call对照臂；数值策略未显示稳定优势。本轮57综合+57 RTL SAT、28份unique tagged RTL，另含被裁剪的FIR失败记录。无LLM API。
+
+```bash
+.venv/bin/python scripts/verify_attribution_round.py
+```
+
+
+
 **当前主要结论：行为部分复现 / Go。** 真实native egglog重写/抽取→免费Yosys综合反馈→局部cost更新和回退→再次抽取→实际RTL SAT已完成。在线LLM和netlist分区归因未复现；原始Table II / Figure 6 / Figure 7数值是次级未复现对照，商业EDA缺失不再是结束行为工作的理由。
 
 先读 [RESPONSE_VALUE_AUDIT.md](RESPONSE_VALUE_AUDIT.md)（开放环与反馈轨迹相同，未隔离response收益），再读 [BEHAVIOR_CONTRACT.md](BEHAVIOR_CONTRACT.md)，再读四份报告：REPRODUCTION.md、EVIDENCE_AUDIT.md、BASELINE_COMPARISON.md、RESEARCH_OPPORTUNITIES.md。第一阶段的68候选离线枚举保持pilot身份；第二阶段48会话使用真实在线综合，每会话7次、含reference，不是查表。完整预算、负结果、替代假设、来源修正和复现命令均在契约中。
