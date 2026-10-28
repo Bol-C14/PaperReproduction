@@ -26,7 +26,7 @@ def make_plan(seed=11):
             'common_attempt_budget':10,'fresh_attempt_budget_per_arm':24,'observation_budget_per_arm':34,
             'arms':['api_guided','fixed_gp'],'physical_search_attempt_budget':58,
             'preflight_attempt_budget':3,'winner_validation_attempt_budget':2,'physical_stage_attempt_cap':63,
-            'api_requests_nominal':5,'api_requests_max':10,'api_input_tokens_max':81920,'api_output_tokens_max':7168,
+            'api_requests_nominal':5,'api_requests_max':10,'api_input_tokens_max':10485760,'api_output_tokens_max':7168,
             'api_feedback_observations_max':22,
             'api_label':'PENDING_EXACT_SERVICE_MODEL_TOKENIZER_AND_SPEND_AUTHORIZATION',
             'model_guidance_is_treatment':'domain/subset and random-vs-fixed-GP decisions after identical initialization; no GP/kernel/metric/budget differences',

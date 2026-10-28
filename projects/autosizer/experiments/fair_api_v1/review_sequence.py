@@ -22,27 +22,24 @@ def review():
             # not a conversion of the model's output-token cap to a byte guarantee.
             for variant,request in [('nominal',messages),('one_correction',correction_messages(messages,'SYNTHETIC INVALID RESPONSE '+('x'*1024),'Missing required JSON field'))]:
                 encoded=json.dumps(request,ensure_ascii=False).encode()
-                try:check_input(request)
-                except (TokenCounterRequired,InputLimitExceeded) as error:
-                    blocked=type(error).__name__
-                else:raise AssertionError('Missing tokenizer must block')
+                checked=check_input(request)
                 context=json.loads(messages[1]['content'])['context']
                 cases.append({'stage':stage,'variant':variant,'fixture_only':True,
                     'messages_sha256':hashlib.sha256(encoded).hexdigest(),
                     'observation_rows':len(context['history']),
                     'fresh_attempts_used':context['fresh_attempts_used'],
                     'remaining_fresh_attempts':context['remaining_attempts'],
-                    'serialized_messages_bytes':len(encoded),'byte_cap':24576,
-                    'certified_token_upper_bound':None,'input_token_cap':8192,
-                    'admission':'BLOCKED','reason':blocked,'truncated':False})
-        huge=correction_messages(messages,'x'*24576,'Oversized full correction')
+                    'serialized_messages_bytes':len(encoded),'byte_cap':CONFIG['caps']['serialized_messages_bytes'],
+                    'conservative_input_upper_bound':checked['input_tokens_upper_bound'],'input_token_cap':CONFIG['caps']['input_chat_tokens_per_request'],
+                    'admission':'READY_USING_CONTEXT_ENVELOPE','reason':checked['counter_id'],'truncated':False})
+        huge=correction_messages(messages,'x'*CONFIG['caps']['serialized_messages_bytes'],'Oversized full correction')
         try:check_input(huge)
         except InputLimitExceeded:overflow='BLOCKED_WITHOUT_TRUNCATION'
         else:raise AssertionError('Oversized request admitted')
     return {'kind':'Offline sequence audit with synthetic observations and understanding; no model/simulator calls',
             'new_api_calls':0,'new_simulator_calls':0,'secret_reads':0,'requests_reviewed':len(cases),
-            'token_status':'Every sequence request blocks without a certified model-specific chat token upper-bound counter. No exact Gemini fit claimed.',
-            'maximum_reserved_input_tokens_total':81920,'total_generated_cap':7168,
+            'token_status':'Full fixed-model input context ceiling reserved for each request; no exact tokenizer or context truncation required. Actual provider usage reconciles cost.',
+            'maximum_reserved_input_tokens_total':CONFIG['caps']['input_chat_tokens_total'],'total_generated_cap':7168,
             'full_correction_overflow':overflow,'cases':cases}
 
 if __name__=='__main__':print(json.dumps(review(),indent=2))

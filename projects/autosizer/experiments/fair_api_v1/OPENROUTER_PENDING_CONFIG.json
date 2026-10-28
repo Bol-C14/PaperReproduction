@@ -32,34 +32,37 @@
   "caps": {
     "requests_total": 10,
     "attempts_per_stage": 2,
-    "input_chat_tokens_per_request": 8192,
+    "input_chat_tokens_per_request": 1048576,
     "serialized_messages_bytes": 24576,
-    "input_chat_tokens_total": 81920,
+    "input_chat_tokens_total": 10485760,
     "billable_generated_tokens_total": 7168,
     "reasoning_tokens_per_request": 0,
-    "estimated_token_spend_usd": "0.042496",
-    "proposed_token_spend_ceiling_usd": "0.05",
+    "estimated_token_spend_usd": "3.163648",
+    "proposed_token_spend_ceiling_usd": "3.20",
     "output_per_stage": {
       "circuit_understanding": 1536,
       "initial_search_space": 768,
       "inner_first": 256,
       "outer_regeneration": 768,
       "inner_second": 256
-    }
+    },
+    "input_bound_basis": "Official fixed model/endpoint context_length is a conservative accepted-request input ceiling, including framing; not a tokenizer estimate",
+    "old_input_estimate": 81920,
+    "reservation_per_request_usd": "0.32"
   },
   "preconditions": [
     "User/parent public data and project max10 authorization received; shared gates remain mandatory",
     "Shared loader provisions designated runtime values outside repository",
-    "Certified Gemini chat-token upper-bound counter includes framing",
     "Selected actual provider is google-ai-studio standard and reasoning is off",
     "Full usage/provider/service-tier/finish-reason evidence is captured by future transport"
   ],
   "official_sources": [
     "https://openrouter.ai/docs/guides/features/service-tiers",
     "https://openrouter.ai/docs/guides/routing/provider-selection",
-    "https://openrouter.ai/docs/guides/best-practices/reasoning-tokens"
+    "https://openrouter.ai/docs/guides/best-practices/reasoning-tokens",
+    "https://openrouter.ai/api/v1/models/google/gemini-2.5-flash/endpoints"
   ],
   "shared_stage_budget_usd": "10.00",
   "project_max_requests": 10,
-  "readiness": "BLOCKED_SHARED_REQUEST_OPTIONS_AND_CERTIFIED_TOKEN_COUNTER"
+  "readiness": "AUTHORIZED_READY_SHARED_STANDARD_ROUTE_CONTEXT_FEE_ENVELOPE"
 }

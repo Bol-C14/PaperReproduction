@@ -107,3 +107,14 @@ This is a prerequisite block, not an approval denial. Once the shared owner
 provides the controls and a certified counter, the existing user authorization
 permits continuation without asking again. No private-method/alternate-client
 workaround is used.
+
+## Reconnection and current resolved prerequisites
+
+After reconnection, no AutoSizer process or shared API reservation existed. The
+shared public request_options deployment is verified. The earlier exact-tokenizer
+requirement is superseded by COST_ENVELOPE_PROTOCOL.md: reserve .32 USD per request
+against official full input context and explicit prices, retain unknown fees,
+use response-native actual usage, at most10 requests under shared cumulative10USD.
+The actual shared byte cap remains24KiB and no context is truncated. All23 tests
+pass, including installed-interface normalization/quote and full mocked63-process/
+five-request driver flow. No real request has occurred before code freeze.

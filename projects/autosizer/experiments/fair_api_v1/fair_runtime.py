@@ -71,7 +71,7 @@ class AttemptLedger:
                 if any(r['kind']==kind and r['arm']==arm for r in rows):raise BudgetError('One winner validation per arm')
             elif arm is not None:raise ValueError('Shared phases have no arm')
         else:raise ValueError('Unknown simulation phase')
-        if retry_of is None and any(r['indices']==list(indices) and ((r['kind']==kind and r['arm']==arm) or (kind=='search' and r['kind']=='common')) for r in rows):
+        if kind!='preflight' and retry_of is None and any(r['indices']==list(indices) and ((r['kind']==kind and r['arm']==arm) or (kind=='search' and r['kind']=='common')) for r in rows):
             raise ValueError('Repeated point requires explicit charged retry; normal proposals must be unseen')
         if retry_of is not None:
             previous=next((r for r in rows if r['attempt_id']==retry_of),None)
@@ -99,15 +99,16 @@ class AttemptLedger:
             raise BudgetError('Unresolved/policy-mismatched API attempt requires reconciliation')
         if len(rows)>=10 or sum(r['stage']==stage for r in rows)>=2:raise BudgetError('API attempt cap')
         tokens=check['input_tokens_upper_bound']
-        if type(tokens) is not int or not 0<tokens<=8192:raise InputLimitExceeded('Invalid certified input bound')
-        if sum(r['input_tokens_reserved'] for r in rows)+tokens>81920:raise BudgetError('Total input cap')
+        if type(tokens) is not int or not 0<tokens<=CAPS['input_chat_tokens_per_request']:raise InputLimitExceeded('Invalid certified input bound')
+        if sum(r['input_tokens_reserved'] for r in rows)+tokens>CAPS['input_chat_tokens_total']:raise BudgetError('Total input cap')
         if sum(r['output_tokens_reserved'] for r in rows)+output>7168:raise BudgetError('Total generated cap')
         cost=(Decimal(tokens)*Decimal('0.30')+Decimal(output)*Decimal('2.50'))/1000000
-        if sum((Decimal(r['maximum_token_cost_usd']) for r in rows),Decimal(0))+cost>Decimal('.05'):
+        reservation=Decimal('.32')
+        if sum((Decimal(r['maximum_token_cost_usd']) for r in rows),Decimal(0))+reservation>Decimal(CAPS['proposed_token_spend_ceiling_usd']):
             raise BudgetError('Proposed token spend cap')
         row={'attempt_id':f'api_{len(rows)+1:02d}','stage':stage,'status':'attempt_pending',
              'input_tokens_reserved':tokens,'output_tokens_reserved':output,
-             'maximum_token_cost_usd':str(cost),'request_sha256':check['messages_sha256']}
+             'maximum_token_cost_usd':str(reservation),'pricing_formula_bound_usd':str(cost),'request_sha256':check['messages_sha256']}
         rows.append(row);self._save();return row['attempt_id']
     def finish_api(self,attempt_id,status):
         row=next(r for r in self.data['api'] if r['attempt_id']==attempt_id)
@@ -188,17 +189,24 @@ def check_input(messages,*,token_counter=None):
     encoded=json.dumps(messages,ensure_ascii=False).encode()
     report={'messages_sha256':digest(messages),'serialized_messages_bytes':len(encoded),
             'ready_for_authorized_transport':False,'input_tokens_upper_bound':None}
-    if len(encoded)>24576:raise InputLimitExceeded('Full serialized request exceeds 24 KiB; scientific context retained, not truncated')
-    if token_counter is None:raise TokenCounterRequired('Certified Gemini chat-token upper bound including framing required; no send')
-    certificate=token_counter(messages)
+    if len(encoded)>CAPS['serialized_messages_bytes']:raise InputLimitExceeded('Full serialized request exceeds frozen byte cap; scientific context retained, not truncated')
+    if token_counter is None:
+        # Fixed model and no fallback: accepted input including framing cannot
+        # exceed its official context capacity. Reserve that whole capacity.
+        # This deliberately overestimates usage instead of estimating bytes/4.
+        certificate={'model':'google/gemini-2.5-flash','framing_included':True,
+                     'certified_upper_bound':True,'tokens':CAPS['input_chat_tokens_per_request'],
+                     'counter_id':'OFFICIAL_MODEL_CONTEXT_CEILING_NOT_EXACT_TOKENIZATION'}
+    else:certificate=token_counter(messages)
     if (not isinstance(certificate,dict) or certificate.get('model')!='google/gemini-2.5-flash'
         or certificate.get('framing_included') is not True or certificate.get('certified_upper_bound') is not True):
         raise TokenCounterRequired('Counter must certify selected-model chat framing and conservative upper bound')
     bound=certificate.get('tokens')
-    if type(bound) is not int or not 0<bound<=8192:
-        raise InputLimitExceeded('Full request upper bound exceeds 8192 tokens or is invalid; no context truncated')
+    if type(bound) is not int or not 0<bound<=CAPS['input_chat_tokens_per_request']:
+        raise InputLimitExceeded('Full request upper bound exceeds frozen model-context ceiling or is invalid; no context truncated')
     report.update(ready_for_authorized_transport=True,input_tokens_upper_bound=bound,
-                  counter_id=certificate.get('counter_id','unspecified'))
+                  counter_id=certificate.get('counter_id','unspecified'),
+                  admission_basis='official_context_envelope' if token_counter is None else 'supplied_upper_bound')
     return report
 
 def pending_payload(stage,messages,*,token_counter=None):

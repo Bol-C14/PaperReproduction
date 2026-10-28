@@ -1,10 +1,10 @@
-# Fair API-vs-fixed-GP pilot — draft, not execution authorization
+# Fair API-vs-fixed-GP pilot — authorized, current cost envelope
 
-This next protocol is prepared after the synthetic bridge pilot at commit
-`af730024262bef23cd44a97654979e4c48e121d4`. Nothing here launches SPICE, makes an
-API call, reopens an old run root or grants API authorization. The backend,
-model, secure designated runtime values, public payload scope, chat tokenizer and
-monetary cap must still be approved. Freeze this draft and a new timestamped
+This protocol was prepared after the synthetic bridge pilot at commit
+`af730024262bef23cd44a97654979e4c48e121d4`. The subsequent user authorization permits the declared public data and live
+Gemini pilot through the shared client; it does not reopen old roots. The current
+fee envelope and its precedence over earlier token estimates are specified in
+COST_ENVELOPE_PROTOCOL.md. No exact tokenizer is required. Freeze this draft and a new timestamped
 runtime manifest before a future run. The older bridge CLI is not a fair runner:
 it hardcodes different initial domains and a test-controller label. Do not call
 it with an API adapter and relabel the result.
@@ -104,14 +104,14 @@ GP internals. This remains an explicitly named numerical/backend substitution.
 
 The prior request proposal's five nominal / ten maximum calls and output caps
 remain: 1,536 understanding; 768 initial domain; 256 each inner decision;
-768 outer reflection. At most 81,920 input chat tokens and 7,168 output tokens
-across ten attempts, with <=8,192 chat tokens (framing included) and 24 KiB
-serialized messages per request. Provider reasoning-token billing needs a separate
+768 outer reflection. Reserve at most 10,485,760 input tokens (ten full official 1,048,576-token
+Gemini input capacities), and at most 7,168 generated tokens. Each full request
+retains its scientific context and must be <=24 KiB serialized messages. This is
+a conservative fee envelope, not a claim of actual token count. Provider reasoning-token billing needs a separate
 approved cap. Reflection now includes up to 22 rows, so the previous payload
-shape/max-history description is superseded for this draft. Before authorization,
-serialize and locally count the largest full request plus allowed schema-retry
-history against the selected tokenizer. If it does not fit, stop for protocol
-revision before sending; do not silently truncate rows or relax token caps.
+shape/max-history description is superseded for this draft. Reserve the full fixed-model input capacity at capped prices before each
+request, including correction attempts; use native response usage for actual
+accounting. Unknown fees retain the reservation. No silent truncation is allowed.
 
 ## Metrics, endpoints and interpretation
 
@@ -169,14 +169,13 @@ conservatively remain charged if the shared gate rejects it before transmission.
 `build_messages` uses only the public source and verified completed rows matching
 common/current-arm debits. Missing failed rows cannot be silently omitted. Exact
 raw invalid responses and local schema errors are appended for correction; all
-scientific context is retained. Both normal and corrected full requests must
-pass the 24 KiB byte gate and a **certified model-specific chat token upper-bound
-counter including framing**. No such actual Gemini counter is installed by this
-change. In its absence, every real-shaped request fails closed, even when a
-representative byte count looks small. An oversize request stops, never silently
-truncates or raises the 8,192/81,920 token caps. `REQUEST_SEQUENCE_CHECKS.json`
-records all five stages and one full correction fixture per stage, not model
-outputs or a claim of exact Gemini token fit.
+scientific context is retained. Both normal and corrected full requests pass the 24 KiB byte gate. Without
+a local exact tokenizer, the entire official fixed-model input capacity is
+reserved; this includes framing and cannot underestimate an accepted prompt.
+An oversized request stops without truncation. The earlier 8,192/81,920 input
+estimate is superseded by this explicitly frozen fee envelope. `REQUEST_SEQUENCE_CHECKS.json`
+records all five stages and one full correction fixture per stage admitted
+under the context envelope, not model outputs or an exact tokenizer-fit claim.
 
 `OPENROUTER_PENDING_CONFIG.json` initially remained execution-disabled during
 offline preparation. Its project gate is now enabled by the subsequent explicit
@@ -185,9 +184,8 @@ public-data authorization, while technical admission remains blocked. It fixes
 no fallback, require_parameters, max_price prompt .30/completion 2.50 USD per
 million and per-request price 0, no reasoning, JSON-object output and stage caps.
 The per-request `max_tokens` caps are 1536/768/256/768/256; total reserved generated
-tokens <=7168, with billable reasoning required to be zero. The proposed token
-spend ceiling is .05 USD, reserving at the explicit upper prices before each
-request. Actual full usage/provider/tier/finish reason must be retained, and a
+tokens <=7168, with billable reasoning required to be zero. The project fee-reservation ceiling is 3.20 USD; all ten context/output
+envelopes total 3.163648 USD, under the shared cumulative 10 USD stage cap. Actual full usage/provider/tier/finish reason must be retained, and a
 provider/usage/reasoning mismatch blocks subsequent project requests. Missing
 reasoning-token confirmation is not silently assumed to mean zero.
 
@@ -210,5 +208,10 @@ transmission via the shared OpenRouter client, Gemini 2.5 Flash, at most ten
 AutoSizer requests including failures/retries, within a cumulative 10 USD API
 stage shared across all projects. This does not increase project token/request
 bounds or authorize private payloads. Current live admission remains blocked by
-the shared public method lacking request_options and the absent certified token
-counter, rather than by missing user permission. No actual request was issued.
+the shared public method lacking request_options as last inspected, rather
+than by missing user permission or any tokenizer requirement. No actual request was issued.
+
+Current deployment: shared public request_options is installed and verified.
+The cost envelope removes the tokenizer prerequisite. The authorized live runner
+is live_pilot.py, with a fresh output root, max10 requests at .32 USD each and
+shared cumulative10USD enforcement. Earlier interface/token blockers are resolved.

@@ -114,12 +114,21 @@ class RuntimeTests(unittest.TestCase):
         with self.assertRaises(ValueError):self.messages('outer_regeneration',rows[:-1])
     def test_token_and_byte_overflow_keep_context(self):
         messages=self.messages('circuit_understanding');before=json.dumps(messages)
-        with self.assertRaises(TokenCounterRequired):check_input(messages)
-        with self.assertRaises(InputLimitExceeded):check_input(messages,token_counter=lambda _:dict(certificate(_),tokens=8193))
+        self.assertEqual(check_input(messages)['input_tokens_upper_bound'],1048576)
+        self.assertEqual(check_input(messages)['admission_basis'],'official_context_envelope')
+        with self.assertRaises(InputLimitExceeded):check_input(messages,token_counter=lambda _:dict(certificate(_),tokens=1048577))
         self.assertEqual(json.dumps(messages),before)
-        retry=correction_messages(messages,'X'*25000,'schema mismatch')
+        retry=correction_messages(messages,'X'*65536,'schema mismatch')
         with self.assertRaises(InputLimitExceeded):check_input(retry,token_counter=certificate)
-        self.assertEqual(retry[2]['content'],'X'*25000)
+        self.assertEqual(retry[2]['content'],'X'*65536)
+    def test_context_envelope_ten_attempt_cost_upper_bound(self):
+        messages=self.messages('circuit_understanding')
+        check=check_input(messages)
+        for stage in STAGES:
+            for _ in range(2):
+                attempt=self.ledger.reserve_api(stage,check);self.ledger.finish_api(attempt,'valid')
+        self.assertEqual(sum(r['input_tokens_reserved'] for r in self.ledger.data['api']),10485760)
+        self.assertEqual(sum((Decimal(r['maximum_token_cost_usd']) for r in self.ledger.data['api']),Decimal(0)),Decimal('3.20'))
     def test_pending_payload_explicit_price_output_reasoning_and_tier(self):
         payload=pending_payload('inner_first',self.messages('inner_first'),token_counter=certificate)
         self.assertFalse(payload['execution_enabled']);body=payload['body']
@@ -148,7 +157,7 @@ class RuntimeTests(unittest.TestCase):
             result=self.controller(client).call('circuit_understanding',self.messages('circuit_understanding'),authorize_live=True)
         self.assertEqual(result,CU);call=client.calls[0]
         self.assertEqual(call['project'],'autosizer');self.assertEqual(call['request_options']['service_tier'],'default')
-        self.assertEqual(Decimal(call['reservation']),Decimal(4000)*Decimal('.30')/1000000+Decimal(1536)*Decimal('2.50')/1000000)
+        self.assertEqual(Decimal(call['reservation']),Decimal('.32'))
     def test_api_failed_schema_retry_debit_api_not_spice(self):
         messages=self.messages('circuit_understanding')
         for kind in ('failure','invalid'):
@@ -173,6 +182,39 @@ class RuntimeTests(unittest.TestCase):
         self.assertEqual(len(client.calls),5);self.assertEqual(len(self.ledger.data['api']),10)
         self.assertEqual(sum(r['output_tokens_reserved'] for r in self.ledger.data['api']),7168)
         self.assertEqual(self.ledger.remaining('api_guided'),12)
+    def test_live_driver_complete_sequence_with_injected_shared_and_simulator(self):
+        import sys
+        import live_pilot
+        import audit_live
+        root=self.root/'MOCK_DRIVER_ONLY'
+        client=MockExtendedShared()
+        class FakeSimulator:
+            def __init__(self):self.count=0
+            def evaluate(self,point,origin,mode='corrected',export=False,refined=False):
+                self.count+=1
+                result=observation('MOCK',point,origin)
+                result.update(attempt=self.count,returncode=0,mode=mode,export=export,refined=refined)
+                folder=root/'attempts'/f'{self.count:03d}'
+                folder.mkdir(parents=True)
+                return result
+        simulator=FakeSimulator()
+        def freeze(args,module):root.mkdir();return simulator
+        shared=SimpleNamespace(load_config=lambda:None,Client=lambda _:client)
+        # The driver inspects the public method on Client before constructing it.
+        class Factory:
+            chat=MockExtendedShared.chat
+            def __new__(cls,config):return client
+        shared.Client=Factory
+        args=SimpleNamespace(root=root,shared_module=Path('MOCK_SHARED/openrouter_shared.py'),binary=Path('MOCK_NGSPICE'),selector=Path('MOCK_SELECTOR'))
+        with patch.dict(sys.modules,{'openrouter_shared':shared}),patch.object(live_pilot,'freeze',freeze),patch.object(audit_live,'audit_preflight',lambda root:None),patch.object(audit_live,'audit',lambda root:None),patch('socket.socket',side_effect=AssertionError('Network forbidden')):
+            live_pilot.run(args)
+        result=json.loads((root/'execution_summary.json').read_text())
+        self.assertEqual((simulator.count,len(client.calls)),(63,5))
+        self.assertTrue(result['matched_budget'])
+        self.assertEqual((result['guided_fresh'],result['control_fresh']),(24,24))
+        final_request=json.loads((root/'api/api_05/request.json').read_text())
+        context=json.loads(final_request['messages'][1]['content'])['context']
+        self.assertEqual((len(context['history']),context['remaining_attempts']),(22,12))
     @unittest.skipUnless(os.environ.get('AUTOSIZER_SHARED_MODULE_PATH'),'Explicit read-only shared module source path not provided')
     def test_actual_installed_shared_contract_probe_never_reads_config(self):
         spec=importlib.util.spec_from_file_location('shared_interface_readonly',os.environ['AUTOSIZER_SHARED_MODULE_PATH'])
@@ -182,6 +224,14 @@ class RuntimeTests(unittest.TestCase):
         with patch.object(module,'load_config',side_effect=AssertionError('Private config forbidden')):
             if 'request_options' not in inspect.signature(client.chat).parameters:
                 with self.assertRaises(SharedInterfaceIncomplete):self.controller(client).check_interface()
-            else:self.assertTrue(self.controller(client).check_interface())
+            else:
+                self.assertTrue(self.controller(client).check_interface())
+                options=dict(CONFIG['request_template']);options.pop('model');options.pop('stream')
+                normalized=module.normalize_request_options(options,'google/gemini-2.5-flash')
+                self.assertEqual(normalized['provider']['only'],['google-ai-studio'])
+                self.assertEqual(normalized['reasoning'],{'enabled':False})
+                quote=module.conservative_chat_quote(self.messages('circuit_understanding'),1536,options)
+                self.assertEqual(quote['reserved_cost_usd'],'0.32')
+
 
 if __name__=='__main__':unittest.main()

@@ -14,7 +14,7 @@ from fair_runtime import (AttemptLedger,BudgetError,CONFIG,CAPS,STAGES,
                           check_input,atomic)
 
 sys.path.insert(0,str(Path(__file__).resolve().parents[2]/'april_api_stage'))
-from api_controller import validate
+from api_controller import validate,parse_json
 
 class SharedInterfaceIncomplete(RuntimeError):pass
 class AuthorizationPending(RuntimeError):pass
@@ -67,9 +67,12 @@ class SharedController:
                 value=usage.get(key)
                 if type(value) is not int or not 0<=value<=limit:raise ValueError('Usage/token bound mismatch')
             reasoning=usage.get('completion_tokens_details',{}).get('reasoning_tokens')
-            if reasoning!=0 or type(reasoning) is not int:raise ValueError('Zero reasoning usage not confirmed')
-            cost=Decimal(str(usage['cost']))
-            if not cost.is_finite() or not 0<=cost<=Decimal(record['maximum_token_cost_usd']):raise ValueError('Usage cost exceeds reservation')
+            if reasoning is not None and (type(reasoning) is not int or reasoning!=0):raise ValueError('Nonzero or invalid reasoning usage')
+            if usage.get('cost') is not None:
+                cost=Decimal(str(usage['cost']))
+                if not cost.is_finite() or not 0<=cost<=Decimal(record['maximum_token_cost_usd']):raise ValueError('Usage cost exceeds reservation')
+            # If actual cost is unknown, shared and project accounting retain
+            # the full reserved bound; no refund or invented zero cost.
         except (KeyError,ValueError,TypeError,ArithmeticError):
             self.ledger.finish_api(attempt,'provider_or_usage_mismatch')
             atomic(folder/'error.json',{'status':'provider_or_usage_mismatch','further_calls_blocked':True})
@@ -78,7 +81,7 @@ class SharedController:
             content=response['choices'][0]['message']['content']
             if response['choices'][0].get('finish_reason')!='stop':raise ValueError('Truncated/nonstop response')
             if not isinstance(content,str):raise ValueError('Text content required')
-            value=json.loads(content)
+            value=parse_json(content)
             if not isinstance(value,dict):raise ValueError('JSON object required')
             source_stage='inner_iteration' if stage in ('inner_first','inner_second') else stage
             validate(source_stage,value,remaining=self.ledger.remaining('api_guided'))
@@ -97,9 +100,9 @@ class SharedController:
                         choices.append([grid.index(v['fixed_value'] if isinstance(v,dict) else v)])
                 seen={tuple(r['indices']) for r in context['history']}
                 if len(set(itertools.product(*choices))-seen)<12:raise ValueError('Insufficient unseen domain')
-        except (KeyError,IndexError,ValueError,TypeError):
+        except (KeyError,IndexError,ValueError,TypeError) as error:
             self.ledger.finish_api(attempt,'schema_invalid')
-            atomic(folder/'error.json',{'status':'schema_invalid','retry_requires_full_raw_response_and_new_charged_attempt':True})
+            atomic(folder/'error.json',{'status':'schema_invalid','validation_error':str(error),'retry_requires_full_raw_response_and_new_charged_attempt':True})
             raise BudgetError('Invalid/truncated JSON; exact response preserved; stage retry remains charged') from None
         self.ledger.finish_api(attempt,'valid')
         return value

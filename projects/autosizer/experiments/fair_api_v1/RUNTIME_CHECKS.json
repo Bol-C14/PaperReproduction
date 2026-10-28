@@ -2,13 +2,13 @@
   "utc": "2026-10-28T15:28:44.882903+00:00",
   "runtime_tests": 14,
   "plan_tests": 7,
-  "total_tests": 21,
+  "total_tests": 23,
   "tests_passed": true,
   "actual_api_calls": 0,
   "actual_simulator_calls_this_revision": 0,
   "private_config_or_key_reads": 0,
   "shared_policy_changes": 0,
-  "shared_source_sha256": "04b4f9a71f1b47fa496232565fb3f6375ec4382e8017ef1a06584c591a5a98a9",
+  "shared_source_sha256": "3c7ecc74a80244b853185f097251804fee1c7f3e130c39a1b425334e0db1be0f",
   "shared_public_chat_parameters": [
     "self",
     "messages",
@@ -16,9 +16,10 @@
     "run_id",
     "max_tokens",
     "max_cost_usd",
-    "authorize_live"
+    "authorize_live",
+    "request_options"
   ],
-  "shared_accepts_request_options": false,
+  "shared_accepts_request_options": true,
   "remaining_regression": {
     "common_observations": 10,
     "current_arm_charged_attempts": 12,
@@ -29,21 +30,16 @@
   "request_sequence": {
     "nominal_stages": 5,
     "correction_variants": 5,
-    "without_certified_counter": "All ten blocked before send; exact Gemini fit not claimed",
-    "overflow": "Explicit error with complete context retained"
+    "admission": "Full model-context fee envelope; no exact tokenizer required",
+    "overflow": "Explicit byte-cap failure without truncation"
   },
   "current_authorization": {
     "user_public_payload_scope": true,
     "project_gate": true,
     "project_max_requests": 10,
     "shared_cumulative_stage_budget_usd": "10.00",
-    "project_proposed_token_spend_ceiling_usd": ".05"
+    "project_proposed_token_spend_ceiling_usd": "3.20"
   },
-  "blocked_action": {
-    "action": "First authorized AutoSizer shared Gemini API request",
-    "target": "Shared Client.chat for fixed Gemini standard provider",
-    "reason": "Current shared public interface lacks request_options; actual selected-model chat token bound unavailable",
-    "outcome": "NOT_EXECUTED; no uncertain model request or approval denial",
-    "required_owner_change": "Honor public request_options without bypassing shared slots, auth or USD ledger; provide certified selected-model token counter"
-  }
+  "blocked_action": null,
+  "reservation_per_request_usd": "0.32"
 }

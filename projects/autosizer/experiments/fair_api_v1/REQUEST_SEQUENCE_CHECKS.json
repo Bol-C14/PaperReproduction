@@ -4,8 +4,8 @@
   "new_simulator_calls": 0,
   "secret_reads": 0,
   "requests_reviewed": 10,
-  "token_status": "Every sequence request blocks without a certified model-specific chat token upper-bound counter. No exact Gemini fit claimed.",
-  "maximum_reserved_input_tokens_total": 81920,
+  "token_status": "Full fixed-model input context ceiling reserved for each request; no exact tokenizer or context truncation required. Actual provider usage reconciles cost.",
+  "maximum_reserved_input_tokens_total": 10485760,
   "total_generated_cap": 7168,
   "full_correction_overflow": "BLOCKED_WITHOUT_TRUNCATION",
   "cases": [
@@ -19,10 +19,10 @@
       "remaining_fresh_attempts": 24,
       "serialized_messages_bytes": 4277,
       "byte_cap": 24576,
-      "certified_token_upper_bound": null,
-      "input_token_cap": 8192,
-      "admission": "BLOCKED",
-      "reason": "TokenCounterRequired",
+      "conservative_input_upper_bound": 1048576,
+      "input_token_cap": 1048576,
+      "admission": "READY_USING_CONTEXT_ENVELOPE",
+      "reason": "OFFICIAL_MODEL_CONTEXT_CEILING_NOT_EXACT_TOKENIZATION",
       "truncated": false
     },
     {
@@ -35,10 +35,10 @@
       "remaining_fresh_attempts": 24,
       "serialized_messages_bytes": 5460,
       "byte_cap": 24576,
-      "certified_token_upper_bound": null,
-      "input_token_cap": 8192,
-      "admission": "BLOCKED",
-      "reason": "TokenCounterRequired",
+      "conservative_input_upper_bound": 1048576,
+      "input_token_cap": 1048576,
+      "admission": "READY_USING_CONTEXT_ENVELOPE",
+      "reason": "OFFICIAL_MODEL_CONTEXT_CEILING_NOT_EXACT_TOKENIZATION",
       "truncated": false
     },
     {
@@ -51,10 +51,10 @@
       "remaining_fresh_attempts": 24,
       "serialized_messages_bytes": 9488,
       "byte_cap": 24576,
-      "certified_token_upper_bound": null,
-      "input_token_cap": 8192,
-      "admission": "BLOCKED",
-      "reason": "TokenCounterRequired",
+      "conservative_input_upper_bound": 1048576,
+      "input_token_cap": 1048576,
+      "admission": "READY_USING_CONTEXT_ENVELOPE",
+      "reason": "OFFICIAL_MODEL_CONTEXT_CEILING_NOT_EXACT_TOKENIZATION",
       "truncated": false
     },
     {
@@ -67,10 +67,10 @@
       "remaining_fresh_attempts": 24,
       "serialized_messages_bytes": 10671,
       "byte_cap": 24576,
-      "certified_token_upper_bound": null,
-      "input_token_cap": 8192,
-      "admission": "BLOCKED",
-      "reason": "TokenCounterRequired",
+      "conservative_input_upper_bound": 1048576,
+      "input_token_cap": 1048576,
+      "admission": "READY_USING_CONTEXT_ENVELOPE",
+      "reason": "OFFICIAL_MODEL_CONTEXT_CEILING_NOT_EXACT_TOKENIZATION",
       "truncated": false
     },
     {
@@ -83,10 +83,10 @@
       "remaining_fresh_attempts": 24,
       "serialized_messages_bytes": 9403,
       "byte_cap": 24576,
-      "certified_token_upper_bound": null,
-      "input_token_cap": 8192,
-      "admission": "BLOCKED",
-      "reason": "TokenCounterRequired",
+      "conservative_input_upper_bound": 1048576,
+      "input_token_cap": 1048576,
+      "admission": "READY_USING_CONTEXT_ENVELOPE",
+      "reason": "OFFICIAL_MODEL_CONTEXT_CEILING_NOT_EXACT_TOKENIZATION",
       "truncated": false
     },
     {
@@ -99,10 +99,10 @@
       "remaining_fresh_attempts": 24,
       "serialized_messages_bytes": 10586,
       "byte_cap": 24576,
-      "certified_token_upper_bound": null,
-      "input_token_cap": 8192,
-      "admission": "BLOCKED",
-      "reason": "TokenCounterRequired",
+      "conservative_input_upper_bound": 1048576,
+      "input_token_cap": 1048576,
+      "admission": "READY_USING_CONTEXT_ENVELOPE",
+      "reason": "OFFICIAL_MODEL_CONTEXT_CEILING_NOT_EXACT_TOKENIZATION",
       "truncated": false
     },
     {
@@ -115,10 +115,10 @@
       "remaining_fresh_attempts": 12,
       "serialized_messages_bytes": 14027,
       "byte_cap": 24576,
-      "certified_token_upper_bound": null,
-      "input_token_cap": 8192,
-      "admission": "BLOCKED",
-      "reason": "TokenCounterRequired",
+      "conservative_input_upper_bound": 1048576,
+      "input_token_cap": 1048576,
+      "admission": "READY_USING_CONTEXT_ENVELOPE",
+      "reason": "OFFICIAL_MODEL_CONTEXT_CEILING_NOT_EXACT_TOKENIZATION",
       "truncated": false
     },
     {
@@ -131,10 +131,10 @@
       "remaining_fresh_attempts": 12,
       "serialized_messages_bytes": 15210,
       "byte_cap": 24576,
-      "certified_token_upper_bound": null,
-      "input_token_cap": 8192,
-      "admission": "BLOCKED",
-      "reason": "TokenCounterRequired",
+      "conservative_input_upper_bound": 1048576,
+      "input_token_cap": 1048576,
+      "admission": "READY_USING_CONTEXT_ENVELOPE",
+      "reason": "OFFICIAL_MODEL_CONTEXT_CEILING_NOT_EXACT_TOKENIZATION",
       "truncated": false
     },
     {
@@ -147,10 +147,10 @@
       "remaining_fresh_attempts": 12,
       "serialized_messages_bytes": 13968,
       "byte_cap": 24576,
-      "certified_token_upper_bound": null,
-      "input_token_cap": 8192,
-      "admission": "BLOCKED",
-      "reason": "TokenCounterRequired",
+      "conservative_input_upper_bound": 1048576,
+      "input_token_cap": 1048576,
+      "admission": "READY_USING_CONTEXT_ENVELOPE",
+      "reason": "OFFICIAL_MODEL_CONTEXT_CEILING_NOT_EXACT_TOKENIZATION",
       "truncated": false
     },
     {
@@ -163,10 +163,10 @@
       "remaining_fresh_attempts": 12,
       "serialized_messages_bytes": 15151,
       "byte_cap": 24576,
-      "certified_token_upper_bound": null,
-      "input_token_cap": 8192,
-      "admission": "BLOCKED",
-      "reason": "TokenCounterRequired",
+      "conservative_input_upper_bound": 1048576,
+      "input_token_cap": 1048576,
+      "admission": "READY_USING_CONTEXT_ENVELOPE",
+      "reason": "OFFICIAL_MODEL_CONTEXT_CEILING_NOT_EXACT_TOKENIZATION",
       "truncated": false
     }
   ]
