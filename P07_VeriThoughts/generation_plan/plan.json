@@ -1,0 +1,41 @@
+{
+  "status": "frozen_not_authorized_not_executed",
+  "source_revision": "83179e5d881234f47fd783d03af22510cd9c6c35",
+  "row_index_zero_based": 1,
+  "module": "pwm_generator",
+  "question_sha256": "1c183002b76ea9d2e54cb718dd01a34dc301a907c6d6c51da5c2c5e7f4eb196b",
+  "gold_sha256": "f92c2ae5694649b75b84e0cf4bab7f434540c38e2d58996d0d379690ab2be262",
+  "model": "google/gemini-2.5-flash",
+  "project": "verithoughts",
+  "run_id_prefix": "p07-gen-feedback-v1",
+  "max_tokens": 2048,
+  "max_requests": 3,
+  "max_total_reservation_usd": "0.96",
+  "per_attempt_reservation_usd": "0.32",
+  "max_serialized_messages_bytes": 24576,
+  "options": {
+    "temperature": 0.2,
+    "top_p": 1,
+    "reasoning": {
+      "enabled": false
+    },
+    "service_tier": "default",
+    "provider": {
+      "allow_fallbacks": false,
+      "require_parameters": true
+    }
+  },
+  "system": "Implement the user specification as synthesizable Verilog. Preserve every module name, interface and parameter. Return only CODE BEGIN, the complete Verilog, and CODE END. Do not provide explanations.",
+  "initial_user_template": "Implement this public specification:\n{exact_released_question}",
+  "retry_no_feedback": "Implement the same specification again independently. Return a complete implementation in CODE BEGIN / CODE END.",
+  "retry_feedback_template": "The bounded checker did not accept your implementation. Diagnostic category: {category}. Exact bounded diagnostic excerpt:\n{diagnostic}\nRevise the complete implementation to satisfy the original specification. Preserve interfaces and parameters. Return CODE BEGIN / CODE END.",
+  "order": [
+    "initial",
+    "if initial fails: no_feedback_independent",
+    "if initial fails: feedback_repair"
+  ],
+  "on_initial_pass": "stop_after_one_call_no_feedback_effect_estimate",
+  "on_transport_or_protocol_error": "stop_no_automatic_retry_reconcile_shared_ledger",
+  "on_timeout_or_infrastructure_check_error": "stop_unknown_no_model_feedback",
+  "expected_actual_cost": "not estimated without certified input-token counts; central quote is a conservative ceiling, not a predicted bill"
+}
