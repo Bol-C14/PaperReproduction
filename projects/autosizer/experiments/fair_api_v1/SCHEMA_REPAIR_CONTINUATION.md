@@ -50,3 +50,31 @@ paired data/engine/budget checks can establish search-loop correctness, but a
 single task/seed with a prompt fix informed by observed schema failure cannot
 establish method superiority. Future efficacy work requires a newly frozen
 multi-seed protocol before seeing those results.
+
+## Second continuation: output-encoding repair, two requests remain
+
+The first schema repair completed12 genuine model-guided SPICE attempts. The first
+inner decision incorrectly proposed continuous parameters and was rejected; its
+one correction returned the required empty parameter override and selected the
+actual fixed GP port. Six of12 designs were feasible, best FoM3.400767279.
+Both subsequent outer outputs echoed the entire81-point input domain and lengthy
+commentary before the required output schema, hit finish_reason=length, and were
+rejected without semantic repair. Cumulative requests8, cost0.01965855USD, reasoning0.
+
+A further frozen encoding clarification gives the complete compact outer output
+schema, asks not to echo input context/history, and limits output reasoning prose.
+It does not remove or truncate input scientific context, change output token caps,
+relax physical constraints or fabricate an outer decision. The final two authorized
+requests can cover one genuine outer regeneration and one second inner decision;
+if either fails or the model stops, preserve that outcome and do not exceed10.
+
+Carry all52 physical measurements and12 guided rows exactly, including negative
+phases, and use the original actual understanding with its response hash. Do not
+repeat common, control, preflight or first-batch measurements. A prior guided
+validation becomes a charged diagnostic because it cannot validate a later winner.
+At most12 new guided calls plus1 refined winner validation makes cumulative65
+physical calls (58 search,3 preflight,2 failed-phase diagnostics,2 final winners).
+If no new designs occur, skip redundant validation. Model-call accounting remains
+8 carried plus at most2 new; local and shared caps both enforce this. The output
+repair is informed by observed formatting failures, so conclusions remain an
+engineering integration result, not a pristine preregistered efficacy trial.

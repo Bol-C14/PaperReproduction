@@ -67,8 +67,12 @@ def freeze(args,shared_module):
         for f in ('upstream/inverter.yaml','experiments/bridge_v1/bridge.py','experiments/optimization_v1/scripts/engine.py','experiments/optimization_v1/scripts/search.py'):
             if old['files_sha256'][f]!=sha(PROJECT/f):raise RuntimeError('Physical/numerical source changed; cannot carry observations')
         if old['binary_sha256']!=p['binary_sha256'] or old['selector_sha256']!=p['selector_sha256']:raise RuntimeError('Runtime changed; cannot carry observations')
-        p.update(max_simulator_attempts=64,continuation_of=args.resume_from.name,source_protocol_sha256=sha(args.resume_from/'protocol.json'),
-                 carried_spice_attempts=39,carried_api_attempts=3,max_new_api_attempts=7,
+        carried_ledger=json.loads((args.resume_from/'project_ledger.json').read_text())
+        used=sum(r['kind']=='search' and r['arm']=='api_guided' for r in carried_ledger['spice'])
+        if used not in (0,12):raise RuntimeError('Only a stopped0/12-attempt guided arm can be continued; do not repeat completed work')
+        carried_api=len(carried_ledger['api'])+carried_ledger.get('carried_api_attempts',0)
+        p.update(max_simulator_attempts=len(carried_ledger['spice'])+(24-used)+1,continuation_of=args.resume_from.name,source_protocol_sha256=sha(args.resume_from/'protocol.json'),
+                 carried_spice_attempts=len(carried_ledger['spice']),carried_api_attempts=carried_api,max_new_api_attempts=10-carried_api,
                  revision='Explicit allowed-variable schema correction; failed phase intact; carry common/control data without remeasurement; prior guided winner validation becomes a charged diagnostic')
     atomic(args.root/'protocol.json',p)
     return Simulator(args.root,args.binary,args.selector)
@@ -89,10 +93,12 @@ def run(args):
     if continuing:
         old=args.resume_from
         previous=json.loads((old/'project_ledger.json').read_text())
-        if len(previous['api'])!=3 or sum(r['kind']=='search' and r['arm']=='api_guided' for r in previous['spice'])!=0:
+        if (sum(r['kind']=='search' and r['arm']=='api_guided' for r in previous['spice']) not in (0,12) or any(r['status']=='attempt_pending' for r in previous['api'])):
             raise RuntimeError('Continuation state differs; do not duplicate unknown work')
         carried=json.loads(json.dumps(previous));carried['api']=[]
-        carried['carried_api_attempts']=3;carried['physical_spice_cap']=64
+        carried['carried_api_attempts']=len(previous['api'])+previous.get('carried_api_attempts',0)
+        used=sum(r['kind']=='search' and r['arm']=='api_guided' for r in previous['spice'])
+        carried['physical_spice_cap']=len(previous['spice'])+(24-used)+1
         carried['prior_api_cost_usd']=json.loads((old/'checks.json').read_text())['api_cost_accounted_usd']
         for row in carried['spice']:
             if row['kind']=='validation' and row['arm']=='api_guided':
@@ -100,8 +106,8 @@ def run(args):
         atomic(args.root/'project_ledger.json',carried)
         for name in ('attempts','api'):
             shutil.copytree(old/name,args.root/('prior_api' if name=='api' else name),dirs_exist_ok=True)
-        for name in ('common.json','fixed_gp_history.json','preflight.json','preflight_checks.json','raw_attempt_map.json','decisions.json'):
-            shutil.copy2(old/name,args.root/name)
+        for name in ('common.json','fixed_gp_history.json','api_guided_history.json','preflight.json','preflight_checks.json','raw_attempt_map.json','decisions.json'):
+            if (old/name).exists():shutil.copy2(old/name,args.root/name)
         atomic(args.root/'carry_forward_manifest.json',{'source_run':old.name,
              'files':{str(p.relative_to(old)):sha(p) for p in sorted(old.rglob('*')) if p.is_file()},
              'unchanged_physical_measurements':True,'no_prior_control_data_in_model_prompts':True})
@@ -136,6 +142,7 @@ def run(args):
         common=[measured(p,'common',kind='common') for p in PLAN['initial_indices']]
         ledger.freeze_common(common);atomic(args.root/'common.json',common)
     guided=FairBatchRunner(ledger,'api_guided',common)
+    starting_guided=len(guided.history)
     rng=np.random.default_rng(11)
     decisions=json.loads((args.root/'decisions.json').read_text()) if continuing else []
     failure=None
@@ -165,15 +172,21 @@ def run(args):
         runner.run_batch(12,propose=propose,evaluate=lambda p,a:measured(p,runner.arm,attempt=a))
     try:
         if continuing:
-            prior=args.root/'prior_api/api_01/response.json'
+            prior=getattr(args,'understanding_response',None) or (args.root/'prior_api/api_01/response.json')
+            if getattr(args,'understanding_response',None):
+                shutil.copy2(prior,args.root/'understanding_original_response.json')
+                prior=args.root/'understanding_original_response.json'
             cu=json.loads(json.loads(prior.read_text())['choices'][0]['message']['content'])
-            atomic(args.root/'understanding_provenance.json',{'source':'prior_api/api_01/response.json','source_sha256':sha(prior),'actual_online_model_output':True,'synthetic':False})
+            atomic(args.root/'understanding_provenance.json',{'source':str(prior.relative_to(args.root)),'source_sha256':sha(prior),'actual_online_model_output':True,'synthetic':False})
         else:cu=model('circuit_understanding')
-        initial=model('initial_search_space',cu)
-        points=domain(initial)
-        decision=model('inner_first',cu,points)
-        if decision['action']=='search':
-            search_batch(guided,decision['method'],points)
+        if len(guided.history)==0:
+            initial=model('initial_search_space',cu)
+            points=domain(initial)
+            decision=model('inner_first',cu,points)
+            if decision['action']=='search':search_batch(guided,decision['method'],points)
+        else:
+            points=[tuple(p) for p in next(d for d in reversed(decisions) if d['arm']=='api_guided')['domain']]
+        if len(guided.history)==12:
             regenerated=model('outer_regeneration',cu,points)
             points=domain(regenerated)
             second=model('inner_second',cu,points)
@@ -187,6 +200,7 @@ def run(args):
     if not continuing:
         for _ in range(2):search_batch(control,'bayesian',list(itertools.product(range(9),repeat=2)))
     for arm,history in [('api_guided',guided.history),('fixed_gp',control.history)]:
+        if continuing and arm=='api_guided' and len(history)==starting_guided:continue
         if continuing and arm=='fixed_gp':continue # Its actual refined winner measurement is carried unchanged.
         winner=incumbent(common+history)
         if winner:measured(winner['indices'],arm,kind='validation',export=True,refined=True)
@@ -201,6 +215,6 @@ def run(args):
 if __name__=='__main__':
     parser=argparse.ArgumentParser()
     parser.add_argument('--root',type=Path,required=True);parser.add_argument('--binary',type=Path,required=True)
-    parser.add_argument('--resume-from',type=Path);parser.add_argument('--selector',type=Path,required=True);parser.add_argument('--shared-module',type=Path,required=True)
+    parser.add_argument('--resume-from',type=Path);parser.add_argument('--understanding-response',type=Path);parser.add_argument('--selector',type=Path,required=True);parser.add_argument('--shared-module',type=Path,required=True)
     args=parser.parse_args()
     with threadpool_limits(limits=1):run(args)
