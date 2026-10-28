@@ -11,3 +11,5 @@ Follow-up: [Chat-only, credential-free canary preparation](papers/Paper03-Trace2
 Latest: [verified Icarus and actual isolated RTL smoke readiness](papers/Paper03-Trace2Skill/READINESS_UPDATE.md). Four real RTL simulations, no model/API requests.
 
 Executable activation command and final scope: [EXECUTION_GUIDE.md](papers/Paper03-Trace2Skill/EXECUTION_GUIDE.md). Ordinary Chat/skill/real-verifier wiring is complete; 69 offline tests and 14 actual RTL simulations, no model requests.
+
+Client audit fixes: [CLIENT_SECURITY_FIX.md](papers/Paper03-Trace2Skill/CLIENT_SECURITY_FIX.md), 88 offline tests; live still awaits parent security review.

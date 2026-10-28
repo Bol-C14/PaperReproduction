@@ -1,5 +1,6 @@
 # 最终执行入口：Chat → skill / rollout → 真实隔离verifier
 
+**Live安全闸：已修补decoded credential echo与异常usage结算，88项测试通过；仍等待父线程独立审计与平台注入语义确认，不得直接启用。见 [CLIENT_SECURITY_FIX.md](CLIENT_SECURITY_FIX.md)。**
 **普通接线已完成。** 当前默认不启动网络，不读取真实凭证。本轮真实模型API请求 **0**；累计真实RTL仿真 **14**。原CVDP数据403不变；下面入口只运行合法公开的adder基础设施fixture，不能用于宣称Trace2Skill科学复现或方法优势。
 
 ## 父线程确认接入后的一条启动命令

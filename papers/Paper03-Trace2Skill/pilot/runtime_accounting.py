@@ -10,6 +10,7 @@ def conservative_count(payload):
 def usage_total(body):
     if not isinstance(body,dict):return None
     u=body.get('usage',{})
+    if not isinstance(u,dict):return None
     if all(type(u.get(k)) is int and u[k]>=0 for k in ['prompt_tokens','completion_tokens','total_tokens']) and u['total_tokens']==u['prompt_tokens']+u['completion_tokens']:
         return u['total_tokens']
     return None
