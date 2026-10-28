@@ -1,0 +1,1 @@
+echo EXPECTED_NEGATIVE; exit 7
