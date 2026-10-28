@@ -1,0 +1,13 @@
+# Authorized authentication attempt: transport stopped
+
+At 2026-10-28 09:00:03 UTC, one controller admitted one request to the authorized Chat Completions endpoint/model, containing only the literal generic message `Reply with OK.` with max_tokens=16. Credential entered the process through explicitly authorized echo-disabled stdin; it was not placed in command arguments, environment, source, files, program output or artifacts. Tool input history may retain it, as explicitly disclosed and accepted by the user. No redirect or retry occurred.
+
+No HTTP status, final completion or usage was obtained. Authentication is unverified. The sanitized transport masks raw third-party errors, so the exact original exception is unavailable. A subsequent credential-free DNS diagnostic independently returned socket.gaierror errno -3 for the target. The launch used an explicit clean environment without proxy variables; the hosting environment has HTTPS_PROXY/HTTP_PROXY. These facts identify a plausible direct-network routing problem, not a proven provider authentication failure or tool-policy denial. No authenticated retry or proxy substitution was attempted.
+
+Ledger: one admitted transport attempt; 6,144 tokens reserved and conservatively charged because usage is unknown; active=0, terminal status=stopped. Provider processing/cost is unobserved. No fixture/model experiment ran. The ledger halted flag remains false because the sanitized transport raises Stopped; the batch driver nevertheless exited immediately and its one-use marker prevents automatic restart. Existing historical 14 actual verifier executions remain unchanged this round.
+
+The fixed Docker image was independently inspected: immutable ID matched, user65534:65534, no NR_KEY image environment entry. Runtime isolation controls were deliberately scheduled after authentication and did not execute. No new EDA/verifier executions.
+
+Local fixture disclosure audit: cocotb v1.9.2 adder example files explicitly carry CC0-1.0/public-domain notices and verified upstream blob/hash provenance. The planned task/seed/repair prompts are locally authored generic adder material; subsequent skill, generated RTL, and pass/fail feedback would also be transmitted. These locally authored experimental materials are not necessarily published. No personal data, other repository contents or hidden CVDP data were found in the constructed request paths. The local exhaustive testbench is not included in model payloads. The user explicitly authorized this scope; no such payload was sent in this attempt.
+
+Evidence: metrics/live_authentication_authentication.json and metrics/live_authentication_ledger.json. No credential values or raw provider errors retained.
