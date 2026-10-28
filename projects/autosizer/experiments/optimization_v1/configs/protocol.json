@@ -1,0 +1,108 @@
+{
+  "phase": "optimization_v1",
+  "created_utc": "2026-10-28T11:28:34.999104+00:00",
+  "deadline_utc": "2026-10-28T13:28:34.999104+00:00",
+  "parent_commit": "eb5b12dce96c5dc2997d8c891c10dac626a295e7",
+  "upstream_autosizer_commit": "1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1",
+  "sky130_commit": "f62031a1be9aefe902d6d54cddd6f59b57627436",
+  "max_simulator_attempts": 1100,
+  "max_additional_download_bytes": 0,
+  "external_model_calls_allowed": false,
+  "process_timeout_seconds": 20,
+  "process_cpu_limit_seconds": 15,
+  "process_memory_limit_bytes": 2147483648,
+  "circuits": [
+    "inverter",
+    "five_trans_ota"
+  ],
+  "seeds": [
+    11,
+    29,
+    47
+  ],
+  "methods": [
+    "random_full",
+    "gp_full",
+    "adaptive_gp",
+    "gp_frozen"
+  ],
+  "budget_per_main_run": 36,
+  "common_initial_points": 10,
+  "outer_update_at": [
+    12,
+    24
+  ],
+  "initial_active_indices": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "full_indices": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "gp": {
+    "kernel": "Constant(1)*Matern(nu=2.5,length_scale=0.35)+WhiteKernel(1e-6)",
+    "hyperparameter_optimizer": null,
+    "normalize_inputs": true,
+    "normalize_y": true,
+    "ucb_coefficient": 2.0,
+    "invalid_measurements": "exclude from GP, count attempt, no invented fitness",
+    "proposal_candidates": "enumerate current discrete domain; unseen points only"
+  },
+  "pilot": {
+    "circuits": [
+      "inverter"
+    ],
+    "seeds": [
+      11
+    ],
+    "methods": [
+      "random_full",
+      "adaptive_gp"
+    ],
+    "budget": 18,
+    "initial_points": 6,
+    "outer_update_at": [
+      6,
+      12
+    ]
+  },
+  "validation": {
+    "selection": "best feasible candidate per main run, else least-violating valid",
+    "variants": [
+      "original",
+      "repaired_export_refined"
+    ],
+    "planned_attempts": 48
+  },
+  "oracle": {
+    "circuit": "inverter",
+    "all_grid_points": 81,
+    "after_main_only": true,
+    "fed_to_optimizers": false
+  },
+  "planned_simulator_attempts": 1029,
+  "early_stop_on_feasibility": false,
+  "warm_start": "same 10 simulated central-domain points per seed and circuit across arms; no cross-run result cache",
+  "measurements": {
+    "inverter": "paired response edges and time-integrated power; original numeric constraints unchanged",
+    "five_trans_ota": "released gain/UGBW/supply-power measurements"
+  },
+  "source_hashes": {
+    "inverter.yaml": "35dd54d7c40c8738493c547ea0af835520765a043b35267706a9f3fe4c49a2e5",
+    "five_trans_ota.yaml": "278050036f1159b141a842063367fb1aa5081aa1075ef7523c6ae85dcb703209"
+  },
+  "selector_sha256": "80ef928a193984354ea081f3b38704bd6692ed540577535af39e900f9a554944"
+}
