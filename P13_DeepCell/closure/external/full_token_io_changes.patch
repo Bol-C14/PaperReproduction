@@ -1,0 +1,83 @@
+--- P13_DeepCell/closure/external/flow_primary_version.py.txt	2026-10-28 12:17:04.078170229 +0000
++++ P13_DeepCell/closure/external/flow.py	2026-10-28 12:17:04.558598214 +0000
+@@ -7,6 +7,7 @@
+ import torch
+ from types import SimpleNamespace
+ ROOT=pathlib.Path(__file__).resolve().parent
++LOG_PREFIX=''
+ sys.path.insert(0,str(ROOT.parent));sys.path.insert(0,str(ROOT.parents[1]/'pilot'))
+ from train import Pipeline,graph_fields,sid
+ from data import legal_candidates
+@@ -121,7 +122,7 @@
+ def abc(command,tag):
+     binary=next((ROOT/'upstream').glob('abc-*/abc'));start=time.perf_counter()
+     p=subprocess.run([str(binary),'-s','-c',command],capture_output=True,text=True,timeout=30)
+-    (ROOT/'logs'/f'{tag}.log').write_text(p.stdout+p.stderr)
++    (ROOT/'logs'/f'{LOG_PREFIX}{tag}.log').write_text(p.stdout+p.stderr)
+     record={'command':[str(binary),'-s','-c',command],'returncode':p.returncode,'seconds':time.perf_counter()-start,'output':p.stdout+p.stderr}
+     if p.returncode:raise RuntimeError(record)
+     return record
+@@ -167,9 +168,12 @@
+ 
+ 
+ def main():
+-    parser=argparse.ArgumentParser();parser.add_argument('--prepare-only',action='store_true');args=parser.parse_args()
++    global LOG_PREFIX
++    parser=argparse.ArgumentParser();parser.add_argument('--prepare-only',action='store_true');parser.add_argument('--training-directory',choices=['main','full_token'],default='main');args=parser.parse_args()
+     torch.set_num_threads(2);torch.set_num_interop_threads(1);started=time.time()
+-    original=ROOT/'input_ctrl.blif';mapped=ROOT/'results/mapped.blif';bench=ROOT/'results/golden.bench';lib=ROOT/'teaching.genlib'
++    output_dir=ROOT/'results' if args.training_directory=='main' else ROOT/'results/full_token'
++    output_dir.mkdir(exist_ok=True);LOG_PREFIX='' if args.training_directory=='main' else 'full_token_'
++    original=ROOT/'input_ctrl.blif';mapped=output_dir/'mapped.blif';bench=output_dir/'golden.bench';lib=ROOT/'teaching.genlib'
+     commands=[];commands.append(abc(f'read_library {lib}; read_blif {original}; strash; map; write_blif {mapped}; strash; write_bench -l {bench}; print_stats','mapping'))
+     assert mapped.exists() and bench.exists()
+     proof=abc(f'read_library {lib}; cec {original} {mapped}','mapping_cec');assert 'Networks are equivalent' in proof['output'];commands.append(proof)
+@@ -191,11 +195,11 @@
+         cut=copy.deepcopy(pm);cut['nodes'][t]={'cell':'PI','name':pm['nodes'][t]['name'],'pins':[]}
+         cases.append({'id':f'epfl_ctrl_patch_{t}','target':t,'cut':cut,'aig':aig})
+     prepared={'pm':pm,'aig':aig,'cases':cases}
+-    (ROOT/'results/paired_graphs.json').write_text(json.dumps(prepared,indent=2)+'\n')
++    (output_dir/'paired_graphs.json').write_text(json.dumps(prepared,indent=2)+'\n')
+     if args.prepare_only:
+         report={'inputs':len(pm['inputs']),'outputs':len(pm['outputs']),'pm_nodes':len(pm['nodes']),'aig_nodes':len(aig['nodes']),
+                 'targets':targets,'abc_mapping_cec':'equivalent','exhaustive_pairing_patterns':len(patterns),'commands':commands,'seconds':time.time()-started}
+-        (ROOT/'results/preparation.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2));return
++        (output_dir/'preparation.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2));return
+     records=[]
+     def accept(c,ranking,label):
+         result=synthesize(c,ranking,patterns,len(pm['inputs']) if label=='pi_fallback' else 3)
+@@ -205,15 +209,15 @@
+             for x,expected in zip(patterns,truth):
+                 signals=pm_eval(c['cut'],x,c['target'],0);bit=eval_patch(patch,signals);values=pm_eval(c['cut'],x,c['target'],bit)
+                 assert tuple(values[p] for p in pm['outputs'])==expected
+-            path=ROOT/'results'/f'{label}_{c["target"]}.blif'
++            path=output_dir/f'{label}_{c["target"]}.blif'
+             export_patch(pm,c['target'],patch,path,mapped_source['inputs'],mapped_source['outputs'])
+             proof=abc(f'cec {original} {path}',f'cec_{label}_{c["target"]}')
+             assert 'Networks are equivalent' in proof['output'];commands.append(proof)
+             record['verification']={'exhaustive_patterns':len(patterns),'all_outputs':len(pm['outputs']),'passed':True,'abc_cec':'equivalent','patch_blif':str(path.relative_to(ROOT))}
+         records.append(record)
+     for seed in [208,209]:
+-        for arm in ['paired_pretrained','pm_only','paired_random','no_mcm']:
+-            result_file=ROOT.parent/'results/main'/f'{arm}_{seed}.json'
++        for arm in (['paired_pretrained','pm_only','paired_random','no_mcm'] if args.training_directory=='main' else ['paired_pretrained','pm_only']):
++            result_file=ROOT.parent/'results'/args.training_directory/f'{arm}_{seed}.json'
+             if not result_file.exists():raise RuntimeError('wait for declared main runs, do not select available winners')
+             result=json.loads(result_file.read_text());checkpoint=ROOT.parent/result['checkpoint_path']
+             assert hashlib.sha256(checkpoint.read_bytes()).hexdigest()==result['checkpoint_sha256']
+@@ -231,12 +235,12 @@
+         accept(c,ranking,'reverse_topological');r=np.random.default_rng(208+c['target']);r.shuffle(ids);accept(c,ids,'random')
+         oracle=pm['nodes'][c['target']]['pins'];accept(c,oracle+sorted(set(ids)-set(oracle)),'oracle_direct_fanin')
+         accept(c,list(range(len(pm['inputs']))),'pi_fallback')
+-    output={'status':'complete','benchmark':'EPFL ctrl','inputs':len(pm['inputs']),'outputs':len(pm['outputs']),'pm_nodes':len(pm['nodes']),'aig_nodes':len(aig['nodes']),
++    output={'status':'complete','training_directory':args.training_directory,'benchmark':'EPFL ctrl','inputs':len(pm['inputs']),'outputs':len(pm['outputs']),'pm_nodes':len(pm['nodes']),'aig_nodes':len(aig['nodes']),
+       'library':'explicit teaching genlib, unit area/delay, not foundry timing','mapping_tool':'pinned public upstream ABC baseline map; no DeepCell &nf modifications',
+       'targets':targets,'selection':'four index-quantile nontrivial 2-input sites, fixed before scoring','gold_mapping_cec':'equivalent','exhaustive_pairing_patterns':len(patterns),
+       'training_on_public_circuit':False,'new_public_design_count':1,'records':records,'abc_commands':commands,'seconds':time.time()-started}
+-    (ROOT/'results/flow_results.json').write_text(json.dumps(output,indent=2)+'\n')
+-    (ROOT/'results/paired_graphs.json').write_text(json.dumps({'pm':pm,'aig':aig,'cases':cases},indent=2)+'\n')
++    (output_dir/'flow_results.json').write_text(json.dumps(output,indent=2)+'\n')
++    (output_dir/'paired_graphs.json').write_text(json.dumps({'pm':pm,'aig':aig,'cases':cases},indent=2)+'\n')
+     print(json.dumps({k:v for k,v in output.items() if k not in ['records','abc_commands']},indent=2));print('successes',sum(r['success'] for r in records),'trials',len(records))
+ 
+ 

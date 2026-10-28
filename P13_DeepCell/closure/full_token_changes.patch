@@ -1,0 +1,36 @@
+--- P13_DeepCell/closure/train.py	2026-10-28 11:52:03.639500742 +0000
++++ P13_DeepCell/closure/faithful_tokens.py	2026-10-28 12:14:05.258806116 +0000
+@@ -1,4 +1,4 @@
+-"""Family-held-out paired representation -> exact functional ECO CPU reconstruction."""
++"""Separate full-token reconstruction fidelity sensitivity; all other choices retained."""
+ import argparse,copy,hashlib,json,os,pathlib,random,resource,sys,time
+ from types import SimpleNamespace
+ import numpy as np
+@@ -104,13 +104,13 @@
+                 rec=torch.tensor(0.0);classification=torch.tensor(0.0)
+                 if phase=='mcm' and model.arm!='no_mcm':
+                     indices=[masked(c,seed+epoch) for c in group];out=model.contextualize(tokens,group,indices)
+-                    rec=torch.stack([nn.functional.l1_loss(o[idx,128:],t[idx,128:].detach()) for o,t,idx in zip(out,tokens,indices)]).mean()
++                    rec=torch.stack([nn.functional.l1_loss(o[idx],t[idx].detach()) for o,t,idx in zip(out,tokens,indices)]).mean()
+                 loss=prob+rec
+             else:
+                 gold=[model.pm_encode(c).detach() for c in group]
+                 cut=[model.pm_encode(c,cut=True) for c in group]
+                 out=model.contextualize(cut,group,[[c['target']] for c in group])
+-                rec=torch.stack([nn.functional.l1_loss(o[c['target'],128:],g[c['target'],128:]) for o,g,c in zip(out,gold,group)]).mean()
++                rec=torch.stack([nn.functional.l1_loss(o[c['target']],g[c['target']]) for o,g,c in zip(out,gold,group)]).mean()
+                 bces=[]
+                 for o,c in zip(out,group):
+                     ids=c['legal_candidates'];target=o[c['target']].expand(len(ids),-1)
+@@ -193,9 +193,9 @@
+ 
+ 
+ def main():
+-    parser=argparse.ArgumentParser();parser.add_argument('--preflight',action='store_true');parser.add_argument('--resume',action='store_true');parser.add_argument('--arms',nargs='+',default=ARMS);parser.add_argument('--seeds',nargs='+',type=int,default=[208,209]);args=parser.parse_args()
++    parser=argparse.ArgumentParser();parser.add_argument('--preflight',action='store_true');parser.add_argument('--resume',action='store_true');parser.add_argument('--arms',nargs='+',default=['paired_pretrained','pm_only']);parser.add_argument('--seeds',nargs='+',type=int,default=[208,209]);args=parser.parse_args()
+     torch.set_num_threads(2);torch.set_num_interop_threads(1)
+-    started=time.time();mode='preflight' if args.preflight else 'main';directory=ROOT/'results'/mode;directory.mkdir(exist_ok=True)
++    started=time.time();mode='full_token_preflight' if args.preflight else 'full_token';directory=ROOT/'results'/mode;directory.mkdir(exist_ok=True)
+     cases,manifest=build(small=args.preflight);parts={s:[c for c in cases if c['split']==s] for s in ['train','validation','test']}
+     # All existing upstream bytes must remain unchanged.
+     audit=json.loads((ROOT.parent/'assets.json').read_text())

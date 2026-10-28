@@ -1,0 +1,902 @@
+P13_DeepCell/pilot/compat/gcn_import_only.patch:10: trailing whitespace.
++ 
+P13_DeepCell/pilot/compat/gcn_import_only.patch:10: new blank line at EOF.
+P13_DeepCell/sources/code/.gitignore:20: trailing whitespace.
++ecocase 
+P13_DeepCell/sources/code/README.md:3: trailing whitespace.
++Official code repository for the paper: 
+P13_DeepCell/sources/code/README.md:15: trailing whitespace.
++## Install 
+P13_DeepCell/sources/code/README.md:21: trailing whitespace.
++Train the AIG encoder and PM encoder separately 
+P13_DeepCell/sources/code/README.md:28: trailing whitespace.
++Then, refine the embeddings of PM netlists using the AIG view. 
+P13_DeepCell/sources/code/README.md:36: trailing whitespace.
++If DeepCell could help your project, please cite our work: 
+P13_DeepCell/sources/code/README.md:40: trailing whitespace.
++  booktitle={2025 IEEE/ACM International Conference on Computer Aided Design (ICCAD)}, 
+P13_DeepCell/sources/code/README.md:41: trailing whitespace.
++  title={DeepCell: Self-Supervised Multiview Fusion for Circuit Representation Learning}, 
+P13_DeepCell/sources/code/config.py:18: trailing whitespace.
++    # experiment 
+P13_DeepCell/sources/code/config.py:22: trailing whitespace.
++    
+P13_DeepCell/sources/code/config.py:28: trailing whitespace.
++    parser.add_argument('--gpus', default='-1', 
+P13_DeepCell/sources/code/config.py:35: trailing whitespace.
++    parser.add_argument('--random-seed', type=int, default=208, 
+P13_DeepCell/sources/code/config.py:39: trailing whitespace.
++    parser.add_argument('--print_iter', type=int, default=0, 
+P13_DeepCell/sources/code/config.py:47: trailing whitespace.
++    parser.add_argument('--metric', default='loss', 
+P13_DeepCell/sources/code/config.py:57: trailing whitespace.
++    parser.add_argument('--lr', type=float, default=1.0e-4, 
+P13_DeepCell/sources/code/config.py:59: trailing whitespace.
++    parser.add_argument('--weight_decay', type=float, default=1e-10, 
+P13_DeepCell/sources/code/config.py:69: trailing whitespace.
++    
+P13_DeepCell/sources/code/config.py:70: trailing whitespace.
++    # Model 
+P13_DeepCell/sources/code/config.py:78: trailing whitespace.
++    
+P13_DeepCell/sources/code/config.py:84: trailing whitespace.
++    
+P13_DeepCell/sources/code/config.py:94: trailing whitespace.
++        
+P13_DeepCell/sources/code/config.py:141: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/arch/aggnmlp.py:23: trailing whitespace.
++        self.msg_pre = MLP(in_channels, mlp_channels, ouput_channels, 
+P13_DeepCell/sources/code/deepcell/arch/aggnmlp.py:30: trailing whitespace.
++        self.msg_q = MLP(in_channels, mlp_channels, ouput_channels, 
+P13_DeepCell/sources/code/deepcell/arch/aggnmlp.py:32: trailing whitespace.
++        self.msg_k = MLP(in_channels, mlp_channels, ouput_channels, 
+P13_DeepCell/sources/code/deepcell/arch/aggnmlp.py:34: trailing whitespace.
++        self.msg_v = MLP(in_channels, mlp_channels, ouput_channels, 
+P13_DeepCell/sources/code/deepcell/arch/aggnmlp.py:53: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/arch/aggnmlp.py:59: new blank line at EOF.
+P13_DeepCell/sources/code/deepcell/arch/deepset_conv.py:43: new blank line at EOF.
+P13_DeepCell/sources/code/deepcell/arch/gat_conv.py:55: trailing whitespace.
++            h_attn = h_attn + edge_embedding    
+P13_DeepCell/sources/code/deepcell/arch/gat_conv.py:100: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/arch/gat_conv.py:110: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/arch/mlp.py:18: trailing whitespace.
++    The basic structure is refered from 
+P13_DeepCell/sources/code/deepcell/arch/mlp.py:27: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/arch/mlp_aggr.py:18: trailing whitespace.
++        self.msg = MLP(in_channels, mlp_channels, ouput_channels, 
+P13_DeepCell/sources/code/deepcell/arch/mlp_aggr.py:38: new blank line at EOF.
+P13_DeepCell/sources/code/deepcell/arch/pg_layer.py:66: trailing whitespace.
++        The basic structure is refered from 
+P13_DeepCell/sources/code/deepcell/arch/pg_layer.py:253: new blank line at EOF.
+P13_DeepCell/sources/code/deepcell/arch/tfmlp.py:38: trailing whitespace.
++        # h_i: query, h_j: key 
+P13_DeepCell/sources/code/deepcell/arch/tfmlp.py:44: trailing whitespace.
++        # x_j -> value 
+P13_DeepCell/sources/code/deepcell/arch/tfmlp.py:47: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/arch/tfmlp.py:53: new blank line at EOF.
+P13_DeepCell/sources/code/deepcell/dc_eco_model.py:22: trailing whitespace.
++    def __init__(self, 
+P13_DeepCell/sources/code/deepcell/dc_eco_model.py:23: trailing whitespace.
++                 num_rounds = 1, 
+P13_DeepCell/sources/code/deepcell/dc_eco_model.py:24: trailing whitespace.
++                 dim_hidden = 128, 
+P13_DeepCell/sources/code/deepcell/dc_eco_model.py:29: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dc_eco_model.py:39: trailing whitespace.
++        # Network 
+P13_DeepCell/sources/code/deepcell/dc_eco_model.py:53: trailing whitespace.
++        # Readout 
+P13_DeepCell/sources/code/deepcell/dc_eco_model.py:56: trailing whitespace.
++            dim_in=self.dim_hidden*2, dim_hidden=self.dim_mlp, dim_pred=3, 
+P13_DeepCell/sources/code/deepcell/dc_eco_model.py:77: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dc_eco_model.py:91: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dc_eco_model.py:100: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dc_eco_model.py:120: trailing whitespace.
++                    
+P13_DeepCell/sources/code/deepcell/dc_eco_model.py:158: trailing whitespace.
++                
+P13_DeepCell/sources/code/deepcell/dc_eco_model.py:167: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/dc_eco_model.py:172: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/dc_eco_model.py:178: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dc_eco_model.py:179: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/dc_eco_model.py:190: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dc_eco_model.py:204: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dc_model.py:23: trailing whitespace.
++    def __init__(self, 
+P13_DeepCell/sources/code/deepcell/dc_model.py:24: trailing whitespace.
++                 num_rounds = 1, 
+P13_DeepCell/sources/code/deepcell/dc_model.py:25: trailing whitespace.
++                 dim_hidden = 128, 
+P13_DeepCell/sources/code/deepcell/dc_model.py:27: trailing whitespace.
++                 enable_reverse = False, 
+P13_DeepCell/sources/code/deepcell/dc_model.py:31: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dc_model.py:42: trailing whitespace.
++        # Network 
+P13_DeepCell/sources/code/deepcell/dc_model.py:63: trailing whitespace.
++        # Readout 
+P13_DeepCell/sources/code/deepcell/dc_model.py:66: trailing whitespace.
++            dim_in=self.dim_hidden*2, dim_hidden=self.dim_mlp, dim_pred=3, 
+P13_DeepCell/sources/code/deepcell/dc_model.py:83: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dc_model.py:90: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dc_model.py:97: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dc_model.py:118: trailing whitespace.
++                    
+P13_DeepCell/sources/code/deepcell/dc_model.py:156: trailing whitespace.
++                
+P13_DeepCell/sources/code/deepcell/dc_model.py:165: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/dc_model.py:170: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/dc_model.py:176: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dc_model.py:177: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/dc_model.py:188: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dc_model.py:202: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dc_trainer.py:18: trailing whitespace.
++                 args, 
+P13_DeepCell/sources/code/deepcell/dc_trainer.py:19: trailing whitespace.
++                 model, 
+P13_DeepCell/sources/code/deepcell/dc_trainer.py:21: trailing whitespace.
++                 save_dir = './exp', 
+P13_DeepCell/sources/code/deepcell/dc_trainer.py:24: trailing whitespace.
++                 emb_dim = 128, 
+P13_DeepCell/sources/code/deepcell/dc_trainer.py:25: trailing whitespace.
++                 device = 'cpu', 
+P13_DeepCell/sources/code/deepcell/dc_trainer.py:44: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dc_trainer.py:48: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dc_trainer.py:49: trailing whitespace.
++        # Distributed Training 
+P13_DeepCell/sources/code/deepcell/dc_trainer.py:64: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dc_trainer.py:70: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dc_trainer.py:75: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dc_trainer.py:79: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dc_trainer.py:100: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dc_trainer.py:103: trailing whitespace.
++            'epoch': self.model_epoch, 
+P13_DeepCell/sources/code/deepcell/dc_trainer.py:108: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/dc_trainer.py:118: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/dc_trainer.py:126: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dc_trainer.py:131: trailing whitespace.
++        # Task 1: Probability Prediction 
+P13_DeepCell/sources/code/deepcell/dc_trainer.py:133: trailing whitespace.
++        # Task 2: Functional Similarity 
+P13_DeepCell/sources/code/deepcell/dc_trainer.py:150: trailing whitespace.
++            'prob_loss': prob_loss, 
+P13_DeepCell/sources/code/deepcell/dc_trainer.py:151: trailing whitespace.
++            'func_loss': func_loss, 
+P13_DeepCell/sources/code/deepcell/dc_trainer.py:152: trailing whitespace.
++            'con_loss': con_loss, 
+P13_DeepCell/sources/code/deepcell/dc_trainer.py:154: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dc_trainer.py:155: trailing whitespace.
++        if torch.isnan(func_loss).any(): 
+P13_DeepCell/sources/code/deepcell/dc_trainer.py:157: trailing whitespace.
++        if torch.isnan(con_loss).any(): 
+P13_DeepCell/sources/code/deepcell/dc_trainer.py:159: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dc_trainer.py:161: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/dc_trainer.py:182: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dc_trainer.py:186: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dc_trainer.py:189: trailing whitespace.
++        for epoch in range(num_epoch): 
+P13_DeepCell/sources/code/deepcell/dc_trainer.py:215: trailing whitespace.
++                    
+P13_DeepCell/sources/code/deepcell/dc_trainer.py:219: trailing whitespace.
++                    
+P13_DeepCell/sources/code/deepcell/dc_trainer.py:251: trailing whitespace.
++            
+P13_DeepCell/sources/code/deepcell/dc_trainer.py:260: trailing whitespace.
++            
+P13_DeepCell/sources/code/deepcell/dc_trainer.py:260: new blank line at EOF.
+P13_DeepCell/sources/code/deepcell/dg3_model.py:21: trailing whitespace.
++    def __init__(self, 
+P13_DeepCell/sources/code/deepcell/dg3_model.py:22: trailing whitespace.
++                 num_rounds = 1, 
+P13_DeepCell/sources/code/deepcell/dg3_model.py:23: trailing whitespace.
++                 dim_hidden = 128, 
+P13_DeepCell/sources/code/deepcell/dg3_model.py:28: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dg3_model.py:38: trailing whitespace.
++        # Network 
+P13_DeepCell/sources/code/deepcell/dg3_model.py:43: trailing whitespace.
++            
+P13_DeepCell/sources/code/deepcell/dg3_model.py:48: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dg3_model.py:52: trailing whitespace.
++        # Readout 
+P13_DeepCell/sources/code/deepcell/dg3_model.py:55: trailing whitespace.
++                    dim_in=self.dim_hidden*2, dim_hidden=self.dim_mlp, dim_pred=3, 
+P13_DeepCell/sources/code/deepcell/dg3_model.py:70: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dg3_model.py:77: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dg3_model.py:84: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dg3_model.py:100: trailing whitespace.
++                    
+P13_DeepCell/sources/code/deepcell/dg3_model.py:130: trailing whitespace.
++                
+P13_DeepCell/sources/code/deepcell/dg3_model.py:142: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/dg3_model.py:147: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/dg3_model.py:153: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dg3_model.py:154: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/dg3_model.py:165: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dg3_model.py:179: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dg_model.py:21: trailing whitespace.
++    def __init__(self, 
+P13_DeepCell/sources/code/deepcell/dg_model.py:22: trailing whitespace.
++                 num_rounds = 1, 
+P13_DeepCell/sources/code/deepcell/dg_model.py:23: trailing whitespace.
++                 dim_hidden = 128, 
+P13_DeepCell/sources/code/deepcell/dg_model.py:28: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dg_model.py:38: trailing whitespace.
++        # Network 
+P13_DeepCell/sources/code/deepcell/dg_model.py:43: trailing whitespace.
++            
+P13_DeepCell/sources/code/deepcell/dg_model.py:49: trailing whitespace.
++        # Readout 
+P13_DeepCell/sources/code/deepcell/dg_model.py:52: trailing whitespace.
++                    dim_in=self.dim_hidden*2, dim_hidden=self.dim_mlp, dim_pred=3, 
+P13_DeepCell/sources/code/deepcell/dg_model.py:67: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dg_model.py:74: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dg_model.py:81: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dg_model.py:97: trailing whitespace.
++                    
+P13_DeepCell/sources/code/deepcell/dg_model.py:127: trailing whitespace.
++                
+P13_DeepCell/sources/code/deepcell/dg_model.py:136: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/dg_model.py:141: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/dg_model.py:147: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dg_model.py:148: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/dg_model.py:159: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dg_model.py:173: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:18: trailing whitespace.
++                 args, 
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:19: trailing whitespace.
++                 model, 
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:21: trailing whitespace.
++                 save_dir = './exp', 
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:24: trailing whitespace.
++                 emb_dim = 128, 
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:25: trailing whitespace.
++                 device = 'cpu', 
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:44: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:48: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:49: trailing whitespace.
++        # Distributed Training 
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:64: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:70: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:75: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:79: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:100: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:103: trailing whitespace.
++            'epoch': self.model_epoch, 
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:108: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:118: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:126: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:136: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:140: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:141: trailing whitespace.
++        # Task 1: Probability Prediction 
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:143: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:144: trailing whitespace.
++        # Task 2: Functional Similarity 
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:157: trailing whitespace.
++        #     'prob_loss': prob_loss, 
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:163: trailing whitespace.
++            'prob_loss': prob_loss, 
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:164: trailing whitespace.
++            'func_loss': func_loss, 
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:165: trailing whitespace.
++            # 'con_loss': con_loss, 
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:167: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:169: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:190: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:207: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:212: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:215: trailing whitespace.
++        for epoch in range(num_epoch): 
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:228: trailing whitespace.
++                
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:242: trailing whitespace.
++                    
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:244: trailing whitespace.
++                        loss_status['func_loss'] * self.loss_weight[1] 
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:248: trailing whitespace.
++                    
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:280: trailing whitespace.
++            
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:289: trailing whitespace.
++            
+P13_DeepCell/sources/code/deepcell/dg_trainer.py:289: new blank line at EOF.
+P13_DeepCell/sources/code/deepcell/gcn_model.py:11: trailing whitespace.
++class MultiGCNEncoder(nn.Module): 
+P13_DeepCell/sources/code/deepcell/gcn_model.py:14: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/gcn_model.py:17: trailing whitespace.
++        self.enable_reverse = enable_reverse 
+P13_DeepCell/sources/code/deepcell/gcn_model.py:23: trailing whitespace.
++        # Network 
+P13_DeepCell/sources/code/deepcell/gcn_model.py:31: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/gcn_model.py:32: trailing whitespace.
++            
+P13_DeepCell/sources/code/deepcell/gcn_model.py:38: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/gcn_model.py:49: trailing whitespace.
++            
+P13_DeepCell/sources/code/deepcell/gcn_model.py:53: trailing whitespace.
++    def __init__(self, 
+P13_DeepCell/sources/code/deepcell/gcn_model.py:54: trailing whitespace.
++                 dim_feature = 3, 
+P13_DeepCell/sources/code/deepcell/gcn_model.py:55: trailing whitespace.
++                 dim_hidden = 128, 
+P13_DeepCell/sources/code/deepcell/gcn_model.py:56: trailing whitespace.
++                 s_rounds = 4, 
+P13_DeepCell/sources/code/deepcell/gcn_model.py:57: trailing whitespace.
++                 t_rounds = 1, 
+P13_DeepCell/sources/code/deepcell/gcn_model.py:59: trailing whitespace.
++                 layernorm = False 
+P13_DeepCell/sources/code/deepcell/gcn_model.py:65: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/gcn_model.py:68: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/gcn_model.py:77: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/gcn_model.py:79: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/gcn_model.py:84: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/gcn_model.py:95: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/hoga_model.py:153: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/hoga_model.py:157: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/hoga_model.py:158: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/hoga_model.py:174: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/hoga_model.py:202: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/hoga_model.py:206: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/hoga_model.py:208: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/hoga_model.py:213: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/hoga_model.py:224: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/hoga_model.py:238: trailing whitespace.
++      
+P13_DeepCell/sources/code/deepcell/hoga_model.py:238: new blank line at EOF.
+P13_DeepCell/sources/code/deepcell/parse_pair.py:8: trailing whitespace.
++import numpy as np 
+P13_DeepCell/sources/code/deepcell/parse_pair.py:26: trailing whitespace.
++                 random_shuffle=True, trainval_split=0.9, random_sample=1.0): 
+P13_DeepCell/sources/code/deepcell/parse_pair.py:39: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/parse_pair.py:43: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/parse_pair.py:54: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/parse_pair.py:55: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/parse_pair.py:73: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/parse_pair.py:80: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/parse_pair.py:87: trailing whitespace.
++            
+P13_DeepCell/sources/code/deepcell/parse_pair.py:93: trailing whitespace.
++            
+P13_DeepCell/sources/code/deepcell/parse_pair.py:102: trailing whitespace.
++                    
+P13_DeepCell/sources/code/deepcell/parse_pair.py:106: trailing whitespace.
++                                        
+P13_DeepCell/sources/code/deepcell/parse_pair.py:126: trailing whitespace.
++                        no_nodes, backward_index, 
+P13_DeepCell/sources/code/deepcell/parse_pair.py:129: trailing whitespace.
++                    
+P13_DeepCell/sources/code/deepcell/parse_pair.py:155: trailing whitespace.
++                    
+P13_DeepCell/sources/code/deepcell/parse_pair.py:158: trailing whitespace.
++                    
+P13_DeepCell/sources/code/deepcell/parse_pair.py:161: trailing whitespace.
++                    
+P13_DeepCell/sources/code/deepcell/parse_pair.py:166: trailing whitespace.
++                
+P13_DeepCell/sources/code/deepcell/parse_pair.py:178: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/parse_pair.py:184: trailing whitespace.
++        # Construct graph object 
+P13_DeepCell/sources/code/deepcell/parse_pair.py:199: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/parse_pair.py:200: trailing whitespace.
++        return graph        
+P13_DeepCell/sources/code/deepcell/parse_pair.py:201: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/parse_pair.py:206: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/parse_pair.py:215: trailing whitespace.
++        # Construct graph object 
+P13_DeepCell/sources/code/deepcell/parse_pair.py:230: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/parse_pair.py:231: trailing whitespace.
++        return graph       
+P13_DeepCell/sources/code/deepcell/parser.py:8: trailing whitespace.
++import numpy as np 
+P13_DeepCell/sources/code/deepcell/parser.py:26: trailing whitespace.
++                 random_shuffle=True, trainval_split=0.9, sample_ratio=1.0): 
+P13_DeepCell/sources/code/deepcell/parser.py:41: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/parser.py:44: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/parser.py:52: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/parser.py:72: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/parser.py:77: trailing whitespace.
++            
+P13_DeepCell/sources/code/deepcell/parser.py:88: trailing whitespace.
++                
+P13_DeepCell/sources/code/deepcell/parser.py:117: trailing whitespace.
++                #     x, edge_index, tt_dis, tt_pair_index, 
+P13_DeepCell/sources/code/deepcell/parser.py:141: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/parser.py:147: trailing whitespace.
++        # Construct graph object 
+P13_DeepCell/sources/code/deepcell/parser.py:162: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/parser.py:163: trailing whitespace.
++        return graph        
+P13_DeepCell/sources/code/deepcell/parser.py:164: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/parser.py:169: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/parser.py:178: trailing whitespace.
++        # Construct graph object 
+P13_DeepCell/sources/code/deepcell/parser.py:193: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/parser.py:194: trailing whitespace.
++        return graph       
+P13_DeepCell/sources/code/deepcell/pg_model.py:48: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/pg_model.py:84: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/pg_model.py:105: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/pg_model.py:114: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/pg_model.py:116: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/pg_model.py:121: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/pg_model.py:132: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/pg_model.py:146: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/top_model.py:25: trailing whitespace.
++    def __init__(self, 
+P13_DeepCell/sources/code/deepcell/top_model.py:26: trailing whitespace.
++                 args, 
+P13_DeepCell/sources/code/deepcell/top_model.py:27: trailing whitespace.
++                 pm_ckpt=None, 
+P13_DeepCell/sources/code/deepcell/top_model.py:33: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/top_model.py:34: trailing whitespace.
++        # DeepCell 
+P13_DeepCell/sources/code/deepcell/top_model.py:38: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/top_model.py:39: trailing whitespace.
++        # DeepGate 
+P13_DeepCell/sources/code/deepcell/top_model.py:53: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/top_model.py:58: trailing whitespace.
++                dim = args.dim_hidden * 2, k=args.dim_hidden*2, 
+P13_DeepCell/sources/code/deepcell/top_model.py:59: trailing whitespace.
++                heads = args.tf_head, depth = args.tf_layer, seq_len=args.max_token_size * 2, 
+P13_DeepCell/sources/code/deepcell/top_model.py:60: trailing whitespace.
++                one_kv_head=True, share_kv=True, 
+P13_DeepCell/sources/code/deepcell/top_model.py:65: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/top_model.py:68: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/top_model.py:69: trailing whitespace.
++    def mask_nodes(self, G, mask_ratio=0.05, k_hop=4, mask_aig=False): 
+P13_DeepCell/sources/code/deepcell/top_model.py:87: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/top_model.py:100: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/top_model.py:103: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/top_model.py:104: trailing whitespace.
++    def mask_tokens(self, G, tokens, mask_ratio=0.05, k_hop=4, mask_aig=False): 
+P13_DeepCell/sources/code/deepcell/top_model.py:123: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/top_model.py:141: trailing whitespace.
++            
+P13_DeepCell/sources/code/deepcell/top_model.py:144: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/top_model.py:156: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/top_model.py:157: trailing whitespace.
++        # Reconstruction: Mask Circuit Modeling 
+P13_DeepCell/sources/code/deepcell/top_model.py:158: trailing whitespace.
++        for batch_id in range(G.batch.max().item() + 1): 
+P13_DeepCell/sources/code/deepcell/top_model.py:177: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/top_model.py:186: trailing whitespace.
++            
+P13_DeepCell/sources/code/deepcell/top_model.py:187: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/top_model.py:189: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/top_model.py:190: trailing whitespace.
++   
+P13_DeepCell/sources/code/deepcell/top_model.py:201: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/top_model.py:215: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/top_model.py:215: new blank line at EOF.
+P13_DeepCell/sources/code/deepcell/top_trainer.py:18: trailing whitespace.
++                 args, 
+P13_DeepCell/sources/code/deepcell/top_trainer.py:19: trailing whitespace.
++                 model, 
+P13_DeepCell/sources/code/deepcell/top_trainer.py:20: trailing whitespace.
++                 loss_weight = [1.0, 1.0, 1.0], 
+P13_DeepCell/sources/code/deepcell/top_trainer.py:21: trailing whitespace.
++                 device = 'cpu', 
+P13_DeepCell/sources/code/deepcell/top_trainer.py:35: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/top_trainer.py:39: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/top_trainer.py:40: trailing whitespace.
++        # Distributed Training 
+P13_DeepCell/sources/code/deepcell/top_trainer.py:55: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/top_trainer.py:61: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/top_trainer.py:65: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/top_trainer.py:77: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/top_trainer.py:98: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/top_trainer.py:101: trailing whitespace.
++            'epoch': self.model_epoch, 
+P13_DeepCell/sources/code/deepcell/top_trainer.py:106: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/top_trainer.py:116: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/top_trainer.py:126: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/top_trainer.py:129: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/top_trainer.py:130: trailing whitespace.
++        # Task 1: Probability Prediction 
+P13_DeepCell/sources/code/deepcell/top_trainer.py:137: trailing whitespace.
++            
+P13_DeepCell/sources/code/deepcell/top_trainer.py:138: trailing whitespace.
++        # Task 2: Mask PM Circuit Modeling  
+P13_DeepCell/sources/code/deepcell/top_trainer.py:140: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/top_trainer.py:143: trailing whitespace.
++            'mcm_loss': mcm_loss, 
+P13_DeepCell/sources/code/deepcell/top_trainer.py:147: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/top_trainer.py:170: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/top_trainer.py:187: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/top_trainer.py:188: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/top_trainer.py:193: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/top_trainer.py:196: trailing whitespace.
++        for epoch in range(num_epoch): 
+P13_DeepCell/sources/code/deepcell/top_trainer.py:211: trailing whitespace.
++                
+P13_DeepCell/sources/code/deepcell/top_trainer.py:216: trailing whitespace.
++                
+P13_DeepCell/sources/code/deepcell/top_trainer.py:226: trailing whitespace.
++                    
+P13_DeepCell/sources/code/deepcell/top_trainer.py:249: trailing whitespace.
++            
+P13_DeepCell/sources/code/deepcell/top_trainer.py:258: trailing whitespace.
++            
+P13_DeepCell/sources/code/deepcell/top_trainer.py:258: new blank line at EOF.
+P13_DeepCell/sources/code/deepcell/utils/aiger_utils.py:1: trailing whitespace.
++import os 
+P13_DeepCell/sources/code/deepcell/utils/aiger_utils.py:2: trailing whitespace.
++import numpy as np 
+P13_DeepCell/sources/code/deepcell/utils/aiger_utils.py:3: trailing whitespace.
++import subprocess 
+P13_DeepCell/sources/code/deepcell/utils/aiger_utils.py:11: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/utils/aiger_utils.py:33: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/utils/aiger_utils.py:105: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/utils/aiger_utils.py:106: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/utils/aiger_utils.py:112: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/utils/aiger_utils.py:118: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/utils/aiger_utils.py:139: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/utils/aiger_utils.py:140: trailing whitespace.
++    # PI 
+P13_DeepCell/sources/code/deepcell/utils/aiger_utils.py:143: trailing whitespace.
++    # AND 
+P13_DeepCell/sources/code/deepcell/utils/aiger_utils.py:146: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/utils/aiger_utils.py:175: trailing whitespace.
++    # PO NOT check 
+P13_DeepCell/sources/code/deepcell/utils/aiger_utils.py:193: trailing whitespace.
++    for idx, x_data_info in enumerate(data): 
+P13_DeepCell/sources/code/deepcell/utils/aiger_utils.py:220: trailing whitespace.
++    for idx, x_data_info in enumerate(data): 
+P13_DeepCell/sources/code/deepcell/utils/aiger_utils.py:244: trailing whitespace.
++    # Additional clauses 
+P13_DeepCell/sources/code/deepcell/utils/aiger_utils.py:259: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/utils/aiger_utils.py:262: trailing whitespace.
++    for idx, x_data_info in enumerate(data): 
+P13_DeepCell/sources/code/deepcell/utils/aiger_utils.py:307: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/utils/aiger_utils.py:308: trailing whitespace.
++    # PI 
+P13_DeepCell/sources/code/deepcell/utils/aiger_utils.py:311: trailing whitespace.
++    # AND 
+P13_DeepCell/sources/code/deepcell/utils/aiger_utils.py:314: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/utils/aiger_utils.py:343: trailing whitespace.
++    # PO NOT check 
+P13_DeepCell/sources/code/deepcell/utils/circuit_utils.py:3: trailing whitespace.
++    reconvergence identification, 
+P13_DeepCell/sources/code/deepcell/utils/circuit_utils.py:283: trailing whitespace.
++            
+P13_DeepCell/sources/code/deepcell/utils/circuit_utils.py:403: trailing whitespace.
++        adj : list(list(int)), the adjacency matrix, adj[i][j] = {e(j, i) is in E} 
+P13_DeepCell/sources/code/deepcell/utils/circuit_utils.py:408: trailing whitespace.
++        sub_circuits_x_data : 
+P13_DeepCell/sources/code/deepcell/utils/circuit_utils.py:409: trailing whitespace.
++        sub_circuits_edges : 
+P13_DeepCell/sources/code/deepcell/utils/circuit_utils.py:410: trailing whitespace.
++        matrices : 
+P13_DeepCell/sources/code/deepcell/utils/circuit_utils.py:411: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/utils/circuit_utils.py:940: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/utils/circuit_utils.py:1004: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/utils/circuit_utils.py:1028: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/utils/dag_utils.py:87: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/utils/dataset_utils.py:9: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/utils/dataset_utils.py:24: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/utils/dataset_utils.py:32: trailing whitespace.
++        if key == 'aig_batch': 
+P13_DeepCell/sources/code/deepcell/utils/dataset_utils.py:53: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/utils/dataset_utils.py:73: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/utils/dataset_utils.py:81: trailing whitespace.
++                        tt_pair_index=tt_pair_index, tt_dis=tt_dis, 
+P13_DeepCell/sources/code/deepcell/utils/dataset_utils.py:82: trailing whitespace.
++                        forward_level=forward_level, forward_index=forward_index, 
+P13_DeepCell/sources/code/deepcell/utils/dataset_utils.py:85: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/utils/dataset_utils.py:94: new blank line at EOF.
+P13_DeepCell/sources/code/deepcell/utils/logger.py:24: new blank line at EOF.
+P13_DeepCell/sources/code/deepcell/utils/model_utils.py:16: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/utils/sat_utils.py:14: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/utils/sat_utils.py:310: trailing whitespace.
++    # here we consider the PO has already been masked 
+P13_DeepCell/sources/code/deepcell/utils/sat_utils.py:350: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/utils/sat_utils.py:360: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/utils/sat_utils.py:366: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/utils/sat_utils.py:373: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/utils/sat_utils.py:380: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/utils/sat_utils.py:400: trailing whitespace.
++            
+P13_DeepCell/sources/code/deepcell/utils/sat_utils.py:410: trailing whitespace.
++            
+P13_DeepCell/sources/code/deepcell/utils/sat_utils.py:421: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/utils/sat_utils.py:433: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/utils/sat_utils.py:433: new blank line at EOF.
+P13_DeepCell/sources/code/deepcell/utils/utils.py:76: trailing whitespace.
++    # Fanin list 
+P13_DeepCell/sources/code/deepcell/utils/utils.py:81: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/utils/utils.py:148: trailing whitespace.
++            
+P13_DeepCell/sources/code/deepcell/utils/utils.py:173: trailing whitespace.
++    else: 
+P13_DeepCell/sources/code/deepcell/utils/utils.py:192: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/utils/utils.py:193: trailing whitespace.
++    if aig: 
+P13_DeepCell/sources/code/deepcell/utils/utils.py:221: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/utils/utils.py:230: trailing whitespace.
++    
+P13_DeepCell/sources/code/deepcell/utils/utils.py:252: trailing whitespace.
++            
+P13_DeepCell/sources/code/deepcell/utils/utils.py:255: trailing whitespace.
++        
+P13_DeepCell/sources/code/deepcell/utils/utils.py:255: new blank line at EOF.
+P13_DeepCell/sources/code/prepare_dataset.py:10: trailing whitespace.
++import deepcell.top_trainer 
+P13_DeepCell/sources/code/prepare_dataset.py:17: trailing whitespace.
++    def __init__(self): 
+P13_DeepCell/sources/code/prepare_dataset.py:26: trailing whitespace.
++    
+P13_DeepCell/sources/code/prepare_dataset.py:28: trailing whitespace.
++    
+P13_DeepCell/sources/code/prepare_dataset.py:32: trailing whitespace.
++    
+P13_DeepCell/sources/code/prepare_dataset.py:32: new blank line at EOF.
+P13_DeepCell/sources/code/run/aig_hoga.sh:9: trailing whitespace.
++ --aig_encoder hoga 
+P13_DeepCell/sources/code/run/pm_gcn.sh:11: trailing whitespace.
++ 
+P13_DeepCell/sources/code/run/pm_gcn.sh:11: new blank line at EOF.
+P13_DeepCell/sources/code/run/top.sh:21: new blank line at EOF.
+P13_DeepCell/sources/code/test_pm.py:18: trailing whitespace.
++    
+P13_DeepCell/sources/code/test_pm.py:22: trailing whitespace.
++    
+P13_DeepCell/sources/code/test_pm.py:29: trailing whitespace.
++    
+P13_DeepCell/sources/code/test_pm.py:45: trailing whitespace.
++    
+P13_DeepCell/sources/code/test_pm.py:45: new blank line at EOF.
+P13_DeepCell/sources/code/top_train.py:10: trailing whitespace.
++import deepcell.top_trainer 
+P13_DeepCell/sources/code/top_train.py:20: trailing whitespace.
++    
+P13_DeepCell/sources/code/top_train.py:24: trailing whitespace.
++    
+P13_DeepCell/sources/code/top_train.py:27: trailing whitespace.
++        args, 
+P13_DeepCell/sources/code/top_train.py:28: trailing whitespace.
++        pm_ckpt='./ckpt/pm_{}.pth'.format(args.pm_aggr), 
+P13_DeepCell/sources/code/top_train.py:38: trailing whitespace.
++    
+P13_DeepCell/sources/code/top_train.py:39: trailing whitespace.
++    
+P13_DeepCell/sources/code/top_train.py:38: new blank line at EOF.
+P13_DeepCell/sources/code/train_aig.py:24: trailing whitespace.
++    
+P13_DeepCell/sources/code/train_aig.py:37: trailing whitespace.
++    
+P13_DeepCell/sources/code/train_aig.py:43: trailing whitespace.
++    
+P13_DeepCell/sources/code/train_aig.py:47: trailing whitespace.
++    
+P13_DeepCell/sources/code/train_aig.py:51: trailing whitespace.
++    
+P13_DeepCell/sources/code/train_aig.py:52: trailing whitespace.
++    
+P13_DeepCell/sources/code/train_aig.py:53: trailing whitespace.
++    
+P13_DeepCell/sources/code/train_aig.py:51: new blank line at EOF.
+P13_DeepCell/sources/code/train_pm.py:17: trailing whitespace.
++    
+P13_DeepCell/sources/code/train_pm.py:21: trailing whitespace.
++    
+P13_DeepCell/sources/code/train_pm.py:25: trailing whitespace.
++    
+P13_DeepCell/sources/code/train_pm.py:32: trailing whitespace.
++    
+P13_DeepCell/sources/code/train_pm.py:36: trailing whitespace.
++    
+P13_DeepCell/sources/code/train_pm.py:37: trailing whitespace.
++    
+P13_DeepCell/sources/code/train_pm.py:36: new blank line at EOF.
+P13_DeepCell/sources/code/val_pm_woview.py:18: trailing whitespace.
++    
+P13_DeepCell/sources/code/val_pm_woview.py:22: trailing whitespace.
++    
+P13_DeepCell/sources/code/val_pm_woview.py:29: trailing whitespace.
++    
+P13_DeepCell/sources/code/val_pm_woview.py:45: trailing whitespace.
++    
+P13_DeepCell/sources/code/val_pm_woview.py:45: new blank line at EOF.
+P13_DeepCell/sources/code/val_pm_wview.py:12: trailing whitespace.
++import deepcell.top_trainer 
+P13_DeepCell/sources/code/val_pm_wview.py:20: trailing whitespace.
++    
+P13_DeepCell/sources/code/val_pm_wview.py:24: trailing whitespace.
++    
+P13_DeepCell/sources/code/val_pm_wview.py:27: trailing whitespace.
++        args, 
+P13_DeepCell/sources/code/val_pm_wview.py:32: trailing whitespace.
++    
+P13_DeepCell/sources/code/val_pm_wview.py:33: trailing whitespace.
++    
+P13_DeepCell/sources/code/val_pm_wview.py:32: new blank line at EOF.

@@ -1,0 +1,911 @@
+{
+  "paper_id": "P13",
+  "audit_date": "2026-10-28",
+  "project": "DeepCell",
+  "scope": "asset audit only; method learning, not bit-exact reproduction",
+  "environment": "selected PaperReproduction cloud environment",
+  "repo_commit": "b82aef22559c6d8c52eb4feb437ebdd32709360e",
+  "identity": {
+    "v1_title": "DeepCell: Multiview Representation Learning for Post-Mapping Netlists",
+    "v2_and_proceedings_title": "DeepCell: Self-Supervised Multiview Fusion for Circuit Representation Learning",
+    "v1_url": "https://arxiv.org/abs/2502.06816v1",
+    "v2_url": "https://arxiv.org/html/2502.06816v2",
+    "publication_doi": "10.1109/ICCAD66269.2025.11240883",
+    "doi_final_text_verified": false,
+    "proceedings_title_source": "https://www.proceedings.com/content/083/083042webtoc.pdf"
+  },
+  "levels": {
+    "L1": "code/direct required assets",
+    "L2": "code/missing low-cost fill",
+    "L3": "code/missing high-cost fill",
+    "L4": "confirmed no code/cheap implementation",
+    "L5": "confirmed no code/high-cost implementation"
+  },
+  "routes": {
+    "minimum_faithful_mechanism": {
+      "level": "L2",
+      "provisional": true,
+      "confidence": "medium",
+      "goal": "learn paired AIG/PM probability-supervised encoders and cone-mask multiview reconstruction",
+      "required_fill": [
+        "small real semantically paired graph corpus",
+        "PM Boolean truth-table and simulation/NPZ bridge",
+        "explicit PM/DG2 mask/freeze/loss configuration reconciliation",
+        "new fusion training if fused weights cannot be obtained"
+      ],
+      "resources": {
+        "encoder_metadata_size_MB_approx": 12.25,
+        "suggested_scale": "small corpus; CPU preparation and suitable single GPU",
+        "runtime_and_vram": "unverified; no execution"
+      },
+      "upgrade_to_L3_if": "PM preparation bridge cannot be obtained or filled narrowly",
+      "does_not_establish": [
+        "paper metric equivalence",
+        "functional ECO execution",
+        "technology mapping execution"
+      ]
+    },
+    "full_paper": {
+      "level": "L3",
+      "confidence": "high_for_current_tree_insufficiency_medium_for_acquisition",
+      "required_fill": [
+        "exact derived paired data and parent lineage/splits",
+        "commercial mapping flow and library corners",
+        "fused/downstream checkpoints or training",
+        "ECO finetuning and ABC runeco integration",
+        "mapping finetuning and ABC &nf integration",
+        "downstream benchmark/target/cost/constraint manifests"
+      ],
+      "paper_reported_resources_not_measured": {
+        "pretraining": "8 Nvidia A800; batch 128; 60 epochs per stage",
+        "functional_eco_finetuning": "about 2 GPU hours",
+        "mapping_finetuning": "about 4 GPU hours",
+        "downstream_evaluation": "single 2.10GHz i7-14700F core; 32GB RAM"
+      }
+    }
+  },
+  "assets": [
+    {
+      "id": "official_code",
+      "kind": "code",
+      "status": "verified_public_source",
+      "required_for": [
+        "minimum",
+        "full"
+      ],
+      "location": "https://github.com/zshi0616/DeepCell/tree/b82aef22559c6d8c52eb4feb437ebdd32709360e",
+      "confidence": "high"
+    },
+    {
+      "id": "paired_npz",
+      "kind": "data",
+      "status": "required_not_in_inspected_tree_external_availability_unverified",
+      "required_for": [
+        "minimum",
+        "full"
+      ],
+      "expected_paths": [
+        "npz/iccad_aig.npz",
+        "npz/gf180.npz",
+        "npz/gscl45.npz",
+        "npz/sky130.npz"
+      ],
+      "prepared_cache_paths": [
+        "data/lcm",
+        "data/lcm_sample",
+        "data/lcm_test"
+      ],
+      "sources": [
+        "https://github.com/zshi0616/DeepCell/blob/b82aef22559c6d8c52eb4feb437ebdd32709360e/prepare_dataset.py",
+        "https://github.com/zshi0616/DeepCell/blob/b82aef22559c6d8c52eb4feb437ebdd32709360e/deepcell/parse_pair.py",
+        "https://github.com/zshi0616/DeepCell/blob/b82aef22559c6d8c52eb4feb437ebdd32709360e/.gitignore"
+      ],
+      "confidence": "high_for_tree_scope"
+    },
+    {
+      "id": "pairing_contract",
+      "kind": "metadata",
+      "status": "verified_in_code",
+      "contract": {
+        "pair_key": "PM pm_name -> AIG pm_name + .aig",
+        "explicit_internal_node_bijection_required": false,
+        "max_combined_nodes_default": 4096,
+        "pm_features": 64,
+        "required_pm_fields": [
+          "x",
+          "edge_index",
+          "is_pi",
+          "no_edges",
+          "no_nodes",
+          "prob",
+          "forward_index",
+          "forward_level",
+          "backward_index",
+          "backward_level",
+          "tt_dis",
+          "tt_pair_index",
+          "connect_label",
+          "connect_pair_index"
+        ],
+        "aig_fields": [
+          "x",
+          "edge_index",
+          "prob",
+          "forward_index",
+          "forward_level",
+          "backward_index",
+          "backward_level",
+          "tt_dis",
+          "tt_pair_index",
+          "connect_label",
+          "connect_pair_index"
+        ]
+      },
+      "sources": [
+        "https://github.com/zshi0616/DeepCell/blob/b82aef22559c6d8c52eb4feb437ebdd32709360e/deepcell/parse_pair.py",
+        "https://github.com/zshi0616/DeepCell/blob/b82aef22559c6d8c52eb4feb437ebdd32709360e/deepcell/utils/dataset_utils.py"
+      ]
+    },
+    {
+      "id": "corpus_generation",
+      "kind": "preprocessing",
+      "status": "partial_code_missing_pm_pipeline",
+      "details": "prepare_dataset converts pre-existing NPZ; no complete RTL/Liberty -> PM simulation -> matched AIG -> NPZ recipe found",
+      "fill_cost_minimum": "bounded_but_uncertain",
+      "fill_cost_full": "high",
+      "sources": [
+        "https://github.com/zshi0616/DeepCell/blob/b82aef22559c6d8c52eb4feb437ebdd32709360e/prepare_dataset.py",
+        "https://github.com/zshi0616/DeepCell/blob/b82aef22559c6d8c52eb4feb437ebdd32709360e/deepcell/utils/circuit_utils.py"
+      ]
+    },
+    {
+      "id": "fusion_checkpoint",
+      "kind": "checkpoint",
+      "status": "not_named_in_inspected_tree_external_availability_unverified",
+      "required_for": [
+        "pretrained_multiview_demo",
+        "full"
+      ],
+      "minimum_alternative": "learn fusion on small prepared pairs; not executed",
+      "sources": [
+        "https://github.com/zshi0616/DeepCell/tree/b82aef22559c6d8c52eb4feb437ebdd32709360e/ckpt"
+      ]
+    },
+    {
+      "id": "eco_integration",
+      "kind": "downstream_code",
+      "status": "partial_encoder_only_in_inspected_tree",
+      "present": [
+        "deepcell/dc_eco_model.py"
+      ],
+      "unverified_required": [
+        "finetuning driver",
+        "driven-signal ranking head/interface",
+        "modified ABC runeco bridge",
+        "fine-tuned checkpoint",
+        "patch targets and cost manifests"
+      ],
+      "task": "functional ECO, not physical timing ECO",
+      "fill_cost": "high",
+      "sources": [
+        "https://github.com/zshi0616/DeepCell/blob/b82aef22559c6d8c52eb4feb437ebdd32709360e/deepcell/dc_eco_model.py",
+        "https://github.com/zshi0616/DeepCell/blob/b82aef22559c6d8c52eb4feb437ebdd32709360e/.gitignore",
+        "https://arxiv.org/html/2502.06816v2#S5"
+      ]
+    },
+    {
+      "id": "mapping_integration",
+      "kind": "downstream_code",
+      "status": "not_found_in_complete_inspected_tree_external_availability_unverified",
+      "unverified_required": [
+        "cell-type finetuning driver/head",
+        "fine-tuned checkpoint",
+        "modified ABC &nf bridge",
+        "Liberty corner/version and constraints",
+        "prepared benchmark input manifest"
+      ],
+      "fill_cost": "high",
+      "sources": [
+        "https://arxiv.org/html/2502.06816v2#S6",
+        "https://github.com/berkeley-abc/abc",
+        "https://github.com/lsils/benchmarks"
+      ]
+    },
+    {
+      "id": "environment",
+      "kind": "dependency_manifest",
+      "status": "verified_public_manifest_not_installed_or_tested",
+      "versions": {
+        "python": "3.9.21",
+        "pytorch": "2.0.1",
+        "cuda": "11.8",
+        "torch_geometric": "2.6.1",
+        "deepgate": "2.0.1",
+        "linformer": "0.2.3",
+        "numpy": "1.24.0",
+        "py_aiger": "7.0.0"
+      },
+      "notes": [
+        "README requirements.txt is not in root tree",
+        "PyG binary extensions pinned to pt20cu118"
+      ],
+      "sources": [
+        "https://github.com/zshi0616/DeepCell/blob/b82aef22559c6d8c52eb4feb437ebdd32709360e/environment.yaml",
+        "https://github.com/zshi0616/DeepCell/blob/b82aef22559c6d8c52eb4feb437ebdd32709360e/README.md"
+      ]
+    },
+    {
+      "id": "eda_tools_libraries",
+      "kind": "tools_and_libraries",
+      "status": "external_versions_and_assets_unverified_not_bundled",
+      "resources": [
+        "ABC",
+        "Skywater130nm",
+        "GSCL45nm",
+        "GF180nm",
+        "Nangate45nm",
+        "commercial mapping tool unnamed in inspected paper recipe"
+      ],
+      "auxiliary_paths": [
+        "cnf2aig",
+        "aigtoaig",
+        "external.PyMiniSolvers.minisolvers"
+      ],
+      "required_for_minimum": "one consistent open standard-cell library plus pairing/preprocessing tools, not full downstream stack",
+      "sources": [
+        "https://github.com/zshi0616/DeepCell/blob/b82aef22559c6d8c52eb4feb437ebdd32709360e/deepcell/utils/aiger_utils.py",
+        "https://github.com/zshi0616/DeepCell/blob/b82aef22559c6d8c52eb4feb437ebdd32709360e/deepcell/utils/sat_utils.py",
+        "https://arxiv.org/html/2502.06816v2"
+      ]
+    },
+    {
+      "id": "source_designs_and_benchmarks",
+      "kind": "source_data",
+      "status": "paper_identified_exact_derived_assets_unverified",
+      "resources": [
+        "ForgeEDA",
+        "DeepCircuitX",
+        "EPFL benchmark suite",
+        "ICCAD17 ECO instances",
+        "industrial ECO cases"
+      ],
+      "notes": "public upstream designs are not the released paired NPZ corpus",
+      "sources": [
+        "https://arxiv.org/html/2502.06816v2",
+        "https://github.com/lsils/benchmarks"
+      ]
+    },
+    {
+      "id": "ckpt/aig_dg2.pth",
+      "kind": "checkpoint",
+      "status": "verified_public_binary_metadata_only",
+      "required_for": [
+        "minimum_optional_warm_start",
+        "full_variant_dependent"
+      ],
+      "path": "ckpt/aig_dg2.pth",
+      "source": "https://github.com/zshi0616/DeepCell/blob/b82aef22559c6d8c52eb4feb437ebdd32709360e/ckpt/aig_dg2.pth",
+      "display_size": "7.49 MB",
+      "is_git_lfs": false,
+      "short_blob_id": "2f1db27",
+      "raw_url": "https://github.com/zshi0616/DeepCell/raw/b82aef22559c6d8c52eb4feb437ebdd32709360e/ckpt/aig_dg2.pth",
+      "downloaded": false,
+      "tensor_contents_verified": false,
+      "provenance": "training stage, epoch, parent-design split, and full tensor coverage unverified",
+      "confidence": "high_for_presence_low_for_provenance"
+    },
+    {
+      "id": "ckpt/aig_dg3.pth",
+      "kind": "checkpoint",
+      "status": "verified_public_binary_metadata_only",
+      "required_for": [
+        "minimum_optional_warm_start",
+        "full_variant_dependent"
+      ],
+      "path": "ckpt/aig_dg3.pth",
+      "source": "https://github.com/zshi0616/DeepCell/blob/b82aef22559c6d8c52eb4feb437ebdd32709360e/ckpt/aig_dg3.pth",
+      "display_size": "34.7 MB",
+      "is_git_lfs": false,
+      "short_blob_id": "3a6af20",
+      "raw_url": "https://github.com/zshi0616/DeepCell/raw/b82aef22559c6d8c52eb4feb437ebdd32709360e/ckpt/aig_dg3.pth",
+      "downloaded": false,
+      "tensor_contents_verified": false,
+      "provenance": "training stage, epoch, parent-design split, and full tensor coverage unverified",
+      "confidence": "high_for_presence_low_for_provenance"
+    },
+    {
+      "id": "ckpt/aig_gcn.pth",
+      "kind": "checkpoint",
+      "status": "verified_public_binary_metadata_only",
+      "required_for": [
+        "minimum_optional_warm_start",
+        "full_variant_dependent"
+      ],
+      "path": "ckpt/aig_gcn.pth",
+      "source": "https://github.com/zshi0616/DeepCell/blob/b82aef22559c6d8c52eb4feb437ebdd32709360e/ckpt/aig_gcn.pth",
+      "display_size": "15 MB",
+      "is_git_lfs": false,
+      "short_blob_id": "105c7fe",
+      "raw_url": "https://github.com/zshi0616/DeepCell/raw/b82aef22559c6d8c52eb4feb437ebdd32709360e/ckpt/aig_gcn.pth",
+      "downloaded": false,
+      "tensor_contents_verified": false,
+      "provenance": "training stage, epoch, parent-design split, and full tensor coverage unverified",
+      "confidence": "high_for_presence_low_for_provenance"
+    },
+    {
+      "id": "ckpt/aig_hoga.pth",
+      "kind": "checkpoint",
+      "status": "verified_public_binary_metadata_only",
+      "required_for": [
+        "minimum_optional_warm_start",
+        "full_variant_dependent"
+      ],
+      "path": "ckpt/aig_hoga.pth",
+      "source": "https://github.com/zshi0616/DeepCell/blob/b82aef22559c6d8c52eb4feb437ebdd32709360e/ckpt/aig_hoga.pth",
+      "display_size": "1.8 MB",
+      "is_git_lfs": false,
+      "short_blob_id": "0a830a6",
+      "raw_url": "https://github.com/zshi0616/DeepCell/raw/b82aef22559c6d8c52eb4feb437ebdd32709360e/ckpt/aig_hoga.pth",
+      "downloaded": false,
+      "tensor_contents_verified": false,
+      "provenance": "training stage, epoch, parent-design split, and full tensor coverage unverified",
+      "confidence": "high_for_presence_low_for_provenance"
+    },
+    {
+      "id": "ckpt/aig_pg.pth",
+      "kind": "checkpoint",
+      "status": "verified_public_binary_metadata_only",
+      "required_for": [
+        "minimum_optional_warm_start",
+        "full_variant_dependent"
+      ],
+      "path": "ckpt/aig_pg.pth",
+      "source": "https://github.com/zshi0616/DeepCell/blob/b82aef22559c6d8c52eb4feb437ebdd32709360e/ckpt/aig_pg.pth",
+      "display_size": "1.27 MB",
+      "is_git_lfs": false,
+      "short_blob_id": "18aa7c3",
+      "raw_url": "https://github.com/zshi0616/DeepCell/raw/b82aef22559c6d8c52eb4feb437ebdd32709360e/ckpt/aig_pg.pth",
+      "downloaded": false,
+      "tensor_contents_verified": false,
+      "provenance": "training stage, epoch, parent-design split, and full tensor coverage unverified",
+      "confidence": "high_for_presence_low_for_provenance"
+    },
+    {
+      "id": "ckpt/pm_dg2.pth",
+      "kind": "checkpoint",
+      "status": "verified_public_binary_metadata_only",
+      "required_for": [
+        "minimum_optional_warm_start",
+        "full_variant_dependent"
+      ],
+      "path": "ckpt/pm_dg2.pth",
+      "source": "https://github.com/zshi0616/DeepCell/blob/b82aef22559c6d8c52eb4feb437ebdd32709360e/ckpt/pm_dg2.pth",
+      "display_size": "4.76 MB",
+      "is_git_lfs": false,
+      "short_blob_id": "910c0e8",
+      "raw_url": "https://github.com/zshi0616/DeepCell/raw/b82aef22559c6d8c52eb4feb437ebdd32709360e/ckpt/pm_dg2.pth",
+      "downloaded": false,
+      "tensor_contents_verified": false,
+      "provenance": "training stage, epoch, parent-design split, and full tensor coverage unverified",
+      "confidence": "high_for_presence_low_for_provenance"
+    },
+    {
+      "id": "ckpt/pm_gat.pth",
+      "kind": "checkpoint",
+      "status": "verified_public_binary_metadata_only",
+      "required_for": [
+        "minimum_optional_warm_start",
+        "full_variant_dependent"
+      ],
+      "path": "ckpt/pm_gat.pth",
+      "source": "https://github.com/zshi0616/DeepCell/blob/b82aef22559c6d8c52eb4feb437ebdd32709360e/ckpt/pm_gat.pth",
+      "display_size": "3.62 MB",
+      "is_git_lfs": false,
+      "short_blob_id": "b2c1037",
+      "raw_url": "https://github.com/zshi0616/DeepCell/raw/b82aef22559c6d8c52eb4feb437ebdd32709360e/ckpt/pm_gat.pth",
+      "downloaded": false,
+      "tensor_contents_verified": false,
+      "provenance": "training stage, epoch, parent-design split, and full tensor coverage unverified",
+      "confidence": "high_for_presence_low_for_provenance"
+    },
+    {
+      "id": "ckpt/pm_gcn.pth",
+      "kind": "checkpoint",
+      "status": "verified_public_binary_metadata_only",
+      "required_for": [
+        "minimum_optional_warm_start",
+        "full_variant_dependent"
+      ],
+      "path": "ckpt/pm_gcn.pth",
+      "source": "https://github.com/zshi0616/DeepCell/blob/b82aef22559c6d8c52eb4feb437ebdd32709360e/ckpt/pm_gcn.pth",
+      "display_size": "3.61 MB",
+      "is_git_lfs": false,
+      "short_blob_id": "03dd140",
+      "raw_url": "https://github.com/zshi0616/DeepCell/raw/b82aef22559c6d8c52eb4feb437ebdd32709360e/ckpt/pm_gcn.pth",
+      "downloaded": false,
+      "tensor_contents_verified": false,
+      "provenance": "training stage, epoch, parent-design split, and full tensor coverage unverified",
+      "confidence": "high_for_presence_low_for_provenance"
+    },
+    {
+      "id": "deepcell/pretrained/model.pth",
+      "kind": "checkpoint",
+      "status": "verified_public_binary_metadata_only",
+      "required_for": [
+        "minimum_optional_warm_start",
+        "full_variant_dependent"
+      ],
+      "path": "deepcell/pretrained/model.pth",
+      "source": "https://github.com/zshi0616/DeepCell/blob/b82aef22559c6d8c52eb4feb437ebdd32709360e/deepcell/pretrained/model.pth",
+      "display_size": "7.49 MB",
+      "is_git_lfs": false,
+      "short_blob_id": "2f1db27",
+      "raw_url": "https://github.com/zshi0616/DeepCell/raw/b82aef22559c6d8c52eb4feb437ebdd32709360e/deepcell/pretrained/model.pth",
+      "downloaded": false,
+      "tensor_contents_verified": false,
+      "provenance": "training stage, epoch, parent-design split, and full tensor coverage unverified",
+      "confidence": "high_for_presence_low_for_provenance"
+    }
+  ],
+  "static_configuration_gaps": [
+    {
+      "gap": "run/top.sh chooses AIG/HOGA, mask .01, Linformer, four GPUs rather than principal PM/DG2 mask .05 paper configuration",
+      "source": "https://github.com/zshi0616/DeepCell/blob/b82aef22559c6d8c52eb4feb437ebdd32709360e/run/top.sh"
+    },
+    {
+      "gap": "config mask default .15; train_pm hardcodes 40 epochs",
+      "sources": [
+        "https://github.com/zshi0616/DeepCell/blob/b82aef22559c6d8c52eb4feb437ebdd32709360e/config.py",
+        "https://github.com/zshi0616/DeepCell/blob/b82aef22559c6d8c52eb4feb437ebdd32709360e/train_pm.py"
+      ]
+    },
+    {
+      "gap": "train_aig hardcodes aig_pg.pth independently of selected encoder",
+      "source": "https://github.com/zshi0616/DeepCell/blob/b82aef22559c6d8c52eb4feb437ebdd32709360e/train_aig.py"
+    },
+    {
+      "gap": "fusion counterpart encoder not frozen; optimizer all params; detached target only",
+      "sources": [
+        "https://github.com/zshi0616/DeepCell/blob/b82aef22559c6d8c52eb4feb437ebdd32709360e/deepcell/top_model.py",
+        "https://github.com/zshi0616/DeepCell/blob/b82aef22559c6d8c52eb4feb437ebdd32709360e/deepcell/top_trainer.py"
+      ]
+    },
+    {
+      "gap": "top_train passes two loss weights; setter only changes when len==3",
+      "sources": [
+        "https://github.com/zshi0616/DeepCell/blob/b82aef22559c6d8c52eb4feb437ebdd32709360e/top_train.py",
+        "https://github.com/zshi0616/DeepCell/blob/b82aef22559c6d8c52eb4feb437ebdd32709360e/deepcell/top_trainer.py"
+      ]
+    },
+    {
+      "gap": "loaders strict=False with shape skips; successful future call alone would not prove complete coverage",
+      "source": "https://github.com/zshi0616/DeepCell/blob/b82aef22559c6d8c52eb4feb437ebdd32709360e/deepcell/top_model.py"
+    }
+  ],
+  "substitutions": [
+    {
+      "substitution": "small new real pairs",
+      "fidelity_loss": "original distribution, scale, splits and numerical comparison"
+    },
+    {
+      "substitution": "open mapping instead of commercial flow",
+      "fidelity_loss": "original topology, cell selection and labels"
+    },
+    {
+      "substitution": "single open library",
+      "fidelity_loss": "cross-library and OOD claims"
+    },
+    {
+      "substitution": "encoder warm-start plus new fusion",
+      "fidelity_loss": "original training trajectory/provenance"
+    },
+    {
+      "substitution": "single GPU/reduced batch",
+      "fidelity_loss": "published optimization schedule"
+    },
+    {
+      "substitution": "single-view demo",
+      "fidelity_loss": "not faithful to core multiview mechanism or downstream claims",
+      "acceptable_as_minimum": false
+    }
+  ],
+  "testable_gap_control": {
+    "status": "hypothesis_only_not_executed",
+    "gap": "parent-design or mapped-library variants could cross a random pair-level split",
+    "evidence": "parse_pair shuffles concatenated library pairs with torch.randperm then slices without parent grouping",
+    "not_an_accusation": "upstream corpus may already be parent-disjoint; corpus unavailable",
+    "control": "obtain repository/commit/parent/cone/library manifest; keep all parent descendants and views in one partition; verify zero parent-ID overlap; compare no-view and multiview with same held-out library and budget",
+    "source": "https://github.com/zshi0616/DeepCell/blob/b82aef22559c6d8c52eb4feb437ebdd32709360e/deepcell/parse_pair.py"
+  },
+  "access_limitations": [
+    {
+      "target": "https://doi.org/10.1109/ICCAD66269.2025.11240883",
+      "action": "read public DOI page",
+      "status": "failed",
+      "reason": "browser resolver inaccessible",
+      "response": "no bypass"
+    },
+    {
+      "target": "https://ieeexplore.ieee.org/document/11240883",
+      "action": "read public metadata",
+      "status": "gated",
+      "reason": "robot verification requires JavaScript",
+      "response": "stopped"
+    },
+    {
+      "target": "https://arxiv.org/html/2502.06816v2",
+      "action": "cloud static HTTP fetch after browser read",
+      "status": "denied",
+      "reason": "tunnel 403 Forbidden",
+      "response": "no retry or bypass; browser-readable text used"
+    }
+  ],
+  "actions": {
+    "repo_code_executed": false,
+    "experiments": false,
+    "model_inference": false,
+    "eda_tool_execution": false,
+    "installation": false,
+    "api_endpoint_calls": false,
+    "data_downloaded": false,
+    "checkpoint_downloaded": false,
+    "licenses_accepted": false,
+    "account_data_shared": false,
+    "settings_changed": false,
+    "published": false,
+    "small_public_text_and_metadata_reads": true
+  },
+  "absence_policy": "Unverified is not absent. Tree-scoped absence is not universal absence.",
+  "deliverables": [
+    "ASSET_AUDIT.md",
+    "assets.json",
+    "sources/checkpoint_metadata.json",
+    "sources/*tree.json",
+    "sources/code/"
+  ],
+  "source_file_manifest": [
+    {
+      "path": "sources/code/.gitignore",
+      "bytes": 149,
+      "sha256": "a167091914de1d6ed6caba68ad25be4aefe75f92928ee1e22208ef774d5fa41b"
+    },
+    {
+      "path": "sources/code/README.md",
+      "bytes": 2331,
+      "sha256": "fa976ca339c17d189940a36bc0109e50a9a850847ea0dc7fc071cdc448d2828e"
+    },
+    {
+      "path": "sources/code/config.py",
+      "bytes": 6169,
+      "sha256": "277b9d11168a43b2608223f2054281ceea282d3805778a91ea3e6b00f6f86860"
+    },
+    {
+      "path": "sources/code/deepcell/__init__.py",
+      "bytes": 201,
+      "sha256": "165c1da6091aed3eb0f9f5a4d526899c1b9cee92f189e78254ea60003337ea0d"
+    },
+    {
+      "path": "sources/code/deepcell/__version__.py",
+      "bytes": 22,
+      "sha256": "c00c642bcc35defaa8178ec0f22a96752948811457999890d11e3078f65fce1b"
+    },
+    {
+      "path": "sources/code/deepcell/arch/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "sources/code/deepcell/arch/aggnmlp.py",
+      "bytes": 2741,
+      "sha256": "f09ef4b3158306b3025cdbde5f1bd70973f378b31415f566c946c41732e79611"
+    },
+    {
+      "path": "sources/code/deepcell/arch/deepset_conv.py",
+      "bytes": 1655,
+      "sha256": "9ec9a375cd6d38ca32ddc8df0ec477044bccebcb677746252c820f690fc05b4b"
+    },
+    {
+      "path": "sources/code/deepcell/arch/gat_conv.py",
+      "bytes": 4461,
+      "sha256": "c50a65df861caa1806fb525776bf954a32db37cadc232bd6c78c43452e057976"
+    },
+    {
+      "path": "sources/code/deepcell/arch/gated_sum_conv.py",
+      "bytes": 1241,
+      "sha256": "6faf7ad4f1c2a9781dfdd3982ccb600fe28f561f1328d439eafc745e898c6744"
+    },
+    {
+      "path": "sources/code/deepcell/arch/gcn_conv.py",
+      "bytes": 1678,
+      "sha256": "f73bcc00cf31b3cfd33e8450db9f886383e9f9ee449234c7498f8c15339017c4"
+    },
+    {
+      "path": "sources/code/deepcell/arch/mlp.py",
+      "bytes": 1626,
+      "sha256": "a9ea56cafac9157995fd2ff73d954131fa7adea0930e6785dc5770c67a003511"
+    },
+    {
+      "path": "sources/code/deepcell/arch/mlp_aggr.py",
+      "bytes": 1554,
+      "sha256": "7500a24d7b2a620d8d8fc856a677d6c64cec764d6796177b67482f9c870dac50"
+    },
+    {
+      "path": "sources/code/deepcell/arch/pg_layer.py",
+      "bytes": 8094,
+      "sha256": "b95747cc2157ec138c1ebe7b71c4c63b9d76108f5e644557bcd8a2f5d1d5976d"
+    },
+    {
+      "path": "sources/code/deepcell/arch/tfmlp.py",
+      "bytes": 2136,
+      "sha256": "97464a408e12e4ccc4c667f8cdd0fdfc1f0df6969d0f0f0bacd1dfa97a06dde4"
+    },
+    {
+      "path": "sources/code/deepcell/dc_eco_model.py",
+      "bytes": 9406,
+      "sha256": "08fb230091c6532fa966dc635afa2016f183908f3c68f0c933db2888bfd22cc1"
+    },
+    {
+      "path": "sources/code/deepcell/dc_model.py",
+      "bytes": 9139,
+      "sha256": "bab916eda7679f3575713dd9ba602d7f2be3580beeff8d35f624d79ec737e4c7"
+    },
+    {
+      "path": "sources/code/deepcell/dc_trainer.py",
+      "bytes": 12096,
+      "sha256": "bb301c6e86a62bb4f3df2a2008575f3c18fea14eac3f92f0d0933ca69953360f"
+    },
+    {
+      "path": "sources/code/deepcell/dg3_model.py",
+      "bytes": 8126,
+      "sha256": "21d2862cb03ece866745bd5d211e28ad2acd93fb47d31c9960b388e70e58d04e"
+    },
+    {
+      "path": "sources/code/deepcell/dg_model.py",
+      "bytes": 7780,
+      "sha256": "6fc3cf3d9df77f0f2398e5e4a07f6c487486acc9f79a026248f5b9ee0f9c5594"
+    },
+    {
+      "path": "sources/code/deepcell/dg_trainer.py",
+      "bytes": 13410,
+      "sha256": "e2e60947c4f8dcf1870752980eb4e56080ae57e36912e5b78070b45f17e9c65f"
+    },
+    {
+      "path": "sources/code/deepcell/gcn_model.py",
+      "bytes": 4322,
+      "sha256": "f89bb1cd765d9c63e85fec8a2bff7ca46a7a4e02b3ed4e8a2919ec4b33861d01"
+    },
+    {
+      "path": "sources/code/deepcell/hoga_model.py",
+      "bytes": 10225,
+      "sha256": "a84bc8844ce9c13b64faebbc7abc02600f99e84e7dd7b7bec488a1423236ecf4"
+    },
+    {
+      "path": "sources/code/deepcell/parse_pair.py",
+      "bytes": 10539,
+      "sha256": "302f374c053e1bbf65b7426bd53704eaabe93f49c89c6481269082d029b1f141"
+    },
+    {
+      "path": "sources/code/deepcell/parser.py",
+      "bytes": 8068,
+      "sha256": "02845042dba8b5a079d773f03620a4a20bc490d1e9d79ddc47654833b29afba3"
+    },
+    {
+      "path": "sources/code/deepcell/pg_model.py",
+      "bytes": 5441,
+      "sha256": "c80bb6400c2ae85670f82c98d3bdde39728396ab99aeaa8af8d74a96e680f3aa"
+    },
+    {
+      "path": "sources/code/deepcell/pretrained/__init__.py",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "sources/code/deepcell/top_model.py",
+      "bytes": 9176,
+      "sha256": "d4cb56aeeb8acdd4a0c8d3263591c0d448903de256b12ec59cc24f7a1cf64816"
+    },
+    {
+      "path": "sources/code/deepcell/top_trainer.py",
+      "bytes": 11866,
+      "sha256": "0609dea1b83eb49a65c19f6f523295f9070ba1837d5df5060da5409daeaa82ca"
+    },
+    {
+      "path": "sources/code/deepcell/utils/__init__.py",
+      "bytes": 148,
+      "sha256": "979f4103821d8e804e34a69b0aa16fb1a6ccf75755be6a8558af3ae0ddb74762"
+    },
+    {
+      "path": "sources/code/deepcell/utils/aiger_utils.py",
+      "bytes": 13636,
+      "sha256": "18f96218cd19c2a121c277342601b2b9cfe2caf19c704fa224b0d506f224c051"
+    },
+    {
+      "path": "sources/code/deepcell/utils/batch.py",
+      "bytes": 8511,
+      "sha256": "48c62239244aa04d37f8c63a69b34a1270fc20ba43f263d9be41ba8d4ac8b07f"
+    },
+    {
+      "path": "sources/code/deepcell/utils/circuit_utils.py",
+      "bytes": 39142,
+      "sha256": "0588b4f3c9cf3c115bf32cc0807b6b5c0196d7ce5d394d6b3f97b6a0a3fea895"
+    },
+    {
+      "path": "sources/code/deepcell/utils/dag_utils.py",
+      "bytes": 4954,
+      "sha256": "6ec84e7bb9d7da452f5e70990f2bc1c4b8d9af3bd56b5cd58b46f1c6fe0a7887"
+    },
+    {
+      "path": "sources/code/deepcell/utils/data_utils.py",
+      "bytes": 2878,
+      "sha256": "a9a22c0fe1040d0ee3fcee437b135059235d3783bbb9c5c0cadb5cf24d7ca7a4"
+    },
+    {
+      "path": "sources/code/deepcell/utils/dataset_utils.py",
+      "bytes": 3433,
+      "sha256": "0001e9fcb336fb7c7d0cef8e4043b3599637df803233d34bbc28f1c29e825e89"
+    },
+    {
+      "path": "sources/code/deepcell/utils/logger.py",
+      "bytes": 520,
+      "sha256": "7f7e47e8cc12e02fcd4cd2b591fbd29fefaf4cf2628c113a5a45752f4c083d9e"
+    },
+    {
+      "path": "sources/code/deepcell/utils/model_utils.py",
+      "bytes": 2828,
+      "sha256": "50d596bc318bf2e1142f8ed05efadd8bee6d7d4728e48d6d3d02657ff03b7254"
+    },
+    {
+      "path": "sources/code/deepcell/utils/random_seed.py",
+      "bytes": 489,
+      "sha256": "8892bd4f28838ed3b63f24c3a9b4be90ce6a3700789f8da02f14108dc8540d73"
+    },
+    {
+      "path": "sources/code/deepcell/utils/sat_utils.py",
+      "bytes": 14056,
+      "sha256": "5b8c9d4966a59822f9cf59d8e001cdf6756132d44abfaf5eb61eb608a7efa0ed"
+    },
+    {
+      "path": "sources/code/deepcell/utils/utils.py",
+      "bytes": 8506,
+      "sha256": "024b44a3e838b27d79ae4245308bb38178aebccec52b555692054e4830e2186d"
+    },
+    {
+      "path": "sources/code/environment.yaml",
+      "bytes": 3641,
+      "sha256": "5ceb1de2591e37f0b03b3a687e976e11566f29983a5681eead1736a9ba25ba12",
+      "original_execution_sha256": "9f6608c3acaf0d86c2d95de82af03aa5015a7b87c10d39cabd379a7b9435aa76",
+      "public_export_redaction": "Remove author-specific upstream installation prefix; every dependency/configuration entry retained"
+    },
+    {
+      "path": "sources/code/prepare_dataset.py",
+      "bytes": 787,
+      "sha256": "05aedc845c7152e9968db05c7ddec565235fe937d8b2cb5bb734f75bf06720ef"
+    },
+    {
+      "path": "sources/code/run/aig_dg2.sh",
+      "bytes": 231,
+      "sha256": "e2987da4e668a3437e95fa8b5660867c50da2aecc5783d76fef338475963545c"
+    },
+    {
+      "path": "sources/code/run/aig_dg3.sh",
+      "bytes": 247,
+      "sha256": "389be6159d2146919550c81681d27261c76ce9004666097813cfef511996290f"
+    },
+    {
+      "path": "sources/code/run/aig_gcn.sh",
+      "bytes": 232,
+      "sha256": "ce768bc39121329f0157532a140ff8eb997091754aa8dd69267bb391ad023183"
+    },
+    {
+      "path": "sources/code/run/aig_hoga.sh",
+      "bytes": 238,
+      "sha256": "536fe80f49104873139c662811fbd343909370dd412848fae9e5927bb2a79b81"
+    },
+    {
+      "path": "sources/code/run/aig_pg.sh",
+      "bytes": 246,
+      "sha256": "41d4254730f1ad6ce62826ca48f14fb3f781f5963e2cc19385faeb6a1005b152"
+    },
+    {
+      "path": "sources/code/run/pm_dg2.sh",
+      "bytes": 224,
+      "sha256": "26c51d6a1cbcf28b7746b18b044d5c48f9ad9adea98844801514fc5d28679352"
+    },
+    {
+      "path": "sources/code/run/pm_gat.sh",
+      "bytes": 225,
+      "sha256": "4a6bd7591aaa2a0bdcc8b7e4fc87842a3b40dd60537a365fbc8abd13aa5998b9"
+    },
+    {
+      "path": "sources/code/run/pm_gcn.sh",
+      "bytes": 239,
+      "sha256": "56ac57835257d7d23734ce95677dcccde6015460b01713e8613e72784ed8ddb0"
+    },
+    {
+      "path": "sources/code/run/top.sh",
+      "bytes": 409,
+      "sha256": "bfaca9fe88064db6f4d9b77c69820be28c578b850314e24007dbf811a6e8fdbb"
+    },
+    {
+      "path": "sources/code/test_pm.py",
+      "bytes": 1566,
+      "sha256": "7142c259e28575a39a7d961e6a3a5813e7515a6340b283a2ec0cb8eed000d12b"
+    },
+    {
+      "path": "sources/code/top_train.py",
+      "bytes": 1194,
+      "sha256": "5360ca46f1a06aa88fe0ac5bde803855a15809d24eb81197a2f671ded90eccd6"
+    },
+    {
+      "path": "sources/code/train_aig.py",
+      "bytes": 2011,
+      "sha256": "3b7bc6f908515028d9827dde554ad8879d6b05ebd1e852b74b61b65efcc72678"
+    },
+    {
+      "path": "sources/code/train_pm.py",
+      "bytes": 1185,
+      "sha256": "dc3b89b33aafc996a3546ef359533e20464472d0d44101f61e3db0784a25c023"
+    },
+    {
+      "path": "sources/code/val_pm_woview.py",
+      "bytes": 1560,
+      "sha256": "d38a9667512a96bafdd5b56a38c2e24a67a2ccd704c40688b2e9cf7088056e82"
+    },
+    {
+      "path": "sources/code/val_pm_wview.py",
+      "bytes": 885,
+      "sha256": "fe2d406f83432d9a4af458b42ec0db2606ee911099b21b22d9a1e1c75fdeb3ae"
+    }
+  ],
+  "completed": true,
+  "remaining_blockers": [
+    "paired data/preparation lineage",
+    "verified fusion/downstream weights",
+    "specific ABC integration",
+    "library/tool recipes"
+  ],
+  "next_action": "stop; no execution authorized by audit",
+  "follow_up_pilot": {
+    "authorized_after_audit": true,
+    "audit_actions_remain_historical": true,
+    "date": "2026-10-28",
+    "report": "PILOT_REPORT.md",
+    "results": "pilot/results/pilot_results.json",
+    "status": "completed_encoder_milestone",
+    "full_pm_strict_compatible": true,
+    "full_aig_strict_compatible": false,
+    "aig_encoder_probability_contract_strict_compatible": true,
+    "fusion_verified": false,
+    "training": false,
+    "mapping_executed": false,
+    "eco_executed": false
+  },
+  "later_methodology_closure": {
+    "status": "completed_controlled_independent_methodology_loop",
+    "original_paper_results_reproduced": false,
+    "minimum_multiview_core_executed": true,
+    "paired_pruning_advantage_established": false,
+    "independent_verification": {
+      "patches_checked": 207,
+      "primary_input_assignments_checked": 13248,
+      "all_passed": true
+    },
+    "full_token_independent_verification": {
+      "patches_checked": 168,
+      "primary_input_assignments_checked": 10752,
+      "all_passed": true
+    },
+    "public_primary_learned_top3_successes": 0,
+    "public_primary_learned_trials": 32,
+    "public_full_token_learned_top3_successes": 0,
+    "public_full_token_learned_trials": 16,
+    "public_primary_actual_equivalent_patches": 8,
+    "public_negative_equivalence_control_confirmed": true,
+    "remaining_gaps": [
+      "original paired corpus/provenance/library preprocessing",
+      "original ECO corruption/labels/fine-tuned head/ABC integration",
+      "actual mapping head/modified &nf/Liberty corners/constraints"
+    ],
+    "report": "CLOSURE_REPORT.md"
+  }
+}

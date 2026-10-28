@@ -1,0 +1,165 @@
+{
+  "status": "completed_encoder_milestone",
+  "protocol": "PROTOCOL.md plus PROTOCOL_AMENDMENTS.md",
+  "runtime": {
+    "python": "3.12.14 (main, Aug 25 2026, 14:00:49) [Clang 22.1.3 ]",
+    "torch": "2.6.0+cpu",
+    "torch_geometric": "2.6.1",
+    "numpy": "2.3.5",
+    "device": "cpu",
+    "threads": 2,
+    "seed": 208
+  },
+  "upstream_source_hashes_verified": 58,
+  "compatibility": {
+    "aig": {
+      "path": "downloads/aig_dg2.pth",
+      "sha256": "9bc4a0c1f8fc57cc3aa0498dd8737af561ca71c26ca5332288d12a91a308f4d5",
+      "epoch": 260,
+      "metadata_keys": [
+        "epoch",
+        "state_dict",
+        "optimizer"
+      ],
+      "model_state_tensors": 64,
+      "checkpoint_state_tensors": 64,
+      "model_state_elements": 650087,
+      "missing": [],
+      "unexpected": [],
+      "bad_shapes": [],
+      "bad_dtypes": [],
+      "training_parent_lineage": "unknown",
+      "strict": true,
+      "compatible": true,
+      "model_tensor_coverage": 1.0,
+      "all_checkpoint_tensors_finite": true,
+      "contract": "encoder forward + probability readout; connectivity head removed",
+      "full_upstream_model_compatible": false,
+      "omitted_untrained_head": "connect_head (16 state tensors)"
+    },
+    "pm": {
+      "path": "downloads/pm_dg2.pth",
+      "sha256": "15da9c94aa8a7e25103539959717b4c79c37234de13ed643c76ce6b690822098",
+      "epoch": 10,
+      "metadata_keys": [
+        "epoch",
+        "state_dict",
+        "optimizer"
+      ],
+      "model_state_tensors": 56,
+      "checkpoint_state_tensors": 56,
+      "model_state_elements": 411146,
+      "missing": [],
+      "unexpected": [],
+      "bad_shapes": [],
+      "bad_dtypes": [],
+      "training_parent_lineage": "unknown",
+      "strict": true,
+      "compatible": true,
+      "model_tensor_coverage": 1.0,
+      "all_checkpoint_tensors_finite": true,
+      "contract": "full upstream PM DG2 class",
+      "full_upstream_model_compatible": true
+    }
+  },
+  "integrity": {
+    "pairs": [
+      {
+        "id": "xor_v0",
+        "patterns": 4,
+        "pm_nodes": 3,
+        "aig_nodes": 10,
+        "output_and_mapped_internal_disagreements": 0
+      },
+      {
+        "id": "xor_v1",
+        "patterns": 4,
+        "pm_nodes": 6,
+        "aig_nodes": 62,
+        "output_and_mapped_internal_disagreements": 0
+      },
+      {
+        "id": "mux_v0",
+        "patterns": 8,
+        "pm_nodes": 4,
+        "aig_nodes": 27,
+        "output_and_mapped_internal_disagreements": 0
+      },
+      {
+        "id": "mux_v1",
+        "patterns": 8,
+        "pm_nodes": 7,
+        "aig_nodes": 19,
+        "output_and_mapped_internal_disagreements": 0
+      },
+      {
+        "id": "majority_v0",
+        "patterns": 8,
+        "pm_nodes": 4,
+        "aig_nodes": 26,
+        "output_and_mapped_internal_disagreements": 0
+      },
+      {
+        "id": "majority_v1",
+        "patterns": 8,
+        "pm_nodes": 8,
+        "aig_nodes": 32,
+        "output_and_mapped_internal_disagreements": 0
+      }
+    ],
+    "split_parents": {
+      "train": [
+        "xor"
+      ],
+      "validation": [
+        "mux"
+      ],
+      "test": [
+        "majority"
+      ]
+    },
+    "negative_controls": {
+      "mismatched_pair_rejected": "functional mismatch against independent parent oracle",
+      "parent_contamination_rejected": "parent overlap",
+      "mux_pin_corruption_rejected": "functional mismatch against independent parent oracle"
+    }
+  },
+  "attention_cpu_parity": {
+    "aig_attention": {
+      "max_abs_error": 2.384185791015625e-07,
+      "tolerance": 1e-06,
+      "passed": true
+    },
+    "pm_attention": {
+      "max_abs_error": 2.384185791015625e-07,
+      "tolerance": 1e-06,
+      "passed": true
+    }
+  },
+  "fixed_seed_repeat": {
+    "aig": {
+      "max_abs_error": 0.0,
+      "identical": true
+    },
+    "pm": {
+      "max_abs_error": 0.0,
+      "identical": true
+    }
+  },
+  "elapsed_seconds": 0.151505708694458,
+  "process_peak_rss_kib": 340252,
+  "claims": {
+    "strict_named_inference_contract_compatibility": true,
+    "full_aig_model_compatibility": false,
+    "real_checkpoint_encoder_inference": true,
+    "synthetic_paired_functional_integrity": true,
+    "parent_disjoint_fixture": true,
+    "pretraining_parent_disjointness": false,
+    "fusion_verified": false,
+    "training": false,
+    "mapping_executed": false,
+    "eco_executed": false,
+    "paper_results_reproduced": false
+  }
+}
+cases 6

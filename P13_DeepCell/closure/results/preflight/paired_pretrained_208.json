@@ -1,0 +1,788 @@
+{
+  "arm": "paired_pretrained",
+  "seed": 208,
+  "epochs": [
+    1,
+    1,
+    1
+  ],
+  "encoder_reports": {
+    "aig": {
+      "path": "downloads/aig_dg2.pth",
+      "sha256": "9bc4a0c1f8fc57cc3aa0498dd8737af561ca71c26ca5332288d12a91a308f4d5",
+      "epoch": 260,
+      "metadata_keys": [
+        "epoch",
+        "state_dict",
+        "optimizer"
+      ],
+      "model_state_tensors": 64,
+      "checkpoint_state_tensors": 64,
+      "model_state_elements": 650087,
+      "missing": [],
+      "unexpected": [],
+      "bad_shapes": [],
+      "bad_dtypes": [],
+      "training_parent_lineage": "unknown",
+      "strict": true,
+      "compatible": true,
+      "model_tensor_coverage": 1.0,
+      "all_checkpoint_tensors_finite": true
+    },
+    "pm": {
+      "path": "downloads/pm_dg2.pth",
+      "sha256": "15da9c94aa8a7e25103539959717b4c79c37234de13ed643c76ce6b690822098",
+      "epoch": 10,
+      "metadata_keys": [
+        "epoch",
+        "state_dict",
+        "optimizer"
+      ],
+      "model_state_tensors": 56,
+      "checkpoint_state_tensors": 56,
+      "model_state_elements": 411146,
+      "missing": [],
+      "unexpected": [],
+      "bad_shapes": [],
+      "bad_dtypes": [],
+      "training_parent_lineage": "unknown",
+      "strict": true,
+      "compatible": true,
+      "model_tensor_coverage": 1.0,
+      "all_checkpoint_tensors_finite": true
+    }
+  },
+  "before_validation": {
+    "probability_mae": 0.06620888598263264,
+    "masked_hf_l1": 0.8679515868425369,
+    "effective_mask_fraction": 0.20562770562770563,
+    "cases": [
+      {
+        "id": "conditional_000_v1",
+        "family": "conditional",
+        "probability_mae": 0.1285310834646225,
+        "masked_hf_l1": 0.8646000027656555,
+        "effective_mask_fraction": 0.22727272727272727
+      },
+      {
+        "id": "conditional_000_v0",
+        "family": "conditional",
+        "probability_mae": 0.02116791531443596,
+        "masked_hf_l1": 0.8725170493125916,
+        "effective_mask_fraction": 0.21428571428571427
+      },
+      {
+        "id": "conditional_001_v1",
+        "family": "conditional",
+        "probability_mae": 0.09038937091827393,
+        "masked_hf_l1": 0.8684895634651184,
+        "effective_mask_fraction": 0.16666666666666666
+      },
+      {
+        "id": "conditional_001_v0",
+        "family": "conditional",
+        "probability_mae": 0.024747174233198166,
+        "masked_hf_l1": 0.8661997318267822,
+        "effective_mask_fraction": 0.21428571428571427
+      }
+    ]
+  },
+  "representation": {
+    "validation": {
+      "probability_mae": 0.13611198402941227,
+      "masked_hf_l1": 0.6941044628620148,
+      "effective_mask_fraction": 0.20562770562770563,
+      "cases": [
+        {
+          "id": "conditional_000_v1",
+          "family": "conditional",
+          "probability_mae": 0.2011205404996872,
+          "masked_hf_l1": 0.6979383230209351,
+          "effective_mask_fraction": 0.22727272727272727
+        },
+        {
+          "id": "conditional_000_v0",
+          "family": "conditional",
+          "probability_mae": 0.08396098762750626,
+          "masked_hf_l1": 0.6951175332069397,
+          "effective_mask_fraction": 0.21428571428571427
+        },
+        {
+          "id": "conditional_001_v1",
+          "family": "conditional",
+          "probability_mae": 0.17022256553173065,
+          "masked_hf_l1": 0.6966626644134521,
+          "effective_mask_fraction": 0.16666666666666666
+        },
+        {
+          "id": "conditional_001_v0",
+          "family": "conditional",
+          "probability_mae": 0.08914384245872498,
+          "masked_hf_l1": 0.6866993308067322,
+          "effective_mask_fraction": 0.21428571428571427
+        }
+      ]
+    },
+    "test": {
+      "probability_mae": 0.05223931837826967,
+      "masked_hf_l1": 0.7012323290109634,
+      "effective_mask_fraction": 0.3651406159629844,
+      "cases": [
+        {
+          "id": "majority_000_v1",
+          "family": "majority",
+          "probability_mae": 0.03232088312506676,
+          "masked_hf_l1": 0.6954441070556641,
+          "effective_mask_fraction": 0.3125
+        },
+        {
+          "id": "majority_000_v0",
+          "family": "majority",
+          "probability_mae": 0.03823015093803406,
+          "masked_hf_l1": 0.7045986652374268,
+          "effective_mask_fraction": 0.2857142857142857
+        },
+        {
+          "id": "majority_001_v1",
+          "family": "majority",
+          "probability_mae": 0.09629373252391815,
+          "masked_hf_l1": 0.6961844563484192,
+          "effective_mask_fraction": 0.631578947368421
+        },
+        {
+          "id": "majority_001_v0",
+          "family": "majority",
+          "probability_mae": 0.04211250692605972,
+          "masked_hf_l1": 0.7087020874023438,
+          "effective_mask_fraction": 0.23076923076923078
+        }
+      ]
+    }
+  },
+  "downstream": {
+    "validation": {
+      "cases": 4,
+      "success_at3": 0.25,
+      "average_precision": 0.5159689000860262,
+      "ancestry_recall_at3": 0.11324786324786325,
+      "mean_support_on_success": 3.0,
+      "mean_gates_on_success": 28.0,
+      "mean_solver_seconds": 0.0018730637505086634,
+      "mean_ranking_seconds": 0.019856356249647433,
+      "verified_successes": 1,
+      "records": [
+        {
+          "id": "conditional_000_v0",
+          "parent": "conditional_000",
+          "family": "conditional",
+          "ranking": [
+            8,
+            9,
+            2,
+            5,
+            1,
+            3,
+            6,
+            7,
+            4,
+            11,
+            0
+          ],
+          "ranking_seconds": 0.01725513499968656,
+          "average_precision": 0.2159090909090909,
+          "ancestry_recall_at3": 0.0,
+          "success": false,
+          "seconds": 0.0013537950007957988,
+          "candidate_pattern_checks": 108
+        },
+        {
+          "id": "conditional_000_v1",
+          "parent": "conditional_000",
+          "family": "conditional",
+          "ranking": [
+            19,
+            18,
+            3,
+            14,
+            13,
+            6,
+            11,
+            10,
+            2,
+            12,
+            17,
+            9,
+            8,
+            1,
+            4,
+            0,
+            15,
+            7,
+            5
+          ],
+          "ranking_seconds": 0.02256189399940922,
+          "average_precision": 0.19049922600619196,
+          "ancestry_recall_at3": 0.0,
+          "success": false,
+          "seconds": 0.0023549810002805316,
+          "candidate_pattern_checks": 108
+        },
+        {
+          "id": "conditional_001_v0",
+          "parent": "conditional_001",
+          "family": "conditional",
+          "ranking": [
+            3,
+            1,
+            8,
+            9,
+            10,
+            6,
+            11,
+            7,
+            5,
+            4,
+            2,
+            0
+          ],
+          "ranking_seconds": 0.018020736999460496,
+          "average_precision": 0.7898027898027898,
+          "ancestry_recall_at3": 0.2222222222222222,
+          "success": false,
+          "seconds": 0.0017359310004394501,
+          "candidate_pattern_checks": 21
+        },
+        {
+          "id": "conditional_001_v1",
+          "parent": "conditional_001",
+          "family": "conditional",
+          "ranking": [
+            2,
+            0,
+            15,
+            4,
+            14,
+            8,
+            9,
+            6,
+            10,
+            7,
+            13,
+            12,
+            5,
+            11,
+            1,
+            3
+          ],
+          "ranking_seconds": 0.021587659000033455,
+          "average_precision": 0.8676644936260323,
+          "ancestry_recall_at3": 0.23076923076923078,
+          "success": true,
+          "support_budget": 3,
+          "patch": {
+            "inputs": [
+              2,
+              0,
+              15
+            ],
+            "nodes": [
+              {
+                "gate": "PI",
+                "candidate": 2,
+                "pins": []
+              },
+              {
+                "gate": "PI",
+                "candidate": 0,
+                "pins": []
+              },
+              {
+                "gate": "PI",
+                "candidate": 15,
+                "pins": []
+              },
+              {
+                "gate": "NOT",
+                "pins": [
+                  0
+                ]
+              },
+              {
+                "gate": "NOT",
+                "pins": [
+                  1
+                ]
+              },
+              {
+                "gate": "NOT",
+                "pins": [
+                  2
+                ]
+              },
+              {
+                "gate": "AND",
+                "pins": [
+                  3,
+                  4
+                ]
+              },
+              {
+                "gate": "AND",
+                "pins": [
+                  6,
+                  5
+                ]
+              },
+              {
+                "gate": "NOT",
+                "pins": [
+                  0
+                ]
+              },
+              {
+                "gate": "NOT",
+                "pins": [
+                  2
+                ]
+              },
+              {
+                "gate": "AND",
+                "pins": [
+                  8,
+                  1
+                ]
+              },
+              {
+                "gate": "AND",
+                "pins": [
+                  10,
+                  9
+                ]
+              },
+              {
+                "gate": "NOT",
+                "pins": [
+                  1
+                ]
+              },
+              {
+                "gate": "NOT",
+                "pins": [
+                  2
+                ]
+              },
+              {
+                "gate": "AND",
+                "pins": [
+                  0,
+                  12
+                ]
+              },
+              {
+                "gate": "AND",
+                "pins": [
+                  14,
+                  13
+                ]
+              },
+              {
+                "gate": "NOT",
+                "pins": [
+                  2
+                ]
+              },
+              {
+                "gate": "AND",
+                "pins": [
+                  0,
+                  1
+                ]
+              },
+              {
+                "gate": "AND",
+                "pins": [
+                  17,
+                  16
+                ]
+              },
+              {
+                "gate": "NOT",
+                "pins": [
+                  7
+                ]
+              },
+              {
+                "gate": "NOT",
+                "pins": [
+                  11
+                ]
+              },
+              {
+                "gate": "AND",
+                "pins": [
+                  19,
+                  20
+                ]
+              },
+              {
+                "gate": "NOT",
+                "pins": [
+                  21
+                ]
+              },
+              {
+                "gate": "NOT",
+                "pins": [
+                  22
+                ]
+              },
+              {
+                "gate": "NOT",
+                "pins": [
+                  15
+                ]
+              },
+              {
+                "gate": "AND",
+                "pins": [
+                  23,
+                  24
+                ]
+              },
+              {
+                "gate": "NOT",
+                "pins": [
+                  25
+                ]
+              },
+              {
+                "gate": "NOT",
+                "pins": [
+                  26
+                ]
+              },
+              {
+                "gate": "NOT",
+                "pins": [
+                  18
+                ]
+              },
+              {
+                "gate": "AND",
+                "pins": [
+                  27,
+                  28
+                ]
+              },
+              {
+                "gate": "NOT",
+                "pins": [
+                  29
+                ]
+              }
+            ],
+            "output": 30,
+            "gate_count": 28,
+            "truth_table": [
+              1,
+              0,
+              1,
+              0,
+              1,
+              0,
+              1,
+              0
+            ],
+            "implementation": "explicit SOP in AND/NOT; not optimized technology cells"
+          },
+          "seconds": 0.002047548000518873,
+          "candidate_pattern_checks": 74,
+          "verification": {
+            "passed": true,
+            "patterns": 64,
+            "output_disagreements": 0
+          }
+        }
+      ]
+    },
+    "test": {
+      "cases": 4,
+      "success_at3": 0.0,
+      "average_precision": 0.6698417323417323,
+      "ancestry_recall_at3": 0.3888888888888889,
+      "mean_support_on_success": null,
+      "mean_gates_on_success": null,
+      "mean_solver_seconds": 0.001893296750040463,
+      "mean_ranking_seconds": 0.020514346750132972,
+      "verified_successes": 0,
+      "records": [
+        {
+          "id": "majority_000_v0",
+          "parent": "majority_000",
+          "family": "majority",
+          "ranking": [
+            1,
+            3,
+            5,
+            4,
+            11,
+            0,
+            8,
+            7,
+            6,
+            10,
+            9,
+            2
+          ],
+          "ranking_seconds": 0.022987794000073336,
+          "average_precision": 0.9085858585858586,
+          "ancestry_recall_at3": 0.3333333333333333,
+          "success": false,
+          "seconds": 0.0019889509994754917,
+          "candidate_pattern_checks": 12
+        },
+        {
+          "id": "majority_000_v1",
+          "parent": "majority_000",
+          "family": "majority",
+          "ranking": [
+            4,
+            0,
+            10,
+            5,
+            13,
+            8,
+            9,
+            2,
+            7,
+            6,
+            12,
+            11,
+            1,
+            3
+          ],
+          "ranking_seconds": 0.024251440000625735,
+          "average_precision": 0.7291144041144042,
+          "ancestry_recall_at3": 0.2222222222222222,
+          "success": false,
+          "seconds": 0.001883041000837693,
+          "candidate_pattern_checks": 12
+        },
+        {
+          "id": "majority_001_v0",
+          "parent": "majority_001",
+          "family": "majority",
+          "ranking": [
+            1,
+            4,
+            5,
+            3,
+            2,
+            11,
+            8,
+            0,
+            6,
+            7,
+            10
+          ],
+          "ranking_seconds": 0.016373899999962305,
+          "average_precision": 0.5138888888888888,
+          "ancestry_recall_at3": 0.6666666666666666,
+          "success": false,
+          "seconds": 0.0016613679999863962,
+          "candidate_pattern_checks": 58
+        },
+        {
+          "id": "majority_001_v1",
+          "parent": "majority_001",
+          "family": "majority",
+          "ranking": [
+            4,
+            9,
+            2,
+            3,
+            8,
+            5,
+            12,
+            10,
+            17,
+            16,
+            11,
+            0,
+            1,
+            6,
+            15,
+            7,
+            14
+          ],
+          "ranking_seconds": 0.018444252999870514,
+          "average_precision": 0.5277777777777778,
+          "ancestry_recall_at3": 0.3333333333333333,
+          "success": false,
+          "seconds": 0.002039826999862271,
+          "candidate_pattern_checks": 59
+        }
+      ]
+    },
+    "test_wrong_view": {
+      "cases": 4,
+      "success_at3": 0.0,
+      "average_precision": 0.6603026603026603,
+      "ancestry_recall_at3": 0.3888888888888889,
+      "mean_support_on_success": null,
+      "mean_gates_on_success": null,
+      "mean_solver_seconds": 0.001987939249829651,
+      "mean_ranking_seconds": 0.020539765000194166,
+      "verified_successes": 0,
+      "records": [
+        {
+          "id": "majority_000_v0",
+          "parent": "majority_000",
+          "family": "majority",
+          "ranking": [
+            3,
+            1,
+            5,
+            4,
+            11,
+            8,
+            0,
+            7,
+            6,
+            10,
+            9,
+            2
+          ],
+          "ranking_seconds": 0.01716037200003484,
+          "average_precision": 0.8927128427128426,
+          "ancestry_recall_at3": 0.3333333333333333,
+          "success": false,
+          "seconds": 0.0017895809996844037,
+          "candidate_pattern_checks": 12
+        },
+        {
+          "id": "majority_000_v1",
+          "parent": "majority_000",
+          "family": "majority",
+          "ranking": [
+            4,
+            5,
+            10,
+            0,
+            13,
+            8,
+            9,
+            2,
+            7,
+            6,
+            12,
+            1,
+            11,
+            3
+          ],
+          "ranking_seconds": 0.01642637900022237,
+          "average_precision": 0.7291144041144042,
+          "ancestry_recall_at3": 0.2222222222222222,
+          "success": false,
+          "seconds": 0.001731513999402523,
+          "candidate_pattern_checks": 28
+        },
+        {
+          "id": "majority_001_v0",
+          "parent": "majority_001",
+          "family": "majority",
+          "ranking": [
+            1,
+            4,
+            5,
+            3,
+            2,
+            11,
+            8,
+            0,
+            6,
+            7,
+            10
+          ],
+          "ranking_seconds": 0.02105739699982223,
+          "average_precision": 0.5138888888888888,
+          "ancestry_recall_at3": 0.6666666666666666,
+          "success": false,
+          "seconds": 0.0019565920001696213,
+          "candidate_pattern_checks": 58
+        },
+        {
+          "id": "majority_001_v1",
+          "parent": "majority_001",
+          "family": "majority",
+          "ranking": [
+            4,
+            9,
+            2,
+            3,
+            8,
+            12,
+            5,
+            10,
+            17,
+            16,
+            11,
+            1,
+            0,
+            6,
+            7,
+            15,
+            14
+          ],
+          "ranking_seconds": 0.027514912000697223,
+          "average_precision": 0.5054945054945055,
+          "ancestry_recall_at3": 0.3333333333333333,
+          "success": false,
+          "seconds": 0.0024740700000620564,
+          "candidate_pattern_checks": 59
+        }
+      ]
+    }
+  },
+  "curves": [
+    {
+      "phase": "probability",
+      "epoch": 1,
+      "steps": 1,
+      "loss": [
+        0.12224391102790833,
+        0.12224391102790833,
+        0.0,
+        0.0
+      ],
+      "seconds": 0.04288993800037133
+    },
+    {
+      "phase": "mcm",
+      "epoch": 1,
+      "steps": 1,
+      "loss": [
+        0.9817142486572266,
+        0.12237666547298431,
+        0.859337568283081,
+        0.0
+      ],
+      "seconds": 0.1840572239998437
+    },
+    {
+      "phase": "eco",
+      "epoch": 1,
+      "steps": 1,
+      "loss": [
+        1.5017389059066772,
+        0.0,
+        0.7150065302848816,
+        0.7867323756217957
+      ],
+      "seconds": 0.1763132450005287
+    }
+  ],
+  "seconds": 0.8859047889709473,
+  "checkpoint_sha256": "5e91571ba22ef60e49ae684e153260209990d90acb32edbb4c5aedf3760b21e1",
+  "checkpoint_path": "checkpoints/preflight_paired_pretrained_208.pth"
+}

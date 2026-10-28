@@ -1,0 +1,290 @@
+{
+  "mode": "main",
+  "config": {
+    "preflight": false,
+    "resume": true,
+    "arms": [
+      "paired_pretrained",
+      "pm_only",
+      "shuffled_aig",
+      "paired_random",
+      "no_mcm"
+    ],
+    "seeds": [
+      208,
+      209
+    ]
+  },
+  "manifest": {
+    "family_splits": [
+      [
+        "parity",
+        "train",
+        24
+      ],
+      [
+        "muxbank",
+        "train",
+        24
+      ],
+      [
+        "arithmetic",
+        "train",
+        24
+      ],
+      [
+        "conditional",
+        "validation",
+        12
+      ],
+      [
+        "majority",
+        "test",
+        12
+      ],
+      [
+        "comparator",
+        "test",
+        12
+      ]
+    ],
+    "case_count": 216,
+    "unique_parent_functions": 108,
+    "all_truth_signatures_disjoint": true,
+    "all_parent_splits_disjoint": true,
+    "all_family_splits_disjoint": true,
+    "patterns_per_case": 64,
+    "max_combined_tokens": 140,
+    "negative_corrupt_mux_rejected": true
+  },
+  "split_case_counts": {
+    "train": 144,
+    "validation": 24,
+    "test": 48
+  },
+  "epochs": [
+    2,
+    6,
+    6
+  ],
+  "elapsed_seconds": 878.240641117096,
+  "peak_rss_kib": 622444,
+  "runtime": {
+    "torch": "2.6.0+cpu",
+    "numpy": "2.3.5",
+    "threads": 2,
+    "device": "cpu"
+  },
+  "runs": [
+    {
+      "arm": "paired_pretrained",
+      "seed": 208,
+      "seconds": 100.40029096603394,
+      "test_representation": {
+        "probability_mae": 0.10458250506781042,
+        "masked_hf_l1": 0.04177822269654522,
+        "effective_mask_fraction": 0.2713965476351718
+      },
+      "test_eco": {
+        "cases": 48,
+        "success_at3": 0.08333333333333333,
+        "average_precision": 0.7087718298803698,
+        "ancestry_recall_at3": 0.2719992380334452,
+        "mean_support_on_success": 3.0,
+        "mean_gates_on_success": 15.5,
+        "mean_solver_seconds": 0.0018232009999034442,
+        "mean_ranking_seconds": 0.02011328370834538,
+        "verified_successes": 4
+      }
+    },
+    {
+      "arm": "pm_only",
+      "seed": 208,
+      "seconds": 99.65232563018799,
+      "test_representation": {
+        "probability_mae": 0.10396874168266852,
+        "masked_hf_l1": 0.04090313365062078,
+        "effective_mask_fraction": 0.2713965476351718
+      },
+      "test_eco": {
+        "cases": 48,
+        "success_at3": 0.125,
+        "average_precision": 0.7001716436675376,
+        "ancestry_recall_at3": 0.27927437030857744,
+        "mean_support_on_success": 2.1666666666666665,
+        "mean_gates_on_success": 7.333333333333333,
+        "mean_solver_seconds": 0.0019478023540765814,
+        "mean_ranking_seconds": 0.020818731416738956,
+        "verified_successes": 6
+      }
+    },
+    {
+      "arm": "shuffled_aig",
+      "seed": 208,
+      "seconds": 92.66684126853943,
+      "test_representation": {
+        "probability_mae": 0.09319556357028584,
+        "masked_hf_l1": 0.04081484027362118,
+        "effective_mask_fraction": 0.2713965476351718
+      },
+      "test_eco": {
+        "cases": 48,
+        "success_at3": 0.125,
+        "average_precision": 0.7011737235544121,
+        "ancestry_recall_at3": 0.26158257136677854,
+        "mean_support_on_success": 2.6666666666666665,
+        "mean_gates_on_success": 13.333333333333334,
+        "mean_solver_seconds": 0.0020949209791751855,
+        "mean_ranking_seconds": 0.01861655008330369,
+        "verified_successes": 6
+      }
+    },
+    {
+      "arm": "paired_random",
+      "seed": 208,
+      "seconds": 102.90246534347534,
+      "test_representation": {
+        "probability_mae": 0.16237645829096437,
+        "masked_hf_l1": 0.046676446412069104,
+        "effective_mask_fraction": 0.2713965476351718
+      },
+      "test_eco": {
+        "cases": 48,
+        "success_at3": 0.08333333333333333,
+        "average_precision": 0.713278399283719,
+        "ancestry_recall_at3": 0.2763643173985246,
+        "mean_support_on_success": 2.0,
+        "mean_gates_on_success": 6.25,
+        "mean_solver_seconds": 0.002504131312529504,
+        "mean_ranking_seconds": 0.025057684520826722,
+        "verified_successes": 4
+      }
+    },
+    {
+      "arm": "no_mcm",
+      "seed": 208,
+      "seconds": 71.04249382019043,
+      "test_representation": {
+        "probability_mae": 0.08629396584971498,
+        "masked_hf_l1": 0.8678486943244934,
+        "effective_mask_fraction": 0.2713965476351718
+      },
+      "test_eco": {
+        "cases": 48,
+        "success_at3": 0.14583333333333334,
+        "average_precision": 0.7287519098525634,
+        "ancestry_recall_at3": 0.3247770158112229,
+        "mean_support_on_success": 2.2857142857142856,
+        "mean_gates_on_success": 11.571428571428571,
+        "mean_solver_seconds": 0.0023934133748942563,
+        "mean_ranking_seconds": 0.02441591424993324,
+        "verified_successes": 7
+      }
+    },
+    {
+      "arm": "paired_pretrained",
+      "seed": 209,
+      "seconds": 104.38042664527893,
+      "test_representation": {
+        "probability_mae": 0.09368975759328653,
+        "masked_hf_l1": 0.04047590490275373,
+        "effective_mask_fraction": 0.27977760394992995
+      },
+      "test_eco": {
+        "cases": 48,
+        "success_at3": 0.041666666666666664,
+        "average_precision": 0.6990051420794378,
+        "ancestry_recall_at3": 0.2670389205731277,
+        "mean_support_on_success": 3.0,
+        "mean_gates_on_success": 13.5,
+        "mean_solver_seconds": 0.0020947156666769238,
+        "mean_ranking_seconds": 0.021450468270794925,
+        "verified_successes": 2
+      }
+    },
+    {
+      "arm": "pm_only",
+      "seed": 209,
+      "seconds": 102.69332695007324,
+      "test_representation": {
+        "probability_mae": 0.09817997505888343,
+        "masked_hf_l1": 0.04000861612924685,
+        "effective_mask_fraction": 0.27977760394992995
+      },
+      "test_eco": {
+        "cases": 48,
+        "success_at3": 0.0625,
+        "average_precision": 0.7237961141819177,
+        "ancestry_recall_at3": 0.2726936824778896,
+        "mean_support_on_success": 2.3333333333333335,
+        "mean_gates_on_success": 13.0,
+        "mean_solver_seconds": 0.002124443354110402,
+        "mean_ranking_seconds": 0.021928462062400438,
+        "verified_successes": 3
+      }
+    },
+    {
+      "arm": "shuffled_aig",
+      "seed": 209,
+      "seconds": 98.08146452903748,
+      "test_representation": {
+        "probability_mae": 0.09309658012352884,
+        "masked_hf_l1": 0.03980516941131403,
+        "effective_mask_fraction": 0.27977760394992995
+      },
+      "test_eco": {
+        "cases": 48,
+        "success_at3": 0.020833333333333332,
+        "average_precision": 0.7332047921835073,
+        "ancestry_recall_at3": 0.27512423803344516,
+        "mean_support_on_success": 3.0,
+        "mean_gates_on_success": 11.0,
+        "mean_solver_seconds": 0.00234082893748185,
+        "mean_ranking_seconds": 0.025759168500011736,
+        "verified_successes": 1
+      }
+    },
+    {
+      "arm": "paired_random",
+      "seed": 209,
+      "seconds": 99.61936712265015,
+      "test_representation": {
+        "probability_mae": 0.16938607037688294,
+        "masked_hf_l1": 0.0506335007182012,
+        "effective_mask_fraction": 0.27977760394992995
+      },
+      "test_eco": {
+        "cases": 48,
+        "success_at3": 0.020833333333333332,
+        "average_precision": 0.7018419728607924,
+        "ancestry_recall_at3": 0.27775320628741346,
+        "mean_support_on_success": 2.0,
+        "mean_gates_on_success": 2.0,
+        "mean_solver_seconds": 0.0019034374791052262,
+        "mean_ranking_seconds": 0.018244933624960897,
+        "verified_successes": 1
+      }
+    },
+    {
+      "arm": "no_mcm",
+      "seed": 209,
+      "seconds": 62.01094031333923,
+      "test_representation": {
+        "probability_mae": 0.09033004520460963,
+        "masked_hf_l1": 0.9536046274006367,
+        "effective_mask_fraction": 0.27977760394992995
+      },
+      "test_eco": {
+        "cases": 48,
+        "success_at3": 0.10416666666666667,
+        "average_precision": 0.7227073104607552,
+        "ancestry_recall_at3": 0.26773336501757217,
+        "mean_support_on_success": 2.0,
+        "mean_gates_on_success": 8.8,
+        "mean_solver_seconds": 0.002207044291613632,
+        "mean_ranking_seconds": 0.02078016518756461,
+        "verified_successes": 5
+      }
+    }
+  ]
+}

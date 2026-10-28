@@ -1,0 +1,169 @@
+# Benchmark "top" written by ABC on Wed Oct 28 12:07:17 2026
+.model top
+.inputs opcode[0] opcode[1] opcode[2] opcode[3] opcode[4] op_ext[0] \
+ op_ext[1]
+.outputs sel_reg_dst[0] sel_reg_dst[1] sel_alu_opB[0] sel_alu_opB[1] \
+ alu_op[0] alu_op[1] alu_op[2] alu_op_ext[0] alu_op_ext[1] alu_op_ext[2] \
+ alu_op_ext[3] halt reg_write sel_pc_opA sel_pc_opB beqz bnez bgez bltz \
+ jump Cin invA invB sign mem_write sel_wb
+.gate INV   a=opcode[2] O=new_n34
+.gate INV   a=opcode[1] O=new_n35
+.gate AND2  a=new_n35 b=opcode[0] O=new_n36
+.gate NAND2 a=opcode[4] b=opcode[3] O=new_n37
+.gate INV   a=new_n37 O=new_n38
+.gate AND2  a=new_n38 b=new_n36 O=new_n39
+.gate AND2  a=opcode[3] b=opcode[1] O=new_n40
+.gate AND2  a=new_n40 b=opcode[4] O=new_n41
+.gate OR2   a=new_n41 b=new_n39 O=new_n42
+.gate AND2  a=new_n42 b=new_n34 O=new_n43
+.gate AND2  a=opcode[3] b=new_n35 O=new_n44
+.gate AND2  a=new_n44 b=opcode[4] O=new_n45
+.gate OR2   a=opcode[4] b=opcode[3] O=new_n46
+.gate AND2  a=new_n46 b=new_n37 O=new_n47
+.gate NOR2  a=new_n47 b=new_n35 O=new_n48
+.gate OR2   a=new_n48 b=new_n45 O=new_n49
+.gate AND2  a=new_n49 b=opcode[2] O=new_n50
+.gate OR2   a=new_n50 b=new_n43 O=sel_reg_dst[0]
+.gate NOR2  a=new_n37 b=opcode[0] O=new_n52
+.gate OR2   a=new_n52 b=opcode[1] O=new_n53
+.gate INV   a=opcode[3] O=new_n54
+.gate AND2  a=opcode[4] b=new_n54 O=new_n55
+.gate OR2   a=new_n55 b=new_n35 O=new_n56
+.gate AND2  a=new_n56 b=new_n53 O=new_n57
+.gate OR2   a=new_n57 b=opcode[2] O=new_n58
+.gate OR2   a=opcode[4] b=opcode[3] O=new_n59
+.gate NOR2  a=new_n59 b=new_n35 O=new_n60
+.gate OR2   a=new_n60 b=new_n34 O=new_n61
+.gate AND2  a=new_n61 b=new_n58 O=sel_reg_dst[1]
+.gate OR2   a=new_n47 b=opcode[0] O=new_n63
+.gate INV   a=opcode[0] O=new_n64
+.gate INV   a=opcode[4] O=new_n65
+.gate AND2  a=new_n65 b=opcode[3] O=new_n66
+.gate OR2   a=new_n66 b=new_n64 O=new_n67
+.gate AND2  a=new_n67 b=new_n63 O=new_n68
+.gate OR2   a=new_n68 b=new_n35 O=new_n69
+.gate AND2  a=new_n69 b=new_n53 O=new_n70
+.gate AND2  a=new_n70 b=new_n34 O=sel_alu_opB[0]
+.gate OR2   a=new_n65 b=opcode[3] O=new_n72
+.gate NOR2  a=opcode[3] b=opcode[0] O=new_n73
+.gate NAND2 a=new_n73 b=new_n72 O=new_n74
+.gate OR2   a=new_n47 b=new_n64 O=new_n75
+.gate NAND2 a=new_n75 b=new_n74 O=new_n76
+.gate NAND2 a=new_n76 b=new_n35 O=new_n77
+.gate AND2  a=new_n77 b=new_n56 O=new_n78
+.gate OR2   a=new_n78 b=opcode[2] O=new_n79
+.gate OR2   a=new_n55 b=new_n34 O=new_n80
+.gate AND2  a=new_n80 b=new_n79 O=sel_alu_opB[1]
+.gate AND2  a=opcode[3] b=new_n64 O=new_n82
+.gate AND2  a=op_ext[0] b=opcode[4] O=new_n83
+.gate AND2  a=new_n83 b=new_n82 O=new_n84
+.gate INV   a=op_ext[1] O=new_n85
+.gate AND2  a=new_n85 b=opcode[3] O=new_n86
+.gate AND2  a=new_n86 b=new_n37 O=new_n87
+.gate NOR2  a=op_ext[0] b=new_n54 O=new_n88
+.gate AND2  a=new_n88 b=new_n37 O=new_n89
+.gate AND2  a=op_ext[0] b=opcode[3] O=new_n90
+.gate OR2   a=new_n90 b=new_n89 O=new_n91
+.gate AND2  a=new_n91 b=op_ext[1] O=new_n92
+.gate OR2   a=new_n92 b=new_n87 O=new_n93
+.gate AND2  a=new_n93 b=opcode[0] O=new_n94
+.gate OR2   a=new_n94 b=new_n84 O=new_n95
+.gate AND2  a=new_n95 b=opcode[1] O=new_n96
+.gate OR2   a=new_n96 b=opcode[2] O=new_n97
+.gate AND2  a=new_n55 b=opcode[0] O=new_n98
+.gate OR2   a=new_n98 b=new_n34 O=new_n99
+.gate AND2  a=new_n99 b=new_n97 O=alu_op[0]
+.gate AND2  a=op_ext[1] b=opcode[3] O=new_n101
+.gate OR2   a=new_n101 b=new_n87 O=new_n102
+.gate AND2  a=new_n102 b=opcode[1] O=new_n103
+.gate OR2   a=new_n103 b=opcode[2] O=new_n104
+.gate AND2  a=new_n55 b=opcode[1] O=new_n105
+.gate OR2   a=new_n105 b=new_n34 O=new_n106
+.gate AND2  a=new_n106 b=new_n104 O=alu_op[1]
+.gate AND2  a=new_n37 b=new_n35 O=new_n108
+.gate AND2  a=new_n108 b=new_n46 O=new_n109
+.gate AND2  a=new_n37 b=new_n64 O=new_n110
+.gate AND2  a=new_n110 b=new_n46 O=new_n111
+.gate AND2  a=new_n59 b=opcode[0] O=new_n112
+.gate OR2   a=new_n112 b=new_n111 O=new_n113
+.gate AND2  a=new_n113 b=opcode[1] O=new_n114
+.gate OR2   a=new_n114 b=new_n109 O=new_n115
+.gate AND2  a=new_n115 b=new_n34 O=new_n116
+.gate AND2  a=opcode[3] b=opcode[2] O=new_n117
+.gate AND2  a=new_n117 b=opcode[4] O=new_n118
+.gate OR2   a=new_n118 b=new_n116 O=alu_op[2]
+.gate NOR2  a=opcode[2] b=opcode[1] O=new_n120
+.gate AND2  a=new_n120 b=new_n53 O=new_n121
+.gate AND2  a=new_n76 b=opcode[1] O=new_n122
+.gate OR2   a=new_n122 b=new_n39 O=new_n123
+.gate AND2  a=new_n123 b=opcode[2] O=new_n124
+.gate OR2   a=new_n124 b=new_n121 O=alu_op_ext[0]
+.gate AND2  a=new_n55 b=new_n64 O=new_n126
+.gate OR2   a=new_n126 b=new_n35 O=new_n127
+.gate AND2  a=new_n34 b=opcode[1] O=new_n128
+.gate AND2  a=new_n128 b=new_n127 O=new_n129
+.gate NAND2 a=opcode[2] b=opcode[1] O=new_n130
+.gate NOR2  a=new_n130 b=new_n47 O=new_n131
+.gate OR2   a=new_n131 b=new_n129 O=alu_op_ext[1]
+.gate INV   a=new_n108 O=new_n133
+.gate AND2  a=new_n127 b=new_n133 O=new_n134
+.gate OR2   a=new_n134 b=opcode[2] O=new_n135
+.gate AND2  a=new_n135 b=new_n61 O=alu_op_ext[2]
+.gate OR2   a=new_n112 b=new_n82 O=new_n137
+.gate AND2  a=new_n137 b=opcode[1] O=new_n138
+.gate OR2   a=new_n109 b=opcode[2] O=new_n139
+.gate OR2   a=new_n139 b=new_n138 O=new_n140
+.gate AND2  a=new_n140 b=new_n80 O=alu_op_ext[3]
+.gate NOR2  a=new_n59 b=opcode[0] O=new_n142
+.gate AND2  a=new_n142 b=new_n35 O=new_n143
+.gate AND2  a=new_n143 b=new_n34 O=halt
+.gate AND2  a=new_n59 b=opcode[1] O=new_n145
+.gate AND2  a=new_n137 b=new_n35 O=new_n146
+.gate OR2   a=new_n146 b=new_n145 O=new_n147
+.gate AND2  a=new_n147 b=new_n34 O=new_n148
+.gate AND2  a=opcode[4] b=new_n35 O=new_n149
+.gate NOR2  a=new_n66 b=new_n35 O=new_n150
+.gate OR2   a=new_n150 b=new_n149 O=new_n151
+.gate AND2  a=new_n151 b=opcode[2] O=new_n152
+.gate OR2   a=new_n152 b=new_n148 O=reg_write
+.gate NOR2  a=new_n59 b=new_n64 O=new_n154
+.gate AND2  a=new_n154 b=opcode[2] O=sel_pc_opA
+.gate AND2  a=new_n142 b=opcode[2] O=sel_pc_opB
+.gate AND2  a=new_n66 b=new_n64 O=new_n157
+.gate AND2  a=new_n157 b=new_n35 O=new_n158
+.gate AND2  a=new_n158 b=opcode[2] O=beqz
+.gate AND2  a=new_n66 b=opcode[0] O=new_n160
+.gate AND2  a=new_n160 b=new_n35 O=new_n161
+.gate AND2  a=new_n161 b=opcode[2] O=bnez
+.gate AND2  a=new_n160 b=opcode[1] O=new_n163
+.gate AND2  a=new_n163 b=opcode[2] O=bgez
+.gate AND2  a=new_n157 b=opcode[1] O=new_n165
+.gate AND2  a=new_n165 b=opcode[2] O=bltz
+.gate NOR2  a=new_n59 b=new_n34 O=jump
+.gate AND2  a=opcode[1] b=opcode[0] O=new_n168
+.gate AND2  a=new_n168 b=new_n91 O=new_n169
+.gate AND2  a=new_n67 b=new_n36 O=new_n170
+.gate OR2   a=new_n170 b=opcode[2] O=new_n171
+.gate OR2   a=new_n171 b=new_n169 O=new_n172
+.gate OR2   a=new_n52 b=new_n35 O=new_n173
+.gate AND2  a=new_n173 b=new_n133 O=new_n174
+.gate OR2   a=new_n174 b=new_n34 O=new_n175
+.gate AND2  a=new_n175 b=new_n172 O=Cin
+.gate OR2   a=new_n160 b=opcode[1] O=new_n177
+.gate AND2  a=new_n38 b=op_ext[0] O=new_n178
+.gate AND2  a=new_n178 b=new_n85 O=new_n179
+.gate AND2  a=new_n179 b=opcode[0] O=new_n180
+.gate OR2   a=new_n180 b=new_n35 O=new_n181
+.gate AND2  a=new_n181 b=new_n177 O=new_n182
+.gate AND2  a=new_n182 b=new_n34 O=invA
+.gate AND2  a=new_n168 b=new_n93 O=new_n184
+.gate OR2   a=new_n184 b=opcode[2] O=new_n185
+.gate AND2  a=new_n185 b=new_n175 O=invB
+.gate OR2   a=new_n126 b=opcode[1] O=new_n188
+.gate OR2   a=new_n98 b=new_n35 O=new_n189
+.gate AND2  a=new_n189 b=new_n188 O=new_n190
+.gate AND2  a=new_n190 b=new_n34 O=mem_write
+.gate AND2  a=new_n98 b=new_n35 O=new_n192
+.gate AND2  a=new_n192 b=new_n34 O=sel_wb
+.gate ONE   O=sign
+.end

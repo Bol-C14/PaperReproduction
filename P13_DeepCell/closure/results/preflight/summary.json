@@ -1,0 +1,96 @@
+{
+  "mode": "preflight",
+  "config": {
+    "preflight": true,
+    "arms": [
+      "paired_pretrained"
+    ],
+    "seeds": [
+      208,
+      209
+    ]
+  },
+  "manifest": {
+    "family_splits": [
+      [
+        "parity",
+        "train",
+        24
+      ],
+      [
+        "muxbank",
+        "train",
+        24
+      ],
+      [
+        "arithmetic",
+        "train",
+        24
+      ],
+      [
+        "conditional",
+        "validation",
+        12
+      ],
+      [
+        "majority",
+        "test",
+        12
+      ],
+      [
+        "comparator",
+        "test",
+        12
+      ]
+    ],
+    "case_count": 12,
+    "unique_parent_functions": 108,
+    "all_truth_signatures_disjoint": true,
+    "all_parent_splits_disjoint": true,
+    "all_family_splits_disjoint": true,
+    "patterns_per_case": 64,
+    "max_combined_tokens": 130,
+    "negative_corrupt_mux_rejected": true
+  },
+  "split_case_counts": {
+    "train": 4,
+    "validation": 4,
+    "test": 4
+  },
+  "epochs": [
+    1,
+    1,
+    1
+  ],
+  "elapsed_seconds": 1.870981216430664,
+  "peak_rss_kib": 465092,
+  "runtime": {
+    "torch": "2.6.0+cpu",
+    "numpy": "2.3.5",
+    "threads": 2,
+    "device": "cpu"
+  },
+  "runs": [
+    {
+      "arm": "paired_pretrained",
+      "seed": 208,
+      "seconds": 0.8859047889709473,
+      "test_representation": {
+        "probability_mae": 0.05223931837826967,
+        "masked_hf_l1": 0.7012323290109634,
+        "effective_mask_fraction": 0.3651406159629844
+      },
+      "test_eco": {
+        "cases": 4,
+        "success_at3": 0.0,
+        "average_precision": 0.6698417323417323,
+        "ancestry_recall_at3": 0.3888888888888889,
+        "mean_support_on_success": null,
+        "mean_gates_on_success": null,
+        "mean_solver_seconds": 0.001893296750040463,
+        "mean_ranking_seconds": 0.020514346750132972,
+        "verified_successes": 0
+      }
+    }
+  ]
+}

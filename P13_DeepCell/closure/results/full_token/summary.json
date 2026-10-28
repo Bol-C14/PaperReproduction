@@ -1,0 +1,161 @@
+{
+  "mode": "full_token",
+  "config": {
+    "preflight": false,
+    "resume": false,
+    "arms": [
+      "paired_pretrained",
+      "pm_only"
+    ],
+    "seeds": [
+      208,
+      209
+    ]
+  },
+  "manifest": {
+    "family_splits": [
+      [
+        "parity",
+        "train",
+        24
+      ],
+      [
+        "muxbank",
+        "train",
+        24
+      ],
+      [
+        "arithmetic",
+        "train",
+        24
+      ],
+      [
+        "conditional",
+        "validation",
+        12
+      ],
+      [
+        "majority",
+        "test",
+        12
+      ],
+      [
+        "comparator",
+        "test",
+        12
+      ]
+    ],
+    "case_count": 216,
+    "unique_parent_functions": 108,
+    "all_truth_signatures_disjoint": true,
+    "all_parent_splits_disjoint": true,
+    "all_family_splits_disjoint": true,
+    "patterns_per_case": 64,
+    "max_combined_tokens": 140,
+    "negative_corrupt_mux_rejected": true
+  },
+  "split_case_counts": {
+    "train": 144,
+    "validation": 24,
+    "test": 48
+  },
+  "epochs": [
+    2,
+    6,
+    6
+  ],
+  "elapsed_seconds": 411.38367223739624,
+  "peak_rss_kib": 617152,
+  "runtime": {
+    "torch": "2.6.0+cpu",
+    "numpy": "2.3.5",
+    "threads": 2,
+    "device": "cpu"
+  },
+  "runs": [
+    {
+      "arm": "paired_pretrained",
+      "seed": 208,
+      "seconds": 98.0400288105011,
+      "test_representation": {
+        "probability_mae": 0.10189502701784174,
+        "masked_hf_l1": 0.21336586897571883,
+        "effective_mask_fraction": 0.2713965476351718
+      },
+      "test_eco": {
+        "cases": 48,
+        "success_at3": 0.10416666666666667,
+        "average_precision": 0.7205570393165805,
+        "ancestry_recall_at3": 0.26118574596995314,
+        "mean_support_on_success": 1.8,
+        "mean_gates_on_success": 5.8,
+        "mean_solver_seconds": 0.002152925187412317,
+        "mean_ranking_seconds": 0.019890099187459025,
+        "verified_successes": 5
+      }
+    },
+    {
+      "arm": "pm_only",
+      "seed": 208,
+      "seconds": 95.5858051776886,
+      "test_representation": {
+        "probability_mae": 0.102082197011138,
+        "masked_hf_l1": 0.21583211018393436,
+        "effective_mask_fraction": 0.2713965476351718
+      },
+      "test_eco": {
+        "cases": 48,
+        "success_at3": 0.10416666666666667,
+        "average_precision": 0.7185168848338476,
+        "ancestry_recall_at3": 0.2820521480863552,
+        "mean_support_on_success": 1.8,
+        "mean_gates_on_success": 6.0,
+        "mean_solver_seconds": 0.0019119087500030219,
+        "mean_ranking_seconds": 0.017789077416637156,
+        "verified_successes": 5
+      }
+    },
+    {
+      "arm": "paired_pretrained",
+      "seed": 209,
+      "seconds": 99.18819308280945,
+      "test_representation": {
+        "probability_mae": 0.09333775813380878,
+        "masked_hf_l1": 0.2606187143052618,
+        "effective_mask_fraction": 0.27977760394992995
+      },
+      "test_eco": {
+        "cases": 48,
+        "success_at3": 0.10416666666666667,
+        "average_precision": 0.736412341282934,
+        "ancestry_recall_at3": 0.28633455549376263,
+        "mean_support_on_success": 2.4,
+        "mean_gates_on_success": 10.8,
+        "mean_solver_seconds": 0.002308283791667994,
+        "mean_ranking_seconds": 0.024070467791697563,
+        "verified_successes": 5
+      }
+    },
+    {
+      "arm": "pm_only",
+      "seed": 209,
+      "seconds": 98.22668242454529,
+      "test_representation": {
+        "probability_mae": 0.09316139625540625,
+        "masked_hf_l1": 0.24473987147212029,
+        "effective_mask_fraction": 0.27977760394992995
+      },
+      "test_eco": {
+        "cases": 48,
+        "success_at3": 0.14583333333333334,
+        "average_precision": 0.7284538806396492,
+        "ancestry_recall_at3": 0.2768603491445563,
+        "mean_support_on_success": 2.857142857142857,
+        "mean_gates_on_success": 16.285714285714285,
+        "mean_solver_seconds": 0.0020390825415953864,
+        "mean_ranking_seconds": 0.016684522145775798,
+        "verified_successes": 7
+      }
+    }
+  ]
+}

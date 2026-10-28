@@ -1,0 +1,1786 @@
+[
+  {
+    "id": "xor_v0",
+    "parent": "xor",
+    "split": "train",
+    "provenance": "new synthetic teaching circuit, no external RTL",
+    "pm": {
+      "nodes": [
+        {
+          "cell": "PI",
+          "name": "x0",
+          "pins": []
+        },
+        {
+          "cell": "PI",
+          "name": "x1",
+          "pins": []
+        },
+        {
+          "cell": "XOR2",
+          "pins": [
+            0,
+            1
+          ],
+          "tt": "0110"
+        }
+      ],
+      "inputs": [
+        0,
+        1
+      ],
+      "outputs": [
+        2
+      ]
+    },
+    "aig": {
+      "nodes": [
+        {
+          "gate": "PI",
+          "name": "x0",
+          "pins": []
+        },
+        {
+          "gate": "PI",
+          "name": "x1",
+          "pins": []
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            0
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            2,
+            1
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            1
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            0,
+            4
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            3
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            5
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            6,
+            7
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            8
+          ]
+        }
+      ],
+      "inputs": [
+        0,
+        1
+      ],
+      "outputs": [
+        9
+      ]
+    },
+    "pm_to_aig": {
+      "0": 0,
+      "1": 1,
+      "2": 9
+    },
+    "exact_probabilities": {
+      "pm": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "aig": [
+        0.5,
+        0.5,
+        0.5,
+        0.25,
+        0.5,
+        0.25,
+        0.75,
+        0.75,
+        0.5,
+        0.5
+      ],
+      "method": "exhaustive enumeration on synthetic cells; not paper corpus labels"
+    }
+  },
+  {
+    "id": "xor_v1",
+    "parent": "xor",
+    "split": "train",
+    "provenance": "new synthetic teaching circuit, no external RTL",
+    "pm": {
+      "nodes": [
+        {
+          "cell": "PI",
+          "name": "x0",
+          "pins": []
+        },
+        {
+          "cell": "PI",
+          "name": "x1",
+          "pins": []
+        },
+        {
+          "cell": "NAND2",
+          "pins": [
+            0,
+            1
+          ],
+          "tt": "1110"
+        },
+        {
+          "cell": "NAND2",
+          "pins": [
+            0,
+            2
+          ],
+          "tt": "1110"
+        },
+        {
+          "cell": "NAND2",
+          "pins": [
+            1,
+            2
+          ],
+          "tt": "1110"
+        },
+        {
+          "cell": "NAND2",
+          "pins": [
+            3,
+            4
+          ],
+          "tt": "1110"
+        }
+      ],
+      "inputs": [
+        0,
+        1
+      ],
+      "outputs": [
+        5
+      ]
+    },
+    "aig": {
+      "nodes": [
+        {
+          "gate": "PI",
+          "name": "x0",
+          "pins": []
+        },
+        {
+          "gate": "PI",
+          "name": "x1",
+          "pins": []
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            0
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            1
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            2,
+            3
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            0
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            5,
+            1
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            1
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            0,
+            7
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            4
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            6
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            9,
+            10
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            11
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            12
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            8
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            13,
+            14
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            15
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            0
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            16
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            17,
+            18
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            0
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            20,
+            16
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            16
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            0,
+            22
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            19
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            21
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            24,
+            25
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            26
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            27
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            23
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            28,
+            29
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            30
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            1
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            16
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            32,
+            33
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            1
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            35,
+            16
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            16
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            1,
+            37
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            34
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            36
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            39,
+            40
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            41
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            42
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            38
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            43,
+            44
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            45
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            31
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            46
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            47,
+            48
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            31
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            50,
+            46
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            46
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            31,
+            52
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            49
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            51
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            54,
+            55
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            56
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            57
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            53
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            58,
+            59
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            60
+          ]
+        }
+      ],
+      "inputs": [
+        0,
+        1
+      ],
+      "outputs": [
+        61
+      ]
+    },
+    "pm_to_aig": {
+      "0": 0,
+      "1": 1,
+      "2": 16,
+      "3": 31,
+      "4": 46,
+      "5": 61
+    },
+    "exact_probabilities": {
+      "pm": [
+        0.5,
+        0.5,
+        0.75,
+        0.75,
+        0.75,
+        0.5
+      ],
+      "aig": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.25,
+        0.5,
+        0.25,
+        0.5,
+        0.25,
+        0.75,
+        0.75,
+        0.5,
+        0.5,
+        0.5,
+        0.75,
+        0.25,
+        0.75,
+        0.5,
+        0.25,
+        0.0,
+        0.5,
+        0.5,
+        0.25,
+        0.25,
+        1.0,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.75,
+        0.25,
+        0.75,
+        0.5,
+        0.25,
+        0.0,
+        0.5,
+        0.5,
+        0.25,
+        0.25,
+        1.0,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.75,
+        0.25,
+        0.75,
+        0.25,
+        0.25,
+        0.0,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        1.0,
+        0.75,
+        0.75,
+        0.25,
+        0.75,
+        0.75,
+        0.5,
+        0.5
+      ],
+      "method": "exhaustive enumeration on synthetic cells; not paper corpus labels"
+    }
+  },
+  {
+    "id": "mux_v0",
+    "parent": "mux",
+    "split": "validation",
+    "provenance": "new synthetic teaching circuit, no external RTL",
+    "pm": {
+      "nodes": [
+        {
+          "cell": "PI",
+          "name": "x0",
+          "pins": []
+        },
+        {
+          "cell": "PI",
+          "name": "x1",
+          "pins": []
+        },
+        {
+          "cell": "PI",
+          "name": "x2",
+          "pins": []
+        },
+        {
+          "cell": "MUX3",
+          "pins": [
+            0,
+            1,
+            2
+          ],
+          "tt": "00110101"
+        }
+      ],
+      "inputs": [
+        0,
+        1,
+        2
+      ],
+      "outputs": [
+        3
+      ]
+    },
+    "aig": {
+      "nodes": [
+        {
+          "gate": "PI",
+          "name": "x0",
+          "pins": []
+        },
+        {
+          "gate": "PI",
+          "name": "x1",
+          "pins": []
+        },
+        {
+          "gate": "PI",
+          "name": "x2",
+          "pins": []
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            0
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            2
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            3,
+            1
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            5,
+            4
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            0
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            7,
+            1
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            8,
+            2
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            1
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            0,
+            10
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            11,
+            2
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            0,
+            1
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            13,
+            2
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            6
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            9
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            15,
+            16
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            17
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            18
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            12
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            19,
+            20
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            21
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            22
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            14
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            23,
+            24
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            25
+          ]
+        }
+      ],
+      "inputs": [
+        0,
+        1,
+        2
+      ],
+      "outputs": [
+        26
+      ]
+    },
+    "pm_to_aig": {
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": 26
+    },
+    "exact_probabilities": {
+      "pm": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "aig": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.25,
+        0.125,
+        0.5,
+        0.25,
+        0.125,
+        0.5,
+        0.25,
+        0.125,
+        0.25,
+        0.125,
+        0.875,
+        0.875,
+        0.75,
+        0.25,
+        0.75,
+        0.875,
+        0.625,
+        0.375,
+        0.625,
+        0.875,
+        0.5,
+        0.5
+      ],
+      "method": "exhaustive enumeration on synthetic cells; not paper corpus labels"
+    }
+  },
+  {
+    "id": "mux_v1",
+    "parent": "mux",
+    "split": "validation",
+    "provenance": "new synthetic teaching circuit, no external RTL",
+    "pm": {
+      "nodes": [
+        {
+          "cell": "PI",
+          "name": "x0",
+          "pins": []
+        },
+        {
+          "cell": "PI",
+          "name": "x1",
+          "pins": []
+        },
+        {
+          "cell": "PI",
+          "name": "x2",
+          "pins": []
+        },
+        {
+          "cell": "NOT",
+          "pins": [
+            0
+          ],
+          "tt": "10"
+        },
+        {
+          "cell": "AND2",
+          "pins": [
+            3,
+            1
+          ],
+          "tt": "0001"
+        },
+        {
+          "cell": "AND2",
+          "pins": [
+            0,
+            2
+          ],
+          "tt": "0001"
+        },
+        {
+          "cell": "OR2",
+          "pins": [
+            4,
+            5
+          ],
+          "tt": "0111"
+        }
+      ],
+      "inputs": [
+        0,
+        1,
+        2
+      ],
+      "outputs": [
+        6
+      ]
+    },
+    "aig": {
+      "nodes": [
+        {
+          "gate": "PI",
+          "name": "x0",
+          "pins": []
+        },
+        {
+          "gate": "PI",
+          "name": "x1",
+          "pins": []
+        },
+        {
+          "gate": "PI",
+          "name": "x2",
+          "pins": []
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            0
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            3,
+            1
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            0,
+            2
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            4
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            6,
+            5
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            5
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            4,
+            8
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            4,
+            5
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            7
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            9
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            11,
+            12
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            13
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            14
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            10
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            15,
+            16
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            17
+          ]
+        }
+      ],
+      "inputs": [
+        0,
+        1,
+        2
+      ],
+      "outputs": [
+        18
+      ]
+    },
+    "pm_to_aig": {
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4,
+      "5": 5,
+      "6": 18
+    },
+    "exact_probabilities": {
+      "pm": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.25,
+        0.25,
+        0.5
+      ],
+      "aig": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.25,
+        0.25,
+        0.75,
+        0.25,
+        0.75,
+        0.25,
+        0.0,
+        0.75,
+        0.75,
+        0.5,
+        0.5,
+        0.5,
+        1.0,
+        0.5,
+        0.5
+      ],
+      "method": "exhaustive enumeration on synthetic cells; not paper corpus labels"
+    }
+  },
+  {
+    "id": "majority_v0",
+    "parent": "majority",
+    "split": "test",
+    "provenance": "new synthetic teaching circuit, no external RTL",
+    "pm": {
+      "nodes": [
+        {
+          "cell": "PI",
+          "name": "x0",
+          "pins": []
+        },
+        {
+          "cell": "PI",
+          "name": "x1",
+          "pins": []
+        },
+        {
+          "cell": "PI",
+          "name": "x2",
+          "pins": []
+        },
+        {
+          "cell": "MAJ3",
+          "pins": [
+            0,
+            1,
+            2
+          ],
+          "tt": "00010111"
+        }
+      ],
+      "inputs": [
+        0,
+        1,
+        2
+      ],
+      "outputs": [
+        3
+      ]
+    },
+    "aig": {
+      "nodes": [
+        {
+          "gate": "PI",
+          "name": "x0",
+          "pins": []
+        },
+        {
+          "gate": "PI",
+          "name": "x1",
+          "pins": []
+        },
+        {
+          "gate": "PI",
+          "name": "x2",
+          "pins": []
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            0
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            3,
+            1
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            4,
+            2
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            1
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            0,
+            6
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            7,
+            2
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            2
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            0,
+            1
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            10,
+            9
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            0,
+            1
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            12,
+            2
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            5
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            8
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            14,
+            15
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            16
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            17
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            11
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            18,
+            19
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            20
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            21
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            13
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            22,
+            23
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            24
+          ]
+        }
+      ],
+      "inputs": [
+        0,
+        1,
+        2
+      ],
+      "outputs": [
+        25
+      ]
+    },
+    "pm_to_aig": {
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": 25
+    },
+    "exact_probabilities": {
+      "pm": [
+        0.5,
+        0.5,
+        0.5,
+        0.5
+      ],
+      "aig": [
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.25,
+        0.125,
+        0.5,
+        0.25,
+        0.125,
+        0.5,
+        0.25,
+        0.125,
+        0.25,
+        0.125,
+        0.875,
+        0.875,
+        0.75,
+        0.25,
+        0.75,
+        0.875,
+        0.625,
+        0.375,
+        0.625,
+        0.875,
+        0.5,
+        0.5
+      ],
+      "method": "exhaustive enumeration on synthetic cells; not paper corpus labels"
+    }
+  },
+  {
+    "id": "majority_v1",
+    "parent": "majority",
+    "split": "test",
+    "provenance": "new synthetic teaching circuit, no external RTL",
+    "pm": {
+      "nodes": [
+        {
+          "cell": "PI",
+          "name": "x0",
+          "pins": []
+        },
+        {
+          "cell": "PI",
+          "name": "x1",
+          "pins": []
+        },
+        {
+          "cell": "PI",
+          "name": "x2",
+          "pins": []
+        },
+        {
+          "cell": "AND2",
+          "pins": [
+            0,
+            1
+          ],
+          "tt": "0001"
+        },
+        {
+          "cell": "AND2",
+          "pins": [
+            0,
+            2
+          ],
+          "tt": "0001"
+        },
+        {
+          "cell": "AND2",
+          "pins": [
+            1,
+            2
+          ],
+          "tt": "0001"
+        },
+        {
+          "cell": "OR2",
+          "pins": [
+            3,
+            4
+          ],
+          "tt": "0111"
+        },
+        {
+          "cell": "OR2",
+          "pins": [
+            6,
+            5
+          ],
+          "tt": "0111"
+        }
+      ],
+      "inputs": [
+        0,
+        1,
+        2
+      ],
+      "outputs": [
+        7
+      ]
+    },
+    "aig": {
+      "nodes": [
+        {
+          "gate": "PI",
+          "name": "x0",
+          "pins": []
+        },
+        {
+          "gate": "PI",
+          "name": "x1",
+          "pins": []
+        },
+        {
+          "gate": "PI",
+          "name": "x2",
+          "pins": []
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            0,
+            1
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            0,
+            2
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            1,
+            2
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            3
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            6,
+            4
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            4
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            3,
+            8
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            3,
+            4
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            7
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            9
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            11,
+            12
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            13
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            14
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            10
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            15,
+            16
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            17
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            18
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            19,
+            5
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            5
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            18,
+            21
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            18,
+            5
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            20
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            22
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            24,
+            25
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            26
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            27
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            23
+          ]
+        },
+        {
+          "gate": "AND",
+          "pins": [
+            28,
+            29
+          ]
+        },
+        {
+          "gate": "NOT",
+          "pins": [
+            30
+          ]
+        }
+      ],
+      "inputs": [
+        0,
+        1,
+        2
+      ],
+      "outputs": [
+        31
+      ]
+    },
+    "pm_to_aig": {
+      "0": 0,
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4,
+      "5": 5,
+      "6": 18,
+      "7": 31
+    },
+    "exact_probabilities": {
+      "pm": [
+        0.5,
+        0.5,
+        0.5,
+        0.25,
+        0.25,
+        0.25,
+        0.375,
+        0.5
+      ],
+      "aig": [
+        0.5,
+        0.5,
+        0.5,
+        0.25,
+        0.25,
+        0.25,
+        0.75,
+        0.125,
+        0.75,
+        0.125,
+        0.125,
+        0.875,
+        0.875,
+        0.75,
+        0.25,
+        0.75,
+        0.875,
+        0.625,
+        0.375,
+        0.625,
+        0.125,
+        0.75,
+        0.25,
+        0.125,
+        0.875,
+        0.75,
+        0.625,
+        0.375,
+        0.625,
+        0.875,
+        0.5,
+        0.5
+      ],
+      "method": "exhaustive enumeration on synthetic cells; not paper corpus labels"
+    }
+  }
+]

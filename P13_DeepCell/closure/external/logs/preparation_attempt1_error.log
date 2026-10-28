@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/workspace/PaperReproduction/P13_DeepCell/closure/external/flow.py", line 243, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/PaperReproduction/P13_DeepCell/closure/external/flow.py", line 176, in main
+    source=read_blif(original);mapped_source=read_blif(mapped);pm=graph_pm(mapped_source);aig=graph_bench(bench,mapped_source['inputs'])
+                                                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/PaperReproduction/P13_DeepCell/closure/external/flow.py", line 87, in graph_bench
+    for name in operations:visit(name)
+                           ^^^^^^^^^^^
+  File "/workspace/PaperReproduction/P13_DeepCell/closure/external/flow.py", line 85, in visit
+    else:raise ValueError(kind)
+         ^^^^^^^^^^^^^^^^^^^^^^
+ValueError: LUT 0x1 ( opcode[3], opcode[4] )
