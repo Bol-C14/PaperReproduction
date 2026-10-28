@@ -1,0 +1,6 @@
+read_verilog gold.v
+read_verilog candidate.v
+prep; proc; opt; memory;
+clk2fflogic;
+miter -equiv -flatten helper1 helper miter
+sat -seq 50 -verify -prove trigger 0 -show-all -show-inputs -show-outputs -set-init-zero miter

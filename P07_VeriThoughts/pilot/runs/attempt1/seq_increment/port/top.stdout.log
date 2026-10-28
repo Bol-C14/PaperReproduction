@@ -1,0 +1,1651 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2024  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.41 (git sha1 c1ad37779ee, g++ 12.2.0-14+deb12u1 -fPIC -Os)
+
+-- Executing script file `/work/seq_increment/port/top.ys' --
+
+1. Executing Verilog-2005 frontend: gold.v
+Parsing Verilog input from `gold.v' to AST representation.
+Generating RTLIL representation for module `\top1'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: candidate.v
+Parsing Verilog input from `candidate.v' to AST representation.
+Generating RTLIL representation for module `\top'.
+Successfully finished Verilog frontend.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.2. Executing PROC pass (convert processes to netlists).
+
+3.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+3.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 2 assignments to connections.
+
+3.2.4. Executing PROC_INIT pass (extract init attributes).
+
+3.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+3.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\top.$proc$candidate.v:1$3'.
+Creating decoders for process `\top1.$proc$gold.v:1$1'.
+
+3.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\top.\q' using process `\top.$proc$candidate.v:1$3'.
+  created $dff cell `$procdff$5' with positive edge clock.
+Creating register for signal `\top1.\q' using process `\top1.$proc$gold.v:1$1'.
+  created $dff cell `$procdff$6' with positive edge clock.
+
+3.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `top.$proc$candidate.v:1$3'.
+Removing empty process `top1.$proc$gold.v:1$1'.
+Cleaned up 0 empty switches.
+
+3.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+Optimizing module top1.
+
+3.3. Executing FUTURE pass.
+
+3.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+Optimizing module top1.
+
+3.5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+Finding unused cells or wires in module \top1..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~2 debug messages>
+
+3.6. Executing CHECK pass (checking for obvious problems).
+Checking module top...
+Checking module top1...
+Found and reported 0 problems.
+
+3.7. Executing OPT pass (performing simple optimizations).
+
+3.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+Optimizing module top1.
+
+3.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top'.
+Finding identical cells in module `\top1'.
+Removed a total of 0 cells.
+
+3.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \top1..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+3.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \top.
+  Optimizing cells in module \top1.
+Performed a total of 0 changes.
+
+3.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top'.
+Finding identical cells in module `\top1'.
+Removed a total of 0 cells.
+
+3.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+Finding unused cells or wires in module \top1..
+
+3.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+Optimizing module top1.
+
+3.7.8. Finished OPT passes. (There is nothing left to do.)
+
+3.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 2 bits (of 4) from port B of cell top.$add$candidate.v:1$4 ($add).
+Removed top 3 bits (of 4) from port B of cell top1.$add$gold.v:1$2 ($add).
+
+3.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+Finding unused cells or wires in module \top1..
+
+3.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.11. Executing OPT pass (performing simple optimizations).
+
+3.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+Optimizing module top1.
+
+3.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top'.
+Finding identical cells in module `\top1'.
+Removed a total of 0 cells.
+
+3.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+Finding unused cells or wires in module \top1..
+
+3.11.4. Finished fast OPT passes.
+
+3.12. Printing statistics.
+
+=== top ===
+
+   Number of wires:                  3
+   Number of wire bits:              9
+   Number of public wires:           2
+   Number of public wire bits:       5
+   Number of ports:                  2
+   Number of port bits:              5
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $add                            1
+     $dff                            1
+
+=== top1 ===
+
+   Number of wires:                  3
+   Number of wire bits:              9
+   Number of public wires:           2
+   Number of public wire bits:       5
+   Number of ports:                  2
+   Number of port bits:              5
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                  2
+     $add                            1
+     $dff                            1
+
+3.13. Executing CHECK pass (checking for obvious problems).
+Checking module top...
+Checking module top1...
+Found and reported 0 problems.
+
+4. Executing PROC pass (convert processes to netlists).
+
+4.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+4.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+4.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+4.4. Executing PROC_INIT pass (extract init attributes).
+
+4.5. Executing PROC_ARST pass (detect async resets in processes).
+
+4.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+4.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+4.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+4.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+4.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+4.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+4.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+Optimizing module top1.
+
+5. Executing OPT pass (performing simple optimizations).
+
+5.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+Optimizing module top1.
+
+5.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top'.
+Finding identical cells in module `\top1'.
+Removed a total of 0 cells.
+
+5.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \top..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \top1..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+5.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \top.
+  Optimizing cells in module \top1.
+Performed a total of 0 changes.
+
+5.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\top'.
+Finding identical cells in module `\top1'.
+Removed a total of 0 cells.
+
+5.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+Finding unused cells or wires in module \top1..
+
+5.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module top.
+Optimizing module top1.
+
+5.9. Finished OPT passes. (There is nothing left to do.)
+
+6. Executing MEMORY pass.
+
+6.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+6.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+6.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+6.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+6.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+6.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+Finding unused cells or wires in module \top1..
+
+6.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+6.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+6.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \top..
+Finding unused cells or wires in module \top1..
+
+6.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+6.11. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+7. Executing CLK2FFLOGIC pass (convert clocked FFs to generic $ff cells).
+Replacing top.$procdff$5 ($dff): CLK=\clk, D=$0\q[3:0], Q=\q
+Replacing top1.$procdff$6 ($dff): CLK=\clk, D=$0\q[3:0], Q=\q
+
+8. Executing MITER pass (creating miter circuit).
+Creating miter cell "miter" with gold cell "top1" and gate cell "top".
+
+8.1. Executing FLATTEN pass (flatten design).
+<suppressed ~2 debug messages>
+
+8.2. Executing OPT_EXPR pass (perform const folding).
+Optimizing module miter.
+Removed 0 unused cells and 2 unused wires.
+
+9. Executing SAT pass (solving SAT problems in the circuit).
+
+Setting up time step 1:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import set-constraint from init attribute: $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11 = 1'1
+Import set-constraint from init attribute: $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9 = 4'0000
+Import set-constraint from init attribute: $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21 = 1'1
+Import set-constraint from init attribute: $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19 = 4'0000
+Final init constraint equation: { $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11 } = 18'000000000000100001
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 2:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 3:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 4:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 5:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 6:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 7:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 8:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 9:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 10:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 11:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 12:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 13:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 14:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 15:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 16:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 17:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 18:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 19:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 20:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 21:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 22:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 23:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 24:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 25:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 26:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 27:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 28:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 29:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 30:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 31:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 32:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 33:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 34:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 35:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 36:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 37:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 38:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 39:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 40:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 41:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 42:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 43:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 44:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 45:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 46:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 47:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 48:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 49:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+
+Setting up time step 50:
+Final constraint equation: { } = { }
+Imported 16 cells to SAT database.
+Import proof-constraint: \trigger = 1'0
+Final proof equation: \trigger = 1'0
+Import show expression: \in_clk
+Import show expression: \trigger
+Import show expression: $auto$miter.cc:242:create_miter_equiv$28
+Import show expression: $flatten\gate.$0\q[3:0]
+Import show expression: $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11
+Import show expression: $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9
+Import show expression: $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7
+Import show expression: $flatten\gate.$auto$rtlil.cc:2525:Eqx$14
+Import show expression: $flatten\gold.$0\q[3:0]
+Import show expression: $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21
+Import show expression: $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19
+Import show expression: $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17
+Import show expression: $flatten\gold.$auto$rtlil.cc:2525:Eqx$24
+Import show expression: \gate.clk
+Import show expression: \gate.q
+Import show expression: \gate_q
+Import show expression: \gold.clk
+Import show expression: \gold.q
+Import show expression: \gold_q
+Import show expression: \in_clk
+Import show expression: \trigger
+
+Solving problem with 11585 variables and 31000 clauses..
+SAT proof finished - model found: FAIL!
+
+   ______                   ___       ___       _ _            _ _ 
+  (_____ \                 / __)     / __)     (_) |          | | |
+   _____) )___ ___   ___ _| |__    _| |__ _____ _| | _____  __| | |
+  |  ____/ ___) _ \ / _ (_   __)  (_   __|____ | | || ___ |/ _  |_|
+  | |   | |  | |_| | |_| || |       | |  / ___ | | || ____( (_| |_ 
+  |_|   |_|   \___/ \___/ |_|       |_|  \_____|_|\_)_____)\____|_|
+
+
+  Time Signal Name                                                                            Dec       Hex           Bin
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+  init $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                1         1             1
+  init $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                    0         0          0000
+  init $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                           0         0          0000
+  init $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                1         1             1
+  init $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                   0         0          0000
+  init $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                          0         0          0000
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+     1 $auto$miter.cc:242:create_miter_equiv$28                                                 1         1             1
+     1 $flatten\gate.$0\q[3:0]                                                                  2         2          0010
+     1 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                1         1             1
+     1 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                    0         0          0000
+     1 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                           0         0          0000
+     1 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 0         0             0
+     1 $flatten\gold.$0\q[3:0]                                                                  1         1          0001
+     1 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                1         1             1
+     1 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                   0         0          0000
+     1 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                          0         0          0000
+     1 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 0         0             0
+     1 \gate.clk                                                                                0         0             0
+     1 \gate.q                                                                                  0         0          0000
+     1 \gate_q                                                                                  0         0          0000
+     1 \gold.clk                                                                                0         0             0
+     1 \gold.q                                                                                  0         0          0000
+     1 \gold_q                                                                                  0         0          0000
+     1 \in_clk                                                                                  0         0             0
+     1 \trigger                                                                                 0         0             0
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+     2 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+     2 $flatten\gate.$0\q[3:0]                                                                  4         4          0100
+     2 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                0         0             0
+     2 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                    2         2          0010
+     2 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                           0         0          0000
+     2 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 1         1             1
+     2 $flatten\gold.$0\q[3:0]                                                                  2         2          0010
+     2 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                0         0             0
+     2 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                   1         1          0001
+     2 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                          0         0          0000
+     2 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 1         1             1
+     2 \gate.clk                                                                                1         1             1
+     2 \gate.q                                                                                  2         2          0010
+     2 \gate_q                                                                                  2         2          0010
+     2 \gold.clk                                                                                1         1             1
+     2 \gold.q                                                                                  1         1          0001
+     2 \gold_q                                                                                  1         1          0001
+     2 \in_clk                                                                                  1         1             1
+     2 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+     3 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+     3 $flatten\gate.$0\q[3:0]                                                                  4         4          0100
+     3 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                1         1             1
+     3 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                    4         4          0100
+     3 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                           2         2          0010
+     3 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 0         0             0
+     3 $flatten\gold.$0\q[3:0]                                                                  2         2          0010
+     3 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                1         1             1
+     3 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                   2         2          0010
+     3 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                          1         1          0001
+     3 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 0         0             0
+     3 \gate.clk                                                                                0         0             0
+     3 \gate.q                                                                                  2         2          0010
+     3 \gate_q                                                                                  2         2          0010
+     3 \gold.clk                                                                                0         0             0
+     3 \gold.q                                                                                  1         1          0001
+     3 \gold_q                                                                                  1         1          0001
+     3 \in_clk                                                                                  0         0             0
+     3 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+     4 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+     4 $flatten\gate.$0\q[3:0]                                                                  6         6          0110
+     4 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                0         0             0
+     4 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                    4         4          0100
+     4 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                           2         2          0010
+     4 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 1         1             1
+     4 $flatten\gold.$0\q[3:0]                                                                  3         3          0011
+     4 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                0         0             0
+     4 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                   2         2          0010
+     4 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                          1         1          0001
+     4 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 1         1             1
+     4 \gate.clk                                                                                1         1             1
+     4 \gate.q                                                                                  4         4          0100
+     4 \gate_q                                                                                  4         4          0100
+     4 \gold.clk                                                                                1         1             1
+     4 \gold.q                                                                                  2         2          0010
+     4 \gold_q                                                                                  2         2          0010
+     4 \in_clk                                                                                  1         1             1
+     4 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+     5 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+     5 $flatten\gate.$0\q[3:0]                                                                  6         6          0110
+     5 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                1         1             1
+     5 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                    6         6          0110
+     5 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                           4         4          0100
+     5 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 0         0             0
+     5 $flatten\gold.$0\q[3:0]                                                                  3         3          0011
+     5 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                1         1             1
+     5 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                   3         3          0011
+     5 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                          2         2          0010
+     5 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 0         0             0
+     5 \gate.clk                                                                                0         0             0
+     5 \gate.q                                                                                  4         4          0100
+     5 \gate_q                                                                                  4         4          0100
+     5 \gold.clk                                                                                0         0             0
+     5 \gold.q                                                                                  2         2          0010
+     5 \gold_q                                                                                  2         2          0010
+     5 \in_clk                                                                                  0         0             0
+     5 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+     6 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+     6 $flatten\gate.$0\q[3:0]                                                                  6         6          0110
+     6 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                0         0             0
+     6 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                    6         6          0110
+     6 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                           4         4          0100
+     6 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 0         0             0
+     6 $flatten\gold.$0\q[3:0]                                                                  3         3          0011
+     6 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                0         0             0
+     6 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                   3         3          0011
+     6 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                          2         2          0010
+     6 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 0         0             0
+     6 \gate.clk                                                                                0         0             0
+     6 \gate.q                                                                                  4         4          0100
+     6 \gate_q                                                                                  4         4          0100
+     6 \gold.clk                                                                                0         0             0
+     6 \gold.q                                                                                  2         2          0010
+     6 \gold_q                                                                                  2         2          0010
+     6 \in_clk                                                                                  0         0             0
+     6 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+     7 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+     7 $flatten\gate.$0\q[3:0]                                                                  8         8          1000
+     7 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                0         0             0
+     7 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                    6         6          0110
+     7 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                           4         4          0100
+     7 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 1         1             1
+     7 $flatten\gold.$0\q[3:0]                                                                  4         4          0100
+     7 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                0         0             0
+     7 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                   3         3          0011
+     7 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                          2         2          0010
+     7 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 1         1             1
+     7 \gate.clk                                                                                1         1             1
+     7 \gate.q                                                                                  6         6          0110
+     7 \gate_q                                                                                  6         6          0110
+     7 \gold.clk                                                                                1         1             1
+     7 \gold.q                                                                                  3         3          0011
+     7 \gold_q                                                                                  3         3          0011
+     7 \in_clk                                                                                  1         1             1
+     7 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+     8 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+     8 $flatten\gate.$0\q[3:0]                                                                  8         8          1000
+     8 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                1         1             1
+     8 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                    8         8          1000
+     8 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                           6         6          0110
+     8 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 0         0             0
+     8 $flatten\gold.$0\q[3:0]                                                                  4         4          0100
+     8 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                1         1             1
+     8 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                   4         4          0100
+     8 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                          3         3          0011
+     8 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 0         0             0
+     8 \gate.clk                                                                                0         0             0
+     8 \gate.q                                                                                  6         6          0110
+     8 \gate_q                                                                                  6         6          0110
+     8 \gold.clk                                                                                0         0             0
+     8 \gold.q                                                                                  3         3          0011
+     8 \gold_q                                                                                  3         3          0011
+     8 \in_clk                                                                                  0         0             0
+     8 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+     9 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+     9 $flatten\gate.$0\q[3:0]                                                                 10         a          1010
+     9 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                0         0             0
+     9 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                    8         8          1000
+     9 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                           6         6          0110
+     9 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 1         1             1
+     9 $flatten\gold.$0\q[3:0]                                                                  5         5          0101
+     9 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                0         0             0
+     9 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                   4         4          0100
+     9 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                          3         3          0011
+     9 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 1         1             1
+     9 \gate.clk                                                                                1         1             1
+     9 \gate.q                                                                                  8         8          1000
+     9 \gate_q                                                                                  8         8          1000
+     9 \gold.clk                                                                                1         1             1
+     9 \gold.q                                                                                  4         4          0100
+     9 \gold_q                                                                                  4         4          0100
+     9 \in_clk                                                                                  1         1             1
+     9 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    10 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    10 $flatten\gate.$0\q[3:0]                                                                 10         a          1010
+    10 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                1         1             1
+    10 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                   10         a          1010
+    10 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                           8         8          1000
+    10 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 0         0             0
+    10 $flatten\gold.$0\q[3:0]                                                                  5         5          0101
+    10 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                1         1             1
+    10 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                   5         5          0101
+    10 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                          4         4          0100
+    10 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 0         0             0
+    10 \gate.clk                                                                                0         0             0
+    10 \gate.q                                                                                  8         8          1000
+    10 \gate_q                                                                                  8         8          1000
+    10 \gold.clk                                                                                0         0             0
+    10 \gold.q                                                                                  4         4          0100
+    10 \gold_q                                                                                  4         4          0100
+    10 \in_clk                                                                                  0         0             0
+    10 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    11 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    11 $flatten\gate.$0\q[3:0]                                                                 12         c          1100
+    11 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                0         0             0
+    11 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                   10         a          1010
+    11 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                           8         8          1000
+    11 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 1         1             1
+    11 $flatten\gold.$0\q[3:0]                                                                  6         6          0110
+    11 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                0         0             0
+    11 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                   5         5          0101
+    11 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                          4         4          0100
+    11 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 1         1             1
+    11 \gate.clk                                                                                1         1             1
+    11 \gate.q                                                                                 10         a          1010
+    11 \gate_q                                                                                 10         a          1010
+    11 \gold.clk                                                                                1         1             1
+    11 \gold.q                                                                                  5         5          0101
+    11 \gold_q                                                                                  5         5          0101
+    11 \in_clk                                                                                  1         1             1
+    11 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    12 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    12 $flatten\gate.$0\q[3:0]                                                                 12         c          1100
+    12 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                1         1             1
+    12 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                   12         c          1100
+    12 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                          10         a          1010
+    12 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 0         0             0
+    12 $flatten\gold.$0\q[3:0]                                                                  6         6          0110
+    12 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                1         1             1
+    12 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                   6         6          0110
+    12 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                          5         5          0101
+    12 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 0         0             0
+    12 \gate.clk                                                                                0         0             0
+    12 \gate.q                                                                                 10         a          1010
+    12 \gate_q                                                                                 10         a          1010
+    12 \gold.clk                                                                                0         0             0
+    12 \gold.q                                                                                  5         5          0101
+    12 \gold_q                                                                                  5         5          0101
+    12 \in_clk                                                                                  0         0             0
+    12 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    13 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    13 $flatten\gate.$0\q[3:0]                                                                 12         c          1100
+    13 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                0         0             0
+    13 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                   12         c          1100
+    13 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                          10         a          1010
+    13 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 0         0             0
+    13 $flatten\gold.$0\q[3:0]                                                                  6         6          0110
+    13 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                0         0             0
+    13 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                   6         6          0110
+    13 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                          5         5          0101
+    13 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 0         0             0
+    13 \gate.clk                                                                                0         0             0
+    13 \gate.q                                                                                 10         a          1010
+    13 \gate_q                                                                                 10         a          1010
+    13 \gold.clk                                                                                0         0             0
+    13 \gold.q                                                                                  5         5          0101
+    13 \gold_q                                                                                  5         5          0101
+    13 \in_clk                                                                                  0         0             0
+    13 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    14 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    14 $flatten\gate.$0\q[3:0]                                                                 12         c          1100
+    14 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                0         0             0
+    14 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                   12         c          1100
+    14 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                          10         a          1010
+    14 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 0         0             0
+    14 $flatten\gold.$0\q[3:0]                                                                  6         6          0110
+    14 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                0         0             0
+    14 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                   6         6          0110
+    14 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                          5         5          0101
+    14 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 0         0             0
+    14 \gate.clk                                                                                0         0             0
+    14 \gate.q                                                                                 10         a          1010
+    14 \gate_q                                                                                 10         a          1010
+    14 \gold.clk                                                                                0         0             0
+    14 \gold.q                                                                                  5         5          0101
+    14 \gold_q                                                                                  5         5          0101
+    14 \in_clk                                                                                  0         0             0
+    14 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    15 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    15 $flatten\gate.$0\q[3:0]                                                                 12         c          1100
+    15 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                0         0             0
+    15 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                   12         c          1100
+    15 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                          10         a          1010
+    15 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 0         0             0
+    15 $flatten\gold.$0\q[3:0]                                                                  6         6          0110
+    15 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                0         0             0
+    15 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                   6         6          0110
+    15 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                          5         5          0101
+    15 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 0         0             0
+    15 \gate.clk                                                                                0         0             0
+    15 \gate.q                                                                                 10         a          1010
+    15 \gate_q                                                                                 10         a          1010
+    15 \gold.clk                                                                                0         0             0
+    15 \gold.q                                                                                  5         5          0101
+    15 \gold_q                                                                                  5         5          0101
+    15 \in_clk                                                                                  0         0             0
+    15 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    16 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    16 $flatten\gate.$0\q[3:0]                                                                 12         c          1100
+    16 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                0         0             0
+    16 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                   12         c          1100
+    16 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                          10         a          1010
+    16 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 0         0             0
+    16 $flatten\gold.$0\q[3:0]                                                                  6         6          0110
+    16 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                0         0             0
+    16 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                   6         6          0110
+    16 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                          5         5          0101
+    16 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 0         0             0
+    16 \gate.clk                                                                                0         0             0
+    16 \gate.q                                                                                 10         a          1010
+    16 \gate_q                                                                                 10         a          1010
+    16 \gold.clk                                                                                0         0             0
+    16 \gold.q                                                                                  5         5          0101
+    16 \gold_q                                                                                  5         5          0101
+    16 \in_clk                                                                                  0         0             0
+    16 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    17 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    17 $flatten\gate.$0\q[3:0]                                                                 12         c          1100
+    17 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                0         0             0
+    17 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                   12         c          1100
+    17 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                          10         a          1010
+    17 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 0         0             0
+    17 $flatten\gold.$0\q[3:0]                                                                  6         6          0110
+    17 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                0         0             0
+    17 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                   6         6          0110
+    17 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                          5         5          0101
+    17 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 0         0             0
+    17 \gate.clk                                                                                0         0             0
+    17 \gate.q                                                                                 10         a          1010
+    17 \gate_q                                                                                 10         a          1010
+    17 \gold.clk                                                                                0         0             0
+    17 \gold.q                                                                                  5         5          0101
+    17 \gold_q                                                                                  5         5          0101
+    17 \in_clk                                                                                  0         0             0
+    17 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    18 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    18 $flatten\gate.$0\q[3:0]                                                                 12         c          1100
+    18 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                0         0             0
+    18 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                   12         c          1100
+    18 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                          10         a          1010
+    18 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 0         0             0
+    18 $flatten\gold.$0\q[3:0]                                                                  6         6          0110
+    18 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                0         0             0
+    18 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                   6         6          0110
+    18 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                          5         5          0101
+    18 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 0         0             0
+    18 \gate.clk                                                                                0         0             0
+    18 \gate.q                                                                                 10         a          1010
+    18 \gate_q                                                                                 10         a          1010
+    18 \gold.clk                                                                                0         0             0
+    18 \gold.q                                                                                  5         5          0101
+    18 \gold_q                                                                                  5         5          0101
+    18 \in_clk                                                                                  0         0             0
+    18 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    19 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    19 $flatten\gate.$0\q[3:0]                                                                 14         e          1110
+    19 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                0         0             0
+    19 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                   12         c          1100
+    19 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                          10         a          1010
+    19 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 1         1             1
+    19 $flatten\gold.$0\q[3:0]                                                                  7         7          0111
+    19 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                0         0             0
+    19 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                   6         6          0110
+    19 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                          5         5          0101
+    19 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 1         1             1
+    19 \gate.clk                                                                                1         1             1
+    19 \gate.q                                                                                 12         c          1100
+    19 \gate_q                                                                                 12         c          1100
+    19 \gold.clk                                                                                1         1             1
+    19 \gold.q                                                                                  6         6          0110
+    19 \gold_q                                                                                  6         6          0110
+    19 \in_clk                                                                                  1         1             1
+    19 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    20 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    20 $flatten\gate.$0\q[3:0]                                                                 14         e          1110
+    20 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                1         1             1
+    20 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                   14         e          1110
+    20 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                          12         c          1100
+    20 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 0         0             0
+    20 $flatten\gold.$0\q[3:0]                                                                  7         7          0111
+    20 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                1         1             1
+    20 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                   7         7          0111
+    20 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                          6         6          0110
+    20 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 0         0             0
+    20 \gate.clk                                                                                0         0             0
+    20 \gate.q                                                                                 12         c          1100
+    20 \gate_q                                                                                 12         c          1100
+    20 \gold.clk                                                                                0         0             0
+    20 \gold.q                                                                                  6         6          0110
+    20 \gold_q                                                                                  6         6          0110
+    20 \in_clk                                                                                  0         0             0
+    20 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    21 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    21 $flatten\gate.$0\q[3:0]                                                                  0         0          0000
+    21 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                0         0             0
+    21 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                   14         e          1110
+    21 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                          12         c          1100
+    21 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 1         1             1
+    21 $flatten\gold.$0\q[3:0]                                                                  8         8          1000
+    21 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                0         0             0
+    21 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                   7         7          0111
+    21 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                          6         6          0110
+    21 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 1         1             1
+    21 \gate.clk                                                                                1         1             1
+    21 \gate.q                                                                                 14         e          1110
+    21 \gate_q                                                                                 14         e          1110
+    21 \gold.clk                                                                                1         1             1
+    21 \gold.q                                                                                  7         7          0111
+    21 \gold_q                                                                                  7         7          0111
+    21 \in_clk                                                                                  1         1             1
+    21 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    22 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    22 $flatten\gate.$0\q[3:0]                                                                  0         0          0000
+    22 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                1         1             1
+    22 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                    0         0          0000
+    22 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                          14         e          1110
+    22 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 0         0             0
+    22 $flatten\gold.$0\q[3:0]                                                                  8         8          1000
+    22 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                1         1             1
+    22 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                   8         8          1000
+    22 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                          7         7          0111
+    22 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 0         0             0
+    22 \gate.clk                                                                                0         0             0
+    22 \gate.q                                                                                 14         e          1110
+    22 \gate_q                                                                                 14         e          1110
+    22 \gold.clk                                                                                0         0             0
+    22 \gold.q                                                                                  7         7          0111
+    22 \gold_q                                                                                  7         7          0111
+    22 \in_clk                                                                                  0         0             0
+    22 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    23 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    23 $flatten\gate.$0\q[3:0]                                                                  0         0          0000
+    23 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                0         0             0
+    23 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                    0         0          0000
+    23 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                          14         e          1110
+    23 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 0         0             0
+    23 $flatten\gold.$0\q[3:0]                                                                  8         8          1000
+    23 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                0         0             0
+    23 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                   8         8          1000
+    23 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                          7         7          0111
+    23 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 0         0             0
+    23 \gate.clk                                                                                0         0             0
+    23 \gate.q                                                                                 14         e          1110
+    23 \gate_q                                                                                 14         e          1110
+    23 \gold.clk                                                                                0         0             0
+    23 \gold.q                                                                                  7         7          0111
+    23 \gold_q                                                                                  7         7          0111
+    23 \in_clk                                                                                  0         0             0
+    23 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    24 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    24 $flatten\gate.$0\q[3:0]                                                                  2         2          0010
+    24 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                0         0             0
+    24 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                    0         0          0000
+    24 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                          14         e          1110
+    24 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 1         1             1
+    24 $flatten\gold.$0\q[3:0]                                                                  9         9          1001
+    24 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                0         0             0
+    24 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                   8         8          1000
+    24 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                          7         7          0111
+    24 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 1         1             1
+    24 \gate.clk                                                                                1         1             1
+    24 \gate.q                                                                                  0         0          0000
+    24 \gate_q                                                                                  0         0          0000
+    24 \gold.clk                                                                                1         1             1
+    24 \gold.q                                                                                  8         8          1000
+    24 \gold_q                                                                                  8         8          1000
+    24 \in_clk                                                                                  1         1             1
+    24 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    25 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    25 $flatten\gate.$0\q[3:0]                                                                  2         2          0010
+    25 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                1         1             1
+    25 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                    2         2          0010
+    25 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                           0         0          0000
+    25 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 0         0             0
+    25 $flatten\gold.$0\q[3:0]                                                                  9         9          1001
+    25 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                1         1             1
+    25 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                   9         9          1001
+    25 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                          8         8          1000
+    25 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 0         0             0
+    25 \gate.clk                                                                                0         0             0
+    25 \gate.q                                                                                  0         0          0000
+    25 \gate_q                                                                                  0         0          0000
+    25 \gold.clk                                                                                0         0             0
+    25 \gold.q                                                                                  8         8          1000
+    25 \gold_q                                                                                  8         8          1000
+    25 \in_clk                                                                                  0         0             0
+    25 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    26 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    26 $flatten\gate.$0\q[3:0]                                                                  4         4          0100
+    26 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                0         0             0
+    26 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                    2         2          0010
+    26 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                           0         0          0000
+    26 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 1         1             1
+    26 $flatten\gold.$0\q[3:0]                                                                 10         a          1010
+    26 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                0         0             0
+    26 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                   9         9          1001
+    26 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                          8         8          1000
+    26 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 1         1             1
+    26 \gate.clk                                                                                1         1             1
+    26 \gate.q                                                                                  2         2          0010
+    26 \gate_q                                                                                  2         2          0010
+    26 \gold.clk                                                                                1         1             1
+    26 \gold.q                                                                                  9         9          1001
+    26 \gold_q                                                                                  9         9          1001
+    26 \in_clk                                                                                  1         1             1
+    26 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    27 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    27 $flatten\gate.$0\q[3:0]                                                                  4         4          0100
+    27 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                1         1             1
+    27 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                    4         4          0100
+    27 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                           2         2          0010
+    27 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 0         0             0
+    27 $flatten\gold.$0\q[3:0]                                                                 10         a          1010
+    27 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                1         1             1
+    27 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                  10         a          1010
+    27 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                          9         9          1001
+    27 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 0         0             0
+    27 \gate.clk                                                                                0         0             0
+    27 \gate.q                                                                                  2         2          0010
+    27 \gate_q                                                                                  2         2          0010
+    27 \gold.clk                                                                                0         0             0
+    27 \gold.q                                                                                  9         9          1001
+    27 \gold_q                                                                                  9         9          1001
+    27 \in_clk                                                                                  0         0             0
+    27 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    28 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    28 $flatten\gate.$0\q[3:0]                                                                  6         6          0110
+    28 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                0         0             0
+    28 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                    4         4          0100
+    28 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                           2         2          0010
+    28 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 1         1             1
+    28 $flatten\gold.$0\q[3:0]                                                                 11         b          1011
+    28 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                0         0             0
+    28 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                  10         a          1010
+    28 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                          9         9          1001
+    28 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 1         1             1
+    28 \gate.clk                                                                                1         1             1
+    28 \gate.q                                                                                  4         4          0100
+    28 \gate_q                                                                                  4         4          0100
+    28 \gold.clk                                                                                1         1             1
+    28 \gold.q                                                                                 10         a          1010
+    28 \gold_q                                                                                 10         a          1010
+    28 \in_clk                                                                                  1         1             1
+    28 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    29 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    29 $flatten\gate.$0\q[3:0]                                                                  6         6          0110
+    29 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                1         1             1
+    29 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                    6         6          0110
+    29 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                           4         4          0100
+    29 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 0         0             0
+    29 $flatten\gold.$0\q[3:0]                                                                 11         b          1011
+    29 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                1         1             1
+    29 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                  11         b          1011
+    29 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                         10         a          1010
+    29 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 0         0             0
+    29 \gate.clk                                                                                0         0             0
+    29 \gate.q                                                                                  4         4          0100
+    29 \gate_q                                                                                  4         4          0100
+    29 \gold.clk                                                                                0         0             0
+    29 \gold.q                                                                                 10         a          1010
+    29 \gold_q                                                                                 10         a          1010
+    29 \in_clk                                                                                  0         0             0
+    29 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    30 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    30 $flatten\gate.$0\q[3:0]                                                                  8         8          1000
+    30 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                0         0             0
+    30 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                    6         6          0110
+    30 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                           4         4          0100
+    30 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 1         1             1
+    30 $flatten\gold.$0\q[3:0]                                                                 12         c          1100
+    30 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                0         0             0
+    30 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                  11         b          1011
+    30 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                         10         a          1010
+    30 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 1         1             1
+    30 \gate.clk                                                                                1         1             1
+    30 \gate.q                                                                                  6         6          0110
+    30 \gate_q                                                                                  6         6          0110
+    30 \gold.clk                                                                                1         1             1
+    30 \gold.q                                                                                 11         b          1011
+    30 \gold_q                                                                                 11         b          1011
+    30 \in_clk                                                                                  1         1             1
+    30 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    31 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    31 $flatten\gate.$0\q[3:0]                                                                  8         8          1000
+    31 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                1         1             1
+    31 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                    8         8          1000
+    31 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                           6         6          0110
+    31 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 0         0             0
+    31 $flatten\gold.$0\q[3:0]                                                                 12         c          1100
+    31 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                1         1             1
+    31 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                  12         c          1100
+    31 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                         11         b          1011
+    31 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 0         0             0
+    31 \gate.clk                                                                                1         1             1
+    31 \gate.q                                                                                  6         6          0110
+    31 \gate_q                                                                                  6         6          0110
+    31 \gold.clk                                                                                1         1             1
+    31 \gold.q                                                                                 11         b          1011
+    31 \gold_q                                                                                 11         b          1011
+    31 \in_clk                                                                                  1         1             1
+    31 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    32 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    32 $flatten\gate.$0\q[3:0]                                                                  8         8          1000
+    32 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                1         1             1
+    32 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                    8         8          1000
+    32 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                           6         6          0110
+    32 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 0         0             0
+    32 $flatten\gold.$0\q[3:0]                                                                 12         c          1100
+    32 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                1         1             1
+    32 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                  12         c          1100
+    32 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                         11         b          1011
+    32 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 0         0             0
+    32 \gate.clk                                                                                0         0             0
+    32 \gate.q                                                                                  6         6          0110
+    32 \gate_q                                                                                  6         6          0110
+    32 \gold.clk                                                                                0         0             0
+    32 \gold.q                                                                                 11         b          1011
+    32 \gold_q                                                                                 11         b          1011
+    32 \in_clk                                                                                  0         0             0
+    32 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    33 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    33 $flatten\gate.$0\q[3:0]                                                                 10         a          1010
+    33 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                0         0             0
+    33 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                    8         8          1000
+    33 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                           6         6          0110
+    33 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 1         1             1
+    33 $flatten\gold.$0\q[3:0]                                                                 13         d          1101
+    33 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                0         0             0
+    33 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                  12         c          1100
+    33 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                         11         b          1011
+    33 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 1         1             1
+    33 \gate.clk                                                                                1         1             1
+    33 \gate.q                                                                                  8         8          1000
+    33 \gate_q                                                                                  8         8          1000
+    33 \gold.clk                                                                                1         1             1
+    33 \gold.q                                                                                 12         c          1100
+    33 \gold_q                                                                                 12         c          1100
+    33 \in_clk                                                                                  1         1             1
+    33 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    34 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    34 $flatten\gate.$0\q[3:0]                                                                 10         a          1010
+    34 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                1         1             1
+    34 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                   10         a          1010
+    34 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                           8         8          1000
+    34 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 0         0             0
+    34 $flatten\gold.$0\q[3:0]                                                                 13         d          1101
+    34 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                1         1             1
+    34 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                  13         d          1101
+    34 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                         12         c          1100
+    34 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 0         0             0
+    34 \gate.clk                                                                                0         0             0
+    34 \gate.q                                                                                  8         8          1000
+    34 \gate_q                                                                                  8         8          1000
+    34 \gold.clk                                                                                0         0             0
+    34 \gold.q                                                                                 12         c          1100
+    34 \gold_q                                                                                 12         c          1100
+    34 \in_clk                                                                                  0         0             0
+    34 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    35 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    35 $flatten\gate.$0\q[3:0]                                                                 10         a          1010
+    35 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                0         0             0
+    35 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                   10         a          1010
+    35 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                           8         8          1000
+    35 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 0         0             0
+    35 $flatten\gold.$0\q[3:0]                                                                 13         d          1101
+    35 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                0         0             0
+    35 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                  13         d          1101
+    35 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                         12         c          1100
+    35 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 0         0             0
+    35 \gate.clk                                                                                0         0             0
+    35 \gate.q                                                                                  8         8          1000
+    35 \gate_q                                                                                  8         8          1000
+    35 \gold.clk                                                                                0         0             0
+    35 \gold.q                                                                                 12         c          1100
+    35 \gold_q                                                                                 12         c          1100
+    35 \in_clk                                                                                  0         0             0
+    35 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    36 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    36 $flatten\gate.$0\q[3:0]                                                                 12         c          1100
+    36 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                0         0             0
+    36 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                   10         a          1010
+    36 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                           8         8          1000
+    36 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 1         1             1
+    36 $flatten\gold.$0\q[3:0]                                                                 14         e          1110
+    36 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                0         0             0
+    36 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                  13         d          1101
+    36 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                         12         c          1100
+    36 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 1         1             1
+    36 \gate.clk                                                                                1         1             1
+    36 \gate.q                                                                                 10         a          1010
+    36 \gate_q                                                                                 10         a          1010
+    36 \gold.clk                                                                                1         1             1
+    36 \gold.q                                                                                 13         d          1101
+    36 \gold_q                                                                                 13         d          1101
+    36 \in_clk                                                                                  1         1             1
+    36 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    37 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    37 $flatten\gate.$0\q[3:0]                                                                 12         c          1100
+    37 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                1         1             1
+    37 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                   12         c          1100
+    37 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                          10         a          1010
+    37 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 0         0             0
+    37 $flatten\gold.$0\q[3:0]                                                                 14         e          1110
+    37 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                1         1             1
+    37 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                  14         e          1110
+    37 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                         13         d          1101
+    37 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 0         0             0
+    37 \gate.clk                                                                                0         0             0
+    37 \gate.q                                                                                 10         a          1010
+    37 \gate_q                                                                                 10         a          1010
+    37 \gold.clk                                                                                0         0             0
+    37 \gold.q                                                                                 13         d          1101
+    37 \gold_q                                                                                 13         d          1101
+    37 \in_clk                                                                                  0         0             0
+    37 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    38 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    38 $flatten\gate.$0\q[3:0]                                                                 14         e          1110
+    38 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                0         0             0
+    38 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                   12         c          1100
+    38 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                          10         a          1010
+    38 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 1         1             1
+    38 $flatten\gold.$0\q[3:0]                                                                 15         f          1111
+    38 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                0         0             0
+    38 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                  14         e          1110
+    38 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                         13         d          1101
+    38 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 1         1             1
+    38 \gate.clk                                                                                1         1             1
+    38 \gate.q                                                                                 12         c          1100
+    38 \gate_q                                                                                 12         c          1100
+    38 \gold.clk                                                                                1         1             1
+    38 \gold.q                                                                                 14         e          1110
+    38 \gold_q                                                                                 14         e          1110
+    38 \in_clk                                                                                  1         1             1
+    38 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    39 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    39 $flatten\gate.$0\q[3:0]                                                                 14         e          1110
+    39 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                1         1             1
+    39 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                   14         e          1110
+    39 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                          12         c          1100
+    39 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 0         0             0
+    39 $flatten\gold.$0\q[3:0]                                                                 15         f          1111
+    39 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                1         1             1
+    39 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                  15         f          1111
+    39 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                         14         e          1110
+    39 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 0         0             0
+    39 \gate.clk                                                                                0         0             0
+    39 \gate.q                                                                                 12         c          1100
+    39 \gate_q                                                                                 12         c          1100
+    39 \gold.clk                                                                                0         0             0
+    39 \gold.q                                                                                 14         e          1110
+    39 \gold_q                                                                                 14         e          1110
+    39 \in_clk                                                                                  0         0             0
+    39 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    40 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    40 $flatten\gate.$0\q[3:0]                                                                 14         e          1110
+    40 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                0         0             0
+    40 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                   14         e          1110
+    40 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                          12         c          1100
+    40 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 0         0             0
+    40 $flatten\gold.$0\q[3:0]                                                                 15         f          1111
+    40 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                0         0             0
+    40 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                  15         f          1111
+    40 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                         14         e          1110
+    40 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 0         0             0
+    40 \gate.clk                                                                                0         0             0
+    40 \gate.q                                                                                 12         c          1100
+    40 \gate_q                                                                                 12         c          1100
+    40 \gold.clk                                                                                0         0             0
+    40 \gold.q                                                                                 14         e          1110
+    40 \gold_q                                                                                 14         e          1110
+    40 \in_clk                                                                                  0         0             0
+    40 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    41 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    41 $flatten\gate.$0\q[3:0]                                                                  0         0          0000
+    41 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                0         0             0
+    41 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                   14         e          1110
+    41 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                          12         c          1100
+    41 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 1         1             1
+    41 $flatten\gold.$0\q[3:0]                                                                  0         0          0000
+    41 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                0         0             0
+    41 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                  15         f          1111
+    41 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                         14         e          1110
+    41 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 1         1             1
+    41 \gate.clk                                                                                1         1             1
+    41 \gate.q                                                                                 14         e          1110
+    41 \gate_q                                                                                 14         e          1110
+    41 \gold.clk                                                                                1         1             1
+    41 \gold.q                                                                                 15         f          1111
+    41 \gold_q                                                                                 15         f          1111
+    41 \in_clk                                                                                  1         1             1
+    41 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    42 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    42 $flatten\gate.$0\q[3:0]                                                                  0         0          0000
+    42 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                1         1             1
+    42 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                    0         0          0000
+    42 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                          14         e          1110
+    42 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 0         0             0
+    42 $flatten\gold.$0\q[3:0]                                                                  0         0          0000
+    42 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                1         1             1
+    42 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                   0         0          0000
+    42 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                         15         f          1111
+    42 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 0         0             0
+    42 \gate.clk                                                                                0         0             0
+    42 \gate.q                                                                                 14         e          1110
+    42 \gate_q                                                                                 14         e          1110
+    42 \gold.clk                                                                                0         0             0
+    42 \gold.q                                                                                 15         f          1111
+    42 \gold_q                                                                                 15         f          1111
+    42 \in_clk                                                                                  0         0             0
+    42 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    43 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    43 $flatten\gate.$0\q[3:0]                                                                  0         0          0000
+    43 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                0         0             0
+    43 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                    0         0          0000
+    43 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                          14         e          1110
+    43 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 0         0             0
+    43 $flatten\gold.$0\q[3:0]                                                                  0         0          0000
+    43 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                0         0             0
+    43 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                   0         0          0000
+    43 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                         15         f          1111
+    43 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 0         0             0
+    43 \gate.clk                                                                                0         0             0
+    43 \gate.q                                                                                 14         e          1110
+    43 \gate_q                                                                                 14         e          1110
+    43 \gold.clk                                                                                0         0             0
+    43 \gold.q                                                                                 15         f          1111
+    43 \gold_q                                                                                 15         f          1111
+    43 \in_clk                                                                                  0         0             0
+    43 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    44 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    44 $flatten\gate.$0\q[3:0]                                                                  0         0          0000
+    44 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                0         0             0
+    44 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                    0         0          0000
+    44 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                          14         e          1110
+    44 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 0         0             0
+    44 $flatten\gold.$0\q[3:0]                                                                  0         0          0000
+    44 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                0         0             0
+    44 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                   0         0          0000
+    44 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                         15         f          1111
+    44 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 0         0             0
+    44 \gate.clk                                                                                0         0             0
+    44 \gate.q                                                                                 14         e          1110
+    44 \gate_q                                                                                 14         e          1110
+    44 \gold.clk                                                                                0         0             0
+    44 \gold.q                                                                                 15         f          1111
+    44 \gold_q                                                                                 15         f          1111
+    44 \in_clk                                                                                  0         0             0
+    44 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    45 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    45 $flatten\gate.$0\q[3:0]                                                                  0         0          0000
+    45 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                0         0             0
+    45 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                    0         0          0000
+    45 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                          14         e          1110
+    45 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 0         0             0
+    45 $flatten\gold.$0\q[3:0]                                                                  0         0          0000
+    45 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                0         0             0
+    45 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                   0         0          0000
+    45 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                         15         f          1111
+    45 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 0         0             0
+    45 \gate.clk                                                                                0         0             0
+    45 \gate.q                                                                                 14         e          1110
+    45 \gate_q                                                                                 14         e          1110
+    45 \gold.clk                                                                                0         0             0
+    45 \gold.q                                                                                 15         f          1111
+    45 \gold_q                                                                                 15         f          1111
+    45 \in_clk                                                                                  0         0             0
+    45 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    46 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    46 $flatten\gate.$0\q[3:0]                                                                  0         0          0000
+    46 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                0         0             0
+    46 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                    0         0          0000
+    46 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                          14         e          1110
+    46 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 0         0             0
+    46 $flatten\gold.$0\q[3:0]                                                                  0         0          0000
+    46 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                0         0             0
+    46 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                   0         0          0000
+    46 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                         15         f          1111
+    46 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 0         0             0
+    46 \gate.clk                                                                                0         0             0
+    46 \gate.q                                                                                 14         e          1110
+    46 \gate_q                                                                                 14         e          1110
+    46 \gold.clk                                                                                0         0             0
+    46 \gold.q                                                                                 15         f          1111
+    46 \gold_q                                                                                 15         f          1111
+    46 \in_clk                                                                                  0         0             0
+    46 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    47 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    47 $flatten\gate.$0\q[3:0]                                                                  0         0          0000
+    47 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                0         0             0
+    47 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                    0         0          0000
+    47 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                          14         e          1110
+    47 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 0         0             0
+    47 $flatten\gold.$0\q[3:0]                                                                  0         0          0000
+    47 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                0         0             0
+    47 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                   0         0          0000
+    47 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                         15         f          1111
+    47 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 0         0             0
+    47 \gate.clk                                                                                0         0             0
+    47 \gate.q                                                                                 14         e          1110
+    47 \gate_q                                                                                 14         e          1110
+    47 \gold.clk                                                                                0         0             0
+    47 \gold.q                                                                                 15         f          1111
+    47 \gold_q                                                                                 15         f          1111
+    47 \in_clk                                                                                  0         0             0
+    47 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    48 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    48 $flatten\gate.$0\q[3:0]                                                                  0         0          0000
+    48 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                0         0             0
+    48 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                    0         0          0000
+    48 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                          14         e          1110
+    48 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 0         0             0
+    48 $flatten\gold.$0\q[3:0]                                                                  0         0          0000
+    48 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                0         0             0
+    48 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                   0         0          0000
+    48 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                         15         f          1111
+    48 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 0         0             0
+    48 \gate.clk                                                                                0         0             0
+    48 \gate.q                                                                                 14         e          1110
+    48 \gate_q                                                                                 14         e          1110
+    48 \gold.clk                                                                                0         0             0
+    48 \gold.q                                                                                 15         f          1111
+    48 \gold_q                                                                                 15         f          1111
+    48 \in_clk                                                                                  0         0             0
+    48 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    49 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    49 $flatten\gate.$0\q[3:0]                                                                  0         0          0000
+    49 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                0         0             0
+    49 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                    0         0          0000
+    49 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                          14         e          1110
+    49 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 0         0             0
+    49 $flatten\gold.$0\q[3:0]                                                                  0         0          0000
+    49 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                0         0             0
+    49 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                   0         0          0000
+    49 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                         15         f          1111
+    49 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 0         0             0
+    49 \gate.clk                                                                                0         0             0
+    49 \gate.q                                                                                 14         e          1110
+    49 \gate_q                                                                                 14         e          1110
+    49 \gold.clk                                                                                0         0             0
+    49 \gold.q                                                                                 15         f          1111
+    49 \gold_q                                                                                 15         f          1111
+    49 \in_clk                                                                                  0         0             0
+    49 \trigger                                                                                 1         1             1
+  ---- ------------------------------------------------------------------------------ ----------- --------- -------------
+    50 $auto$miter.cc:242:create_miter_equiv$28                                                 0         0             0
+    50 $flatten\gate.$0\q[3:0]                                                                  0         0          0000
+    50 $flatten\gate.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$11                0         0             0
+    50 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$9                    0         0          0000
+    50 $flatten\gate.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$7                          14         e          1110
+    50 $flatten\gate.$auto$rtlil.cc:2525:Eqx$14                                                 0         0             0
+    50 $flatten\gold.$0\q[3:0]                                                                  0         0          0000
+    50 $flatten\gold.$auto$clk2fflogic.cc:77:sample_control_edge$\clk#sampled$21                0         0             0
+    50 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$$0\q[3:0]#sampled$19                   0         0          0000
+    50 $flatten\gold.$auto$clk2fflogic.cc:91:sample_data$\q#sampled$17                         15         f          1111
+    50 $flatten\gold.$auto$rtlil.cc:2525:Eqx$24                                                 0         0             0
+    50 \gate.clk                                                                                0         0             0
+    50 \gate.q                                                                                 14         e          1110
+    50 \gate_q                                                                                 14         e          1110
+    50 \gold.clk                                               

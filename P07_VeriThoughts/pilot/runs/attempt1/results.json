@@ -1,0 +1,279 @@
+[
+  {
+    "id": "comb_demorgan",
+    "frozen_prediction": "pass",
+    "independent_truth": "equivalent",
+    "original": {
+      "status": "pass",
+      "stdout_list": [
+        0
+      ],
+      "success": true
+    },
+    "port": {
+      "status": "pass",
+      "returncodes": [
+        0
+      ],
+      "checks": 1,
+      "subprocess_statuses": [
+        "completed"
+      ],
+      "guarded_status": "pass",
+      "bound": 50
+    },
+    "oracle": {
+      "status": "equivalent_under_reviewed_contract",
+      "first_witness": null,
+      "observations": 4,
+      "proof": "exhaustive four valuations of both Boolean inputs",
+      "simulation_model_agreement": true
+    },
+    "original_port_agreement": true
+  },
+  {
+    "id": "comb_mismatch",
+    "frozen_prediction": "fail",
+    "independent_truth": "non_equivalent",
+    "original": {
+      "status": "fail",
+      "stdout_list": [
+        1
+      ],
+      "success": false
+    },
+    "port": {
+      "status": "fail",
+      "returncodes": [
+        1
+      ],
+      "checks": 1,
+      "subprocess_statuses": [
+        "completed"
+      ],
+      "guarded_status": "fail",
+      "bound": 50
+    },
+    "oracle": {
+      "status": "non_equivalent",
+      "first_witness": [
+        1,
+        0,
+        1
+      ],
+      "observations": 4,
+      "proof": "exhaustive four valuations of both Boolean inputs",
+      "simulation_model_agreement": true
+    },
+    "original_port_agreement": true
+  },
+  {
+    "id": "seq_modular",
+    "frozen_prediction": "pass",
+    "independent_truth": "equivalent_under_zero_init",
+    "original": {
+      "status": "pass",
+      "stdout_list": [
+        0
+      ],
+      "success": true
+    },
+    "port": {
+      "status": "pass",
+      "returncodes": [
+        0
+      ],
+      "checks": 1,
+      "subprocess_statuses": [
+        "completed"
+      ],
+      "guarded_status": "pass",
+      "bound": 50
+    },
+    "oracle": {
+      "status": "equivalent_under_reviewed_contract",
+      "first_witness": null,
+      "observations": 261,
+      "proof": "exhaustive deterministic joint-state orbit from zero: 16 states; clock stuttering leaves state unchanged",
+      "simulation_model_agreement": true
+    },
+    "original_port_agreement": true
+  },
+  {
+    "id": "seq_increment",
+    "frozen_prediction": "fail",
+    "independent_truth": "non_equivalent",
+    "original": {
+      "status": "fail",
+      "stdout_list": [
+        1
+      ],
+      "success": false
+    },
+    "port": {
+      "status": "fail",
+      "returncodes": [
+        1
+      ],
+      "checks": 1,
+      "subprocess_statuses": [
+        "completed"
+      ],
+      "guarded_status": "fail",
+      "bound": 50
+    },
+    "oracle": {
+      "status": "non_equivalent",
+      "first_witness": [
+        1,
+        1,
+        2
+      ],
+      "observations": 261,
+      "proof": "exhaustive deterministic joint-state orbit from zero: 16 states; clock stuttering leaves state unchanged",
+      "simulation_model_agreement": true
+    },
+    "original_port_agreement": true
+  },
+  {
+    "id": "delayed_pulse",
+    "frozen_prediction": "pass",
+    "independent_truth": "non_equivalent",
+    "original": {
+      "status": "pass",
+      "stdout_list": [
+        0
+      ],
+      "success": true
+    },
+    "port": {
+      "status": "pass",
+      "returncodes": [
+        0
+      ],
+      "checks": 1,
+      "subprocess_statuses": [
+        "completed"
+      ],
+      "guarded_status": "pass",
+      "bound": 50
+    },
+    "oracle": {
+      "status": "non_equivalent",
+      "first_witness": [
+        60,
+        1,
+        0
+      ],
+      "observations": 261,
+      "proof": "exhaustive deterministic joint-state orbit from zero: 256 states; clock stuttering leaves state unchanged",
+      "simulation_model_agreement": true
+    },
+    "original_port_agreement": true,
+    "novel_bound160": {
+      "status": "fail",
+      "returncodes": [
+        1
+      ],
+      "checks": 1,
+      "subprocess_statuses": [
+        "completed"
+      ],
+      "guarded_status": "fail",
+      "bound": 160
+    }
+  },
+  {
+    "id": "empty_discovery",
+    "frozen_prediction": "pass",
+    "independent_truth": "invalid_candidate",
+    "original": {
+      "status": "pass",
+      "stdout_list": [],
+      "success": true
+    },
+    "port": {
+      "status": "pass",
+      "returncodes": [],
+      "checks": 0,
+      "subprocess_statuses": [],
+      "guarded_status": "invalid",
+      "bound": 50
+    },
+    "oracle": {
+      "status": "invalid_candidate",
+      "syntax_returncodes": [
+        0,
+        2
+      ]
+    },
+    "original_port_agreement": true
+  },
+  {
+    "id": "helper_inline",
+    "frozen_prediction": "fail",
+    "independent_truth": "equivalent_at_top_interface",
+    "original": {
+      "status": "fail",
+      "stdout_list": [
+        1,
+        0
+      ],
+      "success": false
+    },
+    "port": {
+      "status": "fail",
+      "returncodes": [
+        1,
+        0
+      ],
+      "checks": 2,
+      "subprocess_statuses": [
+        "completed",
+        "completed"
+      ],
+      "guarded_status": "fail",
+      "bound": 50
+    },
+    "oracle": {
+      "status": "equivalent_under_reviewed_contract",
+      "first_witness": null,
+      "observations": 4,
+      "proof": "exhaustive four valuations of both Boolean inputs",
+      "simulation_model_agreement": true
+    },
+    "original_port_agreement": true
+  },
+  {
+    "id": "syntax_error",
+    "frozen_prediction": "fail",
+    "independent_truth": "invalid_candidate",
+    "original": {
+      "status": "fail",
+      "stdout_list": [
+        1
+      ],
+      "success": false
+    },
+    "port": {
+      "status": "fail",
+      "returncodes": [
+        1
+      ],
+      "checks": 1,
+      "subprocess_statuses": [
+        "completed"
+      ],
+      "guarded_status": "fail",
+      "bound": 50
+    },
+    "oracle": {
+      "status": "invalid_candidate",
+      "syntax_returncodes": [
+        0,
+        2
+      ]
+    },
+    "original_port_agreement": true
+  }
+]

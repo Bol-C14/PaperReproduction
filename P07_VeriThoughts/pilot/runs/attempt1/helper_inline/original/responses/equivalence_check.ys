@@ -1,0 +1,8 @@
+
+        read_verilog /work/helper_inline/original/responses/verilog_truth.v
+        read_verilog /work/helper_inline/original/responses/verilog_gen.v
+        prep; proc; opt; memory;
+        clk2fflogic;
+        miter -equiv -flatten top1 top miter
+        sat -seq 50 -verify -prove trigger 0 -show-all -show-inputs -show-outputs -set-init-zero miter
+        

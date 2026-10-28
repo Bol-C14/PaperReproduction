@@ -1,0 +1,488 @@
+[
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "/src/original_driver.py",
+      "--results_path",
+      "/work/comb_demorgan/original/responses.jsonl",
+      "--samples_per_question",
+      "1",
+      "--yosys_location",
+      "/work/comb_demorgan/original/yosys.env",
+      "--benchmark_path",
+      "/work/comb_demorgan/original/benchmark.jsonl"
+    ],
+    "timeout_seconds": 400,
+    "attempt": 1,
+    "returncode": 0,
+    "status": "completed",
+    "wall_seconds": 0.1270213259999764
+  },
+  {
+    "argv": [
+      "yosys",
+      "-s",
+      "/work/comb_demorgan/port/top.ys"
+    ],
+    "timeout_seconds": 150,
+    "attempt": 2,
+    "returncode": 0,
+    "status": "completed",
+    "wall_seconds": 0.033358489999955054
+  },
+  {
+    "argv": [
+      "iverilog",
+      "-g2012",
+      "-s",
+      "tb",
+      "-o",
+      "/work/comb_demorgan/oracle/oracle.vvp",
+      "/work/comb_demorgan/oracle/oracle.v"
+    ],
+    "timeout_seconds": 20,
+    "attempt": 3,
+    "returncode": 0,
+    "status": "completed",
+    "wall_seconds": 0.005860062000010657
+  },
+  {
+    "argv": [
+      "vvp",
+      "/work/comb_demorgan/oracle/oracle.vvp"
+    ],
+    "timeout_seconds": 20,
+    "attempt": 4,
+    "returncode": 0,
+    "status": "completed",
+    "wall_seconds": 0.003501714999856631
+  },
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "/src/original_driver.py",
+      "--results_path",
+      "/work/comb_mismatch/original/responses.jsonl",
+      "--samples_per_question",
+      "1",
+      "--yosys_location",
+      "/work/comb_mismatch/original/yosys.env",
+      "--benchmark_path",
+      "/work/comb_mismatch/original/benchmark.jsonl"
+    ],
+    "timeout_seconds": 400,
+    "attempt": 5,
+    "returncode": 0,
+    "status": "completed",
+    "wall_seconds": 0.13020572499999616
+  },
+  {
+    "argv": [
+      "yosys",
+      "-s",
+      "/work/comb_mismatch/port/top.ys"
+    ],
+    "timeout_seconds": 150,
+    "attempt": 6,
+    "returncode": 1,
+    "status": "completed",
+    "wall_seconds": 0.02523496799994973
+  },
+  {
+    "argv": [
+      "iverilog",
+      "-g2012",
+      "-s",
+      "tb",
+      "-o",
+      "/work/comb_mismatch/oracle/oracle.vvp",
+      "/work/comb_mismatch/oracle/oracle.v"
+    ],
+    "timeout_seconds": 20,
+    "attempt": 7,
+    "returncode": 0,
+    "status": "completed",
+    "wall_seconds": 0.004894264000085968
+  },
+  {
+    "argv": [
+      "vvp",
+      "/work/comb_mismatch/oracle/oracle.vvp"
+    ],
+    "timeout_seconds": 20,
+    "attempt": 8,
+    "returncode": 0,
+    "status": "completed",
+    "wall_seconds": 0.003431537999858847
+  },
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "/src/original_driver.py",
+      "--results_path",
+      "/work/seq_modular/original/responses.jsonl",
+      "--samples_per_question",
+      "1",
+      "--yosys_location",
+      "/work/seq_modular/original/yosys.env",
+      "--benchmark_path",
+      "/work/seq_modular/original/benchmark.jsonl"
+    ],
+    "timeout_seconds": 400,
+    "attempt": 9,
+    "returncode": 0,
+    "status": "completed",
+    "wall_seconds": 0.45467137200012075
+  },
+  {
+    "argv": [
+      "yosys",
+      "-s",
+      "/work/seq_modular/port/top.ys"
+    ],
+    "timeout_seconds": 150,
+    "attempt": 10,
+    "returncode": 0,
+    "status": "completed",
+    "wall_seconds": 0.3014967109997997
+  },
+  {
+    "argv": [
+      "iverilog",
+      "-g2012",
+      "-s",
+      "tb",
+      "-o",
+      "/work/seq_modular/oracle/oracle.vvp",
+      "/work/seq_modular/oracle/oracle.v"
+    ],
+    "timeout_seconds": 20,
+    "attempt": 11,
+    "returncode": 0,
+    "status": "completed",
+    "wall_seconds": 0.005220387999997911
+  },
+  {
+    "argv": [
+      "vvp",
+      "/work/seq_modular/oracle/oracle.vvp"
+    ],
+    "timeout_seconds": 20,
+    "attempt": 12,
+    "returncode": 0,
+    "status": "completed",
+    "wall_seconds": 0.003282703999957448
+  },
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "/src/original_driver.py",
+      "--results_path",
+      "/work/seq_increment/original/responses.jsonl",
+      "--samples_per_question",
+      "1",
+      "--yosys_location",
+      "/work/seq_increment/original/yosys.env",
+      "--benchmark_path",
+      "/work/seq_increment/original/benchmark.jsonl"
+    ],
+    "timeout_seconds": 400,
+    "attempt": 13,
+    "returncode": 0,
+    "status": "completed",
+    "wall_seconds": 0.16821263800011366
+  },
+  {
+    "argv": [
+      "yosys",
+      "-s",
+      "/work/seq_increment/port/top.ys"
+    ],
+    "timeout_seconds": 150,
+    "attempt": 14,
+    "returncode": 1,
+    "status": "completed",
+    "wall_seconds": 0.08750340000005963
+  },
+  {
+    "argv": [
+      "iverilog",
+      "-g2012",
+      "-s",
+      "tb",
+      "-o",
+      "/work/seq_increment/oracle/oracle.vvp",
+      "/work/seq_increment/oracle/oracle.v"
+    ],
+    "timeout_seconds": 20,
+    "attempt": 15,
+    "returncode": 0,
+    "status": "completed",
+    "wall_seconds": 0.005639612999857491
+  },
+  {
+    "argv": [
+      "vvp",
+      "/work/seq_increment/oracle/oracle.vvp"
+    ],
+    "timeout_seconds": 20,
+    "attempt": 16,
+    "returncode": 0,
+    "status": "completed",
+    "wall_seconds": 0.003945588000078715
+  },
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "/src/original_driver.py",
+      "--results_path",
+      "/work/delayed_pulse/original/responses.jsonl",
+      "--samples_per_question",
+      "1",
+      "--yosys_location",
+      "/work/delayed_pulse/original/yosys.env",
+      "--benchmark_path",
+      "/work/delayed_pulse/original/benchmark.jsonl"
+    ],
+    "timeout_seconds": 400,
+    "attempt": 17,
+    "returncode": 0,
+    "status": "completed",
+    "wall_seconds": 0.22415551499989306
+  },
+  {
+    "argv": [
+      "yosys",
+      "-s",
+      "/work/delayed_pulse/port/top.ys"
+    ],
+    "timeout_seconds": 150,
+    "attempt": 18,
+    "returncode": 0,
+    "status": "completed",
+    "wall_seconds": 0.1081709889999729
+  },
+  {
+    "argv": [
+      "iverilog",
+      "-g2012",
+      "-s",
+      "tb",
+      "-o",
+      "/work/delayed_pulse/oracle/oracle.vvp",
+      "/work/delayed_pulse/oracle/oracle.v"
+    ],
+    "timeout_seconds": 20,
+    "attempt": 19,
+    "returncode": 0,
+    "status": "completed",
+    "wall_seconds": 0.005230614000083733
+  },
+  {
+    "argv": [
+      "vvp",
+      "/work/delayed_pulse/oracle/oracle.vvp"
+    ],
+    "timeout_seconds": 20,
+    "attempt": 20,
+    "returncode": 0,
+    "status": "completed",
+    "wall_seconds": 0.0037141960001463303
+  },
+  {
+    "argv": [
+      "yosys",
+      "-s",
+      "/work/delayed_pulse/novel_bound160/top.ys"
+    ],
+    "timeout_seconds": 150,
+    "attempt": 21,
+    "returncode": 1,
+    "status": "completed",
+    "wall_seconds": 0.43556642000021384
+  },
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "/src/original_driver.py",
+      "--results_path",
+      "/work/empty_discovery/original/responses.jsonl",
+      "--samples_per_question",
+      "1",
+      "--yosys_location",
+      "/work/empty_discovery/original/yosys.env",
+      "--benchmark_path",
+      "/work/empty_discovery/original/benchmark.jsonl"
+    ],
+    "timeout_seconds": 400,
+    "attempt": 22,
+    "returncode": 0,
+    "status": "completed",
+    "wall_seconds": 0.0870794030001889
+  },
+  {
+    "argv": [
+      "iverilog",
+      "-g2012",
+      "-s",
+      "top",
+      "-o",
+      "/work/empty_discovery/oracle/gold.vvp",
+      "/src/fixtures/empty_discovery/gold.v"
+    ],
+    "timeout_seconds": 20,
+    "attempt": 23,
+    "returncode": 0,
+    "status": "completed",
+    "wall_seconds": 0.004888269999810291
+  },
+  {
+    "argv": [
+      "iverilog",
+      "-g2012",
+      "-s",
+      "top",
+      "-o",
+      "/work/empty_discovery/oracle/candidate.vvp",
+      "/src/fixtures/empty_discovery/candidate.v"
+    ],
+    "timeout_seconds": 20,
+    "attempt": 24,
+    "returncode": 2,
+    "status": "completed",
+    "wall_seconds": 0.0037821950004399696
+  },
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "/src/original_driver.py",
+      "--results_path",
+      "/work/helper_inline/original/responses.jsonl",
+      "--samples_per_question",
+      "1",
+      "--yosys_location",
+      "/work/helper_inline/original/yosys.env",
+      "--benchmark_path",
+      "/work/helper_inline/original/benchmark.jsonl"
+    ],
+    "timeout_seconds": 400,
+    "attempt": 25,
+    "returncode": 0,
+    "status": "completed",
+    "wall_seconds": 0.19622221500003434
+  },
+  {
+    "argv": [
+      "yosys",
+      "-s",
+      "/work/helper_inline/port/helper.ys"
+    ],
+    "timeout_seconds": 150,
+    "attempt": 26,
+    "returncode": 1,
+    "status": "completed",
+    "wall_seconds": 0.023908349000066664
+  },
+  {
+    "argv": [
+      "yosys",
+      "-s",
+      "/work/helper_inline/port/top.ys"
+    ],
+    "timeout_seconds": 150,
+    "attempt": 27,
+    "returncode": 0,
+    "status": "completed",
+    "wall_seconds": 0.0534648949997063
+  },
+  {
+    "argv": [
+      "iverilog",
+      "-g2012",
+      "-s",
+      "tb",
+      "-o",
+      "/work/helper_inline/oracle/oracle.vvp",
+      "/work/helper_inline/oracle/oracle.v"
+    ],
+    "timeout_seconds": 20,
+    "attempt": 28,
+    "returncode": 0,
+    "status": "completed",
+    "wall_seconds": 0.005628246000014769
+  },
+  {
+    "argv": [
+      "vvp",
+      "/work/helper_inline/oracle/oracle.vvp"
+    ],
+    "timeout_seconds": 20,
+    "attempt": 29,
+    "returncode": 0,
+    "status": "completed",
+    "wall_seconds": 0.0036993450003137696
+  },
+  {
+    "argv": [
+      "/usr/bin/python3",
+      "/src/original_driver.py",
+      "--results_path",
+      "/work/syntax_error/original/responses.jsonl",
+      "--samples_per_question",
+      "1",
+      "--yosys_location",
+      "/work/syntax_error/original/yosys.env",
+      "--benchmark_path",
+      "/work/syntax_error/original/benchmark.jsonl"
+    ],
+    "timeout_seconds": 400,
+    "attempt": 30,
+    "returncode": 0,
+    "status": "completed",
+    "wall_seconds": 0.11833467699989342
+  },
+  {
+    "argv": [
+      "yosys",
+      "-s",
+      "/work/syntax_error/port/top.ys"
+    ],
+    "timeout_seconds": 150,
+    "attempt": 31,
+    "returncode": 1,
+    "status": "completed",
+    "wall_seconds": 0.003999913999905402
+  },
+  {
+    "argv": [
+      "iverilog",
+      "-g2012",
+      "-s",
+      "top",
+      "-o",
+      "/work/syntax_error/oracle/gold.vvp",
+      "/src/fixtures/syntax_error/gold.v"
+    ],
+    "timeout_seconds": 20,
+    "attempt": 32,
+    "returncode": 0,
+    "status": "completed",
+    "wall_seconds": 0.014291348999904585
+  },
+  {
+    "argv": [
+      "iverilog",
+      "-g2012",
+      "-s",
+      "top",
+      "-o",
+      "/work/syntax_error/oracle/candidate.vvp",
+      "/src/fixtures/syntax_error/candidate.v"
+    ],
+    "timeout_seconds": 20,
+    "attempt": 33,
+    "returncode": 2,
+    "status": "completed",
+    "wall_seconds": 0.00508186500019292
+  }
+]

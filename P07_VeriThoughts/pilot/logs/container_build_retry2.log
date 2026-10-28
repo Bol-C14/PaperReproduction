@@ -1,0 +1,82 @@
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.32kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/debian:bookworm-slim@sha256:99c0b25c46d0214d5a2091092e7908907dcaecd6a962cde0ac700acee222b6f3
+#2 DONE 0.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/library/debian:bookworm-slim@sha256:99c0b25c46d0214d5a2091092e7908907dcaecd6a962cde0ac700acee222b6f3
+#4 CACHED
+
+#5 [internal] load build context
+#5 transferring context: 43B done
+#5 DONE 0.0s
+
+#6 [2/5] RUN apt-get update && apt-get install -y --no-install-recommends build-essential bison flex gawk pkg-config python3 python3-numpy iverilog ca-certificates  && mkdir -p /opt/provenance  && dpkg-query -W > /opt/provenance/dpkg-lock.tsv  && du -sb /var/lib/apt/lists > /opt/provenance/apt-list-bytes.txt  && rm -rf /var/lib/apt/lists/*
+#6 0.446 Ign:1 http://deb.debian.org/debian bookworm InRelease
+#6 5.452 Ign:2 http://deb.debian.org/debian bookworm-updates InRelease
+#6 5.453 Ign:3 http://deb.debian.org/debian-security bookworm-security InRelease
+#6 10.46 Ign:1 http://deb.debian.org/debian bookworm InRelease
+#6 10.46 Ign:2 http://deb.debian.org/debian bookworm-updates InRelease
+#6 15.47 Ign:3 http://deb.debian.org/debian-security bookworm-security InRelease
+#6 15.47 Ign:1 http://deb.debian.org/debian bookworm InRelease
+#6 20.48 Ign:2 http://deb.debian.org/debian bookworm-updates InRelease
+#6 20.48 Ign:3 http://deb.debian.org/debian-security bookworm-security InRelease
+#6 25.48 Err:1 http://deb.debian.org/debian bookworm InRelease
+#6 25.48   Temporary failure resolving 'deb.debian.org'
+#6 25.49 Err:2 http://deb.debian.org/debian bookworm-updates InRelease
+#6 25.49   Temporary failure resolving 'deb.debian.org'
+#6 30.49 Err:3 http://deb.debian.org/debian-security bookworm-security InRelease
+#6 30.49   Temporary failure resolving 'deb.debian.org'
+#6 30.50 Reading package lists...
+#6 30.52 W: Failed to fetch http://deb.debian.org/debian/dists/bookworm/InRelease  Temporary failure resolving 'deb.debian.org'
+#6 30.52 W: Failed to fetch http://deb.debian.org/debian/dists/bookworm-updates/InRelease  Temporary failure resolving 'deb.debian.org'
+#6 30.52 W: Failed to fetch http://deb.debian.org/debian-security/dists/bookworm-security/InRelease  Temporary failure resolving 'deb.debian.org'
+#6 30.52 W: Some index files failed to download. They have been ignored, or old ones used instead.
+#6 30.53 Reading package lists...
+#6 30.54 Building dependency tree...
+#6 30.54 Reading state information...
+#6 30.54 Package ca-certificates is not available, but is referred to by another package.
+#6 30.54 This may mean that the package is missing, has been obsoleted, or
+#6 30.54 is only available from another source
+#6 30.54 
+#6 30.54 E: Unable to locate package build-essential
+#6 30.54 E: Unable to locate package bison
+#6 30.54 E: Unable to locate package flex
+#6 30.54 E: Unable to locate package gawk
+#6 30.54 E: Unable to locate package pkg-config
+#6 30.54 E: Unable to locate package python3
+#6 30.54 E: Unable to locate package python3-numpy
+#6 30.54 E: Unable to locate package iverilog
+#6 30.54 E: Package 'ca-certificates' has no installation candidate
+#6 ERROR: process "/bin/sh -c apt-get update && apt-get install -y --no-install-recommends build-essential bison flex gawk pkg-config python3 python3-numpy iverilog ca-certificates  && mkdir -p /opt/provenance  && dpkg-query -W > /opt/provenance/dpkg-lock.tsv  && du -sb /var/lib/apt/lists > /opt/provenance/apt-list-bytes.txt  && rm -rf /var/lib/apt/lists/*" did not complete successfully: exit code: 100
+------
+ > [2/5] RUN apt-get update && apt-get install -y --no-install-recommends build-essential bison flex gawk pkg-config python3 python3-numpy iverilog ca-certificates  && mkdir -p /opt/provenance  && dpkg-query -W > /opt/provenance/dpkg-lock.tsv  && du -sb /var/lib/apt/lists > /opt/provenance/apt-list-bytes.txt  && rm -rf /var/lib/apt/lists/*:
+30.54 
+30.54 E: Unable to locate package build-essential
+30.54 E: Unable to locate package bison
+30.54 E: Unable to locate package flex
+30.54 E: Unable to locate package gawk
+30.54 E: Unable to locate package pkg-config
+30.54 E: Unable to locate package python3
+30.54 E: Unable to locate package python3-numpy
+30.54 E: Unable to locate package iverilog
+30.54 E: Package 'ca-certificates' has no installation candidate
+------
+Dockerfile:3
+--------------------
+   2 |     ARG DEBIAN_FRONTEND=noninteractive
+   3 | >>> RUN apt-get update && apt-get install -y --no-install-recommends build-essential bison flex gawk pkg-config python3 python3-numpy iverilog ca-certificates \
+   4 | >>>  && mkdir -p /opt/provenance \
+   5 | >>>  && dpkg-query -W > /opt/provenance/dpkg-lock.tsv \
+   6 | >>>  && du -sb /var/lib/apt/lists > /opt/provenance/apt-list-bytes.txt \
+   7 | >>>  && rm -rf /var/lib/apt/lists/*
+   8 |     COPY yosys-source.tar.gz /tmp/yosys-source.tar.gz
+--------------------
+ERROR: failed to build: failed to solve: process "/bin/sh -c apt-get update && apt-get install -y --no-install-recommends build-essential bison flex gawk pkg-config python3 python3-numpy iverilog ca-certificates  && mkdir -p /opt/provenance  && dpkg-query -W > /opt/provenance/dpkg-lock.tsv  && du -sb /var/lib/apt/lists > /opt/provenance/apt-list-bytes.txt  && rm -rf /var/lib/apt/lists/*" did not complete successfully: exit code: 100

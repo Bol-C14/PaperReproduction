@@ -1,0 +1,38 @@
+{
+  "amendment_commit": "e70f6cc",
+  "started_at": "2026-10-28T10:48:53.980383+00:00",
+  "inputs_sha256": {
+    "gold.v": "b3eb9951fcd7219bfccdf8fd7d68d1f0536f4b681587f94343fb2738bbbe390b",
+    "candidate.v": "cc1f6ca339bf573c3579f1dead7d98bb270525eb359f9cbd7b589019e61f8247",
+    "top.ys": "eb4128f25d459bc961903e2b5f3749936d919fe861aedbdfdf347d2f5dc2b813"
+  },
+  "container_argv": [
+    "docker",
+    "run",
+    "--rm",
+    "--network=none",
+    "--user=1000:1000",
+    "--read-only",
+    "--cap-drop=ALL",
+    "--security-opt=no-new-privileges",
+    "--pids-limit=128",
+    "--cpus=2",
+    "--memory=4g",
+    "--memory-swap=4g",
+    "--tmpfs",
+    "/tmp:rw,noexec,nosuid,size=256m",
+    "--mount",
+    "type=bind,src=/workspace/PaperReproduction/P07_VeriThoughts/pilot/runs/attempt1/delayed_pulse/novel_bound160,dst=/case,readonly",
+    "--mount",
+    "type=bind,src=/workspace/PaperReproduction/P07_VeriThoughts/pilot/runs/supplemental_logging,dst=/out",
+    "--workdir=/case",
+    "sha256:9805c8192b5a06fb39955367d95c372ace0dca0b934ae803d92d90235f9f7383",
+    "python3",
+    "-c",
+    "import json,subprocess,time\nfrom pathlib import Path\np=Path('/out'); start=time.monotonic()\nr=subprocess.run(['stdbuf','-o0','yosys','-s','top.ys'],capture_output=True,text=True,timeout=150)\n(p/'yosys.stdout.log').write_text(r.stdout)\n(p/'yosys.stderr.log').write_text(r.stderr)\n(p/'command_result.json').write_text(json.dumps(dict(argv=['stdbuf','-o0','yosys','-s','top.ys'],returncode=r.returncode,wall_seconds=time.monotonic()-start),indent=2))\n(p/'container_memory_peak_bytes.txt').write_text(Path('/sys/fs/cgroup/memory.peak').read_text())\n(p/'container_cpu.stat').write_text(Path('/sys/fs/cgroup/cpu.stat').read_text())\n"
+  ],
+  "container_returncode": 0,
+  "container_wall_seconds": 5.088714967999749,
+  "completed_at": "2026-10-28T10:48:59.069526+00:00",
+  "first_asserted_trigger_in_returned_witness": 160
+}

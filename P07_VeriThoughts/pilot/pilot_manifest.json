@@ -1,0 +1,75 @@
+{
+  "paper": "P07 VeriThoughts",
+  "phase": "bounded_cpu_evaluator_contract_pilot",
+  "status": "completed",
+  "scope": "eight_frozen_synthetic_controls_not_dataset_benchmark",
+  "branch": "reproduction/verithoughts-neurips2025",
+  "protocol_commit": "66887c2",
+  "execution_command_commit": "725cc1a",
+  "supplemental_logging_amendment_commit": "e70f6cc",
+  "upstream_evaluator_commit": "f44c2af999de62bd27e90e73ce9cbd4f97fbe55c",
+  "upstream_evaluator_git_blob": "74963ae51ca6360b5b5944b03c266f7f48309b06",
+  "yosys_version": "0.41",
+  "yosys_commit": "c1ad37779eea6211866a466026322416fb3a832f",
+  "image_id": "sha256:9805c8192b5a06fb39955367d95c372ace0dca0b934ae803d92d90235f9f7383",
+  "metrics": {
+    "cases": 8,
+    "original_port_agreements": 8,
+    "original_predictions_matched": 8,
+    "unknown_original": 0,
+    "unknown_oracles": 0,
+    "outer_subprocess_attempts": 33,
+    "outer_timeouts": 0,
+    "experiment_wall_seconds": 2.717983154999729,
+    "children_user_seconds": 2.466951,
+    "children_system_seconds": 0.187361,
+    "children_maxrss_kib": 46352,
+    "completed_at": "2026-10-28T10:46:57.683212+00:00"
+  },
+  "formal_calls_main": 17,
+  "formal_calls_supplement": 1,
+  "setup_build_failures": 4,
+  "setup_successful_builds": 1,
+  "runtime_memory_peak_bytes": 47390720,
+  "runtime_cgroup_cpu_seconds": 2.833982,
+  "supplement_cgroup_cpu_seconds": 0.421836,
+  "source_build_wall_seconds": 485.0,
+  "downloads_accounted_approx_mb": 189,
+  "downloads_conservative_estimated_envelope_mb": 250,
+  "exact_network_bytes_metered": false,
+  "models_apis_gpu_training_used": false,
+  "pushed": false,
+  "frozen_inputs_unchanged": true,
+  "findings": [
+    {
+      "id": "bounded_horizon",
+      "status": "verified_on_synthetic_control",
+      "original_50": "pass",
+      "diagnostic_160": "fail",
+      "independent_first_bad_rising_edge": 60
+    },
+    {
+      "id": "empty_discovery",
+      "status": "verified_runtime_defect_on_synthetic_control",
+      "original_success": true,
+      "formal_checks": 0,
+      "oracle": "invalid_candidate"
+    },
+    {
+      "id": "per_module_contract",
+      "status": "verified_structural_restriction",
+      "top_level_oracle": "equivalent",
+      "original": "fail"
+    }
+  ],
+  "remaining_user_resource_blockers_for_completed_pilot": [],
+  "remaining_high_cost_scope": "Full teacher regeneration / paper-sized SFT / full model results remain outside pilot; audited 8xA100 training route not provisioned.",
+  "files": {
+    "protocol": "PROTOCOL.md",
+    "results": "runs/attempt1/results.json",
+    "metrics": "runs/attempt1/metrics.json",
+    "report": "RESULTS.md",
+    "resources": "SETUP_AND_RESOURCES.md",
+    "supplement": "runs/supplemental_logging/record.json"
+  }
+}
