@@ -1,0 +1,61 @@
+{
+  "benchmark": "PostEDA-Bench",
+  "paper": {
+    "url": "https://arxiv.org/html/2605.06936v4",
+    "version": "v4",
+    "revised": "2026-10-07",
+    "paper_type": "benchmark construction and empirical agent evaluation",
+    "venue": "unverified",
+    "ccf": "unknown"
+  },
+  "official_release": {
+    "url": "https://github.com/pengjas/posteda-bench",
+    "commit": "b04e85a867e81e0817348f7b86a7ae06f83990d7"
+  },
+  "statuses": {
+    "metadata": "metadata_audit",
+    "drc_controls": "reference_calibration",
+    "ppa_archived_metrics": "offline_replay",
+    "ppa_actual_flow_with_executor_substitution": "reference_calibration",
+    "paper_protocol_full": "not_run",
+    "original_Docker_executor": "not_run",
+    "original_C7_audit": "not_run",
+    "live_agent": "not_run"
+  },
+  "toolchain": {
+    "orfs_commit": "e19b7a5176e45bae645ba2d5b46f4457e8913b1c",
+    "amd64_image_manifest": "sha256:864da53ae0b30abb3f7bb1d2451772adc7302bf3e6393d1697e7301cf8834c08",
+    "openroad": "26Q1-205-gbdb8e7c239",
+    "yosys": "0.61+0; build reports UNKNOWN-dirty",
+    "klayout": "0.30.3",
+    "iverilog": "11.0",
+    "executor": "restricted rootless Podman 5.6.0; documented substitution",
+    "final_cpu_affinity_verified": [
+      0,
+      1,
+      2,
+      3
+    ]
+  },
+  "limitations": [
+    "Mono numerical drift remains unresolved; multi matches displayed archived metrics.",
+    "Electrical/C.7 validity remains UNKNOWN; no full LVS claim.",
+    "Finite RTL traces are bounded behavior evidence, not PPA improvement.",
+    "The 15-control matrix is not a model success rate."
+  ],
+  "budget": {
+    "api_calls": 0,
+    "new_api_cost_usd": 0,
+    "paid_resource_provisioning": false,
+    "model_allocation_usd": 0,
+    "external_asset_download_cap_bytes": 2000000000,
+    "orfs_image_compressed_layer_bytes": 1458411014,
+    "cpu_threads": 4
+  },
+  "evidence_policy": "Raw artifacts, original hashes, reference metadata and unsuccessful attempts retained privately; this candidate includes derived summaries and public links only.",
+  "publication": {
+    "pushed": false,
+    "independent_review": "pending",
+    "history_requirement": "One sanitized commit on verified remote baseline; no private predecessor may be an ancestor."
+  }
+}
