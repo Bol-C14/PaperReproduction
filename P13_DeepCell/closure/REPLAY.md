@@ -1,5 +1,8 @@
 # Replay the independent reconstruction
 
+Preservation update: all15 locally generated final/preflight checkpoints are now included in a normal follow-on commit, unchanged. Earlier local-only/Git-excluded statements describe the initial export. The two unchanged downloadable upstream binaries remain omitted. See CHECKPOINT_PRESERVATION.json and CHECKPOINT_SECRET_SCAN.json.
+
+
 Use the existing CPU venv from `/workspace/PaperReproduction`; no network or new resources are needed. Original audit/pilot files are preserved. This phase is under `P13_DeepCell/closure/`.
 
 ```bash

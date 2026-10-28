@@ -1,5 +1,8 @@
 # Public DeepCell research export
 
+Preservation update: all15 locally generated final/preflight checkpoints are now included in a normal follow-on commit, unchanged. Earlier local-only/Git-excluded statements describe the initial export. The two unchanged downloadable upstream binaries remain omitted. See CHECKPOINT_PRESERVATION.json and CHECKPOINT_SECRET_SCAN.json.
+
+
 This paper branch is a sanitized publication snapshot. Original local commits and experiment files are preserved in the selected cloud workspace; see PUBLIC_EXPORT_MAPPING.json for the source commit mapping and exact per-file original/public SHA256s. The public history uses neutral noreply attribution rather than copying local personal commit-email metadata.
 
 The export removes host-environment details from an installer report, replaces local runtime paths in two install logs, and removes one upstream author-specific Conda installation prefix. Dependency names, versions, requirements, source URLs/archive hashes and actual installation outcomes are retained. Integrity indexes explicitly retain original execution hashes alongside public redaction hashes. No runtime code, numerical metrics, input corpus, model scores, patch netlists or formal-check results were changed. Reports describe the original execution; the public environment YAML is the one metadata-only sanitized upstream snapshot.
