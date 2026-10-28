@@ -1,6 +1,6 @@
 """Pinned per-run Docker restrictions; no host mounts, inherited secrets or daemon changes.
-Only reviewed recipes are enabled. This BusyBox backend validates the boundary,
-not HDL execution; an HDL toolchain image needs separate review and calibration.
+Only exact manifest-reviewed BusyBox/Icarus calibration recipes are enabled.
+Generated or otherwise unallowlisted code is disabled.
 """
 import io,json,os,pathlib,subprocess,tarfile,tempfile,time,uuid,hashlib,resource,signal
 IMAGE='busybox@sha256:bdf57e528e45e4433820e045b29b4597825a1c9e38353532d90a01445013f82e'
