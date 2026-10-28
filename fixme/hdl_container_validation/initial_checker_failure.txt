@@ -1,0 +1,6 @@
+Observed first-run check failure after all seven primary cases completed:
+  File "fixme/benchmark/check_hdl_container.py", line 23
+    assert any(x['exe'].endswith('/iverilog') for x in a['compile']['actual_process_snapshots'])
+AssertionError
+
+The correct_mux compile snapshot list was empty because the short compiler exited before sampling. Other primary cases captured /usr/bin/iverilog. No tool-outcome or host-exposure check failed. The source-preserving FIFO diagnostic retry captured the compiler and passed. This record transcribes the tool-returned failure; it is not a second execution.
