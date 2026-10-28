@@ -1,0 +1,228 @@
+{
+  "project": "G5_ArenaHard",
+  "status": "offline_replay",
+  "scope": "completed 50-prompt pilot only; main analysis failed validation",
+  "scheduling_state": "paused_by_parent",
+  "paper": {
+    "id": "2406.11939v2",
+    "revision_date": "2024-10-14",
+    "pdf_sha256": "09a311cf02974d088ed0b2b830b8424eee3fe4f42295ba3b8f2ad7b8d1000c3a",
+    "venue": "ICML 2025, later publication verified via PMLR; target remains arXiv v2",
+    "type": "benchmark and evaluation methodology",
+    "ccf": "unknown"
+  },
+  "upstream": {
+    "url": "https://github.com/lmarena/arena-hard-auto",
+    "commit": "19412d70c6e05f02740c5ffdf2b0c22795d06637",
+    "current_audited_commit": "196f6b826783b3da7310e361a805fa36f0be83f3",
+    "license": "Apache-2.0",
+    "original_experiment_commit_verified": false
+  },
+  "dataset": {
+    "url": "https://huggingface.co/datasets/lmarena-ai/arena-hard-auto",
+    "revision": "15f3746e21432264ce9b453999bde4f3c946d2e6",
+    "prompt_set": "arena-hard-v0.1",
+    "license": "Apache-2.0 as declared by dataset card",
+    "acquired_bytes": 329079830,
+    "files": 61,
+    "hash_manifest": "sources/acquisition.json",
+    "port": "uid -> question_id; 500 IDs and prompt strings verified exact"
+  },
+  "budget": {
+    "cpu_threads": 4,
+    "download_bytes_cap": 2000000000,
+    "preparation_hours_cap": 2,
+    "paid_usd": 0,
+    "model_calls": 0,
+    "judge_calls": 0
+  },
+  "results": {
+    "controls": "12/12 expected semantics checked",
+    "pilot_status": "offline_replay",
+    "pilot_questions": 50,
+    "pilot_candidates": 4,
+    "pilot_models_including_anchor": 5,
+    "pilot_separable_pairs": 8,
+    "pilot_total_pairs": 10,
+    "main_status": "not_run",
+    "main_note": "attempted but failed validation before saving trusted primary results",
+    "matched_common_questions": 223,
+    "human_raw_alignment": "not_run",
+    "brier": "not_run",
+    "style_control": "not_run",
+    "live_pilot": "not_run",
+    "benchbuilder_pipeline": "not_run"
+  },
+  "deviations": [
+    "historical code plus fixed later-cache UID schema port",
+    "source snapshot adjacent to paper, not certified experiment commit",
+    "notebook cohort and confidence-agreement definition differ from paper",
+    "main analytical cross-check unresolved"
+  ],
+  "files": {
+    "NEXT_EXPERIMENT.md": {
+      "bytes": 1848,
+      "sha256": "f91a282b3227d76eeaf48a6dbb3241ee15bd84e02e2e0c8508e2ee701189cb0e"
+    },
+    "PAUSE_CHECKPOINT.md": {
+      "bytes": 1102,
+      "sha256": "7d5fe98efb921bff0976ddf287dfc425c84a8c33d2eefe662e1b2160b53bcfa7"
+    },
+    "PROTOCOL.md": {
+      "bytes": 2243,
+      "sha256": "8e4332a8537770633139ebc0c869d7172460a07a725e26db6cf398cc995803d0"
+    },
+    "REPRODUCTION.md": {
+      "bytes": 4981,
+      "sha256": "9a9b17a15bd4016f873bf04cab49c7e2dc373f1a27bede996eeda0d0a912fc23"
+    },
+    "REVIEW.md": {
+      "bytes": 6116,
+      "sha256": "72d079166cf1561b078aeffc919e11eeb41b0216f0354272c270dad3008f5ae9"
+    },
+    "analysis/prepare.py": {
+      "bytes": 2858,
+      "sha256": "957141b96b1846c5bee9bce2b34f9e32420aed550d0b744dac879545925ed893"
+    },
+    "analysis/replay.py": {
+      "bytes": 10147,
+      "sha256": "15d2f8319efd475a4b2756a293b1f6ed82b182e4fc9c77fc9020fb0dc54dd163"
+    },
+    "logs/acquisition.jsonl": {
+      "bytes": 23830,
+      "sha256": "e9c2535be2c129b45ef8a10d5c6eeca435ea9e91009b04fe8595fdc651765961"
+    },
+    "logs/environment.txt": {
+      "bytes": 295,
+      "sha256": "73c7713d35b4a0089ae55b3fc849d9427468830b29f28e1b7430e5abd56aa2b4"
+    },
+    "logs/replay-attempt1-schema-failure.log": {
+      "bytes": 751,
+      "sha256": "d6e79a2fbfb2959bf1336fbb49b28b0feaef8ce73280c3ca9d31d60336613b73"
+    },
+    "logs/replay-attempt2-driver-failure.log": {
+      "bytes": 2687,
+      "sha256": "5caab9203d903a5a5dd4b7465868d162545bcf0b0d20aa429f440acb345be979"
+    },
+    "logs/replay.log": {
+      "bytes": 4517,
+      "sha256": "82dd118a213981a81b768500df0a5fc3044204cc54c25d37c997fc59aba05f7a"
+    },
+    "metrics/answer_quality.json": {
+      "bytes": 3023,
+      "sha256": "dd03c7fdca3a2740870844eaf58b28f1fe82a4f6a697063f7c2c3e6f7d0bb940"
+    },
+    "metrics/controls.json": {
+      "bytes": 1193,
+      "sha256": "215b1976924becb2a3f0a38b8efabffbafcd728c3137673f19d8ae4ec87bc658"
+    },
+    "metrics/data_quality.json": {
+      "bytes": 132440,
+      "sha256": "a92b0605929a32c0d78d38702ee66d4009e4dd7929d88dc4ab6235a4bdd55178"
+    },
+    "metrics/matched_questions.json": {
+      "bytes": 20038,
+      "sha256": "8607aeed591bbcfd47a0e1cf9b65e9eac1da14c14c5f00d9b66fa498425ecdde"
+    },
+    "metrics/pilot.json": {
+      "bytes": 815,
+      "sha256": "9c3db2adc1cbcea06385db6a0b44141fc3d70806c6e0ccaa51f98fa81f22ab94"
+    },
+    "metrics/pilot_bootstrap.csv": {
+      "bytes": 7875,
+      "sha256": "1fb4794ec1dc45a2c595c003be197812de0b71069c0936d7055cf2f3eb2fb385"
+    },
+    "metrics/pilot_stats.json": {
+      "bytes": 595,
+      "sha256": "0f2d562e251bf336abdc313132a665bcebfcc33ca08c8c53c5dd6a04aefb25ad"
+    },
+    "metrics/schema_port.json": {
+      "bytes": 194,
+      "sha256": "47c9935b5af20d740a2cf1e79b8059dc88cc1d7b30a548a1a1b8c6f2e5276f26"
+    },
+    "metrics/selected_questions.json": {
+      "bytes": 22035,
+      "sha256": "c411647e829c4d4f8a62e19d995950a46608afb5e94977986e800a9b99594fcb"
+    },
+    "sources/LICENSE": {
+      "bytes": 11357,
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    "sources/README.md": {
+      "bytes": 1038,
+      "sha256": "eec51f34b1f6df6695960877bb3e6020cc52f460aa84274c62b7a695b92f7c00"
+    },
+    "sources/acquisition.json": {
+      "bytes": 25435,
+      "sha256": "33ab93a927ba0e12de79e17c60d0155b10388fcac168dbc986737a0c8341bdd7"
+    },
+    "sources/notebook/alpaca_2.0_lc_results.jsonl": {
+      "bytes": 211943,
+      "sha256": "98df8016e2c23c929b4fc8629b3bea65571fcc43767d51470f6f40077d7f6c07"
+    },
+    "sources/notebook/alpaca_to_arena.json": {
+      "bytes": 786,
+      "sha256": "4901328c79008b45805e1458b833831e644a0d057e15ac92c548bbf9dd5e03f8"
+    },
+    "sources/notebook/arena_to_arena_hard.json": {
+      "bytes": 790,
+      "sha256": "d58e2ee468c4fe0d5420764bc4bb6f6f6726b04b0c42bcf8ded49d32b4c9af0c"
+    },
+    "sources/notebook/arena_to_mt_bench.json": {
+      "bytes": 789,
+      "sha256": "b224f44a6a3e872d2b67f4b1b46cb908c85117a6867514fbcc95bcb3045eba1f"
+    },
+    "sources/notebook/benchmark_statistics.ipynb": {
+      "bytes": 418411,
+      "sha256": "661c2e4225d68cfe99bd7e3fd37cfd3e2de71de02d76156b64840bc229337c89"
+    },
+    "sources/notebook/bootstrap_stats_20k_votes.jsonl": {
+      "bytes": 33075,
+      "sha256": "fe3a2fb5fd0797104f7bb1194ed7bef17e817114b414b756464d105753883dee"
+    },
+    "sources/notebook/bootstrap_stats_20k_votes_elo.jsonl": {
+      "bytes": 33048,
+      "sha256": "a5e2452ac137758d9f48c6f1cc07d9fe6baf821f1ff6a99e4ae6c21711a962c8"
+    },
+    "sources/notebook/bootstrap_stats_alpaca.jsonl": {
+      "bytes": 393886,
+      "sha256": "67e9a95ed4dc202f3f5321854c590ec1934a7c4e0a5536aebf4c2d5b85a17855"
+    },
+    "sources/notebook/bootstrap_stats_alpaca_LC.jsonl": {
+      "bytes": 391928,
+      "sha256": "d84751eb0fbe58d6e0d61375bef3ce39e3818bdda87629be2c6f4bca93e19a49"
+    },
+    "sources/notebook/bootstrap_stats_arena_hard.jsonl": {
+      "bytes": 185993,
+      "sha256": "618aac20e4ea469d9928b6ecdc48fc808f467c5aa8c4482e510ef5a9f2f1a85c"
+    },
+    "sources/notebook/bootstrap_stats_arena_hard_bt.jsonl": {
+      "bytes": 46164,
+      "sha256": "c8cfb07d5807cdcf25b79d0c1aef208ec7b21715d649068179df1ae321ea932d"
+    },
+    "sources/notebook/bootstrap_stats_arena_hard_distribution_elo.jsonl": {
+      "bytes": 130000,
+      "sha256": "33f851bd988e34236cb561719b5eca5852a65eb207ef1718950bfdb422c5b8f9"
+    },
+    "sources/notebook/bootstrap_stats_mt_bench.jsonl": {
+      "bytes": 218842,
+      "sha256": "41e98a915c37945738c4491e6c4e989d1c8ccf1bd2a3e3967f71238f6fd18a1a"
+    },
+    "sources/selection-plan.json": {
+      "bytes": 6356,
+      "sha256": "ff9b26c4c0aeb277d28a1817978a72f5555eccb81cfa34d7ba44bb4727a37528"
+    },
+    "sources/show_result.py": {
+      "bytes": 12579,
+      "sha256": "ae409bf609375c1f76c7b79ca3e3a888f232946fe06efb7ad923302e34769d42"
+    },
+    "sources/tree.json": {
+      "bytes": 85736,
+      "sha256": "19f97ba12556b257eb8a223b8e78d763a492f4051846b6105ac3e367bcf61d46"
+    },
+    "sources/utils_math.py": {
+      "bytes": 7385,
+      "sha256": "4954e3fcfbc0a0266ac122a4b5950d51bd9dd80c0397938345035aad68e3a051"
+    }
+  }
+}
