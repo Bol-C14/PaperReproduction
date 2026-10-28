@@ -1,0 +1,387 @@
+{
+  "schema_version": "autosizer-local-controller-v1",
+  "stage": "initial_search_space",
+  "prompt": "Return the author-style optimization_configuration JSON: variables_to_optimize maps variable names to objects with search_space arrays; variables_fixed maps remaining variables to objects with fixed_value. Cover every variable exactly once and use only released values. Include search_space_summary and reasoning. Use the actual supplied circuit understanding, history and feedback, and do not fabricate missing observations. If understanding is null, prerequisite CU has not run: do not treat this request as executed.",
+  "context": {
+    "circuit": "inverter",
+    "source_netlist_template": ".subckt SKY130_INV OUT IN VSS VDD\nx1 OUT IN VDD VDD sky130_fd_pr__pfet_01v8 w={W_pmos} l={L}\nx2 OUT IN VSS VSS sky130_fd_pr__nfet_01v8 w={W_nmos} l={L}\n.ends SKY130_INV\n",
+    "source_testbench_template": "* Inverter Analysis from Extracted Netlist\n.lib {pdk_lib_path} tt\n.option scale=1e-6\n.option warn=0\n\n{ota_subckt}\n\n* Main circuit for DC sweep\nVdd VDD 0 DC {vdd_voltage}\nVss VSS 0 DC 0\nVin IN 0 DC {sweep_start} PULSE(0 {vdd_voltage} 100p 100p 100p 1n 2n)\nXinv {inst_pins} {subckt_name}\nCout OUT 0 {load_cap}\n\n* DC Sweep Analysis for Gain\n.dc Vin {sweep_start} {sweep_end} {sweep_step}\n\n.control\nrun\n\n* Calculate DC gain as maximum derivative dVout/dVin\nlet vout_deriv = deriv(v(OUT))\nlet gain_linear = abs(vout_deriv)\nlet gain_db = db(gain_linear)\nmeas dc dc_gain_db MAX gain_db\n\n\nprint dc_gain_db \n\n.endc\n\n* Transient Analysis for Power and Delay\n.control\ndestroy all\nreset\n\ntran 1p 4n\n\n* Calculate power\nlet power = v(VDD) * (-i(Vdd))\nlet avg_power_calc = mean(power)\n\n* Measure static current during stable low period (before first pulse)\nmeas tran static_current AVG i(Vdd) from=10p to=90p\nlet static_power_abs = abs(static_current) * {vdd_voltage}\n\n* Dynamic power\nlet dynamic_power = abs(avg_power_calc - static_power_abs)\n\n* Measure propagation delays at 50% threshold (0.9V)\n* Rising edge (LOW to HIGH) - first crossing\nmeas tran t_in_50_rise WHEN v(IN)=0.9 CROSS=1\nmeas tran t_out_50_rise WHEN v(OUT)=0.9 CROSS=1\nlet tplh = t_out_50_rise - t_in_50_rise\n\n* Falling edge (HIGH to LOW) - second crossing\nmeas tran t_in_50_fall WHEN v(IN)=0.9 CROSS=2\nmeas tran t_out_50_fall WHEN v(OUT)=0.9 CROSS=2\nlet tphl = t_out_50_fall - t_in_50_fall\nlet average_delay = (tplh + tphl)/2\n\nprint dynamic_power average_delay\n\nquit\n.endc\n\n.end\n\"\"\"\n",
+    "fixed_parameters": {
+      "L": 0.15,
+      "vdd_voltage": 1.8,
+      "sweep_start": 0,
+      "sweep_end": 1.8,
+      "sweep_step": 0.01,
+      "load_cap": "10e-15"
+    },
+    "variables": [
+      "W_pmos_base",
+      "W_nmos_base"
+    ],
+    "released_values": {
+      "W_pmos_base": [
+        0.84,
+        1.05,
+        1.26,
+        1.47,
+        1.68,
+        1.89,
+        2.1,
+        2.31,
+        2.52
+      ],
+      "W_nmos_base": [
+        0.84,
+        1.05,
+        1.26,
+        1.47,
+        1.68,
+        1.89,
+        2.1,
+        2.31,
+        2.52
+      ]
+    },
+    "width_scales": {
+      "W_pmos": [
+        "W_pmos_base",
+        20
+      ],
+      "W_nmos": [
+        "W_nmos_base",
+        20
+      ]
+    },
+    "source_specifications": "fom > 1.0 AND dc_gain_db > 20 AND average_delay < 50 AND dynamic_power < 50",
+    "metric_units": {
+      "dc_gain_db": "dB",
+      "average_delay": "ps",
+      "dynamic_power": "\u00b5W",
+      "fom": ""
+    },
+    "measurement_port": "inverter time-weighted power and paired edges; otherwise source measurements",
+    "actual_history_origin": "numerical baseline, not an LLM trajectory",
+    "history": [
+      {
+        "indices": [
+          1,
+          2
+        ],
+        "variables": {
+          "W_pmos_base": 1.05,
+          "W_nmos_base": 1.26
+        },
+        "metrics": {
+          "dc_gain_db": 23.88889,
+          "average_delay": 20.026229999999998,
+          "dynamic_power": 51.26845
+        },
+        "normalized_fom": 2.9084164769716696,
+        "constraints": {
+          "fom": true,
+          "dc_gain_db": true,
+          "average_delay": true,
+          "dynamic_power": false
+        },
+        "feasible": false,
+        "status": "valid_infeasible",
+        "global_attempt": 109
+      },
+      {
+        "indices": [
+          6,
+          6
+        ],
+        "variables": {
+          "W_pmos_base": 2.1,
+          "W_nmos_base": 2.1
+        },
+        "metrics": {
+          "dc_gain_db": 23.86309,
+          "average_delay": 17.96142,
+          "dynamic_power": 77.8524
+        },
+        "normalized_fom": 2.1331628839938976,
+        "constraints": {
+          "fom": true,
+          "dc_gain_db": true,
+          "average_delay": true,
+          "dynamic_power": false
+        },
+        "feasible": false,
+        "status": "valid_infeasible",
+        "global_attempt": 110
+      },
+      {
+        "indices": [
+          5,
+          6
+        ],
+        "variables": {
+          "W_pmos_base": 1.89,
+          "W_nmos_base": 2.1
+        },
+        "metrics": {
+          "dc_gain_db": 23.97892,
+          "average_delay": 18.392229999999998,
+          "dynamic_power": 75.35171
+        },
+        "normalized_fom": 2.1627789303243405,
+        "constraints": {
+          "fom": true,
+          "dc_gain_db": true,
+          "average_delay": true,
+          "dynamic_power": false
+        },
+        "feasible": false,
+        "status": "valid_infeasible",
+        "global_attempt": 111
+      },
+      {
+        "indices": [
+          4,
+          7
+        ],
+        "variables": {
+          "W_pmos_base": 1.68,
+          "W_nmos_base": 2.31
+        },
+        "metrics": {
+          "dc_gain_db": 24.18954,
+          "average_delay": 19.21228,
+          "dynamic_power": 76.31085
+        },
+        "normalized_fom": 2.062397740604726,
+        "constraints": {
+          "fom": true,
+          "dc_gain_db": true,
+          "average_delay": true,
+          "dynamic_power": false
+        },
+        "feasible": false,
+        "status": "valid_infeasible",
+        "global_attempt": 112
+      },
+      {
+        "indices": [
+          5,
+          5
+        ],
+        "variables": {
+          "W_pmos_base": 1.89,
+          "W_nmos_base": 1.89
+        },
+        "metrics": {
+          "dc_gain_db": 23.84951,
+          "average_delay": 18.1657,
+          "dynamic_power": 71.83909999999999
+        },
+        "normalized_fom": 2.2844226268465833,
+        "constraints": {
+          "fom": true,
+          "dc_gain_db": true,
+          "average_delay": true,
+          "dynamic_power": false
+        },
+        "feasible": false,
+        "status": "valid_infeasible",
+        "global_attempt": 113
+      },
+      {
+        "indices": [
+          4,
+          1
+        ],
+        "variables": {
+          "W_pmos_base": 1.68,
+          "W_nmos_base": 1.05
+        },
+        "metrics": {
+          "dc_gain_db": 22.9817,
+          "average_delay": 18.03597,
+          "dynamic_power": 55.17553
+        },
+        "normalized_fom": 2.8867298719017036,
+        "constraints": {
+          "fom": true,
+          "dc_gain_db": true,
+          "average_delay": true,
+          "dynamic_power": false
+        },
+        "feasible": false,
+        "status": "valid_infeasible",
+        "global_attempt": 114
+      },
+      {
+        "indices": [
+          1,
+          6
+        ],
+        "variables": {
+          "W_pmos_base": 1.05,
+          "W_nmos_base": 2.1
+        },
+        "metrics": {
+          "dc_gain_db": 24.48461,
+          "average_delay": 21.68112,
+          "dynamic_power": 65.08553
+        },
+        "normalized_fom": 2.1688875956359777,
+        "constraints": {
+          "fom": true,
+          "dc_gain_db": true,
+          "average_delay": true,
+          "dynamic_power": false
+        },
+        "feasible": false,
+        "status": "valid_infeasible",
+        "global_attempt": 115
+      },
+      {
+        "indices": [
+          2,
+          1
+        ],
+        "variables": {
+          "W_pmos_base": 1.26,
+          "W_nmos_base": 1.05
+        },
+        "metrics": {
+          "dc_gain_db": 23.34365,
+          "average_delay": 18.96199,
+          "dynamic_power": 50.2745
+        },
+        "normalized_fom": 3.060885632241348,
+        "constraints": {
+          "fom": true,
+          "dc_gain_db": true,
+          "average_delay": true,
+          "dynamic_power": false
+        },
+        "feasible": false,
+        "status": "valid_infeasible",
+        "global_attempt": 116
+      },
+      {
+        "indices": [
+          4,
+          3
+        ],
+        "variables": {
+          "W_pmos_base": 1.68,
+          "W_nmos_base": 1.47
+        },
+        "metrics": {
+          "dc_gain_db": 23.61777,
+          "average_delay": 18.21237,
+          "dynamic_power": 62.301159999999996
+        },
+        "normalized_fom": 2.601874256872931,
+        "constraints": {
+          "fom": true,
+          "dc_gain_db": true,
+          "average_delay": true,
+          "dynamic_power": false
+        },
+        "feasible": false,
+        "status": "valid_infeasible",
+        "global_attempt": 117
+      },
+      {
+        "indices": [
+          4,
+          5
+        ],
+        "variables": {
+          "W_pmos_base": 1.68,
+          "W_nmos_base": 1.89
+        },
+        "metrics": {
+          "dc_gain_db": 23.95939,
+          "average_delay": 18.66033,
+          "dynamic_power": 69.33479
+        },
+        "normalized_fom": 2.3148094440126226,
+        "constraints": {
+          "fom": true,
+          "dc_gain_db": true,
+          "average_delay": true,
+          "dynamic_power": false
+        },
+        "feasible": false,
+        "status": "valid_infeasible",
+        "global_attempt": 118
+      },
+      {
+        "indices": [
+          1,
+          1
+        ],
+        "variables": {
+          "W_pmos_base": 1.05,
+          "W_nmos_base": 1.05
+        },
+        "metrics": {
+          "dc_gain_db": 23.57518,
+          "average_delay": 19.73249,
+          "dynamic_power": 47.773559999999996
+        },
+        "normalized_fom": 3.1260472179402985,
+        "constraints": {
+          "fom": true,
+          "dc_gain_db": true,
+          "average_delay": true,
+          "dynamic_power": true
+        },
+        "feasible": true,
+        "status": "valid_feasible",
+        "global_attempt": 119
+      },
+      {
+        "indices": [
+          7,
+          1
+        ],
+        "variables": {
+          "W_pmos_base": 2.31,
+          "W_nmos_base": 1.05
+        },
+        "metrics": {
+          "dc_gain_db": 22.5191,
+          "average_delay": 17.41984,
+          "dynamic_power": 62.28667
+        },
+        "normalized_fom": 2.5943093909645274,
+        "constraints": {
+          "fom": true,
+          "dc_gain_db": true,
+          "average_delay": true,
+          "dynamic_power": false
+        },
+        "feasible": false,
+        "status": "valid_infeasible",
+        "global_attempt": 120
+      }
+    ],
+    "feedback": null,
+    "understanding": null,
+    "remaining_attempts": 24,
+    "supported_inner_methods": [
+      "random",
+      "bayesian"
+    ],
+    "supported_inner_parameters": {},
+    "normalization": "product(maximize metric / target) divided by product(minimize metric / target), excluding fom itself"
+  },
+  "upstream_autosizer_commit": "1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1",
+  "model_configuration_requested": {
+    "model": "gemini-2.5-flash",
+    "temperature": 0.4,
+    "top_p": 0.85,
+    "top_k": 20,
+    "max_output_tokens": 8192
+  },
+  "live_execution_authorized": false,
+  "response_status": "not_requested_from_any_model",
+  "source_prompt_reference": "upstream_reference/problem_agent_test.py and prompts.py; initial/inner/outer transport prompt is a local contract adaptation"
+}

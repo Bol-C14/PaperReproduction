@@ -1,0 +1,38 @@
+* OTA testbench
+.temp 27
+  .lib /workspace/PaperReproduction/projects/autosizer/tools/sky130_subset.lib.spice tt
+  
+  .subckt FIVE_TRANSISTOR_OTA VSS VDD VOUT VINN VINP ID
+xm5 ID ID VSS VSS sky130_fd_pr__nfet_01v8 w=10.5 l=0.15
+xm4 SOURCE ID VSS VSS sky130_fd_pr__nfet_01v8 w=10.5 l=0.15
+xm3 VOUT VINN SOURCE VSS sky130_fd_pr__nfet_01v8 w=16.8 l=0.15
+xm0 NET8 VINP SOURCE VSS sky130_fd_pr__nfet_01v8 w=16.8 l=0.15
+xm2 VOUT NET8 VDD VDD sky130_fd_pr__pfet_01v8 w=33.6 l=0.15
+xm1 NET8 NET8 VDD VDD sky130_fd_pr__pfet_01v8 w=33.6 l=0.15
+.ends FIVE_TRANSISTOR_OTA
+
+  
+  VDD VDD 0 DC 1.8
+  VSS VSS 0 DC 0
+  IBIAS VDD ID DC 20e-6
+  VINP VINP 0 DC 0.9 AC 0.5
+  VINN VINN 0 DC 0.9 AC -0.5
+  XOTA VSS VDD VOUT VINN VINP ID FIVE_TRANSISTOR_OTA
+  CLOAD VOUT 0 1e-12
+  .op
+  .control
+  op
+  let vdd_current = abs(i(VDD))
+  let power_dc = vdd_current * 1.8
+  print power_dc
+  ac dec 100 1 10g
+  let vout_ac = v(VOUT)
+  let gain_db = db(vout_ac)
+  let dc_gain_db = gain_db[0]
+  print dc_gain_db
+  if dc_gain_db > 0
+      meas ac ugbw WHEN gain_db=0 CROSS=1
+  end
+  quit
+  .endc
+  .end

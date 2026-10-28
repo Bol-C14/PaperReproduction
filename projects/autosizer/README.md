@@ -1,10 +1,20 @@
 # AutoSizer P08
 
-Bounded CPU-only simulator and measurement preflight, completed with six ngspice
-attempts. One released OTA reference point is nominally feasible; the inverter
-reference point remains infeasible under both original and integrated power
-measurements. No LLM or optimizer was run; this is not reproduction of AutoSizer's
-reflective mechanism or its 24-task result.
+The latest tranche closes a real CPU-only numerical optimization/feedback loop:
+four matched-budget controls, two released circuits, three seeds, independent
+winner validation and a held-out inverter grid. It used 1,029 ngspice attempts,
+zero new downloads and zero model calls. Live LLM-generated circuit understanding
+and decisions remain unexecuted; this is not reproduction of the paper's LLM
+controller or 24-task result.
+
+* [Optimization results and remaining mechanism gap](experiments/optimization_v1/RESULTS.md)
+* [Mechanism coverage map](experiments/optimization_v1/MECHANISM_COVERAGE.md)
+* [Live-controller interface boundary](experiments/optimization_v1/CONTROLLER_INTERFACE.md)
+* [Optimization protocol and commands](experiments/optimization_v1/COMMANDS.md)
+
+The earlier six-attempt fixed-point preflight is preserved below as a separate
+historical phase; its reference inverter was power-infeasible and its OTA point
+was feasible. No old result was overwritten or pooled into the new comparison.
 
 * [Results and limitations](RESULTS.md)
 * [Frozen pre-execution protocol](PROTOCOL.md)

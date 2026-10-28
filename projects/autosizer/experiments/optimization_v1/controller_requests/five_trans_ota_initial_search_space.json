@@ -1,0 +1,426 @@
+{
+  "schema_version": "autosizer-local-controller-v1",
+  "stage": "initial_search_space",
+  "prompt": "Return the author-style optimization_configuration JSON: variables_to_optimize maps variable names to objects with search_space arrays; variables_fixed maps remaining variables to objects with fixed_value. Cover every variable exactly once and use only released values. Include search_space_summary and reasoning. Use the actual supplied circuit understanding, history and feedback, and do not fabricate missing observations. If understanding is null, prerequisite CU has not run: do not treat this request as executed.",
+  "context": {
+    "circuit": "five_trans_ota",
+    "source_netlist_template": ".subckt FIVE_TRANSISTOR_OTA VSS VDD VOUT VINN VINP ID\nxm5 ID ID VSS VSS sky130_fd_pr__nfet_01v8 w={W_tail} l={L}\nxm4 SOURCE ID VSS VSS sky130_fd_pr__nfet_01v8 w={W_tail} l={L}\nxm3 VOUT VINN SOURCE VSS sky130_fd_pr__nfet_01v8 w={W_diff} l={L}\nxm0 NET8 VINP SOURCE VSS sky130_fd_pr__nfet_01v8 w={W_diff} l={L}\nxm2 VOUT NET8 VDD VDD sky130_fd_pr__pfet_01v8 w={W_load} l={L}\nxm1 NET8 NET8 VDD VDD sky130_fd_pr__pfet_01v8 w={W_load} l={L}\n.ends FIVE_TRANSISTOR_OTA\n",
+    "source_testbench_template": "* OTA testbench\n  .lib {pdk_lib_path} tt\n  \n  {ota_subckt}\n  \n  VDD VDD 0 DC {vdd}\n  VSS VSS 0 DC 0\n  IBIAS VDD ID DC {ibias}\n  VINP VINP 0 DC {vcm} AC 0.5\n  VINN VINN 0 DC {vcm} AC -0.5\n  XOTA {inst_pins} {subckt_name}\n  CLOAD VOUT 0 {cload}\n  .op\n  .control\n  op\n  let vdd_current = abs(i(VDD))\n  let power_dc = vdd_current * {vdd}\n  print power_dc\n  ac dec 100 1 10g\n  let vout_ac = v(VOUT)\n  let gain_db = db(vout_ac)\n  let dc_gain_db = gain_db[0]\n  print dc_gain_db\n  if dc_gain_db > 0\n      meas ac ugbw WHEN gain_db=0 CROSS=1\n  end\n  quit\n  .endc\n  .end\n",
+    "fixed_parameters": {
+      "L": 0.15,
+      "vdd": 1.8,
+      "vcm": 0.9,
+      "cload": "1e-12",
+      "ibias": "20e-6"
+    },
+    "variables": [
+      "W_tail_base",
+      "W_diff_base",
+      "W_load_base"
+    ],
+    "released_values": {
+      "W_tail_base": [
+        0.84,
+        1.05,
+        1.26,
+        1.47,
+        1.68,
+        1.89,
+        2.1,
+        2.31,
+        2.52
+      ],
+      "W_diff_base": [
+        0.84,
+        1.05,
+        1.26,
+        1.47,
+        1.68,
+        1.89,
+        2.1,
+        2.31,
+        2.52
+      ],
+      "W_load_base": [
+        0.84,
+        1.05,
+        1.26,
+        1.47,
+        1.68,
+        1.89,
+        2.1,
+        2.31,
+        2.52
+      ]
+    },
+    "width_scales": {
+      "W_tail": [
+        "W_tail_base",
+        10
+      ],
+      "W_diff": [
+        "W_diff_base",
+        10
+      ],
+      "W_load": [
+        "W_load_base",
+        20
+      ]
+    },
+    "source_specifications": "fom > 0.5 AND dc_gain_db > 15 AND ugbw > 10 AND power_dc < 65",
+    "metric_units": {
+      "dc_gain_db": "dB",
+      "ugbw": "MHz",
+      "power_dc": "\u00b5W",
+      "fom": ""
+    },
+    "measurement_port": "inverter time-weighted power and paired edges; otherwise source measurements",
+    "actual_history_origin": "numerical baseline, not an LLM trajectory",
+    "history": [
+      {
+        "indices": [
+          1,
+          2,
+          3
+        ],
+        "variables": {
+          "W_tail_base": 1.05,
+          "W_diff_base": 1.26,
+          "W_load_base": 1.47
+        },
+        "metrics": {
+          "dc_gain_db": 17.92144,
+          "ugbw": 21.506539999999998,
+          "power_dc": 57.80747
+        },
+        "normalized_fom": 2.8892264620407477,
+        "constraints": {
+          "fom": true,
+          "dc_gain_db": true,
+          "ugbw": true,
+          "power_dc": true
+        },
+        "feasible": true,
+        "status": "valid_feasible",
+        "global_attempt": 541
+      },
+      {
+        "indices": [
+          1,
+          7,
+          2
+        ],
+        "variables": {
+          "W_tail_base": 1.05,
+          "W_diff_base": 2.31,
+          "W_load_base": 1.26
+        },
+        "metrics": {
+          "dc_gain_db": 17.91024,
+          "ugbw": 21.58929,
+          "power_dc": 57.86242
+        },
+        "normalized_fom": 2.8957780365245696,
+        "constraints": {
+          "fom": true,
+          "dc_gain_db": true,
+          "ugbw": true,
+          "power_dc": true
+        },
+        "feasible": true,
+        "status": "valid_feasible",
+        "global_attempt": 542
+      },
+      {
+        "indices": [
+          6,
+          4,
+          2
+        ],
+        "variables": {
+          "W_tail_base": 2.1,
+          "W_diff_base": 1.68,
+          "W_load_base": 1.26
+        },
+        "metrics": {
+          "dc_gain_db": 17.9568,
+          "ugbw": 21.27435,
+          "power_dc": 57.41571
+        },
+        "normalized_fom": 2.8832121760403213,
+        "constraints": {
+          "fom": true,
+          "dc_gain_db": true,
+          "ugbw": true,
+          "power_dc": true
+        },
+        "feasible": true,
+        "status": "valid_feasible",
+        "global_attempt": 543
+      },
+      {
+        "indices": [
+          5,
+          2,
+          1
+        ],
+        "variables": {
+          "W_tail_base": 1.89,
+          "W_diff_base": 1.26,
+          "W_load_base": 1.05
+        },
+        "metrics": {
+          "dc_gain_db": 17.86395,
+          "ugbw": 21.22955,
+          "power_dc": 57.455650000000006
+        },
+        "normalized_fom": 2.86027400055086,
+        "constraints": {
+          "fom": true,
+          "dc_gain_db": true,
+          "ugbw": true,
+          "power_dc": true
+        },
+        "feasible": true,
+        "status": "valid_feasible",
+        "global_attempt": 544
+      },
+      {
+        "indices": [
+          5,
+          7,
+          5
+        ],
+        "variables": {
+          "W_tail_base": 1.89,
+          "W_diff_base": 2.31,
+          "W_load_base": 1.89
+        },
+        "metrics": {
+          "dc_gain_db": 18.0051,
+          "ugbw": 21.20423,
+          "power_dc": 57.5629
+        },
+        "normalized_fom": 2.8740708919859834,
+        "constraints": {
+          "fom": true,
+          "dc_gain_db": true,
+          "ugbw": true,
+          "power_dc": true
+        },
+        "feasible": true,
+        "status": "valid_feasible",
+        "global_attempt": 545
+      },
+      {
+        "indices": [
+          4,
+          4,
+          1
+        ],
+        "variables": {
+          "W_tail_base": 1.68,
+          "W_diff_base": 1.68,
+          "W_load_base": 1.05
+        },
+        "metrics": {
+          "dc_gain_db": 17.92573,
+          "ugbw": 21.37991,
+          "power_dc": 57.50033
+        },
+        "normalized_fom": 2.888248017066975,
+        "constraints": {
+          "fom": true,
+          "dc_gain_db": true,
+          "ugbw": true,
+          "power_dc": true
+        },
+        "feasible": true,
+        "status": "valid_feasible",
+        "global_attempt": 546
+      },
+      {
+        "indices": [
+          1,
+          7,
+          3
+        ],
+        "variables": {
+          "W_tail_base": 1.05,
+          "W_diff_base": 2.31,
+          "W_load_base": 1.47
+        },
+        "metrics": {
+          "dc_gain_db": 17.9404,
+          "ugbw": 21.565759999999997,
+          "power_dc": 57.872569999999996
+        },
+        "normalized_fom": 2.896984811717653,
+        "constraints": {
+          "fom": true,
+          "dc_gain_db": true,
+          "ugbw": true,
+          "power_dc": true
+        },
+        "feasible": true,
+        "status": "valid_feasible",
+        "global_attempt": 547
+      },
+      {
+        "indices": [
+          2,
+          1,
+          2
+        ],
+        "variables": {
+          "W_tail_base": 1.26,
+          "W_diff_base": 1.05,
+          "W_load_base": 1.26
+        },
+        "metrics": {
+          "dc_gain_db": 17.72713,
+          "ugbw": 21.07596,
+          "power_dc": 57.71178
+        },
+        "normalized_fom": 2.8053265591718017,
+        "constraints": {
+          "fom": true,
+          "dc_gain_db": true,
+          "ugbw": true,
+          "power_dc": true
+        },
+        "feasible": true,
+        "status": "valid_feasible",
+        "global_attempt": 548
+      },
+      {
+        "indices": [
+          4,
+          3,
+          6
+        ],
+        "variables": {
+          "W_tail_base": 1.68,
+          "W_diff_base": 1.47,
+          "W_load_base": 2.1
+        },
+        "metrics": {
+          "dc_gain_db": 18.07195,
+          "ugbw": 21.26749,
+          "power_dc": 57.54245
+        },
+        "normalized_fom": 2.894376358538493,
+        "constraints": {
+          "fom": true,
+          "dc_gain_db": true,
+          "ugbw": true,
+          "power_dc": true
+        },
+        "feasible": true,
+        "status": "valid_feasible",
+        "global_attempt": 549
+      },
+      {
+        "indices": [
+          5,
+          1,
+          4
+        ],
+        "variables": {
+          "W_tail_base": 1.89,
+          "W_diff_base": 1.05,
+          "W_load_base": 1.68
+        },
+        "metrics": {
+          "dc_gain_db": 17.80502,
+          "ugbw": 20.86882,
+          "power_dc": 57.523270000000004
+        },
+        "normalized_fom": 2.799103068603483,
+        "constraints": {
+          "fom": true,
+          "dc_gain_db": true,
+          "ugbw": true,
+          "power_dc": true
+        },
+        "feasible": true,
+        "status": "valid_feasible",
+        "global_attempt": 550
+      },
+      {
+        "indices": [
+          1,
+          4,
+          5
+        ],
+        "variables": {
+          "W_tail_base": 1.05,
+          "W_diff_base": 1.68,
+          "W_load_base": 1.89
+        },
+        "metrics": {
+          "dc_gain_db": 18.04461,
+          "ugbw": 21.555519999999998,
+          "power_dc": 57.81498
+        },
+        "normalized_fom": 2.9153300019669635,
+        "constraints": {
+          "fom": true,
+          "dc_gain_db": true,
+          "ugbw": true,
+          "power_dc": true
+        },
+        "feasible": true,
+        "status": "valid_feasible",
+        "global_attempt": 551
+      },
+      {
+        "indices": [
+          1,
+          2,
+          7
+        ],
+        "variables": {
+          "W_tail_base": 1.05,
+          "W_diff_base": 1.26,
+          "W_load_base": 2.31
+        },
+        "metrics": {
+          "dc_gain_db": 18.04578,
+          "ugbw": 21.41568,
+          "power_dc": 57.83746
+        },
+        "normalized_fom": 2.8954789553317175,
+        "constraints": {
+          "fom": true,
+          "dc_gain_db": true,
+          "ugbw": true,
+          "power_dc": true
+        },
+        "feasible": true,
+        "status": "valid_feasible",
+        "global_attempt": 552
+      }
+    ],
+    "feedback": null,
+    "understanding": null,
+    "remaining_attempts": 24,
+    "supported_inner_methods": [
+      "random",
+      "bayesian"
+    ],
+    "supported_inner_parameters": {},
+    "normalization": "product(maximize metric / target) divided by product(minimize metric / target), excluding fom itself"
+  },
+  "upstream_autosizer_commit": "1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1",
+  "model_configuration_requested": {
+    "model": "gemini-2.5-flash",
+    "temperature": 0.4,
+    "top_p": 0.85,
+    "top_k": 20,
+    "max_output_tokens": 8192
+  },
+  "live_execution_authorized": false,
+  "response_status": "not_requested_from_any_model",
+  "source_prompt_reference": "upstream_reference/problem_agent_test.py and prompts.py; initial/inner/outer transport prompt is a local contract adaptation"
+}

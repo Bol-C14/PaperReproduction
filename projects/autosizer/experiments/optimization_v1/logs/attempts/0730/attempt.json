@@ -1,0 +1,71 @@
+{
+  "global_attempt": 730,
+  "utc": "2026-10-28T11:36:02.971910+00:00",
+  "circuit": "five_trans_ota",
+  "indices": [
+    1,
+    7,
+    3
+  ],
+  "variables": {
+    "W_tail_base": 1.05,
+    "W_diff_base": 2.31,
+    "W_load_base": 1.47
+  },
+  "mode": "corrected",
+  "export": false,
+  "refined": false,
+  "context": {
+    "stage": "main",
+    "run": "five_trans_ota__gp_frozen__seed29",
+    "within_run": 10,
+    "method": "gp_frozen",
+    "seed": 29
+  },
+  "cwd": "/workspace/PaperReproduction/projects/autosizer/experiments/optimization_v1/logs/attempts/0730",
+  "command": [
+    "/workspace/PaperReproduction/projects/autosizer/tools/ngspice/usr/bin/ngspice",
+    "-n",
+    "-b",
+    "circuit.spice"
+  ],
+  "timeout_seconds": 20,
+  "deck_sha256": "b6f5498b1b0d2d5b7b09c16b5146254a1fa12dd655180a26ed270051d5c419d3",
+  "engine_sha256": "e01de6ca974ab2eddd8f1ce65006c14a96b5420949d6eed1c7a1a49b90f9933d",
+  "status": "valid_feasible",
+  "measurement_valid": true,
+  "normalized_fom": 2.896984811717653,
+  "yaml_fom": 6.685349565502275,
+  "constraints": {
+    "fom": true,
+    "dc_gain_db": true,
+    "ugbw": true,
+    "power_dc": true
+  },
+  "feasible": true,
+  "constraint_violation": 0.0,
+  "returncode": 0,
+  "metrics": {
+    "dc_gain_db": 17.9404,
+    "ugbw": 21.565759999999997,
+    "power_dc": 57.872569999999996
+  },
+  "raw_metrics": {
+    "dc_gain_db": 17.9404,
+    "ugbw": 21565760.0,
+    "power_dc": 5.787257e-05
+  },
+  "extra_raw_metrics": {
+    "tphl": null,
+    "tplh": null,
+    "static_power_abs": null,
+    "time_mean_power": null,
+    "dynamic_power_timeweighted": null
+  },
+  "wall_seconds": 0.16006112700051744,
+  "child_cpu_seconds": 0.16063999999998924,
+  "child_peak_rss_kib_upper_bound": 118264,
+  "diagnostics": [
+    "Warning: can't find the initialization file spinit."
+  ]
+}

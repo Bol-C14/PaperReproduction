@@ -25,6 +25,7 @@ def request(circuit,stage,history=None,feedback=None,understanding=None,remainin
                'actual_history_origin':'numerical baseline, not an LLM trajectory',
                'history':history or [],'feedback':feedback,'understanding':understanding,
                'remaining_attempts':remaining,'supported_inner_methods':['random','bayesian'],
+               'supported_inner_parameters':{},
                'normalization':'product(maximize metric / target) divided by product(minimize metric / target), excluding fom itself'}
     if stage=='circuit_understanding':
         context['actual_history_origin']=None
@@ -45,7 +46,7 @@ def request(circuit,stage,history=None,feedback=None,understanding=None,remainin
                 'If understanding is null, prerequisite CU has not run: do not treat this request as executed.')
     elif stage=='inner_iteration':
         prompt=('Return JSON {action: search|stop, method: random|bayesian, n_samples: integer, '
-                'parameters: object, reasoning: string}. For search use only supported engines and '
+                'parameters: empty object, reasoning: string}. This fixed numerical port does not accept parameter overrides. For search use only supported engines and '
                 '1 <= n_samples <= remaining_attempts. Bayesian here means the documented GP-UCB port. '
                 'Decide using actual simulation history and constraint feedback. No proposed size is an '
                 'evaluated design until a simulator attempt has completed. Do not invent metrics.')
@@ -72,6 +73,7 @@ def validate_response(circuit,stage,payload,remaining):
         if type(count) is not int or not 1<=count<=remaining:raise ValueError('Attempt budget exceeded or invalid batch')
         if not isinstance(payload.get('parameters',{}),dict) or not isinstance(payload.get('reasoning'),str):
             raise ValueError('Invalid decision fields')
+        if payload.get('parameters',{}):raise ValueError('Parameter overrides unsupported by this fixed GP port; never silently ignore')
         return payload
     config=payload.get('optimization_configuration',{})
     active=config.get('variables_to_optimize',{})

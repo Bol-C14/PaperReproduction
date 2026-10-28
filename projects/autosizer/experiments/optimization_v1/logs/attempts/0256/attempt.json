@@ -1,0 +1,70 @@
+{
+  "global_attempt": 256,
+  "utc": "2026-10-28T11:34:34.539137+00:00",
+  "circuit": "inverter",
+  "indices": [
+    5,
+    3
+  ],
+  "variables": {
+    "W_pmos_base": 1.89,
+    "W_nmos_base": 1.47
+  },
+  "mode": "corrected",
+  "export": false,
+  "refined": false,
+  "context": {
+    "stage": "main",
+    "run": "inverter__adaptive_gp__seed29",
+    "within_run": 4,
+    "method": "adaptive_gp",
+    "seed": 29
+  },
+  "cwd": "/workspace/PaperReproduction/projects/autosizer/experiments/optimization_v1/logs/attempts/0256",
+  "command": [
+    "/workspace/PaperReproduction/projects/autosizer/tools/ngspice/usr/bin/ngspice",
+    "-n",
+    "-b",
+    "circuit.spice"
+  ],
+  "timeout_seconds": 20,
+  "deck_sha256": "71a4bfaccd9f10d83734bf3a1a78cb03ec58ab8b34ad70fc2989efd41a37d6cf",
+  "engine_sha256": "e01de6ca974ab2eddd8f1ce65006c14a96b5420949d6eed1c7a1a49b90f9933d",
+  "status": "valid_infeasible",
+  "measurement_valid": true,
+  "normalized_fom": 2.544294092232129,
+  "yaml_fom": 0.020354352737857035,
+  "constraints": {
+    "fom": true,
+    "dc_gain_db": true,
+    "average_delay": true,
+    "dynamic_power": false
+  },
+  "feasible": false,
+  "constraint_violation": 0.29524380000000006,
+  "returncode": 0,
+  "metrics": {
+    "dc_gain_db": 23.48029,
+    "average_delay": 17.81249,
+    "dynamic_power": 64.76219
+  },
+  "raw_metrics": {
+    "dc_gain_db": 23.48029,
+    "average_delay": 1.781249e-11,
+    "dynamic_power": 6.509948e-05
+  },
+  "extra_raw_metrics": {
+    "tphl": 1.180068e-11,
+    "tplh": 2.382429e-11,
+    "static_power_abs": 1.286825e-11,
+    "time_mean_power": 6.47622e-05,
+    "dynamic_power_timeweighted": 6.476219e-05
+  },
+  "wall_seconds": 0.16762278100031835,
+  "child_cpu_seconds": 0.2009759999999945,
+  "child_peak_rss_kib_upper_bound": 118264,
+  "diagnostics": [
+    "Warning: can't find the initialization file spinit.",
+    "Warning: Unusual leading characters like '\"' or others out of '= [] ? () & % $\"!:,\\f'"
+  ]
+}
