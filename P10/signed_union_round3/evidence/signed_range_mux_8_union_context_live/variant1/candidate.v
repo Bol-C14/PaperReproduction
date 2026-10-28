@@ -1,0 +1,26 @@
+module candidate(input [7:0] a, input [7:0] c, output [7:0] out);
+wire [0:0] n0 = $signed(a) < 8'sd8;
+wire [0:0] n1 = $signed(a) < -8'sd7;
+wire [0:0] n2 = !n1;
+wire [0:0] n3 = n0 && n2;
+wire [0:0] n4 = $signed(a) < 8'sd0;
+wire [7:0] n5 = a;
+wire [7:0] n6 = n5;
+wire [7:0] n7 = -n6;
+wire [7:0] n8 = n7;
+wire [7:0] n9 = n8;
+wire [7:0] n10 = n9;
+wire [7:0] n11 = n10;
+wire [7:0] n12 = n11;
+wire [0:0] n13 = !n4;
+wire [7:0] n14 = a;
+wire [7:0] n15 = n14;
+wire [7:0] n16 = n15;
+wire [7:0] n17 = n16;
+wire [7:0] n18 = n17;
+wire [7:0] n19 = n18;
+wire [7:0] n20 = n19;
+wire [7:0] n21 = n4 ? n12 : n20;
+wire [7:0] n22 = n3 ? n21 : c;
+assign out = n22;
+endmodule

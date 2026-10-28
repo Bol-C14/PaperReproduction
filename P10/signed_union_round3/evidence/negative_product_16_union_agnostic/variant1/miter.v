@@ -1,0 +1,1 @@
+module miter(input [15:0] a, input [15:0] b, input [15:0] c, output fail); wire [15:0] x,y; original u(.a(a), .b(b), .c(c),.out(x)); candidate v(.a(a), .b(b), .c(c),.out(y)); assign fail = x != y; endmodule

@@ -1,0 +1,6 @@
+read_verilog original.v candidate.v miter.v
+hierarchy -top miter
+proc
+flatten
+opt
+sat -verify -prove fail 0 -show-inputs

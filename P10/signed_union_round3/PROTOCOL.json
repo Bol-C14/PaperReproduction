@@ -1,0 +1,26 @@
+{
+  "frozen_utc": "2026-10-28T14:35:04.604363+00:00",
+  "base_sha": "5f787308443dad7bbe1f5d314f0ec5a73122f55b",
+  "mechanism": "Finite-width disjoint interval-union analysis with signed guard refinement and modular transfer; independent reconstruction, not original ROVER source",
+  "allocation": "taskset16-23, OMP/MKL/OPENBLAS/NUMEXPR8; single experiment process; workers sequential",
+  "scope": "4 authored signed guarded arithmetic kernels at widths8 and16. Controls union/context_live, original_hull/context_live, union/agnostic. Two DAG delay targets each, fixed source costs; no measured synthesis feedback into optimization.",
+  "kernel_families": [
+    "signed_magnitude_multiply",
+    "wrapped_signed_offset",
+    "signed_range_mux",
+    "negative_product"
+  ],
+  "budget": {
+    "positive_configurations": 24,
+    "variants_per_configuration": 2,
+    "negative_controls": 3,
+    "smt_timeout_ms": 15000,
+    "yosys_wall_s": 45,
+    "optimizer_wall_s": 60,
+    "rounds": 8,
+    "node_budget": 5000,
+    "seed": 20261028
+  },
+  "acceptance": "Each output must pass unconditional full-domain Z3 BV comparison and separately parsed Yosys SAT miter. Wrong sign/guard/truncation controls must fail both. Preserve every failure, never substitute samples for proofs.",
+  "report": "Proxy costs and generic gates only; no TSMC5 STA, physical PPA, industrial benchmark, broad SV frontend, full-paper claim. Existing unsigned hull is immutable historical control."
+}
