@@ -6,6 +6,8 @@ from pathlib import Path
 REPO=Path('/workspace/PaperReproduction')
 def git(*a):return subprocess.check_output(['git','-C',str(REPO),*a])
 patterns={
+ 'internal_infrastructure_domain':rb'(?i)\b(?:(?:[a-z0-9-]+\.)*openai\.org|(?:[a-z0-9-]+\.)+(?:internal|corp|localdomain))(?::[0-9]+)?\b',
+ 'private_ipv4':rb'\b(?:10\.(?:[0-9]{1,3}\.){2}[0-9]{1,3}|192\.168\.[0-9]{1,3}\.[0-9]{1,3}|172\.(?:1[6-9]|2[0-9]|3[01])\.[0-9]{1,3}\.[0-9]{1,3})\b',
  'pasted_key_family':rb'\bnrk_[A-Za-z0-9_-]{20,}',
  'private_key':rb'-----BEGIN (?:RSA |EC |OPENSSH |DSA )?PRIVATE KEY-----',
  'github_token':rb'\b(?:gh[pousr]_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{30,})',
@@ -52,4 +54,4 @@ for n in index_files:
 # Restrict tracked scope to task artifacts and three root policy/readme files.
 unrelated=[n.decode() for n in index_files if n and not n.decode().startswith('papers/02_astrotune/') and n.decode() not in ('README.md','.gitignore','.gitattributes')]
 result={'reachable_commit_count':int(git('rev-list','--count','--all')),'reachable_blob_count':blobs,'index_file_count':index_count,'distinct_content_scanned':len(checked),'nested_archive_members_examined':archive_members,'sensitive_findings_count':len(hits),'sensitive_findings_identifiers_only':hits,'unrelated_tracked_paths':unrelated,'largest_blobs':[{'bytes':a,'path':b,'oid':c} for a,b,c in sorted(sizes,reverse=True)[:12]],'over_50MiB_blob_count':sum(a>50*1024**2 for a,b,c in sizes),'over_100MiB_blob_count':sum(a>100*1024**2 for a,b,c in sizes),'limitations':'Pattern/manual-scope scan, not proof against arbitrary unknown secrets. No raw matched value or supplied chat credential is emitted. All reachable refs scanned, plus staged index; nested tar.gz/zip contents inspected read-only.'}
-out=Path('/workspace/scratch/astrotune/prepush_scan.json');out.write_text(json.dumps(result,indent=2));print(json.dumps({k:v for k,v in result.items() if k not in ('sensitive_findings_identifiers_only','largest_blobs','unrelated_tracked_paths')},indent=2));print('unrelated_path_count',len(unrelated));print('largest_blob_bytes',max(a for a,b,c in sizes))
+out=Path('/workspace/scratch/astrotune/prepush_infra_scan.json');out.write_text(json.dumps(result,indent=2));print(json.dumps({k:v for k,v in result.items() if k not in ('sensitive_findings_identifiers_only','largest_blobs','unrelated_tracked_paths')},indent=2));print('unrelated_path_count',len(unrelated));print('largest_blob_bytes',max(a for a,b,c in sizes))

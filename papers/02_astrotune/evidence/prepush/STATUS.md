@@ -9,3 +9,7 @@ This scan is a practical gate, not proof that every possible unknown secret is a
 The chronological qualification is explicit:scope and outcomes are committed together; independent timestamped preregistration is not established. Existing source/results/failures/history are preserved.
 
 Remaining blocker: private-visibility requirement is unsatisfied. Resolve the repository visibility or provide explicit authorization for public disclosure before push. No experiments resume; await parent direction and the manually published environment after the push gate is resolved.
+
+## Public-upload authorization supersedes prior visibility blocker
+
+User explicitly confirmed at2026-10-28 09:12 that this experimental reproduction repository should remain PUBLIC and that code/reports/experiment logs may be uploaded. The previous private-visibility prerequisite is superseded; repository visibility is not changed. Additional complete reachable-history/index/archive screening includes internal infrastructure domains and private IPv4 endpoints;0 findings. No sanitization/export-history rewrite is necessary on the inspected data, and the original scientific history is retained. The public push remains restricted to the named paper branch, non-force, with exact remote-head verification. After push all experiments remain paused awaiting parent confirmation of the manually published new environment.
