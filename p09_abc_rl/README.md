@@ -1,6 +1,8 @@
 # ABC-RL ICLR2024 — bounded reproduction branch
 
-Read [ABLATION_METHOD.md](ABLATION_METHOD.md) for the current multi-seed design,
+Read [ABLATION_REPORT.md](ABLATION_REPORT.md) for the completed 724-call study:
+all candidates passed CEC; adaptive retrieval showed no stable benefit under
+this small budget. Read [ABLATION_METHOD.md](ABLATION_METHOD.md) for the design,
 training-provenance limits and native graph-lifecycle correction. The executable
 contract is [ABLATION_PROTOCOL.json](ABLATION_PROTOCOL.json). The earlier
 [APRIL_REPORT.md](APRIL_REPORT.md) retains its actual ADP/CEC evidence, but its

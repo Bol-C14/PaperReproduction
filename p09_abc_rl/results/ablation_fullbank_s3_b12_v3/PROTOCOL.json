@@ -1,0 +1,96 @@
+{
+  "run_id": "ablation_fullbank_s3_b12_v3",
+  "frozen_utc": "2026-10-28T14:49:04.571940+00:00",
+  "base_sha": "3308ca50b629113305fa3d6f10cbab764ccee973",
+  "upstream_sha": "db6186cb4018963b5bc15926772c3edc0c2873f1",
+  "source_train_bank": [
+    "alu2",
+    "apex3",
+    "apex5",
+    "b2",
+    "c1355",
+    "c5315",
+    "c2670",
+    "prom2",
+    "frg1",
+    "i7",
+    "i8",
+    "m3",
+    "max512",
+    "table5",
+    "adder",
+    "log2",
+    "multiplier",
+    "max",
+    "ctrl",
+    "int2float",
+    "priority",
+    "arbiter"
+  ],
+  "source_train_list_sha256": "c942879c29add3f9d2f16564f2701584c9d5f5aa0ec03f77252ccf847b9d80f9",
+  "circuits": [
+    "sin",
+    "cavlc"
+  ],
+  "seeds": [
+    566,
+    567,
+    568
+  ],
+  "arms": [
+    "unguided",
+    "policy_start",
+    "fixed",
+    "adaptive_full",
+    "adaptive_subset"
+  ],
+  "recipes_per_arm": 12,
+  "horizon": 10,
+  "threshold": 0.007,
+  "scaling": 100.0,
+  "runtime": {
+    "affinity": "0-7",
+    "thread_cap": 8,
+    "concurrency": 1
+  },
+  "budget": {
+    "search_recipes": 360,
+    "baselines": 2,
+    "cec_every_candidate": 362,
+    "planned_abc_calls": 724,
+    "hard_cap": 740,
+    "reserved_diagnostics": 16,
+    "root_initialization_included": true,
+    "graph_reads": 24
+  },
+  "paired_rng": "same full-horizon suffix draws; independent starting-action stream; per-seed rotated arm order",
+  "controls": {
+    "unguided": "uniform priors, independent random rollout starting action",
+    "policy_start": "uniform priors, policy argmax rollout starting action",
+    "fixed": "unnormalized policy**1 priors, policy argmax rollout starting action",
+    "adaptive_full": "unnormalized policy**beta; 22 source training bank; policy argmax starting action",
+    "adaptive_subset": "same adaptive method; original two-member bank"
+  },
+  "objective": "author 7nm map; topo; stime Area*Delay; every result and failure retained",
+  "correctness": "CEC each generated un-mapped AIG including baseline and losers; invalid candidates reward -1 and excluded from best; mapping not separately certified",
+  "failure_policy": "ABC timeout120s logged; no retry, no replacement; invalid baseline abort; partial runs reported incomplete",
+  "scope": "small checkpoint inference ablation, not full training or paper numerical reproduction; 22 source train circuits vs paper23, checkpoint provenance unresolved",
+  "runner_sha256": "5cc9fe7f8c7cb33dbaa3ed9bfab28eb352cf8d5b1aff32a55cb9d7a7adaaa764",
+  "amendment": {
+    "utc": "2026-10-28T14:51:05.118013+00:00",
+    "reason": "apex5 sparse adjacency inferred rectangular; explicit node-count square shape; no objective calls before failure",
+    "previous_output": "ablation_fullbank_s3_b12",
+    "previous_graph_reads_completed": 2,
+    "previous_graph_reads_started": 3,
+    "previous_objective_calls": 0,
+    "policy_sha256": "0b674685572488f7268bbb9aaa05d61f5994d5a3cd94ee95b720fb6ec260c751"
+  },
+  "graph_lifecycle_amendment": {
+    "utc": "2026-10-28T14:54:55.524085+00:00",
+    "reason": "abc_py caches stale fanins across networks; fresh non-overlapping interface per circuit; all 24 fresh graphs have in-range edges",
+    "previous_output": "ablation_fullbank_s3_b12_v2",
+    "previous_objective_calls": 0,
+    "diagnostics": "48 successful native reads plus a failed overlapping-interface diagnostic (native global-context conflict); no synthesis calls",
+    "impact": "old pilot retrieval embeddings require re-evaluation; native mapped ADP and CEC remain separate evidence"
+  }
+}

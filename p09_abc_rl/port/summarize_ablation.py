@@ -54,6 +54,13 @@ failures = [e for e in ends if e.get('returncode',-1)!=0]
 result = dict(abc_calls=724,mapped_adp=362,cec=362,cec_pass=cec_pass,failed_calls=failures,invalid_candidates=[r for r in rows if not r['valid']],circuits=summary)
 (out/'analysis.json').write_text(json.dumps(result,indent=2)+'\n')
 (out/'curves.json').write_text(json.dumps(curves,indent=2)+'\n')
-hashes = {p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(out.iterdir()) if p.is_file() and p.name!='evidence_hashes.json'}
-(out/'evidence_hashes.json').write_text(json.dumps(hashes,indent=2)+'\n')
+manifest = out/'evidence_hashes.json'
+if manifest.exists():
+    # Preserve the remote binary-AIG inventory when inspecting a text export.
+    for name, expected in json.loads(manifest.read_text()).items():
+        if (out/name).exists():
+            assert hashlib.sha256((out/name).read_bytes()).hexdigest()==expected,name
+else:
+    hashes = {p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in sorted(out.iterdir()) if p.is_file() and p.name!='evidence_hashes.json'}
+    manifest.write_text(json.dumps(hashes,indent=2)+'\n')
 print(json.dumps(result,indent=2))
