@@ -51,3 +51,11 @@ context's sorted JSON keys were mistaken for a prompt-content difference. The
 corrected check parses the original prompt and checks semantic equality plus
 its actual serialization order. Preserve the failed preflight log; use a fresh
 v2 output directory. This does not add model attempts to the6-call budget.
+
+A second guard found nested key-order loss after one correct fresh c0 and zero
+model calls. Resume only that preserved baseline checkpoint if it contains
+exactly one successful c0 and no model-attempt/context/output files. Recheck
+its netlist/CEC, preserve both failure logs and the original protocol, and write
+a separate resume protocol. Reconstruct contexts from the original prompt's
+full nested ordering. Total baseline/candidate synthesis budget remains4 and
+model budget remains6 across these preflights and the resumed control.

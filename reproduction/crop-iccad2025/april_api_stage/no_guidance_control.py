@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """One cached-summary no-guidance control. Main runs only when explicitly invoked."""
 import hashlib
+import copy
 import json
 import os
 from pathlib import Path
@@ -19,10 +20,20 @@ PROMPT_PREFIX = ('Choose one legal UNTRIED synthesis configuration to minimize t
                  'Context:\n')
 
 
-def control_context(configs, archive, design_summary, iteration):
+def control_context(configs, archive, design_summary, iteration, template=None):
     # Keep the original context shape/arm label and prompt. Only these two
     # retrieval fields are ablated; subsequent target histories evolve normally.
-    return proposal_context(configs, None, [], archive, design_summary, iteration)
+    if template is None:
+        return proposal_context(configs, None, [], archive, design_summary, iteration)
+    if template['legal_configs'] != configs or template['design_summary'] != design_summary:
+        raise ValueError('Cached common context changed')
+    context = copy.deepcopy(template)
+    context['iteration'] = iteration
+    keys = list(template['target_history'][0])
+    context['target_history'] = [{k: row[k] for k in keys} for row in archive]
+    context['retrieved_prior'] = None
+    context['retrieved_guidance'] = []
+    return context
 
 
 def validate_original_prompt(prompt, saved_context):
@@ -48,7 +59,15 @@ def main():
     if auth.get('approved') is not True or auth.get('payload_scope') != 'crop_public_seven_circuits_summaries_qor':
         raise SystemExit('Existing public CROP scope not authorized')
     out = root / 'results/crop/no-guidance-control-20261028-v2'
-    out.mkdir(parents=True, exist_ok=False)
+    resuming = out.exists()
+    if resuming:
+        if (out/'generations').exists() or (out/'contexts').exists() or (out/'outcome.json').exists():
+            raise SystemExit('Refuse resume after any model attempt/context/outcome')
+        old_rows = json.loads((out/'experiment/results.json').read_text())
+        if len(old_rows) != 1 or old_rows[0].get('config') != 'c0' or old_rows[0].get('status') != 'ok':
+            raise SystemExit('Resume requires exactly one successful c0 and zero model attempts')
+    else:
+        out.mkdir(parents=True, exist_ok=False)
     source_sha = subprocess.check_output(['git','-C',str(src),'rev-parse','HEAD'],text=True).strip()
     api = load_shared_api(root/'tools/shared/openrouter_shared.py',
                           run_id='crop-no-guidance-'+source_sha[:8], pricing=None,
@@ -71,7 +90,9 @@ def main():
     original_first = json.loads((original/'contexts/1.json').read_text())['request']
     original_prompt = json.loads((original/'generations/proposal_1_0.json').read_text())['prompt']
     original_first = validate_original_prompt(original_prompt, original_first)
-    study.dump(out/'protocol.json', dict(source_commit=source_sha, original_source_commit=original_budget['source_commit'],
+    protocol_path = out/('resume_protocol.json' if resuming else 'protocol.json')
+    if protocol_path.exists():raise SystemExit('Protocol exists; do not overwrite')
+    study.dump(protocol_path, dict(source_commit=source_sha, original_source_commit=original_budget['source_commit'],
         frozen_utc=time.strftime('%Y-%m-%dT%H:%M:%SZ',time.gmtime()), arm='no_guidance', seed=23,
         model=api.model, temperature=0, reasoning_enabled=False, max_output_tokens=640,
         max_actual_api_attempts=6, nominal_api_attempts=3, cumulative_project_remaining_before=16,
@@ -84,24 +105,41 @@ def main():
         shared_module_sha256=getattr(api,'shared_module_sha256',None),
         comparison='Earlier guided trajectory versus later no-guidance run; one seed, not strictly paired',
         intervention=['retrieved_prior=null','retrieved_guidance=[]'],
-        prior_preflight_failure=dict(reason='Saved context key order versus original prompt serialization; fixed',model_calls=0,synthesis_calls=0),
+        prior_preflight_failure=dict(reason='Sorted stored JSON lost top-level/nested prompt key order; fixed using original prompt template',model_calls=0,successful_baseline_measurements=1 if resuming else 0),
         fairness_limits=['Shared cached preprocessing; compare search-only cost, not whole-pipeline cost',
                          'Fresh run in later time window; model ID is not immutable weights/provider identity',
                          'Public shared interface adds standard-tier price/parameter safety routing constraints']))
-    exp = out/'experiment';exp.mkdir()
-    for directory in ('circuits','abc_scripts'):shutil.copytree(src/directory,exp/directory)
-    study.dump(exp/'manifest.json',dict(manifest,max_measurement_calls=4))
+    exp = out/'experiment'
+    if not resuming:
+        exp.mkdir()
+        for directory in ('circuits','abc_scripts'):shutil.copytree(src/directory,exp/directory)
+        study.dump(exp/'manifest.json',dict(manifest,max_measurement_calls=4))
     study.ROOT,study.YOSYS,study.ABC=exp,tools['yosys'],tools['abc']
     st=study.Study();byconfig={c['id']:c for c in manifest['configs']}
-    baseline=st.measure(target,byconfig['c0'],'no_guidance',seed=23,iteration=0)
+    if resuming:
+        st.rows = old_rows
+        baseline = old_rows[0]
+        folder = exp/baseline['folder']
+        check = study.verify_luts(folder/'mapped.json', target)
+        if any(check[k] != baseline[k] for k in ('lut_count','lut_depth','vectors_checked','vectors_sha256')):
+            raise SystemExit('Saved fresh baseline failed independent recheck')
+        if 'Networks are equivalent' not in (folder/'cec.log').read_text():
+            raise SystemExit('Saved fresh baseline CEC unavailable')
+    else:
+        baseline=st.measure(target,byconfig['c0'],'no_guidance',seed=23,iteration=0)
     archive=[observation(baseline)]
-    study.dump(out/'target_archive.json',archive)
+    if not resuming:study.dump(out/'target_archive.json',archive)
     guided_first=proposal_context(manifest['configs'],retrieval['selected'],retrieval['guidance'],archive,cache['design_summary'],1)
-    if guided_first != original_first or PROMPT_PREFIX+json.dumps(guided_first) != original_prompt:
-        raise SystemExit('Fresh baseline/context differs from original; no model call allowed')
+    if guided_first != original_first:
+        raise SystemExit('Fresh baseline/context differs semantically from original; no model call allowed')
+    candidate=control_context(manifest['configs'],archive,cache['design_summary'],1,template=original_first)
+    restored=copy.deepcopy(candidate)
+    for key in ('retrieved_prior','retrieved_guidance'):restored[key]=original_first[key]
+    if PROMPT_PREFIX+json.dumps(restored) != original_prompt:
+        raise SystemExit('First prompt has an unintended serialization difference')
     budget=AttemptBudget(max_total=6)
     for iteration in range(1,4):
-        context=control_context(manifest['configs'],archive,cache['design_summary'],iteration)
+        context=control_context(manifest['configs'],archive,cache['design_summary'],iteration,template=original_first)
         chosen=None
         for attempt in range(2):
             record=dict(budget.consume('proposal_'+str(iteration)),prompt=PROMPT_PREFIX+json.dumps(context))

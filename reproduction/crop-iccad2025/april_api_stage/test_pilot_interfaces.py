@@ -31,6 +31,20 @@ class InterfaceTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             validate_original_prompt(PROMPT_PREFIX+json.dumps(actual), {'z': 3, 'a': 2})
 
+    def test_no_guidance_template_preserves_nested_original_serialization(self):
+        from no_guidance_control import control_context
+        template = {'legal_configs':[{'mode':'fast','id':'c0','noalumacc':False}],
+                    'design_summary':{'z':'last','a':'first'}, 'iteration':1,
+                    'target_history':[{'status':'ok','config':'c0','objective':1,'invocation':1}],
+                    'retrieved_guidance':[{'normalized_objective':1,'config':'c0'}], 'retrieved_prior':'prior'}
+        sorted_configs = json.loads(json.dumps(template['legal_configs'], sort_keys=True))
+        sorted_summary = json.loads(json.dumps(template['design_summary'], sort_keys=True))
+        history = [{'config':'c0','objective':1,'status':'ok','invocation':1}]
+        context = control_context(sorted_configs, history, sorted_summary, 1, template=template)
+        restored = copy.deepcopy(context)
+        for key in ('retrieved_prior','retrieved_guidance'): restored[key] = template[key]
+        self.assertEqual(json.dumps(restored), json.dumps(template))
+
     def test_no_guidance_intervention_changes_only_two_context_fields(self):
         from no_guidance_control import control_context
         old = json.loads((HERE/'real_pilot_reviewed_subset/contexts/1.json').read_text())['request']
