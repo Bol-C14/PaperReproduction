@@ -41,7 +41,7 @@ def select(data,targets=None):
             areas.append(z3.If(sel,area,0))
     constraints.append(active[root]);area=z3.Sum(areas)
     def solve(target=None):
-        t=time.perf_counter();o=z3.Optimize();o.set(timeout=5000);o.add(*constraints)
+        t=time.perf_counter();o=z3.Optimize();o.set(timeout=15000);o.add(*constraints)
         if target is None:objective=o.minimize(arrival[root])
         else:
             o.add(arrival[root]<=target);objective=o.minimize(area)
@@ -57,9 +57,12 @@ def select(data,targets=None):
             return tuple([n['op']]+[best[nodes[x]['eclass']][2] if n['op']=='Assume' and i==2 else build(nodes[x]['eclass']) for i,x in enumerate(n['children'])])
         result['selected_node_ids']=list(mapping.values())
         return result,build(root)
-    initial,_=solve();reports=[initial];variants=[]
-    if 'error' in initial or 'delay' not in initial:raise RuntimeError('minimum delay extraction failed: '+str(initial))
-    for multiplier,target in enumerate(targets or (initial['delay'],initial['delay']*2),1):
+    reports=[];variants=[]
+    if targets is None:
+        initial,_=solve();reports.append(initial)
+        if 'error' in initial or 'delay' not in initial:raise RuntimeError('minimum delay extraction failed: '+str(initial))
+        targets=(initial['delay'],initial['delay']*2)
+    for multiplier,target in enumerate(targets,1):
         r,term=solve(target);reports.append(r)
         if term is None:raise RuntimeError('area extraction failed: '+str(r))
         variants.append({'weight':multiplier,'term':term,'proxy_area':r['area'],'proxy_delay':r['delay'],'delay_target':r['target']})

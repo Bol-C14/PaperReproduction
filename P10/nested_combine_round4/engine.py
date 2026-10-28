@@ -16,6 +16,7 @@ HEADER = '''
 (rewrite (Add w a (K w 0)) (Ext w a))
 (rewrite (Mul w a (K w 1)) (Ext w a))
 (rewrite (Abs w (Abs w a)) (Abs w a))
+(rewrite (Assume w (Assume w a c) c) (Assume w a c))
 '''
 CONTEXT = '''
 (rewrite (Mux w c a b) (Mux w c (Assume w a c) (Assume w b (Not c))))

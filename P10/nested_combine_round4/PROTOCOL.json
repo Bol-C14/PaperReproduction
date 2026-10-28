@@ -5,10 +5,11 @@
   "changes": [
     "Propagate outer Assume through Mux value branches while preserving condition",
     "Combine nested Assume by canonical flattened, sorted, duplicate-free And",
-    "Do not charge erased Assume care metadata as DAG circuit dependencies; shared across every arm"
+    "Do not charge erased Assume care metadata as DAG circuit dependencies; shared across every arm",
+    "Shared Assume(Assume(x,c),c) idempotence in every arm; combined distinct guards remain ablated"
   ],
   "arms": [
-    "legacy: old rule subset with corrected common extractor",
+    "legacy: old rule subset plus shared same-condition idempotence and corrected common extractor",
     "propagate: add Mux propagation only",
     "combine: add Mux propagation and nested Combine"
   ],
@@ -34,13 +35,17 @@
     "rounds": 8,
     "node_limit": 5000,
     "optimizer_wall_seconds": 60,
-    "z3_optimize_ms": 5000,
+    "z3_optimize_ms": 15000,
     "smt_ms": 15000,
-    "yosys_wall_seconds": 45
+    "yosys_wall_seconds": 45,
+    "prior_attempt_spend": "2optimizer starts, legacy8 success2positive dual proofs, propagate8 extraction timeout,8semantic obligations; no synthesis"
   },
   "controls": "Definedness+value: Combine, duplicate canonicalization, Mux propagation, Create, strict Add propagation UNSAT; OR instead of And, missing outer assumption, bottom as zero SAT. Whole-module negatives: dropped outer guard, wrong inner polarity, unconditional truncation SAT in both engines.",
   "acceptance": "Each positive output must prove full-domain unconditional Z3 BV and independently parsed RTL Yosys SAT. All counterexamples required. Abort remaining optimizer work on first failure; retain stdout/stderr, partial journal and attempt. No retry without recorded diagnosis and revised attempt directory. Run the first three arms as the initial slice of the one matrix; no duplicated pilot.",
   "resources": "APRIL dedicated existing envs/rover; taskset16-23 (8 distinct physical cores), single sequential experiment runner, BLAS/OpenMP8; check live load and MemAvailable before work.",
   "limitations": "Three authored in-sample combinational kernels, total Boolean care conditions only; no sequential/XZ/general SV frontend, signed division or arbitrary operators; bounded saturation; generic synth -noabc gates/depth and uncalibrated proxy area, no physical PPA or full-paper claim.",
-  "publication": "Only this existing public branch, no PR or force; review credentials/internal information/license before normal fast-forward push. Do not publish environments/cache/credentials."
+  "publication": "Only this existing public branch, no PR or force; review credentials/internal information/license before normal fast-forward push. Do not publish environments/cache/credentials.",
+  "attempt": 2,
+  "revised_utc": "2026-10-28T14:54:14.713145+00:00",
+  "revision_reason": "Attempt1 stopped after legacy8 passed2dual proofs and propagate8 unnecessary minimum-delay solve returned unknown/canceled at5s. Original evidence retained. Shared absolute targets do not require minimum-delay solve; remove it. Add sound same-condition idempotence to ALL arms to avoid redundant wrapper growth; uniformly allow15s per area solve; save saturated egraph before extraction. No measured area/gates inspected or retuning."
 }

@@ -1,7 +1,7 @@
 """Post-selection synthesis only; at most two selected outputs per arm/circuit."""
 import json,time,subprocess,hashlib,datetime
 from pathlib import Path
-R=Path('/home/shugu/work/paper-reproduction-april-20261028');OUT=R/'results/rover/nested_combine_round4_attempt1'
+R=Path('/home/shugu/work/paper-reproduction-april-20261028');OUT=R/'results/rover/nested_combine_round4_attempt2'
 Y=R/'envs/rover/bin/yowasp-yosys'
 def write(p,x):p.write_text(json.dumps(x,indent=2)+'\n')
 if (OUT/'audit.json').exists():raise RuntimeError('Refuse audit overwrite')

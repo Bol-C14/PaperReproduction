@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/home/shugu/work/paper-reproduction-april-20261028/checkouts/rover/P10/nested_combine_round4/run.py", line 141, in <module>
+    if action=='worker':print(json.dumps(worker(sys.argv[2],int(sys.argv[3]),sys.argv[4])));sys.exit()
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shugu/work/paper-reproduction-april-20261028/checkouts/rover/P10/nested_combine_round4/run.py", line 86, in worker
+    r['variants'],r['dag_reports']=select(r['egraph'],r['shared_delay_targets'])
+                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/shugu/work/paper-reproduction-april-20261028/checkouts/rover/P10/nested_combine_round4/dag_extract.py", line 61, in select
+    if 'error' in initial or 'delay' not in initial:raise RuntimeError('minimum delay extraction failed: '+str(initial))
+                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: minimum delay extraction failed: {'status': 'unknown', 'wall_seconds': 5.193634122610092, 'target': None, 'reason': 'canceled'}

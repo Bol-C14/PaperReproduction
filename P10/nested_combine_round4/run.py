@@ -7,7 +7,7 @@ from circuits import emit,symbolic,inputs
 from dag_extract import select
 ROOT=Path(__file__).resolve().parent
 R=Path('/home/shugu/work/paper-reproduction-april-20261028')
-OUT=R/'results/rover/nested_combine_round4_attempt1'
+OUT=R/'results/rover/nested_combine_round4_attempt2'
 PY=R/'envs/rover/bin/python'
 YOSYS=R/'envs/rover/bin/yowasp-yosys'
 ARMS=('legacy','propagate','combine')
@@ -83,6 +83,7 @@ def worker(name,w,arm):
   costs[sx(t)]=cost(t,costs)
  measure(term);original_delay=costs[sx(term)][1]
  r['shared_delay_targets']=[original_delay,2*original_delay]
+ write(OUT/f'{name}_{w}_{arm}'/'saturated.json',r)
  r['variants'],r['dag_reports']=select(r['egraph'],r['shared_delay_targets'])
  import union_domain
  r['union_analysis_trace']=union_domain.LAST

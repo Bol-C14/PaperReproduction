@@ -1,0 +1,15 @@
+; benchmark generated from python API
+(set-info :status unknown)
+(declare-fun b () (_ BitVec 8))
+(declare-fun a () (_ BitVec 8))
+(declare-fun q () (_ BitVec 1))
+(declare-fun p () (_ BitVec 1))
+(assert
+ (let (($x17 (and (distinct ((_ extract 7 0) (ite (and (distinct q (_ bv0 1)) true) a b)) (ite (and (distinct q (_ bv0 1)) true) ((_ extract 7 0) a) ((_ extract 7 0) b))) true)))
+(let (($x9 (and (distinct p (_ bv0 1)) true)))
+(let (($x10 (and true true $x9)))
+(let (($x11 (and (distinct q (_ bv0 1)) true)))
+(let (($x53 (and true (ite $x11 $x10 $x10))))
+(let (($x51 (and (and true (ite $x11 true true)) true $x9)))
+(or (and (distinct $x51 $x53) true) (and $x51 $x53 $x17)))))))))
+(check-sat)
