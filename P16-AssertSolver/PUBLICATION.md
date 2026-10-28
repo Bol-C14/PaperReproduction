@@ -1,0 +1,11 @@
+# Public paper-branch backup
+
+Destination: https://github.com/Bol-C14/PaperReproduction/tree/reproduction/assertsolver-dac2025
+
+This publication contains only P16 AssertSolver work. It preserves the original asset audit, independent checker protocol, ten reviewed fixtures, actual single-run results, logs, selected upstream source/configuration evidence and resource ledger. The scientific claims remain bounded to a single combinational example evaluated over 32 stable two-state inputs. No learned repair, official score reproduction or executed-SVA result is claimed. No new research runs were performed during publication.
+
+The original local paper branch was unborn (no commits). The remote paper branch was absent when inspected. Remote HEAD was 809ca20e003c2f5d5a723c77ead8a6de532e4539, an unrelated paper branch; it was fetched read-only and is not a parent of this paper's root commit. No existing history is rewritten or destroyed, and no sensitive history remediation was necessary. The only branch to be pushed is reproduction/assertsolver-dac2025, without force, PR or merge. Repository visibility is unchanged.
+
+Omissions are documented in OMITTED_ASSETS.json. The upstream clone remains local, outside the committed paper directory. No recovery archive was found beneath this workspace repository; none was deleted or uploaded. No caches, installed environments, model weights, credentials, account data or unrelated paper files are included. The public source record and source excerpts retain upstream attribution and provenance; overall upstream reuse terms remain as noted in ASSET_AUDIT.md. Git commit author/committer metadata use a generic noreply identity to avoid publishing a configured personal email.
+
+SECRET_SCAN.json records the precommit proposed-file scan. A second scan of every object reachable from the exact proposed commit is required before push. Pattern-based scans are bounded checks, not guarantees of absence. FILES_SHA256.json hashes all deliverable files except itself and SECRET_SCAN.json (which references that manifest). The original independent-port/SHA256SUMS remains unchanged. The local push receipt and all-object scan result will be retained outside the publication tree to avoid recursive commit hashes.

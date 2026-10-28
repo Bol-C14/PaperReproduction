@@ -1,0 +1,92 @@
+[
+  {
+    "id": "01_released_fix",
+    "response": "{\"CoT\": \"Reviewed static fixture; no model inference.\", \"buggy_code\": \"assign pcx_spc_grant_bufpdl_pa =\\tpcx_spc_grant_bufp1_pa_l;\", \"correct_code\": \"assign pcx_spc_grant_bufpdl_pa =\\t~pcx_spc_grant_bufp1_pa_l;\"}",
+    "rtl": "module pcx_buf_pdl(/*AUTOARG*/\n   // Outputs\n   pcx_spc_grant_bufpdl_pa, \n   // Inputs\n   pcx_spc_grant_bufp1_pa_l\n   );\n\n   output [4:0] \tpcx_spc_grant_bufpdl_pa;\n\n   input [4:0] \t\tpcx_spc_grant_bufp1_pa_l;\n\n   \n\n   assign pcx_spc_grant_bufpdl_pa =\tpcx_spc_grant_bufp1_pa_l;\n\n   \n\n// Assertion Start ***************************\nproperty input_change_propagation;\n\t@(pcx_spc_grant_bufp1_pa_l) 1'b1 |-> pcx_spc_grant_bufpdl_pa == ~pcx_spc_grant_bufp1_pa_l;\nendproperty\ninput_change_assert: assert property (input_change_propagation) else $error(\"Input change propagation failed: Output not updated immediately after input change\");\nendmodule",
+    "case_budget": 32,
+    "expected_status": "PASS",
+    "expected_text_match": true,
+    "review_reason": "Released replacement inverts all five bits."
+  },
+  {
+    "id": "02_equivalent_xor",
+    "response": "{\"CoT\": \"Reviewed static fixture; no model inference.\", \"buggy_code\": \"assign pcx_spc_grant_bufpdl_pa =\\tpcx_spc_grant_bufp1_pa_l;\", \"correct_code\": \"assign pcx_spc_grant_bufpdl_pa = pcx_spc_grant_bufp1_pa_l ^ 5'b11111;\"}",
+    "rtl": "module pcx_buf_pdl(/*AUTOARG*/\n   // Outputs\n   pcx_spc_grant_bufpdl_pa, \n   // Inputs\n   pcx_spc_grant_bufp1_pa_l\n   );\n\n   output [4:0] \tpcx_spc_grant_bufpdl_pa;\n\n   input [4:0] \t\tpcx_spc_grant_bufp1_pa_l;\n\n   \n\n   assign pcx_spc_grant_bufpdl_pa =\tpcx_spc_grant_bufp1_pa_l;\n\n   \n\n// Assertion Start ***************************\nproperty input_change_propagation;\n\t@(pcx_spc_grant_bufp1_pa_l) 1'b1 |-> pcx_spc_grant_bufpdl_pa == ~pcx_spc_grant_bufp1_pa_l;\nendproperty\ninput_change_assert: assert property (input_change_propagation) else $error(\"Input change propagation failed: Output not updated immediately after input change\");\nendmodule",
+    "case_budget": 32,
+    "expected_status": "PASS",
+    "expected_text_match": false,
+    "review_reason": "Five-bit XOR with all ones is bitwise complement."
+  },
+  {
+    "id": "03_unchanged_bug",
+    "response": "{\"CoT\": \"Reviewed static fixture; no model inference.\", \"buggy_code\": \"assign pcx_spc_grant_bufpdl_pa =\\tpcx_spc_grant_bufp1_pa_l;\", \"correct_code\": \"assign pcx_spc_grant_bufpdl_pa =\\tpcx_spc_grant_bufp1_pa_l;\"}",
+    "rtl": "module pcx_buf_pdl(/*AUTOARG*/\n   // Outputs\n   pcx_spc_grant_bufpdl_pa, \n   // Inputs\n   pcx_spc_grant_bufp1_pa_l\n   );\n\n   output [4:0] \tpcx_spc_grant_bufpdl_pa;\n\n   input [4:0] \t\tpcx_spc_grant_bufp1_pa_l;\n\n   \n\n   assign pcx_spc_grant_bufpdl_pa =\tpcx_spc_grant_bufp1_pa_l;\n\n   \n\n// Assertion Start ***************************\nproperty input_change_propagation;\n\t@(pcx_spc_grant_bufp1_pa_l) 1'b1 |-> pcx_spc_grant_bufpdl_pa == ~pcx_spc_grant_bufp1_pa_l;\nendproperty\ninput_change_assert: assert property (input_change_propagation) else $error(\"Input change propagation failed: Output not updated immediately after input change\");\nendmodule",
+    "case_budget": 32,
+    "expected_status": "FAIL",
+    "expected_text_match": false,
+    "review_reason": "Identity output differs from inversion for every two-state input."
+  },
+  {
+    "id": "04_wrong_mask",
+    "response": "{\"CoT\": \"Reviewed static fixture; no model inference.\", \"buggy_code\": \"assign pcx_spc_grant_bufpdl_pa =\\tpcx_spc_grant_bufp1_pa_l;\", \"correct_code\": \"assign pcx_spc_grant_bufpdl_pa = pcx_spc_grant_bufp1_pa_l ^ 5'b11110;\"}",
+    "rtl": "module pcx_buf_pdl(/*AUTOARG*/\n   // Outputs\n   pcx_spc_grant_bufpdl_pa, \n   // Inputs\n   pcx_spc_grant_bufp1_pa_l\n   );\n\n   output [4:0] \tpcx_spc_grant_bufpdl_pa;\n\n   input [4:0] \t\tpcx_spc_grant_bufp1_pa_l;\n\n   \n\n   assign pcx_spc_grant_bufpdl_pa =\tpcx_spc_grant_bufp1_pa_l;\n\n   \n\n// Assertion Start ***************************\nproperty input_change_propagation;\n\t@(pcx_spc_grant_bufp1_pa_l) 1'b1 |-> pcx_spc_grant_bufpdl_pa == ~pcx_spc_grant_bufp1_pa_l;\nendproperty\ninput_change_assert: assert property (input_change_propagation) else $error(\"Input change propagation failed: Output not updated immediately after input change\");\nendmodule",
+    "case_budget": 32,
+    "expected_status": "FAIL",
+    "expected_text_match": false,
+    "review_reason": "Low bit is not inverted."
+  },
+  {
+    "id": "05_false_antecedent",
+    "response": "{\"CoT\": \"Reviewed static fixture; no model inference.\", \"buggy_code\": \"assign pcx_spc_grant_bufpdl_pa =\\tpcx_spc_grant_bufp1_pa_l;\", \"correct_code\": \"assign pcx_spc_grant_bufpdl_pa =\\t~pcx_spc_grant_bufp1_pa_l;\"}",
+    "rtl": "module pcx_buf_pdl(/*AUTOARG*/\n   // Outputs\n   pcx_spc_grant_bufpdl_pa, \n   // Inputs\n   pcx_spc_grant_bufp1_pa_l\n   );\n\n   output [4:0] \tpcx_spc_grant_bufpdl_pa;\n\n   input [4:0] \t\tpcx_spc_grant_bufp1_pa_l;\n\n   \n\n   assign pcx_spc_grant_bufpdl_pa =\tpcx_spc_grant_bufp1_pa_l;\n\n   \n\n// Assertion Start ***************************\nproperty input_change_propagation;\n\t@(pcx_spc_grant_bufp1_pa_l) 1'b0 |-> pcx_spc_grant_bufpdl_pa == ~pcx_spc_grant_bufp1_pa_l;\nendproperty\ninput_change_assert: assert property (input_change_propagation) else $error(\"Input change propagation failed: Output not updated immediately after input change\");\nendmodule",
+    "case_budget": 32,
+    "expected_status": "INVALID_CONTRACT",
+    "expected_text_match": true,
+    "review_reason": "False antecedent could evade an implication-only check."
+  },
+  {
+    "id": "06_weakened_consequent",
+    "response": "{\"CoT\": \"Reviewed static fixture; no model inference.\", \"buggy_code\": \"assign pcx_spc_grant_bufpdl_pa =\\tpcx_spc_grant_bufp1_pa_l;\", \"correct_code\": \"assign pcx_spc_grant_bufpdl_pa =\\t~pcx_spc_grant_bufp1_pa_l;\"}",
+    "rtl": "module pcx_buf_pdl(/*AUTOARG*/\n   // Outputs\n   pcx_spc_grant_bufpdl_pa, \n   // Inputs\n   pcx_spc_grant_bufp1_pa_l\n   );\n\n   output [4:0] \tpcx_spc_grant_bufpdl_pa;\n\n   input [4:0] \t\tpcx_spc_grant_bufp1_pa_l;\n\n   \n\n   assign pcx_spc_grant_bufpdl_pa =\tpcx_spc_grant_bufp1_pa_l;\n\n   \n\n// Assertion Start ***************************\nproperty input_change_propagation;\n\t@(pcx_spc_grant_bufp1_pa_l) 1'b1 |-> 1'b1;\nendproperty\ninput_change_assert: assert property (input_change_propagation) else $error(\"Input change propagation failed: Output not updated immediately after input change\");\nendmodule",
+    "case_budget": 32,
+    "expected_status": "INVALID_CONTRACT",
+    "expected_text_match": true,
+    "review_reason": "Constant true replaces the output requirement."
+  },
+  {
+    "id": "07_removed_assertion",
+    "response": "{\"CoT\": \"Reviewed static fixture; no model inference.\", \"buggy_code\": \"assign pcx_spc_grant_bufpdl_pa =\\tpcx_spc_grant_bufp1_pa_l;\", \"correct_code\": \"assign pcx_spc_grant_bufpdl_pa =\\t~pcx_spc_grant_bufp1_pa_l;\"}",
+    "rtl": "module pcx_buf_pdl(/*AUTOARG*/\n   // Outputs\n   pcx_spc_grant_bufpdl_pa, \n   // Inputs\n   pcx_spc_grant_bufp1_pa_l\n   );\n\n   output [4:0] \tpcx_spc_grant_bufpdl_pa;\n\n   input [4:0] \t\tpcx_spc_grant_bufp1_pa_l;\n\n   \n\n   assign pcx_spc_grant_bufpdl_pa =\tpcx_spc_grant_bufp1_pa_l;\n\n   \n\nendmodule",
+    "case_budget": 32,
+    "expected_status": "INVALID_CONTRACT",
+    "expected_text_match": true,
+    "review_reason": "Removing the assertion skips its check."
+  },
+  {
+    "id": "08_malformed_json",
+    "response": "{not json",
+    "rtl": "module pcx_buf_pdl(/*AUTOARG*/\n   // Outputs\n   pcx_spc_grant_bufpdl_pa, \n   // Inputs\n   pcx_spc_grant_bufp1_pa_l\n   );\n\n   output [4:0] \tpcx_spc_grant_bufpdl_pa;\n\n   input [4:0] \t\tpcx_spc_grant_bufp1_pa_l;\n\n   \n\n   assign pcx_spc_grant_bufpdl_pa =\tpcx_spc_grant_bufp1_pa_l;\n\n   \n\n// Assertion Start ***************************\nproperty input_change_propagation;\n\t@(pcx_spc_grant_bufp1_pa_l) 1'b1 |-> pcx_spc_grant_bufpdl_pa == ~pcx_spc_grant_bufp1_pa_l;\nendproperty\ninput_change_assert: assert property (input_change_propagation) else $error(\"Input change propagation failed: Output not updated immediately after input change\");\nendmodule",
+    "case_budget": 32,
+    "expected_status": "INVALID_OUTPUT",
+    "expected_text_match": null,
+    "review_reason": "Cannot parse candidate repair."
+  },
+  {
+    "id": "09_unsupported_equivalent",
+    "response": "{\"CoT\": \"Reviewed static fixture; no model inference.\", \"buggy_code\": \"assign pcx_spc_grant_bufpdl_pa =\\tpcx_spc_grant_bufp1_pa_l;\", \"correct_code\": \"assign pcx_spc_grant_bufpdl_pa = 5'b11111 - pcx_spc_grant_bufp1_pa_l;\"}",
+    "rtl": "module pcx_buf_pdl(/*AUTOARG*/\n   // Outputs\n   pcx_spc_grant_bufpdl_pa, \n   // Inputs\n   pcx_spc_grant_bufp1_pa_l\n   );\n\n   output [4:0] \tpcx_spc_grant_bufpdl_pa;\n\n   input [4:0] \t\tpcx_spc_grant_bufp1_pa_l;\n\n   \n\n   assign pcx_spc_grant_bufpdl_pa =\tpcx_spc_grant_bufp1_pa_l;\n\n   \n\n// Assertion Start ***************************\nproperty input_change_propagation;\n\t@(pcx_spc_grant_bufp1_pa_l) 1'b1 |-> pcx_spc_grant_bufpdl_pa == ~pcx_spc_grant_bufp1_pa_l;\nendproperty\ninput_change_assert: assert property (input_change_propagation) else $error(\"Input change propagation failed: Output not updated immediately after input change\");\nendmodule",
+    "case_budget": 32,
+    "expected_status": "UNKNOWN",
+    "expected_text_match": false,
+    "review_reason": "31 minus a five-bit unsigned value equals its complement; subtraction is deliberately unsupported."
+  },
+  {
+    "id": "10_budget_timeout",
+    "response": "{\"CoT\": \"Reviewed static fixture; no model inference.\", \"buggy_code\": \"assign pcx_spc_grant_bufpdl_pa =\\tpcx_spc_grant_bufp1_pa_l;\", \"correct_code\": \"assign pcx_spc_grant_bufpdl_pa =\\t~pcx_spc_grant_bufp1_pa_l;\"}",
+    "rtl": "module pcx_buf_pdl(/*AUTOARG*/\n   // Outputs\n   pcx_spc_grant_bufpdl_pa, \n   // Inputs\n   pcx_spc_grant_bufp1_pa_l\n   );\n\n   output [4:0] \tpcx_spc_grant_bufpdl_pa;\n\n   input [4:0] \t\tpcx_spc_grant_bufp1_pa_l;\n\n   \n\n   assign pcx_spc_grant_bufpdl_pa =\tpcx_spc_grant_bufp1_pa_l;\n\n   \n\n// Assertion Start ***************************\nproperty input_change_propagation;\n\t@(pcx_spc_grant_bufp1_pa_l) 1'b1 |-> pcx_spc_grant_bufpdl_pa == ~pcx_spc_grant_bufp1_pa_l;\nendproperty\ninput_change_assert: assert property (input_change_propagation) else $error(\"Input change propagation failed: Output not updated immediately after input change\");\nendmodule",
+    "case_budget": 0,
+    "expected_status": "TIMEOUT",
+    "expected_text_match": true,
+    "review_reason": "Zero-case budget cannot establish exhaustive success."
+  }
+]
