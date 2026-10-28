@@ -1,0 +1,142 @@
+{
+  "version": "closure-1.1-correctness-amendment",
+  "freeze": "before dataset generation, training, or results",
+  "purpose": "real synthesis, summary-template removal and trained graph-contribution comparison; method port not original PPA reproduction",
+  "data": {
+    "bits": 4,
+    "generated_parent_families": 24,
+    "cones_per_family": 6,
+    "train_families": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "test_families": [
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ],
+    "external_holdout": "unaltered Yosys examples/cmos/counter.v (3-bit counter)",
+    "semantics": "exhaustive all state/data/enable/reset combinations",
+    "dedup": "truth-table fingerprint before split acceptance; exclude conflicting duplicate samples, preserve family partitions",
+    "summary": "coarse behavioral properties only; no AST/operation/constant/ID/netlist statistics; explicitly heuristic, no LLM",
+    "code_token_limit": 384,
+    "graph_node_limit": 384,
+    "graph_encoding": "word-level operand pins and output bits explicitly preserve bit position; gate cells are single-bit"
+  },
+  "synthesis": {
+    "tool": "YoWASP-packaged Yosys/ABC, open distribution; version recorded at execution",
+    "rtl": "proc then DFF D/Q boundary extraction",
+    "gate": "techmap; opt; abc -g AND,OR,XOR,XNOR,MUX; clean",
+    "formal": "equiv_make; equiv_simple; equiv_status -assert"
+  },
+  "learning": {
+    "dimension": 32,
+    "message_layers": 3,
+    "cross_attention_heads": 4,
+    "steps": 400,
+    "batch_size": 16,
+    "seeds": [
+      11,
+      23,
+      37
+    ],
+    "arms": [
+      "paired",
+      "shuffled_pairing",
+      "no_graph",
+      "text_only",
+      "shuffled_edges"
+    ],
+    "optimizer": "Adam",
+    "learning_rate": 0.002,
+    "temperature": 0.15,
+    "weights": {
+      "equivalent_view": 1.0,
+      "implementation_alignment": 1.0,
+      "graph_summary_contrastive": 0.2,
+      "masked_graph": 0.1,
+      "masked_netlist": 0.1,
+      "masked_summary": 0.1,
+      "matching": 0.1
+    },
+    "mask_fraction": 0.3,
+    "cpu_threads": 2,
+    "equal_budget": "same 400 minibatches and model dimensions; all variants retain same allocated parameter modules, inactive graph-specific losses omitted; report trainable gradient parameter counts; text-only uses same code-summary fusion but no graph objectives"
+  },
+  "controls": {
+    "shuffled_pairing": "seeded random derangement within training family, fixed per seed; never test pairs",
+    "shuffled_edges": "deterministic edge rewiring within RTL graph, preserves node features/count; excludes netlist perturbation",
+    "no_graph": "remove graph memory and graph objectives during training/evaluation",
+    "text_only": "code+summary pooled concatenation projected through a separate same-width head; no graph or cross-attention; new baseline"
+  },
+  "metrics": {
+    "primary": [
+      "held-out-family cross-stage Recall@1 and Recall@5",
+      "paired minus no_graph and text_only R1"
+    ],
+    "secondary": [
+      "held-out-family gate count/depth proxy MAE",
+      "equivalent-view cosine",
+      "topology perturbation effects",
+      "external counter separately"
+    ],
+    "uncertainty": "per-seed and paired parent bootstrap 2000 draws; do not pool cones as independent parents"
+  },
+  "downstream": {
+    "targets": [
+      "ABC primitive gate count",
+      "max combinational gate depth"
+    ],
+    "predictor": "ridge alpha=1 on standardized embedding plus available RTL operator-count features, compare same plus top3 retrieved structural metrics",
+    "train_retrieval": "exclude entire own parent family",
+    "test_retrieval": "train parents only",
+    "target_transform": "log1p",
+    "no_physical_PPA_claim": true
+  },
+  "integrity": [
+    "explicit sample IDs and source hashes",
+    "parent and truth-table disjointness",
+    "no IDs/paths/variable instance names in features",
+    "I/O summary collisions reported",
+    "independent gate JSON evaluator agrees with reference and extracted operator graph",
+    "Yosys formal equality of RTL cone and mapped gate netlist",
+    "tampered output gate must fail semantic check"
+  ],
+  "limits": {
+    "no_external_LLM": true,
+    "no_weights": true,
+    "no_GPU": true,
+    "no_paid_resources": true,
+    "no_gate_acceptance": true,
+    "max_training_wall_seconds": 1800,
+    "max_preparation_wall_seconds": 1800,
+    "max_RAM_GiB": 12,
+    "max_new_download_MB": 500
+  },
+  "no_result_driven_tuning": true,
+  "amendment": {
+    "reason": "Independent graph-integrity check found 144 semantic functions collapsed to 81 graph tensors; add port bit-position nodes. Also use actual equivalent HDL view, correcting affordable augmentation omission.",
+    "earlier_attempt": "attempt1: three completed runs preserved, interrupted before completion; no selected pooling",
+    "hyperparameters_and_budget_changed": false,
+    "freeze": "before corrected dataset generation and training"
+  }
+}

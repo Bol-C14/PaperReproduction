@@ -1,0 +1,279 @@
+{
+  "creator": "Yosys 0.70 (git sha1 28ba3cb92, Release, Clang /workspace/YoWASP/yosys/wasi-sdk-33.0-x86_64-linux/share/cmake/../..//bin/clang++ 22.1.0)",
+  "modules": {
+    "gold": {
+      "attributes": {
+        "top": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "rst": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "en": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "a": {
+          "direction": "input",
+          "bits": [ 4, 5, 6, 7 ]
+        },
+        "b": {
+          "direction": "input",
+          "bits": [ 8, 9, 10, 11 ]
+        },
+        "state": {
+          "direction": "input",
+          "bits": [ 12, 13, 14, 15 ]
+        },
+        "next_state": {
+          "direction": "output",
+          "bits": [ 16, 17, 18, 19 ]
+        }
+      },
+      "cells": {
+        "$add$/workspace/PaperReproduction/circuitfusion/closure/data/p18_c1/parent_alt.v:2$2441": {
+          "hide_name": 1,
+          "type": "$add",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "/workspace/PaperReproduction/circuitfusion/closure/data/p18_c1/parent_alt.v:2.68-2.79"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 20, 21, 22, 23 ],
+            "B": [ 4, 5, 6, 7 ],
+            "Y": [ 24, 25, 26, 27 ]
+          }
+        },
+        "$and$/workspace/PaperReproduction/circuitfusion/closure/data/p18_c1/parent_alt.v:2$2440": {
+          "hide_name": 1,
+          "type": "$and",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "B_SIGNED": "00000000000000000000000000000000",
+            "B_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "/workspace/PaperReproduction/circuitfusion/closure/data/p18_c1/parent_alt.v:2.69-2.74"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 12, 13, 14, 15 ],
+            "B": [ 8, 9, 10, 11 ],
+            "Y": [ 20, 21, 22, 23 ]
+          }
+        },
+        "$auto$opt_expr.cc:702:replace_const_cells$2451": {
+          "hide_name": 1,
+          "type": "$not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000001",
+            "Y_WIDTH": "00000000000000000000000000000001"
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 24 ],
+            "Y": [ 28 ]
+          }
+        },
+        "$not$/workspace/PaperReproduction/circuitfusion/closure/data/p18_c1/parent_alt.v:2$2443": {
+          "hide_name": 1,
+          "type": "$not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "/workspace/PaperReproduction/circuitfusion/closure/data/p18_c1/parent_alt.v:2.58-2.81"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 28, 25, 26, 27 ],
+            "Y": [ 29, 30, 31, 32 ]
+          }
+        },
+        "$not$/workspace/PaperReproduction/circuitfusion/closure/data/p18_c1/parent_alt.v:2$2444": {
+          "hide_name": 1,
+          "type": "$not",
+          "parameters": {
+            "A_SIGNED": "00000000000000000000000000000000",
+            "A_WIDTH": "00000000000000000000000000000100",
+            "Y_WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "/workspace/PaperReproduction/circuitfusion/closure/data/p18_c1/parent_alt.v:2.56-2.82"
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 29, 30, 31, 32 ],
+            "Y": [ 33, 34, 35, 36 ]
+          }
+        },
+        "$procmux$2445": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "src": "/workspace/PaperReproduction/circuitfusion/closure/data/p18_c1/parent_alt.v:2.48-2.50|/workspace/PaperReproduction/circuitfusion/closure/data/p18_c1/parent_alt.v:2.45-2.84"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 12, 13, 14, 15 ],
+            "B": [ 33, 34, 35, 36 ],
+            "S": [ 3 ],
+            "Y": [ 37, 38, 39, 40 ]
+          }
+        },
+        "$procmux$2448": {
+          "hide_name": 1,
+          "type": "$mux",
+          "parameters": {
+            "WIDTH": "00000000000000000000000000000100"
+          },
+          "attributes": {
+            "full_case": "00000000000000000000000000000001",
+            "src": "/workspace/PaperReproduction/circuitfusion/closure/data/p18_c1/parent_alt.v:2.26-2.29|/workspace/PaperReproduction/circuitfusion/closure/data/p18_c1/parent_alt.v:2.23-2.84"
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "S": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 37, 38, 39, 40 ],
+            "B": [ "0", "0", "0", "0" ],
+            "S": [ 2 ],
+            "Y": [ 16, 17, 18, 19 ]
+          }
+        }
+      },
+      "netnames": {
+        "$add$/workspace/PaperReproduction/circuitfusion/closure/data/p18_c1/parent_alt.v:2$2441_Y": {
+          "hide_name": 1,
+          "bits": [ 24, 25, 26, 27 ],
+          "attributes": {
+            "src": "/workspace/PaperReproduction/circuitfusion/closure/data/p18_c1/parent_alt.v:2.68-2.79"
+          }
+        },
+        "$and$/workspace/PaperReproduction/circuitfusion/closure/data/p18_c1/parent_alt.v:2$2440_Y": {
+          "hide_name": 1,
+          "bits": [ 20, 21, 22, 23 ],
+          "attributes": {
+            "src": "/workspace/PaperReproduction/circuitfusion/closure/data/p18_c1/parent_alt.v:2.69-2.74"
+          }
+        },
+        "$auto$rtlil.cc:3245:Not$2452": {
+          "hide_name": 1,
+          "bits": [ 28 ],
+          "attributes": {
+          }
+        },
+        "$not$/workspace/PaperReproduction/circuitfusion/closure/data/p18_c1/parent_alt.v:2$2443_Y": {
+          "hide_name": 1,
+          "bits": [ 29, 30, 31, 32 ],
+          "attributes": {
+            "src": "/workspace/PaperReproduction/circuitfusion/closure/data/p18_c1/parent_alt.v:2.58-2.81"
+          }
+        },
+        "$not$/workspace/PaperReproduction/circuitfusion/closure/data/p18_c1/parent_alt.v:2$2444_Y": {
+          "hide_name": 1,
+          "bits": [ 33, 34, 35, 36 ],
+          "attributes": {
+            "src": "/workspace/PaperReproduction/circuitfusion/closure/data/p18_c1/parent_alt.v:2.56-2.82"
+          }
+        },
+        "$procmux$2445_Y": {
+          "hide_name": 1,
+          "bits": [ 37, 38, 39, 40 ],
+          "attributes": {
+          }
+        },
+        "a": {
+          "hide_name": 0,
+          "bits": [ 4, 5, 6, 7 ],
+          "attributes": {
+            "src": "/workspace/PaperReproduction/circuitfusion/closure/data/p18_c1/parent_alt.v:1.41-1.42"
+          }
+        },
+        "b": {
+          "hide_name": 0,
+          "bits": [ 8, 9, 10, 11 ],
+          "attributes": {
+            "src": "/workspace/PaperReproduction/circuitfusion/closure/data/p18_c1/parent_alt.v:1.43-1.44"
+          }
+        },
+        "en": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "/workspace/PaperReproduction/circuitfusion/closure/data/p18_c1/parent_alt.v:1.26-1.28"
+          }
+        },
+        "next_state": {
+          "hide_name": 0,
+          "bits": [ 16, 17, 18, 19 ],
+          "attributes": {
+          }
+        },
+        "q": {
+          "hide_name": 0,
+          "bits": [ 12, 13, 14, 15 ],
+          "attributes": {
+            "src": "/workspace/PaperReproduction/circuitfusion/closure/data/p18_c1/parent_alt.v:1.62-1.63"
+          }
+        },
+        "rst": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "/workspace/PaperReproduction/circuitfusion/closure/data/p18_c1/parent_alt.v:1.22-1.25"
+          }
+        },
+        "state": {
+          "hide_name": 0,
+          "bits": [ 12, 13, 14, 15 ],
+          "attributes": {
+          }
+        }
+      }
+    }
+  }
+}

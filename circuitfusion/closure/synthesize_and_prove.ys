@@ -1,0 +1,3456 @@
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p00_c1/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p00_c1/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p00_c1/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p00_c1/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p00_c1/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p00_c1/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p00_c1/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p00_c1/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p00_c2/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p00_c2/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p00_c2/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p00_c2/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p00_c2/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p00_c2/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p00_c2/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p00_c2/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p00_c3/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p00_c3/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p00_c3/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p00_c3/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p00_c3/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p00_c3/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p00_c3/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p00_c3/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p00_c4/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p00_c4/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p00_c4/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p00_c4/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p00_c4/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p00_c4/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p00_c4/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p00_c4/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p00_c5/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p00_c5/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p00_c5/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p00_c5/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p00_c5/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p00_c5/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p00_c5/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p00_c5/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p00_c6/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p00_c6/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p00_c6/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p00_c6/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p00_c6/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p00_c6/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p00_c6/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p00_c6/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p01_c1/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p01_c1/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p01_c1/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p01_c1/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p01_c1/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p01_c1/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p01_c1/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p01_c1/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p01_c2/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p01_c2/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p01_c2/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p01_c2/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p01_c2/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p01_c2/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p01_c2/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p01_c2/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p01_c3/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p01_c3/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p01_c3/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p01_c3/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p01_c3/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p01_c3/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p01_c3/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p01_c3/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p01_c4/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p01_c4/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p01_c4/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p01_c4/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p01_c4/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p01_c4/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p01_c4/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p01_c4/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p01_c5/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p01_c5/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p01_c5/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p01_c5/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p01_c5/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p01_c5/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p01_c5/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p01_c5/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p01_c6/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p01_c6/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p01_c6/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p01_c6/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p01_c6/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p01_c6/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p01_c6/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p01_c6/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p02_c1/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p02_c1/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p02_c1/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p02_c1/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p02_c1/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p02_c1/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p02_c1/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p02_c1/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p02_c2/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p02_c2/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p02_c2/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p02_c2/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p02_c2/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p02_c2/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p02_c2/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p02_c2/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p02_c3/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p02_c3/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p02_c3/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p02_c3/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p02_c3/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p02_c3/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p02_c3/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p02_c3/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p02_c4/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p02_c4/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p02_c4/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p02_c4/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p02_c4/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p02_c4/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p02_c4/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p02_c4/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p02_c5/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p02_c5/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p02_c5/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p02_c5/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p02_c5/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p02_c5/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p02_c5/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p02_c5/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p02_c6/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p02_c6/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p02_c6/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p02_c6/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p02_c6/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p02_c6/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p02_c6/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p02_c6/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p03_c1/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p03_c1/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p03_c1/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p03_c1/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p03_c1/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p03_c1/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p03_c1/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p03_c1/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p03_c2/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p03_c2/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p03_c2/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p03_c2/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p03_c2/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p03_c2/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p03_c2/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p03_c2/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p03_c3/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p03_c3/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p03_c3/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p03_c3/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p03_c3/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p03_c3/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p03_c3/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p03_c3/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p03_c4/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p03_c4/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p03_c4/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p03_c4/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p03_c4/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p03_c4/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p03_c4/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p03_c4/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p03_c5/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p03_c5/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p03_c5/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p03_c5/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p03_c5/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p03_c5/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p03_c5/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p03_c5/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p03_c6/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p03_c6/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p03_c6/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p03_c6/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p03_c6/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p03_c6/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p03_c6/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p03_c6/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p04_c1/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p04_c1/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p04_c1/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p04_c1/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p04_c1/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p04_c1/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p04_c1/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p04_c1/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p04_c2/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p04_c2/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p04_c2/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p04_c2/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p04_c2/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p04_c2/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p04_c2/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p04_c2/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p04_c3/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p04_c3/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p04_c3/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p04_c3/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p04_c3/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p04_c3/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p04_c3/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p04_c3/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p04_c4/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p04_c4/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p04_c4/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p04_c4/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p04_c4/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p04_c4/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p04_c4/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p04_c4/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p04_c5/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p04_c5/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p04_c5/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p04_c5/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p04_c5/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p04_c5/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p04_c5/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p04_c5/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p04_c6/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p04_c6/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p04_c6/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p04_c6/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p04_c6/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p04_c6/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p04_c6/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p04_c6/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p05_c1/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p05_c1/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p05_c1/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p05_c1/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p05_c1/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p05_c1/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p05_c1/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p05_c1/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p05_c2/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p05_c2/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p05_c2/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p05_c2/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p05_c2/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p05_c2/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p05_c2/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p05_c2/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p05_c3/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p05_c3/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p05_c3/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p05_c3/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p05_c3/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p05_c3/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p05_c3/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p05_c3/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p05_c4/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p05_c4/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p05_c4/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p05_c4/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p05_c4/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p05_c4/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p05_c4/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p05_c4/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p05_c5/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p05_c5/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p05_c5/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p05_c5/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p05_c5/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p05_c5/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p05_c5/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p05_c5/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p05_c6/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p05_c6/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p05_c6/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p05_c6/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p05_c6/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p05_c6/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p05_c6/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p05_c6/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p06_c1/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p06_c1/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p06_c1/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p06_c1/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p06_c1/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p06_c1/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p06_c1/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p06_c1/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p06_c2/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p06_c2/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p06_c2/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p06_c2/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p06_c2/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p06_c2/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p06_c2/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p06_c2/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p06_c3/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p06_c3/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p06_c3/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p06_c3/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p06_c3/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p06_c3/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p06_c3/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p06_c3/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p06_c4/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p06_c4/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p06_c4/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p06_c4/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p06_c4/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p06_c4/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p06_c4/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p06_c4/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p06_c5/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p06_c5/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p06_c5/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p06_c5/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p06_c5/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p06_c5/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p06_c5/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p06_c5/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p06_c6/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p06_c6/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p06_c6/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p06_c6/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p06_c6/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p06_c6/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p06_c6/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p06_c6/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p07_c1/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p07_c1/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p07_c1/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p07_c1/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p07_c1/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p07_c1/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p07_c1/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p07_c1/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p07_c2/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p07_c2/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p07_c2/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p07_c2/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p07_c2/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p07_c2/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p07_c2/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p07_c2/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p07_c3/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p07_c3/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p07_c3/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p07_c3/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p07_c3/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p07_c3/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p07_c3/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p07_c3/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p07_c4/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p07_c4/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p07_c4/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p07_c4/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p07_c4/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p07_c4/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p07_c4/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p07_c4/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p07_c5/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p07_c5/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p07_c5/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p07_c5/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p07_c5/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p07_c5/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p07_c5/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p07_c5/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p07_c6/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p07_c6/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p07_c6/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p07_c6/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p07_c6/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p07_c6/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p07_c6/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p07_c6/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p08_c1/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p08_c1/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p08_c1/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p08_c1/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p08_c1/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p08_c1/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p08_c1/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p08_c1/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p08_c2/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p08_c2/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p08_c2/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p08_c2/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p08_c2/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p08_c2/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p08_c2/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p08_c2/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p08_c3/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p08_c3/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p08_c3/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p08_c3/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p08_c3/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p08_c3/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p08_c3/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p08_c3/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p08_c4/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p08_c4/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p08_c4/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p08_c4/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p08_c4/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p08_c4/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p08_c4/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p08_c4/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p08_c5/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p08_c5/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p08_c5/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p08_c5/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p08_c5/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p08_c5/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p08_c5/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p08_c5/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p08_c6/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p08_c6/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p08_c6/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p08_c6/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p08_c6/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p08_c6/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p08_c6/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p08_c6/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p09_c1/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p09_c1/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p09_c1/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p09_c1/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p09_c1/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p09_c1/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p09_c1/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p09_c1/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p09_c2/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p09_c2/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p09_c2/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p09_c2/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p09_c2/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p09_c2/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p09_c2/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p09_c2/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p09_c3/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p09_c3/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p09_c3/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p09_c3/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p09_c3/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p09_c3/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p09_c3/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p09_c3/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p09_c4/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p09_c4/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p09_c4/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p09_c4/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p09_c4/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p09_c4/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p09_c4/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p09_c4/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p09_c5/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p09_c5/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p09_c5/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p09_c5/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p09_c5/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p09_c5/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p09_c5/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p09_c5/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p09_c6/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p09_c6/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p09_c6/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p09_c6/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p09_c6/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p09_c6/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p09_c6/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p09_c6/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p10_c1/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p10_c1/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p10_c1/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p10_c1/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p10_c1/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p10_c1/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p10_c1/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p10_c1/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p10_c2/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p10_c2/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p10_c2/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p10_c2/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p10_c2/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p10_c2/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p10_c2/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p10_c2/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p10_c3/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p10_c3/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p10_c3/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p10_c3/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p10_c3/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p10_c3/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p10_c3/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p10_c3/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p10_c4/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p10_c4/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p10_c4/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p10_c4/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p10_c4/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p10_c4/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p10_c4/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p10_c4/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p10_c5/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p10_c5/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p10_c5/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p10_c5/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p10_c5/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p10_c5/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p10_c5/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p10_c5/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p10_c6/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p10_c6/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p10_c6/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p10_c6/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p10_c6/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p10_c6/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p10_c6/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p10_c6/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p11_c1/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p11_c1/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p11_c1/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p11_c1/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p11_c1/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p11_c1/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p11_c1/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p11_c1/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p11_c2/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p11_c2/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p11_c2/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p11_c2/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p11_c2/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p11_c2/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p11_c2/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p11_c2/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p11_c3/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p11_c3/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p11_c3/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p11_c3/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p11_c3/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p11_c3/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p11_c3/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p11_c3/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p11_c4/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p11_c4/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p11_c4/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p11_c4/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p11_c4/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p11_c4/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p11_c4/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p11_c4/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p11_c5/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p11_c5/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p11_c5/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p11_c5/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p11_c5/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p11_c5/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p11_c5/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p11_c5/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p11_c6/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p11_c6/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p11_c6/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p11_c6/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p11_c6/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p11_c6/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p11_c6/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p11_c6/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p12_c1/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p12_c1/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p12_c1/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p12_c1/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p12_c1/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p12_c1/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p12_c1/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p12_c1/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p12_c2/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p12_c2/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p12_c2/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p12_c2/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p12_c2/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p12_c2/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p12_c2/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p12_c2/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p12_c3/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p12_c3/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p12_c3/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p12_c3/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p12_c3/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p12_c3/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p12_c3/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p12_c3/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p12_c4/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p12_c4/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p12_c4/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p12_c4/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p12_c4/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p12_c4/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p12_c4/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p12_c4/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p12_c5/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p12_c5/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p12_c5/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p12_c5/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p12_c5/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p12_c5/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p12_c5/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p12_c5/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p12_c6/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p12_c6/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p12_c6/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p12_c6/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p12_c6/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p12_c6/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p12_c6/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p12_c6/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p13_c1/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p13_c1/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p13_c1/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p13_c1/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p13_c1/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p13_c1/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p13_c1/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p13_c1/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p13_c2/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p13_c2/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p13_c2/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p13_c2/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p13_c2/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p13_c2/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p13_c2/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p13_c2/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p13_c3/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p13_c3/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p13_c3/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p13_c3/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p13_c3/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p13_c3/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p13_c3/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p13_c3/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p13_c4/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p13_c4/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p13_c4/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p13_c4/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p13_c4/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p13_c4/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p13_c4/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p13_c4/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p13_c5/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p13_c5/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p13_c5/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p13_c5/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p13_c5/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p13_c5/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p13_c5/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p13_c5/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p13_c6/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p13_c6/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p13_c6/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p13_c6/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p13_c6/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p13_c6/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p13_c6/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p13_c6/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p14_c2/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p14_c2/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p14_c2/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p14_c2/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p14_c2/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p14_c2/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p14_c2/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p14_c2/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p14_c3/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p14_c3/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p14_c3/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p14_c3/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p14_c3/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p14_c3/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p14_c3/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p14_c3/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p14_c4/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p14_c4/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p14_c4/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p14_c4/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p14_c4/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p14_c4/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p14_c4/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p14_c4/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p14_c5/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p14_c5/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p14_c5/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p14_c5/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p14_c5/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p14_c5/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p14_c5/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p14_c5/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p14_c6/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p14_c6/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p14_c6/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p14_c6/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p14_c6/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p14_c6/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p14_c6/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p14_c6/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p15_c1/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p15_c1/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p15_c1/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p15_c1/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p15_c1/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p15_c1/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p15_c1/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p15_c1/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p15_c2/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p15_c2/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p15_c2/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p15_c2/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p15_c2/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p15_c2/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p15_c2/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p15_c2/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p15_c3/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p15_c3/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p15_c3/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p15_c3/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p15_c3/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p15_c3/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p15_c3/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p15_c3/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p15_c4/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p15_c4/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p15_c4/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p15_c4/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p15_c4/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p15_c4/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p15_c4/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p15_c4/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p15_c5/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p15_c5/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p15_c5/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p15_c5/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p15_c5/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p15_c5/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p15_c5/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p15_c5/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p15_c6/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p15_c6/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p15_c6/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p15_c6/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p15_c6/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p15_c6/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p15_c6/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p15_c6/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p16_c1/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p16_c1/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p16_c1/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p16_c1/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p16_c1/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p16_c1/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p16_c1/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p16_c1/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p16_c2/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p16_c2/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p16_c2/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p16_c2/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p16_c2/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p16_c2/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p16_c2/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p16_c2/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p16_c3/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p16_c3/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p16_c3/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p16_c3/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p16_c3/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p16_c3/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p16_c3/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p16_c3/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p16_c4/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p16_c4/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p16_c4/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p16_c4/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p16_c4/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p16_c4/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p16_c4/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p16_c4/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p16_c5/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p16_c5/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p16_c5/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p16_c5/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p16_c5/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p16_c5/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p16_c5/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p16_c5/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p16_c6/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p16_c6/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p16_c6/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p16_c6/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p16_c6/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p16_c6/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p16_c6/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p16_c6/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p17_c1/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p17_c1/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p17_c1/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p17_c1/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p17_c1/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p17_c1/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p17_c1/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p17_c1/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p17_c2/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p17_c2/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p17_c2/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p17_c2/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p17_c2/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p17_c2/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p17_c2/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p17_c2/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p17_c3/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p17_c3/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p17_c3/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p17_c3/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p17_c3/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p17_c3/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p17_c3/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p17_c3/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p17_c4/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p17_c4/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p17_c4/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p17_c4/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p17_c4/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p17_c4/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p17_c4/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p17_c4/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p17_c5/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p17_c5/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p17_c5/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p17_c5/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p17_c5/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p17_c5/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p17_c5/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p17_c5/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p17_c6/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p17_c6/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p17_c6/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p17_c6/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p17_c6/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p17_c6/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p17_c6/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p17_c6/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p18_c1/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p18_c1/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p18_c1/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p18_c1/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p18_c1/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p18_c1/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p18_c1/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p18_c1/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p18_c2/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p18_c2/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p18_c2/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p18_c2/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p18_c2/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p18_c2/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p18_c2/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p18_c2/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p18_c3/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p18_c3/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p18_c3/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p18_c3/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p18_c3/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p18_c3/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p18_c3/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p18_c3/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p18_c4/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p18_c4/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p18_c4/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p18_c4/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p18_c4/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p18_c4/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p18_c4/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p18_c4/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p18_c5/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p18_c5/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p18_c5/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p18_c5/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p18_c5/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p18_c5/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p18_c5/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p18_c5/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p18_c6/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p18_c6/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p18_c6/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p18_c6/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p18_c6/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p18_c6/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p18_c6/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p18_c6/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p19_c1/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p19_c1/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p19_c1/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p19_c1/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p19_c1/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p19_c1/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p19_c1/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p19_c1/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p19_c2/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p19_c2/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p19_c2/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p19_c2/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p19_c2/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p19_c2/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p19_c2/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p19_c2/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p19_c3/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p19_c3/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p19_c3/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p19_c3/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p19_c3/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p19_c3/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p19_c3/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p19_c3/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p19_c4/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p19_c4/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p19_c4/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p19_c4/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p19_c4/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p19_c4/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p19_c4/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p19_c4/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p19_c5/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p19_c5/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p19_c5/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p19_c5/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p19_c5/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p19_c5/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p19_c5/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p19_c5/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p19_c6/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p19_c6/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p19_c6/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p19_c6/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p19_c6/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p19_c6/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p19_c6/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p19_c6/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p20_c1/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p20_c1/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p20_c1/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p20_c1/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p20_c1/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p20_c1/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p20_c1/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p20_c1/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p20_c2/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p20_c2/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p20_c2/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p20_c2/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p20_c2/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p20_c2/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p20_c2/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p20_c2/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p20_c3/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p20_c3/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p20_c3/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p20_c3/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p20_c3/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p20_c3/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p20_c3/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p20_c3/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p20_c4/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p20_c4/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p20_c4/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p20_c4/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p20_c4/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p20_c4/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p20_c4/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p20_c4/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p20_c5/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p20_c5/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p20_c5/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p20_c5/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p20_c5/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p20_c5/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p20_c5/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p20_c5/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p20_c6/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p20_c6/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p20_c6/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p20_c6/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p20_c6/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p20_c6/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p20_c6/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p20_c6/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p21_c1/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p21_c1/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p21_c1/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p21_c1/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p21_c1/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p21_c1/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p21_c1/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p21_c1/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p21_c2/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p21_c2/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p21_c2/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p21_c2/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p21_c2/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p21_c2/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p21_c2/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p21_c2/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p21_c3/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p21_c3/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p21_c3/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p21_c3/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p21_c3/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p21_c3/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p21_c3/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p21_c3/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p21_c4/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p21_c4/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p21_c4/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p21_c4/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p21_c4/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p21_c4/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p21_c4/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p21_c4/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p21_c5/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p21_c5/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p21_c5/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p21_c5/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p21_c5/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p21_c5/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p21_c5/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p21_c5/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p21_c6/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p21_c6/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p21_c6/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p21_c6/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p21_c6/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p21_c6/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p21_c6/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p21_c6/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p22_c1/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p22_c1/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p22_c1/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p22_c1/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p22_c1/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p22_c1/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p22_c1/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p22_c1/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p22_c2/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p22_c2/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p22_c2/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p22_c2/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p22_c2/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p22_c2/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p22_c2/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p22_c2/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p22_c3/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p22_c3/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p22_c3/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p22_c3/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p22_c3/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p22_c3/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p22_c3/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p22_c3/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p22_c4/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p22_c4/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p22_c4/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p22_c4/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p22_c4/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p22_c4/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p22_c4/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p22_c4/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p22_c5/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p22_c5/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p22_c5/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p22_c5/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p22_c5/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p22_c5/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p22_c5/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p22_c5/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p22_c6/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p22_c6/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p22_c6/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p22_c6/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p22_c6/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p22_c6/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p22_c6/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p22_c6/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p23_c1/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p23_c1/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p23_c1/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p23_c1/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p23_c1/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p23_c1/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p23_c1/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p23_c1/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p23_c2/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p23_c2/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p23_c2/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p23_c2/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p23_c2/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p23_c2/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p23_c2/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p23_c2/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p23_c3/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p23_c3/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p23_c3/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p23_c3/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p23_c3/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p23_c3/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p23_c3/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p23_c3/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p23_c4/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p23_c4/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p23_c4/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p23_c4/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p23_c4/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p23_c4/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p23_c4/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p23_c4/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p23_c5/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p23_c5/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p23_c5/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p23_c5/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p23_c5/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p23_c5/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p23_c5/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p23_c5/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p23_c6/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p23_c6/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p23_c6/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p23_c6/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p23_c6/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p23_c6/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p23_c6/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p23_c6/formal_status.txt equiv_status -assert
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p24_c0/cone.json
+hierarchy -top gold
+check -assert
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p24_c0/cone.v
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p24_c0/rtl.json
+design -save rtl
+design -reset
+read_json /workspace/PaperReproduction/circuitfusion/closure/data/p24_c0/cone_alt.json
+hierarchy -top gold
+opt
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p24_c0/equivalent.json
+techmap
+opt
+abc -g AND,OR,XOR,XNOR,MUX
+clean
+rename gold gate
+write_json /workspace/PaperReproduction/circuitfusion/closure/data/p24_c0/gate.json
+write_verilog -noattr /workspace/PaperReproduction/circuitfusion/closure/data/p24_c0/gate.v
+design -copy-from rtl gold
+equiv_make gold gate equiv
+hierarchy -top equiv
+equiv_simple
+tee -o /workspace/PaperReproduction/circuitfusion/closure/data/p24_c0/formal_status.txt equiv_status -assert

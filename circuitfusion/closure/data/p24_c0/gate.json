@@ -1,0 +1,353 @@
+{
+  "creator": "Yosys 0.70 (git sha1 28ba3cb92, Release, Clang /workspace/YoWASP/yosys/wasi-sdk-33.0-x86_64-linux/share/cmake/../..//bin/clang++ 22.1.0)",
+  "modules": {
+    "gate": {
+      "attributes": {
+        "top": "00000000000000000000000000000001"
+      },
+      "ports": {
+        "rst": {
+          "direction": "input",
+          "bits": [ 2 ]
+        },
+        "en": {
+          "direction": "input",
+          "bits": [ 3 ]
+        },
+        "state": {
+          "direction": "input",
+          "bits": [ 4, 5, 6 ]
+        },
+        "next_state": {
+          "direction": "output",
+          "bits": [ 7, 8, 9 ]
+        }
+      },
+      "cells": {
+        "$abc$32659$blif$32659$0": {
+          "hide_name": 1,
+          "type": "$_NOT_",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 2 ],
+            "Y": [ 10 ]
+          }
+        },
+        "$abc$32659$blif$32659$1": {
+          "hide_name": 1,
+          "type": "$_AND_",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 3 ],
+            "B": [ 4 ],
+            "Y": [ 11 ]
+          }
+        },
+        "$abc$32659$blif$32659$10": {
+          "hide_name": 1,
+          "type": "$_OR_",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 5 ],
+            "B": [ 11 ],
+            "Y": [ 12 ]
+          }
+        },
+        "$abc$32659$blif$32659$11": {
+          "hide_name": 1,
+          "type": "$_AND_",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 10 ],
+            "B": [ 12 ],
+            "Y": [ 13 ]
+          }
+        },
+        "$abc$32659$blif$32659$12": {
+          "hide_name": 1,
+          "type": "$_AND_",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 14 ],
+            "B": [ 13 ],
+            "Y": [ 8 ]
+          }
+        },
+        "$abc$32659$blif$32659$2": {
+          "hide_name": 1,
+          "type": "$_AND_",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 5 ],
+            "B": [ 11 ],
+            "Y": [ 15 ]
+          }
+        },
+        "$abc$32659$blif$32659$3": {
+          "hide_name": 1,
+          "type": "$_NOT_",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 15 ],
+            "Y": [ 14 ]
+          }
+        },
+        "$abc$32659$blif$32659$4": {
+          "hide_name": 1,
+          "type": "$_XOR_",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 6 ],
+            "B": [ 15 ],
+            "Y": [ 16 ]
+          }
+        },
+        "$abc$32659$blif$32659$5": {
+          "hide_name": 1,
+          "type": "$_AND_",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 10 ],
+            "B": [ 16 ],
+            "Y": [ 9 ]
+          }
+        },
+        "$abc$32659$blif$32659$6": {
+          "hide_name": 1,
+          "type": "$_OR_",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 3 ],
+            "B": [ 4 ],
+            "Y": [ 17 ]
+          }
+        },
+        "$abc$32659$blif$32659$7": {
+          "hide_name": 1,
+          "type": "$_OR_",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 2 ],
+            "B": [ 11 ],
+            "Y": [ 18 ]
+          }
+        },
+        "$abc$32659$blif$32659$8": {
+          "hide_name": 1,
+          "type": "$_NOT_",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 18 ],
+            "Y": [ 19 ]
+          }
+        },
+        "$abc$32659$blif$32659$9": {
+          "hide_name": 1,
+          "type": "$_AND_",
+          "parameters": {
+          },
+          "attributes": {
+          },
+          "port_directions": {
+            "A": "input",
+            "B": "input",
+            "Y": "output"
+          },
+          "connections": {
+            "A": [ 17 ],
+            "B": [ 19 ],
+            "Y": [ 7 ]
+          }
+        }
+      },
+      "netnames": {
+        "$abc$32659$new_n10": {
+          "hide_name": 1,
+          "bits": [ 11 ],
+          "attributes": {
+          }
+        },
+        "$abc$32659$new_n11": {
+          "hide_name": 1,
+          "bits": [ 15 ],
+          "attributes": {
+          }
+        },
+        "$abc$32659$new_n12": {
+          "hide_name": 1,
+          "bits": [ 14 ],
+          "attributes": {
+          }
+        },
+        "$abc$32659$new_n13": {
+          "hide_name": 1,
+          "bits": [ 16 ],
+          "attributes": {
+          }
+        },
+        "$abc$32659$new_n15": {
+          "hide_name": 1,
+          "bits": [ 17 ],
+          "attributes": {
+          }
+        },
+        "$abc$32659$new_n16": {
+          "hide_name": 1,
+          "bits": [ 18 ],
+          "attributes": {
+          }
+        },
+        "$abc$32659$new_n17": {
+          "hide_name": 1,
+          "bits": [ 19 ],
+          "attributes": {
+          }
+        },
+        "$abc$32659$new_n19": {
+          "hide_name": 1,
+          "bits": [ 12 ],
+          "attributes": {
+          }
+        },
+        "$abc$32659$new_n20": {
+          "hide_name": 1,
+          "bits": [ 13 ],
+          "attributes": {
+          }
+        },
+        "$abc$32659$new_n9": {
+          "hide_name": 1,
+          "bits": [ 10 ],
+          "attributes": {
+          }
+        },
+        "count": {
+          "hide_name": 0,
+          "bits": [ 4, 5, 6 ],
+          "attributes": {
+            "src": "/workspace/PaperReproduction/circuitfusion/closure/data/p24_c0/parent_alt.v:4.21-4.26"
+          }
+        },
+        "en": {
+          "hide_name": 0,
+          "bits": [ 3 ],
+          "attributes": {
+            "src": "/workspace/PaperReproduction/circuitfusion/closure/data/p24_c0/parent_alt.v:3.20-3.22"
+          }
+        },
+        "next_state": {
+          "hide_name": 0,
+          "bits": [ 7, 8, 9 ],
+          "attributes": {
+          }
+        },
+        "rst": {
+          "hide_name": 0,
+          "bits": [ 2 ],
+          "attributes": {
+            "src": "/workspace/PaperReproduction/circuitfusion/closure/data/p24_c0/parent_alt.v:3.15-3.18"
+          }
+        },
+        "state": {
+          "hide_name": 0,
+          "bits": [ 4, 5, 6 ],
+          "attributes": {
+          }
+        }
+      }
+    }
+  }
+}

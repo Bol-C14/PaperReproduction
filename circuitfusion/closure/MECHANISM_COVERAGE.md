@@ -1,0 +1,17 @@
+# Mechanism coverage map — closure tranche
+
+Source: [official CircuitFusion paper](https://proceedings.iclr.cc/paper_files/paper/2025/file/7ffb43adf37b3eeaba559098bc084cc6-Paper-Conference.pdf), sections 3.1–3.5 and appendices B/C. Earlier audit and source snapshots remain unchanged.
+
+| Mechanism | Original implementation / earlier port | This tranche / remaining gap |
+|---|---|---|
+| Sequential-boundary cones, modality IDs | Original scripts depend on register files; earlier port created combinational expressions | Real Verilog sequential parents, Yosys `proc`, DFF D/Q extraction, shared state boundary, canonical input roles. Independent all-input next-state checks. No multi-clock/reset timing claims. |
+| HDL code, RTL operator graph, summary | Upstream 7B frozen code embedding, BERT and Graphormer; old summaries verbalized AST | Complete small HDL token stream, directed operator graph, and coarse behavioral English from exhaustive I/O semantics. Summary is a heuristic, explicitly not an LLM; no AST/name/constant/gate-count text. Original foundation-model semantics remain unavailable. |
+| Equivalent RTL augmentation | Original Yosys/ABC recipes; previous double-NOT expression evaluator | Actual Yosys optimization produces equivalent word-level view; gate synthesis and formal equivalence. All views share provenance. |
+| Masked graph modeling, intra-modal/cross-modal contrastive tasks | Upstream graph/summary objectives; old port only equivalent-view contrastive | Masked node prediction; graph/summary contrastive; equivalent-view contrastive. Sizes and loss weights scaled to CPU. |
+| Masked summary modeling and cross-modal matching | Upstream BERT masked prediction and matching | Small masked token head with fused graph/code context plus binary matched/mismatched summary objective. No pretrained language knowledge. |
+| Cross-attention fusion | Original BERT cross-attention, released alpha discrepancy | Summary tokens attend to full HDL and graph memory; graph-removed arm removes graph memory rather than replacing it with non-masked zeros. |
+| Auxiliary netlist learning and implementation alignment | Original pretrained GraphSAGE encoder and commercial netlists | Separate graph encoder on actual Yosys/ABC gate netlists, masked gate modeling and joint symmetric contrastive alignment. No original checkpoint or technology library. |
+| Retrieval-augmented downstream application | Original slack/WNS/TNS/power/area labels | Retrieve only known training-family circuits, then predict independently checked gate-count/depth proxies with a fixed ridge baseline. Training retrieval excludes own family; test pool excludes all test parents. Gate/depth are structural targets, not timing, power or silicon area. |
+| Controlled graph contribution | Earlier zeroing sensitivity only | Matched steps/seeds/minibatches: correct pairs, shuffled pairs, graph removal, text-only baseline, shuffled RTL edges. Graph-only diagnostic is inference perturbation; contribution must be assessed from trained ablations. |
+
+This is a faithful *scaled mechanism port* where indicated, with a new heuristic summary substitute and new structural-proxy baseline. It is not original code execution or original PPA reproduction. Random small encoders are used throughout. Synthetic parents form the training set; an accessible open Yosys counter is retained as external held-out evidence. Open-source files with unclear third-party provenance are excluded.

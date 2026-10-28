@@ -1,0 +1,328 @@
+{
+  "label": "CircuitFusion real-synthesis CPU methodology closure; not original PPA reproduction",
+  "status": "feasible_methodology_loop_completed_with_substitutions",
+  "training_runs": 15,
+  "steps_per_run": 400,
+  "total_corrected_optimizer_steps": 6000,
+  "corpus": {
+    "train_cones": 95,
+    "test_generated_cones": 48,
+    "test_generated_parents": 8,
+    "external_open_counter_cones": 1,
+    "native_input_assignments": 2342944,
+    "formal_proofs": 144
+  },
+  "primary_results": {
+    "paired": {
+      "synthetic_r1": 0.034722222222222224,
+      "synthetic_r5": 0.1597222222222222,
+      "seed_r1": [
+        0.020833333333333332,
+        0.0625,
+        0.020833333333333332
+      ],
+      "seed_r5": [
+        0.14583333333333334,
+        0.25,
+        0.08333333333333333
+      ],
+      "wall_seconds": 174.70630720200097,
+      "allocated_parameters": 65634,
+      "gradient_parameters": [
+        63554
+      ],
+      "downstream": {
+        "counts_only": [
+          0.24557556155261054,
+          0.17380886634574644
+        ],
+        "embedding_plus_counts": [
+          0.23974963487920617,
+          0.2036231663779637
+        ],
+        "retrieval_augmented": [
+          0.25634443519157174,
+          0.20221151265805637
+        ]
+      }
+    },
+    "shuffled_pairing": {
+      "synthetic_r1": 0.020833333333333332,
+      "synthetic_r5": 0.16666666666666666,
+      "seed_r1": [
+        0.020833333333333332,
+        0.041666666666666664,
+        0.0
+      ],
+      "seed_r5": [
+        0.22916666666666666,
+        0.16666666666666666,
+        0.10416666666666667
+      ],
+      "wall_seconds": 170.75668613799917,
+      "allocated_parameters": 65634,
+      "gradient_parameters": [
+        63554
+      ],
+      "downstream": {
+        "counts_only": [
+          0.24557556155261054,
+          0.17380886634574644
+        ],
+        "embedding_plus_counts": [
+          0.25671551746350535,
+          0.19489851562559782
+        ],
+        "retrieval_augmented": [
+          0.3038678938954909,
+          0.21639573837677195
+        ]
+      }
+    },
+    "no_graph": {
+      "synthetic_r1": 0.013888888888888888,
+      "synthetic_r5": 0.24305555555555555,
+      "seed_r1": [
+        0.0,
+        0.020833333333333332,
+        0.020833333333333332
+      ],
+      "seed_r5": [
+        0.22916666666666666,
+        0.2916666666666667,
+        0.20833333333333334
+      ],
+      "wall_seconds": 115.89365859199916,
+      "allocated_parameters": 65634,
+      "gradient_parameters": [
+        44741
+      ],
+      "downstream": {
+        "counts_only": [
+          0.24557556155261054,
+          0.17380886634574644
+        ],
+        "embedding_plus_counts": [
+          0.1743794439555412,
+          0.14849172476414882
+        ],
+        "retrieval_augmented": [
+          0.1668238716756865,
+          0.1490797778373527
+        ]
+      }
+    },
+    "text_only": {
+      "synthetic_r1": 0.027777777777777776,
+      "synthetic_r5": 0.19444444444444445,
+      "seed_r1": [
+        0.0625,
+        0.020833333333333332,
+        0.0
+      ],
+      "seed_r5": [
+        0.2708333333333333,
+        0.20833333333333334,
+        0.10416666666666667
+      ],
+      "wall_seconds": 101.68225522199918,
+      "allocated_parameters": 65634,
+      "gradient_parameters": [
+        41541
+      ],
+      "downstream": {
+        "counts_only": [
+          0.24557556155261054,
+          0.17380886634574644
+        ],
+        "embedding_plus_counts": [
+          0.18492553463228703,
+          0.13127695771282646
+        ],
+        "retrieval_augmented": [
+          0.18971301266431384,
+          0.1302495283747374
+        ]
+      }
+    },
+    "shuffled_edges": {
+      "synthetic_r1": 0.027777777777777776,
+      "synthetic_r5": 0.1527777777777778,
+      "seed_r1": [
+        0.020833333333333332,
+        0.020833333333333332,
+        0.041666666666666664
+      ],
+      "seed_r5": [
+        0.20833333333333334,
+        0.08333333333333333,
+        0.16666666666666666
+      ],
+      "wall_seconds": 178.1916381789997,
+      "allocated_parameters": 65634,
+      "gradient_parameters": [
+        63554
+      ],
+      "downstream": {
+        "counts_only": [
+          0.24557556155261054,
+          0.17380886634574644
+        ],
+        "embedding_plus_counts": [
+          0.22554510987453738,
+          0.14269167762836507
+        ],
+        "retrieval_augmented": [
+          0.22325104872049586,
+          0.15948911185947431
+        ]
+      }
+    }
+  },
+  "paired_contrasts": {
+    "shuffled_pairing": {
+      "r1_delta": 0.013888888888888888,
+      "parent_bootstrap_95": [
+        -0.013888888888888888,
+        0.04861111111111111
+      ],
+      "parents": 8
+    },
+    "no_graph": {
+      "r1_delta": 0.020833333333333332,
+      "parent_bootstrap_95": [
+        -0.013888888888888888,
+        0.05555555555555555
+      ],
+      "parents": 8
+    },
+    "text_only": {
+      "r1_delta": 0.006944444444444444,
+      "parent_bootstrap_95": [
+        -0.034722222222222224,
+        0.05555555555555555
+      ],
+      "parents": 8
+    },
+    "shuffled_edges": {
+      "r1_delta": 0.006944444444444444,
+      "parent_bootstrap_95": [
+        -0.034722222222222224,
+        0.04861111111111111
+      ],
+      "parents": 8
+    }
+  },
+  "external_summary_corrected": [
+    {
+      "seed": 11,
+      "arm": "paired",
+      "recall_at_1": 1,
+      "recall_at_5": 1
+    },
+    {
+      "seed": 11,
+      "arm": "shuffled_pairing",
+      "recall_at_1": 1,
+      "recall_at_5": 1
+    },
+    {
+      "seed": 11,
+      "arm": "no_graph",
+      "recall_at_1": 0,
+      "recall_at_5": 0
+    },
+    {
+      "seed": 11,
+      "arm": "text_only",
+      "recall_at_1": 0,
+      "recall_at_5": 0
+    },
+    {
+      "seed": 11,
+      "arm": "shuffled_edges",
+      "recall_at_1": 0,
+      "recall_at_5": 0
+    },
+    {
+      "seed": 23,
+      "arm": "paired",
+      "recall_at_1": 0,
+      "recall_at_5": 0
+    },
+    {
+      "seed": 23,
+      "arm": "shuffled_pairing",
+      "recall_at_1": 0,
+      "recall_at_5": 0
+    },
+    {
+      "seed": 23,
+      "arm": "no_graph",
+      "recall_at_1": 0,
+      "recall_at_5": 0
+    },
+    {
+      "seed": 23,
+      "arm": "text_only",
+      "recall_at_1": 0,
+      "recall_at_5": 0
+    },
+    {
+      "seed": 23,
+      "arm": "shuffled_edges",
+      "recall_at_1": 0,
+      "recall_at_5": 0
+    },
+    {
+      "seed": 37,
+      "arm": "paired",
+      "recall_at_1": 0,
+      "recall_at_5": 0
+    },
+    {
+      "seed": 37,
+      "arm": "shuffled_pairing",
+      "recall_at_1": 0,
+      "recall_at_5": 0
+    },
+    {
+      "seed": 37,
+      "arm": "no_graph",
+      "recall_at_1": 0,
+      "recall_at_5": 0
+    },
+    {
+      "seed": 37,
+      "arm": "text_only",
+      "recall_at_1": 0,
+      "recall_at_5": 0
+    },
+    {
+      "seed": 37,
+      "arm": "shuffled_edges",
+      "recall_at_1": 0,
+      "recall_at_5": 0
+    }
+  ],
+  "independent_metric_checks_passed": true,
+  "resources": {
+    "wall_seconds": 743.1529609949994,
+    "peak_rss_kib": 646984,
+    "torch": "2.14.1+cpu",
+    "threads": 2
+  },
+  "protocol_sha256": "3a6e14af5a516dfe05031203da6087715e62a29b04eea4bb8e4ef972b8d81f59",
+  "interpretation": "No consistent held-out graph or correct-pairing advantage established at this budget. Prior AST-summary synthetic success does not transfer to this stronger setup; multiple simultaneous changes prevent attributing the drop solely to summaries.",
+  "remaining_gaps": [
+    "summary substitute is coarse behavioral heuristic, not LLM",
+    "small GRU/GNN port differs from frozen 7B/BERT/Graphormer architecture",
+    "only one small open external design; rest are semantics-checked generated parents",
+    "no industrial synthesis constraints or original PPA labels",
+    "no original data/checkpoint/full-result reproduction"
+  ],
+  "next_gate": "method loop closed; next useful research is a predeclared Graphormer/stronger-code-encoder comparison and broader licensed real RTL, rather than expanding training to chase these metrics",
+  "no_extra_resources_required_for_completed_loop": true,
+  "paid_or_external_LLM_used": false,
+  "push_performed": false
+}
