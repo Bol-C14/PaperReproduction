@@ -1,0 +1,91 @@
+{
+  "frozen_utc": "2026-10-28T21:19:48.491921+00:00",
+  "rule": "first two numeric PRs in each of pinned Ibex and CVA6 datasets; do not replace failures",
+  "tasks": [
+    {
+      "id": "lowRISC/ibex:pr-45",
+      "org": "lowRISC",
+      "repo": "ibex",
+      "number": 45,
+      "base_commit": "7728b7b6f2318fb4078945570a55af31ee77537a",
+      "image": "ghcr.io/pku-liang/lowrisc_m_ibex:pr-45",
+      "declared_f2p": [
+        "lsu_error_propagation"
+      ],
+      "declared_p2p": [],
+      "native_status": "not_run",
+      "reason": "preselected; awaiting image resource gate",
+      "tb_sha256": "2dd5e6145f20cc499fd96e809a0959af4d6d63e734930e4ddb2501a24902b53f",
+      "reference_patch_sha256": "c3df33595312801206ec88fc2dbcb184d98874d0cf9cbd27804963859714a922"
+    },
+    {
+      "id": "lowRISC/ibex:pr-48",
+      "org": "lowRISC",
+      "repo": "ibex",
+      "number": 48,
+      "base_commit": "145269fdc88e1d545fca692fd3e3a43c99e1ac12",
+      "image": "ghcr.io/pku-liang/lowrisc_m_ibex:pr-48",
+      "declared_f2p": [
+        "compressed_hint_decoder"
+      ],
+      "declared_p2p": [],
+      "native_status": "not_run",
+      "reason": "preselected; awaiting image resource gate",
+      "tb_sha256": "801e94bb9f1eaacd86176a839cf8ab22383e33751bfb83b4a120716a8030bf7d",
+      "reference_patch_sha256": "9bc5c0f0fe08fdb2e260c79b46de6ab9e6d60d1a88ea3c94e6687943105040db"
+    },
+    {
+      "id": "openhwgroup/cva6:pr-1482",
+      "org": "openhwgroup",
+      "repo": "cva6",
+      "number": 1482,
+      "base_commit": "5ee1a340e39d7bb17390847a01c0ef9147ce47cb",
+      "image": "ghcr.io/pku-liang/openhwgroup_m_cva6:pr-1482",
+      "declared_f2p": [
+        "cvxif_invalid_funct7_mask"
+      ],
+      "declared_p2p": [],
+      "native_status": "not_run",
+      "reason": "preselected; awaiting image resource gate",
+      "tb_sha256": "76222ce0ef3678c001baacb1c2e00ac9ce1db12c9145a79d5c01d9047fa8a138",
+      "reference_patch_sha256": "a12a9d1f939d6597c07f7810e882433674e9ca580b55c323a074aa900be34654"
+    },
+    {
+      "id": "openhwgroup/cva6:pr-2017",
+      "org": "openhwgroup",
+      "repo": "cva6",
+      "number": 2017,
+      "base_commit": "90d780eb14bb99624ad9a377b5140f1781647a33",
+      "image": "ghcr.io/pku-liang/openhwgroup_m_cva6:pr-2017",
+      "declared_f2p": [
+        "csr_mie_embedded_mask"
+      ],
+      "declared_p2p": [],
+      "native_status": "not_run",
+      "reason": "preselected; awaiting image resource gate",
+      "tb_sha256": "d485bfdbf1a749af6c89eb529de231bbff3fbcb54bda06ae01b787bd80ed9cab",
+      "reference_patch_sha256": "7d17f4fd2f1e120921f3c59e960939ecc8c6fb6f2bd174834f37a92bd0305330"
+    }
+  ],
+  "datasets": [
+    {
+      "file": "lowRISC__ibex.jsonl",
+      "sha256": "1b2d2875f105c07c75b787ce563aee35d9e457f29b75befec3bc25cf3a18f445",
+      "bytes": 1174179,
+      "records": 35
+    },
+    {
+      "file": "openhwgroup__cva6.jsonl",
+      "sha256": "732c5dac910815c1c7ac72c8ccca88f66dbb7ed5d097806a5ddea611102f60f1",
+      "bytes": 1033981,
+      "records": 35
+    }
+  ],
+  "budget": {
+    "setup_hours": 2,
+    "download_bytes_cap": 2000000000,
+    "cpu_threads": 4,
+    "api_usd": 0,
+    "live_tasks": 0
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "kind": "source_controls_only",
+  "serialization_shim": "identity dataclasses_json decorator; empty serialization metadata; no scoring changes",
+  "source_sha256": {
+    "hwe_bench/harness/base.py": "f3917776d2a4205e829420d681da643d5971a485702619eb08a681195d3faef8",
+    "hwe_bench/harness/repos/common.py": "ff3243ba7a3f789eb015cf196f7bf777842c66fa4d04aa09d79152753848eb59",
+    "hwe_bench/harness/reporting.py": "29195e632a15a14a13f0c908e0b783b7a7eec1b3934fdd022c367632511fafbf"
+  },
+  "scoring_controls": [
+    {
+      "case": "f2p",
+      "base_log": "TEST: t ... FAIL",
+      "fix_log": "TEST: t ... PASS",
+      "upstream_valid": true,
+      "expected_observed_semantics": true,
+      "matched": true,
+      "f2p": [
+        "t"
+      ],
+      "n2p": [],
+      "s2p": []
+    },
+    {
+      "case": "noop_failing",
+      "base_log": "TEST: t ... FAIL",
+      "fix_log": "TEST: t ... FAIL",
+      "upstream_valid": false,
+      "expected_observed_semantics": false,
+      "matched": true,
+      "f2p": [],
+      "n2p": [],
+      "s2p": []
+    },
+    {
+      "case": "already_passing",
+      "base_log": "TEST: t ... PASS",
+      "fix_log": "TEST: t ... PASS",
+      "upstream_valid": false,
+      "expected_observed_semantics": false,
+      "matched": true,
+      "f2p": [],
+      "n2p": [],
+      "s2p": []
+    },
+    {
+      "case": "bare_pass",
+      "base_log": "TEST: t ... FAIL",
+      "fix_log": "PASS",
+      "upstream_valid": false,
+      "expected_observed_semantics": false,
+      "matched": true,
+      "f2p": [],
+      "n2p": [],
+      "s2p": []
+    },
+    {
+      "case": "partial_with_regression",
+      "base_log": "TEST: a ... FAIL\nTEST: b ... PASS",
+      "fix_log": "TEST: a ... PASS\nTEST: b ... FAIL",
+      "upstream_valid": false,
+      "expected_observed_semantics": false,
+      "matched": true,
+      "f2p": [],
+      "n2p": [],
+      "s2p": []
+    },
+    {
+      "case": "missing_previous_test",
+      "base_log": "TEST: a ... FAIL\nTEST: b ... PASS",
+      "fix_log": "TEST: a ... PASS",
+      "upstream_valid": false,
+      "expected_observed_semantics": false,
+      "matched": true,
+      "f2p": [],
+      "n2p": [],
+      "s2p": []
+    },
+    {
+      "case": "base_without_results",
+      "base_log": "compiler failed before any result",
+      "fix_log": "TEST: t ... PASS",
+      "upstream_valid": true,
+      "expected_observed_semantics": true,
+      "matched": true,
+      "f2p": [],
+      "n2p": [
+        "t"
+      ],
+      "s2p": []
+    },
+    {
+      "case": "base_skip",
+      "base_log": "TEST: t ... SKIP",
+      "fix_log": "TEST: t ... PASS",
+      "upstream_valid": true,
+      "expected_observed_semantics": true,
+      "matched": true,
+      "f2p": [],
+      "n2p": [],
+      "s2p": [
+        "t"
+      ]
+    },
+    {
+      "case": "pass_followed_by_timeout",
+      "base_log": "TEST: t ... FAIL",
+      "fix_log": "TEST: t ... PASS\n[TIMEOUT] Container exceeded 1200s and was terminated.",
+      "upstream_valid": true,
+      "expected_observed_semantics": true,
+      "matched": true,
+      "f2p": [
+        "t"
+      ],
+      "n2p": [],
+      "s2p": []
+    },
+    {
+      "case": "pass_followed_by_crash",
+      "base_log": "TEST: t ... FAIL",
+      "fix_log": "TEST: t ... PASS\nSegmentation fault",
+      "upstream_valid": true,
+      "expected_observed_semantics": true,
+      "matched": true,
+      "f2p": [
+        "t"
+      ],
+      "n2p": [],
+      "s2p": []
+    },
+    {
+      "case": "bracket_suppresses_outer_failure",
+      "base_log": "TEST: a ... FAIL",
+      "fix_log": "TEST: crash ... FAIL\nHWE_BENCH_RESULTS_START\nTEST: a ... PASS\nHWE_BENCH_RESULTS_END",
+      "upstream_valid": true,
+      "expected_observed_semantics": true,
+      "matched": true,
+      "f2p": [
+        "a"
+      ],
+      "n2p": [],
+      "s2p": []
+    }
+  ],
+  "history_control": {
+    "fixture_only": true,
+    "finalizer_returncode": 0,
+    "reachable_count": 2,
+    "ancestor_retained": true,
+    "future_retained": false,
+    "remotes": "",
+    "interpretation": "The finalizer prunes future unreferenced objects but does not sever current baseline ancestry. Actual image history is uninspected."
+  }
+}

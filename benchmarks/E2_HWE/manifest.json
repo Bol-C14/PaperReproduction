@@ -1,0 +1,678 @@
+{
+  "benchmark": "PKU HWE-Bench",
+  "paper": {
+    "url": "https://arxiv.org/html/2604.14709v3",
+    "version": "v3",
+    "date": "2026-05-05",
+    "sha256_html": "54dcd86b33f57770ee3dfb6eee4918572c261e4ddae3321bfa9f6426a35c7c47",
+    "venue": "arXiv preprint; accepted venue unknown",
+    "type": "benchmark/dataset and empirical agent evaluation",
+    "contribution": "repository-scale hardware bug repair tasks and native verifier construction",
+    "ccf": "unknown"
+  },
+  "upstream": {
+    "url": "https://github.com/pku-liang/hwe-bench",
+    "commit": "10c78a87e1f92695d78d15b1464a6107dcac8837",
+    "license": "Apache-2.0",
+    "harbor_base": "00c19fe2",
+    "harbor_package_version": "0.20.0",
+    "harbor_license": "Apache-2.0"
+  },
+  "dataset": {
+    "url": "https://huggingface.co/datasets/henryen/hwe-bench",
+    "revision": "82a42e0a05719366a326e09ddc668ea0d46c91f6",
+    "license_declared": "Apache-2.0",
+    "files": [
+      {
+        "file": "lowRISC__ibex.jsonl",
+        "sha256": "1b2d2875f105c07c75b787ce563aee35d9e457f29b75befec3bc25cf3a18f445",
+        "bytes": 1174179,
+        "records": 35
+      },
+      {
+        "file": "openhwgroup__cva6.jsonl",
+        "sha256": "732c5dac910815c1c7ac72c8ccca88f66dbb7ed5d097806a5ddea611102f60f1",
+        "bytes": 1033981,
+        "records": 35
+      }
+    ]
+  },
+  "images": [
+    {
+      "id": "lowRISC/ibex:pr-45",
+      "image": "ghcr.io/pku-liang/lowrisc_m_ibex:pr-45",
+      "tag_digest": "sha256:09b61b9275f04cd149f011a476fd8f2d7bfe2ed33d9b71a0c416b5aea951d774",
+      "platform_digest": "sha256:09b61b9275f04cd149f011a476fd8f2d7bfe2ed33d9b71a0c416b5aea951d774",
+      "layers": [
+        {
+          "digest": "sha256:7478e0ac0f23f94b2f27848fbcdf804a670fbf8d4bab26df842d40a10cd33059",
+          "bytes": 30439933
+        },
+        {
+          "digest": "sha256:9cb87d13377f6fcb9fedc355bb157f690fed7785507877b6e96e80e0988e10e2",
+          "bytes": 223781302
+        },
+        {
+          "digest": "sha256:4780d411a6884324a36e39f8f8e3bba6f2822c7ee33449ca595c64f2f5b9ac5d",
+          "bytes": 185
+        },
+        {
+          "digest": "sha256:38454ee2b8beecb481a152ad57370bcbc3911f139f3e6402d311c4c7cebd69e6",
+          "bytes": 107467192
+        },
+        {
+          "digest": "sha256:1b1f98595704f7c9741ce9a527e10937eaa3e482e3ae1090d81c91ca7481dde6",
+          "bytes": 288
+        },
+        {
+          "digest": "sha256:df408538e16a589e0653cbb99624b59b891d92aa07a7ab3eeccfb224c6f7b86d",
+          "bytes": 1572
+        },
+        {
+          "digest": "sha256:46ed35980cd545990d9754566a432aff0e1be9aff99f6065ac9c99d7e9e0192f",
+          "bytes": 48624089
+        },
+        {
+          "digest": "sha256:c410b20addde97528d9e1520ca8c75d63c308b764f16180b48f6ab8c2404112b",
+          "bytes": 146
+        },
+        {
+          "digest": "sha256:3a9f2b01f957ca22e8bdb95db3b179c913ff723886ccc104215da49cb1e9f3c2",
+          "bytes": 1149
+        },
+        {
+          "digest": "sha256:08e7254cf57112e0d9e96224d9add5ef892775fb683b2e8e4f734d4a9b743ef4",
+          "bytes": 61851970
+        }
+      ],
+      "compressed_layer_bytes": 472167826,
+      "status": "metadata_audit"
+    },
+    {
+      "id": "lowRISC/ibex:pr-48",
+      "image": "ghcr.io/pku-liang/lowrisc_m_ibex:pr-48",
+      "tag_digest": "sha256:70947f247608ce3f6c900221a265a8f47257c723ac82a8d916a73ce02f92f5fa",
+      "platform_digest": "sha256:70947f247608ce3f6c900221a265a8f47257c723ac82a8d916a73ce02f92f5fa",
+      "layers": [
+        {
+          "digest": "sha256:7478e0ac0f23f94b2f27848fbcdf804a670fbf8d4bab26df842d40a10cd33059",
+          "bytes": 30439933
+        },
+        {
+          "digest": "sha256:9cb87d13377f6fcb9fedc355bb157f690fed7785507877b6e96e80e0988e10e2",
+          "bytes": 223781302
+        },
+        {
+          "digest": "sha256:4780d411a6884324a36e39f8f8e3bba6f2822c7ee33449ca595c64f2f5b9ac5d",
+          "bytes": 185
+        },
+        {
+          "digest": "sha256:38454ee2b8beecb481a152ad57370bcbc3911f139f3e6402d311c4c7cebd69e6",
+          "bytes": 107467192
+        },
+        {
+          "digest": "sha256:1b1f98595704f7c9741ce9a527e10937eaa3e482e3ae1090d81c91ca7481dde6",
+          "bytes": 288
+        },
+        {
+          "digest": "sha256:df408538e16a589e0653cbb99624b59b891d92aa07a7ab3eeccfb224c6f7b86d",
+          "bytes": 1572
+        },
+        {
+          "digest": "sha256:46ed35980cd545990d9754566a432aff0e1be9aff99f6065ac9c99d7e9e0192f",
+          "bytes": 48624089
+        },
+        {
+          "digest": "sha256:c410b20addde97528d9e1520ca8c75d63c308b764f16180b48f6ab8c2404112b",
+          "bytes": 146
+        },
+        {
+          "digest": "sha256:697e430b9c603d5d43eb158f79b5edd97d6ccfe6c5082dc60957523b73c5eaa2",
+          "bytes": 1107
+        },
+        {
+          "digest": "sha256:534d49e323656311d7f4584d0f518437e4eb0c601a9a82d00ec9a65fc860617d",
+          "bytes": 61863356
+        }
+      ],
+      "compressed_layer_bytes": 472179170,
+      "status": "metadata_audit"
+    },
+    {
+      "id": "openhwgroup/cva6:pr-1482",
+      "image": "ghcr.io/pku-liang/openhwgroup_m_cva6:pr-1482",
+      "tag_digest": "sha256:34ef8fe0b262f3d2a5c39476c19e1e0460cc43268efa711d446fe1fe169d9405",
+      "platform_digest": "sha256:34ef8fe0b262f3d2a5c39476c19e1e0460cc43268efa711d446fe1fe169d9405",
+      "layers": [
+        {
+          "digest": "sha256:7478e0ac0f23f94b2f27848fbcdf804a670fbf8d4bab26df842d40a10cd33059",
+          "bytes": 30439933
+        },
+        {
+          "digest": "sha256:7a459223e2f207bc0d6409bd8d3e12ca3c0d35caa0ac4ff0511770be9467c1da",
+          "bytes": 209548997
+        },
+        {
+          "digest": "sha256:fbfa2ac02c3b4be404020832250faed71ad8043297541ecefde65dd20f070466",
+          "bytes": 184
+        },
+        {
+          "digest": "sha256:d40abcb693e2076136ae33858dd3cc1f9636450c0397da214ad060070a2857b6",
+          "bytes": 107467288
+        },
+        {
+          "digest": "sha256:d7a07f7d84426b574e71a1607b728109650d08d35fd3c407dfda75d15c338556",
+          "bytes": 287
+        },
+        {
+          "digest": "sha256:9e22104b8d073d6088a97d5fe81d0be34efd52d72016e8af79c83f468a09d4dc",
+          "bytes": 1573
+        },
+        {
+          "digest": "sha256:be2421ea60a3d311eb518cd0051341b151f0fdb6b0da4d302d1d636c68fcc60d",
+          "bytes": 202639485
+        },
+        {
+          "digest": "sha256:24f0ed824c16c6f69af923e30ecc2aca609465d6fb57fb833736714b8160ce35",
+          "bytes": 145
+        },
+        {
+          "digest": "sha256:e82c0912ac799aa5c406b9dd01a89864ba91f2dcd96c470784ec7df84a7167dc",
+          "bytes": 112024093
+        },
+        {
+          "digest": "sha256:e6627a3058aa76a76c7f998f2cf27284de67c44650a9399b12afa237bcbecc0b",
+          "bytes": 92896911
+        },
+        {
+          "digest": "sha256:5f47a06a143884806f9e369f143f16bf8fb294e803ce9db8270122efc0ca7e42",
+          "bytes": 19104924
+        },
+        {
+          "digest": "sha256:02493ff9fb394b54ae866a4685cb2f64b41738e8c2a48b6cd4afb347cbc8e315",
+          "bytes": 141
+        },
+        {
+          "digest": "sha256:a212ca9baa15d2e8b299d5118fbd05d31fba9b86daadb17b1bdbdfab44bea75a",
+          "bytes": 137
+        },
+        {
+          "digest": "sha256:45f40a63d2c01da0506c0aaae7d832c8918769e6aa148171993234489f4a446e",
+          "bytes": 306
+        },
+        {
+          "digest": "sha256:3e5a398d0f651d0cd56295bcc2e398ca7f5d693f9cacd2cbaf4fe0518afd2bdc",
+          "bytes": 2758
+        },
+        {
+          "digest": "sha256:10eb4e911477fb86ddd1236219681401f2f05e360f3f58658c8f5ca37ba96523",
+          "bytes": 495067527
+        }
+      ],
+      "compressed_layer_bytes": 1269194689,
+      "status": "metadata_audit"
+    },
+    {
+      "id": "openhwgroup/cva6:pr-2017",
+      "image": "ghcr.io/pku-liang/openhwgroup_m_cva6:pr-2017",
+      "tag_digest": "sha256:af30c1f50b9671b3bf565871209d2d7ad2972fda46845c358419206e03a358c3",
+      "platform_digest": "sha256:af30c1f50b9671b3bf565871209d2d7ad2972fda46845c358419206e03a358c3",
+      "layers": [
+        {
+          "digest": "sha256:7478e0ac0f23f94b2f27848fbcdf804a670fbf8d4bab26df842d40a10cd33059",
+          "bytes": 30439933
+        },
+        {
+          "digest": "sha256:7a459223e2f207bc0d6409bd8d3e12ca3c0d35caa0ac4ff0511770be9467c1da",
+          "bytes": 209548997
+        },
+        {
+          "digest": "sha256:fbfa2ac02c3b4be404020832250faed71ad8043297541ecefde65dd20f070466",
+          "bytes": 184
+        },
+        {
+          "digest": "sha256:d40abcb693e2076136ae33858dd3cc1f9636450c0397da214ad060070a2857b6",
+          "bytes": 107467288
+        },
+        {
+          "digest": "sha256:d7a07f7d84426b574e71a1607b728109650d08d35fd3c407dfda75d15c338556",
+          "bytes": 287
+        },
+        {
+          "digest": "sha256:9e22104b8d073d6088a97d5fe81d0be34efd52d72016e8af79c83f468a09d4dc",
+          "bytes": 1573
+        },
+        {
+          "digest": "sha256:be2421ea60a3d311eb518cd0051341b151f0fdb6b0da4d302d1d636c68fcc60d",
+          "bytes": 202639485
+        },
+        {
+          "digest": "sha256:24f0ed824c16c6f69af923e30ecc2aca609465d6fb57fb833736714b8160ce35",
+          "bytes": 145
+        },
+        {
+          "digest": "sha256:e82c0912ac799aa5c406b9dd01a89864ba91f2dcd96c470784ec7df84a7167dc",
+          "bytes": 112024093
+        },
+        {
+          "digest": "sha256:e6627a3058aa76a76c7f998f2cf27284de67c44650a9399b12afa237bcbecc0b",
+          "bytes": 92896911
+        },
+        {
+          "digest": "sha256:5f47a06a143884806f9e369f143f16bf8fb294e803ce9db8270122efc0ca7e42",
+          "bytes": 19104924
+        },
+        {
+          "digest": "sha256:02493ff9fb394b54ae866a4685cb2f64b41738e8c2a48b6cd4afb347cbc8e315",
+          "bytes": 141
+        },
+        {
+          "digest": "sha256:a212ca9baa15d2e8b299d5118fbd05d31fba9b86daadb17b1bdbdfab44bea75a",
+          "bytes": 137
+        },
+        {
+          "digest": "sha256:45f40a63d2c01da0506c0aaae7d832c8918769e6aa148171993234489f4a446e",
+          "bytes": 306
+        },
+        {
+          "digest": "sha256:230ba6ab16afde5196ff52863cfe78087718031ec42a68c95bb6ebe02c5b9f47",
+          "bytes": 1355
+        },
+        {
+          "digest": "sha256:6dd1a5090bfef9debf898e88ca2ce31590c024c2880229d2fea7001f0dee01e9",
+          "bytes": 178226828
+        }
+      ],
+      "compressed_layer_bytes": 952352587,
+      "status": "metadata_audit"
+    }
+  ],
+  "selected_tasks": [
+    {
+      "id": "lowRISC/ibex:pr-45",
+      "org": "lowRISC",
+      "repo": "ibex",
+      "number": 45,
+      "base_commit": "7728b7b6f2318fb4078945570a55af31ee77537a",
+      "image": "ghcr.io/pku-liang/lowrisc_m_ibex:pr-45",
+      "declared_f2p": [
+        "lsu_error_propagation"
+      ],
+      "declared_p2p": [],
+      "native_status": "reference_calibration",
+      "reason": "fresh native simulator behavioral fail-to-pass, patch --check succeeded, no timeout",
+      "tb_sha256": "2dd5e6145f20cc499fd96e809a0959af4d6d63e734930e4ddb2501a24902b53f",
+      "reference_patch_sha256": "c3df33595312801206ec88fc2dbcb184d98874d0cf9cbd27804963859714a922",
+      "runtime_baseline": "7728b7b6f2318fb4078945570a55af31ee77537a"
+    },
+    {
+      "id": "lowRISC/ibex:pr-48",
+      "org": "lowRISC",
+      "repo": "ibex",
+      "number": 48,
+      "base_commit": "145269fdc88e1d545fca692fd3e3a43c99e1ac12",
+      "image": "ghcr.io/pku-liang/lowrisc_m_ibex:pr-48",
+      "declared_f2p": [
+        "compressed_hint_decoder"
+      ],
+      "declared_p2p": [],
+      "native_status": "reference_calibration",
+      "reason": "fresh native simulator behavioral fail-to-pass, patch --check succeeded, no timeout",
+      "tb_sha256": "801e94bb9f1eaacd86176a839cf8ab22383e33751bfb83b4a120716a8030bf7d",
+      "reference_patch_sha256": "9bc5c0f0fe08fdb2e260c79b46de6ab9e6d60d1a88ea3c94e6687943105040db",
+      "runtime_baseline": "145269fdc88e1d545fca692fd3e3a43c99e1ac12"
+    },
+    {
+      "id": "openhwgroup/cva6:pr-1482",
+      "org": "openhwgroup",
+      "repo": "cva6",
+      "number": 1482,
+      "base_commit": "5ee1a340e39d7bb17390847a01c0ef9147ce47cb",
+      "image": "ghcr.io/pku-liang/openhwgroup_m_cva6:pr-1482",
+      "declared_f2p": [
+        "cvxif_invalid_funct7_mask"
+      ],
+      "declared_p2p": [],
+      "native_status": "reference_calibration",
+      "reason": "fresh native simulator behavioral fail-to-pass, patch --check succeeded, no timeout",
+      "tb_sha256": "76222ce0ef3678c001baacb1c2e00ac9ce1db12c9145a79d5c01d9047fa8a138",
+      "reference_patch_sha256": "a12a9d1f939d6597c07f7810e882433674e9ca580b55c323a074aa900be34654",
+      "runtime_baseline": "5ee1a340e39d7bb17390847a01c0ef9147ce47cb"
+    },
+    {
+      "id": "openhwgroup/cva6:pr-2017",
+      "org": "openhwgroup",
+      "repo": "cva6",
+      "number": 2017,
+      "base_commit": "90d780eb14bb99624ad9a377b5140f1781647a33",
+      "image": "ghcr.io/pku-liang/openhwgroup_m_cva6:pr-2017",
+      "declared_f2p": [
+        "csr_mie_embedded_mask"
+      ],
+      "declared_p2p": [],
+      "native_status": "reference_calibration",
+      "reason": "fresh native simulator behavioral fail-to-pass, patch --check succeeded, no timeout",
+      "tb_sha256": "d485bfdbf1a749af6c89eb529de231bbff3fbcb54bda06ae01b787bd80ed9cab",
+      "reference_patch_sha256": "7d17f4fd2f1e120921f3c59e960939ecc8c6fb6f2bd174834f37a92bd0305330",
+      "runtime_baseline": "d87707a81fe8926dda2deff844797a491811983a"
+    }
+  ],
+  "selection_rule": "first two numeric PRs in each of pinned Ibex and CVA6 datasets; do not replace failures",
+  "selection_frozen_utc": "2026-10-28T21:19:48.491921+00:00",
+  "status": "reference_calibration",
+  "phases": {
+    "paper_protocol_reproduction": "not_run",
+    "current_release_audit": "metadata_audit",
+    "native_reference_calibration": "reference_calibration",
+    "source_controls": "offline_replay",
+    "mutant_controls": "offline_replay",
+    "live_pilot": "not_run"
+  },
+  "runtime": {
+    "controller": "macOS-27.2-arm64-arm-64bit-Mach-O",
+    "april_os": "Rocky Linux 9.7 x86_64",
+    "podman": "5.6.0 rootless",
+    "system_python": "3.9.25",
+    "cpu_affinity_limit": 4,
+    "container_network": "none",
+    "proxy_forwarding": false,
+    "image_storage": "paper-specific isolated root; no global installation",
+    "executed_native_driver_sha256": "f19e1c7ec93a3750efc2dc55b429a0e8aff6262d4a4f0e89a38428bddfa595ee",
+    "image_tools": {
+      "Ibex": "Verilator 4.038; Python 3.10.20; Git 2.34.1; GCC 11.4.0",
+      "CVA6 PR 2017": "Verilator 5.008 (mod); Python 3.10.20; GCC 11.4.0",
+      "CVA6 PR 1482": "native vendored Spike rebuilt in each phase; GCC 11.4.0"
+    },
+    "final_container_check": "task-specific Podman ps -a returned empty after all controls"
+  },
+  "budget": {
+    "setup_hours": 2,
+    "download_bytes_cap": 2000000000,
+    "cpu_threads": 4,
+    "api_usd": 0,
+    "live_tasks": 0,
+    "shared_api_ceiling_usd": 10,
+    "shared_prior_spend_usd": 0.04806425,
+    "this_task_api_usd": 0,
+    "native_driver_timeout_seconds": 3600,
+    "phase_timeout_seconds": 1200,
+    "unique_compressed_image_layer_bytes": 1951015228,
+    "image_wire_bytes_measured": false
+  },
+  "delivery": {
+    "repository": "Bol-C14/PaperReproduction",
+    "branch": "reproduction/benchmark-hwe-bench",
+    "base_commit": "107d3015cb9a210f1e9a28a7910c0981eacc7600",
+    "push_authorized": false,
+    "hidden_answers_published": false,
+    "local_commit_method": "write-tree --missing-ok, commit-tree with exact existing parent, update-ref with expected old SHA; inherited P13 subtree preserved byte-for-byte at tree hash level",
+    "inherited_local_object_limitation": "Some preexisting DeepCell checkpoint blobs are absent from the source controller clone. New HWE blobs are present and hash-verified; no unrelated checkpoint downloads or edits.",
+    "workspace_layout": [
+      "checkouts/hwe-bench",
+      "assets/hwe-bench",
+      "logs/hwe-bench",
+      "results/hwe-bench"
+    ],
+    "private_evidence_resolution": "Custodian-controlled evidence bundle identified by SHA-256; host locations withheld from public export."
+  },
+  "exclusions": [
+    {
+      "scope": "OpenTitan",
+      "reason": "commercial VCS required, unavailable licensed runtime"
+    },
+    {
+      "scope": "Caliptra, Rocket Chip, XiangShan",
+      "reason": "outside prespecified four-task two-repository pilot"
+    },
+    {
+      "scope": "remaining 66 Ibex/CVA6 tasks",
+      "reason": "not selected; no performance-based replacements"
+    }
+  ],
+  "limitations": [
+    "convenience sample, not population estimate",
+    "all four selected records lack pass-to-pass checks",
+    "Podman orchestration port, not exact paper environment",
+    "source-level fixtures are not native task outcomes",
+    "reference replay is not a model score"
+  ],
+  "updated_utc": "2026-10-28T22:55:56.972091+00:00",
+  "native_results": [
+    {
+      "id": "lowRISC/ibex:pr-45",
+      "status": "reference_calibration",
+      "scoring": {
+        "upstream_report_valid": true,
+        "f2p_count": 1,
+        "p2p_count": 0,
+        "n2p_count": 0,
+        "s2p_count": 0
+      },
+      "phases": {
+        "base": {
+          "returncode": 1,
+          "timed_out": false,
+          "seconds": 2.021
+        },
+        "reference": {
+          "returncode": 0,
+          "timed_out": false,
+          "seconds": 1.972
+        }
+      },
+      "pull_seconds": 17.659,
+      "reference_patch_applies": true,
+      "candidate_fix_objects_checked": 7,
+      "candidate_fix_objects_present": 0,
+      "runtime_baseline": "7728b7b6f2318fb4078945570a55af31ee77537a",
+      "ancestor_count": 882
+    },
+    {
+      "id": "lowRISC/ibex:pr-48",
+      "status": "reference_calibration",
+      "scoring": {
+        "upstream_report_valid": true,
+        "f2p_count": 1,
+        "p2p_count": 0,
+        "n2p_count": 0,
+        "s2p_count": 0
+      },
+      "phases": {
+        "base": {
+          "returncode": 1,
+          "timed_out": false,
+          "seconds": 2.022
+        },
+        "reference": {
+          "returncode": 0,
+          "timed_out": false,
+          "seconds": 2.021
+        }
+      },
+      "pull_seconds": 4.177,
+      "reference_patch_applies": true,
+      "candidate_fix_objects_checked": 3,
+      "candidate_fix_objects_present": 0,
+      "runtime_baseline": "145269fdc88e1d545fca692fd3e3a43c99e1ac12",
+      "ancestor_count": 892
+    },
+    {
+      "id": "openhwgroup/cva6:pr-1482",
+      "status": "reference_calibration",
+      "scoring": {
+        "upstream_report_valid": true,
+        "f2p_count": 1,
+        "p2p_count": 0,
+        "n2p_count": 0,
+        "s2p_count": 0
+      },
+      "phases": {
+        "base": {
+          "returncode": 1,
+          "timed_out": false,
+          "seconds": 182.712
+        },
+        "reference": {
+          "returncode": 0,
+          "timed_out": false,
+          "seconds": 182.562
+        }
+      },
+      "pull_seconds": 29.292,
+      "reference_patch_applies": true,
+      "candidate_fix_objects_checked": 2,
+      "candidate_fix_objects_present": 0,
+      "runtime_baseline": "5ee1a340e39d7bb17390847a01c0ef9147ce47cb",
+      "ancestor_count": 6532
+    },
+    {
+      "id": "openhwgroup/cva6:pr-2017",
+      "status": "reference_calibration",
+      "scoring": {
+        "upstream_report_valid": true,
+        "f2p_count": 1,
+        "p2p_count": 0,
+        "n2p_count": 0,
+        "s2p_count": 0
+      },
+      "phases": {
+        "base": {
+          "returncode": 134,
+          "timed_out": false,
+          "seconds": 7.337
+        },
+        "reference": {
+          "returncode": 0,
+          "timed_out": false,
+          "seconds": 5.581
+        }
+      },
+      "pull_seconds": 8.337,
+      "reference_patch_applies": true,
+      "candidate_fix_objects_checked": 3,
+      "candidate_fix_objects_present": 0,
+      "runtime_baseline": "d87707a81fe8926dda2deff844797a491811983a",
+      "ancestor_count": 6843
+    }
+  ],
+  "variant_results": [
+    {
+      "mode": "reference",
+      "returncode": 0,
+      "timeout": false,
+      "seconds": 3.777,
+      "official_exit": 0,
+      "hint_family_contract_failures": 0,
+      "hint_family_mismatch_count": 0,
+      "vector_count": 65536,
+      "reference_vector_count": 65536,
+      "mismatch_count": 0,
+      "vector_sha256": "8a28e20e335cb88c117dbf742354e14545b7bcdfa0dfcada21f4271b7fb78e1e",
+      "implementation_patch_sha256": "c1f9c0f2e5c9589f32dc9c701af2650d015e56463fc787c41cc971f6faae1a2b",
+      "scoring": {
+        "upstream_report_valid": true,
+        "f2p_count": 1,
+        "p2p_count": 0,
+        "n2p_count": 0,
+        "s2p_count": 0
+      }
+    },
+    {
+      "mode": "alternative",
+      "returncode": 0,
+      "timeout": false,
+      "seconds": 3.727,
+      "official_exit": 0,
+      "hint_family_contract_failures": 0,
+      "hint_family_mismatch_count": 0,
+      "vector_count": 65536,
+      "reference_vector_count": 65536,
+      "mismatch_count": 0,
+      "vector_sha256": "8a28e20e335cb88c117dbf742354e14545b7bcdfa0dfcada21f4271b7fb78e1e",
+      "implementation_patch_sha256": "82ac93bb5a738c15507a6dccfdec6e0d4dcbf9c3b2ebdc12a10ccf09bf00a808",
+      "scoring": {
+        "upstream_report_valid": true,
+        "f2p_count": 1,
+        "p2p_count": 0,
+        "n2p_count": 0,
+        "s2p_count": 0
+      }
+    },
+    {
+      "mode": "partial",
+      "returncode": 0,
+      "timeout": false,
+      "seconds": 3.677,
+      "official_exit": 0,
+      "hint_family_contract_failures": 15,
+      "hint_family_mismatch_count": 15,
+      "vector_count": 65536,
+      "reference_vector_count": 65536,
+      "mismatch_count": 480,
+      "vector_sha256": "16f9a0806644de42957ca77aca72dc2be5e1eb8d4b835e3a7976eb70717a7a4d",
+      "implementation_patch_sha256": "dd771ce868894c2518e19bc50b7ca226842c369efcb2dda327f672ce3acc754e",
+      "scoring": {
+        "upstream_report_valid": true,
+        "f2p_count": 1,
+        "p2p_count": 0,
+        "n2p_count": 0,
+        "s2p_count": 0
+      }
+    },
+    {
+      "mode": "overfit",
+      "returncode": 0,
+      "timeout": false,
+      "seconds": 3.727,
+      "official_exit": 0,
+      "hint_family_contract_failures": 30,
+      "hint_family_mismatch_count": 30,
+      "vector_count": 65536,
+      "reference_vector_count": 65536,
+      "mismatch_count": 45000,
+      "vector_sha256": "eaec60bdbf13af9746fc756f3fb02fa81df520904cdc36145f15b7bf32cc96fc",
+      "implementation_patch_sha256": "902d9b8fc178d527eb482f29589f84c3686e38054e01d9415d9c6648cef5963e",
+      "scoring": {
+        "upstream_report_valid": true,
+        "f2p_count": 1,
+        "p2p_count": 0,
+        "n2p_count": 0,
+        "s2p_count": 0
+      }
+    }
+  ],
+  "private_evidence": {
+    "sha256": "9ca3e0d0141656e97d0450f98a2f680b5c18ff34878e2554d4688bdc4428f96c",
+    "bytes": 508844,
+    "index": "raw/final/private_evidence_index.json",
+    "mutant_driver_sha256": "6b13a4109282a7127bb895f2034ce4049f422c6b04a62808fb75b2e84632efd7",
+    "archive_id": "hwe-evidence-9ca3e0d0141656e9",
+    "mutant_driver_id": "hwe-mutant-driver-6b13a4109282a712",
+    "availability": "Private, not bundled; resolve by evidence identifier and SHA-256 through the custodian."
+  },
+  "api_calls": 0,
+  "native_timeouts": 0,
+  "selected_native_exclusions": [],
+  "remaining_blockers": [],
+  "out_of_scope_not_run": [
+    "paper agent protocol and full-table reproduction",
+    "live pilot; proposed future budget only"
+  ],
+  "licenses": {
+    "paper": "CC BY 4.0",
+    "harness": "Apache-2.0",
+    "dataset_declared": "Apache-2.0",
+    "vendored_harbor": "Apache-2.0",
+    "selected_ibex_source": "Apache-2.0",
+    "selected_cva6_source": "Solderpad Hardware License 0.51; BSD-3-Clause Berkeley and Apache-2.0 SiFive notices also present",
+    "container_dependencies": "retain individual upstream licenses; no full redistribution audit or image redistribution",
+    "image_license_evidence": "raw/image_licenses.json"
+  },
+  "interpretation_limits": {
+    "mutation_task": "lowRISC/ibex:pr-48 compressed decoder only",
+    "reference_comparison": "480 and 45000 are output-vector differences from the reference, not independent contract failure counts",
+    "independent_contract": "partial 15/31 and overfit 30/31 failures in the task-described HINT family",
+    "alternative_equivalence_domain": "65536 two-state inputs: lower 16 bits enumerated, upper 16 bits zero; not universal ISA, four-state, formal or full-chip proof",
+    "cva6_pr1482": "Spike/CVXIF software verification path, not whole-core RTL verification"
+  }
+}
