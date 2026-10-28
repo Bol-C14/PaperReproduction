@@ -37,4 +37,43 @@ class AdapterTests(unittest.TestCase):
   def transport(*a,**k):return Response(json.dumps({'choices':[{'finish_reason':'length','message':{'content':'{}'}}]}).encode())
   with self.assertRaisesRegex(ModelAPIError,'completed chat schema'):
    ChatAPI(True,transport,token_counter=lambda m:10).complete([])
+ def test_explicit_openrouter_base_and_single_fixed_model(self):
+  calls=[]
+  def transport(req,timeout):
+   calls.append(req)
+   self.assertEqual(req.full_url,'https://openrouter.ai/api/v1/chat/completions')
+   payload=json.loads(req.data)
+   self.assertEqual(payload['model'],'test-provider/fixed-model-test-only')
+   self.assertEqual(set(payload),{'model','messages','temperature','max_tokens','stream','provider'})
+   self.assertEqual(payload['provider'],{'allow_fallbacks':False})
+   self.assertNotIn('models',payload)
+   return Response(json.dumps({'model':'test-provider/fixed-model-test-only','choices':[{'finish_reason':'stop','message':{'content':'{}'}}]}).encode())
+  api=ChatAPI(True,transport,token_counter=lambda m:10,base_url='https://openrouter.ai/api/v1/',api_key='DUMMY-TEST-ONLY',model='test-provider/fixed-model-test-only')
+  result=api.complete([{'role':'user','content':'public fixture only'}])
+  self.assertEqual(len(calls),1)
+  self.assertEqual(result['request_model'],'test-provider/fixed-model-test-only')
+  self.assertIs(result['provider_fallbacks_requested'],False)
+  self.assertNotIn('DUMMY-TEST-ONLY',json.dumps(result))
+ def test_explicit_config_stays_fixed_when_process_environment_changes(self):
+  calls=[]
+  def transport(req,timeout):
+   calls.append(req)
+   self.assertEqual(req.full_url,'https://openrouter.ai/api/v1/chat/completions')
+   self.assertEqual(json.loads(req.data)['model'],'test-provider/fixed-model-test-only')
+   self.assertEqual(req.get_header('Authorization'),'Bearer DUMMY-TEST-ONLY')
+   return Response(json.dumps({'choices':[{'finish_reason':'stop','message':{'content':'{}'}}]}).encode())
+  api=ChatAPI(True,transport,token_counter=lambda m:10,base_url='https://openrouter.ai/api/v1',api_key='DUMMY-TEST-ONLY',model='test-provider/fixed-model-test-only')
+  with patch.dict(os.environ,{'PAPER_LLM_BASE_URL':'https://example.invalid/changed','PAPER_LLM_API_KEY':'changed-test-only','PAPER_LLM_MODEL':'changed-test-model'}):
+   api.complete([])
+  self.assertEqual(len(calls),1)
+ def test_http_and_transport_errors_never_trigger_hidden_retry(self):
+  for kind in ('429','503','timeout'):
+   calls=[]
+   def transport(req,timeout):
+    calls.append(1)
+    if kind=='timeout':raise TimeoutError('dummy test timeout')
+    raise urllib.error.HTTPError(req.full_url,int(kind),'dummy test error',{},None)
+   api=ChatAPI(True,transport,token_counter=lambda m:10,base_url='https://openrouter.ai/api/v1',api_key='DUMMY-TEST-ONLY',model='test-provider/fixed-model-test-only')
+   with self.assertRaises(ModelAPIError):api.complete([])
+   self.assertEqual(calls,[1])
 if __name__=='__main__': unittest.main()

@@ -23,17 +23,21 @@ class NoRedirect(urllib.request.HTTPRedirectHandler):
 
 
 class ChatAPI:
-    def __init__(self, allow_network=False, transport=None, token_counter=None):
+    def __init__(self, allow_network=False, transport=None, token_counter=None,
+                 base_url=None, api_key=None, model=None):
         self.allow_network = allow_network
         self.transport = transport or urllib.request.build_opener(NoRedirect()).open
         self.token_counter = token_counter
+        # Accept the future shared loader's values directly. Snapshot once so
+        # environment changes cannot switch endpoint/model midway through a run.
+        self.base_url = (base_url if base_url is not None else os.environ.get('PAPER_LLM_BASE_URL', '')).rstrip('/')
+        self._api_key = api_key if api_key is not None else os.environ.get('PAPER_LLM_API_KEY', '')
+        self.model = model if model is not None else os.environ.get('PAPER_LLM_MODEL', '')
 
     def complete(self, messages, max_tokens=640, byte_cap=18000):
         if not self.allow_network:
             raise ModelAPIError('Network is not authorized')
-        base = os.environ.get('PAPER_LLM_BASE_URL', '').rstrip('/')
-        key = os.environ.get('PAPER_LLM_API_KEY', '')
-        model = os.environ.get('PAPER_LLM_MODEL', '')
+        base, key, model = self.base_url, self._api_key, self.model
         if not all([base, key, model]):
             raise ModelAPIError('Required runtime configuration missing')
         url = urllib.parse.urlsplit(base)
@@ -53,6 +57,10 @@ class ChatAPI:
             raise ModelAPIError('Input token cap exceeded')
         payload = {'model': model, 'messages': messages, 'temperature': 0,
                    'max_tokens': max_tokens, 'stream': False}
+        if url.hostname == 'openrouter.ai':
+            # Explicit wire policy; no fallback model list or client retry.
+            # Whether the service honors it is a later authorized live check.
+            payload['provider'] = {'allow_fallbacks': False}
         data = json.dumps(payload).encode()
         if len(data) > byte_cap:
             raise ModelAPIError('Request byte cap exceeded')
@@ -85,7 +93,8 @@ class ChatAPI:
         record = {'raw_output': content, 'usage': usage, 'seconds': time.monotonic() - start,
                 'model': actual_model, 'request_model': model, 'max_tokens': max_tokens,
                 'temperature': 0, 'input_tokens_counted': input_tokens, 'request_bytes': len(data),
-                'finish_reason': choice.get('finish_reason')}
+                'finish_reason': choice.get('finish_reason'),
+                'provider_fallbacks_requested': payload.get('provider', {}).get('allow_fallbacks')}
         if choice.get('finish_reason') != 'stop':
             raise ModelAPIError('Provider did not return completed chat schema', evidence=record)
         if usage.get('prompt_tokens', 0) > 4096 or usage.get('completion_tokens', 0) > max_tokens:

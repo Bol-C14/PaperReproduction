@@ -68,3 +68,11 @@ There were zero API calls, local LLM loads and new target measurements.
 See [native-bank report](NATIVE_BANK_REPORT.md), [raw metric comparison](native_priors/comparison.json),
 [offline verification](native-bank-verification.json) and current `PAUSED.json`.
 Public logs normalize the isolated runtime prefix; APRIL keeps the originals.
+
+## OpenRouter offline preparation
+
+[OpenRouter adapter checks](OPENROUTER_OFFLINE_CHECK.md) add explicit, snapshotted
+base/model/key injection for the forthcoming shared loader, an explicit outgoing
+no-provider-fallback request, and single-attempt HTTP/timeout tests. All18
+offline tests pass; live service behavior and the shared private loader remain
+pending. The fixed MiniLM encoder and model-pilot budgets are unchanged.
