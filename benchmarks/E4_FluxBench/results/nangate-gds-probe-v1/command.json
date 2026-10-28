@@ -1,0 +1,33 @@
+{
+  "command": [
+    "taskset",
+    "-c",
+    "0",
+    "podman",
+    "run",
+    "--rm",
+    "--network=none",
+    "--read-only",
+    "--cap-drop=all",
+    "--security-opt=no-new-privileges",
+    "--tmpfs=/tmp:rw,nosuid,size=128m",
+    "-e",
+    "QT_QPA_PLATFORM=minimal",
+    "-v",
+    "${E4_WORK_ROOT}/results/fluxbench/nangate-gds-probe-v1:/out:rw",
+    "-v",
+    "${E4_WORK_ROOT}/assets/fluxbench/official-nangate:/assets:ro",
+    "-v",
+    "${E4_WORK_ROOT}/assets/pdagent/dataset/PlaceReasoner-Bench/bp_fe:/data:ro",
+    "-v",
+    "${E4_WORK_ROOT}/results/fluxbench/physical-v1:/prior:ro",
+    "--entrypoint",
+    "/usr/bin/klayout",
+    "5535500ecc23ac660e54e75e873d27cb47a6e05666fc29cbc8f446e8ca6d98ea",
+    "-b",
+    "-r",
+    "/out/probe.py"
+  ],
+  "seconds": 1.6832610256969929,
+  "returncode": 0
+}

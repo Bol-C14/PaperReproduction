@@ -1,0 +1,57 @@
+OpenROAD 26Q2-1164-g08f67ee5ec 
+Features included (+) or not (-): +GPU +GUI +Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 4 thread(s).
+[INFO RCX-0431] Defined process_corner X with ext_model_index 0
+[INFO RCX-0029] Defined extraction corner X
+[INFO RCX-0435] Reading extraction model file /assets/rcx_patterns.rules ...
+[INFO RCX-0436] RC segment generation picorv32 (max_merge_res 50.0) ...
+[INFO RCX-0040] Final 53675 rc segments
+[INFO RCX-0439] Coupling Cap extraction picorv32 ...
+[INFO RCX-0440] Coupling threshhold is 0.1000 fF, coupling capacitance less than 0.1000 fF will be grounded.
+[INFO RCX-0442] 46% of 101097 wires extracted
+[INFO RCX-0442] 100% of 101097 wires extracted
+[INFO RCX-0045] Extract 14286 nets, 66299 rsegs, 66299 caps, 164698 ccs
+[INFO RCX-0443] 14288 nets finished
+worst slack max -1.00
+worst slack min 0.09
+tns max -35.73
+[WARNING STA-0503] report_checks -group_count is deprecated. Use -group_path_count instead.
+Startpoint: _3092_ (rising edge-triggered flip-flop clocked by core_clk)
+Endpoint: _2348_ (rising edge-triggered flip-flop clocked by core_clk)
+Path Group: core_clk
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock core_clk (rise edge)
+   0.13    0.13   clock network delay (propagated)
+   0.00    0.13 ^ _3092_/CK (DFF_X1)
+   2.05    2.19 ^ _3092_/Q (DFF_X1)
+   8.11   10.30 v inner.g06066/ZN (INV_X1)
+   0.52   10.82 ^ inner.g06122/ZN (NAND2_X1)
+  -0.01   10.81 v inner.g06124/ZN (AOI21_X1)
+   0.07   10.89 ^ inner.g06128/ZN (OAI21_X1)
+   0.02   10.91 v inner.g06129/ZN (AOI21_X1)
+   0.04   10.95 ^ inner.g06130/ZN (OAI21_X1)
+   0.02   10.97 v inner.g06133/ZN (AOI21_X1)
+   0.03   11.00 ^ inner.g06134/ZN (NAND2_X1)
+   0.02   11.02 v inner.g06135/ZN (OAI21_X1)
+   0.06   11.08 v inner.g06136/Z (MUX2_X1)
+   0.00   11.08 v _2348_/D (DFF_X1)
+          11.08   data arrival time
+
+  10.00   10.00   clock core_clk (rise edge)
+   0.12   10.12   clock network delay (propagated)
+   0.00   10.12   clock reconvergence pessimism
+          10.12 ^ _2348_/CK (DFF_X1)
+  -0.04   10.09   library setup time
+          10.09   data required time
+---------------------------------------------------------
+          10.09   data required time
+         -11.08   data arrival time
+---------------------------------------------------------
+          -1.00   slack (VIOLATED)
+
+

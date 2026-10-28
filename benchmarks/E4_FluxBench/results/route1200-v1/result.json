@@ -1,0 +1,76 @@
+{
+  "command": [
+    "taskset",
+    "-c",
+    "0,1,2,3",
+    "podman",
+    "run",
+    "--name",
+    "e4-fluxbench-route1200-v1",
+    "--rm",
+    "--network=none",
+    "--read-only",
+    "--cap-drop=all",
+    "--security-opt=no-new-privileges",
+    "--pids-limit=128",
+    "--memory=8g",
+    "--tmpfs=/tmp:rw,noexec,nosuid,size=128m",
+    "-e",
+    "OMP_NUM_THREADS=4",
+    "-e",
+    "QT_QPA_PLATFORM=minimal",
+    "-v",
+    "${E4_WORK_ROOT}/assets/pdagent/dataset/PlaceReasoner-Bench/bp_fe:/data:ro",
+    "-v",
+    "${E4_WORK_ROOT}/results/fluxbench/physical-v1:/prior:ro",
+    "-v",
+    "${E4_WORK_ROOT}/results/fluxbench/route1200-v1:/out:rw",
+    "080c40706b37fb2fece6a61412d17c0e025ee87af82af28e79aa90f5d02a78ac",
+    "-no_init",
+    "-exit",
+    "/out/routing.tcl"
+  ],
+  "start_unix": 1793228919.4893622,
+  "end_unix": 1793229283.0277576,
+  "seconds": 363.53839633613825,
+  "returncode": 0,
+  "timeout": false,
+  "cleanup": null,
+  "threads": 4,
+  "paid_cost_usd": 0,
+  "artifacts": {
+    "port.sdc": {
+      "bytes": 227,
+      "sha256": "17f7b8fa4b3f81cae2c1480e9344a261e381b8de51164e795e7c6491f89d4d42"
+    },
+    "routing.tcl": {
+      "bytes": 696,
+      "sha256": "13fc1c950722ae2c23b13d1502fc2cc59289d5e0b9aa1da2b1a25b8ef218cb5d"
+    },
+    "route.guide": {
+      "bytes": 3377182,
+      "sha256": "2da89cf01d21e9ac1cb4efa66ff945516f28e0cc1d731d54adb856524fca2a6b"
+    },
+    "global-route.odb": {
+      "bytes": 10115792,
+      "sha256": "f35860bd2015baaa48c5fd84e062bdc0717e3912367244e9879f0353d5158bfa"
+    },
+    "route.drc": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "route.odb": {
+      "bytes": 15802349,
+      "sha256": "0222a59a3aca61ddc53c6147a2e1d2eead2c784cc38697a43a61cfdac5cbc701"
+    },
+    "route.def": {
+      "bytes": 10852432,
+      "sha256": "d4252e77b7f4f2b8f798f66724f477373f12d73b961ccedf9321c0b93932f242"
+    },
+    "route.v": {
+      "bytes": 1950494,
+      "sha256": "c5cb45e6c2faf772f1d7a72328fa8d84c9c4a034fe0d29e39bcbe292f4ed31fc"
+    }
+  },
+  "correctness": "unverified until independent artifact checks; negative timing remains failure"
+}

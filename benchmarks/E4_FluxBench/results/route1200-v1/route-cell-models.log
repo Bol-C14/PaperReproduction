@@ -1,0 +1,340 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2024  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.41 (git sha1 c1ad37779ee, g++ 11.5.0 -fPIC -Os)
+
+-- Running command `read_liberty -ignore_miss_func ${E4_WORK_ROOT}/assets/pdagent/dataset/PlaceReasoner-Bench/bp_fe/lib/NangateOpenCellLibrary_typical.lib; read_verilog route.v; rename picorv32 impl; hierarchy -check -top impl; proc; opt_clean; write_verilog -noattr combined-route.v' --
+
+1. Executing Liberty frontend: ${E4_WORK_ROOT}/assets/pdagent/dataset/PlaceReasoner-Bench/bp_fe/lib/NangateOpenCellLibrary_typical.lib
+Ignoring cell CLKGATETST_X1 with missing function on output IQ.
+Ignoring cell CLKGATETST_X2 with missing function on output IQ.
+Ignoring cell CLKGATETST_X4 with missing function on output IQ.
+Ignoring cell CLKGATETST_X8 with missing function on output IQ.
+Ignoring cell CLKGATE_X1 with missing function on output IQ.
+Ignoring cell CLKGATE_X2 with missing function on output IQ.
+Ignoring cell CLKGATE_X4 with missing function on output IQ.
+Ignoring cell CLKGATE_X8 with missing function on output IQ.
+Imported 127 cell types from liberty file.
+
+2. Executing Verilog-2005 frontend: route.v
+Parsing Verilog input from `route.v' to AST representation.
+Generating RTLIL representation for module `\picorv32'.
+Successfully finished Verilog frontend.
+Renaming module \picorv32 to \impl.
+
+3. Executing HIERARCHY pass (managing design hierarchy).
+
+3.1. Analyzing design hierarchy..
+Top module:  \impl
+Used module:     \LOGIC0_X1
+Used module:     \OAI21_X1
+Used module:     \BUF_X1
+Used module:     \MUX2_X1
+Used module:     \NOR2_X1
+Used module:     \NOR4_X1
+Used module:     \NOR3_X1
+Used module:     \AND3_X1
+Used module:     \XOR2_X1
+Used module:     \NAND2_X1
+Used module:     \INV_X1
+Used module:     \OAI221_X1
+Used module:     \OAI211_X1
+Used module:     \AOI22_X1
+Used module:     \AOI211_X1
+Used module:     \AOI21_X1
+Used module:     \NAND3_X1
+Used module:     \NAND4_X1
+Used module:     \OAI22_X1
+Used module:     \AND2_X1
+Used module:     \AND4_X1
+Used module:     \XNOR2_X1
+Used module:     \OR2_X1
+Used module:     \OR3_X1
+Used module:     \AOI221_X4
+Used module:     \OR4_X1
+Used module:     \INV_X4
+Used module:     \INV_X2
+Used module:     \CLKBUF_X1
+Used module:     \INV_X8
+Used module:     \CLKBUF_X3
+Used module:     \DFF_X1
+
+3.2. Analyzing design hierarchy..
+Top module:  \impl
+Used module:     \LOGIC0_X1
+Used module:     \OAI21_X1
+Used module:     \BUF_X1
+Used module:     \MUX2_X1
+Used module:     \NOR2_X1
+Used module:     \NOR4_X1
+Used module:     \NOR3_X1
+Used module:     \AND3_X1
+Used module:     \XOR2_X1
+Used module:     \NAND2_X1
+Used module:     \INV_X1
+Used module:     \OAI221_X1
+Used module:     \OAI211_X1
+Used module:     \AOI22_X1
+Used module:     \AOI211_X1
+Used module:     \AOI21_X1
+Used module:     \NAND3_X1
+Used module:     \NAND4_X1
+Used module:     \OAI22_X1
+Used module:     \AND2_X1
+Used module:     \AND4_X1
+Used module:     \XNOR2_X1
+Used module:     \OR2_X1
+Used module:     \OR3_X1
+Used module:     \AOI221_X4
+Used module:     \OR4_X1
+Used module:     \INV_X4
+Used module:     \INV_X2
+Used module:     \CLKBUF_X1
+Used module:     \INV_X8
+Used module:     \CLKBUF_X3
+Used module:     \DFF_X1
+Removing unused module `\XOR2_X2'.
+Removing unused module `\XNOR2_X2'.
+Removing unused module `\TLAT_X1'.
+Removing unused module `\TINV_X1'.
+Removing unused module `\TBUF_X16'.
+Removing unused module `\TBUF_X8'.
+Removing unused module `\TBUF_X4'.
+Removing unused module `\TBUF_X2'.
+Removing unused module `\TBUF_X1'.
+Removing unused module `\SDFF_X2'.
+Removing unused module `\SDFF_X1'.
+Removing unused module `\SDFFS_X2'.
+Removing unused module `\SDFFS_X1'.
+Removing unused module `\SDFFR_X2'.
+Removing unused module `\SDFFR_X1'.
+Removing unused module `\SDFFRS_X2'.
+Removing unused module `\SDFFRS_X1'.
+Removing unused module `\OR4_X4'.
+Removing unused module `\OR4_X2'.
+Removing unused module `\OR3_X4'.
+Removing unused module `\OR3_X2'.
+Removing unused module `\OR2_X4'.
+Removing unused module `\OR2_X2'.
+Removing unused module `\OAI222_X4'.
+Removing unused module `\OAI222_X2'.
+Removing unused module `\OAI222_X1'.
+Removing unused module `\OAI221_X4'.
+Removing unused module `\OAI221_X2'.
+Removing unused module `\OAI211_X4'.
+Removing unused module `\OAI211_X2'.
+Removing unused module `\OAI33_X1'.
+Removing unused module `\OAI22_X4'.
+Removing unused module `\OAI22_X2'.
+Removing unused module `\OAI21_X4'.
+Removing unused module `\OAI21_X2'.
+Removing unused module `\NOR4_X4'.
+Removing unused module `\NOR4_X2'.
+Removing unused module `\NOR3_X4'.
+Removing unused module `\NOR3_X2'.
+Removing unused module `\NOR2_X4'.
+Removing unused module `\NOR2_X2'.
+Removing unused module `\NAND4_X4'.
+Removing unused module `\NAND4_X2'.
+Removing unused module `\NAND3_X4'.
+Removing unused module `\NAND3_X2'.
+Removing unused module `\NAND2_X4'.
+Removing unused module `\NAND2_X2'.
+Removing unused module `\MUX2_X2'.
+Removing unused module `\LOGIC1_X1'.
+Removing unused module `\INV_X32'.
+Removing unused module `\INV_X16'.
+Removing unused module `\HA_X1'.
+Removing unused module `\FILLCELL_X32'.
+Removing unused module `\FILLCELL_X16'.
+Removing unused module `\FILLCELL_X8'.
+Removing unused module `\FILLCELL_X4'.
+Removing unused module `\FILLCELL_X2'.
+Removing unused module `\TAPCELL_X1'.
+Removing unused module `\FILLCELL_X1'.
+Removing unused module `\FA_X1'.
+Removing unused module `\DLL_X2'.
+Removing unused module `\DLL_X1'.
+Removing unused module `\DLH_X2'.
+Removing unused module `\DLH_X1'.
+Removing unused module `\DFF_X2'.
+Removing unused module `\DFFS_X2'.
+Removing unused module `\DFFS_X1'.
+Removing unused module `\DFFR_X2'.
+Removing unused module `\DFFR_X1'.
+Removing unused module `\DFFRS_X2'.
+Removing unused module `\DFFRS_X1'.
+Removing unused module `\CLKBUF_X2'.
+Removing unused module `\BUF_X32'.
+Removing unused module `\BUF_X16'.
+Removing unused module `\BUF_X8'.
+Removing unused module `\BUF_X4'.
+Removing unused module `\BUF_X2'.
+Removing unused module `\AOI222_X4'.
+Removing unused module `\AOI222_X2'.
+Removing unused module `\AOI222_X1'.
+Removing unused module `\AOI221_X2'.
+Removing unused module `\AOI221_X1'.
+Removing unused module `\AOI211_X4'.
+Removing unused module `\AOI211_X2'.
+Removing unused module `\AOI22_X4'.
+Removing unused module `\AOI22_X2'.
+Removing unused module `\AOI21_X4'.
+Removing unused module `\AOI21_X2'.
+Removing unused module `\ANTENNA_X1'.
+Removing unused module `\AND4_X4'.
+Removing unused module `\AND4_X2'.
+Removing unused module `\AND3_X4'.
+Removing unused module `\AND3_X2'.
+Removing unused module `\AND2_X4'.
+Removing unused module `\AND2_X2'.
+Removed 95 unused modules.
+
+4. Executing PROC pass (convert processes to netlists).
+
+4.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+4.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+4.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+4.4. Executing PROC_INIT pass (extract init attributes).
+
+4.5. Executing PROC_ARST pass (detect async resets in processes).
+
+4.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+4.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+4.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+4.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+4.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+4.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+4.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module INV_X2.
+Optimizing module CLKBUF_X1.
+Optimizing module INV_X1.
+Optimizing module OR3_X1.
+Optimizing module impl.
+Optimizing module NOR2_X1.
+Optimizing module OAI22_X1.
+Optimizing module BUF_X1.
+Optimizing module OR4_X1.
+Optimizing module NAND4_X1.
+Optimizing module OAI221_X1.
+Optimizing module AOI221_X4.
+<suppressed ~1 debug messages>
+Optimizing module OAI21_X1.
+Optimizing module NAND3_X1.
+Optimizing module OR2_X1.
+Optimizing module XNOR2_X1.
+Optimizing module AOI211_X1.
+Optimizing module NAND2_X1.
+Optimizing module NOR4_X1.
+Optimizing module AOI22_X1.
+Optimizing module MUX2_X1.
+Optimizing module DFF_X1.
+Optimizing module AOI21_X1.
+Optimizing module OAI211_X1.
+Optimizing module LOGIC0_X1.
+Optimizing module XOR2_X1.
+Optimizing module AND4_X1.
+Optimizing module NOR3_X1.
+Optimizing module INV_X8.
+Optimizing module AND3_X1.
+Optimizing module INV_X4.
+Optimizing module CLKBUF_X3.
+Optimizing module AND2_X1.
+
+5. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \INV_X2..
+Finding unused cells or wires in module \CLKBUF_X1..
+Finding unused cells or wires in module \INV_X1..
+Finding unused cells or wires in module \OR3_X1..
+Finding unused cells or wires in module \impl..
+Finding unused cells or wires in module \NOR2_X1..
+Finding unused cells or wires in module \OAI22_X1..
+Finding unused cells or wires in module \BUF_X1..
+Finding unused cells or wires in module \OR4_X1..
+Finding unused cells or wires in module \NAND4_X1..
+Finding unused cells or wires in module \OAI221_X1..
+Finding unused cells or wires in module \AOI221_X4..
+Finding unused cells or wires in module \OAI21_X1..
+Finding unused cells or wires in module \NAND3_X1..
+Finding unused cells or wires in module \OR2_X1..
+Finding unused cells or wires in module \XNOR2_X1..
+Finding unused cells or wires in module \AOI211_X1..
+Finding unused cells or wires in module \NAND2_X1..
+Finding unused cells or wires in module \NOR4_X1..
+Finding unused cells or wires in module \AOI22_X1..
+Finding unused cells or wires in module \MUX2_X1..
+Finding unused cells or wires in module \DFF_X1..
+Finding unused cells or wires in module \AOI21_X1..
+Finding unused cells or wires in module \OAI211_X1..
+Finding unused cells or wires in module \LOGIC0_X1..
+Finding unused cells or wires in module \XOR2_X1..
+Finding unused cells or wires in module \AND4_X1..
+Finding unused cells or wires in module \NOR3_X1..
+Finding unused cells or wires in module \INV_X8..
+Finding unused cells or wires in module \AND3_X1..
+Finding unused cells or wires in module \INV_X4..
+Finding unused cells or wires in module \CLKBUF_X3..
+Finding unused cells or wires in module \AND2_X1..
+Removed 111 unused cells and 29 unused wires.
+<suppressed ~138 debug messages>
+
+6. Executing Verilog backend.
+
+6.1. Executing BMUXMAP pass.
+
+6.2. Executing DEMUXMAP pass.
+Dumping module `\AND2_X1'.
+Dumping module `\AND3_X1'.
+Dumping module `\AND4_X1'.
+Dumping module `\AOI211_X1'.
+Dumping module `\AOI21_X1'.
+Dumping module `\AOI221_X4'.
+Dumping module `\AOI22_X1'.
+Dumping module `\BUF_X1'.
+Dumping module `\CLKBUF_X1'.
+Dumping module `\CLKBUF_X3'.
+Dumping module `\DFF_X1'.
+Dumping module `\INV_X1'.
+Dumping module `\INV_X2'.
+Dumping module `\INV_X4'.
+Dumping module `\INV_X8'.
+Dumping module `\LOGIC0_X1'.
+Dumping module `\MUX2_X1'.
+Dumping module `\NAND2_X1'.
+Dumping module `\NAND3_X1'.
+Dumping module `\NAND4_X1'.
+Dumping module `\NOR2_X1'.
+Dumping module `\NOR3_X1'.
+Dumping module `\NOR4_X1'.
+Dumping module `\OAI211_X1'.
+Dumping module `\OAI21_X1'.
+Dumping module `\OAI221_X1'.
+Dumping module `\OAI22_X1'.
+Dumping module `\OR2_X1'.
+Dumping module `\OR3_X1'.
+Dumping module `\OR4_X1'.
+Dumping module `\XNOR2_X1'.
+Dumping module `\XOR2_X1'.
+Dumping module `\impl'.
+
+End of script. Logfile hash: d21e593da0, CPU: user 1.27s system 0.08s, MEM: 124.50 MB peak
+Yosys 0.41 (git sha1 c1ad37779ee, g++ 11.5.0 -fPIC -Os)
+Time spent: 78% 2x read_verilog (1 sec), 7% 2x read_liberty (0 sec), ...

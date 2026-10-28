@@ -1,0 +1,37 @@
+[
+  {
+    "id": "route-cell-models",
+    "command": [
+      "${E4_WORK_ROOT}/tools/verithoughts/yosys041-install/bin/yosys",
+      "-p",
+      "read_liberty -ignore_miss_func ${E4_WORK_ROOT}/assets/pdagent/dataset/PlaceReasoner-Bench/bp_fe/lib/NangateOpenCellLibrary_typical.lib; read_verilog route.v; rename picorv32 impl; hierarchy -check -top impl; proc; opt_clean; write_verilog -noattr combined-route.v"
+    ],
+    "returncode": 0,
+    "seconds": 1.380233520641923
+  },
+  {
+    "id": "compile-route",
+    "command": [
+      "${E4_WORK_ROOT}/tools/cvdp/iverilog-install/bin/iverilog",
+      "-g2012",
+      "-s",
+      "tb",
+      "-o",
+      "route.vvp",
+      "tb.v",
+      "${E4_WORK_ROOT}/assets/fluxbench/picorv32.v",
+      "combined-route.v"
+    ],
+    "returncode": 0,
+    "seconds": 0.6767758894711733
+  },
+  {
+    "id": "simulate-route",
+    "command": [
+      "${E4_WORK_ROOT}/tools/cvdp/iverilog-install/bin/vvp",
+      "route.vvp"
+    ],
+    "returncode": 0,
+    "seconds": 1.2268254794180393
+  }
+]

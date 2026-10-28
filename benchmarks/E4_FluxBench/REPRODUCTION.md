@@ -2,7 +2,7 @@
 
 ## Completed scope
 
-Public arithmetic replay: `offline_replay`. Open-tool synthesis-stage port: `reference_calibration`. Authorized single physical-flow extension: `partial_method_reproduction`, stopping at a validated CTS checkpoint and routing timeout. This is neither exact paper-protocol reproduction nor a live-agent result.
+Public arithmetic replay: `offline_replay`. Open-tool synthesis-stage port: `reference_calibration`. Authorized single physical-flow extension: `partial_method_reproduction`, initially stopping at a validated CTS checkpoint and routing timeout; a later authorized same-case retry produces routed artifacts/GDS while still failing setup timing. This is neither exact paper-protocol reproduction nor a live-agent result.
 
 The new local branch is `reproduction/benchmark-fluxbench`, based on `809ca20e003c2f5d5a723c77ead8a6de532e4539` in Bol-C14/PaperReproduction. No remote repository was created and no push was performed. The base contains prior work; only `benchmarks/E4_FluxBench` is changed.
 
@@ -80,3 +80,28 @@ All mapping failures, compatibility failures and the selected route timeout are 
 Physical setup and execution remained within the original two-hour active-setup/two-GB download bounds; no material enlargement was made. A requested future increase to the route limit is a proposal only.
 
 The first physical-evidence archive transfer included diagnostic stdout before the tar stream and failed local extraction. A clean read-only transfer recovered the same saved files; no experiment was rerun for this. Original physical logs remain privately preserved; publication derivatives use portable placeholders and original-hash linkage.
+
+## Authorized 1200-second same-case retry and terminal-artifact checks
+
+The parent approved exactly one longer routing attempt; `ROUTE1200_SELECTION.json` was written before launch. The old CTS hash and SDC hash were rechecked and no residual E4 process/container was present. The new directory is `results/fluxbench/route1200-v1`, separate from the 300-second attempt. It adds a global-route ODB checkpoint before detailed route; no objective or selection was changed.
+
+Actual sequence: `analysis/route1200.py`, `route1200_readback.py`, `route1200_functional.py`, `route1200_extract.py`, `route1200_streamout.py`, then independent KLayout scripts `route1200_gds_validate.py` and `route1200_gds_crosscheck.py`. All require the existing pinned tools/assets and portable work-root paths; exact container/command records accompany results. The KLayout container commands are in the probe and validation command JSON records. Route output hashes and unchanged SDC are checked before reread/measurement. No live model is involved.
+
+| Selected routing attempt | Limit | Recorded client wall | Outcome | Paid/API cost | CPU measurement |
+|---|---:|---:|---|---:|---|
+| Original `physical-v1` | 300 s | 300.008417 s | timeout; no final routed ODB | $0 | full CPU total unavailable; container cleanup recorded |
+| Authorized `route1200-v1` | 1200 s | 363.538396 s | completed; router final violations 0 | $0 | detailed router reports 1240 s, elapsed 343 s, peak 1314.40 MB |
+
+Recorded client wall sum: 663.546813 s. This excludes the first timeout's brief orphan-container cleanup interval, whose exact CPU/wall overrun was not measured. Global-route/container overhead is included in each client wall record but not the detailed-router-only CPU footer. Auxiliary readback/extraction/streamout/validation durations are recorded individually; they are not rolled into router CPU totals. No new paid services or model APIs were used.
+
+Independent routed readback (1.869 s) confirms 12699/12699 placed instances, 149 clock buffers, 12624 routed nets and zero multi-terminal signal/clock unwired nets (power/ground excluded). The final router explicitly reports zero violations, not just a successful exit or empty file. Fresh route-netlist cell import/compile/simulation passes 1000 cycles, 333 fetches; this still excludes stores, data-dependent branches, backpressure and interrupts.
+
+OpenRCX extraction (2.989 s) uses pinned `rcx_patterns.rules`, SHA-256 `2f65fafbe2c704b378563c53a680b93cef080c2799997019d43df7d1e5a563e9`; `extracted.spef` is 16663331 bytes, with 12624 `*D_NET` entries and SHA-256 `44c962c45122690b5b091c2bfb81759ae0bd5e8c3bba8c377eae1a221517f39e`. Extracted setup/hold WNS is -1.00/+0.09 ns and setup TNS -35.73 ns. No timing closure is claimed. This research-model extraction is not foundry signoff, and its difference from placement estimates is not a design improvement. The report command produced a deprecation warning for `-group_count`; its detailed path and negative slack are retained.
+
+Official compatibility evidence is in `results/nangate-gds-probe-v1`: source repository/commit, Apache platform license hash, BSD streamout-script license hash, matching Git blobs for all three existing Liberty/LEFs, KLayout 0.30.3 and exact existing ORFS image digest. Source GDS SHA-256 is `7fdbd7f4e46283fdd9b9a369e1cae1a7f6f742c8e75cfe943c17f451626fe8e8`; layer-map file SHA-256 is `45382e7c1ad2c3727fec79fc0249dceff8ce8fab8ef815017ad5de3350a87a12`. Only file paths were adapted; the layer-map text is unchanged. All 12699 instances/32 masters have matching nonempty source GDS cells. No new image/tool installation was made; selected source downloads total 952222 bytes plus small API listings. Full private evidence archive transfer was about 19 MB, still well below the original 2-GB bound.
+
+Official pinned streamout harness SHA-256 `3d6a851764ab590a55ad51f6726b6954562560c9cd2d098d8bc53caad8a51209` produces `final.gds` (12142354 bytes), SHA-256 `50942bd7be0275d15e2b73ba0dc01d800eee6f927e0aae202e42a7f09e21b2c0`. Independent positive and truncated-file controls pass their respective criteria. GDS structure: one top, 39 cells, no empty cells, 12699 standard-cell instances, five used top routing-metal layers, stable roundtrip facts. The streamout DBU warning (DEF 2000 units/um vs GDS 0.0001 um) was not ignored: all 108721 top standard-cell/via transforms and direct routing polygon geometry on layers 11-21 match after exact factor-five scaling. This is a transfer/structure verification, not LVS or complete DRC.
+
+The official root `LICENSE` URL initially returned 404; the actual `LICENSE_BUILD_RUN_SCRIPTS` was then located from the official directory listing. The pre-existing image lacks the assumed `/opt/ORFS`/RCX-script paths, so source was resolved from the pinned official repository and usage verified from installed primary help. A shell-quoting metadata probe failed before remote execution and was corrected with structured arguments. These metadata failures did not rerun or alter the selected routing case.
+
+All routed ODB/DEF/netlists, SPEF, GDS and raw logs are retained privately on execution host and controller; their recorded hashes were verified after transfer. Public evidence contains sanitized logs/metadata and our scripts, with original-hash linkage. Library GDS, models, container layers, final design GDS and other large carriers are excluded from the proposed public payload. New results are committed separately from reviewed base `ac8cffbf50dd42b3261eb63296891a4d73e5e337` and require exact-head delta review before any push. No push was made.

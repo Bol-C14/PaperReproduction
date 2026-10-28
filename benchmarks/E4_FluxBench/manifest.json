@@ -19,8 +19,8 @@
     "paper_protocol": "resource_blocked",
     "physical_flow": "partial_method_reproduction",
     "live_agent": "not_run",
-    "post_route_validation": "not_run",
-    "gds": "resource_blocked"
+    "post_route_validation": "reference_calibration",
+    "gds": "reference_calibration"
   },
   "sources": [
     {
@@ -96,7 +96,28 @@
   "costs": {
     "model_calls": 0,
     "api_usd": 0,
-    "new_services": 0
+    "new_services": 0,
+    "routing_attempts": [
+      {
+        "phase": "physical-v1",
+        "limit_seconds": 300,
+        "recorded_client_seconds": 300.0084168128669,
+        "outcome": "timeout",
+        "paid_usd": 0,
+        "cpu_seconds": null,
+        "container_overrun_seconds": null
+      },
+      {
+        "phase": "route1200-v1",
+        "limit_seconds": 1200,
+        "recorded_client_seconds": 363.53839633613825,
+        "outcome": "completed_with_negative_setup_timing",
+        "paid_usd": 0,
+        "detailed_router_cpu_seconds": 1240
+      }
+    ],
+    "routing_recorded_client_seconds_sum": 663.5468131490052,
+    "client_sum_excludes_initial_timeout_container_overrun": true
   },
   "scores": {
     "records": 52,
@@ -123,7 +144,8 @@
     "local": "results/port-v1",
     "remote_root": "${E4_WORK_ROOT}",
     "source_snapshots": "assets/fluxbench",
-    "generated_artifacts": "results/fluxbench/port-v1 (including alternative2)"
+    "generated_artifacts": "results/fluxbench/port-v1 (including alternative2)",
+    "new_private_artifacts": "results/fluxbench/route1200-v1 on execution host; private-evidence/route1200-complete on controller"
   },
   "limitations": [
     "No exact commercial flow",
@@ -133,8 +155,10 @@
     "Single deterministic simulation program",
     "No model effect measured",
     "The fixed loop has no stores/data-dependent branches/backpressure/interrupts",
-    "CTS checkpoint fails setup; detailed route timed out; no full RTL-to-GDS",
-    "Current legacy Kimi cost differs from v3 table"
+    "Current legacy Kimi cost differs from v3 table",
+    "Initial route timed out; authorized longer retry completed but extracted setup timing still fails",
+    "GDS parser/transfer checks and router DRC do not establish LVS/PDN/ECO/full signoff",
+    "Original commercial paper protocol remains blocked; no original-score assignment to this port"
   ],
   "publication": {
     "push_authorized": false,
@@ -143,7 +167,10 @@
     "credentials": false,
     "sanitized_derivatives": true,
     "original_local_ref": "private/fluxbench-original-40d0713",
-    "push_only_target_branch": true
+    "push_only_target_branch": true,
+    "delta_review_base": "ac8cffbf50dd42b3261eb63296891a4d73e5e337",
+    "new_results_require_exact_head_delta_review_before_push": true,
+    "large_routed_and_library_artifacts_excluded": true
   },
   "physical_port": {
     "task": "PICO_PHYSICAL_PORT_001",
@@ -195,10 +222,7 @@
       "setup timing at 10ns"
     ],
     "not_run": [
-      "post-route functional check",
-      "GDS",
       "LVS",
-      "extracted timing",
       "power",
       "PDN/signoff",
       "ECO"
@@ -229,8 +253,108 @@
       "fetches": 333,
       "functional_equivalence_proved": false
     },
-    "gds_gap": "No verified matching cell GDS or layer mapping; no additional assets downloaded",
-    "new_download_bytes": 0,
-    "api_calls": 0
+    "new_download_bytes": 952222,
+    "api_calls": 0,
+    "initial_gds_gap": "No verified matching cell GDS or layer mapping; no additional assets downloaded",
+    "latest_phase": "route1200-v1",
+    "download_measurement": "Selected persisted official source files, excluding small API metadata and private result transfer; no new image/tool download",
+    "same_case_retry": {
+      "status": "partial_method_reproduction",
+      "selection": "ROUTE1200_SELECTION.json",
+      "input_cts_sha256": "8e354cbf16135268c6608838b01f79aec0b5b2f3f6db93673146925b5405406a",
+      "input_sdc_sha256": "17f7b8fa4b3f81cae2c1480e9344a261e381b8de51164e795e7c6491f89d4d42",
+      "limit_seconds": 1200,
+      "seconds": 363.53839633613825,
+      "timeout": false,
+      "returncode": 0,
+      "router_reported_final_violations": 0,
+      "independent_full_drc": false,
+      "reported_detailed_route_cpu_seconds": 1240,
+      "reported_detailed_route_elapsed_seconds": 343,
+      "reported_peak_memory_mb": 1314.4,
+      "routed_nets": 12624,
+      "multi_terminal_signal_clock_unwired_nets": 0,
+      "power_ground_excluded_from_wire_check": true,
+      "placed_instances": 12699,
+      "clock_buffers": 149,
+      "netlist_finite_trace": {
+        "cycles": 1000,
+        "fetches": 333,
+        "passed": true,
+        "whole_cpu_equivalence": false
+      },
+      "extraction": {
+        "tool": "OpenRCX",
+        "scope": "research-rule extracted timing, not foundry signoff",
+        "spef_bytes": 16663331,
+        "spef_sha256": "44c962c45122690b5b091c2bfb81759ae0bd5e8c3bba8c377eae1a221517f39e",
+        "d_net_count": 12624,
+        "setup_wns_ns": -1.0,
+        "hold_wns_ns": 0.09,
+        "setup_tns_ns": -35.73,
+        "timing_closed": false
+      },
+      "gds": {
+        "bytes": 12142354,
+        "sha256": "50942bd7be0275d15e2b73ba0dc01d800eee6f927e0aae202e42a7f09e21b2c0",
+        "structural_parser_verified": true,
+        "standard_cell_instances": 12699,
+        "empty_cells": [],
+        "truncated_file_rejected": true,
+        "all_instance_transforms_match_def": true,
+        "instance_transform_records": 108721,
+        "direct_top_route_geometry_matches_layers": [
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21
+        ],
+        "dbu_conversion_factor": 5.0,
+        "LVS": false,
+        "signoff": false
+      },
+      "artifacts": {
+        "port.sdc": {
+          "bytes": 227,
+          "sha256": "17f7b8fa4b3f81cae2c1480e9344a261e381b8de51164e795e7c6491f89d4d42"
+        },
+        "routing.tcl": {
+          "bytes": 696,
+          "sha256": "13fc1c950722ae2c23b13d1502fc2cc59289d5e0b9aa1da2b1a25b8ef218cb5d"
+        },
+        "route.guide": {
+          "bytes": 3377182,
+          "sha256": "2da89cf01d21e9ac1cb4efa66ff945516f28e0cc1d731d54adb856524fca2a6b"
+        },
+        "global-route.odb": {
+          "bytes": 10115792,
+          "sha256": "f35860bd2015baaa48c5fd84e062bdc0717e3912367244e9879f0353d5158bfa"
+        },
+        "route.drc": {
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        "route.odb": {
+          "bytes": 15802349,
+          "sha256": "0222a59a3aca61ddc53c6147a2e1d2eead2c784cc38697a43a61cfdac5cbc701"
+        },
+        "route.def": {
+          "bytes": 10852432,
+          "sha256": "d4252e77b7f4f2b8f798f66724f477373f12d73b961ccedf9321c0b93932f242"
+        },
+        "route.v": {
+          "bytes": 1950494,
+          "sha256": "c5cb45e6c2faf772f1d7a72328fa8d84c9c4a034fe0d29e39bcbe292f4ed31fc"
+        }
+      },
+      "source_metadata": "results/nangate-gds-probe-v1/source-metadata.json"
+    }
   }
 }
