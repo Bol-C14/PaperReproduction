@@ -1,5 +1,5 @@
 {
-  "run_id": "ablation_fullbank_s3_b12",
+  "run_id": "ablation_fullbank_s3_b12_v2",
   "frozen_utc": "2026-10-28T14:49:04.571940+00:00",
   "base_sha": "3308ca50b629113305fa3d6f10cbab764ccee973",
   "upstream_sha": "db6186cb4018963b5bc15926772c3edc0c2873f1",
@@ -75,5 +75,14 @@
   "correctness": "CEC each generated un-mapped AIG including baseline and losers; invalid candidates reward -1 and excluded from best; mapping not separately certified",
   "failure_policy": "ABC timeout120s logged; no retry, no replacement; invalid baseline abort; partial runs reported incomplete",
   "scope": "small checkpoint inference ablation, not full training or paper numerical reproduction; 22 source train circuits vs paper23, checkpoint provenance unresolved",
-  "runner_sha256": "ff6dca4967c2e8d4064ca6cf780590322e584362583bd66b122fa4a4a03716eb"
+  "runner_sha256": "ff6dca4967c2e8d4064ca6cf780590322e584362583bd66b122fa4a4a03716eb",
+  "amendment": {
+    "utc": "2026-10-28T14:51:05.118013+00:00",
+    "reason": "apex5 sparse adjacency inferred rectangular; explicit node-count square shape; no objective calls before failure",
+    "previous_output": "ablation_fullbank_s3_b12",
+    "previous_graph_reads_completed": 2,
+    "previous_graph_reads_started": 3,
+    "previous_objective_calls": 0,
+    "policy_sha256": "ae86a8b559b6a8e7a58b3ffabde907f1b81be1ff0ebcb49656aa384fdbcf504b"
+  }
 }
