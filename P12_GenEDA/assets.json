@@ -1,0 +1,488 @@
+{
+  "paper_id": "P12",
+  "title": "GenEDA: Towards Generative Netlist Functional Reasoning via Cross-Modal Circuit Encoder-Decoder Alignment",
+  "audit_date": "2026-10-28",
+  "doi_supplied": "10.1109/ICCAD66269.2025.11240762",
+  "doi_record_independently_verified": false,
+  "paper_url": "https://arxiv.org/html/2504.09485v2",
+  "repository_url": "https://github.com/hkust-zhiyao/GenEDA",
+  "repository_commit": "0a19fde3f1c1e56f49a367bf5f1914de84e1c951",
+  "scope": "Asset audit only; static source/config and asset metadata inspection in selected cloud environment.",
+  "classification_scale": {
+    "L1": "code and directly required assets",
+    "L2": "code with missing low-cost fill",
+    "L3": "code with missing high-cost fill",
+    "L4": "confirmed no code, cheap implementation",
+    "L5": "confirmed no code, high-cost implementation"
+  },
+  "routes": [
+    {
+      "id": "minimum_fixed_feature_mechanism",
+      "level": "L2",
+      "provisional": true,
+      "confidence": "medium",
+      "mechanism": "Frozen released 768-dimensional graph vectors -> trainable circuit connector -> decoder with LoRA; two-stage alignment training.",
+      "fill": [
+        "Small new educational grouped split",
+        "Connector pretraining and decoder LoRA",
+        "Package/dependency/path repair"
+      ],
+      "resource_estimate": {
+        "gpu": "One CUDA GPU around 16\u201324GB planned, unmeasured",
+        "cpu_ram": "16\u201332GB planned",
+        "time": "Hours-scale pilot estimate, unmeasured"
+      },
+      "fidelity_loss": [
+        "Original paper split and scores not retained",
+        "No new raw-netlist encoding",
+        "Group/provenance mapping must be verified before generalization claims"
+      ]
+    },
+    {
+      "id": "minimum_unseen_raw_netlist",
+      "level": "L3",
+      "confidence": "medium-high",
+      "reason": "Requires compatible trained circuit encoder or reconstruction; cached vectors cannot encode new circuits."
+    },
+    {
+      "id": "full_paper",
+      "level": "L3",
+      "confidence": "medium-high",
+      "fill": [
+        "Verified trained circuit encoder and expression adapters",
+        "Missing compatible encoder configs",
+        "Original instruction corpus and parent-design split mapping",
+        "Connector and decoder weights",
+        "Gate predictor and annotation provenance",
+        "Synthesis/simulation tools and original API scoring environment"
+      ],
+      "resource_evidence": "Paper reports 8 A800 80GB GPUs; not an established minimum or measured reconstruction cost."
+    }
+  ],
+  "assets": [
+    {
+      "id": "encoder_code",
+      "role": "circuit representation learning",
+      "status": "source_present",
+      "paths": [
+        "model/net_encoder/model/graph_GT/models/model_net.py",
+        "model/net_encoder/model/node_LLM/exprllm/run_exprllm_pretrain.py"
+      ],
+      "sources": [
+        "https://github.com/hkust-zhiyao/GenEDA/blob/0a19fde3f1c1e56f49a367bf5f1914de84e1c951/model/net_encoder/model/graph_GT/models/model_net.py"
+      ],
+      "confidence": "high",
+      "notes": "Source present; no encoder execution."
+    },
+    {
+      "id": "encoder_weights",
+      "role": "learned circuit encoder",
+      "status": "not_in_inspected_tree_external_unverified",
+      "paths": [
+        "model/net_encoder/model/graph_GT/net2vec_task4.py"
+      ],
+      "sources": [
+        "https://github.com/hkust-zhiyao/GenEDA/blob/0a19fde3f1c1e56f49a367bf5f1914de84e1c951/model/net_encoder/model/graph_GT/net2vec_task4.py"
+      ],
+      "confidence": "high",
+      "notes": "References pretrain_model/pretrain_net_align_7B_1024/net_enc.5.pt. No tracked weight filenames; no verified compatible external URL."
+    },
+    {
+      "id": "encoder_configs",
+      "role": "graph encoder architecture",
+      "status": "referenced_not_in_inspected_tree",
+      "paths": [
+        "model/net_encoder/model/graph_GT/configs/PretrainStage.yaml"
+      ],
+      "sources": [
+        "https://github.com/hkust-zhiyao/GenEDA/blob/0a19fde3f1c1e56f49a367bf5f1914de84e1c951/model/net_encoder/model/graph_GT/configs/PretrainStage.yaml"
+      ],
+      "confidence": "high",
+      "notes": "References config_bert.json, config_gt.json, config_gnn.json, none tracked."
+    },
+    {
+      "id": "encoder_data",
+      "role": "pretraining and preprocessing corpus",
+      "status": "external_symlinks_and_unverified_inputs",
+      "paths": [
+        "model/net_encoder/model/graph_GT/dataset_proc/README.md",
+        "model/net_encoder/preprocess/net2graph_ori/saved_analyzer",
+        "model/net_encoder/preprocess/net2graph_ori/saved_expr",
+        "model/net_encoder/preprocess/net2graph_ori/saved_graph_split"
+      ],
+      "sources": [
+        "https://github.com/hkust-zhiyao/GenEDA/blob/0a19fde3f1c1e56f49a367bf5f1914de84e1c951/model/net_encoder/model/graph_GT/dataset_proc/README.md"
+      ],
+      "confidence": "high",
+      "notes": "Symlinks point to ../../../net_tag/...; dataset README gives pickle symlink commands rather than delivering their targets."
+    },
+    {
+      "id": "alignment_code",
+      "role": "learned embedding connector and LoRA",
+      "status": "source_present",
+      "paths": [
+        "model/embed_align/model/model/llava_arch.py",
+        "model/embed_align/model/model/multimodal_projector/builder.py",
+        "model/embed_align/model/train/train.py"
+      ],
+      "sources": [
+        "https://github.com/hkust-zhiyao/GenEDA/blob/0a19fde3f1c1e56f49a367bf5f1914de84e1c951/model/embed_align/model/model/llava_arch.py"
+      ],
+      "confidence": "high",
+      "notes": "768-dimensional graph input, learned MLP projector and LoRA scripts. Package paths and dependency environment need reconciliation."
+    },
+    {
+      "id": "alignment_weights",
+      "role": "trained connector and decoder adapter",
+      "status": "not_in_inspected_tree_external_unverified",
+      "paths": [
+        "model/embed_align/scripts/circuit/pretrain.sh",
+        "model/embed_align/scripts/circuit/finetune_lora_summary.sh",
+        "model/embed_align/scripts/circuit/infer_summary.sh"
+      ],
+      "sources": [
+        "https://github.com/hkust-zhiyao/GenEDA/blob/0a19fde3f1c1e56f49a367bf5f1914de84e1c951/model/embed_align/scripts/circuit/pretrain.sh"
+      ],
+      "confidence": "high",
+      "notes": "Local mm_projector.bin and checkpoint-200 references; not released as tracked weights."
+    },
+    {
+      "id": "alignment_training_data",
+      "role": "original instruction training corpus",
+      "status": "referenced_not_in_inspected_tree",
+      "paths": [
+        "model/embed_align/scripts/circuit/finetune_lora_summary.sh",
+        "model/embed_align/scripts/circuit/finetune_lora_detail.sh"
+      ],
+      "sources": [
+        "https://github.com/hkust-zhiyao/GenEDA/blob/0a19fde3f1c1e56f49a367bf5f1914de84e1c951/model/embed_align/scripts/circuit/finetune_lora_summary.sh"
+      ],
+      "confidence": "high",
+      "notes": "Author-local finetune_summary_graph.json and finetune_detail_graph.json; original parent-design split unverified."
+    },
+    {
+      "id": "base_decoder_1_3b",
+      "role": "minimum decoder backbone",
+      "status": "public_model_metadata_verified_weights_not_downloaded",
+      "paths": [
+        "model/embed_align/scripts/circuit/finetune_lora_summary.sh"
+      ],
+      "sources": [
+        "https://huggingface.co/deepseek-ai/deepseek-coder-1.3b-instruct"
+      ],
+      "confidence": "high",
+      "notes": "deepseek-ai/deepseek-coder-1.3b-instruct; model card license label deepseek."
+    },
+    {
+      "id": "base_decoder_6_7b",
+      "role": "larger decoder backbone",
+      "status": "public_model_metadata_verified_weights_not_downloaded",
+      "paths": [
+        "model/embed_align/scripts/circuit/finetune_lora_summary.sh"
+      ],
+      "sources": [
+        "https://huggingface.co/deepseek-ai/deepseek-coder-6.7b-instruct"
+      ],
+      "confidence": "high",
+      "notes": "Official 6.7B metadata exists; complete matching GenEDA 7B recipe unverified."
+    },
+    {
+      "id": "sheared_llama",
+      "role": "expression encoder base",
+      "status": "public_model_metadata_verified_weights_not_downloaded",
+      "paths": [
+        "model/net_encoder/model/node_LLM/exprllm/run_update_node_dict.py"
+      ],
+      "sources": [
+        "https://huggingface.co/princeton-nlp/Sheared-LLaMA-1.3B"
+      ],
+      "confidence": "high",
+      "notes": "Base model is not the trained expression encoder adapter."
+    },
+    {
+      "id": "nv_embed_v1",
+      "role": "upstream RTL representation backbone",
+      "status": "gated_metadata_only",
+      "paths": [
+        "model/net_encoder/model/graph_GT/configs/PretrainStage.yaml"
+      ],
+      "sources": [
+        "https://huggingface.co/nvidia/NV-Embed-v1"
+      ],
+      "confidence": "high",
+      "notes": "Official NetTAG README identifies NV-Embed-v1. Model page requires agreement to share account information. No login, acceptance, file access, or download attempted."
+    },
+    {
+      "id": "task3_data",
+      "role": "netlists annotations golden RTL",
+      "status": "tracked_files_present",
+      "paths": [
+        "model/predict_align/model/dataset/netlist_ori/add_mul_2_bit.v",
+        "model/predict_align/model/dataset/netlist_annotate/add_mul_2_bit.v",
+        "model/predict_align/model/dataset/rtl/add_mul_2_bit.v"
+      ],
+      "sources": [
+        "https://github.com/hkust-zhiyao/GenEDA/blob/0a19fde3f1c1e56f49a367bf5f1914de84e1c951/model/predict_align/model/dataset/netlist_ori/add_mul_2_bit.v"
+      ],
+      "confidence": "high",
+      "notes": "Each corresponding directory contains 12 Verilog paths; input pair inspected. Learned annotation provenance unverified."
+    },
+    {
+      "id": "gate_predictor",
+      "role": "learned gate classification",
+      "status": "source_present_weights_and_inputs_unverified",
+      "paths": [
+        "model/net_encoder/model/graph_GT/finetune_task4.py"
+      ],
+      "sources": [
+        "https://github.com/hkust-zhiyao/GenEDA/blob/0a19fde3f1c1e56f49a367bf5f1914de84e1c951/model/net_encoder/model/graph_GT/finetune_task4.py"
+      ],
+      "confidence": "high",
+      "notes": "Released code trains XGBClassifier from cached embeddings/labels, unlike paper MLP description. Predictor pickle and cached embeddings/labels not tracked."
+    },
+    {
+      "id": "generation_api",
+      "role": "prediction-alignment frozen decoder",
+      "status": "source_present_service_execution_not_attempted",
+      "paths": [
+        "model/predict_align/model/inference/run_deepseek.py",
+        "model/predict_align/model/inference/run_gpt.py"
+      ],
+      "sources": [
+        "https://github.com/hkust-zhiyao/GenEDA/blob/0a19fde3f1c1e56f49a367bf5f1914de84e1c951/model/predict_align/model/inference/run_deepseek.py"
+      ],
+      "confidence": "high",
+      "notes": "No API calls or credentials used; DeepSeek script final input assignment selects plain baseline netlists."
+    },
+    {
+      "id": "language_evaluators",
+      "role": "linguistic and semantic scoring",
+      "status": "source_present_api_dependencies_unverified",
+      "paths": [
+        "benchmark/task1/eval/analyze_result.py",
+        "benchmark/task1/eval/analyze_embed_similarity.py",
+        "benchmark/task1/eval/analyze_openai.py"
+      ],
+      "sources": [
+        "https://github.com/hkust-zhiyao/GenEDA/blob/0a19fde3f1c1e56f49a367bf5f1914de84e1c951/benchmark/task1/eval/analyze_result.py"
+      ],
+      "confidence": "high",
+      "notes": "BLEU/ROUGE, embedding and GPT scoring are not circuit equivalence. Aggregator filters ROUGE-1 below 0.35."
+    },
+    {
+      "id": "functional_evaluator",
+      "role": "RTL syntax and finite behavioral checking",
+      "status": "source_present_vcs_dependency_unverified",
+      "paths": [
+        "benchmark/task3/eval/auto_run.py",
+        "benchmark/task3/eval/add_mul_2_bit/makefile",
+        "benchmark/task3/eval/add_mul_2_bit/add_mul_2_bit_tb.v"
+      ],
+      "sources": [
+        "https://github.com/hkust-zhiyao/GenEDA/blob/0a19fde3f1c1e56f49a367bf5f1914de84e1c951/benchmark/task3/eval/auto_run.py"
+      ],
+      "confidence": "high",
+      "notes": "VCS makefile, testbenches and pass@k driver; inspected example uses 100 random tests; not formal equivalence."
+    },
+    {
+      "id": "reference_results",
+      "role": "stored generations and scores",
+      "status": "tracked_outputs_present",
+      "paths": [
+        "model/embed_align/model/eval/result/summary_deepseek_netinfo.json"
+      ],
+      "sources": [
+        "https://github.com/hkust-zhiyao/GenEDA/blob/0a19fde3f1c1e56f49a367bf5f1914de84e1c951/model/embed_align/model/eval/result/summary_deepseek_netinfo.json"
+      ],
+      "confidence": "high",
+      "notes": "Reference outputs are not model weights and were not independently regenerated."
+    },
+    {
+      "id": "Task1_summary",
+      "role": "released benchmark feature/text metadata",
+      "status": "tracked_blob_schema_verified",
+      "paths": [
+        "benchmark/task1/data/Task1_summary.json"
+      ],
+      "sources": [
+        "https://github.com/hkust-zhiyao/GenEDA/blob/0a19fde3f1c1e56f49a367bf5f1914de84e1c951/benchmark/task1/data/Task1_summary.json"
+      ],
+      "confidence": "high",
+      "notes": "Only count/schema/first feature shape inspected; no EDA. Feature provenance and original split unverified.",
+      "metadata": {
+        "path": "benchmark/task1/data/Task1_summary.json",
+        "bytes": 47588869,
+        "records": 464,
+        "top_level_type": "list",
+        "first_record_keys": [
+          "input",
+          "label"
+        ],
+        "first_record_field_types": {
+          "input": "str",
+          "label": "str"
+        }
+      }
+    },
+    {
+      "id": "Task1_summary_GenEDA",
+      "role": "released benchmark feature/text metadata",
+      "status": "tracked_blob_schema_verified",
+      "paths": [
+        "benchmark/task1/data/Task1_summary_GenEDA.json"
+      ],
+      "sources": [
+        "https://github.com/hkust-zhiyao/GenEDA/blob/0a19fde3f1c1e56f49a367bf5f1914de84e1c951/benchmark/task1/data/Task1_summary_GenEDA.json"
+      ],
+      "confidence": "high",
+      "notes": "Only count/schema/first feature shape inspected; no EDA. Feature provenance and original split unverified.",
+      "metadata": {
+        "path": "benchmark/task1/data/Task1_summary_GenEDA.json",
+        "bytes": 13371453,
+        "records": 462,
+        "top_level_type": "list",
+        "first_record_keys": [
+          "id",
+          "conversations",
+          "graph"
+        ],
+        "first_record_field_types": {
+          "id": "int",
+          "conversations": "list",
+          "graph": "list"
+        },
+        "first_graph_shape": [
+          768
+        ]
+      }
+    },
+    {
+      "id": "Task2_implementation",
+      "role": "released benchmark feature/text metadata",
+      "status": "tracked_blob_schema_verified",
+      "paths": [
+        "benchmark/task2/data/Task2_implementation.json"
+      ],
+      "sources": [
+        "https://github.com/hkust-zhiyao/GenEDA/blob/0a19fde3f1c1e56f49a367bf5f1914de84e1c951/benchmark/task2/data/Task2_implementation.json"
+      ],
+      "confidence": "high",
+      "notes": "Only count/schema/first feature shape inspected; no EDA. Feature provenance and original split unverified.",
+      "metadata": {
+        "path": "benchmark/task2/data/Task2_implementation.json",
+        "bytes": 47491747,
+        "records": 464,
+        "top_level_type": "list",
+        "first_record_keys": [
+          "input",
+          "label"
+        ],
+        "first_record_field_types": {
+          "input": "str",
+          "label": "str"
+        }
+      }
+    },
+    {
+      "id": "Task2_implementation_GenEDA",
+      "role": "released benchmark feature/text metadata",
+      "status": "tracked_blob_schema_verified",
+      "paths": [
+        "benchmark/task2/data/Task2_implementation_GenEDA.json"
+      ],
+      "sources": [
+        "https://github.com/hkust-zhiyao/GenEDA/blob/0a19fde3f1c1e56f49a367bf5f1914de84e1c951/benchmark/task2/data/Task2_implementation_GenEDA.json"
+      ],
+      "confidence": "high",
+      "notes": "Only count/schema/first feature shape inspected; no EDA. Feature provenance and original split unverified.",
+      "metadata": {
+        "path": "benchmark/task2/data/Task2_implementation_GenEDA.json",
+        "bytes": 13276085,
+        "records": 462,
+        "top_level_type": "list",
+        "first_record_keys": [
+          "id",
+          "conversations",
+          "graph"
+        ],
+        "first_record_field_types": {
+          "id": "int",
+          "conversations": "list",
+          "graph": "list"
+        },
+        "first_graph_shape": [
+          768
+        ]
+      }
+    }
+  ],
+  "substitutions": [
+    {
+      "name": "plain LLM or hand-written labels",
+      "acceptable_as_faithful_mechanism": false,
+      "loss": "Removes learned circuit alignment or predictor."
+    },
+    {
+      "name": "cached author graph features with retrained connector",
+      "acceptable_as_faithful_mechanism": true,
+      "scope": "Restricted fixed-feature learning route only",
+      "loss": "No original split/score or new-netlist encoder claim."
+    },
+    {
+      "name": "cached annotated netlists with local decoder",
+      "acceptable_as_faithful_mechanism": false,
+      "scope": "Conditional decoder-side illustration only",
+      "loss": "Learned annotation origin not independently verified; original decoder comparison lost."
+    },
+    {
+      "name": "Icarus or Verilator",
+      "scope": "Potential simulation substitution, not performed",
+      "loss": "VCS/tool behavior and score comparability change."
+    },
+    {
+      "name": "local language judge or embedding scorer",
+      "scope": "Potential qualitative evaluation, not performed",
+      "loss": "Original metric scale not retained; cannot replace simulation."
+    }
+  ],
+  "proposed_control": {
+    "question": "Does the aligned decoder use circuit features beyond prompt/signal-name cues?",
+    "design": "After parent-design grouping, use a new held-out educational split; compare matched versus shuffled released graph features with fixed trained decoder/prompts/decoding.",
+    "status": "proposed_not_run"
+  },
+  "execution_record": {
+    "experiments": false,
+    "inference": false,
+    "eda": false,
+    "installation": false,
+    "model_api_calls": false,
+    "model_weight_downloads": false,
+    "settings_changes": false,
+    "publication": false,
+    "license_acceptance": false,
+    "account_information_shared": false,
+    "source_fetch_note": "Filtered shallow Git source inspection; ls-tree -l unexpectedly fetched four benchmark blobs through lazy fetch before termination. Compressed local Git store approximately 11MiB at check; four JSON blobs approximately 122MB logical size. Subsequent inspection limited to schema/count metadata.",
+    "gate_observation": "NV-Embed-v1 account-information agreement gate observed and respected.",
+    "denied_actions": [],
+    "pending_actions": []
+  },
+  "evidence_files": [
+    "../P12_GenEDA_tree.txt",
+    "../P12_GenEDA_schema_metadata.json",
+    "../P12_GenEDA_source/"
+  ],
+  "status": "bounded_cpu_integrity_milestone_complete_stop",
+  "bounded_validation": {
+    "date": "2026-10-28",
+    "report": "validation/README.md",
+    "raw_metrics": "validation/results/alignment_tests.json",
+    "integrity": "validation/results/integrity.json",
+    "status": "interface_milestone_complete_not_end_to_end",
+    "tests_passed": 11,
+    "tests_failed": 0,
+    "original_source_modified": false,
+    "semantic_alignment_established": false,
+    "minimum_route_classification": "L2 remains provisional; unit milestone does not promote it to validated semantic reproduction",
+    "blocked_metadata_request": "One public HF config request returned proxy HTTP 403; not retried."
+  }
+}

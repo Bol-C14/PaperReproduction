@@ -1,0 +1,133 @@
+{
+  "budget": {
+    "setup_wall_seconds_max": 7200,
+    "new_download_bytes_max": 2000000000,
+    "gpu": false,
+    "paid_resources": false
+  },
+  "observed_protocol_freeze_utc": "2026-10-28T10:49:29+00:00",
+  "milestone_completed_utc": "2026-10-28T10:55:33.432462+00:00",
+  "elapsed_since_protocol_freeze_seconds": 364.432462,
+  "earlier_continuation_setup": "A few minutes of workspace/branch and feasibility inspection preceded protocol freeze; whole continuation remained below two hours.",
+  "runtime": {
+    "python": "3.12.14",
+    "cpu_quota": "4 logical CPUs (cpu.max 400000 100000)",
+    "memory_limit_bytes": 17179869184,
+    "torch_threads": 2,
+    "torch_interop_threads": 1,
+    "torch_version": "2.5.1+cpu",
+    "peak_test_process_rss_kib": 288840,
+    "test_execution_seconds_excluding_import": 0.7122054679998655
+  },
+  "downloads": [
+    {
+      "file": "torch-2.5.1+cpu-cp312-cp312-linux_x86_64.whl",
+      "bytes": 174642530,
+      "sha256": "4856f9d6925121d13c2df07aa7580b767f449dfe71ae5acde9c27535d5da4840",
+      "source": "https://download.pytorch.org/whl/cpu",
+      "purpose": "CPU-only PyTorch wheel; no model weights"
+    },
+    {
+      "file": "official_constants.txt",
+      "bytes": 335,
+      "source": "Official GenEDA Git commit 0a19fde3f1c1e56f49a367bf5f1914de84e1c951",
+      "purpose": "Verify -200 image marker and -100 ignore index; tiny selected source read"
+    }
+  ],
+  "download_budget_status": "Below 176MB recorded payload plus small index/Git protocol overhead; well below 2GB. Original benchmark blobs reused from prior audit cache.",
+  "disk_usage_bytes": {
+    "wheel": 174642530,
+    "runtime": 697108857,
+    "results": 914045
+  },
+  "attempts": [
+    {
+      "action": "Inspect requested existing remote branch",
+      "target": "origin reproduction/geneda-iccad2025",
+      "status": "completed_no_remote_ref",
+      "effect": "Created local branch in existing repository; no unrelated remote branch fetched."
+    },
+    {
+      "action": "Inspect an incorrectly typed local path",
+      "target": "/workspace/PaperReproduction_source",
+      "status": "failed_path_not_found",
+      "effect": "Read-only shell inspection; corrected to existing P12_GenEDA_source; no experiment."
+    },
+    {
+      "action": "Read public decoder config metadata",
+      "target": "https://huggingface.co/deepseek-ai/deepseek-coder-1.3b-instruct/raw/main/config.json",
+      "status": "denied_http_403_proxy",
+      "attempts": 1,
+      "effect": "No config or weights obtained. Not retried or bypassed."
+    },
+    {
+      "action": "Search unmaterialized language_model source path",
+      "target": "P12_GenEDA_source/model/embed_align/model/model/language_model/llava_llama.py*",
+      "status": "failed_path_not_materialized",
+      "effect": "Read-only search; excluded from tests, no retry or experiment."
+    },
+    {
+      "action": "Download official CPU wheel",
+      "status": "success",
+      "attempts": 1
+    },
+    {
+      "action": "Install CPU wheel in local isolated runtime target",
+      "status": "success",
+      "attempts": 1,
+      "global_environment_changed": false
+    },
+    {
+      "action": "Integrity/schema/pairing and split generation",
+      "status": "success",
+      "attempts": 1
+    },
+    {
+      "action": "Original-source interface tests",
+      "status": "success",
+      "attempts": 1,
+      "passed": 11,
+      "failed": 0,
+      "errors": 0
+    },
+    {
+      "action": "Synthetic connector optimization",
+      "status": "completed_negative_control_separation",
+      "attempts": 1,
+      "seed": 17,
+      "optimizer_steps": 40,
+      "parameter_tuning_restarts": 0,
+      "semantic_generation": false
+    },
+    {
+      "action": "Feature discriminability diagnostic after frozen addendum",
+      "status": "success",
+      "attempts": 1,
+      "additional_training": false
+    }
+  ],
+  "remaining_blockers": [
+    {
+      "action": "Real decoder-conditioned semantic alignment",
+      "target": "Compatible decoder objective/weights and informative verified encoder feature outputs",
+      "status": "not_attempted_at_authorized_bounded_stop",
+      "reason": "Current milestone is integrity testing; no actual decoder loaded and original feature provenance unresolved."
+    },
+    {
+      "action": "Public decoder metadata fetch",
+      "target": "Hugging Face config URL recorded above",
+      "status": "denied",
+      "reason": "HTTP proxy 403. No retry pending."
+    }
+  ],
+  "not_performed": [
+    "LLM API call",
+    "Gated asset access or agreement",
+    "Encoder/decoder weight download",
+    "Unsafe checkpoint/pickle deserialization",
+    "GPU or paid training",
+    "Security/settings changes",
+    "Push/publication"
+  ],
+  "scientific_conclusion": "Working original-source embedding interface; no evidence of useful learned semantic alignment or generation from this unit milestone."
+}

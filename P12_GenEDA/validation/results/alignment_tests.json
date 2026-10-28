@@ -1,0 +1,241 @@
+{
+  "scope": "Original source projector/insertion/collator, fixture embeddings; NOT end-to-end generation",
+  "torch_version": "2.5.1+cpu",
+  "cuda_built": false,
+  "tests_run": 11,
+  "failures": 0,
+  "errors": 0,
+  "records": [
+    {
+      "test": "__main__.AlignmentTests.test_01_projector_width_and_shape",
+      "status": "pass"
+    },
+    {
+      "test": "__main__.AlignmentTests.test_02_actual_features_inserted_and_text_preserved",
+      "status": "pass"
+    },
+    {
+      "test": "__main__.AlignmentTests.test_03_original_collator_and_batched_feature_pairing",
+      "status": "pass"
+    },
+    {
+      "test": "__main__.AlignmentTests.test_04_gradients_reach_connector_not_frozen_word_fixture",
+      "status": "pass"
+    },
+    {
+      "test": "__main__.AlignmentTests.test_05_missing_marker_silently_drops_graph",
+      "status": "pass"
+    },
+    {
+      "test": "__main__.AlignmentTests.test_06_bad_feature_dimension_rejected",
+      "status": "pass"
+    },
+    {
+      "test": "__main__.AlignmentTests.test_07_more_markers_than_features_rejected",
+      "status": "pass"
+    },
+    {
+      "test": "__main__.AlignmentTests.test_08_right_and_left_padding_and_masks",
+      "status": "pass"
+    },
+    {
+      "test": "__main__.AlignmentTests.test_09_real_feature_shuffle_changes_graph_token_only",
+      "status": "pass"
+    },
+    {
+      "test": "__main__.AlignmentTests.test_10_synthetic_connector_optimization_fixed_40_steps",
+      "status": "pass"
+    },
+    {
+      "test": "__main__.AlignmentTests.test_11_truncation_can_remove_graph_marker",
+      "status": "pass"
+    }
+  ],
+  "metrics": {
+    "fixture_projector_parameters_width32": 25664,
+    "fixture_projector_parameters_width2048": 5771264,
+    "connector_gradient_norm_fixture": 0.03590005402503417,
+    "missing_marker_behavior": "Graph projected, but zero graph tokens inserted; text-only output.",
+    "graph_token_change_max_fixture": 7.450580596923828e-09,
+    "synthetic_training": {
+      "semantic_alignment": false,
+      "generation": false,
+      "seed": 17,
+      "train_rows": 16,
+      "steps": 40,
+      "lr": 0.01,
+      "initial_mse": 0.983883798122406,
+      "final_mse": 0.9200732707977295,
+      "shuffled_training_fixture_mse": 0.9200732707977295,
+      "trace": [
+        {
+          "step": 0,
+          "mse": 0.983883798122406
+        },
+        {
+          "step": 1,
+          "mse": 0.9572189450263977
+        },
+        {
+          "step": 2,
+          "mse": 0.9344877004623413
+        },
+        {
+          "step": 3,
+          "mse": 0.9285919070243835
+        },
+        {
+          "step": 4,
+          "mse": 0.928144097328186
+        },
+        {
+          "step": 5,
+          "mse": 0.9266367554664612
+        },
+        {
+          "step": 6,
+          "mse": 0.9253847599029541
+        },
+        {
+          "step": 7,
+          "mse": 0.9246546030044556
+        },
+        {
+          "step": 8,
+          "mse": 0.9243519306182861
+        },
+        {
+          "step": 9,
+          "mse": 0.9243210554122925
+        },
+        {
+          "step": 10,
+          "mse": 0.9239954948425293
+        },
+        {
+          "step": 11,
+          "mse": 0.9231851696968079
+        },
+        {
+          "step": 12,
+          "mse": 0.9223135113716125
+        },
+        {
+          "step": 13,
+          "mse": 0.9217033982276917
+        },
+        {
+          "step": 14,
+          "mse": 0.9213613271713257
+        },
+        {
+          "step": 15,
+          "mse": 0.9212024211883545
+        },
+        {
+          "step": 16,
+          "mse": 0.9211440086364746
+        },
+        {
+          "step": 17,
+          "mse": 0.9211166501045227
+        },
+        {
+          "step": 18,
+          "mse": 0.9210596680641174
+        },
+        {
+          "step": 19,
+          "mse": 0.9209661483764648
+        },
+        {
+          "step": 20,
+          "mse": 0.9208825826644897
+        },
+        {
+          "step": 21,
+          "mse": 0.9208207130432129
+        },
+        {
+          "step": 22,
+          "mse": 0.9207360148429871
+        },
+        {
+          "step": 23,
+          "mse": 0.9205977320671082
+        },
+        {
+          "step": 24,
+          "mse": 0.9204350113868713
+        },
+        {
+          "step": 25,
+          "mse": 0.9203090071678162
+        },
+        {
+          "step": 26,
+          "mse": 0.9202579855918884
+        },
+        {
+          "step": 27,
+          "mse": 0.9202731847763062
+        },
+        {
+          "step": 28,
+          "mse": 0.9203132390975952
+        },
+        {
+          "step": 29,
+          "mse": 0.9203356504440308
+        },
+        {
+          "step": 30,
+          "mse": 0.9203224778175354
+        },
+        {
+          "step": 31,
+          "mse": 0.9202815294265747
+        },
+        {
+          "step": 32,
+          "mse": 0.92022705078125
+        },
+        {
+          "step": 33,
+          "mse": 0.9201686382293701
+        },
+        {
+          "step": 34,
+          "mse": 0.9201160669326782
+        },
+        {
+          "step": 35,
+          "mse": 0.9200806617736816
+        },
+        {
+          "step": 36,
+          "mse": 0.9200668931007385
+        },
+        {
+          "step": 37,
+          "mse": 0.9200690388679504
+        },
+        {
+          "step": 38,
+          "mse": 0.9200761914253235
+        },
+        {
+          "step": 39,
+          "mse": 0.9200791120529175
+        },
+        {
+          "step": 40,
+          "mse": 0.9200732707977295
+        }
+      ],
+      "interpretation": "Synthetic train-set unit check only; no validation/test targets used and no scientific generalization claim."
+    }
+  },
+  "elapsed_seconds": 0.7122054679998655,
+  "peak_rss_kib": 288840
+}

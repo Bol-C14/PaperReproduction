@@ -1,0 +1,5 @@
+# Targeted diagnostic addendum, v1a
+
+Frozen after the first and only planned 11-test run. That run passed interface tests, but swapping two distinct released float32 graph vectors changed the projected token by only `7.450580596923828e-09`. The synthetic matched and shuffled training losses were identical at recorded precision. These observations create a concrete unresolved concern about usable feature diversity.
+
+Run one additional deterministic source-asset diagnostic, without fitting or tuning: compute raw float64 and converted float32/float16 uniqueness; per-coordinate range; L2 distance from the first row relative to its norm; maximum coordinate deviation divided by float32 epsilon times maximum absolute feature magnitude. Use all 462 Task 1 rows and separately the first 16 frozen training fixtures. Preserve results as raw metrics. Interpret near-constant released vectors as a limitation of these particular assets, not proof that the original learned encoder is defective. No new model training, weight access, or repeated optimization is authorized by this addendum.
