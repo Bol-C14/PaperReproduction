@@ -6,6 +6,8 @@ This module has no direct HTTP transport or automatic retry/fallback.
 """
 from decimal import Decimal, InvalidOperation, ROUND_CEILING
 import importlib.util
+import inspect
+import hashlib
 import json
 from pathlib import Path
 import time
@@ -34,7 +36,7 @@ def reservation_usd(pricing, model, max_tokens=640):
 
 class SharedChatAPI:
     def __init__(self, client, *, run_id, pricing, token_counter, allow_network=False,
-                 safe_error_type=()):
+                 safe_error_type=(), max_attempts=33):
         self.client = client
         self.run_id = run_id
         self.project = 'crop'
@@ -52,16 +54,11 @@ class SharedChatAPI:
             raise ModelAPIError('Shared fixed model ID is required')
         self.batch_id = settings.get('batch_id')
         self.attempts = 0
-        # The installed public chat interface may not expose temperature yet.
-        # Preserve truth in records; never claim temperature zero if it was not sent.
-        # The current public chat() does not expose decoding options. Use the
-        # SAME shared budgeted request core, not a separate HTTP client, so all
-        # gates, slots, attempt caps and ledger reservations remain enforced.
-        if not callable(getattr(client, '_request', None)):
-            raise ModelAPIError('Shared budgeted request core is unavailable')
+        self.max_attempts = max_attempts
+        if 'request_options' not in inspect.signature(client.chat).parameters:
+            raise ModelAPIError('Shared public chat request_options interface is required')
         self.temperature = 0
-        self.decoding = 'temperature=0; reasoning.enabled=false via shared budgeted request core'
-        reservation_usd(pricing, self.model)
+        self.decoding = 'temperature=0; reasoning.enabled=false via shared public chat'
 
     def complete(self, messages, max_tokens=640, byte_cap=18000):
         if not self.allow_network:
@@ -73,34 +70,36 @@ class SharedChatAPI:
             raise ModelAPIError('Completion token cap exceeded')
         if byte_cap not in (12000, 18000):
             raise ModelAPIError('Unsupported request byte cap')
+        # Diagnostic estimate only. The shared full-context price envelope
+        # protects spending; no tokenizer certification or input truncation.
         try:
-            input_tokens = self.token_counter(messages)
+            input_tokens = self.token_counter(messages) if self.token_counter else None
         except Exception:
-            raise ModelAPIError('Input token counting failed') from None
-        if type(input_tokens) is not int or not 0 <= input_tokens <= 4096:
-            raise ModelAPIError('Input token cap exceeded')
+            input_tokens = None
+        options = dict(temperature=0, reasoning={'enabled': False},
+                       response_format={'type': 'json_object'},
+                       provider={'allow_fallbacks': False})
         payload = dict(model=self.model, messages=messages, max_tokens=max_tokens,
-                       stream=False, provider={'allow_fallbacks': False}, temperature=0,
-                       reasoning={'enabled': False}, response_format={'type': 'json_object'})
+                       stream=False, **options)
         wire_bytes = len(json.dumps(payload).encode())
         if wire_bytes > byte_cap:
-            raise ModelAPIError('Request byte cap exceeded')
-        bound = reservation_usd(self.pricing, self.model, max_tokens)
-        if self.attempts >= 33:
+            raise ModelAPIError('Request byte cap exceeded; context not truncated')
+        bound = '0.32'
+        if self.attempts >= self.max_attempts:
             raise ModelAPIError('CROP shared attempt cap exhausted')
         self.attempts += 1  # failures/denials never reset or receive a hidden retry
         started = time.monotonic()
         kwargs = dict(project=self.project, run_id=self.run_id,
-                      max_cost_usd=bound, authorize_live=True)
+                      max_cost_usd=bound, authorize_live=True, max_tokens=max_tokens, request_options=options)
         try:
-            result = self.client._request('chat', payload, **kwargs)
+            result = self.client.chat(messages, **kwargs)
         except Exception as exc:
             # SafeError messages are constants/status codes by the shared contract.
             detail = str(exc) if isinstance(exc, self.safe_error_type) else type(exc).__name__
             raise ModelAPIError('Shared request stopped: ' + detail + '; no retry') from None
         record = dict(seconds=time.monotonic()-started, request_model=self.model,
                       max_tokens=max_tokens, temperature=self.temperature, decoding=self.decoding,
-                      input_tokens_counted=input_tokens, request_bytes=wire_bytes,
+                      input_tokens_estimate=input_tokens, request_bytes=wire_bytes,
                       cost_reservation_usd=bound, project_attempt=self.attempts,
                       provider_fallbacks_requested=False, shared_project=self.project,
                       shared_run_id=self.run_id)
@@ -132,13 +131,13 @@ class SharedChatAPI:
             raise ModelAPIError('Shared completion truncated or unfinished', evidence=record)
         if actual_model != self.model:
             raise ModelAPIError('Shared response model differs from the frozen model', evidence=record)
-        if usage.get('prompt_tokens', 0) > 4096 or usage.get('completion_tokens', 0) > max_tokens:
+        if usage.get('completion_tokens', 0) > max_tokens:
             raise ModelAPIError('Shared provider token usage exceeded cap', evidence=record)
         return record
 
 
 def load_shared_api(module_path, *, run_id, pricing, token_counter, allow_network=False,
-                    _shared_module=None):
+                    _shared_module=None, max_attempts=33):
     """Future authorized entry only. Default blocks before loading private config.
 
     Tests inject a module with a fake load_config; they never invoke the real
@@ -154,6 +153,9 @@ def load_shared_api(module_path, *, run_id, pricing, token_counter, allow_networ
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)
     config = module.load_config()  # no key extraction, logging or repo-local copy
-    return SharedChatAPI(module.Client(config), run_id=run_id, pricing=pricing,
+    api = SharedChatAPI(module.Client(config), run_id=run_id, pricing=pricing,
                          token_counter=token_counter, allow_network=True,
-                         safe_error_type=module.SafeError)
+                         safe_error_type=module.SafeError, max_attempts=max_attempts)
+    if _shared_module is None:
+        api.shared_module_sha256 = hashlib.sha256(Path(module_path).read_bytes()).hexdigest()
+    return api

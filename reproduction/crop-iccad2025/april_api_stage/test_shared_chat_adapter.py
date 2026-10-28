@@ -37,7 +37,7 @@ class SharedIntegrationTests(unittest.TestCase):
         self.model = 'google/gemini-2.5-flash'
         self.data = dict(base_url='https://openrouter.ai/api/v1', provider='openrouter',
                          api_key='MOCK-NOT-A-CREDENTIAL', chat_model=self.model,
-                         batch_id='crop-test-batch', batch_budget_usd='1',
+                         batch_id='crop-test-batch', batch_budget_usd='20',
                          max_concurrent_requests=4, max_requests=44, project_max_requests={'crop':34,'autosizer':10}, live_calls_enabled=True,
                          authorized_projects=['crop'], max_output_tokens=640)
         self.config = self.shared.Config(self.data, self.root)
@@ -108,7 +108,8 @@ class SharedIntegrationTests(unittest.TestCase):
             self.assertEqual(busy, 1)
             self.assertEqual(endpoint, '/chat/completions')
             self.assertEqual(payload['model'], self.model)
-            self.assertEqual(payload['provider'], {'allow_fallbacks':False})
+            self.assertIs(payload['provider']['allow_fallbacks'], False)
+            self.assertEqual(payload['provider']['max_price']['prompt'], 0.3)
             self.assertFalse(payload['stream'])
             self.assertEqual(payload['max_tokens'], 640)
             self.assertNotIn('models', payload)
@@ -116,7 +117,7 @@ class SharedIntegrationTests(unittest.TestCase):
         record = self.adapter(transport).complete(messages('DO-NOT-PUT-PROMPT-IN-SHARED-LEDGER'))
         rows = self.ledger()
         self.assertEqual([r['event'] for r in rows], ['reserve','finish'])
-        self.assertEqual(rows[0]['accounted_usd'], '0.005376000')
+        self.assertEqual(rows[0]['accounted_usd'], '0.32')
         self.assertEqual(rows[1]['accounted_usd'], '0.0001')
         self.assertEqual(rows[1]['cost_source'], 'provider_usage')
         self.assertEqual(record['request_model'], self.model)
@@ -145,7 +146,7 @@ class SharedIntegrationTests(unittest.TestCase):
         self.assertEqual(rows[-1]['accounted_usd'], rows[0]['accounted_usd'])
 
     def test_shared_usd_budget_denies_before_second_transport(self):
-        self.data['batch_budget_usd'] = '0.005376'
+        self.data['batch_budget_usd'] = '0.32'
         def transport(endpoint, payload):
             self.calls.append(1)
             return self.response(cost=None)
@@ -178,7 +179,7 @@ class SharedIntegrationTests(unittest.TestCase):
     def test_shared_reservation_overrun_blocks_following_request(self):
         def transport(endpoint, payload):
             self.calls.append(1)
-            return self.response(cost='0.1')
+            return self.response(cost='0.4')
         api = self.adapter(transport)
         with self.assertRaisesRegex(ModelAPIError, 'exceeded caller reservation'):
             api.complete(messages('fixture'))
@@ -195,6 +196,28 @@ class SharedIntegrationTests(unittest.TestCase):
             with self.assertRaises(ModelAPIError):
                 reservation_usd(pricing, self.model)
         self.assertEqual(self.calls, [])
+
+    def test_input_estimate_is_not_a_tokenizer_gate(self):
+        api = self.adapter()
+        api.token_counter = lambda messages: 999999
+        record = api.complete(messages('small complete public context'))
+        self.assertEqual(record['input_tokens_estimate'], 999999)
+        self.assertEqual(len(self.calls), 1)
+        self.assertEqual(self.calls[0][1]['messages'], messages('small complete public context'))
+
+    def test_public_chat_only_bridge_needs_no_private_request_method(self):
+        calls = []
+        config = self.config
+        response = self.response()
+        class PublicOnly:
+            def __init__(self): self.config = config
+            def chat(self, chat_messages, *, project, run_id, max_tokens, max_cost_usd, authorize_live, request_options):
+                calls.append(request_options)
+                return response
+        api = SharedChatAPI(PublicOnly(), run_id='fixture', pricing=None, token_counter=None, allow_network=True)
+        api.complete(messages('fixture'))
+        self.assertEqual(calls[0]['temperature'], 0)
+        self.assertEqual(calls[0]['reasoning'], {'enabled':False})
 
     def test_config_change_stops_instead_of_model_fallback(self):
         api = self.adapter()

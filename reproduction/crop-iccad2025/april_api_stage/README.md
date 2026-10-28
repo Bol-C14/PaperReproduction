@@ -86,3 +86,12 @@ now uses only `shared_chat_adapter.py`; direct HTTP is disabled. Thirty mock
 tests validate the actual shared module with disposable private ledger fixtures.
 No key/config copy or global policy change is part of the integration. Live
 results, when available, are separate from these offline checks.
+
+## Bounded no-guidance control
+
+The [control protocol](NO_GUIDANCE_CONTROL_PROTOCOL.md) fixes preprocessing,
+model/options, c0 and three subsequent measurements, while removing retrieval
+guidance. The shared adapter now exclusively uses public
+`Client.chat(request_options=...)` and0.32USD full-context reservations. This
+later single-seed run is not strict paired evidence against the original run.
+Historical frozen protocol files describe the settings at their execution time.

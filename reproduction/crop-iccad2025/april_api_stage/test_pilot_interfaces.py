@@ -23,6 +23,15 @@ class InterfaceTests(unittest.TestCase):
         self.designs = [d for d in self.manifest['designs'] if d['role'] == 'prior' or d['id'] == 'fir3']
         self.vector = [1.0] + [0.0] * 383
 
+    def test_no_guidance_intervention_changes_only_two_context_fields(self):
+        from no_guidance_control import control_context
+        old = json.loads((HERE/'real_pilot_reviewed_subset/contexts/1.json').read_text())['request']
+        fresh = control_context(old['legal_configs'], old['target_history'], old['design_summary'], old['iteration'])
+        self.assertEqual(set(fresh), set(old))
+        self.assertEqual({k for k in old if old[k] != fresh[k]}, {'retrieved_prior','retrieved_guidance'})
+        self.assertIsNone(fresh['retrieved_prior'])
+        self.assertEqual(fresh['retrieved_guidance'], [])
+
     def test_summary_rejects_nontext_empty_and_long_values(self):
         summary = {f: 'explicit test fixture only' for f in model_contract.MODULE_FIELDS}
         self.assertEqual(model_contract.summary_fields(summary, model_contract.MODULE_FIELDS), summary)
