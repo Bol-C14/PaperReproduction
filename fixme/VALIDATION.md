@@ -105,3 +105,7 @@ Eight reviewed fixed Docker probes (six boundary checks, intentional exit7 and o
 ## HDL container calibration
 
 The pinned Debian/Icarus12.0 container now passes seven predeclared correct/wrong/empty/syntax/timeout controls, with one source-preserving compiler-snapshot diagnostic retry. Actualiverilog/vvp process snapshots verify nonroot/zero-capabilities/no-new-privileges and the checked container mount/network namespaces. See `hdl_container_validation/REPORT.md` and raw inputs/results. No model/API calls, generated-code execution, host-security changes or prior evidence changes occurred. This validates only the fixed reviewed Icarus binary mux route, not production sandbox completeness or other toolchains.
+
+## Reviewed fixture and oracle boundary
+
+The new harness now rejects unallowlisted bytes/argv/image/budget and missing/unknown/model origin before Docker execution. A fresh13-container hardening run adds fake-marker, malformed/duplicate-record and output-flood controls; six local authorization checks and six synthetic taxonomy checks are separate. All expected outcomes match. Correctness authority comes from reviewed full-payload fixtures and an independent host mux relation, not untrusted stdout. V8 remains a historical8-execution record; old entry points are disabled and the fresh checker/summary explicitly use a different schema/run type. See `harness_hardening/REPORT.md`; offline verification is `python3 fixme/benchmark/verify_harness_hardening.py`. Arbitrary model/testbench execution remains disabled.

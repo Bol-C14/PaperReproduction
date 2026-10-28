@@ -1,0 +1,57 @@
+{
+  "container": {
+    "status": "timeout",
+    "returncode": -9,
+    "seconds": 1.0849,
+    "stdout": "STARTED\n",
+    "stderr": "",
+    "container_removed": true,
+    "image": "busybox@sha256:bdf57e528e45e4433820e045b29b4597825a1c9e38353532d90a01445013f82e",
+    "argv": [
+      "docker",
+      "run",
+      "--name",
+      "fixme-isolation-25b998d296f5472f882b8021e1e8e6a1",
+      "--rm",
+      "--pull=never",
+      "--network=none",
+      "--read-only",
+      "--user=65534:65534",
+      "--cap-drop=ALL",
+      "--security-opt=no-new-privileges=true",
+      "--pids-limit=32",
+      "--memory=128m",
+      "--memory-swap=128m",
+      "--cpus=0.5",
+      "--ulimit=nofile=64:64",
+      "--ulimit=fsize=1048576:1048576",
+      "--ulimit=core=0:0",
+      "--log-driver=none",
+      "--tmpfs=/work:rw,noexec,nosuid,nodev,size=8m,mode=1777",
+      "--workdir=/work",
+      "-i",
+      "busybox@sha256:bdf57e528e45e4433820e045b29b4597825a1c9e38353532d90a01445013f82e",
+      "sh",
+      "-c",
+      "tar -xf - -C /work && exec \"$@\"",
+      "reviewed-recipe",
+      "sh",
+      "/work/probe.sh"
+    ],
+    "provenance": {
+      "origin": "reviewed_local_fixture",
+      "contains_credentials": false,
+      "disclosure_approved": false,
+      "external_transmission_permitted": false,
+      "execution_requires_review": false,
+      "classification": "reviewed_local"
+    },
+    "fixture_id": "hardening/outer_timeout",
+    "oracle_policy": "diagnostic_only",
+    "manifest_sha256": "87e1d398542af07ae50dbf2959d3df942254c290f485f038461af47bd0c1d0b0"
+  },
+  "decision": {
+    "status": "unknown",
+    "reason": "infrastructure/timeout, no correctness inference"
+  }
+}

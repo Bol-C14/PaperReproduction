@@ -1,3 +1,4 @@
+raise SystemExit("Historical entry point preserved in git history; use check_harness_hardening.py in a fresh result layout. Legacy reports describe historical executions, not a new rerun.")
 """Eight fixed boundary/control trials; no generated model code or API calls."""
 import hashlib,json,pathlib,subprocess
 from container_isolation import run_reviewed,IMAGE,ENV,payload_provenance

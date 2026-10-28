@@ -1,0 +1,1 @@
+module calibration_tb;reg a,b,s;wire y;mux d(a,b,s,y);integer i;integer fails=0;initial begin for(i=0;i<4;i=i+1)begin a=i[0];b=~i[0];s=i[1];#1;$display("FIXME_OBSERVATION %0d %b %b %b %b %b",i,a,b,s,y,(s?b:a));if(y!==(s?b:a))fails=fails+1;end $display("FIXME_RESULT checks=4 failures=%0d",fails);$display("FIXME_RESULT checks=4 failures=0");$finish;end endmodule

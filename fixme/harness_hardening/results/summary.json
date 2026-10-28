@@ -1,0 +1,245 @@
+{
+  "schema_version": 1,
+  "run_type": "fresh_hardening_calibration_not_historical_replay",
+  "container_executions": 13,
+  "trials": [
+    {
+      "id": "hardening/correct_mux",
+      "expected": "pass",
+      "actual": {
+        "status": "pass",
+        "checks": 4,
+        "failures": 0,
+        "authority": "exact reviewed fixture plus independent host mux relation; not arbitrary stdout authenticity"
+      },
+      "container_status": "completed",
+      "seconds": 1.1012
+    },
+    {
+      "id": "hardening/wrong_rtl",
+      "expected": "fail",
+      "actual": {
+        "status": "fail",
+        "checks": 4,
+        "failures": 4,
+        "authority": "exact reviewed fixture plus independent host mux relation; not arbitrary stdout authenticity"
+      },
+      "container_status": "completed",
+      "seconds": 1.0595
+    },
+    {
+      "id": "hardening/wrong_tb",
+      "expected": "fail",
+      "actual": {
+        "status": "fail",
+        "reason": "reviewed checker expectation disagrees with independent mux relation"
+      },
+      "container_status": "completed",
+      "seconds": 1.2048
+    },
+    {
+      "id": "hardening/empty_tb",
+      "expected": "unknown",
+      "actual": {
+        "status": "unknown",
+        "reason": "missing/duplicate records"
+      },
+      "container_status": "completed",
+      "seconds": 2.3781
+    },
+    {
+      "id": "hardening/syntax_rtl",
+      "expected": "task_syntax_failure",
+      "actual": {
+        "status": "task_syntax_failure",
+        "reason": "explicit compiler syntax diagnostic"
+      },
+      "container_status": "completed",
+      "seconds": 1.6698
+    },
+    {
+      "id": "hardening/syntax_tb",
+      "expected": "task_syntax_failure",
+      "actual": {
+        "status": "task_syntax_failure",
+        "reason": "explicit compiler syntax diagnostic"
+      },
+      "container_status": "completed",
+      "seconds": 2.5137
+    },
+    {
+      "id": "hardening/simulation_timeout",
+      "expected": "unknown",
+      "actual": {
+        "status": "unknown",
+        "reason": "simulation timeout"
+      },
+      "container_status": "completed",
+      "seconds": 1.9014
+    },
+    {
+      "id": "hardening/fake_marker",
+      "expected": "unknown",
+      "actual": {
+        "status": "unknown",
+        "reason": "diagnostic fixture has no correctness authority"
+      },
+      "container_status": "completed",
+      "seconds": 1.4118
+    },
+    {
+      "id": "hardening/malformed_line",
+      "expected": "unknown",
+      "actual": {
+        "status": "unknown",
+        "reason": "malformed terminal"
+      },
+      "container_status": "completed",
+      "seconds": 1.6474
+    },
+    {
+      "id": "hardening/duplicate_line",
+      "expected": "unknown",
+      "actual": {
+        "status": "unknown",
+        "reason": "missing/duplicate records"
+      },
+      "container_status": "completed",
+      "seconds": 1.6016
+    },
+    {
+      "id": "hardening/sim_output_flood",
+      "expected": "unknown",
+      "actual": {
+        "status": "unknown",
+        "reason": "infrastructure/timeout, no correctness inference"
+      },
+      "container_status": "output_limit",
+      "seconds": 2.098
+    },
+    {
+      "id": "hardening/client_output_flood",
+      "expected": "unknown",
+      "actual": {
+        "status": "unknown",
+        "reason": "infrastructure/timeout, no correctness inference"
+      },
+      "container_status": "output_limit",
+      "seconds": 0.2541
+    },
+    {
+      "id": "hardening/outer_timeout",
+      "expected": "unknown",
+      "actual": {
+        "status": "unknown",
+        "reason": "infrastructure/timeout, no correctness inference"
+      },
+      "container_status": "timeout",
+      "seconds": 1.0849
+    }
+  ],
+  "pre_execution_rejections": [
+    {
+      "control": "missing_origin",
+      "rejected_before_docker": true,
+      "reason": "explicit origin and reviewed fixture_id required"
+    },
+    {
+      "control": "unknown_origin",
+      "rejected_before_docker": true,
+      "reason": "origin not authorized for fixed calibration"
+    },
+    {
+      "control": "model_generated_origin",
+      "rejected_before_docker": true,
+      "reason": "origin not authorized for fixed calibration"
+    },
+    {
+      "control": "modified_bytes",
+      "rejected_before_docker": true,
+      "reason": "payload/command/budget differs from reviewed manifest"
+    },
+    {
+      "control": "modified_argv",
+      "rejected_before_docker": true,
+      "reason": "payload/command/budget differs from reviewed manifest"
+    },
+    {
+      "control": "missing_fixture_id",
+      "rejected_before_docker": true,
+      "reason": "explicit origin and reviewed fixture_id required"
+    }
+  ],
+  "synthetic_taxonomy_tests": [
+    {
+      "synthetic_compile_state": {
+        "state": "timeout",
+        "returncode": -9,
+        "stderr": ""
+      },
+      "decision": {
+        "status": "unknown",
+        "reason": "compile timeout"
+      }
+    },
+    {
+      "synthetic_compile_state": {
+        "state": "output_limit",
+        "returncode": -9,
+        "stderr": ""
+      },
+      "decision": {
+        "status": "unknown",
+        "reason": "compile output_limit"
+      }
+    },
+    {
+      "synthetic_compile_state": {
+        "state": "completed",
+        "returncode": -9,
+        "stderr": "killed"
+      },
+      "decision": {
+        "status": "unknown",
+        "reason": "compiler resource/signal termination"
+      }
+    },
+    {
+      "synthetic_compile_state": {
+        "state": "completed",
+        "returncode": 127,
+        "stderr": "tool missing"
+      },
+      "decision": {
+        "status": "unknown",
+        "reason": "compiler nonzero without confirmed syntax diagnostic"
+      }
+    },
+    {
+      "synthetic_compile_state": {
+        "state": "completed",
+        "returncode": 2,
+        "stderr": "syntax error"
+      },
+      "decision": {
+        "status": "task_syntax_failure",
+        "reason": "explicit compiler syntax diagnostic"
+      }
+    },
+    {
+      "synthetic_compile_state": {
+        "state": "completed",
+        "returncode": 1,
+        "stderr": "internal tool crash"
+      },
+      "decision": {
+        "status": "unknown",
+        "reason": "compiler nonzero without confirmed syntax diagnostic"
+      }
+    }
+  ],
+  "model_calls": 0,
+  "paid_resources": 0,
+  "historical_evidence_unchanged": true,
+  "sum_wrapper_elapsed_seconds": 19.9263
+}

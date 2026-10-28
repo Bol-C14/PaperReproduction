@@ -1,3 +1,4 @@
+raise SystemExit("Historical entry point preserved in git history; use check_harness_hardening.py in a fresh result layout. Legacy reports describe historical executions, not a new rerun.")
 """Execute exactly the seven fixed, predeclared HDL cases inside pinned Docker."""
 import json,pathlib,hashlib
 import container_isolation as ci
