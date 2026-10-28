@@ -1,0 +1,30 @@
+{
+  "frozen_utc": "2026-10-28T15:17:16.024887+00:00",
+  "base_sha": "96caf97b9ccafca8fe1959ff7a27767d36f67bd4",
+  "scope": "One authored signed-interval comparison witness at width8, 1-bit output; same egraph algorithm with scoped comparison folding off/on, one shared absolute delay target, one selected output per arm. Not a benchmark matrix.",
+  "mechanism": "For nonempty operand bit-pattern ranges refined under the SAME care predicate, prove Ult/Slt/Sge0 constant. Union Assume(1,compare,care) with Assume(1,K(1,value),care). Never union a bare comparator with a constant. Empty/bottom returns no proposal. Signed checks operate on disjoint encodings before unsigned hull conversion.",
+  "witness": "p=(-3<=signed(a)<4); output = p ? signed(a)<8 : b, a8,b1. Predicate is true only in the care-domain proof; arbitrary b preserves outside-domain behavior.",
+  "controls": "Fold-off/on use same source costs, ranges, live filter, nested Combine, shared original-AST delay and resource limits. Require the actual scoped witness union in fold-on dynamic trace and its absence in fold-off. No synthesis feedback.",
+  "boundaries": "16 fixed helper probes cover true/false/refusal, strict threshold equality, INT_MIN/MAX, unsigned0/MAX, signed disjoint crossings and empty domains; independent concrete 4-bit evaluation only calibrates those probes, not a claim of all-width soundness.",
+  "proofs": "2full-domain output equivalence pairs in Z3BV and separately parsed RTL YosysSAT. Three negative whole-output pairs: global escape, wrong folded value, strict-boundary mistake. Three definedness+value obligations: actual scoped rewrite UNSAT; naked constant and bottom-as-one SAT. No external care input assumptions.",
+  "budget": {
+    "optimizer_starts": 2,
+    "selected_outputs_per_arm": 1,
+    "positive_smt_rtl_pairs": 2,
+    "negative_smt_rtl_pairs": 3,
+    "definedness_checks": 3,
+    "boundary_probes": 16,
+    "actual_synthesis_hard_cap": 3,
+    "rounds": 8,
+    "node_budget": 5000,
+    "optimizer_wall_seconds": 60,
+    "area_solve_ms": 15000,
+    "smt_ms": 15000,
+    "yosys_wall_seconds": 45,
+    "seed": 20261028
+  },
+  "expectation": "Actual conditional comparison fold should occur; no gate/depth benefit required. Preserve ties and all failures; abort on any unexpected verdict; no repair or rerun over existing output.",
+  "resources": "Reuse APRIL envs/rover; single sequential runner taskset16-23, OMP/MKL/OpenBLAS/NumExpr8; inspect shared load and available memory first.",
+  "source": "Archived paper IV-B / thesis p99 comparison simplification; previous F07 was isolated fixture evidence, not integrated egraph execution. Uses authored Round4 sources and installed egglog14/Z3/YoWASP; no new external assets.",
+  "stopping_rule": "After this witness and necessary controls, update mechanism inventory and final partial-reproduction conclusion, publish reviewed existing branch, and pause project expansion. No API/GPU/LLM/new matrix."
+}
