@@ -5,6 +5,7 @@ Importing this file has no side effects. Offline tests exercise pilot_support,
 not this entry point. No local LLM weights or service are used.
 """
 import hashlib
+import importlib.metadata
 import json
 import os
 from pathlib import Path
@@ -14,7 +15,8 @@ import subprocess
 import sys
 import time
 
-from api_adapter import ChatAPI, ModelAPIError
+from api_adapter import ModelAPIError
+from shared_chat_adapter import load_shared_api
 from pilot_support import (AttemptBudget, ascii_chat_token_bound, guidance,
                            messages, nearest_prior, observation, proposal_context)
 
@@ -26,22 +28,24 @@ def main():
     # This is the existing outbound authorization boundary, now tied to the
     # actual service/model and approved data/token-counting scope.
     if (auth.get('approved') is not True
-            or auth.get('base_url') != os.environ.get('PAPER_LLM_BASE_URL', '').rstrip('/')
-            or auth.get('model') != os.environ.get('PAPER_LLM_MODEL')
             or auth.get('payload_scope') != 'crop_public_seven_circuits_summaries_qor'
             or auth.get('input_counting') != 'ascii_byte_upper_bound+256'
-            or auth.get('byte_bpe_and_framing_confirmed') is not True):
+            or auth.get('max_api_attempts') != 33):
         raise SystemExit('Endpoint/model/data/token-counting authorization does not match')
     out = root / 'results/crop/live-pilot'
     out.mkdir(parents=True, exist_ok=False)
     sys.path.insert(0, str(src))
     import model_contract
     import study
-    api = ChatAPI(allow_network=True, token_counter=ascii_chat_token_bound)
-    budget = AttemptBudget()
-    model = os.environ['PAPER_LLM_MODEL']
-    revision = '1110a243fdf4706b3f48f1d95db1a4f5529b4d41'
     source_commit = subprocess.check_output(['git', '-C', str(src), 'rev-parse', 'HEAD'], text=True).strip()
+    api = load_shared_api(root / 'tools/shared/openrouter_shared.py',
+                          run_id='crop-fir3-seed23-' + source_commit[:8], pricing=auth.get('pricing'),
+                          token_counter=ascii_chat_token_bound, allow_network=True)
+    if (auth.get('base_url'), auth.get('model')) != (api.base_url, api.model):
+        raise SystemExit('Authorized endpoint/model does not match the shared configuration')
+    budget = AttemptBudget(max_total=33)
+    model = api.model
+    revision = '1110a243fdf4706b3f48f1d95db1a4f5529b4d41'
 
     def save(path, obj):
         study.dump(out / path, obj)
@@ -50,17 +54,20 @@ def main():
         return hashlib.sha256(text.encode()).hexdigest()
 
     save('budget.json', dict(frozen_utc=time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime()),
-         source_commit=source_commit, seed=23, max_api_attempts=34,
+         source_commit=source_commit, seed=23, max_api_attempts=33,
          summary_circuits=7, summary_stages=2, attempts_per_stage=2,
          max_proposals=3, max_new_target_eda_measurements=4,
          max_new_prior_measurements=0, max_input_tokens=4096, max_new_tokens=640,
-         input_counting='approved ASCII byte-BPE upper bound plus 256 framing tokens',
-         decoding='temperature=0; provider determinism not guaranteed',
+         input_counting='conservative ASCII byte count plus256 framing estimate; actual provider usage checked',
+         decoding=api.decoding, shared_run_id=api.run_id, shared_batch_id=api.batch_id,
+         pricing_upper_bound=auth.get('pricing'),
          api_model=model, minilm_revision=revision,
          objective='LUT4 count * maximum unit LUT depth',
          limitations=['single-module educational circuits', 'model/tool substitutions', 'no paper-quality claim']))
     save('versions.json', dict(python=platform.python_version(), cpu_affinity=sorted(os.sched_getaffinity(0)),
-                              model_backend='authorized OpenAI-compatible chat API'))
+                              model_backend='shared OpenRouter client; four slots and USD ledger',
+                              packages={name: importlib.metadata.version(name) for name in
+                                        ('torch', 'transformers', 'sentence-transformers')}))
 
     def generate(stage, attempt, prompt, required=None):
         record = dict(budget.consume(stage), prompt=prompt, prompt_sha256=sha(prompt))
@@ -83,6 +90,7 @@ def main():
             record['status'] = 'invalid_json_or_summary'
             obj = None
         save(path, record)
+        print(stage, attempt, record['status'], record.get('usage', {}), flush=True)
         return obj, record
 
     manifest = json.loads((src / 'manifest.json').read_text())
@@ -101,7 +109,11 @@ def main():
             or bank['backend_relation'] != 'matched_native_archive'):
         raise SystemExit('Prepared prior bank does not match current tools/manifest')
     from sentence_transformers import SentenceTransformer
-    encoder = SentenceTransformer(str(root / 'assets/shared/all-minilm-l6-v2'),
+    embedding_path = root / 'assets/shared/all-minilm-l6-v2'
+    embedding_ready = json.loads((embedding_path / 'READY.json').read_text())
+    if embedding_ready.get('model') != 'sentence-transformers/all-MiniLM-L6-v2' or embedding_ready.get('revision') != revision:
+        raise SystemExit('Existing fixed MiniLM provenance differs; no replacement permitted')
+    encoder = SentenceTransformer(str(embedding_path),
                                   local_files_only=True, trust_remote_code=False, device='cpu')
     if encoder.max_seq_length != 256:
         raise SystemExit('Unexpected MiniLM truncation limit')
@@ -115,7 +127,7 @@ def main():
         for attempt in range(2):
             prompt = ('Summarize this actual unsigned combinational Verilog module as JSON with EXACT keys '
                       + json.dumps(sorted(model_contract.MODULE_FIELDS))
-                      + '. Each value a nonempty concise string, at most 256 characters. State widths, '
+                      + '. Each value a nonempty short phrase, ideally under 80 characters and at most 256. Keep the whole JSON under 1500 characters. State widths, '
                       'arithmetic/truncation, and combinational timing limitations. RTL:\n' + source)
             module, rec = generate(design['id'] + '_module', attempt, prompt, model_contract.MODULE_FIELDS)
             records.append(rec)
@@ -128,7 +140,7 @@ def main():
             prompt = ('Build a whole-design summary ONLY from the following module summary. There is one '
                       'top module dut, no child instances. Return JSON with EXACT keys '
                       + json.dumps(sorted(model_contract.DESIGN_FIELDS))
-                      + '. Each value a nonempty concise string, at most 256 characters. Do not invent '
+                      + '. Each value a nonempty short phrase, ideally under 80 characters and at most 256. Keep the whole JSON under 1500 characters. Do not invent '
                       'clocks, physical timing or hierarchy.\nMODULE SUMMARY:\n' + json.dumps(module))
             circuit, rec = generate(design['id'] + '_design', attempt, prompt, model_contract.DESIGN_FIELDS)
             records.append(rec)
@@ -185,6 +197,7 @@ def main():
             except (ValueError, TypeError, KeyError) as exc:
                 save(Path('rejections') / (str(iteration) + '_' + str(attempt) + '.json'),
                      dict(error=str(exc), response=response))
+                context['last_rejection'] = str(exc)
                 continue
             save(Path('contexts') / (str(iteration) + '.json'), dict(request=context, response=response, chosen=chosen))
             break

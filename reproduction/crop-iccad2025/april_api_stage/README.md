@@ -76,3 +76,13 @@ base/model/key injection for the forthcoming shared loader, an explicit outgoing
 no-provider-fallback request, and single-attempt HTTP/timeout tests. All18
 offline tests pass; live service behavior and the shared private loader remain
 pending. The fixed MiniLM encoder and model-pilot budgets are unchanged.
+
+## Shared-client integration and authorized pilot
+
+The [real pilot protocol](REAL_PILOT_PROTOCOL.md) supersedes the waiting-stage
+service/34-request draft: the parent has authorized33 CROP requests through the
+shared client and a10USD cumulative API stage across projects. `api_pilot.py`
+now uses only `shared_chat_adapter.py`; direct HTTP is disabled. Thirty mock
+tests validate the actual shared module with disposable private ledger fixtures.
+No key/config copy or global policy change is part of the integration. Live
+results, when available, are separate from these offline checks.

@@ -1,7 +1,8 @@
-"""OpenAI-compatible chat adapter; transport is disabled unless explicitly enabled.
+"""Legacy wire-format test adapter; direct live HTTP is disabled.
 
 The caller must supply a counter for the authorized model's complete chat input.
-No tokenizer, credential, model or endpoint discovery is performed here.
+The live pilot exclusively uses shared_chat_adapter and the shared ledger.
+Only an explicitly injected test transport is accepted by this legacy helper.
 """
 import json
 import os
@@ -26,7 +27,7 @@ class ChatAPI:
     def __init__(self, allow_network=False, transport=None, token_counter=None,
                  base_url=None, api_key=None, model=None):
         self.allow_network = allow_network
-        self.transport = transport or urllib.request.build_opener(NoRedirect()).open
+        self.transport = transport
         self.token_counter = token_counter
         # Accept the future shared loader's values directly. Snapshot once so
         # environment changes cannot switch endpoint/model midway through a run.
@@ -37,6 +38,8 @@ class ChatAPI:
     def complete(self, messages, max_tokens=640, byte_cap=18000):
         if not self.allow_network:
             raise ModelAPIError('Network is not authorized')
+        if self.transport is None:
+            raise ModelAPIError('Direct HTTP is disabled; use the shared client')
         base, key, model = self.base_url, self._api_key, self.model
         if not all([base, key, model]):
             raise ModelAPIError('Required runtime configuration missing')

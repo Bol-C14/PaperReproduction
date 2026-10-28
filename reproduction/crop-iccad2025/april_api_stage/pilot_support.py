@@ -53,12 +53,13 @@ def observation(row):
 
 class AttemptBudget:
     """All attempts, including malformed model outputs, consume the same budget."""
-    def __init__(self):
+    def __init__(self, max_total=34):
         self.stages = {}
         self.total = 0
+        self.max_total = max_total
 
     def consume(self, stage):
-        if self.total >= 34 or self.stages.get(stage, 0) >= 2:
+        if self.total >= self.max_total or self.stages.get(stage, 0) >= 2:
             raise ValueError('Model attempt budget exhausted')
         self.stages[stage] = self.stages.get(stage, 0) + 1
         self.total += 1
