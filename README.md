@@ -1,6 +1,8 @@
 # P07 VeriThoughts: bounded CPU evaluator pilot
 
-Latest: [Mac/APRIL fixed-benchmark continuation](P07_VeriThoughts/continuation/RESULTS.md) verifies the exact 291-row file, completes all 32 preregistered frontend samples, and checks a real stored pair with negative controls. New work is local only; fresh generation and training remain unexecuted.
+Fresh generation: [one public PWM question produced a fresh candidate accepted by the original 50-step checker](P07_VeriThoughts/generation_plan/RESULTS.md). One API call cost USD 0.0005443; the frozen initial-pass stop rule left feedback and retry unexecuted.
+
+CPU phase: [Mac/APRIL fixed-benchmark continuation](P07_VeriThoughts/continuation/RESULTS.md) verifies the exact 291-row file, completes all 32 preregistered frontend samples, and checks a real stored pair with negative controls. New work remains local; training and feedback comparisons remain unexecuted.
 
 Local branch `reproduction/verithoughts-neurips2025`. No external push or PR.
 
