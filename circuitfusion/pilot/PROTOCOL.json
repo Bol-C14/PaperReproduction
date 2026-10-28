@@ -1,0 +1,15 @@
+{
+  "protocol_version": "1.0",
+  "label": "CircuitFusion CPU method port; synthetic inputs; randomly initialized small encoders; no pretrained or paper-result claim",
+  "freeze_stage": "before data construction or pilot training",
+  "data": {"word_bits":3,"parent_families":12,"train_families":[0,1,2,3,4,5,6,7],"test_families":[8,9,10,11],"constants":[1,2,3,4,5,6,7],"equivalent_views":2,"global_truth_table_deduplication":true,"max_graph_nodes":128,"max_tokens":128},
+  "encoders": {"dimension":32,"graph_message_layers":3,"cross_attention_heads":4,"text":"trainable embedding and GRU","netlist":"synthetic gate lowering, no EDA tool or technology library"},
+  "training": {"seeds":[11,23,37],"arms":["paired","shuffled","no_alignment"],"steps_per_arm":250,"batch_size":16,"learning_rate":0.002,"temperature":0.15,"within_rtl_weight":1.0,"alignment_weight":1.0,"cpu_threads":2},
+  "negative_control":"fixed cyclic permutation within each training parent family; never use test data",
+  "primary_metrics":["held-out-family RTL-to-netlist Recall@1","held-out-family RTL-to-netlist Recall@5"],
+  "secondary_metrics":["training-pool Recall@1","equivalent-view cosine similarity","code/graph/summary zeroing sensitivity"],
+  "uncertainty":"report each seed; 2000 parent-family bootstrap draws of paired-minus-control Recall@1; only four held-out parents so exploratory",
+  "integrity":"exact equality of sample IDs; train/test family and truth-table disjointness; exhaustive 64 input assignments per 3-bit two-input cone against both RTL views and gate netlist; tamper rejection",
+  "limits":{"downloads_bytes":2000000000,"no_model_weights":true,"no_API":true,"no_GPU":true,"no_commercial_labels":true,"setup_hours_max":2,"pilot_wall_seconds_max":900},
+  "no_post_result_tuning":true
+}

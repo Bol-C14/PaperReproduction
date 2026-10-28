@@ -1,0 +1,101 @@
+--- upstream_original/model/ckt_fusion/models/model_pretrain.py
++++ repaired/model/ckt_fusion/models/model_pretrain.py
+@@ -133,9 +133,7 @@
+         token_embeds = self.text_proj(token_embeds)
+         token_atts = torch.ones(token_embeds.size()[:-1],dtype=torch.long).to(self.device)
+ 
+-        alpha = 0.5
+-        alpha = 0.9
+-        alpha = 0
++        alpha = self.config.get("modality_mix_alpha", 0.5)
+ 
+         if alpha == 0:
+             mixup_embeds = node_embeds
+@@ -431,7 +429,7 @@
+         token_embeds = self.text_proj(token_embeds)
+         node_embeds = node_embeds.clone()
+ 
+-        alpha = 0
++        alpha = self.config.get("modality_mix_alpha", 0.5)
+         if alpha == 0:
+             mixup_embeds = node_embeds
+         elif alpha == 1:
+--- upstream_original/data_collect/rtl/rtl2summary/summary2vec.py
++++ repaired/data_collect/rtl/rtl2summary/summary2vec.py
+@@ -14,7 +14,7 @@
+ def run_one_ep(design_name, ep):
+     # print(design_name, ep)
+     folder_dir = f'./cone_summary/'
+-    with open(f'{folder_dir}/{design_name}/{ep}.v', 'r') as f:
++    with open(f'{folder_dir}/{design_name}/{ep}.txt', 'r') as f:
+             lines = f.readlines()
+     documents = ""
+     for line in lines:
+@@ -54,7 +54,6 @@
+             document_embeddings = model.encode(documents, max_length=max_length)
+             document_embeddings = F.normalize(document_embeddings, p=2, dim=1)
+             print(document_embeddings)
+-            exit()
+             with open(f"{save_dir}/{ep}.pkl", 'wb') as f:
+                 pickle.dump(document_embeddings, f)
+         time_end = time.time()
+--- upstream_original/model/ckt_fusion/pretrain_align_all.py
++++ repaired/model/ckt_fusion/pretrain_align_all.py
+@@ -42,13 +42,17 @@
+     rtl_fusion = RTL_Fusion(config=config, device=accelerator.device, accelerator=accelerator)
+     net_enc = torch.load(f"./pretrain_model/pretrain_stage_0809/net_enc.50.pt")
+     rtl_fusion.load_net_enc(net_enc)
++    batch_counts = [len(loader) for loader in train_loader_align]
++    if not batch_counts or len(set(batch_counts)) != 1 or batch_counts[0] == 0:
++        raise ValueError("Aligned modality loaders must have equal nonzero batch counts")
++    updates_per_epoch = (batch_counts[0] + accumulation_steps - 1) // accumulation_steps
+     optimizer = AdamW([
+         {'params': rtl_fusion.parameters(), 'lr': config['optimizer']['lr'], 'eps':config['optimizer']['eps'], 'weight_decay':config['optimizer']['weight_decay']},
+     ])
+     lr_scheduler = get_polynomial_decay_schedule_with_warmup(
+         optimizer,
+         num_warmup_steps=config['schedular']['warmup_updates'],
+-        num_training_steps=config['schedular']['total_updates']*max_epoch,
++        num_training_steps=updates_per_epoch*max_epoch,
+         lr_end=config['schedular']['lr_end'],
+         power=config['schedular']['power'],
+     )
+@@ -84,6 +88,8 @@
+         graph_ori_lader_train, graph_pos_loader_train, graph_neg_loader_train,\
+         summary_loader_train, text_ori_loader_train, text_neg_loader_train,\
+         net_ori_loader, net_neg_loader = train_loader_align
++        num_batches = len(graph_ori_lader_train)
++        optimizer.zero_grad()
+         for idx, data in enumerate(zip(graph_ori_lader_train, graph_pos_loader_train, graph_neg_loader_train,\
+                                         summary_loader_train, text_ori_loader_train, text_neg_loader_train,\
+                                         net_ori_loader, net_neg_loader)):
+@@ -95,10 +101,9 @@
+ 
+             loss_train, loss_cl, loss_gtmae, loss_mlm_m, loss_match, loss_align = rtl_fusion((data_rtl, data_net), mode='pretrain')
+ 
+-            accelerator.backward(loss_train)
+-            optimizer.step()
+-            optimizer.zero_grad()
+-            lr_scheduler.step()
++            window_start = (idx // accumulation_steps) * accumulation_steps
++            window_size = min(accumulation_steps, num_batches - window_start)
++            accelerator.backward(loss_train / window_size)
+             epoch_loss_train += loss_train.item()
+             epoch_loss_cl += loss_cl.item()
+             epoch_loss_gtmae += loss_gtmae.item()
+@@ -107,13 +112,13 @@
+             epoch_loss_align += loss_align.item()
+             real_batch_loss += loss_train.item()
+             
+-            if (idx+1) % accumulation_steps == 0:
++            if (idx+1) % accumulation_steps == 0 or idx+1 == num_batches:
+                 optimizer.step()
+                 optimizer.zero_grad()
+                 lr_scheduler.step()
+                 # val_loss = valid_network(encoder_rtl, text_enc, text_proj, val_rtl_loader, loss_fn_valid, lambda_cs, lambda_mae)
+                 accelerator.print(
+-                    f"Batch{j} train_loss={(real_batch_loss/accumulation_steps):.3f}"
++                    f"Batch{j} train_loss={(real_batch_loss/window_size):.3f}"
+                 )
+                 j+=1
+                 real_batch_loss = 0

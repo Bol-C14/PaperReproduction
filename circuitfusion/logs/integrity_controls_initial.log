@@ -1,0 +1,23 @@
+test_duplicate_rejected (__main__.Integrity.test_duplicate_rejected) ... ok
+test_family_split_reassignment_rejected (__main__.Integrity.test_family_split_reassignment_rejected) ... ok
+test_gate_semantic_corruption_rejected (__main__.Integrity.test_gate_semantic_corruption_rejected) ... FAIL
+test_graph_corruption_rejected (__main__.Integrity.test_graph_corruption_rejected) ... ok
+test_summary_corruption_rejected (__main__.Integrity.test_summary_corruption_rejected) ... ok
+test_valid_roundtrip (__main__.Integrity.test_valid_roundtrip) ... ok
+test_wrong_pair_rejected (__main__.Integrity.test_wrong_pair_rejected) ... ok
+
+======================================================================
+FAIL: test_gate_semantic_corruption_rejected (__main__.Integrity.test_gate_semantic_corruption_rejected)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/PaperReproduction/circuitfusion/tests/test_integrity.py", line 17, in test_gate_semantic_corruption_rejected
+    self.reject(corrupt)
+  File "/workspace/PaperReproduction/circuitfusion/tests/test_integrity.py", line 10, in reject
+    with self.assertRaises((AssertionError,IndexError)):check(records)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: (<class 'AssertionError'>, <class 'IndexError'>) not raised
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.526s
+
+FAILED (failures=1)
