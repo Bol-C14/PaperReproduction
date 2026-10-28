@@ -101,3 +101,7 @@ Reporting clarification: cross-backend evidence comprises 18 checked pairs plus 
 ## Container boundary follow-up
 
 Eight reviewed fixed Docker probes (six boundary checks, intentional exit7 and one-second timeout) passed; raw evidence and scope are in `isolation_validation/REPORT.md`. The tested container route hides host files/socket and uses a read-only root filesystem without host configuration changes. This does not retrofit the old host EDA runner or supply a calibrated HDL image. No generated code or model API call was executed; v6 experimental evidence is preserved.
+
+## HDL container calibration
+
+The pinned Debian/Icarus12.0 container now passes seven predeclared correct/wrong/empty/syntax/timeout controls, with one source-preserving compiler-snapshot diagnostic retry. Actualiverilog/vvp process snapshots verify nonroot/zero-capabilities/no-new-privileges and the checked container mount/network namespaces. See `hdl_container_validation/REPORT.md` and raw inputs/results. No model/API calls, generated-code execution, host-security changes or prior evidence changes occurred. This validates only the fixed reviewed Icarus binary mux route, not production sandbox completeness or other toolchains.

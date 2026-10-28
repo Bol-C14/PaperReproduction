@@ -1,0 +1,1 @@
+module calibration_tb;reg a,b,s;wire y;mux d(a,b,s,y);integer i;integer fails=0;initial begin for(i=0;i<4;i=i+1)begin a=i[0];b=~i[0];s=i[1];#1;if(y!==(s?b:a))fails=fails+1;end if(fails)$display("CHECK_FAIL failures=%0d",fails);else $display("CHECK_PASS checks=4");$finish;end endmodule
