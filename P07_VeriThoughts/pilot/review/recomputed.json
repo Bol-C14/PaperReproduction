@@ -1,0 +1,82 @@
+{
+  "review_type": "existing_logs_and_fixture_semantics_only",
+  "new_HDL_or_model_invocations": 0,
+  "upstream_blob_verified": "74963ae51ca6360b5b5944b03c266f7f48309b06",
+  "frozen_files_verified": 23,
+  "checks": [
+    {
+      "id": "comb_demorgan",
+      "observations_checked": 4,
+      "method": "explicit_four_row_truth_table",
+      "first_mismatch": null
+    },
+    {
+      "id": "comb_mismatch",
+      "observations_checked": 4,
+      "method": "explicit_four_row_truth_table",
+      "first_mismatch": [
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "id": "helper_inline",
+      "observations_checked": 4,
+      "method": "explicit_four_row_truth_table",
+      "first_mismatch": null
+    },
+    {
+      "id": "seq_modular",
+      "observations_checked": 261,
+      "method": "closed_form_from_zero_initial_state",
+      "first_mismatch": null
+    },
+    {
+      "id": "seq_increment",
+      "observations_checked": 261,
+      "method": "closed_form_from_zero_initial_state",
+      "first_mismatch": [
+        1,
+        1,
+        2
+      ]
+    },
+    {
+      "id": "delayed_pulse",
+      "observations_checked": 261,
+      "method": "closed_form_from_zero_initial_state",
+      "first_mismatch": [
+        60,
+        1,
+        0
+      ]
+    },
+    {
+      "id": "empty_discovery",
+      "method": "existing_original_exit_JSON_and_independent_syntax_logs",
+      "original_driver_rc": 0,
+      "golden_iverilog_rc": 0,
+      "candidate_iverilog_rc": 2,
+      "official_output": {
+        "stdout_list": [],
+        "success": true
+      }
+    },
+    {
+      "id": "syntax_error",
+      "method": "existing_original_exit_JSON_and_independent_syntax_logs",
+      "original_driver_rc": 0,
+      "golden_iverilog_rc": 0,
+      "candidate_iverilog_rc": 2,
+      "official_output": {
+        "stdout_list": [
+          1
+        ],
+        "success": false
+      }
+    }
+  ],
+  "supplemental_witness_rechecked": true,
+  "passed": true
+}

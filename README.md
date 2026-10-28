@@ -9,4 +9,4 @@ Local branch `reproduction/verithoughts-neurips2025`. No external push or PR.
 - [Machine results](P07_VeriThoughts/pilot/runs/attempt1/results.json)
 - [Initial asset audit](P07_VeriThoughts/ASSET_AUDIT.md)
 
-The unchanged evaluator and faithful port agreed on eight frozen synthetic controls. A bounded pass missed a delayed sequential divergence, empty module discovery accepted invalid candidate HDL, and per-module matching rejected a top-level-equivalent helper rewrite. These are controlled mechanism findings, not measured error rates in the released dataset. No model, API, GPU, or training was used.
+The unchanged evaluator and faithful port agreed on eight frozen synthetic controls. Empty module discovery accepted invalid candidate HDL, establishing a scoped input-validation defect. Delayed divergence illustrates the disclosed bounded-check limitation; rejecting a helper-omitting rewrite is expected under the paper's per-module contract. These observations do not establish published errors or dataset error rates. See the [adversarial claim review](P07_VeriThoughts/pilot/ADVERSARIAL_REVIEW.md). No model, API, GPU, or training was used.

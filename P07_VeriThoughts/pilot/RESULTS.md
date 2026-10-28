@@ -1,6 +1,6 @@
 # P07 bounded evaluator-contract pilot: completed
 
-**The released evaluator mechanism ran successfully on all eight frozen synthetic controls.** Original and faithful-port outcomes agreed 8/8; all eight predeclared predictions matched. There were no oracle unknowns, experiment timeouts, fixture replacements or failed experiment attempts. This verifies a small CPU evaluation path, not dataset-wide label quality, teacher generation, model quality, training results or the paper's reported scores.
+**The released evaluator completed all eight frozen synthetic controls.** Original and faithful-port outcomes agreed 8/8; all eight predeclared predictions matched. There were no oracle unknowns, experiment timeouts, fixture replacements or failed experiment attempts. This verifies a small CPU evaluation path, not dataset-wide label quality, teacher generation, model quality, training results or the paper's reported scores. The [adversarial review](ADVERSARIAL_REVIEW.md) classifies the observations as one synthetic input-validation defect, one documented bounded limitation and one expected per-module restriction; they are not three demonstrated paper errors.
 
 Protocol freeze: `66887c2` at 2026-10-28T10:40:24Z; execution command commit `725cc1a` at 10:42:05Z. Main experiment started 10:46:52Z and its runner completed 10:46:57.683212Z. Frozen inputs/harness hashes remained intact. Full machine results are in [results.json](runs/attempt1/results.json), with [metrics](runs/attempt1/metrics.json), [attempt ledger](runs/attempt1/attempts.json) and complete command/stream files below each case directory.
 
@@ -14,7 +14,7 @@ Protocol freeze: `66887c2` at 2026-10-28T10:40:24Z; execution command commit `72
 | seq_increment | fail | fail | non-equivalent at rising edge 1, outputs 1/2 | Expected early sequential counterexample |
 | delayed_pulse | **pass** | **pass** | **non-equivalent at rising edge 60**, outputs 1/0; complete 256-state orbit | Bounded pass does not establish eventual equivalence |
 | empty_discovery | **pass, zero checks** | **pass, zero checks** | invalid candidate; golden compile rc=0, candidate rc=2 | Confirmed reachable empty-discovery success defect |
-| helper_inline | **fail, module codes [1,0]** | **fail, module codes [1,0]** | top-level equivalent, all 4 inputs | Per-module naming contract is stricter than top-level behavioral agreement |
+| helper_inline | **fail, module codes [1,0]** | **fail, module codes [1,0]** | top-level equivalent, all 4 inputs | Expected rejection: helper omission violates the paper's explicit per-module contract |
 | syntax_error | fail | fail | invalid candidate; golden rc=0, candidate rc=2 | Ordinary syntax errors fail when a module is discovered |
 
 The independent oracle uses Icarus Verilog plus independently specified Boolean/modular equations. Six valid-pair simulations agree exactly with their independent models; sequential simulations cover initial state and 260 edges. Exhaustive deterministic joint-state orbit traversal establishes the reviewed zero-initialized, single-clock contract for these tiny input-free sequential machines. No claim is made for arbitrary initial state or general RTL.
@@ -36,8 +36,8 @@ The one-response-per-case original console output includes pass@5/pass@10 outsid
 ## What is now verified, and what remains a hypothesis
 
 - **Verified runtime defect on a synthetic control:** a legal no-port golden module yields an empty discovered-module list, causing the evaluator to report success for syntactically invalid candidate text. The negative control with a recognizable port-list module fails as expected. A nonempty-discovery guard is therefore necessary for a robust general evaluator.
-- **Verified scope limitation:** a delayed sequential mismatch passes the original bound and fails the longer bound. This is expected bounded-check behavior, but success must be named and interpreted accordingly.
-- **Verified contract restriction:** omitting a behaviorally redundant helper causes failure even when the top-level truth table matches. This reflects the documented per-module requirement; it is not evidence of a SAT solver error.
+- **Documented scope limitation:** a delayed sequential mismatch passes the original bound and fails the longer bound. Appendix A, printed p.19, discloses this bounded command. This is expected bounded-check behavior, not a verified published error; success must be named and interpreted accordingly.
+- **Expected contract restriction:** omitting a behaviorally redundant helper causes failure even when the top-level truth table matches. Section 3.4, printed p.5, explicitly requires corresponding sub-modules to agree. The candidate violates that stronger contract; this is not a false rejection within the paper's protocol or evidence of a solver error.
 - **Not tested:** frequency or severity of these patterns in released data; question/reasoning fidelity; the current MetRex schema adapter; training ablation confounds; teacher API availability; model licenses or full checkpoint coverage. The earlier asset audit's concerns about these remain hypotheses or provenance gaps.
 
 ## Resource result and next-phase boundary

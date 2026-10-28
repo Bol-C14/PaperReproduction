@@ -46,20 +46,26 @@
       "status": "verified_on_synthetic_control",
       "original_50": "pass",
       "diagnostic_160": "fail",
-      "independent_first_bad_rising_edge": 60
+      "independent_first_bad_rising_edge": 60,
+      "claim_category": "expected_documented_bounded_contract_limitation",
+      "published_error_established": false
     },
     {
       "id": "empty_discovery",
       "status": "verified_runtime_defect_on_synthetic_control",
       "original_success": true,
       "formal_checks": 0,
-      "oracle": "invalid_candidate"
+      "oracle": "invalid_candidate",
+      "claim_category": "verified_input_validation_defect_on_synthetic_edge_case",
+      "released_dataset_impact": "unmeasured"
     },
     {
       "id": "per_module_contract",
       "status": "verified_structural_restriction",
       "top_level_oracle": "equivalent",
-      "original": "fail"
+      "original": "fail",
+      "claim_category": "expected_rejection_under_explicit_paper_contract",
+      "false_rejection_within_claimed_contract": false
     }
   ],
   "remaining_user_resource_blockers_for_completed_pilot": [],
@@ -71,5 +77,14 @@
     "report": "RESULTS.md",
     "resources": "SETUP_AND_RESOURCES.md",
     "supplement": "runs/supplemental_logging/record.json"
+  },
+  "adversarial_review": {
+    "base_commit": "af2b7d4833a51c63ba3693f4915dbceafd1ee2c4",
+    "report": "ADVERSARIAL_REVIEW.md",
+    "new_experiments": 0,
+    "published_error_established": false,
+    "dataset_error_rate_estimated": false,
+    "documentation_only_corrections": true,
+    "port_artifact": "direct-port buffered failure stdout; original uses stdbuf; one labeled logging-only replay"
   }
 }
