@@ -1,5 +1,7 @@
 # GenEDA bounded CPU validation
 
+Later work advanced beyond this interface milestone: [controlled scratch-decoder generation study](../generation_v1/README.md). This page and its original results are retained as history.
+
 **Milestone reached: original-source alignment-interface checks pass; semantic alignment and end-to-end generation are not established.** Work used the existing `Bol-C14/PaperReproduction` cloud workspace on local branch `reproduction/geneda-iccad2025`. No push occurred. The branch was absent remotely when inspected, so this is a new local branch within the same repository, not a new repository or thread.
 
 ## Results

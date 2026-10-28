@@ -1,0 +1,25 @@
+# Frozen methodology reconstruction protocol G1
+
+Frozen 2026-10-28 before training/generation. Continue existing branch and retain all earlier results. No new model/network access, API, paid compute, GPU, push, or unsafe model deserialization. The earlier Hugging Face denial will not be retried. Use existing local CPU PyTorch and cached official GenEDA commit `0a19fde3f1c1e56f49a367bf5f1914de84e1c951`.
+
+**Question:** can a small decoder trained from scratch on the available training-family reference descriptions use frozen released circuit representations through a learned connector, rather than prompt priors or arbitrary pairing? This reconstructs the embedding-conditioning/alignment/generation mechanism; it does not retain the original pretrained foundation decoder, full encoder or original data scale.
+
+## Data fixed before outcomes
+
+Use Task 1 graph/conversation records with an unambiguous exact reference-label join to the text benchmark. Family split: Rocket training; b14/b20_1 (ITC99) validation; all three VexRiscv variants test. Exclude Core because its project provenance is uncertain. Numeric graph IDs are not parent IDs. Grouping all VexRiscv variants repairs the earlier fixture's ancestry weakness. Preserve a manifest with label/feature hashes and source rows; deduplicate exact feature vectors within/across splits, and exact whitespace-normalized reference descriptions across splits. No original paper split or original encoder pretraining-data independence is asserted.
+
+Sort records by SHA-256(`g1:<id>`), cap at 64 train / 16 validation / 16 test unique vectors. Use original answer text, truncated to 512 UTF-8 byte tokens. Prompt: fixed request to describe purpose/behavior, followed by the original graph prompt's `This design ...` signal/interface portion, capped at 192 bytes. The learned graph token follows the prompt. No reference text, RTL or high-level operation is included as an input. Report answer-prefix rather than full-description scoring.
+
+## Decoder and controls
+
+Byte tokenizer: PAD=0, BOS=1, EOS=2, GRAPH=3; byte values use offsets 4..259. Decoder: 2 causal Transformer blocks, width 64, 4 heads, FFN 128, learned positions, no dropout; maximum sequence 768. Train a shared initial language decoder from scratch on training-family answer text only for 160 steps (batch 4, AdamW lr 0.002). Stage 1 freezes this decoder and trains a 768→64→64 GELU connector for 40 steps (lr 0.003). Stage 2 trains connector and rank-4 LoRA adapters in attention/FFN linear layers for 80 steps (lr 0.003), keeping base decoder weights frozen. All runs use identical minibatch IDs, truncation, 120 task updates and greedy generation limits per seed. Decoder pretraining is shared within seed. Seeds 17 and 23, no quality-based hyperparameter tuning or restart.
+
+Five arms: raw matched representations; training-only coordinate-normalized matched representations (explicit numerical conditioning port); normalized representations with fixed training-row permutation; zero-input modality control (same trainable connector and LoRA budgets); non-aligned text SFT (zero graph token, LoRA-only throughout the same 120 task steps). Parameter counts differ for the deliberately non-aligned control and must be reported; examples/updates/architecture remain matched. Modality removal and held-out permutation also intervene on each matched model at inference. No normalized-data result can be represented as an original raw-feature GenEDA run.
+
+## Pilot, evaluation and stop
+
+First run a 10-step CPU feasibility pilot at the fixed architecture/batch/context; preserve it separately. Scale only if estimated total model time is below 30 minutes and RSS below 4GB; otherwise reduce the number of completed predeclared arms/seeds and report incomplete scope without changing quality-selected settings. Initial safety wall cap for this continuation: two hours. No semantic success criterion is used to choose a budget.
+
+Decode up to 512 bytes on 16 fixed test records (and 4 fixed train diagnostics), in each arm. Independently evaluate predictions in a separate script that imports no model/trainer: exact answer-prefix match, ROUGE-L token F1, byte/token repetition, and precision/recall/F1 for a fixed functional vocabulary. Functional vocabulary is declared in evaluator source before generation; n-gram/keyword metrics are not functional equivalence. Include a training-corpus generic template baseline and a training-answer-frequency baseline. Teacher-forced token NLL is supplementary, never a substitute for generation. Do not call semantic alignment if gains are confined to generic templates/interface names or if matched/shuffled/removal controls do not separate.
+
+A completed negative training→generation→independent-scoring loop is a valid bounded methodology result. It cannot reproduce paper scores or establish circuit-functional correctness without a compatible functional reference/evaluator. Preserve all failures, commands, checkpoints in safe NPZ arrays, generations, per-example metrics, resource usage and coverage/gap explanations; commit locally.

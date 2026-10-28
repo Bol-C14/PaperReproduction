@@ -1,0 +1,322 @@
+[
+  {
+    "seed": 23,
+    "arm": "generic_template",
+    "split": "test",
+    "id": 273,
+    "family": "VexRiscv",
+    "reference_prefix": "(1) Interface:- Inputs:  - `clk`: Clock signal  - `rst`: Reset signal  - `CsrPlugin_pipelineLiberator_pcValids_1`: Pipeline validation signal  - `CsrPlugin_interrupt_code`: Interrupt code  - `CsrPlugin_hadException`: Exception occurrence signal  - `CsrPlugin_interrupt_targetPrivilege`: Interrupt target privilege level  - `CsrPlugin_interrupt_valid`: Interrupt validity signal- Outputs:  - `CsrPlugin_mcause_exceptionCode`: Register storing the exception code(2) Purpose:The module manages interrupts and except",
+    "generated": "(1) Interface: input and output signals. (2) Purpose: process input data. (3) Functionality: update outputs. (4) Constraints: clock and reset.",
+    "intervention": "none"
+  },
+  {
+    "seed": 23,
+    "arm": "training_answer_frequency",
+    "split": "test",
+    "id": 273,
+    "family": "VexRiscv",
+    "reference_prefix": "(1) Interface:- Inputs:  - `clk`: Clock signal  - `rst`: Reset signal  - `CsrPlugin_pipelineLiberator_pcValids_1`: Pipeline validation signal  - `CsrPlugin_interrupt_code`: Interrupt code  - `CsrPlugin_hadException`: Exception occurrence signal  - `CsrPlugin_interrupt_targetPrivilege`: Interrupt target privilege level  - `CsrPlugin_interrupt_valid`: Interrupt validity signal- Outputs:  - `CsrPlugin_mcause_exceptionCode`: Register storing the exception code(2) Purpose:The module manages interrupts and except",
+    "generated": "(1) Interface:   - Inputs:      - `clk`: Clock signal.     - `rst`: Reset signal.     - `mem_reg_wdata`, `ex_reg_valid`, `ex_reg_replay`, `ex_reg_rs_lsb_0`, `ex_reg_rs_msb_1`, `mem_reg_valid`, `io_dmem_resp_bits_data_word_bypass`, `ex_reg_inst`, `wb_reg_wdata`     - `ex_ctrl_sel_imm`, `ex_reg_rs_lsb_1`, `ex_ctrl_alu_fn`, `ex_reg_rvc`, `ex_ctrl_sel_alu1`, `ex_ctrl_sel_alu2`, `mem_reg_flush_pipe`, `ex_reg_rs_bypass_1`, `ex_reg_rs_bypass_0`, `ex_reg_pc`, `ex_reg_xcpt_interrupt`, `ex_reg_rs_msb_0`   - Output:  ",
+    "intervention": "none"
+  },
+  {
+    "seed": 23,
+    "arm": "generic_template",
+    "split": "test",
+    "id": 311,
+    "family": "VexRiscv",
+    "reference_prefix": "(1) Interface:   - Inputs: `clk`, `rst`, `iBus_rsp_payload_inst`, `IBusSimplePlugin_rspJoin_rspBuffer_c__zz_readed_error_2`   - Outputs: `decode_to_execute_IS_CSR`  (2) Purpose:     The module processes instruction data to determine if the instruction involves a control and status register (CSR) and orchestrates data flow and control signals for subsequent pipeline stages, with specific emphasis on dealing with instruction arbitration.(3) Functionality:     The data input from the instruction bus or `IBus` ",
+    "generated": "(1) Interface: input and output signals. (2) Purpose: process input data. (3) Functionality: update outputs. (4) Constraints: clock and reset.",
+    "intervention": "none"
+  },
+  {
+    "seed": 23,
+    "arm": "training_answer_frequency",
+    "split": "test",
+    "id": 311,
+    "family": "VexRiscv",
+    "reference_prefix": "(1) Interface:   - Inputs: `clk`, `rst`, `iBus_rsp_payload_inst`, `IBusSimplePlugin_rspJoin_rspBuffer_c__zz_readed_error_2`   - Outputs: `decode_to_execute_IS_CSR`  (2) Purpose:     The module processes instruction data to determine if the instruction involves a control and status register (CSR) and orchestrates data flow and control signals for subsequent pipeline stages, with specific emphasis on dealing with instruction arbitration.(3) Functionality:     The data input from the instruction bus or `IBus` ",
+    "generated": "(1) Interface:   - Inputs:      - `clk`: Clock signal.     - `rst`: Reset signal.     - `mem_reg_wdata`, `ex_reg_valid`, `ex_reg_replay`, `ex_reg_rs_lsb_0`, `ex_reg_rs_msb_1`, `mem_reg_valid`, `io_dmem_resp_bits_data_word_bypass`, `ex_reg_inst`, `wb_reg_wdata`     - `ex_ctrl_sel_imm`, `ex_reg_rs_lsb_1`, `ex_ctrl_alu_fn`, `ex_reg_rvc`, `ex_ctrl_sel_alu1`, `ex_ctrl_sel_alu2`, `mem_reg_flush_pipe`, `ex_reg_rs_bypass_1`, `ex_reg_rs_bypass_0`, `ex_reg_pc`, `ex_reg_xcpt_interrupt`, `ex_reg_rs_msb_0`   - Output:  ",
+    "intervention": "none"
+  },
+  {
+    "seed": 23,
+    "arm": "generic_template",
+    "split": "test",
+    "id": 393,
+    "family": "VexRiscv",
+    "reference_prefix": "(1) Interface:    - Inputs: `clk`, `rst`, `CsrPlugin_mstatus_MIE`   - Output: `CsrPlugin_interrupt_code [3:0]`(2) Purpose:    The module `coi` controls the value of `CsrPlugin_interrupt_code` based on a combination of input status signals and internal conditions.(3) Functionality:   - The data flow includes various conditions being checked to determine the next value of the `CsrPlugin_interrupt_code`.   - Key operations involve logical condition evaluations and assignments to update the output register.(4) ",
+    "generated": "(1) Interface: input and output signals. (2) Purpose: process input data. (3) Functionality: update outputs. (4) Constraints: clock and reset.",
+    "intervention": "none"
+  },
+  {
+    "seed": 23,
+    "arm": "training_answer_frequency",
+    "split": "test",
+    "id": 393,
+    "family": "VexRiscv",
+    "reference_prefix": "(1) Interface:    - Inputs: `clk`, `rst`, `CsrPlugin_mstatus_MIE`   - Output: `CsrPlugin_interrupt_code [3:0]`(2) Purpose:    The module `coi` controls the value of `CsrPlugin_interrupt_code` based on a combination of input status signals and internal conditions.(3) Functionality:   - The data flow includes various conditions being checked to determine the next value of the `CsrPlugin_interrupt_code`.   - Key operations involve logical condition evaluations and assignments to update the output register.(4) ",
+    "generated": "(1) Interface:   - Inputs:      - `clk`: Clock signal.     - `rst`: Reset signal.     - `mem_reg_wdata`, `ex_reg_valid`, `ex_reg_replay`, `ex_reg_rs_lsb_0`, `ex_reg_rs_msb_1`, `mem_reg_valid`, `io_dmem_resp_bits_data_word_bypass`, `ex_reg_inst`, `wb_reg_wdata`     - `ex_ctrl_sel_imm`, `ex_reg_rs_lsb_1`, `ex_ctrl_alu_fn`, `ex_reg_rvc`, `ex_ctrl_sel_alu1`, `ex_ctrl_sel_alu2`, `mem_reg_flush_pipe`, `ex_reg_rs_bypass_1`, `ex_reg_rs_bypass_0`, `ex_reg_pc`, `ex_reg_xcpt_interrupt`, `ex_reg_rs_msb_0`   - Output:  ",
+    "intervention": "none"
+  },
+  {
+    "seed": 23,
+    "arm": "generic_template",
+    "split": "test",
+    "id": 297,
+    "family": "VexRiscv",
+    "reference_prefix": "(1) Interface:     - Inputs:      - `clk`: Clock signal     - `rst`: Reset signal (though not used in the provided code)     - `CsrPlugin_hadException`: Indicates if an exception occurred     - `CsrPlugin_interrupt_targetPrivilege`: Privilege level target for an interrupt     - `CsrPlugin_interrupt_valid`: Indicates if an interrupt is valid     - `CsrPlugin_pipelineLiberator_pcValids_1`: Pipeline state information     - `IBusSimplePlugin_fetchPc_pcReg`: Program counter register from the fetch stage   - Outp",
+    "generated": "(1) Interface: input and output signals. (2) Purpose: process input data. (3) Functionality: update outputs. (4) Constraints: clock and reset.",
+    "intervention": "none"
+  },
+  {
+    "seed": 23,
+    "arm": "training_answer_frequency",
+    "split": "test",
+    "id": 297,
+    "family": "VexRiscv",
+    "reference_prefix": "(1) Interface:     - Inputs:      - `clk`: Clock signal     - `rst`: Reset signal (though not used in the provided code)     - `CsrPlugin_hadException`: Indicates if an exception occurred     - `CsrPlugin_interrupt_targetPrivilege`: Privilege level target for an interrupt     - `CsrPlugin_interrupt_valid`: Indicates if an interrupt is valid     - `CsrPlugin_pipelineLiberator_pcValids_1`: Pipeline state information     - `IBusSimplePlugin_fetchPc_pcReg`: Program counter register from the fetch stage   - Outp",
+    "generated": "(1) Interface:   - Inputs:      - `clk`: Clock signal.     - `rst`: Reset signal.     - `mem_reg_wdata`, `ex_reg_valid`, `ex_reg_replay`, `ex_reg_rs_lsb_0`, `ex_reg_rs_msb_1`, `mem_reg_valid`, `io_dmem_resp_bits_data_word_bypass`, `ex_reg_inst`, `wb_reg_wdata`     - `ex_ctrl_sel_imm`, `ex_reg_rs_lsb_1`, `ex_ctrl_alu_fn`, `ex_reg_rvc`, `ex_ctrl_sel_alu1`, `ex_ctrl_sel_alu2`, `mem_reg_flush_pipe`, `ex_reg_rs_bypass_1`, `ex_reg_rs_bypass_0`, `ex_reg_pc`, `ex_reg_xcpt_interrupt`, `ex_reg_rs_msb_0`   - Output:  ",
+    "intervention": "none"
+  },
+  {
+    "seed": 23,
+    "arm": "generic_template",
+    "split": "test",
+    "id": 376,
+    "family": "VexRiscv",
+    "reference_prefix": "(1) Interface:- Inputs: `clk` (clock signal), `rst` (reset signal)- Outputs: `CsrPlugin_pipelineLiberator_pcValids_0` (register output signal)(2) Purpose:The \"coi\" module manages a pipeline liberator's state through a mechanism driven by external arbitration signals. It is likely part of a bigger system dealing with instruction pipeline management in a CPU or processing unit.(3) Functionality:- The data flow involves several key combinational logic signals to determine the active state of a pipeline liberat",
+    "generated": "(1) Interface: input and output signals. (2) Purpose: process input data. (3) Functionality: update outputs. (4) Constraints: clock and reset.",
+    "intervention": "none"
+  },
+  {
+    "seed": 23,
+    "arm": "training_answer_frequency",
+    "split": "test",
+    "id": 376,
+    "family": "VexRiscv",
+    "reference_prefix": "(1) Interface:- Inputs: `clk` (clock signal), `rst` (reset signal)- Outputs: `CsrPlugin_pipelineLiberator_pcValids_0` (register output signal)(2) Purpose:The \"coi\" module manages a pipeline liberator's state through a mechanism driven by external arbitration signals. It is likely part of a bigger system dealing with instruction pipeline management in a CPU or processing unit.(3) Functionality:- The data flow involves several key combinational logic signals to determine the active state of a pipeline liberat",
+    "generated": "(1) Interface:   - Inputs:      - `clk`: Clock signal.     - `rst`: Reset signal.     - `mem_reg_wdata`, `ex_reg_valid`, `ex_reg_replay`, `ex_reg_rs_lsb_0`, `ex_reg_rs_msb_1`, `mem_reg_valid`, `io_dmem_resp_bits_data_word_bypass`, `ex_reg_inst`, `wb_reg_wdata`     - `ex_ctrl_sel_imm`, `ex_reg_rs_lsb_1`, `ex_ctrl_alu_fn`, `ex_reg_rvc`, `ex_ctrl_sel_alu1`, `ex_ctrl_sel_alu2`, `mem_reg_flush_pipe`, `ex_reg_rs_bypass_1`, `ex_reg_rs_bypass_0`, `ex_reg_pc`, `ex_reg_xcpt_interrupt`, `ex_reg_rs_msb_0`   - Output:  ",
+    "intervention": "none"
+  },
+  {
+    "seed": 23,
+    "arm": "generic_template",
+    "split": "test",
+    "id": 424,
+    "family": "VexRiscv",
+    "reference_prefix": "(1) Interface:   - Inputs:      - `clk`: Clock signal     - `rst`: Reset signal   - Outputs:     - `decode_to_execute_ALU_CTRL`: 2-bit output register(2) Purpose:   - This module controls the update of the ALU control signals from the decode to the execute stage in a pipeline, handling different conditions for operation based on several signal checks.(3) Functionality:   - The module determines the `decode_to_execute_ALU_CTRL` based on bitwise operations and comparisons of incoming instruction payloads.   -",
+    "generated": "(1) Interface: input and output signals. (2) Purpose: process input data. (3) Functionality: update outputs. (4) Constraints: clock and reset.",
+    "intervention": "none"
+  },
+  {
+    "seed": 23,
+    "arm": "training_answer_frequency",
+    "split": "test",
+    "id": 424,
+    "family": "VexRiscv",
+    "reference_prefix": "(1) Interface:   - Inputs:      - `clk`: Clock signal     - `rst`: Reset signal   - Outputs:     - `decode_to_execute_ALU_CTRL`: 2-bit output register(2) Purpose:   - This module controls the update of the ALU control signals from the decode to the execute stage in a pipeline, handling different conditions for operation based on several signal checks.(3) Functionality:   - The module determines the `decode_to_execute_ALU_CTRL` based on bitwise operations and comparisons of incoming instruction payloads.   -",
+    "generated": "(1) Interface:   - Inputs:      - `clk`: Clock signal.     - `rst`: Reset signal.     - `mem_reg_wdata`, `ex_reg_valid`, `ex_reg_replay`, `ex_reg_rs_lsb_0`, `ex_reg_rs_msb_1`, `mem_reg_valid`, `io_dmem_resp_bits_data_word_bypass`, `ex_reg_inst`, `wb_reg_wdata`     - `ex_ctrl_sel_imm`, `ex_reg_rs_lsb_1`, `ex_ctrl_alu_fn`, `ex_reg_rvc`, `ex_ctrl_sel_alu1`, `ex_ctrl_sel_alu2`, `mem_reg_flush_pipe`, `ex_reg_rs_bypass_1`, `ex_reg_rs_bypass_0`, `ex_reg_pc`, `ex_reg_xcpt_interrupt`, `ex_reg_rs_msb_0`   - Output:  ",
+    "intervention": "none"
+  },
+  {
+    "seed": 23,
+    "arm": "generic_template",
+    "split": "test",
+    "id": 304,
+    "family": "VexRiscv",
+    "reference_prefix": "(1) Interface:   - Inputs: `clk`, `rst`   - Outputs: `execute_CsrPlugin_csr_836` (register)(2) Purpose:     The module `coi` is designed to update a register `execute_CsrPlugin_csr_836` based on a certain condition derived from input signals and internal logic.(3) Functionality:     - The module computes a condition (`_0182_`) by comparing bits [31:20] of a signal `decode_INSTRUCTION` to a specific value (12'h344).   - It also considers a `when_CsrPlugin_l1589_1` signal that is derived from a negated state ",
+    "generated": "(1) Interface: input and output signals. (2) Purpose: process input data. (3) Functionality: update outputs. (4) Constraints: clock and reset.",
+    "intervention": "none"
+  },
+  {
+    "seed": 23,
+    "arm": "training_answer_frequency",
+    "split": "test",
+    "id": 304,
+    "family": "VexRiscv",
+    "reference_prefix": "(1) Interface:   - Inputs: `clk`, `rst`   - Outputs: `execute_CsrPlugin_csr_836` (register)(2) Purpose:     The module `coi` is designed to update a register `execute_CsrPlugin_csr_836` based on a certain condition derived from input signals and internal logic.(3) Functionality:     - The module computes a condition (`_0182_`) by comparing bits [31:20] of a signal `decode_INSTRUCTION` to a specific value (12'h344).   - It also considers a `when_CsrPlugin_l1589_1` signal that is derived from a negated state ",
+    "generated": "(1) Interface:   - Inputs:      - `clk`: Clock signal.     - `rst`: Reset signal.     - `mem_reg_wdata`, `ex_reg_valid`, `ex_reg_replay`, `ex_reg_rs_lsb_0`, `ex_reg_rs_msb_1`, `mem_reg_valid`, `io_dmem_resp_bits_data_word_bypass`, `ex_reg_inst`, `wb_reg_wdata`     - `ex_ctrl_sel_imm`, `ex_reg_rs_lsb_1`, `ex_ctrl_alu_fn`, `ex_reg_rvc`, `ex_ctrl_sel_alu1`, `ex_ctrl_sel_alu2`, `mem_reg_flush_pipe`, `ex_reg_rs_bypass_1`, `ex_reg_rs_bypass_0`, `ex_reg_pc`, `ex_reg_xcpt_interrupt`, `ex_reg_rs_msb_0`   - Output:  ",
+    "intervention": "none"
+  },
+  {
+    "seed": 23,
+    "arm": "generic_template",
+    "split": "test",
+    "id": 408,
+    "family": "VexRiscv",
+    "reference_prefix": "(1) Interface:   - Inputs: `clk` (clock signal), `rst` (reset signal)   - Outputs: `decode_to_execute_MEMORY_ENABLE` (a register-driven output)(2) Purpose:   - The module `coi` is designed to manage memory enable signals within a processing pipeline.(3) Functionality:   - The module checks pipeline stall conditions and propagates memory enable signals under specified conditions.   - Key operation involves checking if the pipeline is stalled and accordingly determining the memory enable signal.   (4) Constra",
+    "generated": "(1) Interface: input and output signals. (2) Purpose: process input data. (3) Functionality: update outputs. (4) Constraints: clock and reset.",
+    "intervention": "none"
+  },
+  {
+    "seed": 23,
+    "arm": "training_answer_frequency",
+    "split": "test",
+    "id": 408,
+    "family": "VexRiscv",
+    "reference_prefix": "(1) Interface:   - Inputs: `clk` (clock signal), `rst` (reset signal)   - Outputs: `decode_to_execute_MEMORY_ENABLE` (a register-driven output)(2) Purpose:   - The module `coi` is designed to manage memory enable signals within a processing pipeline.(3) Functionality:   - The module checks pipeline stall conditions and propagates memory enable signals under specified conditions.   - Key operation involves checking if the pipeline is stalled and accordingly determining the memory enable signal.   (4) Constra",
+    "generated": "(1) Interface:   - Inputs:      - `clk`: Clock signal.     - `rst`: Reset signal.     - `mem_reg_wdata`, `ex_reg_valid`, `ex_reg_replay`, `ex_reg_rs_lsb_0`, `ex_reg_rs_msb_1`, `mem_reg_valid`, `io_dmem_resp_bits_data_word_bypass`, `ex_reg_inst`, `wb_reg_wdata`     - `ex_ctrl_sel_imm`, `ex_reg_rs_lsb_1`, `ex_ctrl_alu_fn`, `ex_reg_rvc`, `ex_ctrl_sel_alu1`, `ex_ctrl_sel_alu2`, `mem_reg_flush_pipe`, `ex_reg_rs_bypass_1`, `ex_reg_rs_bypass_0`, `ex_reg_pc`, `ex_reg_xcpt_interrupt`, `ex_reg_rs_msb_0`   - Output:  ",
+    "intervention": "none"
+  },
+  {
+    "seed": 23,
+    "arm": "generic_template",
+    "split": "test",
+    "id": 291,
+    "family": "VexRiscv",
+    "reference_prefix": "(1) Interface:   - Inputs:     - `clk`: Clock signal     - `rst`: Reset signal (not used in the provided code)     - `decode_to_execute_MEMORY_ENABLE`: Control signal indicating whether memory operation is enabled in decode stage     - `dBus_rsp_ready`: Signal indicating if the data bus response is ready     - `memory_arbitration_isValid`: Signal indicating the validity of memory arbitration     - `execute_to_memory_MEMORY_STORE`: Control signal indicating a store operation in the execute stage      - Outpu",
+    "generated": "(1) Interface: input and output signals. (2) Purpose: process input data. (3) Functionality: update outputs. (4) Constraints: clock and reset.",
+    "intervention": "none"
+  },
+  {
+    "seed": 23,
+    "arm": "training_answer_frequency",
+    "split": "test",
+    "id": 291,
+    "family": "VexRiscv",
+    "reference_prefix": "(1) Interface:   - Inputs:     - `clk`: Clock signal     - `rst`: Reset signal (not used in the provided code)     - `decode_to_execute_MEMORY_ENABLE`: Control signal indicating whether memory operation is enabled in decode stage     - `dBus_rsp_ready`: Signal indicating if the data bus response is ready     - `memory_arbitration_isValid`: Signal indicating the validity of memory arbitration     - `execute_to_memory_MEMORY_STORE`: Control signal indicating a store operation in the execute stage      - Outpu",
+    "generated": "(1) Interface:   - Inputs:      - `clk`: Clock signal.     - `rst`: Reset signal.     - `mem_reg_wdata`, `ex_reg_valid`, `ex_reg_replay`, `ex_reg_rs_lsb_0`, `ex_reg_rs_msb_1`, `mem_reg_valid`, `io_dmem_resp_bits_data_word_bypass`, `ex_reg_inst`, `wb_reg_wdata`     - `ex_ctrl_sel_imm`, `ex_reg_rs_lsb_1`, `ex_ctrl_alu_fn`, `ex_reg_rvc`, `ex_ctrl_sel_alu1`, `ex_ctrl_sel_alu2`, `mem_reg_flush_pipe`, `ex_reg_rs_bypass_1`, `ex_reg_rs_bypass_0`, `ex_reg_pc`, `ex_reg_xcpt_interrupt`, `ex_reg_rs_msb_0`   - Output:  ",
+    "intervention": "none"
+  },
+  {
+    "seed": 23,
+    "arm": "generic_template",
+    "split": "test",
+    "id": 299,
+    "family": "VexRiscv",
+    "reference_prefix": "(1) Interface:- Input signals:  - `clk`: Clock signal  - `rst`: Reset signal (although not used in the design)  - `execute_CsrPlugin_csr_772`: Control signal presumably related to CSR operation- Output signal:  - `CsrPlugin_mie_MSIE`: A register indicating Machine Software Interrupt Enable bit status(2) Purpose:- The module appears to control the state of a Machine Interrupt Enable register's bit (MSIE) based on certain conditions tied to CSR (Control and Status Register) operations.(3) Functionality:- Data",
+    "generated": "(1) Interface: input and output signals. (2) Purpose: process input data. (3) Functionality: update outputs. (4) Constraints: clock and reset.",
+    "intervention": "none"
+  },
+  {
+    "seed": 23,
+    "arm": "training_answer_frequency",
+    "split": "test",
+    "id": 299,
+    "family": "VexRiscv",
+    "reference_prefix": "(1) Interface:- Input signals:  - `clk`: Clock signal  - `rst`: Reset signal (although not used in the design)  - `execute_CsrPlugin_csr_772`: Control signal presumably related to CSR operation- Output signal:  - `CsrPlugin_mie_MSIE`: A register indicating Machine Software Interrupt Enable bit status(2) Purpose:- The module appears to control the state of a Machine Interrupt Enable register's bit (MSIE) based on certain conditions tied to CSR (Control and Status Register) operations.(3) Functionality:- Data",
+    "generated": "(1) Interface:   - Inputs:      - `clk`: Clock signal.     - `rst`: Reset signal.     - `mem_reg_wdata`, `ex_reg_valid`, `ex_reg_replay`, `ex_reg_rs_lsb_0`, `ex_reg_rs_msb_1`, `mem_reg_valid`, `io_dmem_resp_bits_data_word_bypass`, `ex_reg_inst`, `wb_reg_wdata`     - `ex_ctrl_sel_imm`, `ex_reg_rs_lsb_1`, `ex_ctrl_alu_fn`, `ex_reg_rvc`, `ex_ctrl_sel_alu1`, `ex_ctrl_sel_alu2`, `mem_reg_flush_pipe`, `ex_reg_rs_bypass_1`, `ex_reg_rs_bypass_0`, `ex_reg_pc`, `ex_reg_xcpt_interrupt`, `ex_reg_rs_msb_0`   - Output:  ",
+    "intervention": "none"
+  },
+  {
+    "seed": 23,
+    "arm": "generic_template",
+    "split": "test",
+    "id": 294,
+    "family": "VexRiscv",
+    "reference_prefix": "1. Interface:   - Inputs:     - `clk`: Clock signal     - `rst`: Reset signal     - Various input signals related to instructions, arbitration, bus interfaces, and hazards.   - Outputs:     - `IBusSimplePlugin_fetchPc_pcReg`: A 32-bit register representing the program counter.2. Purpose:   This module appears to be part of a CPU or processor design, specifically handling the program counter (PC) management and some control signal arbitration related to instruction fetching and hazard management.3. Functiona",
+    "generated": "(1) Interface: input and output signals. (2) Purpose: process input data. (3) Functionality: update outputs. (4) Constraints: clock and reset.",
+    "intervention": "none"
+  },
+  {
+    "seed": 23,
+    "arm": "training_answer_frequency",
+    "split": "test",
+    "id": 294,
+    "family": "VexRiscv",
+    "reference_prefix": "1. Interface:   - Inputs:     - `clk`: Clock signal     - `rst`: Reset signal     - Various input signals related to instructions, arbitration, bus interfaces, and hazards.   - Outputs:     - `IBusSimplePlugin_fetchPc_pcReg`: A 32-bit register representing the program counter.2. Purpose:   This module appears to be part of a CPU or processor design, specifically handling the program counter (PC) management and some control signal arbitration related to instruction fetching and hazard management.3. Functiona",
+    "generated": "(1) Interface:   - Inputs:      - `clk`: Clock signal.     - `rst`: Reset signal.     - `mem_reg_wdata`, `ex_reg_valid`, `ex_reg_replay`, `ex_reg_rs_lsb_0`, `ex_reg_rs_msb_1`, `mem_reg_valid`, `io_dmem_resp_bits_data_word_bypass`, `ex_reg_inst`, `wb_reg_wdata`     - `ex_ctrl_sel_imm`, `ex_reg_rs_lsb_1`, `ex_ctrl_alu_fn`, `ex_reg_rvc`, `ex_ctrl_sel_alu1`, `ex_ctrl_sel_alu2`, `mem_reg_flush_pipe`, `ex_reg_rs_bypass_1`, `ex_reg_rs_bypass_0`, `ex_reg_pc`, `ex_reg_xcpt_interrupt`, `ex_reg_rs_msb_0`   - Output:  ",
+    "intervention": "none"
+  },
+  {
+    "seed": 23,
+    "arm": "generic_template",
+    "split": "test",
+    "id": 453,
+    "family": "VexRiscv",
+    "reference_prefix": "(1) Interface:     - Inputs: `clk`, `rst`     - Outputs: `execute_CsrPlugin_csr_836`(2) Purpose:     The module `coi` is designed to update the register `execute_CsrPlugin_csr_836` based on specific conditions checked against an input payload and control signal.(3) Functionality:     The core functionality revolves around checking a specific condition with the input payload against a predetermined value. If the current state isn't \"stuck\" (indicated by `execute_arbitration_isStuck`), a conditional match occ",
+    "generated": "(1) Interface: input and output signals. (2) Purpose: process input data. (3) Functionality: update outputs. (4) Constraints: clock and reset.",
+    "intervention": "none"
+  },
+  {
+    "seed": 23,
+    "arm": "training_answer_frequency",
+    "split": "test",
+    "id": 453,
+    "family": "VexRiscv",
+    "reference_prefix": "(1) Interface:     - Inputs: `clk`, `rst`     - Outputs: `execute_CsrPlugin_csr_836`(2) Purpose:     The module `coi` is designed to update the register `execute_CsrPlugin_csr_836` based on specific conditions checked against an input payload and control signal.(3) Functionality:     The core functionality revolves around checking a specific condition with the input payload against a predetermined value. If the current state isn't \"stuck\" (indicated by `execute_arbitration_isStuck`), a conditional match occ",
+    "generated": "(1) Interface:   - Inputs:      - `clk`: Clock signal.     - `rst`: Reset signal.     - `mem_reg_wdata`, `ex_reg_valid`, `ex_reg_replay`, `ex_reg_rs_lsb_0`, `ex_reg_rs_msb_1`, `mem_reg_valid`, `io_dmem_resp_bits_data_word_bypass`, `ex_reg_inst`, `wb_reg_wdata`     - `ex_ctrl_sel_imm`, `ex_reg_rs_lsb_1`, `ex_ctrl_alu_fn`, `ex_reg_rvc`, `ex_ctrl_sel_alu1`, `ex_ctrl_sel_alu2`, `mem_reg_flush_pipe`, `ex_reg_rs_bypass_1`, `ex_reg_rs_bypass_0`, `ex_reg_pc`, `ex_reg_xcpt_interrupt`, `ex_reg_rs_msb_0`   - Output:  ",
+    "intervention": "none"
+  },
+  {
+    "seed": 23,
+    "arm": "generic_template",
+    "split": "test",
+    "id": 372,
+    "family": "VexRiscv",
+    "reference_prefix": "(1) Interface:    - Inputs: `clk`, `rst`, `decode_to_execute_RS2_USE`, `decode_to_execute_SHIFT_CTRL`, `dBus_cmd_ready`, `decode_to_execute_IS_CSR`, `IBusSimplePlugin_rspJoin_rspBuffer_c_risingOccupancy`, `execute_LightShifterPlugin_isActive`, `_zz_dBus_cmd_valid`, `decode_to_execute_MEMORY_ENABLE`, `dBus_rsp_ready`, `decode_to_execute_MEMORY_STORE`, `IBusSimplePlugin_rspJoin_rspBuffer_c__zz_readed_error_2`, `iBus_rsp_payload_inst`, `execute_DivPlugin_frontendOk`, `decode_to_execute_IS_DIV`, `execute_arbitr",
+    "generated": "(1) Interface: input and output signals. (2) Purpose: process input data. (3) Functionality: update outputs. (4) Constraints: clock and reset.",
+    "intervention": "none"
+  },
+  {
+    "seed": 23,
+    "arm": "training_answer_frequency",
+    "split": "test",
+    "id": 372,
+    "family": "VexRiscv",
+    "reference_prefix": "(1) Interface:    - Inputs: `clk`, `rst`, `decode_to_execute_RS2_USE`, `decode_to_execute_SHIFT_CTRL`, `dBus_cmd_ready`, `decode_to_execute_IS_CSR`, `IBusSimplePlugin_rspJoin_rspBuffer_c_risingOccupancy`, `execute_LightShifterPlugin_isActive`, `_zz_dBus_cmd_valid`, `decode_to_execute_MEMORY_ENABLE`, `dBus_rsp_ready`, `decode_to_execute_MEMORY_STORE`, `IBusSimplePlugin_rspJoin_rspBuffer_c__zz_readed_error_2`, `iBus_rsp_payload_inst`, `execute_DivPlugin_frontendOk`, `decode_to_execute_IS_DIV`, `execute_arbitr",
+    "generated": "(1) Interface:   - Inputs:      - `clk`: Clock signal.     - `rst`: Reset signal.     - `mem_reg_wdata`, `ex_reg_valid`, `ex_reg_replay`, `ex_reg_rs_lsb_0`, `ex_reg_rs_msb_1`, `mem_reg_valid`, `io_dmem_resp_bits_data_word_bypass`, `ex_reg_inst`, `wb_reg_wdata`     - `ex_ctrl_sel_imm`, `ex_reg_rs_lsb_1`, `ex_ctrl_alu_fn`, `ex_reg_rvc`, `ex_ctrl_sel_alu1`, `ex_ctrl_sel_alu2`, `mem_reg_flush_pipe`, `ex_reg_rs_bypass_1`, `ex_reg_rs_bypass_0`, `ex_reg_pc`, `ex_reg_xcpt_interrupt`, `ex_reg_rs_msb_0`   - Output:  ",
+    "intervention": "none"
+  },
+  {
+    "seed": 23,
+    "arm": "generic_template",
+    "split": "test",
+    "id": 331,
+    "family": "VexRiscv",
+    "reference_prefix": "(1) Interface:   - Inputs:     - `clk`: Clock signal     - `rst`: Reset signal (though not actively used in the code)   - Outputs:     - `decode_to_execute_MEMORY_ENABLE`: A register output signal(2) Purpose:    - The module `coi` manages a memory enable signal in a pipeline stage, likely part of a larger processor or digital system pipeline. It determines whether a specific memory operation should proceed to the next pipeline stage based on the current execution state's \"stuck\" condition.(3) Functionality:",
+    "generated": "(1) Interface: input and output signals. (2) Purpose: process input data. (3) Functionality: update outputs. (4) Constraints: clock and reset.",
+    "intervention": "none"
+  },
+  {
+    "seed": 23,
+    "arm": "training_answer_frequency",
+    "split": "test",
+    "id": 331,
+    "family": "VexRiscv",
+    "reference_prefix": "(1) Interface:   - Inputs:     - `clk`: Clock signal     - `rst`: Reset signal (though not actively used in the code)   - Outputs:     - `decode_to_execute_MEMORY_ENABLE`: A register output signal(2) Purpose:    - The module `coi` manages a memory enable signal in a pipeline stage, likely part of a larger processor or digital system pipeline. It determines whether a specific memory operation should proceed to the next pipeline stage based on the current execution state's \"stuck\" condition.(3) Functionality:",
+    "generated": "(1) Interface:   - Inputs:      - `clk`: Clock signal.     - `rst`: Reset signal.     - `mem_reg_wdata`, `ex_reg_valid`, `ex_reg_replay`, `ex_reg_rs_lsb_0`, `ex_reg_rs_msb_1`, `mem_reg_valid`, `io_dmem_resp_bits_data_word_bypass`, `ex_reg_inst`, `wb_reg_wdata`     - `ex_ctrl_sel_imm`, `ex_reg_rs_lsb_1`, `ex_ctrl_alu_fn`, `ex_reg_rvc`, `ex_ctrl_sel_alu1`, `ex_ctrl_sel_alu2`, `mem_reg_flush_pipe`, `ex_reg_rs_bypass_1`, `ex_reg_rs_bypass_0`, `ex_reg_pc`, `ex_reg_xcpt_interrupt`, `ex_reg_rs_msb_0`   - Output:  ",
+    "intervention": "none"
+  },
+  {
+    "seed": 23,
+    "arm": "generic_template",
+    "split": "test",
+    "id": 336,
+    "family": "VexRiscv",
+    "reference_prefix": "(1) Interface:- Inputs: `clk`, `rst`, `decode_to_execute_SHIFT_CTRL`, `dBus_cmd_ready`, `decode_to_execute_IS_CSR`, `IBusSimplePlugin_rspJoin_rspBuffer_c_risingOccupancy`, `execute_LightShifterPlugin_isActive`, `_zz_dBus_cmd_valid`, `decode_to_execute_MEMORY_ENABLE`, `dBus_rsp_ready`, `decode_to_execute_MEMORY_STORE`, `IBusSimplePlugin_rspJoin_rspBuffer_c__zz_readed_error_2`, `iBus_rsp_payload_inst`, `execute_DivPlugin_frontendOk`, `decode_to_execute_IS_DIV`, `execute_arbitration_isValid`, `HazardSimplePlug",
+    "generated": "(1) Interface: input and output signals. (2) Purpose: process input data. (3) Functionality: update outputs. (4) Constraints: clock and reset.",
+    "intervention": "none"
+  },
+  {
+    "seed": 23,
+    "arm": "training_answer_frequency",
+    "split": "test",
+    "id": 336,
+    "family": "VexRiscv",
+    "reference_prefix": "(1) Interface:- Inputs: `clk`, `rst`, `decode_to_execute_SHIFT_CTRL`, `dBus_cmd_ready`, `decode_to_execute_IS_CSR`, `IBusSimplePlugin_rspJoin_rspBuffer_c_risingOccupancy`, `execute_LightShifterPlugin_isActive`, `_zz_dBus_cmd_valid`, `decode_to_execute_MEMORY_ENABLE`, `dBus_rsp_ready`, `decode_to_execute_MEMORY_STORE`, `IBusSimplePlugin_rspJoin_rspBuffer_c__zz_readed_error_2`, `iBus_rsp_payload_inst`, `execute_DivPlugin_frontendOk`, `decode_to_execute_IS_DIV`, `execute_arbitration_isValid`, `HazardSimplePlug",
+    "generated": "(1) Interface:   - Inputs:      - `clk`: Clock signal.     - `rst`: Reset signal.     - `mem_reg_wdata`, `ex_reg_valid`, `ex_reg_replay`, `ex_reg_rs_lsb_0`, `ex_reg_rs_msb_1`, `mem_reg_valid`, `io_dmem_resp_bits_data_word_bypass`, `ex_reg_inst`, `wb_reg_wdata`     - `ex_ctrl_sel_imm`, `ex_reg_rs_lsb_1`, `ex_ctrl_alu_fn`, `ex_reg_rvc`, `ex_ctrl_sel_alu1`, `ex_ctrl_sel_alu2`, `mem_reg_flush_pipe`, `ex_reg_rs_bypass_1`, `ex_reg_rs_bypass_0`, `ex_reg_pc`, `ex_reg_xcpt_interrupt`, `ex_reg_rs_msb_0`   - Output:  ",
+    "intervention": "none"
+  },
+  {
+    "seed": 23,
+    "arm": "generic_template",
+    "split": "test",
+    "id": 302,
+    "family": "VexRiscv",
+    "reference_prefix": "(1) Interface:     - Inputs: `clk`, `rst`, `CsrPlugin_mip_MEIP`, `decode_to_execute_INSTRUCTION`, `CsrPlugin_mcause_interrupt`, `decode_to_execute_RS2_USE`, `CsrPlugin_mie_MSIE`, `execute_to_memory_MEMORY_ENABLE`, `execute_to_memory_MEMORY_STORE`, `_zz_RegFilePlugin_regFile_port1`, `execute_CsrPlugin_csr_834`, `dBus_rsp_ready`, `decode_to_execute_SRC2_FORCE_ZERO`, `decode_to_execute_SRC1_CTRL`, `_zz_RegFilePlugin_regFile_port0`, `HazardSimplePlugin_writeBackBuffer_valid`, `CsrPlugin_mie_MTIE`, `execute_to_m",
+    "generated": "(1) Interface: input and output signals. (2) Purpose: process input data. (3) Functionality: update outputs. (4) Constraints: clock and reset.",
+    "intervention": "none"
+  },
+  {
+    "seed": 23,
+    "arm": "training_answer_frequency",
+    "split": "test",
+    "id": 302,
+    "family": "VexRiscv",
+    "reference_prefix": "(1) Interface:     - Inputs: `clk`, `rst`, `CsrPlugin_mip_MEIP`, `decode_to_execute_INSTRUCTION`, `CsrPlugin_mcause_interrupt`, `decode_to_execute_RS2_USE`, `CsrPlugin_mie_MSIE`, `execute_to_memory_MEMORY_ENABLE`, `execute_to_memory_MEMORY_STORE`, `_zz_RegFilePlugin_regFile_port1`, `execute_CsrPlugin_csr_834`, `dBus_rsp_ready`, `decode_to_execute_SRC2_FORCE_ZERO`, `decode_to_execute_SRC1_CTRL`, `_zz_RegFilePlugin_regFile_port0`, `HazardSimplePlugin_writeBackBuffer_valid`, `CsrPlugin_mie_MTIE`, `execute_to_m",
+    "generated": "(1) Interface:   - Inputs:      - `clk`: Clock signal.     - `rst`: Reset signal.     - `mem_reg_wdata`, `ex_reg_valid`, `ex_reg_replay`, `ex_reg_rs_lsb_0`, `ex_reg_rs_msb_1`, `mem_reg_valid`, `io_dmem_resp_bits_data_word_bypass`, `ex_reg_inst`, `wb_reg_wdata`     - `ex_ctrl_sel_imm`, `ex_reg_rs_lsb_1`, `ex_ctrl_alu_fn`, `ex_reg_rvc`, `ex_ctrl_sel_alu1`, `ex_ctrl_sel_alu2`, `mem_reg_flush_pipe`, `ex_reg_rs_bypass_1`, `ex_reg_rs_bypass_0`, `ex_reg_pc`, `ex_reg_xcpt_interrupt`, `ex_reg_rs_msb_0`   - Output:  ",
+    "intervention": "none"
+  }
+]

@@ -1,0 +1,222 @@
+{
+  "scope": "G1/G2 actual scratch-decoder training, autoregressive generation, independent lexical evaluation and decoder-context diagnostics; not original pretrained GenEDA",
+  "start_observed_utc": "2026-10-28T11:43:04+00:00",
+  "milestone_finished_utc": "2026-10-28T12:13:08.182873+00:00",
+  "elapsed_since_first_observed_command_seconds": 1804.182873,
+  "model_process_wall_seconds_total": 644.9936241260002,
+  "peak_recorded_model_process_rss_kib": 342988,
+  "cpu_threads": 3,
+  "cpu_quota": 4,
+  "memory_limit_bytes": 17179869184,
+  "pilot": {
+    "seed": 17,
+    "steps": 10,
+    "elapsed_seconds": 1.62298774699957,
+    "peak_rss_kib": 317488,
+    "projected_training_seconds_1520_steps": 246.69413754393463,
+    "training_trace": [
+      {
+        "phase": "scratch_language_pretrain",
+        "step": 0,
+        "nll": 39.872955322265625
+      },
+      {
+        "phase": "scratch_language_pretrain",
+        "step": 1,
+        "nll": 38.16255187988281
+      },
+      {
+        "phase": "scratch_language_pretrain",
+        "step": 2,
+        "nll": 36.84706115722656
+      },
+      {
+        "phase": "scratch_language_pretrain",
+        "step": 3,
+        "nll": 34.855072021484375
+      },
+      {
+        "phase": "scratch_language_pretrain",
+        "step": 4,
+        "nll": 31.875286102294922
+      },
+      {
+        "phase": "scratch_language_pretrain",
+        "step": 5,
+        "nll": 29.38046646118164
+      },
+      {
+        "phase": "scratch_language_pretrain",
+        "step": 6,
+        "nll": 25.577592849731445
+      },
+      {
+        "phase": "scratch_language_pretrain",
+        "step": 7,
+        "nll": 22.25763702392578
+      },
+      {
+        "phase": "scratch_language_pretrain",
+        "step": 8,
+        "nll": 19.518936157226562
+      },
+      {
+        "phase": "scratch_language_pretrain",
+        "step": 9,
+        "nll": 16.900968551635742
+      }
+    ],
+    "not_a_quality_selection_run": true
+  },
+  "installed_runtime_reused": {
+    "torch": "2.5.1+cpu",
+    "numpy": "2.3.5",
+    "python": "3.12.14",
+    "new_package_installation": false
+  },
+  "new_model_or_dataset_download_bytes": 0,
+  "new_paid_resources": false,
+  "planned_training_accounting": {
+    "shared_language_pretraining_runs": 4,
+    "completed_arm_seed_budget_runs": 20,
+    "language_pretraining_optimizer_steps": 3520,
+    "task_optimizer_steps_all_arms": 4800,
+    "pilot_optimizer_steps": 10,
+    "seeds": [
+      17,
+      23
+    ]
+  },
+  "generation_accounting": {
+    "planned_actual_autoregressive_generations": 656,
+    "constant_baseline_records": 128,
+    "planned_scored_records": 784,
+    "serialization_generation_replays": 4,
+    "inference_provider_api_calls": 0
+  },
+  "attempts": [
+    {
+      "action": "10-step CPU pilot",
+      "status": "completed",
+      "attempts": 1,
+      "selection": "Timing/RAM only; no held-out-quality selection"
+    },
+    {
+      "action": "New reconstruction correctness tests",
+      "status": "passed",
+      "tests": 5,
+      "failed": 0,
+      "attempts": 1
+    },
+    {
+      "action": "G1 seed17 full run",
+      "status": "completed",
+      "attempts": 1
+    },
+    {
+      "action": "G1 seed23 initial startup",
+      "status": "failed_before_training",
+      "attempts": 1,
+      "reason": "Python family tuples compared unequal to JSON lists",
+      "log": "results/seed23_manifest_type_failure.log",
+      "repair": "JSON-canonical manifest comparison; frozen split unchanged"
+    },
+    {
+      "action": "G1 seed23 after comparison repair",
+      "status": "completed",
+      "attempts": 1
+    },
+    {
+      "action": "G2 seed17 full run",
+      "status": "completed",
+      "attempts": 1
+    },
+    {
+      "action": "G2 seed23 full run",
+      "status": "completed",
+      "attempts": 1
+    },
+    {
+      "action": "Independent lexical scoring",
+      "status": "completed",
+      "details": "G1 initial output preserved; originally specified byte-repetition diagnostic added without changing ROUGE/functional definitions; G2 scored once"
+    },
+    {
+      "action": "Own-checkpoint context diagnostic",
+      "status": "completed_no_fitting",
+      "rows_per_seed": 16
+    },
+    {
+      "action": "Checkpoint replay",
+      "status": "passed",
+      "cases": 2,
+      "transports": [
+        "Original cached data",
+        "Portable hash-verified frozen JSON gzip"
+      ]
+    },
+    {
+      "action": "Final run/budget/leakage accounting checks",
+      "status": "passed",
+      "checks_file": "output_checks.json"
+    },
+    {
+      "action": "Optional simulator package discovery",
+      "status": "not_available_in_local_index",
+      "details": "No installed Icarus/Verilator/Yosys; local apt-cache had no Icarus metadata. No package installed."
+    },
+    {
+      "action": "Read Debian Icarus package metadata page",
+      "target": "https://packages.debian.org/bookworm/amd64/iverilog/download",
+      "status": "tool_unavailable_url",
+      "reason": "Web tool returned URL not accessible; no download or retry, not treated as proof package is absent"
+    },
+    {
+      "action": "Portable-loader/report patch initial application",
+      "status": "failed_validation_no_files_changed",
+      "reason": "README context line did not match",
+      "repair": "Reapplied exact patch; portable checkpoints replay identically"
+    }
+  ],
+  "prior_denial_handling": {
+    "target": "https://huggingface.co/deepseek-ai/deepseek-coder-1.3b-instruct/raw/main/config.json",
+    "previous_status": "proxy HTTP 403 denied",
+    "new_attempts": 0,
+    "bypass_or_gate_agreement": false
+  },
+  "scientific_result": {
+    "semantic_alignment_established": false,
+    "original_GenEDA_reproduced": false,
+    "actual_training_generation_scoring_loop_completed": true,
+    "raw_shuffle_outputs_identical_each_protocol": 32,
+    "normalized_pairing_advantage_over_shuffled": false,
+    "functional_keyword_f1_all_arms": 0.0,
+    "explanation": "Scratch language prior fails the conditional interface; released vectors also have low diversity. These experiments do not isolate a failure of the original approach."
+  },
+  "remaining_gaps": [
+    "Verified capable pretrained decoder",
+    "Circuit encoder checkpoint and raw-netlist feature provenance",
+    "Original training corpus/design split",
+    "Learned prediction head and annotation provenance for Task3",
+    "Actual semantic/circuit-functional validation; current metrics are lexical"
+  ],
+  "forbidden_actions_not_performed": [
+    "Model API",
+    "New model download",
+    "Untrusted pickle/weight loading",
+    "Paid/GPU resource",
+    "Gate acceptance",
+    "Credential/security changes",
+    "Upload/push/PR",
+    "Runpod deployment"
+  ],
+  "local_commit_authorized": true,
+  "external_publication": false,
+  "source_sha256": {
+    "source_snapshots/run_generation_g1_attempt1.py": "3eaa1307f5e9def2161d7cfcaa1431ce34a6138b14d70ee4deaeb37da5084e5e",
+    "source_snapshots/run_generation_g2_executed.py": "930923de13fe0d43cbf82d26a08e23070879b2c9d70b1bcc5f77b30fe0446519",
+    "run_generation.py": "0301305210036cb95220c65681d060ccf364e1302d72298889dff851e3fba275",
+    "evaluate.py": "2bf33fc6240377836d640c2613b00355268cbcff7f5a94b3bc69d8a2e5a4c6f8"
+  },
+  "artifact_bytes_before_ledger": 24979167
+}

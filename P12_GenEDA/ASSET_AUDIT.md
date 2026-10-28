@@ -1,5 +1,7 @@
 # P12 — GenEDA asset audit
 
+**Latest execution result:** [generation_v1/README.md](generation_v1/README.md) records 20 controlled scratch-decoder training/generation runs over two seeds and two budgets, independent scoring, family leakage guards and safe checkpoints. The local training-to-generation procedure is complete, but the scientific result is negative: semantic alignment and the original pretrained GenEDA capability are not established. The full-paper asset gaps below remain open.
+
 **Later authorized continuation:** a bounded CPU integrity milestone is now documented in [validation/README.md](validation/README.md). Eleven original-source interface tests passed, but semantic alignment and end-to-end generation remain unestablished. Released vectors have low spread, and the synthetic matched/shuffled optimization check did not separate. The audit below preserves the earlier asset-only findings; the continuation has its own frozen protocol, metrics and resource ledger.
 
 Audit date: 2026-10-28 UTC. Scope: public paper, README, source/config inspection, tracked-file inventory, and dataset/checkpoint metadata only. No repository code, training, inference, simulation, package installation, model API calls, or publication was performed. All work used the selected cloud environment under `/workspace/PaperReproduction`.
