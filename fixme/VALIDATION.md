@@ -95,3 +95,5 @@ sweep or model calls; old evidence remains retained.
 ## Preregistered evaluator-validity follow-up
 
 See [evaluator_validity/REPORT.md](evaluator_validity/REPORT.md) and its frozen plan, raw evidence and selected CSV. Four independent designs, 63 primary trials plus 14 targeted vector-generation compatibility retries test activated mutations, parser fallback, independent mux truth tables and property scope. This adds falsifiable evaluator evidence without upgrading reference calibration to model scores or estimating corpus-wide false-positive rates. `python3 fixme/benchmark/validate_validity.py` validates the saved evidence offline.
+
+Reporting clarification: cross-backend evidence comprises 18 checked pairs plus one empty-TB unknown control with null counts. The 154.043 seconds is the sum of two round elapsed durations; recorded subprocess durations sum to approximately 181.443 seconds because commands overlap, and neither measure is CPU time. Pinned upstream parser source/provenance is archived in `evaluator_validity/upstream_parser/`. Original logs, trial results and preregistration are unchanged.
