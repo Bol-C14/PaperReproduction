@@ -1,0 +1,78 @@
+[
+  {
+    "id": "comb_demorgan",
+    "kind": "comb",
+    "independent_truth": "equivalent",
+    "predicted_official": "pass",
+    "model": "nand",
+    "gold.v_sha256": "e9bcd5dd996af1d428064cea5db9fa45c10ebce4fdaa3e3953661ed2bbc651aa",
+    "candidate.v_sha256": "ef7bcadda3ada6dbcdde734616e18c1e9783c72b057274155dc137d47f229d97"
+  },
+  {
+    "id": "comb_mismatch",
+    "kind": "comb",
+    "independent_truth": "non_equivalent",
+    "predicted_official": "fail",
+    "model": "and_or",
+    "gold.v_sha256": "642c5013bf13203a4874e70b678c933790c326176b7d9e2c1e79bcbd06a911f0",
+    "candidate.v_sha256": "e57e91ef3ef456c789f699d9883d3820a29c541c84f5179ef768f573e1246199"
+  },
+  {
+    "id": "seq_modular",
+    "kind": "seq",
+    "independent_truth": "equivalent_under_zero_init",
+    "predicted_official": "pass",
+    "width": 4,
+    "model": "increment_subtract",
+    "gold.v_sha256": "97f708f44cb6b4cfb098f00ce0402fc7c86c29e0dabc2d26cb940ce1ecd2680e",
+    "candidate.v_sha256": "65f766b00003e9fdb371757528733e2bc896b16109fbf2d8045ddc61a4946581"
+  },
+  {
+    "id": "seq_increment",
+    "kind": "seq",
+    "independent_truth": "non_equivalent",
+    "predicted_official": "fail",
+    "width": 4,
+    "model": "increment_two",
+    "gold.v_sha256": "97f708f44cb6b4cfb098f00ce0402fc7c86c29e0dabc2d26cb940ce1ecd2680e",
+    "candidate.v_sha256": "dc50f2043ff3fc4845849fe8f9cfc3b6ea0acd31e8561edbc4182122b6fa5f83"
+  },
+  {
+    "id": "delayed_pulse",
+    "kind": "seq",
+    "independent_truth": "non_equivalent",
+    "predicted_official": "pass",
+    "width": 8,
+    "model": "delayed",
+    "first_bad_rising_edge": 60,
+    "gold.v_sha256": "223143752e74e5943c2466ca4bfdfbd8a76c7889cee7992b67361a406eac7e4c",
+    "candidate.v_sha256": "cc1f6ca339bf573c3579f1dead7d98bb270525eb359f9cbd7b589019e61f8247"
+  },
+  {
+    "id": "empty_discovery",
+    "kind": "invalid",
+    "independent_truth": "invalid_candidate",
+    "predicted_official": "pass",
+    "model": "empty_module_discovery",
+    "gold.v_sha256": "9f0862ff5cafb39bbbf1de3c0bb2a0eb1d675c52bb97bd7c6ed7331f24c0e81e",
+    "candidate.v_sha256": "87aae9f093db1b458e02734c31915ded253e58bfdf01ef824de2da6858e35bf1"
+  },
+  {
+    "id": "helper_inline",
+    "kind": "comb",
+    "independent_truth": "equivalent_at_top_interface",
+    "predicted_official": "fail",
+    "model": "xor",
+    "gold.v_sha256": "ad2760124ed7f154a0a8849bb222cf913ae92b08ae73933b74490df32f62d72f",
+    "candidate.v_sha256": "f8901cdf0d78a122a9c1ee2e5804a19a2f84c5564a23589b0f049c729e1a0ee3"
+  },
+  {
+    "id": "syntax_error",
+    "kind": "invalid",
+    "independent_truth": "invalid_candidate",
+    "predicted_official": "fail",
+    "model": "invalid_expression",
+    "gold.v_sha256": "642c5013bf13203a4874e70b678c933790c326176b7d9e2c1e79bcbd06a911f0",
+    "candidate.v_sha256": "8d727bcf3e1fd8293694381e9eb069f4a1562c58962754e8c22b28c7c44a9072"
+  }
+]

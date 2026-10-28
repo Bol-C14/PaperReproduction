@@ -1,0 +1,412 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "P07",
+  "title": "VeriThoughts",
+  "audit_date": "2026-10-28",
+  "scope": "asset_only",
+  "runtime_executed": false,
+  "experiments_run": false,
+  "inference_run": false,
+  "dependencies_installed": false,
+  "large_assets_downloaded": false,
+  "published": false,
+  "secrets_read": false,
+  "environment": {
+    "id": "REDACTED_INTERNAL_EXECUTION_ENVIRONMENT_ID",
+    "readiness": "ready_for_read_only_audit_not_reproduction",
+    "cwd": "/workspace",
+    "repository": "/workspace/PaperReproduction",
+    "repository_state": "No commits yet on work",
+    "os": "Debian GNU/Linux 13.6",
+    "kernel": "Linux 6.18.55 x86_64",
+    "python": "3.12.14",
+    "online_cpus": 5,
+    "ram_gib": 17,
+    "swap": 0,
+    "available_disk_gib_approx": 30,
+    "gpu_access": "not_established_no_nvidia_smi_or_device_entries",
+    "missing_tools": [
+      "yosys",
+      "sby",
+      "iverilog",
+      "verilator"
+    ],
+    "missing_python_modules": [
+      "torch",
+      "transformers",
+      "vllm",
+      "datasets",
+      "tqdm",
+      "google.genai",
+      "openai",
+      "deepspeed",
+      "flash_attn"
+    ],
+    "present_python_modules": [
+      "numpy",
+      "pandas",
+      "httpx",
+      "certifi"
+    ],
+    "instruction_files_found": []
+  },
+  "classification": {
+    "code_exists": true,
+    "minimal_mechanism": {
+      "level": "L2",
+      "confidence": "medium",
+      "decision": "Go_for_future_authorized_CPU_evaluator_pilot",
+      "reason": "released code and small benchmark; missing Yosys and lightweight wrappers/guards"
+    },
+    "full_paper_results": {
+      "level": "L3",
+      "confidence": "medium",
+      "decision": "No-Go_on_current_environment",
+      "reason": "8-GPU full SFT, GPU inference, provenance and checkpoint coverage gaps"
+    },
+    "l1_claim": false
+  },
+  "repository": {
+    "url": "https://github.com/wilyub/VeriThoughts",
+    "commit": "f44c2af999de62bd27e90e73ce9cbd4f97fbe55c",
+    "tree_sha": "bd95de905d9f897354d2afc43f57fae1fbe06ea7",
+    "file_count": 25,
+    "tree_truncated": false,
+    "code_status": "confirmed_public_source",
+    "license": "unverified_no_LICENSE_file_GitHub_license_null",
+    "release_status": "no_GitHub_releases_listed",
+    "inventory_file": "repo_inventory.json",
+    "source_snapshots": "evidence/"
+  },
+  "sources": {
+    "paper": "https://papers.neurips.cc/paper_files/paper/2025/file/0c946accd3ccc88c09dfae7e1cd40ffe-Paper-Datasets_and_Benchmarks_Track.pdf",
+    "readme": "https://github.com/wilyub/VeriThoughts/blob/f44c2af999de62bd27e90e73ce9cbd4f97fbe55c/README.md",
+    "data_collection": "https://huggingface.co/collections/wilyub/verithoughts-datasets",
+    "model_collection": "https://huggingface.co/collections/nyu-dice-lab/verithoughts-models",
+    "yosys_contract": "https://yosyshq.readthedocs.io/projects/yosys/en/0.41/cmd/sat.html"
+  },
+  "assets": [
+    {
+      "id": "wilyub/VeriThoughtsBenchmark",
+      "type": "dataset",
+      "url": "https://huggingface.co/datasets/wilyub/VeriThoughtsBenchmark",
+      "filename": "hf_benchmark.jsonl",
+      "filename_basis": "file_listing",
+      "approximate_bytes": 571000,
+      "rows": 291,
+      "rows_basis": "viewer",
+      "displayed_revision": "83179e5",
+      "availability": "file_tree_and_viewer_observed",
+      "payload_downloaded": false,
+      "license": "MIT_metadata",
+      "checksum_verified": false
+    },
+    {
+      "id": "wilyub/VeriThoughtsTrainSet",
+      "type": "dataset",
+      "url": "https://huggingface.co/datasets/wilyub/VeriThoughtsTrainSet",
+      "filename": "hf_complete_trainset.jsonl",
+      "filename_basis": "file_listing",
+      "approximate_bytes": 399000000,
+      "rows": 20173,
+      "rows_basis": "paper_table_1_viewer_rounds_to_20.2k",
+      "displayed_revision": "75e905d",
+      "availability": "file_tree_and_viewer_observed",
+      "payload_downloaded": false,
+      "license": "MIT_metadata",
+      "checksum_verified": false
+    },
+    {
+      "id": "wilyub/VeriThoughtsTrainSetConsistentInstruction",
+      "type": "dataset",
+      "url": "https://huggingface.co/datasets/wilyub/VeriThoughtsTrainSetConsistentInstruction",
+      "filename": "lf_complete_trainset_instructions.jsonl",
+      "filename_basis": "file_listing",
+      "approximate_bytes": 17100000,
+      "rows": null,
+      "rows_basis": null,
+      "displayed_revision": "fb60a7a",
+      "availability": "file_tree_observed",
+      "payload_downloaded": false,
+      "license": "MIT_metadata",
+      "checksum_verified": false
+    },
+    {
+      "id": "wilyub/VeriThoughtsTrainSetConsistentReasoning",
+      "type": "dataset",
+      "url": "https://huggingface.co/datasets/wilyub/VeriThoughtsTrainSetConsistentReasoning",
+      "filename": "lf_complete_trainset_reasoning.jsonl",
+      "filename_basis": "repository_dataset_info_mapping",
+      "approximate_bytes": null,
+      "rows": null,
+      "rows_basis": null,
+      "displayed_revision": null,
+      "availability": "viewer_observed_file_tree_unreachable",
+      "payload_downloaded": false,
+      "license": "MIT_metadata",
+      "checksum_verified": false
+    },
+    {
+      "id": "wilyub/VeriThoughtsTrainSetInconsistentInstructionGEN",
+      "type": "dataset",
+      "url": "https://huggingface.co/datasets/wilyub/VeriThoughtsTrainSetInconsistentInstructionGEN",
+      "filename": "lf_failed_trainset_instructions_gen.jsonl",
+      "filename_basis": "repository_dataset_info_mapping",
+      "approximate_bytes": null,
+      "rows": null,
+      "rows_basis": null,
+      "displayed_revision": null,
+      "availability": "official_collection_only_file_tree_unreachable",
+      "payload_downloaded": false,
+      "license": "MIT_metadata",
+      "checksum_verified": false
+    },
+    {
+      "id": "wilyub/VeriThoughtsTrainSetInconsistentInstructionGT",
+      "type": "dataset",
+      "url": "https://huggingface.co/datasets/wilyub/VeriThoughtsTrainSetInconsistentInstructionGT",
+      "filename": "lf_failed_trainset_instructions_gt.jsonl",
+      "filename_basis": "repository_dataset_info_mapping",
+      "approximate_bytes": null,
+      "rows": null,
+      "rows_basis": null,
+      "displayed_revision": null,
+      "availability": "official_collection_only_file_tree_unreachable",
+      "payload_downloaded": false,
+      "license": "MIT_metadata",
+      "checksum_verified": false
+    },
+    {
+      "id": "wilyub/VeriThoughtsTrainSetInconsistentReasoningGEN",
+      "type": "dataset",
+      "url": "https://huggingface.co/datasets/wilyub/VeriThoughtsTrainSetInconsistentReasoningGEN",
+      "filename": "lf_failed_trainset_reasoning_gen.jsonl",
+      "filename_basis": "file_listing",
+      "approximate_bytes": 286000000,
+      "rows": null,
+      "rows_basis": null,
+      "displayed_revision": "0ee6a2b",
+      "availability": "file_tree_observed",
+      "payload_downloaded": false,
+      "license": "MIT_metadata",
+      "checksum_verified": false
+    },
+    {
+      "id": "wilyub/VeriThoughtsTrainSetInconsistentReasoningGT",
+      "type": "dataset",
+      "url": "https://huggingface.co/datasets/wilyub/VeriThoughtsTrainSetInconsistentReasoningGT",
+      "filename": "lf_failed_trainset_reasoning_gt.jsonl",
+      "filename_basis": "repository_dataset_info_mapping",
+      "approximate_bytes": null,
+      "rows": null,
+      "rows_basis": null,
+      "displayed_revision": null,
+      "availability": "official_collection_only_file_tree_unreachable",
+      "payload_downloaded": false,
+      "license": "MIT_metadata",
+      "checksum_verified": false
+    },
+    {
+      "id": "nyu-dice-lab/VeriThoughts-Reasoning-7B",
+      "type": "checkpoint",
+      "url": "https://huggingface.co/nyu-dice-lab/VeriThoughts-Reasoning-7B/tree/main",
+      "approximate_repository_bytes": 15200000000,
+      "safetensors_shards_listed": 4,
+      "index_tokenizer_and_config_listed": true,
+      "displayed_revision": "cd09b43",
+      "availability": "public_file_listing_observed",
+      "payload_downloaded": false,
+      "checksum_verified": false,
+      "license": "unverified_model_card_incomplete",
+      "endpoint_access": "not_tested",
+      "config_contents": "unverified_unreachable"
+    },
+    {
+      "id": "nyu-dice-lab/VeriThoughts-Instruct-7B",
+      "type": "checkpoint",
+      "url": "https://huggingface.co/nyu-dice-lab/VeriThoughts-Instruct-7B/tree/main",
+      "approximate_repository_bytes": 15200000000,
+      "safetensors_shards_listed": 4,
+      "index_tokenizer_and_config_listed": true,
+      "displayed_revision": "ded4527",
+      "availability": "public_file_listing_observed",
+      "payload_downloaded": false,
+      "checksum_verified": false,
+      "license": "unverified_model_card_incomplete",
+      "endpoint_access": "not_tested",
+      "config_contents": "unverified_unreachable"
+    },
+    {
+      "id": "nyu-dice-lab/VeriThoughts-Reasoning-14B",
+      "type": "checkpoint",
+      "url": "https://huggingface.co/nyu-dice-lab/VeriThoughts-Reasoning-14B/tree/main",
+      "approximate_repository_bytes": 29600000000,
+      "safetensors_shards_listed": 6,
+      "index_tokenizer_and_config_listed": true,
+      "displayed_revision": "6bee440",
+      "availability": "public_file_listing_observed",
+      "payload_downloaded": false,
+      "checksum_verified": false,
+      "license": "unverified_model_card_incomplete",
+      "endpoint_access": "not_tested",
+      "config_contents": "unverified_unreachable"
+    },
+    {
+      "id": "scale-lab/MetRex",
+      "type": "upstream_dataset",
+      "url": "https://huggingface.co/datasets/scale-lab/MetRex",
+      "license": "BSD-3-Clause_metadata",
+      "payload_downloaded": false
+    }
+  ],
+  "mechanism": {
+    "construction": "V -> Gemini question Q -> DeepSeek reasoning R and implementation V* -> Yosys consistency label",
+    "teachers": [
+      "gemini-2.0-flash-thinking-exp",
+      "deepseek-reasoner"
+    ],
+    "historical_teacher_access": "not_verified",
+    "api_calls_made": 0,
+    "formal": {
+      "engine": "Yosys SAT",
+      "bound_steps": 50,
+      "initialization": "-set-init-zero; state otherwise unspecified is zero",
+      "temporal_induction": false,
+      "clock_transform": "clk2fflogic",
+      "module_contract": "all discovered golden modules paired by name; flattened miter per pair",
+      "subprocess_timeout_seconds": 150,
+      "label": "all subprocess return codes zero",
+      "unbounded_equivalence_claim_supported": false
+    }
+  },
+  "dependencies": {
+    "generation": {
+      "datasets": "3.3.2",
+      "google-genai": "1.7.0",
+      "openai": "1.65.1",
+      "httpx": "0.28.1",
+      "certifi": "2025.1.31",
+      "tqdm": "4.67.1"
+    },
+    "evaluation": {
+      "numpy": "1.26.4",
+      "tqdm": "4.67.1",
+      "vllm": "0.7.3",
+      "huggingface-hub": "0.29.1"
+    },
+    "training": {
+      "flash-attn": "2.7.4.post1",
+      "deepspeed": "0.16.7",
+      "tf-keras": "2.19.0",
+      "LLaMA-Factory": "unversioned_external"
+    },
+    "formal_toolchain": "external Yosys/OSS CAD Suite; README points to Yosys 0.41 docs; actual build unpinned"
+  },
+  "cost": {
+    "minimal_pilot": {
+      "gpu": 0,
+      "api_calls": 0,
+      "checkpoint_bytes": 0,
+      "proposed_cpus": "1-2",
+      "proposed_memory_cap_gib": "2-8",
+      "task_data_target": "under 1 GB excluding toolchain",
+      "resource_basis": "planning estimate; not measured",
+      "twenty_single_module_pairs_serial_timeout_ceiling_minutes": 50
+    },
+    "full_training": {
+      "author_reported_gpu": "8x A100; memory variant unspecified",
+      "instruction_hours": "2-4",
+      "reasoning_hours": "7-14",
+      "instruction_gpu_hours": "16-32",
+      "reasoning_gpu_hours": "56-112",
+      "per_run": true
+    },
+    "inference": {
+      "benchmark_completions_per_model": 5820,
+      "max_new_tokens_per_completion": 16384,
+      "small_7b_bf16_gpu_vram_gb_planning_estimate": "24-48; reduced batch; not validated"
+    },
+    "regeneration": {
+      "filtered_source_designs_approx": 25000,
+      "minimum_teacher_calls_per_design": 2,
+      "current_api_price_or_access": "unknown"
+    }
+  },
+  "gaps": [
+    {
+      "id": "bounded_contract",
+      "status": "confirmed_static_limitation",
+      "impact_on_released_scores": "unmeasured"
+    },
+    {
+      "id": "empty_module_list_pass",
+      "status": "confirmed_static_code_defect",
+      "impact_on_released_samples": "unverified"
+    },
+    {
+      "id": "failure_timeout_counterexample_conflation",
+      "status": "confirmed_static_behavior"
+    },
+    {
+      "id": "append_and_position_based_aggregation",
+      "status": "confirmed_static_behavior",
+      "score_corruption": "possible_not_demonstrated"
+    },
+    {
+      "id": "regex_rename_module_contract",
+      "status": "potential_failure_modes_not_executed"
+    },
+    {
+      "id": "MetRex_RTL_string_vs_dictionary",
+      "status": "potential_schema_drift_from_current_metadata_not_executed"
+    },
+    {
+      "id": "reason_list_vs_reasoning_trace",
+      "status": "confirmed_source_vs_release_schema_difference_conversion_unlocated"
+    },
+    {
+      "id": "Q_and_R_fidelity_not_proven",
+      "status": "methodological_limitation"
+    },
+    {
+      "id": "full_model_ablation_coverage",
+      "status": "unverified_only_three_official_collection_models"
+    },
+    {
+      "id": "license_provenance",
+      "status": "dataset_MIT_metadata_but_code_model_and_upstream_chain_incomplete"
+    }
+  ],
+  "pilot": {
+    "authorized_now": false,
+    "minimum_module": "stored V/V* formal-label replay with Q/R annotation; no model generation or training",
+    "useful_test": "delayed sequential divergence outside original 50 SAT steps, with identical/immediate-mismatch controls and longer-bound or inductive comparison",
+    "expected_insight": "bounded pass does not imply eventual equivalence",
+    "executed": false
+  },
+  "access": {
+    "shell_GitHub_API": "proxy HTTP 403; no escalation",
+    "GitHub_web_directories": "failed",
+    "GitHub_connector": "approved read-only repository contents, immutable tree and source reads succeeded",
+    "HF_raw_config_and_some_subset_trees": "unreachable; not absent",
+    "authentication_or_gated_license_acceptance": false,
+    "auto_review_rejection": false,
+    "approval_pending": false
+  },
+  "remaining_blockers": [
+    "local Yosys toolchain absent",
+    "GPU access absent/unestablished",
+    "compatible runtime not provisioned",
+    "model license and training provenance incomplete",
+    "historical teacher availability unverified",
+    "all ablation checkpoints not confirmed",
+    "data conversion/split lineage not released in audited tree",
+    "some subset file listings and payload integrity unverified"
+  ],
+  "deliverables": [
+    "ASSET_AUDIT.md",
+    "assets.json",
+    "repo_inventory.json",
+    "evidence/"
+  ]
+}
