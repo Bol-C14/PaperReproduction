@@ -1,0 +1,689 @@
+
+-- Executing script file `runs/043_native_prior_popcount_c2/flow.ys' --
+
+1. Executing Verilog-2005 frontend: circuits/popcount.v
+Parsing Verilog input from `circuits/popcount.v' to AST representation.
+Generating RTLIL representation for module `\dut'.
+Successfully finished Verilog frontend.
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+
+2.1. Analyzing design hierarchy..
+Top module:  \dut
+
+2.2. Analyzing design hierarchy..
+Top module:  \dut
+Removed 0 unused modules.
+
+3. Executing PROC pass (convert processes to netlists).
+
+3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 2 assignments to connections.
+
+3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\dut.$proc$circuits/popcount.v:3$2'.
+
+3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\dut.\i' from process `\dut.$proc$circuits/popcount.v:3$2'.
+No latch inferred for signal `\dut.\n' from process `\dut.$proc$circuits/popcount.v:3$2'.
+
+3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `dut.$proc$circuits/popcount.v:3$2'.
+Cleaned up 0 empty switches.
+
+3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+4. Executing FLATTEN pass (flatten design).
+
+5. Executing OPT pass (performing simple optimizations).
+
+5.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+<suppressed ~1 debug messages>
+
+5.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dut'.
+Removed a total of 0 cells.
+
+5.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dut..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+5.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dut.
+Performed a total of 0 changes.
+
+5.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dut'.
+Removed a total of 0 cells.
+
+5.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+Removed 0 unused cells and 4 unused wires.
+<suppressed ~2 debug messages>
+
+5.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+5.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+5.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dut..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+5.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dut.
+Performed a total of 0 changes.
+
+5.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dut'.
+Removed a total of 0 cells.
+
+5.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+5.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+
+5.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+5.16. Finished OPT passes. (There is nothing left to do.)
+
+6. Executing JSON backend.
+
+7. Executing SYNTH pass.
+
+7.1. Executing HIERARCHY pass (managing design hierarchy).
+
+7.1.1. Analyzing design hierarchy..
+Top module:  \dut
+
+7.1.2. Analyzing design hierarchy..
+Top module:  \dut
+Removed 0 unused modules.
+
+7.2. Executing PROC pass (convert processes to netlists).
+
+7.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+7.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+7.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 0 redundant assignments.
+Promoted 0 assignments to connections.
+
+7.2.4. Executing PROC_INIT pass (extract init attributes).
+
+7.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+7.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+7.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+
+7.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+7.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+7.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+7.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+7.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+7.3. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+
+7.5. Executing CHECK pass (checking for obvious problems).
+Checking module dut...
+Found and reported 0 problems.
+
+7.6. Executing OPT pass (performing simple optimizations).
+
+7.6.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+7.6.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dut'.
+Removed a total of 0 cells.
+
+7.6.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dut..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+7.6.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dut.
+Performed a total of 0 changes.
+
+7.6.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dut'.
+Removed a total of 0 cells.
+
+7.6.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.6.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+
+7.6.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+7.6.9. Finished OPT passes. (There is nothing left to do.)
+
+7.7. Executing FSM pass (extract and optimize FSM).
+
+7.7.1. Executing FSM_DETECT pass (finding FSMs in design).
+
+7.7.2. Executing FSM_EXTRACT pass (extracting FSM from design).
+
+7.7.3. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+7.7.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+
+7.7.5. Executing FSM_OPT pass (simple optimizations of FSMs).
+
+7.7.6. Executing FSM_RECODE pass (re-assigning FSM state encoding).
+
+7.7.7. Executing FSM_INFO pass (dumping all available information on FSM cells).
+
+7.7.8. Executing FSM_MAP pass (mapping FSMs to basic logic).
+
+7.8. Executing OPT pass (performing simple optimizations).
+
+7.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+7.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dut'.
+Removed a total of 0 cells.
+
+7.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dut..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+7.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dut.
+Performed a total of 0 changes.
+
+7.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dut'.
+Removed a total of 0 cells.
+
+7.8.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.8.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+
+7.8.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+7.8.9. Finished OPT passes. (There is nothing left to do.)
+
+7.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 5 bits (of 6) from port A of cell dut.$add$circuits/popcount.v:3$4 ($add).
+Removed top 4 bits (of 6) from port Y of cell dut.$add$circuits/popcount.v:3$4 ($add).
+Removed top 4 bits (of 6) from port A of cell dut.$add$circuits/popcount.v:3$5 ($add).
+Removed top 3 bits (of 6) from port Y of cell dut.$add$circuits/popcount.v:3$5 ($add).
+Removed top 3 bits (of 6) from port A of cell dut.$add$circuits/popcount.v:3$6 ($add).
+Removed top 2 bits (of 6) from port Y of cell dut.$add$circuits/popcount.v:3$6 ($add).
+Removed top 2 bits (of 6) from port A of cell dut.$add$circuits/popcount.v:3$7 ($add).
+Removed top 1 bits (of 6) from port Y of cell dut.$add$circuits/popcount.v:3$7 ($add).
+Removed top 1 bits (of 6) from port A of cell dut.$add$circuits/popcount.v:3$8 ($add).
+Removed top 4 bits (of 6) from wire dut.$add$circuits/popcount.v:3$4_Y.
+Removed top 3 bits (of 6) from wire dut.$add$circuits/popcount.v:3$5_Y.
+Removed top 2 bits (of 6) from wire dut.$add$circuits/popcount.v:3$6_Y.
+Removed top 1 bits (of 6) from wire dut.$add$circuits/popcount.v:3$7_Y.
+
+7.10. Executing PEEPOPT pass (run peephole optimizers).
+
+7.11. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+Removed 0 unused cells and 4 unused wires.
+<suppressed ~1 debug messages>
+
+7.12. Executing ALUMACC pass (create $alu and $macc cells).
+Extracting $alu and $macc cells in module dut:
+  creating $macc model for $add$circuits/popcount.v:3$10 ($add).
+  creating $macc model for $add$circuits/popcount.v:3$11 ($add).
+  creating $macc model for $add$circuits/popcount.v:3$12 ($add).
+  creating $macc model for $add$circuits/popcount.v:3$13 ($add).
+  creating $macc model for $add$circuits/popcount.v:3$14 ($add).
+  creating $macc model for $add$circuits/popcount.v:3$15 ($add).
+  creating $macc model for $add$circuits/popcount.v:3$16 ($add).
+  creating $macc model for $add$circuits/popcount.v:3$17 ($add).
+  creating $macc model for $add$circuits/popcount.v:3$18 ($add).
+  creating $macc model for $add$circuits/popcount.v:3$19 ($add).
+  creating $macc model for $add$circuits/popcount.v:3$20 ($add).
+  creating $macc model for $add$circuits/popcount.v:3$21 ($add).
+  creating $macc model for $add$circuits/popcount.v:3$22 ($add).
+  creating $macc model for $add$circuits/popcount.v:3$23 ($add).
+  creating $macc model for $add$circuits/popcount.v:3$24 ($add).
+  creating $macc model for $add$circuits/popcount.v:3$25 ($add).
+  creating $macc model for $add$circuits/popcount.v:3$26 ($add).
+  creating $macc model for $add$circuits/popcount.v:3$27 ($add).
+  creating $macc model for $add$circuits/popcount.v:3$28 ($add).
+  creating $macc model for $add$circuits/popcount.v:3$29 ($add).
+  creating $macc model for $add$circuits/popcount.v:3$30 ($add).
+  creating $macc model for $add$circuits/popcount.v:3$31 ($add).
+  creating $macc model for $add$circuits/popcount.v:3$32 ($add).
+  creating $macc model for $add$circuits/popcount.v:3$33 ($add).
+  creating $macc model for $add$circuits/popcount.v:3$34 ($add).
+  creating $macc model for $add$circuits/popcount.v:3$4 ($add).
+  creating $macc model for $add$circuits/popcount.v:3$5 ($add).
+  creating $macc model for $add$circuits/popcount.v:3$6 ($add).
+  creating $macc model for $add$circuits/popcount.v:3$7 ($add).
+  creating $macc model for $add$circuits/popcount.v:3$8 ($add).
+  creating $macc model for $add$circuits/popcount.v:3$9 ($add).
+  merging $macc model for $add$circuits/popcount.v:3$8 into $add$circuits/popcount.v:3$9.
+  merging $macc model for $add$circuits/popcount.v:3$7 into $add$circuits/popcount.v:3$9.
+  merging $macc model for $add$circuits/popcount.v:3$6 into $add$circuits/popcount.v:3$9.
+  merging $macc model for $add$circuits/popcount.v:3$5 into $add$circuits/popcount.v:3$9.
+  merging $macc model for $add$circuits/popcount.v:3$4 into $add$circuits/popcount.v:3$9.
+  merging $macc model for $add$circuits/popcount.v:3$33 into $add$circuits/popcount.v:3$34.
+  merging $macc model for $add$circuits/popcount.v:3$32 into $add$circuits/popcount.v:3$34.
+  merging $macc model for $add$circuits/popcount.v:3$31 into $add$circuits/popcount.v:3$34.
+  merging $macc model for $add$circuits/popcount.v:3$30 into $add$circuits/popcount.v:3$34.
+  merging $macc model for $add$circuits/popcount.v:3$29 into $add$circuits/popcount.v:3$34.
+  merging $macc model for $add$circuits/popcount.v:3$28 into $add$circuits/popcount.v:3$34.
+  merging $macc model for $add$circuits/popcount.v:3$27 into $add$circuits/popcount.v:3$34.
+  merging $macc model for $add$circuits/popcount.v:3$26 into $add$circuits/popcount.v:3$34.
+  merging $macc model for $add$circuits/popcount.v:3$25 into $add$circuits/popcount.v:3$34.
+  merging $macc model for $add$circuits/popcount.v:3$24 into $add$circuits/popcount.v:3$34.
+  merging $macc model for $add$circuits/popcount.v:3$23 into $add$circuits/popcount.v:3$34.
+  merging $macc model for $add$circuits/popcount.v:3$22 into $add$circuits/popcount.v:3$34.
+  merging $macc model for $add$circuits/popcount.v:3$21 into $add$circuits/popcount.v:3$34.
+  merging $macc model for $add$circuits/popcount.v:3$20 into $add$circuits/popcount.v:3$34.
+  merging $macc model for $add$circuits/popcount.v:3$19 into $add$circuits/popcount.v:3$34.
+  merging $macc model for $add$circuits/popcount.v:3$18 into $add$circuits/popcount.v:3$34.
+  merging $macc model for $add$circuits/popcount.v:3$17 into $add$circuits/popcount.v:3$34.
+  merging $macc model for $add$circuits/popcount.v:3$16 into $add$circuits/popcount.v:3$34.
+  merging $macc model for $add$circuits/popcount.v:3$15 into $add$circuits/popcount.v:3$34.
+  merging $macc model for $add$circuits/popcount.v:3$14 into $add$circuits/popcount.v:3$34.
+  merging $macc model for $add$circuits/popcount.v:3$13 into $add$circuits/popcount.v:3$34.
+  merging $macc model for $add$circuits/popcount.v:3$12 into $add$circuits/popcount.v:3$34.
+  merging $macc model for $add$circuits/popcount.v:3$11 into $add$circuits/popcount.v:3$34.
+  merging $macc model for $add$circuits/popcount.v:3$10 into $add$circuits/popcount.v:3$34.
+  merging $macc model for $add$circuits/popcount.v:3$9 into $add$circuits/popcount.v:3$34.
+  creating $macc cell for $add$circuits/popcount.v:3$34: $auto$alumacc.cc:365:replace_macc$39
+  created 0 $alu and 1 $macc cells.
+
+7.13. Executing SHARE pass (SAT-based resource sharing).
+
+7.14. Executing OPT pass (performing simple optimizations).
+
+7.14.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+7.14.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dut'.
+Removed a total of 0 cells.
+
+7.14.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dut..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+7.14.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dut.
+Performed a total of 0 changes.
+
+7.14.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dut'.
+Removed a total of 0 cells.
+
+7.14.6. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.14.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+Removed 30 unused cells and 30 unused wires.
+<suppressed ~31 debug messages>
+
+7.14.8. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+7.14.9. Rerunning OPT passes. (Maybe there is more to do..)
+
+7.14.10. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dut..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+7.14.11. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dut.
+Performed a total of 0 changes.
+
+7.14.12. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dut'.
+Removed a total of 0 cells.
+
+7.14.13. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.14.14. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+
+7.14.15. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+7.14.16. Finished OPT passes. (There is nothing left to do.)
+
+7.15. Executing MEMORY pass.
+
+7.15.1. Executing OPT_MEM pass (optimize memories).
+Performed a total of 0 transformations.
+
+7.15.2. Executing OPT_MEM_PRIORITY pass (removing unnecessary memory write priority relations).
+Performed a total of 0 transformations.
+
+7.15.3. Executing OPT_MEM_FEEDBACK pass (finding memory read-to-write feedback paths).
+
+7.15.4. Executing MEMORY_BMUX2ROM pass (converting muxes to ROMs).
+
+7.15.5. Executing MEMORY_DFF pass (merging $dff cells to $memrd).
+
+7.15.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+
+7.15.7. Executing MEMORY_SHARE pass (consolidating $memrd/$memwr cells).
+
+7.15.8. Executing OPT_MEM_WIDEN pass (optimize memories where all ports are wide).
+Performed a total of 0 transformations.
+
+7.15.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+
+7.15.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+7.16. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+
+7.17. Executing OPT pass (performing simple optimizations).
+
+7.17.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+7.17.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dut'.
+Removed a total of 0 cells.
+
+7.17.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.17.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+
+7.17.5. Finished fast OPT passes.
+
+7.18. Executing MEMORY_MAP pass (converting memories to logic and flip-flops).
+
+7.19. Executing OPT pass (performing simple optimizations).
+
+7.19.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+7.19.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dut'.
+Removed a total of 0 cells.
+
+7.19.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \dut..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+7.19.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \dut.
+Performed a total of 0 changes.
+
+7.19.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dut'.
+Removed a total of 0 cells.
+
+7.19.6. Executing OPT_SHARE pass.
+
+7.19.7. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.19.8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+
+7.19.9. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+
+7.19.10. Finished OPT passes. (There is nothing left to do.)
+
+7.20. Executing TECHMAP pass (map to technology primitives).
+
+7.20.1. Executing Verilog-2005 frontend: ${PAPER_REPRO_ROOT}/tools/crop/yosys/share/techmap.v
+Parsing Verilog input from `${PAPER_REPRO_ROOT}/tools/crop/yosys/share/techmap.v' to AST representation.
+Generating RTLIL representation for module `\_90_simplemap_bool_ops'.
+Generating RTLIL representation for module `\_90_simplemap_reduce_ops'.
+Generating RTLIL representation for module `\_90_simplemap_logic_ops'.
+Generating RTLIL representation for module `\_90_simplemap_compare_ops'.
+Generating RTLIL representation for module `\_90_simplemap_various'.
+Generating RTLIL representation for module `\_90_simplemap_registers'.
+Generating RTLIL representation for module `\_90_shift_ops_shr_shl_sshl_sshr'.
+Generating RTLIL representation for module `\_90_shift_shiftx'.
+Generating RTLIL representation for module `\_90_fa'.
+Generating RTLIL representation for module `\_90_lcu_brent_kung'.
+Generating RTLIL representation for module `\_90_alu'.
+Generating RTLIL representation for module `\_90_macc'.
+Generating RTLIL representation for module `\_90_alumacc'.
+Generating RTLIL representation for module `\$__div_mod_u'.
+Generating RTLIL representation for module `\$__div_mod_trunc'.
+Generating RTLIL representation for module `\_90_div'.
+Generating RTLIL representation for module `\_90_mod'.
+Generating RTLIL representation for module `\$__div_mod_floor'.
+Generating RTLIL representation for module `\_90_divfloor'.
+Generating RTLIL representation for module `\_90_modfloor'.
+Generating RTLIL representation for module `\_90_pow'.
+Generating RTLIL representation for module `\_90_pmux'.
+Generating RTLIL representation for module `\_90_demux'.
+Generating RTLIL representation for module `\_90_lut'.
+Successfully finished Verilog frontend.
+
+7.20.2. Continuing TECHMAP pass.
+Using extmapper maccmap for cells of type $macc_v2.
+  add \x [0] (1 bits, unsigned)
+  add \x [31] (1 bits, unsigned)
+  add \x [30] (1 bits, unsigned)
+  add \x [29] (1 bits, unsigned)
+  add \x [28] (1 bits, unsigned)
+  add \x [27] (1 bits, unsigned)
+  add \x [26] (1 bits, unsigned)
+  add \x [25] (1 bits, unsigned)
+  add \x [24] (1 bits, unsigned)
+  add \x [23] (1 bits, unsigned)
+  add \x [22] (1 bits, unsigned)
+  add \x [21] (1 bits, unsigned)
+  add \x [20] (1 bits, unsigned)
+  add \x [19] (1 bits, unsigned)
+  add \x [18] (1 bits, unsigned)
+  add \x [17] (1 bits, unsigned)
+  add \x [16] (1 bits, unsigned)
+  add \x [15] (1 bits, unsigned)
+  add \x [14] (1 bits, unsigned)
+  add \x [13] (1 bits, unsigned)
+  add \x [12] (1 bits, unsigned)
+  add \x [11] (1 bits, unsigned)
+  add \x [10] (1 bits, unsigned)
+  add \x [9] (1 bits, unsigned)
+  add \x [8] (1 bits, unsigned)
+  add \x [7] (1 bits, unsigned)
+  add \x [6] (1 bits, unsigned)
+  add \x [5] (1 bits, unsigned)
+  add \x [4] (1 bits, unsigned)
+  add \x [3] (1 bits, unsigned)
+  add \x [2] (1 bits, unsigned)
+  add \x [1] (1 bits, unsigned)
+  packed 15 (15) bits / 15 words into adder tree
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000001 for cells of type $fa.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000010 for cells of type $fa.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000011 for cells of type $fa.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000100 for cells of type $fa.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000101 for cells of type $fa.
+Using template $paramod\_90_fa\WIDTH=32'00000000000000000000000000000110 for cells of type $fa.
+Using template $paramod$00298f3f8094950cb9a5ff2fda48d0d8bde8806c\_90_alu for cells of type $alu.
+Using extmapper simplemap for cells of type $or.
+Using extmapper simplemap for cells of type $xor.
+Using extmapper simplemap for cells of type $and.
+Using template $paramod\_90_lcu_brent_kung\WIDTH=32'00000000000000000000000000000110 for cells of type $lcu.
+Using extmapper simplemap for cells of type $pos.
+Using extmapper simplemap for cells of type $mux.
+Using extmapper simplemap for cells of type $not.
+No more expansions possible.
+<suppressed ~389 debug messages>
+
+7.21. Executing OPT pass (performing simple optimizations).
+
+7.21.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module dut.
+<suppressed ~91 debug messages>
+
+7.21.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\dut'.
+Removed a total of 0 cells.
+
+7.21.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+7.21.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \dut..
+Removed 5 unused cells and 181 unused wires.
+<suppressed ~6 debug messages>
+
+7.21.5. Finished fast OPT passes.
+
+7.22. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `dut'. Setting top module to dut.
+
+7.22.1. Analyzing design hierarchy..
+Top module:  \dut
+
+7.22.2. Analyzing design hierarchy..
+Top module:  \dut
+Removed 0 unused modules.
+
+7.23. Printing statistics.
+
+=== dut ===
+
+   Number of wires:                 88
+   Number of wire bits:            290
+   Number of public wires:           4
+   Number of public wire bits:      76
+   Number of ports:                  2
+   Number of port bits:             38
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                143
+     $_AND_                         59
+     $_OR_                          27
+     $_XOR_                         57
+
+7.24. Executing CHECK pass (checking for obvious problems).
+Checking module dut...
+Found and reported 0 problems.
+
+8. Executing CHECK pass (checking for obvious problems).
+Checking module dut...
+Found and reported 0 problems.
+
+9. Executing BLIF backend.
+
+10. Executing ABC pass (technology mapping using ABC).
+
+10.1. Extracting gate netlist of module `\dut' to `<abc-temp-dir>/input.blif'..
+Extracted 143 gates and 175 wires to a netlist network with 32 inputs and 6 outputs.
+
+10.1.1. Executing ABC.
+Running ABC command: "${PAPER_REPRO_ROOT}/tools/abc-rl/abc/abc" -s -f <abc-temp-dir>/abc.script 2>&1
+ABC: ABC command line: "source <abc-temp-dir>/abc.script".
+ABC: 
+ABC: + read_blif <abc-temp-dir>/input.blif 
+ABC: + read_lut <abc-temp-dir>/lutdefs.txt 
+ABC: + source ${PAPER_REPRO_ROOT}/results/crop/native-priors/abc_scripts/area.abc 
+ABC: + write_blif <abc-temp-dir>/output.blif 
+
+10.1.2. Re-integrating ABC results.
+ABC RESULTS:              $lut cells:       64
+ABC RESULTS:        internal signals:      137
+ABC RESULTS:           input signals:       32
+ABC RESULTS:          output signals:        6
+Removing temp directory.
+Removed 0 unused cells and 122 unused wires.
+
+11. Executing CHECK pass (checking for obvious problems).
+Checking module dut...
+Found and reported 0 problems.
+
+12. Executing JSON backend.
+
+13. Executing BLIF backend.
+
+14. Printing statistics.
+
+=== dut ===
+
+   Number of wires:                 62
+   Number of wire bits:            134
+   Number of public wires:           4
+   Number of public wire bits:      76
+   Number of ports:                  2
+   Number of port bits:             38
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 64
+     $lut                           64
+
+15. Executing LTP pass (find longest path).
+
+Longest topological path in dut (length=11):
+    0: \x [9]
+    1: $abc$464$new_n51_ (via $abc$464$auto$blifparse.cc:535:parse_blif$476)
+    2: $abc$464$new_n62_ (via $abc$464$auto$blifparse.cc:535:parse_blif$487)
+    3: $abc$464$new_n61_ (via $abc$464$auto$blifparse.cc:535:parse_blif$486)
+    4: $abc$464$new_n60_ (via $abc$464$auto$blifparse.cc:535:parse_blif$485)
+    5: $abc$464$new_n85_ (via $abc$464$auto$blifparse.cc:535:parse_blif$510)
+    6: $abc$464$new_n84_ (via $abc$464$auto$blifparse.cc:535:parse_blif$509)
+    7: $abc$464$new_n82_ (via $abc$464$auto$blifparse.cc:535:parse_blif$507)
+    8: $abc$464$new_n92_ (via $abc$464$auto$blifparse.cc:535:parse_blif$517)
+    9: $abc$464$new_n100_ (via $abc$464$auto$blifparse.cc:535:parse_blif$525)
+   10: $abc$464$new_n99_ (via $abc$464$auto$blifparse.cc:535:parse_blif$524)
+   11: \y [5] (via $abc$464$auto$blifparse.cc:535:parse_blif$528)

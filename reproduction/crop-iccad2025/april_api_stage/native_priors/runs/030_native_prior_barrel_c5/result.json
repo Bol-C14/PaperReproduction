@@ -1,0 +1,34 @@
+{
+  "cec_returncode": 0,
+  "cec_seconds": 0.06408849358558655,
+  "commands": [
+    [
+      "${PAPER_REPRO_ROOT}/tools/crop/yosys/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "runs/030_native_prior_barrel_c5/flow.ys"
+    ],
+    [
+      "${PAPER_REPRO_ROOT}/tools/abc-rl/abc/abc",
+      "-c",
+      "cec runs/030_native_prior_barrel_c5/reference.blif runs/030_native_prior_barrel_c5/mapped.blif"
+    ]
+  ],
+  "config": "c5",
+  "design": "barrel",
+  "elapsed_seconds": 0.33183750696480274,
+  "folder": "runs/030_native_prior_barrel_c5",
+  "formal": "ABC CEC: equivalent",
+  "independent": "Python arithmetic versus LUT truth tables: pass",
+  "invocation": 30,
+  "lut_count": 129,
+  "lut_depth": 4,
+  "objective": 516,
+  "phase": "native_prior",
+  "status": "ok",
+  "synthesis_returncode": 0,
+  "synthesis_seconds": 0.2644019089639187,
+  "vectors_checked": 256,
+  "vectors_sha256": "d40bee7830afbac8de53640655892ba375b52a54193e90767e7399b7019f3609"
+}

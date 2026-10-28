@@ -1,0 +1,165 @@
+{
+  "archive_policy": "Fixed prior retrieval DB; isolated per-query target histories",
+  "arms": [
+    "structural",
+    "random_retrieval",
+    "no_retrieval",
+    "random_search"
+  ],
+  "baseline_config": "c0",
+  "configs": [
+    {
+      "id": "c0",
+      "mode": "fast",
+      "noalumacc": false
+    },
+    {
+      "id": "c1",
+      "mode": "quality",
+      "noalumacc": false
+    },
+    {
+      "id": "c2",
+      "mode": "area",
+      "noalumacc": false
+    },
+    {
+      "id": "c3",
+      "mode": "depth",
+      "noalumacc": false
+    },
+    {
+      "id": "c4",
+      "mode": "fast",
+      "noalumacc": true
+    },
+    {
+      "id": "c5",
+      "mode": "quality",
+      "noalumacc": true
+    },
+    {
+      "id": "c6",
+      "mode": "area",
+      "noalumacc": true
+    },
+    {
+      "id": "c7",
+      "mode": "depth",
+      "noalumacc": true
+    }
+  ],
+  "correctness_seed": 701,
+  "correctness_vectors": 256,
+  "designs": [
+    {
+      "family": "sumtree",
+      "id": "sumtree",
+      "input_bits": 32,
+      "output_bits": 10,
+      "role": "prior",
+      "rtl": "circuits/sumtree.v",
+      "sha256": "212c5e14ee1e3d668df8a8cbc6a2f92c8d86cafc55d995f8c53937f18b8e5d1a"
+    },
+    {
+      "family": "multiply",
+      "id": "multiply",
+      "input_bits": 16,
+      "output_bits": 16,
+      "role": "prior",
+      "rtl": "circuits/multiply.v",
+      "sha256": "f2d7c31c179de90eb455ffa61ef9fbe9a7e467b491edb4f63b0ba111ee19b5bd"
+    },
+    {
+      "family": "alu",
+      "id": "alu",
+      "input_bits": 18,
+      "output_bits": 8,
+      "role": "prior",
+      "rtl": "circuits/alu.v",
+      "sha256": "59ed682ac5a3b37b47f1e4d5fc6661ce53b6edb4cbdf2a0797932d1a73f72824"
+    },
+    {
+      "family": "barrel",
+      "id": "barrel",
+      "input_bits": 21,
+      "output_bits": 16,
+      "role": "prior",
+      "rtl": "circuits/barrel.v",
+      "sha256": "42dac18ecec03f5c87554205df46c5fd78e12e58214914b5d34900b48395407f"
+    },
+    {
+      "family": "minmax",
+      "id": "minmax",
+      "input_bits": 32,
+      "output_bits": 16,
+      "role": "prior",
+      "rtl": "circuits/minmax.v",
+      "sha256": "e59ddba685036d56a38c597e155ff56bf5632b78da8cbe94f42f0e4a228e387b"
+    },
+    {
+      "family": "popcount",
+      "id": "popcount",
+      "input_bits": 32,
+      "output_bits": 6,
+      "role": "prior",
+      "rtl": "circuits/popcount.v",
+      "sha256": "96511a1d7d223e4c2d7d17a7992ba74efe7ae02b38b336066b4f3eae2de46293"
+    },
+    {
+      "family": "fir3",
+      "id": "fir3",
+      "input_bits": 36,
+      "output_bits": 14,
+      "role": "target",
+      "rtl": "circuits/fir3.v",
+      "sha256": "d7e374b03941af88462c7423213aac7c1c799a8e8b66b58f48e74dada8b3092c"
+    },
+    {
+      "family": "crc8",
+      "id": "crc8",
+      "input_bits": 24,
+      "output_bits": 8,
+      "role": "target",
+      "rtl": "circuits/crc8.v",
+      "sha256": "fe59b9b1927954c264834a3ca3d3bd9e09686cce2671f545898f83256fca3e29"
+    },
+    {
+      "family": "priority",
+      "id": "priority",
+      "input_bits": 32,
+      "output_bits": 6,
+      "role": "target",
+      "rtl": "circuits/priority.v",
+      "sha256": "cd7841f28ce9eb74470fb7558cc0655ffde07d43938fc6c6c6d026481627743e"
+    },
+    {
+      "family": "manhattan",
+      "id": "manhattan",
+      "input_bits": 32,
+      "output_bits": 10,
+      "role": "target",
+      "rtl": "circuits/manhattan.v",
+      "sha256": "025b0eb2f174c43ab59c3d81d2a72dedb7445e803fd660d844ecd39ffe0f22b9"
+    }
+  ],
+  "fixture_origin": "All ten circuits independently authored; neither EPFL nor RTLRewriter was imported",
+  "frozen_before": "First expanded-study synthesis measurement",
+  "max_measurement_calls": 48,
+  "max_seconds_per_cec": 30,
+  "max_seconds_per_synthesis": 60,
+  "online_budget_per_arm_target_seed": 4,
+  "online_evaluations": 192,
+  "posthoc_oracle_evaluations": 32,
+  "proposal": "New categorical kernel LCB policy; NOT an LLM or the CROP proposal implementation",
+  "score": "LUT4 count * maximum unit LUT depth; lower is better",
+  "seeds": [
+    11,
+    23,
+    37
+  ],
+  "semantic_component": "NOT RUN",
+  "source_evaluations": 48,
+  "split": "Six primitive-operation prior families; four distinct held-out application families; shared operators permitted, no width-scaled target copies",
+  "top_k_guidance": 3
+}

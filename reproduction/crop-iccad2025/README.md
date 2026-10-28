@@ -1,5 +1,7 @@
 # CROP methodology port: bounded transfer smoke test
 
+**Current continuation:** [APRIL native bank and prepared API pilot](april_api_stage/README.md) adds48 matched native prior measurements. Real semantic/LLM execution remains paused pending authorization.
+
 **Follow-up:** the larger [closed-loop study](closed_loop/README.md) now completes 272 measurements with iterative feedback, held-out circuits, and matched controls. This file preserves the earlier twelve-call milestone and its original evidence.
 
 **Milestone completed: 12/12 real Yosys synthesis measurements and formal checks passed. Structural and random retrieval transferred the same configuration, giving equal results on every target. Semantic summarization/embedding and full CROP were NOT RUN.**

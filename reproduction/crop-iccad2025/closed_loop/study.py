@@ -9,6 +9,7 @@ import os
 from pathlib import Path
 import random
 import re
+import signal
 import subprocess
 import sys
 import time
@@ -115,10 +116,22 @@ def command(argv, logfile, timeout):
     started=time.monotonic()
     with logfile.open('w') as out:
         try:
-            cp=subprocess.run([str(s) for s in argv],cwd=ROOT,stdout=out,stderr=subprocess.STDOUT,timeout=timeout)
-            return cp.returncode,time.monotonic()-started
+            cp=subprocess.Popen([str(s) for s in argv],cwd=ROOT,stdout=out,
+                                stderr=subprocess.STDOUT,start_new_session=True)
+            return cp.wait(timeout=timeout),time.monotonic()-started
         except subprocess.TimeoutExpired:
+            # Yosys may have launched ABC. Kill the owned process group so a
+            # timed-out synthesis does not leave an unaccounted CPU worker.
+            try:
+                os.killpg(cp.pid,signal.SIGKILL)
+            except ProcessLookupError:
+                pass
+            cp.wait()
+            out.write('\nOwned tool process group terminated after timeout.\n')
             return 124,time.monotonic()-started
+        except OSError as exc:
+            out.write('Tool launch failed: '+str(exc)+'\n')
+            return 127,time.monotonic()-started
 
 
 def structural_features(module):

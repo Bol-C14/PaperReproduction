@@ -83,8 +83,8 @@ consume attempts and are rejected without a heuristic fallback.
 Each input is capped at 4096 counted/bounded tokens; each completion at 640.
 Normal-case token upper bound is 80,512, and maximum is 161,024 (139,264 input
 plus 21,760 output). Input wire JSON is also capped at 12,000 bytes for summaries
-and 18,000 for proposals. Request timeout is 180 seconds; 34 sequential timeouts
-would consume at most 6120 seconds of request waiting, excluding local work.
+and 18,000 for proposals. Transport socket timeout is 180 seconds, not a hard end-to-end wall deadline;
+no total request-waiting time bound is claimed for a slowly streaming provider.
 Every attempt is reserved on disk before transport. An HTTP, redirect, transport,
 truncation, counter or usage failure stops the run with evidence; it is not
 retried. Only a completed but content/schema-invalid generation can use the
@@ -95,7 +95,8 @@ Before the model pilot, a separate CPU-only preparation builds a matched bank:
 6 prior circuits times 8 configurations = at most 48 synthesis attempts, each
 with a 60-second synthesis and 30-second CEC timeout. Each successful row must
 pass ABC CEC, 256 independent arithmetic/LUT vectors, and independent depth
-agreement. Stop on the first failure and preserve the ledger/logs. Pin the same
+agreement. Stop on the first failure and preserve the ledger/logs. A tool timeout kills
+the owned process group, including ABC descendants, to avoid orphan CPU jobs. Pin the same
 ABC executable explicitly for Yosys mapping and CEC. Compare all 48 old/new
 pairs to report backend drift, while retaining the original 272 historical
 measurements unchanged. This preparation has zero target measurements and zero

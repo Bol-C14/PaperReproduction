@@ -1,0 +1,16 @@
+read_verilog circuits/minmax.v
+hierarchy -check -top dut
+proc
+flatten
+opt
+write_json runs/035_native_prior_minmax_c2/highlevel.json
+synth -top dut -noabc 
+check -assert
+write_blif runs/035_native_prior_minmax_c2/reference.blif
+abc -exe ${PAPER_REPRO_ROOT}/tools/abc-rl/abc/abc -lut 4 -script abc_scripts/area.abc
+clean
+check -assert
+write_json runs/035_native_prior_minmax_c2/mapped.json
+write_blif runs/035_native_prior_minmax_c2/mapped.blif
+stat
+ltp -noff

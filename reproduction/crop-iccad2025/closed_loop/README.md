@@ -1,6 +1,8 @@
 # CROP: closed non-model methodology study
 
-**The affordable non-model loop is closed:** structural retrieval → configuration proposal → real LUT mapping → validated measurement → target archive update → subsequent selection. The 272-measurement controlled experiment is complete. **Semantic summarization/embedding and LLM proposal generation remain unrun**, with a concrete weight-access blocker. This is an independent baseline around CROP's retrieval/transfer question, not full CROP or original released code.
+**Continuation:** [APRIL stage](../april_api_stage/README.md) has rebuilt a matched48-row native prior bank and revised offline model interfaces; no real-model run has occurred. This report preserves the original272-measurement experiment.
+
+**The affordable non-model loop is closed:** structural retrieval → configuration proposal → real LUT mapping → validated measurement → target archive update → subsequent selection. The 272-measurement controlled experiment is complete. **Semantic summarization/embedding and LLM proposal generation remain unrun**, with the earlier cloud weight-access denial preserved as historical evidence. The current APRIL model boundary is API authorization, not a claim that weights are globally unavailable. This is an independent baseline around CROP's retrieval/transfer question, not full CROP or original released code.
 
 The earlier [twelve-call smoke test](../README.md) and [asset audit](../../../P15_CROP/ASSET_AUDIT.md) remain preserved. [Mechanism coverage](MECHANISM_COVERAGE.md) separates retained mechanisms from substitutions and missing models. [Commands and costs](COMMANDS.md) records tool repair, preliminary failures, versions, downloads, exact execution forms, and bounds.
 

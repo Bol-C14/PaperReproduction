@@ -1,0 +1,34 @@
+{
+  "cec_returncode": 0,
+  "cec_seconds": 0.11408340744674206,
+  "commands": [
+    [
+      "${PAPER_REPRO_ROOT}/tools/crop/yosys/yosys",
+      "-Q",
+      "-T",
+      "-s",
+      "runs/007_native_prior_sumtree_c6/flow.ys"
+    ],
+    [
+      "${PAPER_REPRO_ROOT}/tools/abc-rl/abc/abc",
+      "-c",
+      "cec runs/007_native_prior_sumtree_c6/reference.blif runs/007_native_prior_sumtree_c6/mapped.blif"
+    ]
+  ],
+  "config": "c6",
+  "design": "sumtree",
+  "elapsed_seconds": 0.2809783052653074,
+  "folder": "runs/007_native_prior_sumtree_c6",
+  "formal": "ABC CEC: equivalent",
+  "independent": "Python arithmetic versus LUT truth tables: pass",
+  "invocation": 7,
+  "lut_count": 50,
+  "lut_depth": 11,
+  "objective": 550,
+  "phase": "native_prior",
+  "status": "ok",
+  "synthesis_returncode": 0,
+  "synthesis_seconds": 0.16408565267920494,
+  "vectors_checked": 256,
+  "vectors_sha256": "18297502fc46c883b5ade5ad60f7f11ae9a01961aa35c39ec2072b8ceed0b360"
+}

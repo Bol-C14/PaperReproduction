@@ -1,5 +1,7 @@
 # Mechanism coverage and remaining model boundary
 
+Scope: the historical non-model experiment below. The [APRIL continuation](../april_api_stage/README.md) now has prepared model interfaces, existing MiniLM assets and48 matched native prior rows, but no genuine semantic/LLM run. The runtime-absence and403 observations below describe the earlier cloud environment; they do not describe current APRIL availability.
+
 Source: [CROP v2, Sections IV and V](https://arxiv.org/html/2507.02128v2). This is a reconstruction against the paper; official CROP code remains unverified.
 
 The published sequence is hierarchical RTL summarization, summary embedding, maximum-inner-product retrieval of a prior design, and delivery of its best historical configurations/QoR to an LLM search. Each proposal is validated, evaluated, and added to later target prompts. The evaluated backend is RTL Architect. Per-trial re-retrieval or insertion of each target into the global retrieval database is not specified. We therefore keep prior retrieval fixed and isolate evolving target histories.

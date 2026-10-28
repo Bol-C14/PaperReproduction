@@ -87,6 +87,24 @@ def main():
 
     manifest = json.loads((src / 'manifest.json').read_text())
     designs = [d for d in manifest['designs'] if d['role'] == 'prior' or d['id'] == 'fir3']
+    # Validate every local dependency/source before any billable model attempt.
+    for design in designs:
+        if hashlib.sha256((src / design['rtl']).read_bytes()).hexdigest() != design['sha256']:
+            raise SystemExit('RTL source differs from the frozen public manifest')
+    # Rebuilt prior bank is checked against the actual tool bytes and RTL/config
+    # manifest by the offline EDA preparation stage. Do not mix Debian rows in.
+    bank = json.loads((root / 'results/crop/native-priors/bank.json').read_text())
+    history = bank['history']
+    tools = {'yosys': root / 'tools/crop/yosys/yosys', 'abc': root / 'tools/abc-rl/abc/abc'}
+    actual_tools = {name: hashlib.sha256(path.read_bytes()).hexdigest() for name, path in tools.items()}
+    if (bank['tool_sha256'] != actual_tools or bank['manifest_sha256'] != hashlib.sha256((src / 'manifest.json').read_bytes()).hexdigest()
+            or bank['backend_relation'] != 'matched_native_archive'):
+        raise SystemExit('Prepared prior bank does not match current tools/manifest')
+    from sentence_transformers import SentenceTransformer
+    encoder = SentenceTransformer(str(root / 'assets/shared/all-minilm-l6-v2'),
+                                  local_files_only=True, trust_remote_code=False, device='cpu')
+    if encoder.max_seq_length != 256:
+        raise SystemExit('Unexpected MiniLM truncation limit')
     caches = {}
     for design in designs:
         source = (src / design['rtl']).read_text()
@@ -127,11 +145,6 @@ def main():
                                        attempts=len(records), seed=23, temperature=0))
         save(Path('summaries') / (design['id'] + '.json'), caches[design['id']])
 
-    from sentence_transformers import SentenceTransformer
-    encoder = SentenceTransformer(str(root / 'assets/shared/all-minilm-l6-v2'),
-                                  local_files_only=True, trust_remote_code=False, device='cpu')
-    if encoder.max_seq_length != 256:
-        raise SystemExit('Unexpected MiniLM truncation limit')
     for name, cache in caches.items():
         text = json.dumps(cache['design_summary'], sort_keys=True)
         cache['embedding'] = encoder.encode(text, normalize_embeddings=True).tolist()
@@ -141,15 +154,6 @@ def main():
         save(Path('summaries') / (name + '.json'), cache)
 
     selected, similarities = nearest_prior(caches, designs)
-    # Rebuilt prior bank is checked against the actual tool bytes and RTL/config
-    # manifest by the offline EDA preparation stage. Do not mix Debian rows in.
-    bank = json.loads((root / 'results/crop/native-priors/bank.json').read_text())
-    history = bank['history']
-    tools = {'yosys': root / 'tools/crop/yosys/yosys', 'abc': root / 'tools/abc-rl/abc/abc'}
-    actual_tools = {name: hashlib.sha256(path.read_bytes()).hexdigest() for name, path in tools.items()}
-    if (bank['tool_sha256'] != actual_tools or bank['manifest_sha256'] != hashlib.sha256((src / 'manifest.json').read_bytes()).hexdigest()
-            or bank['backend_relation'] != 'matched_native_archive'):
-        raise SystemExit('Prepared prior bank does not match current tools/manifest')
     prior_guidance = guidance(history, selected, 'matched_native_archive')
     save('retrieval.json', dict(similarities=similarities, selected=selected, guidance=prior_guidance,
                                 prior_bank_source_commit=bank['source_commit'], backend_relation='matched_native_archive'))

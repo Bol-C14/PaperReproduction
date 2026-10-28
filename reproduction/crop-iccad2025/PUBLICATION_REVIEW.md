@@ -57,3 +57,13 @@ third-party software or model weights is asserted or changed by this update.
 The repository's lack of a project-wide LICENSE file is not represented as an
 open-source license grant. This is an authorized publication to the existing
 branch, with no new external asset redistribution.
+
+The continuation's48 native prior measurements and one actual negative CEC
+control are included as path-normalized text evidence. Native binaries/model
+weights are excluded. All exported JSON parses; the bank rechecker validates
+exact6x8 coverage, every positive CEC log and every raw metric. The additional
+negative CEC log is explicitly labeled and is never an accepted measurement.
+Secret/private-address pattern scanning covers complete reachable Git history
+and every tracked/untracked-to-be-published file; contextual review distinguishes
+dummy test credentials and nonsecret historical runtime paths. Final publication
+uses an ordinary branch update and verifies the full remote SHA.

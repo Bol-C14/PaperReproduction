@@ -4,6 +4,7 @@ import json
 from pathlib import Path
 import sys
 import tempfile
+import time
 import unittest
 from unittest.mock import patch
 
@@ -29,6 +30,21 @@ class InterfaceTests(unittest.TestCase):
             bad = dict(summary, inputs=value)
             with self.assertRaises(ValueError):
                 model_contract.summary_fields(bad, model_contract.MODULE_FIELDS)
+
+    def test_explicit_fake_cache_roundtrip_and_source_mismatch(self):
+        cache = dict(source_sha256='test-source-not-an-RTL-hash',
+                     modules=[dict(name='dut', summary={f: 'test fixture only' for f in model_contract.MODULE_FIELDS})],
+                     design_summary={f: 'test fixture only' for f in model_contract.DESIGN_FIELDS},
+                     embedding=list(self.vector), summary_model='FAKE-not-a-model-result',
+                     summary_model_revision='test', embedding_model='FAKE-not-an-embedding-result',
+                     embedding_model_revision='test', prompt_sha256='test', embedding_normalization='L2',
+                     embedding_truncation='test-only', generation_provenance={'live': False, 'test_only': True})
+        self.assertEqual(model_contract.summary_cache(cache, cache['source_sha256']), self.vector)
+        with self.assertRaisesRegex(ValueError, 'different source'):
+            model_contract.summary_cache(cache, 'other-source')
+        cache['embedding'][0] = 2.0
+        with self.assertRaisesRegex(ValueError, 'unit norm'):
+            model_contract.summary_cache(cache, cache['source_sha256'])
 
     def test_retrieval_rejects_scale_bias_nonfinite_and_family_leakage(self):
         caches = {d['id']: {'embedding': list(self.vector)} for d in self.designs}
@@ -119,6 +135,18 @@ class InterfaceTests(unittest.TestCase):
                 flow = (root / row['folder'] / 'flow.ys').read_text()
                 self.assertIn('abc -exe /test/explicit-abc -fast -lut 4', flow)
                 self.assertEqual(len(st.rows), 1)
+
+    def test_tool_timeout_terminates_owned_grandchild(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            marker = root / 'grandchild-survived.txt'
+            child = 'import time;from pathlib import Path;time.sleep(0.5);Path(' + repr(str(marker)) + ').write_text("survived")'
+            parent = 'import subprocess,sys,time;subprocess.Popen([sys.executable,"-c",' + repr(child) + ']);time.sleep(60)'
+            with patch.object(study, 'ROOT', root):
+                code, _ = study.command([sys.executable, '-c', parent], root / 'timeout.log', 0.2)
+            self.assertEqual(code, 124)
+            time.sleep(0.6)
+            self.assertFalse(marker.exists(), 'Timed-out tool left an active descendant')
 
 
 if __name__ == '__main__':

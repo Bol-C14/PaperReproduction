@@ -31,7 +31,7 @@ separation of EDA preparation from the later real-model pilot.
   different tool backend. The preparation protocol and results are separate
   from live-model evidence.
 - `test_api_adapter.py`, `test_pilot_interfaces.py` and `offline-tests-v2.log`
-  contain 13 passing offline tests, including scripted fake model responses,
+  contain 15 passing offline tests, including scripted fake model responses,
   malformed/duplicate proposals, non-normalized vectors, token bounds and a
   deliberately failed CEC. These are interface tests, never research outcomes.
 
@@ -44,7 +44,7 @@ personal home path. Runtime supplies `tools/crop/yosys/yosys`, read-only
 weights, third-party tool binaries, credentials or authorization marker belong
 in Git. Existing local Qwen assets remain paused and are not used.
 
-`SETUP_EVIDENCE.json`, `PAUSED.json`, `requirements.freeze.txt`,
+`SETUP_EVIDENCE.json`, `PAUSED.e99589d.json`, `requirements.freeze.txt`,
 `offline-tests.log` and `PACKAGE_HASHES.e99589d.json` are historical snapshots
 from commit `e99589dd`; their hashes refer to that commit, not the revised files.
 The setup and old three-test result were not rerun to claim new evidence.
@@ -54,3 +54,17 @@ The original backend measurements remain historical evidence. Only ratios from
 one circuit/backend may serve as prior guidance; fresh target comparisons use
 one native run. Even matched tools do not make these toy circuits or LUT4
 objectives equivalent to the original industrial method, dataset or PPA.
+
+## Completed native-bank preparation
+
+This continuation executed 48 new native prior measurements on CPU8-15. All48
+passed real ABC CEC and independent256-vector checks (12,288 vector cases).
+Independent offline rechecking reproduced all48 metrics and rejected a copied
+netlist with a deliberately corrupted output. One additional real ABC negative
+control rejected non-equivalent BLIFs despite returning exit code0; the pipeline
+correctly requires the positive equivalence text as well as the return code.
+There were zero API calls, local LLM loads and new target measurements.
+
+See [native-bank report](NATIVE_BANK_REPORT.md), [raw metric comparison](native_priors/comparison.json),
+[offline verification](native-bank-verification.json) and current `PAUSED.json`.
+Public logs normalize the isolated runtime prefix; APRIL keeps the originals.

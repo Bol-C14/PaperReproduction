@@ -1,0 +1,16 @@
+read_verilog circuits/sumtree.v
+hierarchy -check -top dut
+proc
+flatten
+opt
+write_json runs/008_native_prior_sumtree_c7/highlevel.json
+synth -top dut -noabc -noalumacc
+check -assert
+write_blif runs/008_native_prior_sumtree_c7/reference.blif
+abc -exe ${PAPER_REPRO_ROOT}/tools/abc-rl/abc/abc -lut 4 -script abc_scripts/depth.abc
+clean
+check -assert
+write_json runs/008_native_prior_sumtree_c7/mapped.json
+write_blif runs/008_native_prior_sumtree_c7/mapped.blif
+stat
+ltp -noff
