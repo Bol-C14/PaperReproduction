@@ -1,0 +1,59 @@
+{
+  "s00_r00": {
+    "summary": "The `next_state` is a 3-bit unsigned value. If `rst` is asserted, `next_state` is set to 0. Otherwise, if `en` is asserted, `next_state` is the result of adding 1 to the current `state` (a 3-bit unsigned value). If `en` is not asserted, `next_state` retains the current `state` value."
+  },
+  "s01_r00": {
+    "summary": "The unsigned four bit output is zero when the prior state equals ten for an even state or eleven for an odd state. Otherwise it increments the prior state by two when the data selector is true and by one when false, retaining the low four bits."
+  },
+  "s02_r00": {
+    "summary": "The unsigned sixteen bit output loads the sixteen bit data input when reset is selected. Otherwise it adds that input to the low sixteen bits of the prior state, modulo two to the sixteenth power. The internal wires do not reorder the result."
+  },
+  "s02_r01": {
+    "summary": "The unsigned sixteen bit output is the modular negation of the data input when reset is selected. Otherwise it subtracts the data input from the upper sixteen bits of the prior state and optionally negates the result under the one bit data selector. All results retain sixteen bits; the ports are unsigned."
+  },
+  "s03_r00": {
+    "summary": "The 16-bit `next_state` is determined by the multiplication of two 8-bit unsigned inputs, `a` and `b`. The current `state` input does not influence the `next_state` calculation."
+  },
+  "s04_r00": {
+    "summary": "The 8-bit `next_state` register is updated based on two inputs. The least significant bit of `next_state` is set to the XOR reduction of the 8-bit `a` input. The remaining 7 most significant bits of `next_state` are assigned the value of the 7 least significant bits of the 8-bit `state` input."
+  },
+  "s05_r00": {
+    "summary": "The one bit output is one when reset is selected. Otherwise it is zero when the thirty two bit state field at positions thirty five through four equals two hundred or two hundred ten, and one for other values."
+  },
+  "s05_r01": {
+    "summary": "The next_state output is determined by a 40-bit input 'state', a 1-bit input 'rst', and two other 1-bit inputs 'a' and 'b'. If 'rst' is active, next_state is 0. Otherwise, next_state is derived from a multiplexer. This multiplexer selects between a constant 0, a constant 1, or bit 36 of 'state', based on whether bits 4-35 of 'state' are equal to 200 or 210. The inputs 'a' and 'b' are unused."
+  },
+  "s05_r02": {
+    "summary": "The one bit output is one when reset is selected. Otherwise it is zero when the thirty two bit state field at positions thirty five through four equals three hundred or three hundred ten, and one for other values."
+  },
+  "s05_r03": {
+    "summary": "The next_state output is determined by a 40-bit input 'state', a 1-bit input 'rst', and two 1-bit inputs 'a' and 'b'. If 'rst' is active, next_state is 0. Otherwise, next_state is derived from a multiplexer. This multiplexer selects between a constant 0, a constant 1, or bit 36 of 'state', based on whether bits 4-35 of 'state' are equal to 300 or 310. The inputs 'a' and 'b' are not used in the determination of 'next_state'."
+  },
+  "s05_r05": {
+    "summary": "The unsigned four bit output is zero when reset is selected. Otherwise it increments the upper four bits of the forty bit prior state modulo sixteen when the thirty two bit state field at positions thirty five through four equals two hundred, two hundred ten, three hundred or three hundred ten. It is zero for other field values."
+  },
+  "s06_r00": {
+    "summary": "The next_state output is a single-bit wire. It is determined by the XOR operation between the second bit of the 3-bit 'state' input and an intermediate signal. This intermediate signal is selected based on the 'b' input: if 'b' is true, it takes the inverted value of 'a'; otherwise, it takes the value of 'a'. All inputs and outputs are unsigned."
+  },
+  "s06_r01": {
+    "summary": "The single-bit output `next_state` is determined by a multiplexer. If `input_2` is true, `next_state` takes the value of `state[1]`. Otherwise, `next_state` is determined by another multiplexer: if `b` is true, `next_state` is the logical NOT of `a`; otherwise, `next_state` is `a`."
+  },
+  "s06_r02": {
+    "summary": "The next_state output is a 1-bit value. If `input_3` is true, `next_state` is determined by a multiplexer: if `input_4` is true, `input_5` is selected, otherwise `input_6` is selected. If `input_3` is false, `next_state` is assigned the most significant bit (index 2) of the 3-bit `state` input. Inputs `a` and `b` are unused."
+  },
+  "s07_r00": {
+    "summary": "The 30-bit `next_state` output is derived from a series of additions. First, the lower 30 bits of the 38-bit `state` input are added to the 1-bit `a` input. The 32-bit result of this operation is then added to the 1-bit `b` input. Finally, the 32-bit result of the second addition is incremented by 1, and the lower 30 bits of this final sum form the `next_state` output. All additions are unsigned."
+  },
+  "s07_r01": {
+    "summary": "The 8-bit `next_state` output is directly assigned from a slice of the 38-bit `state` input. Specifically, `next_state` takes the value of bits 29 down to 22 of the `state` input. There are no arithmetic or logical operations, and the `a` and `b` inputs are unused."
+  },
+  "s08_r00": {
+    "summary": "The 28-bit `next_state` output is determined by adding 1 to the 28-bit `state` input. This operation is unsigned, and the four most significant bits of the 32-bit sum are truncated."
+  },
+  "s09_r00": {
+    "summary": "The single-bit output 'next_state' is determined by the least significant bit of the 31-bit 'state' input. If the upper 30 bits of 'state' are equal to the unsigned hexadecimal value 0x00b71b00, then 'next_state' is the logical inversion of 'state[0]'. Otherwise, 'next_state' is directly assigned the value of 'state[0]'."
+  },
+  "s09_r01": {
+    "summary": "The 30-bit `next_state` output is determined by the 30-bit slice `state[30:1]`. If `state[30:1]` is equal to the constant `30'h00b71b00`, then `next_state` is set to `30'h00000000`. Otherwise, `next_state` is the result of adding 1 to the 30-bit unsigned value of `state[30:1]`. The `state[0]` input bit is unused."
+  }
+}

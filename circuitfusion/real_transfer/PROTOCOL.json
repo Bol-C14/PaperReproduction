@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "goal": "Frozen-checkpoint OOD transfer to genuine public sequential RTL; no new synthetic training",
+  "seeds": [
+    11,
+    23,
+    37
+  ],
+  "arms": [
+    "paired",
+    "shuffled_pairing",
+    "no_graph",
+    "text_only",
+    "shuffled_edges"
+  ],
+  "training": "none; reuse closure/results_v1_1 weights and exact old training vocab",
+  "data": "10 fixed source files; one backward D-cone per synchronous dff group; all Q boundaries cut, formal equivalence to mapped combinational cone",
+  "limits": {
+    "max_graph_nodes": 1024,
+    "max_code_tokens": 2048,
+    "torch_threads": 2,
+    "max_eval_seconds": 1200
+  },
+  "metrics": [
+    "RTL-to-netlist Recall@1/5 and MRR among distinct new real cones",
+    "by source/family descriptive averages",
+    "code and graph OOV rates",
+    "paired inference edge corruption sensitivity"
+  ],
+  "summary": "Human model-authored per-design descriptions, before metrics; shared for registers in same design; not GPT pipeline or independently validated summaries",
+  "exclusions": "async FF, unsupported cells, undriven/X cone outputs, size caps; record all, no result-based exclusions",
+  "interpretation": "real open regression examples not industrial corpus; frozen transfer not closer Graphormer training; no PPA; multiple registers are clustered under source families"
+}
