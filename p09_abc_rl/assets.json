@@ -1,0 +1,276 @@
+{
+  "paper_id": "P09",
+  "title": "Retrieval-Guided Reinforcement Learning for Boolean Circuit Minimization",
+  "method": "ABC-RL",
+  "venue": "ICLR 2024",
+  "audit_date": "2026-10-28",
+  "audit_type": "static_asset_only",
+  "repository": {
+    "url": "https://github.com/NYU-MLDA/ABC-RL",
+    "author_link": "https://github.com/animeshbchowdhury",
+    "author_link_evidence": "pinned repository",
+    "revision_observed": "db6186cb4018963b5bc15926772c3edc0c2873f1",
+    "status": "confirmed_author_linked_wip",
+    "license_observed": "GPL-3.0"
+  },
+  "classification": {
+    "minimum_faithful": {
+      "class": "L2",
+      "confidence": "medium",
+      "condition": "Checkpoint usable after static-identified repairs; if retraining needed becomes L3"
+    },
+    "full_paper": {
+      "class": "L3",
+      "confidence": "medium_high",
+      "reason": "Faithful retraining/evaluation and provenance reconciliation; documented 350-550GB output and multi-day training"
+    }
+  },
+  "environment": {
+    "status": "ready",
+    "location": "selected_cloud",
+    "cwd": "/workspace",
+    "platform": "Linux x86_64",
+    "tools_on_path": [
+      "python3",
+      "curl",
+      "pdftotext"
+    ],
+    "tools_not_on_path": [
+      "abc",
+      "yosys",
+      "nvidia-smi"
+    ],
+    "gpu_status": "unverified",
+    "storage_total_GB_approx": 32,
+    "storage_available_GB_approx": 30,
+    "full_training_storage_sufficient": false
+  },
+  "paper_sources": [
+    {
+      "url": "https://proceedings.iclr.cc/paper_files/paper/2024/file/96bbdd0ed2a9e7cd2fb7caf2fae15f3d-Paper-Conference.pdf",
+      "status": "cloud_http_403_web_open_failed",
+      "contents_verified": false
+    },
+    {
+      "url": "https://arxiv.org/html/2401.12205v1",
+      "status": "cloud_http_403_web_text_accessible",
+      "contents_verified": "preprint_v1_only"
+    }
+  ],
+  "assets": [
+    {
+      "kind": "policy_checkpoint",
+      "path": "ABC-RL_ICLR/dump/pretrained_models/pretrained_TTSPLIT_5001/nn_model.pt",
+      "url": "https://github.com/NYU-MLDA/ABC-RL/blob/db6186cb4018963b5bc15926772c3edc0c2873f1/ABC-RL_ICLR/dump/pretrained_models/pretrained_TTSPLIT_5001/nn_model.pt",
+      "status": "metadata_present",
+      "display_size": "1.34 MB",
+      "payload_downloaded": false,
+      "compatibility": "unverified",
+      "training_provenance": "unverified"
+    },
+    {
+      "kind": "circuits",
+      "url": "https://github.com/NYU-MLDA/ABC-RL/tree/main/arithmetic",
+      "status": "tree_names_present_all_paper56",
+      "payload_downloaded": false,
+      "equivalence": "unverified"
+    },
+    {
+      "kind": "library",
+      "url": "https://github.com/NYU-MLDA/ABC-RL/blob/db6186cb4018963b5bc15926772c3edc0c2873f1/lib/7nm/7nm.lib",
+      "status": "metadata_present",
+      "display_size": "45.7 MB",
+      "payload_downloaded": false,
+      "corner_provenance": "unverified"
+    },
+    {
+      "kind": "external_model",
+      "identifier": "bert-base-cased",
+      "status": "code_dependency",
+      "revision": "unverified",
+      "downloaded": false
+    },
+    {
+      "kind": "retrieval_index",
+      "status": "unverified",
+      "note": "Evaluation shell hardcodes distances; scorer initializes fresh model"
+    },
+    {
+      "kind": "replay_training_data",
+      "status": "unverified_not_missing_confirmed"
+    }
+  ],
+  "contract": {
+    "actions": [
+      "refactor",
+      "refactor -z",
+      "rewrite",
+      "rewrite -z",
+      "resub",
+      "resub -z",
+      "balance"
+    ],
+    "resub_parameters": {
+      "k": 8,
+      "n": 1
+    },
+    "recipe_length": 10,
+    "metric": "post-map 7nm area-delay product",
+    "baseline": "resyn2 explicit code sequence",
+    "reward": "max(-1,1-ADP/baselineADP)",
+    "csv_metric": "baselineADP/ADP",
+    "retrieval": "minimum cosine distance in pretrained initial-AIG embedding bank",
+    "code_exponent": "beta=1-sigmoid(scaling*(distance-threshold))",
+    "threshold": 0.007,
+    "scaling": 100,
+    "equivalence_check": "not_seen_in_inspected_paths",
+    "budget": "100 CSV-loop evaluations plus root initialization and baseline"
+  },
+  "static_findings": [
+    {
+      "id": "S1",
+      "type": "defect",
+      "summary": "cosine_scorer checks supplied checkpoint then uses Trainer(None)",
+      "file": "cosine_scorer.py",
+      "line": 225,
+      "confidence": "high"
+    },
+    {
+      "id": "S2",
+      "type": "defect",
+      "summary": "torch.round in graph encoder forward blocks upstream policy-loss gradient under standard autograd",
+      "file": "LogicSynthesisPolicy.py",
+      "line": 157,
+      "confidence": "high_static_not_runtime_tested"
+    },
+    {
+      "id": "S3",
+      "type": "defect",
+      "summary": "rollout appends L-depth+1 commands",
+      "file": "LogicSynthesisEnv.py",
+      "line": 201,
+      "confidence": "high"
+    },
+    {
+      "id": "S4",
+      "type": "implementation_drift",
+      "summary": "two GCN layers; normalization bypass; full external BERT; split5001 has22 training designs",
+      "confidence": "high_static_checkpoint_history_unverified"
+    },
+    {
+      "id": "S5",
+      "type": "budget_contract",
+      "summary": "root rollout outside100row loop",
+      "file": "mcts.py",
+      "line": 658,
+      "confidence": "high"
+    }
+  ],
+  "cost": {
+    "training": "README10-12days A4000;350-550GB output, not measured",
+    "inference": "ABC synthesis rollouts dominate; no runtime measured",
+    "full_paper_storage_blocked_current_environment": true
+  },
+  "controlled_test": "After repairs, independent held-out equal-counted-budget searches with adaptive beta vs beta1/full guidance vs beta0; verify rollout policy before calling beta0 pure search; validation-only calibration, CEC, wall time and ADP curves; no off-policy unchosen-action counterfactuals.",
+  "not_performed": [
+    "upstream execution",
+    "experiments",
+    "inference",
+    "EDA",
+    "installation",
+    "large downloads",
+    "API calls",
+    "settings changes",
+    "pushes",
+    "checkpoint deserialization"
+  ],
+  "blockers": [
+    {
+      "action": "Read final proceedings PDF",
+      "target": "official PDF URL",
+      "status": "denied_http_403",
+      "reason": "source inaccessible from cloud; no retry",
+      "completed": "preprint method and author-linked source audit"
+    },
+    {
+      "action": "Full training readiness",
+      "target": "selected cloud workspace",
+      "status": "not_attempted_out_of_scope",
+      "reason": "~30GB available vs350-550GB documented, tools not on PATH, checkpoint provenance unverified"
+    }
+  ],
+  "local_source_evidence": [
+    {
+      "file": "evidence/code/LogicSynthesisEnv.py",
+      "bytes": 9112,
+      "sha256": "70ece36fe1ad7b5e1818c1df8910b7f933039e969826e3e67c2483663f59b1df",
+      "source_url": "https://raw.githubusercontent.com/NYU-MLDA/ABC-RL/db6186cb4018963b5bc15926772c3edc0c2873f1/ABC-RL_ICLR/src/LogicSynthesisEnv.py"
+    },
+    {
+      "file": "evidence/code/LogicSynthesisPolicy.py",
+      "bytes": 9081,
+      "sha256": "4021b690918f8196d43a2477b111aeec825e2bf9ff894dcfe2a4147d386af78c",
+      "source_url": "https://raw.githubusercontent.com/NYU-MLDA/ABC-RL/db6186cb4018963b5bc15926772c3edc0c2873f1/ABC-RL_ICLR/src/LogicSynthesisPolicy.py"
+    },
+    {
+      "file": "evidence/code/README.md",
+      "bytes": 1581,
+      "sha256": "a477f724437f98ee611b2b1aeeb727b4077774d267f44715e14d7a4980c4663f",
+      "source_url": "https://raw.githubusercontent.com/NYU-MLDA/ABC-RL/db6186cb4018963b5bc15926772c3edc0c2873f1/README.md"
+    },
+    {
+      "file": "evidence/code/cosine_scorer.py",
+      "bytes": 11093,
+      "sha256": "5df17ad2fb645c8066d833fcb7e23e952b51accdb63346a46388c3ba2f0d0dc7",
+      "source_url": "https://raw.githubusercontent.com/NYU-MLDA/ABC-RL/db6186cb4018963b5bc15926772c3edc0c2873f1/ABC-RL_ICLR/src/cosine_scorer.py"
+    },
+    {
+      "file": "evidence/code/evaluate_on_test_circuit.sh",
+      "bytes": 18638,
+      "sha256": "908a4ddcb49c07d57cccc44bcdf5aa6c3e0709e812aa1651e47c7346416812fc",
+      "source_url": "https://raw.githubusercontent.com/NYU-MLDA/ABC-RL/db6186cb4018963b5bc15926772c3edc0c2873f1/ABC-RL_ICLR/src/evaluate_on_test_circuit.sh"
+    },
+    {
+      "file": "evidence/code/evaluate_synergy.py",
+      "bytes": 6004,
+      "sha256": "f7068b9735d814fbeaef54cbf21a53089c048a024e10a07c50407ff0997e5392",
+      "source_url": "https://raw.githubusercontent.com/NYU-MLDA/ABC-RL/db6186cb4018963b5bc15926772c3edc0c2873f1/ABC-RL_ICLR/src/evaluate_synergy.py"
+    },
+    {
+      "file": "evidence/code/main.py",
+      "bytes": 13827,
+      "sha256": "c942879c29add3f9d2f16564f2701584c9d5f5aa0ec03f77252ccf847b9d80f9",
+      "source_url": "https://raw.githubusercontent.com/NYU-MLDA/ABC-RL/db6186cb4018963b5bc15926772c3edc0c2873f1/ABC-RL_ICLR/src/main.py"
+    },
+    {
+      "file": "evidence/code/mcts.py",
+      "bytes": 32532,
+      "sha256": "60299e437e42c1856fbb29909e630db3f945fcb66e7bf6dd7626930912841918",
+      "source_url": "https://raw.githubusercontent.com/NYU-MLDA/ABC-RL/db6186cb4018963b5bc15926772c3edc0c2873f1/ABC-RL_ICLR/src/mcts.py"
+    },
+    {
+      "file": "evidence/code/mcts_agent_training.sh",
+      "bytes": 492,
+      "sha256": "db0395495235a4525ab08861fe8c4a75aa6e07540079a4b60ce195cc3c6e323e",
+      "source_url": "https://raw.githubusercontent.com/NYU-MLDA/ABC-RL/db6186cb4018963b5bc15926772c3edc0c2873f1/ABC-RL_ICLR/src/mcts_agent_training.sh"
+    },
+    {
+      "file": "evidence/code/static_env.py",
+      "bytes": 2446,
+      "sha256": "26c5b8aafd1103e3d80826705133c0cbb9b40b469b89d7bb779bffbe8dbe22b1",
+      "source_url": "https://raw.githubusercontent.com/NYU-MLDA/ABC-RL/db6186cb4018963b5bc15926772c3edc0c2873f1/ABC-RL_ICLR/src/static_env.py"
+    },
+    {
+      "file": "evidence/code/trainer.py",
+      "bytes": 8183,
+      "sha256": "c9a8e0b50c764c8b2a5402a9c7862d52c40054211b3156e7ff3cb12efed46cc2",
+      "source_url": "https://raw.githubusercontent.com/NYU-MLDA/ABC-RL/db6186cb4018963b5bc15926772c3edc0c2873f1/ABC-RL_ICLR/src/trainer.py"
+    },
+    {
+      "file": "evidence/code/utils.py",
+      "bytes": 790,
+      "sha256": "aa63697d3b2c7bab1b6f95ba8519b31413261d93cfb5affb6c24f620e8a8a984",
+      "source_url": "https://raw.githubusercontent.com/NYU-MLDA/ABC-RL/db6186cb4018963b5bc15926772c3edc0c2873f1/ABC-RL_ICLR/src/utils.py"
+    }
+  ]
+}
