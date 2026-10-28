@@ -1,5 +1,7 @@
 # P07 VeriThoughts: bounded CPU evaluator pilot
 
+Latest: [Mac/APRIL fixed-benchmark continuation](P07_VeriThoughts/continuation/RESULTS.md) verifies the exact 291-row file, completes all 32 preregistered frontend samples, and checks a real stored pair with negative controls. New work is local only; fresh generation and training remain unexecuted.
+
 Local branch `reproduction/verithoughts-neurips2025`. No external push or PR.
 
 - [Pilot result and interpretation](P07_VeriThoughts/pilot/RESULTS.md)
