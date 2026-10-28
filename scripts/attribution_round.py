@@ -2,11 +2,15 @@
 import argparse,copy,gzip,hashlib,heapq,json,math,os,random,re,subprocess,time
 from pathlib import Path
 from z3 import BitVec,Or,Solver
-from behavior_engine import build,extract,initial_costs,emit,zexpr,reference
+from behavior_engine import build,extract,initial_costs,emit,zexpr,reference as legacy_reference,FIXTURES
 ROOT=Path(__file__).resolve().parents[1];os.chdir(ROOT)
 C=json.loads(Path('configs/attribution_round.json').read_text());O=Path('results/attribution_round');L=Path('logs/attribution_round');OPS={'Add','Sub','Mul','Shl'}
 def save(p,v):p.parent.mkdir(parents=True,exist_ok=True);p.write_text(json.dumps(v,indent=2))
 def sha(v):return hashlib.sha256(json.dumps(v,sort_keys=True).encode()).hexdigest()
+FIXTURES['mcm593']=['(Mul (Num 5) (Var \"x\"))','(Mul (Num 93) (Var \"x\"))']
+def reference(name,w):
+ if name=='mcm593':return [('Mul',('Num',c),('Var','x')) for c in [5,93]],['x']
+ return legacy_reference(name,w)
 def graph_for(name):return build(name,'expanded','constants_only',C['rounds'],C['node_limit'])
 def tagged(graph,ex,w):
  nodes=graph['nodes'];choices=ex['choices'];lines=[];line_nodes={};memo={};terms={};variables=set()
@@ -132,9 +136,9 @@ def structural_update(g,c,ex):
  if n:new[n]+=3
  return new,n
 
-def preflight():
+def preflight(items=None):
  result=[]
- for item in C['fixtures']:
+ for item in (items or C['fixtures']):
   g,info=graph_for(item['name']);save(O/'graphs'/f"{item['name']}.json",g);save(O/'graphs'/f"{item['name']}_build.json",info);c=initial_costs(g);seen=set();count=0;effort=[]
   for _ in range(6):
    r=novel(g,c,seen,item['width'])
@@ -142,7 +146,9 @@ def preflight():
    text,*_=tagged(g,r[1],item['width']);seen.add(hashlib.sha256(text.encode()).hexdigest());effort.append(r[2]);count+=1
   assert count==6,'insufficient unique structural alternatives; no EDA sweep authorized by preflight'
   result.append(dict(**item,nodes=len(g['nodes']),graph_sha256=sha(g),unique_fixed_preflight=count,extraction_effort=effort))
- save(O/'preflight.json',result);print(json.dumps(result,indent=2))
+ prior=json.loads((O/'preflight.json').read_text()) if (O/'preflight.json').exists() else []
+ for item in result:prior=[r for r in prior if r['name']!=item['name']]+[item]
+ save(O/'preflight.json',prior);print(json.dumps(result,indent=2))
 
 def pilot():
  item=C['fixtures'][0];g,info=graph_for(item['name']);c=initial_costs(g);ts,ex=extract(g,c);m=evaluate(g,ex,item['name'],item['width'],'pilot_tagged_mcm_w12');save(O/'pilot_attribution.json',dict(metrics=m,extraction=ex,costs=c));assert m['coverage']>=C['attribution_min_coverage'],'STOP attribution coverage below gate';print(json.dumps({k:v for k,v in m.items() if k not in ['cell_to_enodes','terms']},indent=2))
@@ -151,3 +157,40 @@ if __name__=='__main__':
  p=argparse.ArgumentParser();p.add_argument('--preflight',action='store_true');p.add_argument('--pilot',action='store_true');a=p.parse_args();O.mkdir(exist_ok=True);L.mkdir(exist_ok=True)
  if a.preflight:preflight()
  if a.pilot:pilot()
+
+def compare(items=None):
+ assert (O/'mechanism_tests.json').exists(), 'mechanism gate not complete'
+ summary=[]
+ for item in (items or C['fixtures']):
+  name,w=item['name'],item['width'];assert not list((O/'sessions').glob(f'{name}_w{w}_*.json')), 'case already completed'
+  g=json.loads((O/'graphs'/f'{name}.json').read_text());gsha=sha(g)
+  for policy in C['strategies']:
+   wall=time.perf_counter();costs=initial_costs(g);accepted_costs=dict(costs);best_score=float('inf');seen=set();records=[];rng=random.Random(0);controller_seconds=0;extract_seconds=0
+   for q in range(C['actual_synthesis_budget_per_arm']):
+    t=time.perf_counter();candidate=novel(g,costs,seen,w);extract_seconds+=time.perf_counter()-t;assert candidate,(name,policy,q,'novelty exhausted; bounded failure')
+    terms,ex,search=candidate;ident=f'{name}_w{w}_{policy}_q{q}';c_before=dict(costs);m=evaluate(g,ex,name,w,ident);assert m['rtl_sha256'] not in seen;seen.add(m['rtl_sha256'])
+    if m['coverage']<C['attribution_min_coverage'] or m['named_node_coverage']<C['attribution_min_named_fraction']:
+     save(O/'failures'/f'{ident}.json',dict(status='attribution gate failed; branch stopped',metrics=m,extraction=ex,novelty=search,fixture=name,width=w,policy=policy,query=q));raise RuntimeError('attribution gate failed')
+    t=time.perf_counter();action=dict(policy=policy,costs_before_sha=sha(costs),rollback=False,deltas={},has_successor_in_budget=q+1<C['actual_synthesis_budget_per_arm'])
+    if policy=='random':
+     costs={n:rng.choice([.25,1,3,10]) if v['op'] in OPS else 0 for n,v in g['nodes'].items()};action['response_read']=False
+    elif policy=='openloop':
+     costs,n=structural_update(g,costs,ex);action.update(response_read=False,selected_node=n)
+    elif policy=='numerical':
+     action['response_read']=True
+     if m['gates']>best_score:
+      costs=dict(accepted_costs);action['rollback']=True;action['rejected_gates']=m['gates'];action['accepted_gates']=best_score
+      _,aex=extract(g,costs);_,bex=extract(g,c_before);action['rollback_changes_raw_extraction']=sha(tagged(g,aex,w)[0])!=sha(tagged(g,bex,w)[0])
+      a=novel(g,costs,seen,w);b=novel(g,c_before,seen,w)
+      action['actual_successor_rtl_sha']=hashlib.sha256(tagged(g,a[1],w)[0].encode()).hexdigest() if a else None
+      action['counterfactual_no_rollback_successor_rtl_sha']=hashlib.sha256(tagged(g,b[1],w)[0].encode()).hexdigest() if b else None
+      action['rollback_changes_novel_successor']=action['actual_successor_rtl_sha']!=action['counterfactual_no_rollback_successor_rtl_sha']
+     else:
+      best_score=m['gates'];accepted_costs=dict(costs);costs,ds=numerical_update(costs,m,w);action['deltas']=ds;action['accepted_gates']=best_score
+    else:action['response_read']=False
+    action['costs_after_sha']=sha(costs);controller_seconds+=time.perf_counter()-t
+    r=dict(id=ident,fixture=name,width=w,policy=policy,query=q,graph_sha256=gsha,metrics=m,extraction=ex,novelty=search,costs_before=c_before,costs_after=costs,action=action);save(O/'runs'/f'{ident}.json',r);records.append(r)
+   for q,r in enumerate(records[:-1]):
+    if r['action']['rollback']:assert records[q+1]['metrics']['rtl_sha256']==r['action']['actual_successor_rtl_sha']
+   b=min(r['metrics']['gates'] for r in records);last=records[-1];s=dict(fixture=name,width=w,policy=policy,graph_sha256=gsha,queries=len(records),true_synthesis_calls=len(records),rtl_sat_calls=len(records),unique_rtl=len(seen),duplicate_rate=0,last_candidate=dict(id=last['id'],gates=last['metrics']['gates'],depth=last['metrics']['depth']),external_best_gates=b,external_best_point_ids=[r['id'] for r in records if r['metrics']['gates']==b],observed_paired_metrics=[dict(id=r['id'],gates=r['metrics']['gates'],depth=r['metrics']['depth']) for r in records],wall_seconds=time.perf_counter()-wall,controller_seconds=controller_seconds,extraction_seconds=extract_seconds,offline_eda_oracle=0,model_calls=0,record_ids=[r['id'] for r in records]);save(O/'sessions'/f'{name}_w{w}_{policy}.json',s);summary.append(s);print(json.dumps(s),flush=True)
+ save(O/'comparison_summary.json',[json.loads(p.read_text()) for p in sorted((O/'sessions').glob('*.json'))])

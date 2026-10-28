@@ -1,0 +1,14 @@
+module dut(input [11:0] x0,input [11:0] x1,input [11:0] x2,output [11:0] y0);
+wire [11:0] n_8d181465ce00 = (x0 << 1);
+wire [11:0] n_772ecd5688d2 = (12'd6 * n_8d181465ce00);
+wire [11:0] n_372383f442af = (12'd41 * x1);
+wire [11:0] n_7faebb8dce38 = (n_772ecd5688d2 + n_372383f442af);
+wire [11:0] n_3595e26017eb = (12'd21 * x2);
+wire [11:0] n_a257b22cb499 = (n_7faebb8dce38 + n_3595e26017eb);
+assign y0 = n_a257b22cb499;
+endmodule
+module miter(input [11:0] x0,input [11:0] x1,input [11:0] x2,output bad);
+wire [11:0] y0; wire [11:0] r0 = (((12'd12 * x0) + (12'd41 * x1)) + (12'd21 * x2));
+dut d(.x0(x0),.x1(x1),.x2(x2),.y0(y0));
+assign bad = (|(y0 ^ r0));
+endmodule

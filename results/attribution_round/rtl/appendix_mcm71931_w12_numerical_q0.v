@@ -1,0 +1,8 @@
+module top(input [11:0] x,output [11:0] y0,output [11:0] y1,output [11:0] y2);
+wire [11:0] n_fee510144b2f = (12'd7 * x);
+wire [11:0] n_372383f442af = (12'd19 * x);
+wire [11:0] n_3595e26017eb = (12'd31 * x);
+assign y0 = n_fee510144b2f;
+assign y1 = n_372383f442af;
+assign y2 = n_3595e26017eb;
+endmodule
