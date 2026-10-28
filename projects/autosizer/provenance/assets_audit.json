@@ -1,0 +1,666 @@
+{
+  "schema_version": "1.0",
+  "paper_id": "P08",
+  "title": "AutoSizer",
+  "audit_date_utc": "2026-10-28",
+  "audit_mode": "asset_only",
+  "runtime_success_claimed": false,
+  "environment": {
+    "environment_id": "[redacted-local-execution-id]",
+    "status": "ready",
+    "cwd": "/workspace",
+    "platform": "Linux",
+    "kernel": "6.18.55",
+    "architecture": "x86_64",
+    "distribution": "Debian GNU/Linux 13.6",
+    "python": "3.12.14",
+    "visible_logical_cpus": 5,
+    "cpu_quota": "400000 100000",
+    "memory_limit_bytes": 17179869184,
+    "disk_free_bytes_at_artifact_creation": 32032382976,
+    "tools_on_path": {
+      "python": true,
+      "git": true,
+      "pdftotext": true,
+      "ngspice": false,
+      "spectre": false,
+      "magic": false,
+      "schematic2layout.py": false,
+      "nvidia-smi": false
+    },
+    "packages": {
+      "numpy": {
+        "installed": true,
+        "version": "2.3.5"
+      },
+      "scipy": {
+        "installed": true,
+        "version": "1.17.0"
+      },
+      "scikit-optimize": {
+        "installed": false,
+        "version": null
+      },
+      "PyYAML": {
+        "installed": true,
+        "version": "6.0.3"
+      },
+      "google-generativeai": {
+        "installed": false,
+        "version": null
+      },
+      "python-dotenv": {
+        "installed": true,
+        "version": "1.2.2"
+      },
+      "openai": {
+        "installed": false,
+        "version": null
+      },
+      "scikit-learn": {
+        "installed": true,
+        "version": "1.8.0"
+      }
+    },
+    "gpu_devices_visible": false,
+    "secrets_read": false,
+    "model_endpoint_tested": false,
+    "project_executed": false
+  },
+  "classification": {
+    "minimal_faithful_mechanism": {
+      "level": "L2",
+      "confidence": "medium-high",
+      "go_no_go": "conditional_go_future_pilot",
+      "reason": "Actual controller, optimizer, feedback and 24 configs exist; simulator/PDK/SDK setup and metric review required."
+    },
+    "full_paper_result": {
+      "level": "L3",
+      "provisional": true,
+      "confidence": "medium",
+      "go_no_go": "no_go_immediate_full_suite",
+      "reason": "Circuit semantic/measurement gaps, exact baseline runners and accounting must be resolved; engineering cost uncertain, not GPU training cost."
+    }
+  },
+  "sources": {
+    "repository": "https://github.com/yuxi120407/AutoSizer",
+    "commit": "1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1",
+    "final_record": "https://proceedings.mlr.press/v306/yu26aw.html",
+    "final_pdf": "https://raw.githubusercontent.com/mlresearch/v306/main/assets/yu26aw/yu26aw.pdf",
+    "final_pdf_sha256": "0a4326aad8d813a6337115ecf1980d6829fd87f69d439e4133edc47548e91e0e",
+    "arxiv_v2": "https://arxiv.org/abs/2602.02849v2",
+    "arxiv_v2_html": "https://arxiv.org/html/2602.02849v2"
+  },
+  "provenance": {
+    "pinned_source_files_verified": 49,
+    "all_match_commit": true,
+    "recursive_inventory_complete": false
+  },
+  "code": {
+    "status": "confirmed",
+    "license": "not_confirmed",
+    "readme_under_construction": true,
+    "source_manifest": "evidence/source_manifest.json",
+    "release_page_reports_releases": false,
+    "tags_status": "unverified_access_restricted"
+  },
+  "benchmark": {
+    "configs_confirmed": 24,
+    "simulation_helpers_confirmed": 12,
+    "required_fields_present_all": true,
+    "config_inventory": "evidence/config_inventory.json",
+    "training_data_required": false,
+    "large_data_downloaded": false,
+    "raw_paper_trials": "not_found_in_inspected_assets_not_exhaustive"
+  },
+  "models": {
+    "paper_backend": "gemini-2.5-flash",
+    "hosted": true,
+    "checkpoint_required_for_hosted_route": false,
+    "checkpoint_supplied": "none_identified",
+    "training_required": false,
+    "endpoint_access": "unverified",
+    "api_called": false,
+    "paper_generation_config": {
+      "temperature": 0.4,
+      "top_p": 0.85,
+      "top_k": 20,
+      "max_output_tokens": 8192
+    },
+    "code_max_output_tokens": 65536
+  },
+  "container": {
+    "bytes": 2054,
+    "members": [
+      "install_magic.sh",
+      "install_align.sh",
+      "Dockerfile"
+    ],
+    "ready_built_image": false,
+    "built": false
+  },
+  "missing_or_unresolved": [
+    {
+      "asset": "ngspice",
+      "status": "not_on_path",
+      "route": "all_simulation"
+    },
+    {
+      "asset": "SKY130 device model installation and revision",
+      "status": "not_observed_in_inspected_workspace; external paths required",
+      "route": "all_simulation"
+    },
+    {
+      "asset": "scikit-optimize",
+      "status": "not_installed",
+      "route": "core"
+    },
+    {
+      "asset": "google-generativeai",
+      "status": "not_installed",
+      "route": "core_Gemini"
+    },
+    {
+      "asset": "authorized hosted model access/quota",
+      "status": "unverified",
+      "route": "LLM_controller"
+    },
+    {
+      "asset": "app.tool.magic_pex.MagicPEXTool",
+      "status": "referenced_but_not_in_observed_root_or_requirements",
+      "route": "optional_PEX"
+    },
+    {
+      "asset": "authors standardized standalone baseline implementations",
+      "status": "not_found_in_inspected_inventory; elsewhere_unknown",
+      "route": "full_paper_comparison"
+    },
+    {
+      "asset": "AutoSizer code and benchmark license",
+      "status": "not_confirmed",
+      "route": "reuse_provenance"
+    }
+  ],
+  "paper_version_comparison": {
+    "method": "final_local_PDF_text_vs_web_arxiv_v2_targeted_sections_and_table",
+    "complete_diff": false,
+    "asset_relevant_change_found": false,
+    "shared_protocol": {
+      "circuits": 24,
+      "trials": 3,
+      "max_outer_cycles": 3,
+      "samples_per_outer_cycle": 100,
+      "total_candidates_per_trial": 300
+    }
+  },
+  "gaps": [
+    {
+      "id": "G1",
+      "type": "verified_static_discrepancy",
+      "description": "Code max output tokens 65536 versus paper 8192."
+    },
+    {
+      "id": "G2",
+      "type": "verified_documentation_discrepancy_and_testable_runtime_accounting",
+      "description": "README says global 100; fresh optimizer each cycle applies 100 per cycle; hard batch clamp not identified; distinguish attempts, successful results and SPICE processes."
+    },
+    {
+      "id": "G3",
+      "type": "verified_questionable_measurement_definition_not_runtime_validated",
+      "description": "Folded-cascode extra power multiplier 100, processed uW threshold 1.0 and gain threshold 1.5; actual electrical impact unverified. Normalized FoM overrides YAML fallback on normal controller path."
+    },
+    {
+      "id": "G4",
+      "type": "third_party_report_partly_static_correlated",
+      "description": "Issue 3 hard circuit problems; current LDO float cast means prior string ibias failure not established on wrapper path. PNP compatibility and model width bins require validation."
+    },
+    {
+      "id": "G5",
+      "type": "verified_unsafe_branch_no_trigger_execution",
+      "description": "Empty valid FoM list can be indexed at [0]."
+    },
+    {
+      "id": "G6",
+      "type": "testable_mechanism_question",
+      "description": "Compare outer reflection against equal-budget frozen space/restart control; evaluate inference and failed-simulation costs."
+    }
+  ],
+  "future_pilot": {
+    "executed": false,
+    "circuit": "telescopic_ota",
+    "conditions": [
+      "full_reflective_outer_loop",
+      "frozen_initial_search_space"
+    ],
+    "seeds_per_condition": 3,
+    "cycles_per_trial": 3,
+    "proposals_per_cycle": 30,
+    "maximum_proposals_total": 540,
+    "spice_invocation_count": "may exceed proposals; instrument separately",
+    "metrics": [
+      "best_feasible_fom_vs_attempts",
+      "first_feasible_attempt",
+      "boundary_concentration",
+      "variable_reactivation",
+      "invalid_results",
+      "wall_time",
+      "api_tokens"
+    ],
+    "preserve": [
+      "actual_SKY130_circuit_feedback",
+      "circuit_understanding",
+      "multiple_numeric_optimizers",
+      "adaptive_outer_revision"
+    ],
+    "cpu_cores_estimate": [
+      2,
+      4
+    ],
+    "ram_gib_estimate": [
+      8,
+      16
+    ],
+    "gpu_required_hosted_route": false,
+    "training_required": false,
+    "api_calls_cap_example_per_trial": 20,
+    "api_dollar_cost": "unknown_no_price_or_token_measurement",
+    "integration_effort_estimate": "0.5-2 engineer-days contingent on access and metrics",
+    "estimate_not_measurement": true
+  },
+  "full_route_cost": {
+    "autosizer_nominal_proposal_ceiling": 21600,
+    "seven_methods_nominal_proposal_ceiling": 151200,
+    "excludes": [
+      "early_stopping",
+      "ablations",
+      "reruns",
+      "multipoint_simulation_expansion"
+    ],
+    "engineering_effort_estimate": "several engineer-days to weeks; uncertain",
+    "gpu_hours": "not_required_for_hosted_route",
+    "api_cost": "unknown",
+    "training_data": "not_required"
+  },
+  "access_limits": [
+    {
+      "action": "read metadata/tree/releases/tags/branches",
+      "target": "https://api.github.com/repos/yuxi120407/AutoSizer",
+      "status": "denied",
+      "reason": "proxy tunnel 403",
+      "impact": "no exhaustive API tree/history",
+      "retry": false
+    },
+    {
+      "action": "download arxiv v2 PDF in cloud",
+      "target": "https://arxiv.org/pdf/2602.02849v2",
+      "status": "denied",
+      "reason": "proxy tunnel 403",
+      "impact": "no complete local byte/text diff; public web text accessible",
+      "retry": false
+    },
+    {
+      "action": "web-read selected directory/tag/commit pages",
+      "target": "github.com/yuxi120407/AutoSizer",
+      "status": "restricted",
+      "reason": "web tool restricted URL",
+      "impact": "bounded inventory only"
+    }
+  ],
+  "restrictions_observed": {
+    "experiments_run": false,
+    "inference_run": false,
+    "eda_run": false,
+    "packages_installed": false,
+    "large_assets_downloaded": false,
+    "settings_changed": false,
+    "pushed": false,
+    "published": false,
+    "gated_license_accepted": false,
+    "another_paper_started": false
+  },
+  "files": [
+    {
+      "path": "run_all_gemini_2_5.sh",
+      "bytes": 165,
+      "sha256": "2c0a828ef4bdce7867aa3f80351a19df08c9246dbf802206a1277c084df730d0",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/run_all_gemini_2_5.sh"
+    },
+    {
+      "path": "run_gemini_2_5.sh",
+      "bytes": 222,
+      "sha256": "dfc4350c480c4cb5a2180e4b9c5182cdcf01aaee879e3d15a72b0c27e7a970c0",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/run_gemini_2_5.sh"
+    },
+    {
+      "path": "main.py",
+      "bytes": 24547,
+      "sha256": "fc4ffc01b8571c9ca5767dee1bbe466ab1ec346484886fc73cee5e03ea9ef986",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/main.py"
+    },
+    {
+      "path": "README.md",
+      "bytes": 18451,
+      "sha256": "ad6d9c5c5022612c51ec3baf87cae7bc7e77eeb47aee5736cfaf079dcee1a017",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/README.md"
+    },
+    {
+      "path": "prompts.py",
+      "bytes": 28626,
+      "sha256": "938d3b6d5618cd8ecc68ced4b8968cb6f98ca3bd305771931a54804ec7701259",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/prompts.py"
+    },
+    {
+      "path": "advanced_search_methods_test.py",
+      "bytes": 82028,
+      "sha256": "5af6e638fe474a850a4658ef7efa11dddf03531a397e5d762489e0442dadfe12",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/advanced_search_methods_test.py"
+    },
+    {
+      "path": "llm_guided_ota_optimization_test.py",
+      "bytes": 124044,
+      "sha256": "55b70b88fe5d985a8fbacaeb00fcdeee12f86c6b806ca6f01829c4e53f15bd53",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/llm_guided_ota_optimization_test.py"
+    },
+    {
+      "path": "test_magic_pex.py",
+      "bytes": 5661,
+      "sha256": "ae53cafcd4099a75a73f8f67edb550534e0caa601cc7cff8b177fed74d5e4111",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/test_magic_pex.py"
+    },
+    {
+      "path": "iterative_ota_optimization_test.py",
+      "bytes": 143240,
+      "sha256": "3955f3b872b4ae44337b020fbd5404d122d4a609b7491574f90baed5542e8d28",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/iterative_ota_optimization_test.py"
+    },
+    {
+      "path": "problem_agent_test.py",
+      "bytes": 17608,
+      "sha256": "da839503d524a7fd3f2b4f9672e8b95da73352f6f33a321a2c3187f8e2156740",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/problem_agent_test.py"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 111,
+      "sha256": "df0bd5ed02c8978f14fcd77a2098132589cac6bd6577995bb1229a0e65487c65",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/requirements.txt"
+    },
+    {
+      "path": "autosizer_container.zip",
+      "bytes": 2054,
+      "sha256": "8495f8de354c9371cb1d434db127ca89e911eae620e0d627f7c226bc3a45eab9",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/autosizer_container.zip"
+    },
+    {
+      "path": "utils/feedback_extraction.py",
+      "bytes": 49525,
+      "sha256": "792543127b7533a232eddf5b24c620dc9c457aab9f957871e0bc492af224b10a",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/utils/feedback_extraction.py"
+    },
+    {
+      "path": "AMS-SizingBench/folded_cascode_ota_hp.yaml",
+      "bytes": 6786,
+      "sha256": "6f3deb543c309d9ca55ee16d3d86ced2662749caa50d6629472c8fb010be2cd8",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/AMS-SizingBench/folded_cascode_ota_hp.yaml"
+    },
+    {
+      "path": "AMS-SizingBench/azc.yaml",
+      "bytes": 5485,
+      "sha256": "8cd6f3fcb5ae5adf4e029adf07e82057fe0cac7525a5c8bd5c1bafe78357a20d",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/AMS-SizingBench/azc.yaml"
+    },
+    {
+      "path": "AMS-SizingBench/xor_gate.yaml",
+      "bytes": 4358,
+      "sha256": "ca35a872562f74a52c2db22d058c49e404b907ec3af856e507b2bf08efddf949",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/AMS-SizingBench/xor_gate.yaml"
+    },
+    {
+      "path": "AMS-SizingBench/folded_cascode_ota_bandp.yaml",
+      "bytes": 6780,
+      "sha256": "30e8d8a51de953a532e255103b2738a005bb4494f33f3996a232a574e603ad74",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/AMS-SizingBench/folded_cascode_ota_bandp.yaml"
+    },
+    {
+      "path": "AMS-SizingBench/folded_cascode_ota.yaml",
+      "bytes": 5401,
+      "sha256": "770622d6025ef5e651cdeb23d7cb1316e70e454e32e10b734211040598efca4c",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/AMS-SizingBench/folded_cascode_ota.yaml"
+    },
+    {
+      "path": "AMS-SizingBench/folded_cascode_ota_lp.yaml",
+      "bytes": 7143,
+      "sha256": "eb814638864a6c836c8a06b9aa647859dea164866067f92dea77dd66bcbf7335",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/AMS-SizingBench/folded_cascode_ota_lp.yaml"
+    },
+    {
+      "path": "AMS-SizingBench/voltage_controlled_osc.yaml",
+      "bytes": 4800,
+      "sha256": "d7d290d56ccf3c95bf6b4e865e06cb3656c3d25da297168eb8e1ad48bfd52b71",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/AMS-SizingBench/voltage_controlled_osc.yaml"
+    },
+    {
+      "path": "AMS-SizingBench/five_trans_ota.yaml",
+      "bytes": 3311,
+      "sha256": "278050036f1159b141a842063367fb1aa5081aa1075ef7523c6ae85dcb703209",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/AMS-SizingBench/five_trans_ota.yaml"
+    },
+    {
+      "path": "AMS-SizingBench/3_stage_ring_osc.yaml",
+      "bytes": 3700,
+      "sha256": "852b7eddde1b10fefd176d898a91795bc46f4b6516264314e9c1096baf4c2a7d",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/AMS-SizingBench/3_stage_ring_osc.yaml"
+    },
+    {
+      "path": "AMS-SizingBench/bandgap_reference.yaml",
+      "bytes": 4423,
+      "sha256": "03eccae641a7405ba5f4de4c0c7d0d3a99f9746be30663eda4c18d70a1f7a1f7",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/AMS-SizingBench/bandgap_reference.yaml"
+    },
+    {
+      "path": "AMS-SizingBench/nand_gate.yaml",
+      "bytes": 3809,
+      "sha256": "63f5acc322f994e473b779cea2a9dd4e3182e4022757ab70f1d282310022bf4e",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/AMS-SizingBench/nand_gate.yaml"
+    },
+    {
+      "path": "AMS-SizingBench/iac.yaml",
+      "bytes": 5630,
+      "sha256": "5c9af472d73a0363fc5759b4f15c53cfa9a6ae3a8eacfdb84caa41e024a1a1ea",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/AMS-SizingBench/iac.yaml"
+    },
+    {
+      "path": "AMS-SizingBench/switched_capacitor.yaml",
+      "bytes": 5662,
+      "sha256": "ff1a2f8031a1b7c7bdfa9bd780cf58147dfe15d0959ac2a1c450c63a3636e9c6",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/AMS-SizingBench/switched_capacitor.yaml"
+    },
+    {
+      "path": "AMS-SizingBench/inverter.yaml",
+      "bytes": 4207,
+      "sha256": "35dd54d7c40c8738493c547ea0af835520765a043b35267706a9f3fe4c49a2e5",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/AMS-SizingBench/inverter.yaml"
+    },
+    {
+      "path": "AMS-SizingBench/smc.yaml",
+      "bytes": 4754,
+      "sha256": "f0bbcb77d53cf7dcd5309dadd381c0ca78a810232c519c66c5de81cca0ab12ab",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/AMS-SizingBench/smc.yaml"
+    },
+    {
+      "path": "AMS-SizingBench/buffer.yaml",
+      "bytes": 4115,
+      "sha256": "7491b3fc682b1bb935c1480bf77b8a032c393c4fe2f23110435137fe809f8aca",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/AMS-SizingBench/buffer.yaml"
+    },
+    {
+      "path": "AMS-SizingBench/dfcfc.yaml",
+      "bytes": 4969,
+      "sha256": "0d2c52276a42b2776b72f04ce27919072356867be51b4a3a2055db23ada650fb",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/AMS-SizingBench/dfcfc.yaml"
+    },
+    {
+      "path": "AMS-SizingBench/diode_load_amp.yaml",
+      "bytes": 2931,
+      "sha256": "e16a6b2c44fc7543d93ce7c3083331b116d998c82fcc0af97726f87e191fe0f5",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/AMS-SizingBench/diode_load_amp.yaml"
+    },
+    {
+      "path": "AMS-SizingBench/telescopic_ota.yaml",
+      "bytes": 4903,
+      "sha256": "eb2430d2b780755efd9ebefcfac7be02446955ebc82468b3f10477eca3a89476",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/AMS-SizingBench/telescopic_ota.yaml"
+    },
+    {
+      "path": "AMS-SizingBench/resistive_load_amp.yaml",
+      "bytes": 2830,
+      "sha256": "bf91562b3e9e12a6bd98c48c58009b3ccd4c79b0a5fb73a12d51bc0b798e8b71",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/AMS-SizingBench/resistive_load_amp.yaml"
+    },
+    {
+      "path": "AMS-SizingBench/current_mirror_ota.yaml",
+      "bytes": 3749,
+      "sha256": "8e39ae630614835d25530a9f1debfb2f9bc190124afd589996fb27070fdbe8e4",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/AMS-SizingBench/current_mirror_ota.yaml"
+    },
+    {
+      "path": "AMS-SizingBench/nmcnr.yaml",
+      "bytes": 4896,
+      "sha256": "a942306c35064306f927c43f92877907bf11aadf14d70ed5a3b089caf8918b5c",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/AMS-SizingBench/nmcnr.yaml"
+    },
+    {
+      "path": "AMS-SizingBench/ldo_regulator.yaml",
+      "bytes": 4541,
+      "sha256": "d31499ec4883ca200568b4b338ba91cb45471b83eeea5872e5ce5b84e9c4f92b",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/AMS-SizingBench/ldo_regulator.yaml"
+    },
+    {
+      "path": "AMS-SizingBench/fdgb.yaml",
+      "bytes": 5553,
+      "sha256": "3aaa401c396ca5a7251562da82dbb7a9575a55f7b8755918c7276edc411ea0dd",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/AMS-SizingBench/fdgb.yaml"
+    },
+    {
+      "path": "circuit_sim/resistive_load_amp_sim.py",
+      "bytes": 9843,
+      "sha256": "c325bffdbae55527f8a68ec44707310849156156f96086a5a8632aa0e38193f8",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/circuit_sim/resistive_load_amp_sim.py"
+    },
+    {
+      "path": "circuit_sim/nand_gate_sim.py",
+      "bytes": 9130,
+      "sha256": "0bc3565c1a8848f5040c3dcca659614cb103091db9e38273835b61bb8682a25b",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/circuit_sim/nand_gate_sim.py"
+    },
+    {
+      "path": "circuit_sim/ldo_regulator_sim.py",
+      "bytes": 28384,
+      "sha256": "80abd2a195774fb5bb41cb925bd301d74db42224271811a8088bd9a34a908807",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/circuit_sim/ldo_regulator_sim.py"
+    },
+    {
+      "path": "circuit_sim/sim_bandpf.py",
+      "bytes": 8370,
+      "sha256": "bea6e5e370730542ab492733bb6e80be04f82be6c9b05b5de6c7831cf851b1ca",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/circuit_sim/sim_bandpf.py"
+    },
+    {
+      "path": "circuit_sim/vco_characterization.py",
+      "bytes": 9132,
+      "sha256": "3fac2f366f13f63652c6222a0ac9a6648ee5416b10b23de6cfddc8cb2935fa81",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/circuit_sim/vco_characterization.py"
+    },
+    {
+      "path": "circuit_sim/bandgap_reference_sim.py",
+      "bytes": 21914,
+      "sha256": "4e8e5bac1b620ea30c806ae2dcd84200c6105959448967a85b385deeab375c28",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/circuit_sim/bandgap_reference_sim.py"
+    },
+    {
+      "path": "circuit_sim/ring_osc_sim.py",
+      "bytes": 5486,
+      "sha256": "174a1262c7a65f3bcecbc0c2e3a9f02e0093740ce18ff6a0b01819ecab68d3b2",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/circuit_sim/ring_osc_sim.py"
+    },
+    {
+      "path": "circuit_sim/xor_gate_sim.py",
+      "bytes": 8947,
+      "sha256": "60b8e89ecf50c399f6997a696f77f629b4ba7a979c0eaf1298f213ea026ea38b",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/circuit_sim/xor_gate_sim.py"
+    },
+    {
+      "path": "circuit_sim/diode_load_amp_sim.py",
+      "bytes": 7301,
+      "sha256": "bbcb1598269d79ce6ac951ad1f1792b1920b89552c40bf9f807febb955f4db37",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/circuit_sim/diode_load_amp_sim.py"
+    },
+    {
+      "path": "circuit_sim/switched_capacitor_sim.py",
+      "bytes": 40906,
+      "sha256": "e7e96b354590e5c40ea42aab2e753fccb6713dc50f39eb241f0ca32097a20923",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/circuit_sim/switched_capacitor_sim.py"
+    },
+    {
+      "path": "circuit_sim/sim_hpf.py",
+      "bytes": 7928,
+      "sha256": "03d8b83013007101946c0e683eb58e016e6398b91d0bc7751db3c58021224eca",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/circuit_sim/sim_hpf.py"
+    },
+    {
+      "path": "circuit_sim/sim_lpf.py",
+      "bytes": 10043,
+      "sha256": "ecc9e58243eaf4f3496402a85b360524837ea9867d8840a8de3f7a0f047afdc6",
+      "pinned_commit_match": true,
+      "url": "https://github.com/yuxi120407/AutoSizer/blob/1b9b8f6498e2c7ad3b650bbbc78c8e3b0e1205e1/circuit_sim/sim_lpf.py"
+    }
+  ]
+}
