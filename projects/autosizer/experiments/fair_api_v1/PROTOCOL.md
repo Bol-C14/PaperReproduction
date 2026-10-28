@@ -144,3 +144,71 @@ rounded into feasibility. Preflight/validation samples never enter search histor
 Use APRIL CPU24..31, serial processes, one numerical-library thread, existing
 15 CPU s /20 wall s /2 GiB per-process limits and a fresh two-hour deadline.
 No global environment changes, new model download or paid GPU is required.
+
+## Runtime-preparation revision: separate attempted-launch accounting
+
+The new `fair_runtime.py` builder replaces the old request arithmetic. It reads
+the frozen plan, requires the common ten-row dataset hash to be frozen before
+branching, and derives `remaining_attempts` solely from the current arm's search
+attempt ledger: **24 minus fresh charged launch reservations**. At reflection,
+10 common +12 fresh rows means 22 observations and **12 attempts remaining**.
+The independent arm still has all 24 until it launches its own search. Preflight,
+common data, validation and API attempts have separate pools.
+
+The injected `FairBatchRunner` journals before evaluator invocation. Invalid
+measurements, solver/OS failure, explicit retry and unresolved launch all stay
+charged; exception outcomes remain pending until reconciled, with no automatic
+replacement. Normal proposals must be unseen. An explicitly requested retry is
+another charged attempt and violates the unique-point/full-matched criterion
+if it replaces a required distinct point; it is never a free diagnostic. API
+schema/transport retries consume API reservations (at most two per model-decision
+stage and ten total), not fictitious SPICE launches. Local byte/token rejection
+before transport is not an actual API request. A project reservation may
+conservatively remain charged if the shared gate rejects it before transmission.
+
+`build_messages` uses only the public source and verified completed rows matching
+common/current-arm debits. Missing failed rows cannot be silently omitted. Exact
+raw invalid responses and local schema errors are appended for correction; all
+scientific context is retained. Both normal and corrected full requests must
+pass the 24 KiB byte gate and a **certified model-specific chat token upper-bound
+counter including framing**. No such actual Gemini counter is installed by this
+change. In its absence, every real-shaped request fails closed, even when a
+representative byte count looks small. An oversize request stops, never silently
+truncates or raises the 8,192/81,920 token caps. `REQUEST_SEQUENCE_CHECKS.json`
+records all five stages and one full correction fixture per stage, not model
+outputs or a claim of exact Gemini token fit.
+
+`OPENROUTER_PENDING_CONFIG.json` initially remained execution-disabled during
+offline preparation. Its project gate is now enabled by the subsequent explicit
+public-data authorization, while technical admission remains blocked. It fixes
+`google/gemini-2.5-flash`, `service_tier=default`, only/order `google-ai-studio`,
+no fallback, require_parameters, max_price prompt .30/completion 2.50 USD per
+million and per-request price 0, no reasoning, JSON-object output and stage caps.
+The per-request `max_tokens` caps are 1536/768/256/768/256; total reserved generated
+tokens <=7168, with billable reasoning required to be zero. The proposed token
+spend ceiling is .05 USD, reserving at the explicit upper prices before each
+request. Actual full usage/provider/tier/finish reason must be retained, and a
+provider/usage/reasoning mismatch blocks subsequent project requests. Missing
+reasoning-token confirmation is not silently assumed to mean zero.
+
+The project `SharedController` delegates **only** to the shared public
+`Client.chat`; that client owns four-slot concurrency and the locked shared USD
+ledger. It neither loads private configuration nor calls private shared HTTP or
+request functions. At the inspected shared revision, `Client.chat` does not
+accept `request_options` and its internal request overwrites provider controls.
+The adapter therefore refuses before invoking it. The shared owner must add and
+honor `request_options` (provider, service_tier, temperature/top_p, reasoning and
+response_format) while preserving existing auth/project/slot/budget gates. Do
+not use a private-method bypass. Mock integration passes these exact options and
+per-attempt USD reservations; it is not evidence of completed live integration.
+The project disk gate, parent authorization and shared live gate must all allow
+execution later. The later authorization opens only the project gate; shared policy is maintained
+by its owner, and no call can pass the missing-interface/token-counter gates.
+
+Subsequent authorization: the user permits public circuit/specification/feedback
+transmission via the shared OpenRouter client, Gemini 2.5 Flash, at most ten
+AutoSizer requests including failures/retries, within a cumulative 10 USD API
+stage shared across all projects. This does not increase project token/request
+bounds or authorize private payloads. Current live admission remains blocked by
+the shared public method lacking request_options and the absent certified token
+counter, rather than by missing user permission. No actual request was issued.

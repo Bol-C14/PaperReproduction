@@ -1,0 +1,65 @@
+{
+  "execution_enabled": true,
+  "authorization": "USER_AUTHORIZED_PUBLIC_SPICE_GEMINI_PILOT_MAX10_WITH_SHARED_CUMULATIVE_STAGE10USD",
+  "request_template": {
+    "model": "google/gemini-2.5-flash",
+    "service_tier": "default",
+    "provider": {
+      "only": [
+        "google-ai-studio"
+      ],
+      "order": [
+        "google-ai-studio"
+      ],
+      "allow_fallbacks": false,
+      "require_parameters": true,
+      "max_price": {
+        "prompt": 0.3,
+        "completion": 2.5,
+        "request": 0
+      }
+    },
+    "temperature": 0.4,
+    "top_p": 0.85,
+    "reasoning": {
+      "enabled": false
+    },
+    "response_format": {
+      "type": "json_object"
+    },
+    "stream": false
+  },
+  "caps": {
+    "requests_total": 10,
+    "attempts_per_stage": 2,
+    "input_chat_tokens_per_request": 8192,
+    "serialized_messages_bytes": 24576,
+    "input_chat_tokens_total": 81920,
+    "billable_generated_tokens_total": 7168,
+    "reasoning_tokens_per_request": 0,
+    "estimated_token_spend_usd": "0.042496",
+    "proposed_token_spend_ceiling_usd": "0.05",
+    "output_per_stage": {
+      "circuit_understanding": 1536,
+      "initial_search_space": 768,
+      "inner_first": 256,
+      "outer_regeneration": 768,
+      "inner_second": 256
+    }
+  },
+  "preconditions": [
+    "User/parent public data and project max10 authorization received; shared gates remain mandatory",
+    "Shared loader provisions designated runtime values outside repository",
+    "Certified Gemini chat-token upper-bound counter includes framing",
+    "Selected actual provider is google-ai-studio standard and reasoning is off",
+    "Full usage/provider/service-tier/finish-reason evidence is captured by future transport"
+  ],
+  "official_sources": [
+    "https://openrouter.ai/docs/guides/features/service-tiers",
+    "https://openrouter.ai/docs/guides/routing/provider-selection",
+    "https://openrouter.ai/docs/guides/best-practices/reasoning-tokens"
+  ],
+  "shared_stage_budget_usd": "10.00",
+  "project_max_requests": 10,
+  "readiness": "BLOCKED_SHARED_REQUEST_OPTIONS_AND_CERTIFIED_TOKEN_COUNTER"
+}
