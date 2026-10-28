@@ -1,0 +1,147 @@
+{
+  "status": "PAUSED_NO_MODEL_OR_API_EXECUTION",
+  "created_utc": "2026-10-28T14:38:11.041637+00:00",
+  "paper_branch": "reproduction/autosizer-icml2026",
+  "paper_commit": "35865afabc05be1a7e5c900bd3097ff8ea70ed85",
+  "target": "inverter, one seed11, two controller-selected12-attempt batches separated by real feedback/reflection; separate24-attempt full-space GP control",
+  "backend": "Parent-selected OpenAI-compatible service; credentials and data authorization handled by parent; Qwen substitution explicitly paused",
+  "transport": {
+    "endpoint": "parent-supplied, never discovered from credential files",
+    "method": "POST /chat/completions",
+    "request_fields": [
+      "model",
+      "messages",
+      "temperature",
+      "top_p",
+      "max_tokens"
+    ],
+    "response_field": "choices[0].message.content",
+    "temperature": 0.4,
+    "top_p": 0.85,
+    "json_parsing": "One JSON object; optional enclosing markdown fence stripped only, no semantic repair",
+    "network_allowed_now": false
+  },
+  "public_input_categories": {
+    "netlist": "Pinned official inverter public SPICE topology template:175 JSON-encoded bytes; two transistors",
+    "testbench": "Pinned official public DC/transient testbench:1610 JSON-encoded bytes; paired-edge/time-weighted-power correction explicitly disclosed",
+    "fixed_parameters": "109 JSON-encoded bytes; no machine paths or secrets",
+    "variables": [
+      "W_pmos_base",
+      "W_nmos_base"
+    ],
+    "released_values": [
+      0.84,
+      1.05,
+      1.26,
+      1.47,
+      1.68,
+      1.89,
+      2.1,
+      2.31,
+      2.52
+    ],
+    "physical_width_mapping": {
+      "W_pmos": "20*W_pmos_base",
+      "W_nmos": "20*W_nmos_base"
+    },
+    "limits": "fom > 1.0 AND dc_gain_db >20 AND average_delay <50 AND dynamic_power <50; exact source units and normalize-formula sent",
+    "feedback": "Only actual new pilot measurements:attempt ordinal,grid indices,widths,status,gain/delay/power,normalizedFoM,strict feasibility,violation.12 rows max before reflection. No control-arm data or historical oracle.",
+    "excluded": [
+      "API keys",
+      "SSH data",
+      "account identity",
+      "absolute host/tool paths",
+      "credential/config file content",
+      "unrelated paper data",
+      "private files"
+    ]
+  },
+  "size_caps": {
+    "request_utf8_bytes": 24576,
+    "input_tokens": 8192,
+    "max_history_rows": 24,
+    "understanding_response_tokens": 1536,
+    "domain_response_tokens": 768,
+    "decision_response_tokens": 256,
+    "reflection_response_tokens": 768
+  },
+  "calls": [
+    {
+      "ordinal": 1,
+      "stage": "circuit_understanding",
+      "output_required_fields": [
+        "circuit_topology_overview",
+        "optimization_variables_mapping",
+        "optimization_variables_impact",
+        "variable_interactions",
+        "key_insights_for_optimization"
+      ],
+      "extra_validation": "Each field nonempty; model prose preserved for human review; schema pass alone is not physical correctness"
+    },
+    {
+      "ordinal": 2,
+      "stage": "initial_search_space",
+      "output_schema": {
+        "optimization_configuration": {
+          "variables_to_optimize": {
+            "VARIABLE": {
+              "search_space": [
+                "allowed numerical values"
+              ]
+            }
+          },
+          "variables_fixed": {
+            "VARIABLE": {
+              "fixed_value": "allowed numerical value"
+            }
+          }
+        },
+        "search_space_summary": {},
+        "reasoning": "string"
+      },
+      "extra_validation": "Cover each variable exactly once; no invented values/duplicates; at least12 unseen combinations or reject"
+    },
+    {
+      "ordinal": 3,
+      "stage": "inner_iteration",
+      "output_schema": {
+        "action": "search|stop",
+        "method": "random|bayesian",
+        "n_samples": 12,
+        "parameters": {},
+        "reasoning": "string"
+      },
+      "extra_validation": "For fixed two-batch pilot a search batch must contain12; stop preserved as early stop, never silently override; bayesian is explicit fixed GP-UCB port"
+    },
+    {
+      "ordinal": 4,
+      "stage": "outer_regeneration",
+      "output_schema": "Same domain schema; actual12-attempt history, feasibility and boundary feedback provided",
+      "extra_validation": "At least12 unseen legal combinations; preserve unchanged-domain response honestly; do not fabricate reflection gains"
+    },
+    {
+      "ordinal": 5,
+      "stage": "inner_iteration",
+      "output_schema": "Same decision schema, remaining12; regenerated domain and real history provided"
+    }
+  ],
+  "retry_policy": {
+    "max_attempts_per_stage": 2,
+    "max_total_api_calls": 10,
+    "retry": "Only one schema/domain-error correction with original raw response and exact validation error; no hand-generated model decision",
+    "transport_timeout_seconds": 180,
+    "failure_behavior": "Preserve request,response,error; stop dependent controller arm; independent control may proceed only under separate authorized run protocol"
+  },
+  "required_before_execution": [
+    "Parent confirms exact service/model, credentials transport, permitted public input categories and cost cap",
+    "Freeze new timestamped execution protocol/code hashes",
+    "Native ngspice verification and real tiny preflight under new protocol"
+  ],
+  "scientific_limits": [
+    "Backend substitution must be named",
+    "One seed/easy inverter is integration evidence, not method superiority",
+    "Full method requires actual understanding,initial domain,algorithm decision,simulation-linked reflection; no replay/heuristic fallback",
+    "Strict source constraints rescored independently; no target relaxation",
+    "No reproduction claim for Gemini2.5Flash or24-task result"
+  ]
+}
