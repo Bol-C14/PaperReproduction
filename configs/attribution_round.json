@@ -1,0 +1,20 @@
+{
+ "purpose":"bounded mechanism discrimination; deterministic numerical substitute, no LLM API",
+ "parent_commit":"bb9d73fe2affdc23c86f55924a2eeb2d1cb936aa",
+ "fixtures":[{"name":"appendix_mcm71931","width":12},{"name":"fir_style_12_41_21","width":12}],
+ "reserve_fixture":{"name":"mcm593","width":16,"only_if":"pilot diversity insufficient; otherwise not run"},
+ "pool":"expanded arithmetic constants+published proposal replay, same frozen native graph per fixture",
+ "rounds":5,"node_limit":3000,
+ "strategies":["fixed","random","numerical","openloop"],
+ "actual_synthesis_budget_per_arm":6,"seeds":[0],"maximum_total_synthesis_calls":64,
+ "pilot_synthesis_cap":8,"comparison_synthesis_cap":48,
+ "novelty":"no duplicate canonical tagged RTL within an arm; bounded e-node exclusion search, maximum64 subproblems per query",
+ "fixed":"uniform fixed operation costs; next-best structural extraction subject to previously emitted RTL exclusion",
+ "random":"seeded node costs from [0.25,1,3,10], no response dependence; same novelty constraint",
+ "openloop":"largest coefficient selected MUL else ADD; always+3; no response/history dependence; persistent costs, no outer resets",
+ "numerical":"cell-source provenance attribution, fractionally split multi-source cells; target max(0.25,attributed_gates/width); update selected nodes up/down; reject worsening gate count via cost-state rollback before successor extraction; forbid repeats by same novelty constraint",
+ "attribution_gate":"mapped-cell fraction >=0.60; otherwise stop attribution branch and report failure",
+ "evaluation":"algorithm final candidate and external best gates with paired depth/pointIDs reported separately; no netlist equivalence claim",
+ "pruning":"fixed graph and model preflight must offer >=6 distinct structural extractions; no unbounded sweep; reserve fixture only if predefined criterion fails",
+ "model_api_calls":0,"paid_cost_usd":0
+}
