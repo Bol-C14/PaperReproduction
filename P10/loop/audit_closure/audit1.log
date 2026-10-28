@@ -1,0 +1,108 @@
+{
+  "pairs_checked": 24,
+  "configuration_rows_checked": 96,
+  "synthesis_script_sha256": "efb633addfd3275b465ab6096d077824809510633e11b939a6c2691fac0599cf",
+  "yosys_creators": [
+    "Yosys 0.63 (git sha1 70a11c6bf, ccache clang++ 18.1.3 -O3 -flto -flto) [yowasp/yosys at release-0.63]"
+  ],
+  "fma_proofs": {
+    "archived_full_domain": {
+      "status": "unsat",
+      "expected": "unsat",
+      "wall_seconds": 0.2929184530003113
+    },
+    "care_partition": {
+      "status": "unsat",
+      "expected": "unsat",
+      "wall_seconds": 0.23327613800029212
+    },
+    "outside_original": {
+      "status": "unsat",
+      "expected": "unsat",
+      "wall_seconds": 0.0011244320003243047
+    },
+    "outside_candidate": {
+      "status": "unsat",
+      "expected": "unsat",
+      "wall_seconds": 0.0008389069998884224
+    },
+    "narrow_operand_obligation": {
+      "status": "unsat",
+      "expected": "unsat",
+      "wall_seconds": 0.0008060130003286758
+    },
+    "guard_unsigned_obligation": {
+      "status": "unsat",
+      "expected": "unsat",
+      "wall_seconds": 0.002904726999986451
+    },
+    "full32_reference": {
+      "status": "unsat",
+      "expected": "unsat",
+      "wall_seconds": 0.0012161759996160981
+    },
+    "outside_internal_can_differ": {
+      "status": "sat",
+      "expected": "sat",
+      "wall_seconds": 0.01545351999993727,
+      "witness": {
+        "b": 13159,
+        "a": 21017
+      }
+    }
+  },
+  "fma_vectors": [
+    {
+      "a": 7,
+      "b": 65535,
+      "c": 65535,
+      "guard": true,
+      "original_out": 65528,
+      "candidate_out": 65528,
+      "original_inner_mod16": 65528,
+      "candidate_inner_mod16": 65528
+    },
+    {
+      "a": 8,
+      "b": 3,
+      "c": 5,
+      "guard": false,
+      "original_out": 5,
+      "candidate_out": 5,
+      "original_inner_mod16": 29,
+      "candidate_inner_mod16": 5
+    },
+    {
+      "a": 65535,
+      "b": 65535,
+      "c": 65535,
+      "guard": false,
+      "original_out": 65535,
+      "candidate_out": 65535,
+      "original_inner_mod16": 0,
+      "candidate_inner_mod16": 65528
+    },
+    {
+      "a": 0,
+      "b": 65535,
+      "c": 65535,
+      "guard": true,
+      "original_out": 65535,
+      "candidate_out": 65535,
+      "original_inner_mod16": 65535,
+      "candidate_inner_mod16": 65535
+    }
+  ],
+  "fma_rtl_replay": {
+    "command": [
+      "/workspace/PaperReproduction/P10/loop/.venv/bin/yowasp-yosys",
+      "-s",
+      "verify.ys"
+    ],
+    "returncode": 0,
+    "wall_seconds": 0.6194914520001475,
+    "log": "/workspace/PaperReproduction/P10/loop/audit_closure/fma16_rtl/verify.log"
+  },
+  "old_artifact_hashes_verified": 1952,
+  "wall_seconds": 1.8751396640000166
+}
