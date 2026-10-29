@@ -1,0 +1,289 @@
+{
+  "schema_version": 1,
+  "benchmark": "G3 Terminal-Bench",
+  "audit_date_utc": "2026-10-28",
+  "paper": {
+    "id": "2601.11868",
+    "version": "v1",
+    "url": "https://arxiv.org/html/2601.11868v1",
+    "type": "benchmark/dataset and empirical evaluation",
+    "venue": "arXiv preprint; conference/journal unknown",
+    "ccf": "unknown",
+    "license": "CC-BY-4.0",
+    "html_sha256": "40c7d18ba897316c07973a7caaa357cdf371adca04b52ff7e93a32ee3f68cc05"
+  },
+  "status_by_scope": {
+    "paper_protocol": "resource_blocked",
+    "metadata": "metadata_audit",
+    "reference_controls": "reference_calibration",
+    "live_models": "not_run",
+    "4_0_dataset_execution": "not_run",
+    "eda_template": "not_run",
+    "negative_and_alternative_controls": "offline_replay"
+  },
+  "dataset": {
+    "name": "terminal-bench",
+    "version": "2.0",
+    "repository": "https://github.com/harbor-framework/terminal-bench-2",
+    "commit": "69671fbaac6d67a7ef0dfec016cc38a64ef7a77c",
+    "task_count": 89,
+    "selected_tasks": [
+      "log-summary-date-ranges",
+      "regex-log",
+      "cancel-async-tasks"
+    ],
+    "frozen_utc": "2026-10-28T23:35:49.859782+00:00",
+    "selection_reason": "CPU-only; bounded artifacts; logging/date, regex semantics, async cancellation; selected before execution; no outcome-based substitutions",
+    "exclusions": {
+      "count": 86,
+      "reason": "outside preselected CPU micro-audit; not attempted"
+    },
+    "selected_file_sha256": {
+      "log-summary-date-ranges/environment/Dockerfile": "b479f6e987b63a6ec118fa1691b8bb85c437b2a6a0fe63feab5ed7154957fdfc",
+      "log-summary-date-ranges/environment/log_generator_deterministic.py": "beb6eff59979e9aa0be63ce8a0f1b0df1178f92871f04ba9f76fa70cf8beb81c",
+      "log-summary-date-ranges/instruction.md": "c1d4516ad4ec2238209740eaf01291df9ab48b0028a3fc5df383c6f831453484",
+      "log-summary-date-ranges/solution/solve.sh": "9f6a8ee8947bdf1c0f31b530b6194ae998d66841a3b785fa2e246ee840350ab6",
+      "log-summary-date-ranges/task.toml": "6d52ee3cd752b917e290d0cbbc99ae856ce7e851169b9cd9bb0c332404bc6873",
+      "log-summary-date-ranges/tests/test.sh": "4770437ea96c3cc84684b4f99d55fb148fcac09f9ea1e8ef49de487716e6c334",
+      "log-summary-date-ranges/tests/test_outputs.py": "2fc06a6ce1944ad82f84fb437395fa75ed8c0eadd385b92e375c27e5bc9cb2b4",
+      "regex-log/environment/Dockerfile": "5f264ff0bf62a49aee3c6398447de5108df141e7a2ad35c6de8ef39fa62049c6",
+      "regex-log/instruction.md": "4f7ac05e70cf9220ea0f1e5a052c5f908cd0fa884e847d80b0bd51bae2e96f9c",
+      "regex-log/solution/solve.sh": "7e670d4f2b4bccb1e4db38f2a173e085ceda028c38167912b466b0a84fcc0999",
+      "regex-log/task.toml": "cbffabfe62b495480b06a8a34dfa3b11bd5a86ff20b0c82a1406491b6f50665c",
+      "regex-log/tests/test.sh": "4770437ea96c3cc84684b4f99d55fb148fcac09f9ea1e8ef49de487716e6c334",
+      "regex-log/tests/test_outputs.py": "345c3bd09ab6f6fe8c8361a58c0a47bf0a13b3fcb38a5ac7824e44ff855e8f72",
+      "cancel-async-tasks/environment/Dockerfile": "1ee7bdb4a7536f5f114c11a3ac6ff42790abfea901fcba6b2a8ea8685f19140e",
+      "cancel-async-tasks/instruction.md": "23d22f7039b50682941652c716f96dac314b8585c32c133614cac77dc067f47e",
+      "cancel-async-tasks/solution/solve.sh": "4938ca4ad5b7dcd36b414b42a1abb10c058ecefce7462b678f9bd05c9fae1844",
+      "cancel-async-tasks/task.toml": "4eb6fe419024e101c630f3ee7702df67049851ae13ebed00ea4138b62dec47b2",
+      "cancel-async-tasks/tests/test.py": "f533c0a64db068f582b4733c5b81f2e66b8fa52fcd3efa65752e6bd6d24780aa",
+      "cancel-async-tasks/tests/test.sh": "79600a6b863def31b4daa008297423010cd2d6243e689d67503e118e4dc53397",
+      "cancel-async-tasks/tests/test_outputs.py": "d6f510b51fafc81b4e9b5cc95535aa13491c8753e0e4171db42c45f4de460ee7"
+    },
+    "license": "unresolved at pinned commit: no root LICENSE; current GitHub license badge is not proof for frozen bytes",
+    "raw_redistribution": "not staged"
+  },
+  "harness": {
+    "repository": "https://github.com/harbor-framework/harbor",
+    "commit": "2f424cd003ee1a94b5ed262471d5e36e4948f93f",
+    "version": "0.25.0",
+    "license": "Apache-2.0",
+    "reused": [
+      "PodmanEnvironment lifecycle/downloads",
+      "OracleAgent",
+      "NopAgent",
+      "Verifier",
+      "all original test assertion files"
+    ],
+    "port_deviations": [
+      "modern harness, not paper-era harness pin",
+      "cooperative in-container CPU affinity instead of unavailable CPU quota",
+      "offline execution rather than open internet",
+      "preinstalled verifier deps and replacement test.sh launcher; assertions unchanged",
+      "log reference package installation moved to dependency preparation",
+      "native podman cp uploads for compose incompatibility",
+      "precreated empty staging directories",
+      "modern original-image-derived preparation layers; package inventory retained",
+      "regex verifier Python 3.12 instead of upstream uv requested 3.13"
+    ]
+  },
+  "protocol_review": {
+    "through": "4.0.0",
+    "repository": "https://github.com/harbor-framework/terminal-bench",
+    "commit": "452bf305c6daa62fc59061d22133a7cbc7c1572e",
+    "license": "Apache-2.0",
+    "run": false
+  },
+  "budget": {
+    "setup_wall_hours": 2,
+    "download_bytes_cap": 2147483648,
+    "cpu_threads_max": 4,
+    "model_calls": 0,
+    "paid_usd": 0,
+    "settings": [
+      {
+        "cpus": 1,
+        "memory_mb": 2048
+      },
+      {
+        "cpus": 2,
+        "memory_mb": 2048
+      }
+    ],
+    "max_main_trials": 12,
+    "agent_timeout_sec": 900,
+    "verifier_timeout_sec": 900
+  },
+  "download_accounting": {
+    "cap_bytes": 2147483648,
+    "network_transport_bytes_measured": null,
+    "note": "No network byte meter was installed. Git pack, image and cache inventories retained; exact transfer-byte compliance is not claimed. No downloads during untrusted execution."
+  },
+  "sources": {
+    "announcement-2-0.html": {
+      "sha256": "cbc50108ca8199f20efb8f7ab9b7993c84139eba37c773e40308ea48a3ef7911",
+      "bytes": 53390
+    },
+    "continuous-benchmarks.html": {
+      "sha256": "e616a8fa3975a972abd8b35d716e6163f3649fb10254b70365dc14c70cadb268",
+      "bytes": 75264
+    },
+    "leaderboard-integrity-and-timeouts.html": {
+      "sha256": "90a6d3edad1a4889ab4abf34eb158db528ffc10449410a16753b0e2eceb34473",
+      "bytes": 48802
+    },
+    "leaderboard-integrity-update.html": {
+      "sha256": "c185135b47ad45b4eeedf96a26ac3c8668592643321b000309b0123cd05a3924",
+      "bytes": 52140
+    },
+    "paper-v1.html": {
+      "sha256": "40c7d18ba897316c07973a7caaa357cdf371adca04b52ff7e93a32ee3f68cc05",
+      "bytes": 1088268
+    },
+    "terminal-bench-2-1.html": {
+      "sha256": "b6434e470200e2fb34b55e5a26306c34dcaa09a51129ad490cbcba0e2941a3a0",
+      "bytes": 148013
+    },
+    "terminal-bench-3-0.html": {
+      "sha256": "837e49ffe4889d08aa753a5db1da18cf93e79402dfa673530b06e9947b84a5a5",
+      "bytes": 513637
+    },
+    "terminal-bench-4-0.html": {
+      "sha256": "5bb66a421a314d126b2adc0a9c71bd1f7873be1061613b19a8ed21e2fe84b3c1",
+      "bytes": 73687
+    }
+  },
+  "tools": {
+    "podman": {
+      "argv": [
+        "podman",
+        "--version"
+      ],
+      "exit_code": 0,
+      "output": "podman version 5.6.0\n"
+    },
+    "crun": {
+      "argv": [
+        "crun",
+        "--version"
+      ],
+      "exit_code": 0,
+      "output": "crun version 1.27\ncommit: a718a92cc9a94955a5a550b6fdec1378c247ec50\nrundir: /run/user/1034/crun\nspec: 1.0.0\n+SYSTEMD +SELINUX +APPARMOR +CAP +SECCOMP +EBPF +CRIU +YAJL\n"
+    },
+    "uv": {
+      "argv": [
+        "uv",
+        "--version"
+      ],
+      "exit_code": 0,
+      "output": "uv 0.10.8\n"
+    },
+    "git": {
+      "argv": [
+        "git",
+        "--version"
+      ],
+      "exit_code": 0,
+      "output": "git version 2.47.3\n"
+    },
+    "${REPRO_ROOT}/envs/terminal-bench/venv/bin/python": {
+      "argv": [
+        "${REPRO_ROOT}/envs/terminal-bench/venv/bin/python",
+        "--version"
+      ],
+      "exit_code": 0,
+      "output": "Python 3.13.12\n"
+    },
+    "${REPRO_ROOT}/envs/terminal-bench/venv/bin/podman-compose": {
+      "argv": [
+        "${REPRO_ROOT}/envs/terminal-bench/venv/bin/podman-compose",
+        "--version"
+      ],
+      "exit_code": 0,
+      "output": "podman version 5.6.0\npodman-compose version 1.5.0\n"
+    }
+  },
+  "images": {
+    "log-summary-date-ranges": {
+      "prepared_image_id": "a60cdc41bfb36a1bb8745b3af67c7a91e64551e1a002e8846fd4b2043b50444f",
+      "prepared_bytes_uncompressed": 226504478,
+      "repo_digests": [
+        "localhost/g3-log-summary-date-ranges@sha256:e6301c9bee046526ea39f3941be0c6a842ae08e0ea455d7e247e192a5f37d01b"
+      ],
+      "original_tag": "docker.io/alexgshaw/log-summary-date-ranges:20251031",
+      "original_repo_digests": [
+        "docker.io/alexgshaw/log-summary-date-ranges@sha256:cbeb6ba905c2fec294f16cd5e16e3ea7f2e04d38ac2484d51a11de262aa7dc51"
+      ],
+      "original_image_id": "748e8485201e72133a9400dc8f6f524eb20e9812655eef41b32a1cc21796bdef"
+    },
+    "regex-log": {
+      "prepared_image_id": "329be956b30fa0e52f0d9e05b7b9f7823a3688739c5c5b5d00d272371275615b",
+      "prepared_bytes_uncompressed": 190932565,
+      "repo_digests": [
+        "localhost/g3-regex-log@sha256:c9085a08d7ccf9684c57ecdb200cccff9dabeec2db8221b214f9684ffa1a1c4c"
+      ],
+      "original_tag": "docker.io/alexgshaw/regex-log:20251031",
+      "original_repo_digests": [
+        "docker.io/alexgshaw/regex-log@sha256:90101b2e815323a8da20528a1439bebc407eb9761c9c68a3d557730856c878e9"
+      ],
+      "original_image_id": "0a15c19cc78685f8d322945e882ba702ef3d0265d1f621ee00991b8e64ddb750"
+    },
+    "cancel-async-tasks": {
+      "prepared_image_id": "c424c9ed6a4af297591316e609014c820fe40de018ad66379e5b00217bc462f1",
+      "prepared_bytes_uncompressed": 220445381,
+      "repo_digests": [
+        "localhost/g3-cancel-async-tasks@sha256:8cdae620baa5fc5c3568ea6b2b58a48e5f3a658af7e490d7ef6e315bbc7f929a"
+      ],
+      "original_tag": "docker.io/alexgshaw/cancel-async-tasks:20251031",
+      "original_repo_digests": [
+        "docker.io/alexgshaw/cancel-async-tasks@sha256:84c7fae6b256dcc56a350790e2a9715eefc7dad662a9d8e8a472363aa71ef18d"
+      ],
+      "original_image_id": "760c5426807dc80edd6a1b1c3675c197599fc3f9cb46b1a06e7539cb94818553"
+    }
+  },
+  "remote_root": "${REPRO_ROOT}",
+  "raw_evidence": "See RAW_EVIDENCE.md; private raw evidence excluded from Git",
+  "paid_calls": 0,
+  "paid_usd": 0,
+  "novel_experiments": [
+    "paired one-CPU versus two-CPU affinity offline controls",
+    "stricter regex alternative",
+    "stale reward deletion and timeout liveness probes"
+  ],
+  "limitations": [
+    "purposive n=3, one replicate per main cell",
+    "no live model or leaderboard reproduction",
+    "affinity is cooperative, not a hostile-agent CPU boundary",
+    "2.0 verifier shares container after agent; separate-verifier EDA contract is a proposal"
+  ],
+  "result_counts": {
+    "final_main_cells": 12,
+    "reference_cells": 6,
+    "noop_cells": 6,
+    "alternative_cells": 1,
+    "additional_infrastructure_or_partial_records": 30,
+    "model_calls": 0
+  },
+  "budget_accounting": {
+    "main_grid_completed": 12,
+    "additional_alternative": 1,
+    "setup_and_partial_attempt_records": 30,
+    "attempt_cap_note": "The predeclared 12 main-cell grid was completed. Infrastructure retries produced additional attempt records, including partial no-op runs; an absolute all-attempt cap was not enforced. No model/paid experiment occurred.",
+    "setup_hours_under_2": true
+  },
+  "registry": {
+    "repository_commit": "2f424cd003ee1a94b5ed262471d5e36e4948f93f",
+    "path": "registry.json",
+    "entry": "terminal-bench@2.0",
+    "task_count": 89
+  },
+  "results_file": "metrics/calibration.json",
+  "resource_comparison": "metrics/resource_comparison.csv",
+  "interpretation": {
+    "timeout_scope": "Observed only in this AffinityPort \u2192 Harbor 0.25.0 \u2192 Podman/podman-compose chain; not an original Docker/paper flaw claim",
+    "cpu_affinity": "cooperative affinity; not an adversarial CPU quota",
+    "regex_alternative": "passes upstream fixture and 10 tested independent cases only; no universal correctness claim",
+    "eda_package": "template containing REQUIRED placeholders; not a runnable production task",
+    "public_paths": "execution host paths are placeholders; unchanged originals and raw evidence retained privately"
+  }
+}

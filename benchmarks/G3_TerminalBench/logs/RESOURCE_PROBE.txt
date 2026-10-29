@@ -1,0 +1,23 @@
+Observed 2026-10-28 via strict existing SSH ${EXECUTION_HOST}, before any task solution.
+
+Command:
+podman run --rm --network none --cpus 1 --memory 2g --pids-limit 128 --cap-drop all --security-opt no-new-privileges docker.io/library/ubuntu:22.04 bash -c 'cat /sys/fs/cgroup/cpu.max /sys/fs/cgroup/memory.max /sys/fs/cgroup/pids.max; cat /proc/self/status'
+Actual stderr (container ID varies):
+Error: OCI runtime error: crun: controller `cpu` is not available under /sys/fs/cgroup/user.slice/user-UID.slice/user@UID.service/user.slice/libpod-e1e1e3a413aacf086ce3e7a137a47062061fa22cce8fa309537122238c119314.scope/container/cgroup.controllers
+
+Follow-up without --cpus:
+podman run --rm --network none --memory 2g --pids-limit 128 --cap-drop all --security-opt no-new-privileges docker.io/library/ubuntu:22.04 bash -c 'cat /sys/fs/cgroup/cgroup.controllers; cat /sys/fs/cgroup/memory.max /sys/fs/cgroup/pids.max; cat /proc/self/status | grep -E "CapEff|NoNewPrivs|Cpus_allowed_list"'
+Actual stdout:
+memory pids
+2147483648
+128
+CapEff: 0000000000000000
+NoNewPrivs: 1
+Cpus_allowed_list: 0-191
+
+Outer taskset diagnostic:
+taskset -c 0 podman run --rm --network none --memory 2g --pids-limit 128 --cap-drop all --security-opt no-new-privileges docker.io/library/ubuntu:22.04 bash -c 'cat /proc/self/status | grep Cpus_allowed_list'
+Actual stdout:
+Cpus_allowed_list: 0-191
+
+These are transcript-preserved excerpts, not a fresh logfile claimed to have been captured by that initial shell. Per-trial raw commands.json includes later in-container os.sched_getaffinity and memory/pids/security/interface probes. No host cgroup, network, credential or privilege configuration was changed.

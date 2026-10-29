@@ -1,0 +1,22 @@
+{
+  "schema": "g3-eda-task-contract-v1",
+  "status": "design_extraction_not_executed",
+  "agent_bundle": {
+    "instruction": "Describe the circuit objective, exact output path, legal edits, tool budget, and functional/PPA acceptance tolerances.",
+    "environment": {"container_digest": "REQUIRED", "tool_versions_and_licenses": "REQUIRED", "network_during_execution": "none", "host_home_or_socket_mounts": false},
+    "inputs": {"design_revision": "REQUIRED", "input_sha256_manifest": "REQUIRED", "sdc_and_corner_sha256": "REQUIRED", "seed": "REQUIRED"},
+    "resources": {"cpu_limit": "REQUIRED_AND_MEASURED", "memory_mb": "REQUIRED_AND_MEASURED", "agent_wall_timeout_sec": "REQUIRED", "verifier_wall_timeout_sec": "REQUIRED"},
+    "artifact_allowlist": ["candidate/design.v", "candidate/constraints.sdc", "candidate/change.json"]
+  },
+  "trusted_verifier_bundle": {
+    "separate_environment": true,
+    "agent_has_access": false,
+    "required_checks": ["artifact schema and SHA256", "parse/elaboration", "functional equivalence or hidden simulation", "independent timing/area/power recomputation", "no stale outputs or forbidden input edits"],
+    "independent_oracles": "Keep equivalence golden netlist, hidden vectors, reference flow and fix history outside agent bundle.",
+    "reference_control": "known-valid circuit passes semantic checks",
+    "negative_control": "empty or deliberately incorrect circuit fails semantic checks",
+    "alternative_control": "functionally equivalent implementation with different syntax is accepted"
+  },
+  "result_record": ["task/version", "agent/model/scaffold pins", "input/tool/image hashes", "actual resources", "ATIF", "artifact hashes", "independent metrics", "infra failures", "timeouts and descendant cleanup", "verifier revision"],
+  "transfer_rule": "Export allowlisted artifacts only; execute verifier in fresh isolated container; never mount evaluated workspace into verifier as an executable toolchain."
+}
