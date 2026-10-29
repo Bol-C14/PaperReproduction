@@ -1,0 +1,188 @@
+{
+  "kind": "offline_replay",
+  "not_a_model_or_task_correctness_score": true,
+  "cases": [
+    {
+      "case": "well_formed",
+      "raw_input": "worst slack max -0.25\nworst slack min 0.05\nNumber of violations = 9\n",
+      "parsed": {
+        "wns_setup": -0.25,
+        "wns_hold": 0.05,
+        "drc_violations": 9
+      },
+      "goal_check": false,
+      "failures": [
+        "setup wns -0.25 < 0.0",
+        "9 DRC violations"
+      ],
+      "errors": [],
+      "score": [
+        0,
+        0.25,
+        9,
+        0.0,
+        0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "case": "empty",
+      "raw_input": "",
+      "parsed": {},
+      "goal_check": false,
+      "failures": [
+        "setup wns unknown",
+        "drc count unknown"
+      ],
+      "errors": [],
+      "score": [
+        0,
+        0.0,
+        0,
+        0.0,
+        0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "case": "pass_only",
+      "raw_input": "PASS\n",
+      "parsed": {},
+      "goal_check": false,
+      "failures": [
+        "setup wns unknown",
+        "drc count unknown"
+      ],
+      "errors": [],
+      "score": [
+        0,
+        0.0,
+        0,
+        0.0,
+        0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "case": "keyword_forgery",
+      "raw_input": "This is not a routed result.\nworst slack max 0.10\nNumber of violations = 0\n",
+      "parsed": {
+        "wns_setup": 0.1,
+        "drc_violations": 0
+      },
+      "goal_check": true,
+      "failures": [],
+      "errors": [],
+      "score": [
+        0,
+        0.0,
+        0,
+        0.0,
+        0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "case": "later_spoof",
+      "raw_input": "worst slack max -0.25\nNumber of violations = 9\nUNTRUSTED ECHO: worst slack max 0.10\nUNTRUSTED ECHO: Number of violations = 0\n",
+      "parsed": {
+        "wns_setup": 0.1,
+        "drc_violations": 0
+      },
+      "goal_check": true,
+      "failures": [],
+      "errors": [],
+      "score": [
+        0,
+        0.0,
+        0,
+        0.0,
+        0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "case": "fatal_with_metrics",
+      "raw_input": "[ERROR DRT-0001] route failed\nworst slack max 0.10\nNumber of violations = 0\n",
+      "parsed": {
+        "wns_setup": 0.1,
+        "drc_violations": 0
+      },
+      "goal_check": true,
+      "failures": [],
+      "errors": [
+        "[ERROR DRT-0001] route failed"
+      ],
+      "score": [
+        0,
+        0.0,
+        0,
+        0.0,
+        0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "case": "hold_missing",
+      "raw_input": "worst slack max 0.10\nNumber of violations = 0\n",
+      "parsed": {
+        "wns_setup": 0.1,
+        "drc_violations": 0
+      },
+      "goal_check": true,
+      "failures": [],
+      "errors": [],
+      "score": [
+        0,
+        0.0,
+        0,
+        0.0,
+        0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "case": "hold_negative",
+      "raw_input": "worst slack max 0.10\nworst slack min -0.05\nNumber of violations = 0\n",
+      "parsed": {
+        "wns_setup": 0.1,
+        "wns_hold": -0.05,
+        "drc_violations": 0
+      },
+      "goal_check": false,
+      "failures": [
+        "hold wns -0.05 < 0"
+      ],
+      "errors": [],
+      "score": [
+        0,
+        0.05,
+        0,
+        0.0,
+        0,
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "malformed_existing_drc_report": {
+    "raw_input": "FATAL: detailed routing aborted; no report generated\n",
+    "count": 0,
+    "missing_file_count": null
+  }
+}

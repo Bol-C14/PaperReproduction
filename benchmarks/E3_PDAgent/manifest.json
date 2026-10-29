@@ -1,0 +1,157 @@
+{
+  "benchmark": "E3_PDAgent",
+  "audit_date_utc": "2026-10-28",
+  "statuses": [
+    "metadata_audit",
+    "offline_replay",
+    "reference_calibration",
+    "resource_blocked"
+  ],
+  "not_run": [
+    "live_pilot",
+    "full_flow_method_reproduction",
+    "commercial_script_evaluation",
+    "LVS",
+    "official_QA_judge_or_checker"
+  ],
+  "paper": {
+    "url": "https://arxiv.org/html/2606.17253v7",
+    "version": "v7",
+    "version_date": "2026-10-13",
+    "html_sha256": "449ae462afca7ab44ba4e0ac4bf5d67f064ebc681d15565edea02ad91a4d2eeb",
+    "venue": null,
+    "CCF": null,
+    "paper_type": "benchmark/resource and agent workflow",
+    "license": "CC-BY-4.0"
+  },
+  "sources": {
+    "leaderboard": {
+      "url": "https://github.com/fenggev56/PDAGENT-BENCH",
+      "commit": "53948a6cc6848e5d29811cf7d2361e59d100d5c7",
+      "license": "no LICENSE found"
+    },
+    "dataset": {
+      "url": "https://huggingface.co/datasets/fenggev566/PDAgent-Bench_open",
+      "revision": "794fbb0c3fdf8613ac7384dd5262d67f902986ee",
+      "release_bytes": 619046872,
+      "license": "other/mixed; QA explicit grant unresolved; collateral component terms separate",
+      "local_QA_hashes": "logs/download_hashes.json",
+      "native_hashes": "logs/bp_fe_downloads.json"
+    },
+    "OpenLayout": {
+      "url": "https://github.com/fenggev56/OpenLayout",
+      "commit": "65e440d943443b48f4adfc0de5ef3012634bcd6b",
+      "license": "GPL-3.0 code; collateral separately licensed",
+      "floorplan_tcl_sha256": "b8198080202a25c68e43e45b559d7aebcb4d86a2c81f818c4da12393c65b51e2",
+      "metrics_py_sha256": "5ecd1e0d7c5634e439dd6ceb0f33fa11deeb0b11ce8dfef9204686476153dda4",
+      "agents_py_sha256": "7dbc863b25f07f6f83ecd655a47b2106ce27bb80d6df76ea2a040dd9ca9f7367"
+    }
+  },
+  "counts": {
+    "paper": 353,
+    "leaderboard": 343,
+    "understanding": 133,
+    "commercial_script": 210,
+    "original_full_flow": 10,
+    "current_open_QA": 133,
+    "current_open_flow": 16
+  },
+  "budget": {
+    "task_cap": 5,
+    "cpu_threads": 4,
+    "download_cap_bytes": 2000000000,
+    "setup_hours": 2,
+    "api_calls": 0,
+    "api_usd": 0,
+    "shared_prior_spend_usd": 0.04806425,
+    "shared_ceiling_usd": 10,
+    "exact_network_bytes": null
+  },
+  "runtime": {
+    "host": "april1",
+    "OS": "Rocky Linux9.7 x86_64",
+    "python": "3.9.25",
+    "podman": "5.6.0",
+    "openroad": "26Q2-1164-g08f67ee5ec",
+    "package_sha256": "1fe0e084dfc67a807f31a67a8f941e8d6dc4c3242cae0bdb0a67e1dae6f1c4a6",
+    "base_digest": "sha256:8a2321a92b438238f93b4346fff61bc4259c99fdd4d9b52ee86f153fee0c344f",
+    "image_id": "080c40706b37fb2fece6a61412d17c0e025ee87af82af28e79aa90f5d02a78ac",
+    "containerfile": "logs/Containerfile",
+    "isolation": "network none, read-only root, cap-drop all, no-new-privileges, task-only mounts, four-core taskset, threads4"
+  },
+  "native_result_scope": "bp_fe:1:1 floorplan init only; no model, placement quality, route or signoff inference",
+  "selected_tasks": "selection.json",
+  "results": {
+    "parser_controls": "logs/evaluator_controls.json",
+    "schema_probe": "logs/qa_schema_controls.json",
+    "report_review": "logs/report_calibration.json",
+    "native": "logs/native_results.json",
+    "independent_readback": "logs/readback.json"
+  },
+  "infrastructure_failures": [
+    {
+      "action": "rootless native container launch with --cpus4",
+      "result": "rc126, cpu controller unavailable; OpenROAD did not execute",
+      "resolution": "supported taskset affinity with container protections retained"
+    },
+    {
+      "action": "Mac execution/transfer around21:28",
+      "result": "transport unavailable until recovery22:32",
+      "resolution": "inspected saved artifacts/processes; no duplicate EDA run"
+    }
+  ],
+  "public_payload": "original scripts, logs, task IDs/hashes, audit docs only; no answers/PDK/DB/upstream code",
+  "publication": "not pushed",
+  "full_workflow": {
+    "selected_case": "bp_fe:1:1",
+    "status": "resource_blocked",
+    "execution": "not_run",
+    "reason": "Pinned releases have no reference macro coordinates/placed checkpoint; initialized DB has11 unplaced macros at origin. Official no-LLM flag still launches model-driven macroflow. No model calls authorized.",
+    "report": "WORKFLOW_FEASIBILITY.md",
+    "evidence": [
+      "logs/workflow_release_audit.json",
+      "logs/macro_state.json",
+      "logs/macro_state.log"
+    ],
+    "objective_constraints_verifier_changed": false,
+    "substitute_placement_used": false
+  },
+  "pilot_proposal": {
+    "path": "pilot/plan.json",
+    "status": "not_run",
+    "armed": false,
+    "model": "qwen/qwen3-vl-8b-instruct",
+    "requests_max": 3,
+    "output_tokens_max": 5120,
+    "incremental_accounted_ceiling_usd": "0.96",
+    "blocked_until": [
+      "shared Client multimodal/tools and model/project allocation support",
+      "verified image/provider price envelope",
+      "exact payload/licence review",
+      "new bounded CPU/runtime allocation and current global ledger reconciliation"
+    ],
+    "API_calls": 0,
+    "policy_changes": false,
+    "packet_complete": true,
+    "transmission_permission_established": false,
+    "snapshot_freeze_action": "one evidence-supported retry approved and completed",
+    "request1_review_frozen": true,
+    "all_future_packets_frozen": false,
+    "request1_sha256": "912cd9ffccd07fdd33a977d070f47dd37119258f2a1a4820c2f8107068bc42d2",
+    "exact_packet_local_review_complete": true,
+    "actual_image_pixels_inspected": true,
+    "source_review": "pilot/EXACT_PACKET_REVIEW.md",
+    "specific_remaining_transmission_decisions": [
+      "GPL prose/schema notice and corresponding-source delivery for this exact API processing boundary",
+      "named OpenRouter/Parasail user consent for reviewed initial input",
+      "central Client/model/provider/image/tool/cost support"
+    ],
+    "active_request1_sha256": "23ee554f84e548728a9f47ee9e2d28ff6aefdce458e53a3324a19a4260fd9977",
+    "request1_wire_bytes": 113803,
+    "request1_structured_text_tools_bytes": 50104,
+    "proposed_text_envelope_bytes": 65536,
+    "full_GPL_context_embedded": true,
+    "active_packet_receipt": "pilot/licence_complete_packet.json",
+    "active_packet_review": "pilot/LICENCE_COMPLETE_PACKET_REVIEW.md"
+  }
+}
