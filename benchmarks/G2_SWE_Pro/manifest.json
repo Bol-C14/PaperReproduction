@@ -1,0 +1,183 @@
+{
+  "task": "G2_SWE_Pro",
+  "status": "reference_calibration",
+  "scope_completion": "Three-case conditional control study completed within fixed four-case cohort; fourth case resource_blocked and its two candidates not_run.",
+  "paper": {
+    "url": "https://arxiv.org/html/2509.16941v2",
+    "version": "v2",
+    "date": "2025-11-14",
+    "html_sha256": "c189793f520a7b07effad32ad9c8740759f2ac7d9fdc9c391aa87c0a916b3c54",
+    "license": "CC-BY-4.0"
+  },
+  "venue": "arXiv preprint; peer-reviewed venue unknown",
+  "paper_type": "benchmark/dataset curation and empirical agent evaluation",
+  "contribution": "complex repository tasks; copyleft/private sourcing; human-augmented specifications and test/environment validation",
+  "ccf": {
+    "status": "unknown",
+    "reason": "No dated official CCF list verified; no confirmed conference venue"
+  },
+  "repository": "Bol-C14/PaperReproduction",
+  "branch": "reproduction/benchmark-swe-pro",
+  "base_commit": "809ca20e003c2f5d5a723c77ead8a6de532e4539",
+  "upstream": {
+    "repository": "https://github.com/scaleapi/SWE-bench_Pro-os",
+    "commit": "66f92766bba642462d4bbe5479e83f91f9211862",
+    "harness_license": "MIT",
+    "sha256sums_sha256": "9d84f8507c89241d42d8b3ef911600a1ec75dbbb32687ce9b45b93318502c0bd",
+    "verified_files": 6436
+  },
+  "data": {
+    "hf_repository": "ScaleAI/SWE-bench_Pro",
+    "revision": "2d52cb3df914a3fcf80c7f66738b3a88ae37fc50",
+    "v2_release": "2.0.0 / 2026-09-22",
+    "v1_tasks": 731,
+    "v2_tasks": 642,
+    "parquet_sha256": {
+      "default": "1067f72c1f43bbc578276888625db3b836cebb535546c9eaf824c5d5dd104a7f",
+      "v1": "c8cd7115496ad4e9a8b21d088cef576a65bf821bb542b24336f13f714cef13f8"
+    },
+    "reader": "DuckDB 1.4.4; validated all 642 rows against independent source files",
+    "license": "Task-derived upstream licenses; no blanket relicensing claim. qutebrowser GPLv3, Open Library AGPLv3; payloads privately retained.",
+    "selected_license_evidence": [
+      {
+        "task": "instance_qutebrowser__qutebrowser-01d1d1494411380d97cac14614a829d3a69cecaf-v2ef375ac784985212b1805e1d0431dc8f1b3c171",
+        "url": "https://raw.githubusercontent.com/qutebrowser/qutebrowser/71451483f4f380c2f70f6e5b28025af79b1168e5/LICENSE",
+        "base_commit": "71451483f4f380c2f70f6e5b28025af79b1168e5",
+        "sha256": "8ceb4b9ee5adedde47b31e975c1d90c73ad27b6b165a1dcd80c7c545eb65b903",
+        "license": "GPL-3.0"
+      },
+      {
+        "task": "instance_qutebrowser__qutebrowser-0833b5f6f140d04200ec91605f88704dd18e2970-v059c6fdc75567943479b23ebca7c07b5e9a7f34c",
+        "url": "https://raw.githubusercontent.com/qutebrowser/qutebrowser/def864adc8b19bdbc506919270d8ff1408b4faac/LICENSE",
+        "base_commit": "def864adc8b19bdbc506919270d8ff1408b4faac",
+        "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+        "license": "GPL-3.0"
+      },
+      {
+        "task": "instance_internetarchive__openlibrary-00bec1e7c8f3272c469a58e1377df03f955ed478-v13642507b4fc1f8d234172bf8129942da2c2ca26",
+        "url": "https://raw.githubusercontent.com/internetarchive/openlibrary/02f647f7d525286b6e3a661133c3772649e585cd/LICENSE",
+        "base_commit": "02f647f7d525286b6e3a661133c3772649e585cd",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "license": "AGPL-3.0"
+      },
+      {
+        "task": "instance_internetarchive__openlibrary-03095f2680f7516fca35a58e665bf2a41f006273-v8717e18970bcdc4e0d2cea3b1527752b21e74866",
+        "url": "https://raw.githubusercontent.com/internetarchive/openlibrary/46bcf7c30178f53ef427a5840c4b24717ed79fb0/LICENSE",
+        "base_commit": "46bcf7c30178f53ef427a5840c4b24717ed79fb0",
+        "sha256": "0d96a4ff68ad6d4b6f1f30f713b18d5184912ba8dd389f86aa7710db079abcb0",
+        "license": "AGPL-3.0"
+      }
+    ]
+  },
+  "runtime": {
+    "host": "APRIL existing strict SSH alias april1",
+    "podman": "5.6.0",
+    "rootless": true,
+    "crun": "1.27 (a718a92cc9a94955a5a550b6fdec1378c247ec50)",
+    "host_python": "3.9.25",
+    "qutebrowser_image1_python": "3.9.23",
+    "qutebrowser_image1_pytest": "6.1.1",
+    "qutebrowser_image1_git": "2.39.5",
+    "controller_python": "3.13.5",
+    "reader_duckdb": "1.4.4",
+    "harbor": "not installed or executed; upstream release gate used Harbor 0.22/Modal",
+    "port": "rootless Podman substitution, unchanged hidden verifier, fresh container for each captured diff",
+    "affinity": "os.sched_setaffinity inside every executed workload; /proc/self/status verified 0-3 for four repaired controls",
+    "user": "Original image user preserved (Config.User empty, effective uid 0 inside rootless namespace; no privileged mode).",
+    "network": "--network none for all local grader phases; stricter than upstream public verifier phase",
+    "output": "unique project-specific verifier output bind mount; no home/secrets/socket mount",
+    "openlibrary_image2_python": "3.10.18",
+    "openlibrary_image2_pytest": "7.1.1",
+    "openlibrary_image2_git": "2.39.5",
+    "rootless_uid_gid_map": "Namespace IDs 0 through 65536; full host mapping retained only in private runtime evidence"
+  },
+  "limits": {
+    "cpu_threads": 4,
+    "initial_setup_hours": 2,
+    "initial_download_bytes": 2000000000,
+    "delegated_download_increase_bytes": 3900000000,
+    "effective_download_state": "Direct user approval received 2026-10-28 23:46:02; review-supported retry executed; prior denial retained as history.",
+    "paid_api_usd": 0,
+    "model_calls": 0,
+    "task_count": 4,
+    "per_verifier_timeout_seconds": 3000,
+    "runner_wallclock_seconds": 5400,
+    "effective_download_bytes": 3900000000
+  },
+  "images": {
+    "cached_pair_unique_compressed_layer_bytes": 1386533181,
+    "all_four_unique_compressed_layer_bytes": 3719872176,
+    "downloaded_tasks": [
+      "instance_qutebrowser__qutebrowser-01d1d1494411380d97cac14614a829d3a69cecaf-v2ef375ac784985212b1805e1d0431dc8f1b3c171",
+      "instance_qutebrowser__qutebrowser-0833b5f6f140d04200ec91605f88704dd18e2970-v059c6fdc75567943479b23ebca7c07b5e9a7f34c",
+      "instance_internetarchive__openlibrary-03095f2680f7516fca35a58e665bf2a41f006273-v8717e18970bcdc4e0d2cea3b1527752b21e74866"
+    ],
+    "details": "image_manifest.json",
+    "failed_import_tasks": [
+      "instance_internetarchive__openlibrary-00bec1e7c8f3272c469a58e1377df03f955ed478-v13642507b4fc1f8d234172bf8129942da2c2ca26"
+    ],
+    "pull_events": "image_pull_attempts.json"
+  },
+  "execution": {
+    "paper_protocol": "not_run",
+    "current_public_release": "metadata_audit",
+    "local_controls": "reference_calibration",
+    "live_pilot": "not_run",
+    "offline_replay": "not_run",
+    "partial_method_reproduction": "not_run",
+    "partial_alternative_controls": "reference_calibration on three native cases, six frozen controls; two blocked-case candidates not_run",
+    "attempts": "attempts.json",
+    "remote_jobs": "none remaining at closeout snapshot; check again before any future submission",
+    "current_baselines": "current_baselines.json",
+    "candidate_manifest": "candidate_manifest.json",
+    "conditional_results": "conditional_controls.json",
+    "gate_amendment": "CONDITIONAL_STUDY.json",
+    "gate_amendment_predeclared_commit": "76ec876062dcf24e0f1f11989f1966f0e6521512",
+    "candidate_manifest_role": "Frozen preparation-time hashes/state; use conditional_controls.json for actual current outcomes"
+  },
+  "results": {
+    "reference_resolved": 3,
+    "reference_evaluated": 3,
+    "empty_resolved": 0,
+    "empty_evaluated": 3,
+    "selected_total": 4,
+    "selected_resource_blocked": 1,
+    "initial_cpu_failures": 8,
+    "later_logging_failures": 8,
+    "agent_success_rate": null,
+    "conditional_partial_accepted": 0,
+    "conditional_partial_evaluated": 3,
+    "conditional_alternative_accepted": 3,
+    "conditional_alternative_evaluated": 3,
+    "conditional_candidate_not_run": 2
+  },
+  "private_evidence": {
+    "root_relative_to_repo": "../private-evidence",
+    "index": "private_evidence_index.json",
+    "raw_logs": "april-final/logs/swe-pro and april-final/results/swe-pro; april-approved/logs/swe-pro and april-approved/results/swe-pro; april-conditional/results/swe-pro and april-conditional/logs/swe-pro",
+    "reference_payloads": "upstream/v2/tasks; private, excluded from git"
+  },
+  "blocker": {
+    "action": "Import the exact Open Library 00bec1e7 image at pinned digest under existing rootless Podman",
+    "decision": "runtime import failure after approved pull; no tests launched",
+    "reason": "Image contains UID/GID120012366; existing rootless mapping supports namespace0..65536. Native lchown fails.",
+    "remaining": "Only fourth-case baseline/candidate grading remains resource_blocked/not_run. Six explicitly authorized conditional controls on three cases are complete.",
+    "constraints": "No host subuid/subgid edits, privileges, ownership flattening, altered image, paid service or alternate-runtime substitution performed",
+    "next": "Parent selects an already authorized compatible native runtime or documents resource_blocked; inspect jobs/cache before any attempt."
+  },
+  "actual_cost_usd": 0,
+  "study_type": "Gold-derived reviewer controls, not independent agent outputs; no model success-rate or full-cohort correctness estimate",
+  "audit_window_utc": "2026-10-28 through 2026-10-29",
+  "public_boundary": "No reference patches, hidden-test bodies, candidate payloads, Parquet data, raw logs or private construction helper in public tree; full history retained privately.",
+  "public_history": {
+    "scope": "G2 additions only; inherited base history unchanged and outside sanitization claim",
+    "base": "809ca20e003c2f5d5a723c77ead8a6de532e4539",
+    "private_checkpoint": "d7e9a4e24fa235fa7e8727981c464868776b9dfd",
+    "private_bundle": "G2-private-full-history.bundle",
+    "bundle_sha256": "913814268006cc7dcde8df8e21d50ca0930306675e42424723fc76e8383d1b8b",
+    "bundle_prerequisite": "809ca20e003c2f5d5a723c77ead8a6de532e4539",
+    "bundle_verified": true,
+    "public_branch_shape": "single sanitized G2 commit on fixed base; no push",
+    "private_helper": "prepare_candidates.py (G2_PUBLIC_DIR locates this report package); original helper retained separately"
+  }
+}

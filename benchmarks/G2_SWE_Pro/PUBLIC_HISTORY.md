@@ -1,0 +1,11 @@
+# Public boundary and private provenance
+
+This is a reviewable G2 package; nothing has been pushed or published. The public G2 tree contains reports, hashes, bounded synthetic semantic probes, grading code and sanitized result records. It excludes reference/hidden-test bodies, candidate patch payloads, raw logs, data tables, the gold-derived candidate-construction helper and absolute host-home paths.
+
+The private evidence directory beside the repository retains all payloads, raw attempts, interrupted states, the original all-four gate, direct approval evidence and the candidate-construction helper. `private_evidence_index.json` uses paths relative to that private directory. The helper's historical form is retained; its relocated form can locate this package through `G2_PUBLIC_DIR` if independently needed. Frozen assets should be reused rather than regenerated.
+
+The original gate preflight refused candidate runs. An explicit amendment authorized the three native cases only; `CONDITIONAL_STUDY.json` was committed in `76ec876` before the six outcomes. Both that provenance and superseded blockers remain in the private full-history bundle. All hashes and failed selected attempts are preserved in reviewable metadata; the four-case cohort never changes.
+
+The final public branch is reconstructed as a single G2 commit on the unchanged authorized base `809ca20e003c2f5d5a723c77ead8a6de532e4539`. This prevents the removed private construction helper or superseded host-specific fields from lingering in the G2 public ancestry. Before replacing that branch reference, the complete pre-sanitization branch is committed, bundled and verified privately. Bundle identity and checkpoint are recorded in `manifest.json`; the private index verifies the bundle bytes. Inherited base-repository history is outside this G2 sanitization claim.
+
+Verified private G2 checkpoint: `d7e9a4e24fa235fa7e8727981c464868776b9dfd`. Incremental full-G2-history bundle: `G2-private-full-history.bundle`, SHA256 `913814268006cc7dcde8df8e21d50ca0930306675e42424723fc76e8383d1b8b`, prerequisite fixed base above. The bundle includes every G2 commit through that checkpoint; no missing promised base blobs were fetched. Local reflogs/objects remain private; only the sanitized branch ancestry is intended for later review/publication.

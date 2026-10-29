@@ -1,0 +1,18 @@
+# Conditional controls and independent semantic checks
+
+Scope: three natively calibrated tasks from the original fixed four-task cohort. No substitution, model call or full-cohort correctness estimate. The fourth task remains resource_blocked; its partial/alternative patches remain not_run. All six evaluated patches were frozen before grading. They are reviewer-authored and gold-derived, not blind reimplementations or agent outputs.
+
+| Task | Partial: required tests passing | Alternative: required tests passing | Independent behavioral evidence |
+|---|---:|---:|---|
+| qutebrowser 01d1d149 | 46/49, rejected | 49/49, accepted | Partial lacks the explicitly required `_reset_cache` interface. Alternative produces known/unknown/absent module lines, recomputes after reset and preserves mapping order. Its map-to-list formatter is equivalent to ordered comprehension for these string conversions. |
+| qutebrowser 0833b5f6 | 9/10, rejected | 10/10, accepted | Executing the actual extracted constructor with explicit Qt signal/scheduler fakes observes legacy emission for partial, modern emission with the supplied error code followed by finished for alternative. Three codes tested. The native unchanged Qt verifier independently accepts the minimal alternative. |
+| Open Library 03095f26 | 1/3, rejected | 3/3, accepted | Actual extracted `parse_log` omits removed old-work keys for partial, for both save/save_many; alternative includes them and limits newly created documents to their own key. Its `find_keys` also excludes non-string values, traverses nested strings in order and ignores unsupported containers. |
+| Open Library 00bec1e7 | not_run | not_run | Exact image cannot unpack UID/GID120012366 with existing rootless maps. No correctness inference. |
+
+No partial patch passed the unchanged native verifier. Their rejection is supported by concrete specified behavior, not merely by a smaller reference diff. In general, a reference-derived subset is only a proxy until behavior is checked; this experiment does not establish that every incomplete-looking diff must fail.
+
+The semantic probes execute actual patched AST nodes inside the same isolated grader before hidden material enters. They use fake module imports/Qt bindings, and test only save/save_many paths for the Open Library function. They do not import the whole application or contact services. Their interpreter state does not survive into the separate verifier process; they write no source/test modifications. Therefore these probes support bounded behavioral claims, not complete program equivalence. Unchanged native tests remain the reported verifier outcome.
+
+A specification/coverage issue survives the reference baseline: Open Library's reference `find_keys` emits a non-string key value. Its function AST is identical to the partial candidate's function (hash and equality proof in `semantic_alignment.json`), for which the isolated probe observed `[7, null, "a"]` while the prose calls for only string values (`["a"]`). The alternative adds the string guard and passes both the probe and all three native required tests. Reference acceptance alone therefore does not prove coverage of every prose requirement. This finding concerns a particular input and function, not all benchmark tasks.
+
+The explicit gate amendment is fixed in `CONDITIONAL_STUDY.json`, predeclared in commit `76ec876` before the six runs. It replaces the original all-four runtime prerequisite only for these three already calibrated cases. Original gate, gate-refusal log, source/image/test/patch hashes, full execution history and the reason for amendment remain auditable. No candidate was edited after outcomes.
