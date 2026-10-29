@@ -1,0 +1,344 @@
+{
+  "benchmark": "G4_Tau2",
+  "repository": "https://github.com/Bol-C14/PaperReproduction",
+  "branch": "reproduction/benchmark-tau2",
+  "status": "reference_calibration",
+  "stages": {
+    "metadata_audit": "metadata_audit",
+    "state_reward_controls": "reference_calibration",
+    "current_release_execution": "not_run",
+    "paired_live_pilot": "not_run",
+    "paper_performance_reproduction": "not_run"
+  },
+  "paper": {
+    "id": "2506.07982v1",
+    "url": "https://arxiv.org/html/2506.07982v1",
+    "venue": "arXiv preprint; peer-reviewed venue unknown",
+    "type": "benchmark and empirical evaluation",
+    "contribution": [
+      "dual-control telecom",
+      "compositional tasks",
+      "tool-grounded simulator",
+      "diagnostic ablations"
+    ],
+    "ccf": {
+      "rank": null,
+      "official_list_date": null,
+      "status": "unknown"
+    },
+    "html_sha256": "921305b1f873057c3e090cfe5796c66ca7af9d1bafa9e3d4dd745fe379016ce8",
+    "license": "CC BY 4.0"
+  },
+  "source": {
+    "upstream": "https://github.com/sierra-research/tau2-bench",
+    "paper_commit": "37199f36924c8896f5e048360691f8476cd89ba1",
+    "tag": "v0.1.0",
+    "tag_object": "c6570c3582828b6ef7a08cdafb8135877094e70c",
+    "candidate_v013": "5ba9e3e56db57c5e4114bf7f901291f09b2c5619",
+    "current_main_audit": "122e2432b82d740e8f313f46f0a071729c404f39",
+    "license": "MIT",
+    "clean": true,
+    "pin_confidence": "earliest public release; private experiment parity not established"
+  },
+  "datasets": {
+    "tasks.json": {
+      "count": 114,
+      "sha256": "192a2c143b3b512c37c3775fdf6c5040c33717388620c38b140c731dc6153cd7",
+      "reward_bases": {
+        "('ENV_ASSERTION',)": 94,
+        "('ENV_ASSERTION', 'ACTION')": 20
+      }
+    },
+    "tasks_full.json": {
+      "count": 2285,
+      "sha256": "37e562e1ae3242577407e1303b1548bc64e7ea68e37d36173e6747990ceaf8a4",
+      "reward_bases": {
+        "('ENV_ASSERTION',)": 2253,
+        "('ENV_ASSERTION', 'ACTION')": 32
+      }
+    },
+    "tasks_small.json": {
+      "count": 20,
+      "sha256": "c8ea6f75adc18a8ad363974292cbd26b6e8b0e348ec87d265a4188e0088a8f24",
+      "reward_bases": {
+        "('ENV_ASSERTION',)": 18,
+        "('ENV_ASSERTION', 'ACTION')": 2
+      }
+    }
+  },
+  "selection": {
+    "frozen_at": "2026-10-28T23:38:08.374670+00:00",
+    "selection_rule": "Preselected metadata-only indices [0,2,8,10,12,19], two mobile-data, three service including transfer/payment, one multi-permission MMS; no outcome selection.",
+    "dataset_sha256": "c8ea6f75adc18a8ad363974292cbd26b6e8b0e348ec87d265a4188e0088a8f24",
+    "selected": [
+      {
+        "index": 0,
+        "id": "[mobile_data_issue]user_abroad_roaming_enabled_off[PERSONA:None]",
+        "actions": 1,
+        "in_paper_main_set": false
+      },
+      {
+        "index": 2,
+        "id": "[mobile_data_issue]user_abroad_roaming_disabled_off[PERSONA:Hard]",
+        "actions": 2,
+        "in_paper_main_set": false
+      },
+      {
+        "index": 8,
+        "id": "[service_issue]airplane_mode_on[PERSONA:None]",
+        "actions": 1,
+        "in_paper_main_set": false
+      },
+      {
+        "index": 10,
+        "id": "[service_issue]lock_sim_card_pin[PERSONA:Hard]",
+        "actions": 1,
+        "in_paper_main_set": false
+      },
+      {
+        "index": 12,
+        "id": "[service_issue]overdue_bill_suspension[PERSONA:Easy]",
+        "actions": 4,
+        "in_paper_main_set": false
+      },
+      {
+        "index": 19,
+        "id": "[mms_issue]break_app_both_permissions[PERSONA:Hard]",
+        "actions": 2,
+        "in_paper_main_set": false
+      }
+    ],
+    "excluded": [
+      {
+        "index": 1,
+        "id": "[mobile_data_issue]user_abroad_roaming_disabled_on[PERSONA:Easy]",
+        "reason": "outside fixed six-case calibration cap"
+      },
+      {
+        "index": 3,
+        "id": "[mobile_data_issue]data_mode_off[PERSONA:None]",
+        "reason": "outside fixed six-case calibration cap"
+      },
+      {
+        "index": 4,
+        "id": "[mobile_data_issue]data_saver_mode_on[PERSONA:Easy]",
+        "reason": "outside fixed six-case calibration cap"
+      },
+      {
+        "index": 5,
+        "id": "[mobile_data_issue]bad_network_preference[PERSONA:Hard]",
+        "reason": "outside fixed six-case calibration cap"
+      },
+      {
+        "index": 6,
+        "id": "[mobile_data_issue]bad_vpn[PERSONA:None]",
+        "reason": "outside fixed six-case calibration cap"
+      },
+      {
+        "index": 7,
+        "id": "[mobile_data_issue]data_usage_exceeded[PERSONA:Easy]",
+        "reason": "outside fixed six-case calibration cap"
+      },
+      {
+        "index": 9,
+        "id": "[service_issue]unseat_sim_card[PERSONA:Easy]",
+        "reason": "outside fixed six-case calibration cap"
+      },
+      {
+        "index": 11,
+        "id": "[service_issue]break_apn_settings[PERSONA:None]",
+        "reason": "outside fixed six-case calibration cap"
+      },
+      {
+        "index": 13,
+        "id": "[service_issue]contract_end_suspension[PERSONA:Hard]",
+        "reason": "outside fixed six-case calibration cap"
+      },
+      {
+        "index": 14,
+        "id": "[mms_issue]bad_network_preference[PERSONA:None]",
+        "reason": "outside fixed six-case calibration cap"
+      },
+      {
+        "index": 15,
+        "id": "[mms_issue]bad_wifi_calling[PERSONA:Easy]",
+        "reason": "outside fixed six-case calibration cap"
+      },
+      {
+        "index": 16,
+        "id": "[mms_issue]break_apn_mms_setting[PERSONA:Hard]",
+        "reason": "outside fixed six-case calibration cap"
+      },
+      {
+        "index": 17,
+        "id": "[mms_issue]break_app_sms_permission[PERSONA:None]",
+        "reason": "outside fixed six-case calibration cap"
+      },
+      {
+        "index": 18,
+        "id": "[mms_issue]break_app_storage_permission[PERSONA:Easy]",
+        "reason": "outside fixed six-case calibration cap"
+      }
+    ],
+    "model_calls": 0,
+    "cost_usd": 0,
+    "max_threads": 4,
+    "setup_hours_cap": 2,
+    "download_bytes_cap": 2000000000
+  },
+  "caps": {
+    "setup_hours": 2,
+    "download_bytes": 2000000000,
+    "threads": 4,
+    "model_calls": 0,
+    "paid_spend_usd": 0
+  },
+  "actual": {
+    "agent_calls": 0,
+    "user_calls": 0,
+    "judge_calls": 0,
+    "cost_usd": 0,
+    "reference_control_rows": 60,
+    "full_aggregator_rows": 60,
+    "official_environment_tests": 6,
+    "official_telecom_tests": 49,
+    "combinatorial_identity_checks": 642,
+    "task_timeouts": 0,
+    "task_runtime_failures": 0,
+    "pre_task_import_failures": 1,
+    "uncertainty_intervals": null,
+    "model_pass_at_k": null,
+    "model_pass_power_k": null
+  },
+  "runtime": {
+    "platform": "Linux-5.14.0-611.49.1.el9_7.x86_64-x86_64-with-glibc2.34",
+    "python": "3.13.12",
+    "git_version": "git version 2.47.3",
+    "bubblewrap_version": "bubblewrap 0.6.3",
+    "uv_version": "uv 0.10.8"
+  },
+  "isolation": {
+    "network": "unshare-all",
+    "home": "not mounted",
+    "environment": "cleared",
+    "reference_access": "verifier only; no evaluated agent",
+    "container_image": null
+  },
+  "deviations": [
+    "small set not paper main set",
+    "minimal contemporary dependency set, not historical PDM lock",
+    "reference actions generate replay responses; no conversational reference trace invented",
+    "solo replay not live no-user agent",
+    "no model calls or simulator reliability reproduction"
+  ],
+  "blockers": [
+    {
+      "action": "paired live model comparison",
+      "target": "48 public-payload episodes via shared client",
+      "reason": "initial authorization prohibits model calls; parent release and enforceable caps required",
+      "state": "pending/not_run"
+    }
+  ],
+  "publication_boundary": {
+    "raw_reference_trajectories": "private only",
+    "expected_action_sequences": "excluded",
+    "raw_task_assets": "excluded",
+    "public_results": "numeric projections only",
+    "component_inventory": "task ID and required component labels only, source hash pinned",
+    "whitelist": "PUBLIC_WHITELIST.json"
+  },
+  "artifacts": {
+    "NEXT_EXPERIMENT.md": {
+      "sha256": "a9079543d69b2430566aa0e5473247d08f96c4657c1d6b3944b11fa036d42c14",
+      "bytes": 4149
+    },
+    "PUBLICATION.md": {
+      "sha256": "933ee3ce466c9d2f968a312f66c9faad6e539be85caec7f1de3cb2bdf9411f06",
+      "bytes": 3686
+    },
+    "PUBLIC_WHITELIST.json": {
+      "sha256": "f2087c0e48b976f1280dfbff3f3fa77abb2a7a36727abe0a58dfa8ae37afd486",
+      "bytes": 853
+    },
+    "REPRODUCTION.md": {
+      "sha256": "8524863facd0c2e8cc01a47a396b0b019fb042107698c68b33613f238706a523",
+      "bytes": 11143
+    },
+    "REVIEW.md": {
+      "sha256": "45eddbc93f67bb17228865458a3977311a20c85872c2cd7df8dabc71fb7675fd",
+      "bytes": 9355
+    },
+    "logs/dependencies.txt": {
+      "sha256": "3de6102c1edd23f149ce246632246c283c574743f1089e4b17b557b18e55bef2",
+      "bytes": 1375
+    },
+    "logs/disk-footprint.txt": {
+      "sha256": "3b26005c5309d1c6d668ffec7d78c74d8a73262b8b56e97d4d7cf104d5e353a5",
+      "bytes": 123
+    },
+    "logs/metrics.log": {
+      "sha256": "99b004b6bdd43b024be68f4bc13cd359632332af4f95ee4e33ea037ecf2b6527",
+      "bytes": 760
+    },
+    "logs/numeric-evidence-receipt.json": {
+      "sha256": "8c3e49ee66a82998723914712e7358050be9fa4aa13be38e24a25522a6de57dc",
+      "bytes": 886
+    },
+    "logs/original-LICENSE": {
+      "sha256": "e67c5aa0074dfcaefd3c3a1aedb94cb539234aecd15d5a972574e3200e6252fe",
+      "bytes": 1072
+    },
+    "logs/original-to-v013-evaluator.diff": {
+      "sha256": "4157a899bf42f83b5604f149b4fae09dfd91c543d634b2435b75825ef758f90b",
+      "bytes": 3114
+    },
+    "logs/upstream-environment.log": {
+      "sha256": "a4ce3c4d2d126cf54794b588fe0568dcf174b80e68913316f73e0da7b9f1c64b",
+      "bytes": 98
+    },
+    "logs/upstream-telecom.log": {
+      "sha256": "d6f6b04ecdbf3654ef561da792e47070b0df98e2f383f3f52649298864b3b950",
+      "bytes": 99
+    },
+    "results/calibration.json": {
+      "sha256": "9f3cb570947944457be9bd85682540888d8929d58c709b3e82f20165b819e2da",
+      "bytes": 20447
+    },
+    "results/full-reward.json": {
+      "sha256": "5c29fcbebda97765138eac6a64ccb6f01bb84f085eda53c9462c2f5cdb3aff52",
+      "bytes": 13439
+    },
+    "results/metrics-formulas.json": {
+      "sha256": "169113a8bfb63e1b66397c1180b08ceda46feabd1ff60b47e8cafc288a934569",
+      "bytes": 672
+    },
+    "results/reward-basis-inventory.json": {
+      "sha256": "9e9a09121e76ee893bc61ecc91ab65036423c6eab3eba4d4dcbc874c1c25f57c",
+      "bytes": 24882
+    },
+    "results/source-audit.json": {
+      "sha256": "906565c7bac79b711295304c0da013d2aabba54ddf07694876abe528353efd8d",
+      "bytes": 13525
+    },
+    "scripts/audit_sources.py": {
+      "sha256": "c2364e750c6650449d1c28ef3ba8fae72196907f04887b54b853733998ab4aae",
+      "bytes": 2460
+    },
+    "scripts/check_metrics.py": {
+      "sha256": "00117c175b96540e8f1c8e186ee1da0d4e97313b271005aec130d1e9cbc86ffd",
+      "bytes": 1198
+    },
+    "scripts/recount_inventory.py": {
+      "sha256": "1bc8fc6327fa85e528bc9edecfd13973a4810bbf98fb70180d2e15811fbce945",
+      "bytes": 1803
+    },
+    "scripts/run_isolated.sh": {
+      "sha256": "180b6042ce6a4117ed185f1fc3279c5b8e23e37bc6ae10e8a53a02743d47a222",
+      "bytes": 971
+    },
+    "scripts/selection.json": {
+      "sha256": "544fb9e939e6ed2b84224c84c6e5b9f7bb08cd6d9cd2304fe5688a7df013ca64",
+      "bytes": 3556
+    }
+  }
+}
