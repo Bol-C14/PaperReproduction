@@ -1,5 +1,7 @@
 # Frozen one-case real-agent pilot proposal — no calls authorized
 
+Historical unexecuted Qwen/interface proposal; current Terra outcome is in PLANNER_MILESTONE.md.
+
 Protocol ID `E3-bpfe-ar1-live-v4-licence-context-unarmed`, prepared2026-10-28. Status `not_run`. Same frozen bp_fe:1:1 input, clock1.8ns, target utilization60%,11 macros, core595.08×593.60um. No sweep, new task, reference layout or retrospective selection. This proposes a current-release live pilot with a different hosted backend and reduced candidate/turn budget, not paper-protocol reproduction or a reference replay.
 
 ## Model and bounded cost

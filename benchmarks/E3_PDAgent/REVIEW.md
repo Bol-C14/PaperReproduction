@@ -1,5 +1,7 @@
 # PDAgent-Bench v7: bounded release and evaluator review
 
+Current status (2026-10-29): native Planner live_pilot completed; Placer/Checker/backend remain not_run. See [Planner milestone](pilot/PLANNER_MILESTONE.md). Historical proposal details below describe earlier stages, not additional executed results.
+
 Audit date: 2026-10-28 UTC. This is a release audit and offline calibration, not a reproduced model leaderboard. No paid model calls occurred. Original paper protocol, current-release behavior and new diagnostic experiments are kept separate below.
 
 ## Identity and contribution
@@ -63,3 +65,9 @@ Paper HTML declares CC BY4.0. The leaderboard checkout has no LICENSE file. HF d
 ## Full-workflow follow-up boundary
 
 See WORKFLOW_FEASIBILITY.md. A fresh protected OpenROAD DB probe confirms all11 macros are unplaced at(0,0). The pinned releases have no reference candidate coordinates/placed DB. The advertised --no-llm outer mode still starts model-driven macroflow for this11-macro case. No arbitrary placement or model path was substituted. Full workflow remains not_run/resource_blocked pending a provenance-pinned valid reference placement (or separately approved live pilot); no routed artifact or post-route score exists.
+
+## Live Planner evidence and causal review, 2026-10-29
+
+One bounded Terra pilot completed native state→view→strategy tools for bp_fe. The original handler accepted the exact strategy; no coordinate placement or Checker/backend result followed. This supports tool-loop execution and preserves a concrete hypothesis for testing, not PPA/correctness or paper-model performance. The strategy incorrectly classifies #0 (BTB) as data SRAM along with #1–#8. True index mapping must accompany the unchanged strategy downstream; clustering or pin-access decisions based on the error are a plausible failure mechanism to test, not an established measured effect.
+
+A single-image stop required a separately timed, linked same-image protocol amendment. Three total requests cost USD0.0543815. Model/interface/output/candidate-limit changes and reconstructed initial state prevent an exact original-method claim. See pilot/PLANNER_MILESTONE.md for costs, immutable evidence hashes, native-vs-saved strategy hashes, preserved failures and timing; NEXT_EXPERIMENT.md separates original coordinate Placer/Gate A from subsequent physical-design verification.

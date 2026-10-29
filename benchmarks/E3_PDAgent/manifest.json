@@ -1,18 +1,23 @@
 {
   "benchmark": "E3_PDAgent",
-  "audit_date_utc": "2026-10-28",
+  "audit_date_utc": "2026-10-29",
   "statuses": [
     "metadata_audit",
     "offline_replay",
     "reference_calibration",
-    "resource_blocked"
+    "resource_blocked",
+    "live_pilot"
   ],
   "not_run": [
-    "live_pilot",
     "full_flow_method_reproduction",
     "commercial_script_evaluation",
     "LVS",
-    "official_QA_judge_or_checker"
+    "official_QA_judge_or_checker",
+    "Placer",
+    "Checker",
+    "detailed_placement",
+    "CTS",
+    "routing"
   ],
   "paper": {
     "url": "https://arxiv.org/html/2606.17253v7",
@@ -44,7 +49,8 @@
       "license": "GPL-3.0 code; collateral separately licensed",
       "floorplan_tcl_sha256": "b8198080202a25c68e43e45b559d7aebcb4d86a2c81f818c4da12393c65b51e2",
       "metrics_py_sha256": "5ecd1e0d7c5634e439dd6ceb0f33fa11deeb0b11ce8dfef9204686476153dda4",
-      "agents_py_sha256": "7dbc863b25f07f6f83ecd655a47b2106ce27bb80d6df76ea2a040dd9ca9f7367"
+      "agents_py_sha256": "7dbc863b25f07f6f83ecd655a47b2106ce27bb80d6df76ea2a040dd9ca9f7367",
+      "macroflow_agents_py_sha256": "ead404d021f6a79ffbbf90427c980416efd77c816c25660b6fbcd406d89bf1a4"
     }
   },
   "counts": {
@@ -61,11 +67,14 @@
     "cpu_threads": 4,
     "download_cap_bytes": 2000000000,
     "setup_hours": 2,
-    "api_calls": 0,
-    "api_usd": 0,
+    "api_calls": 3,
+    "api_usd": "0.0543815",
     "shared_prior_spend_usd": 0.04806425,
     "shared_ceiling_usd": 10,
-    "exact_network_bytes": null
+    "exact_network_bytes": null,
+    "shared_current_spend_usd": "0.10593113",
+    "shared_pending": 0,
+    "shared_unknown": 0
   },
   "runtime": {
     "host": "april1",
@@ -76,17 +85,16 @@
     "package_sha256": "1fe0e084dfc67a807f31a67a8f941e8d6dc4c3242cae0bdb0a67e1dae6f1c4a6",
     "base_digest": "sha256:8a2321a92b438238f93b4346fff61bc4259c99fdd4d9b52ee86f153fee0c344f",
     "image_id": "080c40706b37fb2fece6a61412d17c0e025ee87af82af28e79aa90f5d02a78ac",
-    "containerfile": "logs/Containerfile",
+    "containerfile": "retained privately; excluded from public whitelist",
     "isolation": "network none, read-only root, cap-drop all, no-new-privileges, task-only mounts, four-core taskset, threads4"
   },
-  "native_result_scope": "bp_fe:1:1 floorplan init only; no model, placement quality, route or signoff inference",
+  "native_result_scope": "bp_fe initialization reference calibration plus native Planner tool-loop live pilot; no placed/routed result or PPA/signoff inference",
   "selected_tasks": "selection.json",
   "results": {
     "parser_controls": "logs/evaluator_controls.json",
     "schema_probe": "logs/qa_schema_controls.json",
-    "report_review": "logs/report_calibration.json",
-    "native": "logs/native_results.json",
-    "independent_readback": "logs/readback.json"
+    "native_summary": "PUBLIC_EVIDENCE.json",
+    "planner": "logs/planner_milestone.json"
   },
   "infrastructure_failures": [
     {
@@ -101,12 +109,12 @@
     }
   ],
   "public_payload": "original scripts, logs, task IDs/hashes, audit docs only; no answers/PDK/DB/upstream code",
-  "publication": "not pushed",
+  "publication": "initial clean calibration head 11fd6b1b250b63fe6bc141e550f0da120ba31558 preserved on canonical remote; current milestone delta pending independent review, no push",
   "full_workflow": {
     "selected_case": "bp_fe:1:1",
     "status": "resource_blocked",
     "execution": "not_run",
-    "reason": "Pinned releases have no reference macro coordinates/placed checkpoint; initialized DB has11 unplaced macros at origin. Official no-LLM flag still launches model-driven macroflow. No model calls authorized.",
+    "reason": "Reference coordinates remain unreleased; a live Planner strategy now exists, but coordinate Placer, Checker and backend have not run.",
     "report": "WORKFLOW_FEASIBILITY.md",
     "evidence": [
       "logs/workflow_release_audit.json",
@@ -152,6 +160,9 @@
     "proposed_text_envelope_bytes": 65536,
     "full_GPL_context_embedded": true,
     "active_packet_receipt": "pilot/licence_complete_packet.json",
-    "active_packet_review": "pilot/LICENCE_COMPLETE_PACKET_REVIEW.md"
-  }
+    "active_packet_review": "pilot/LICENCE_COMPLETE_PACKET_REVIEW.md",
+    "historical": true,
+    "superseded_by": "pilot/PLANNER_MILESTONE.md"
+  },
+  "planner_milestone": "logs/planner_milestone.json"
 }

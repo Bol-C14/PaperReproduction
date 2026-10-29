@@ -1,5 +1,7 @@
 # Mock-ready driver and shared-Client extension contract
 
+Historical unexecuted Qwen/interface proposal; current Terra outcome is in PLANNER_MILESTONE.md.
+
 Version E3-bridge-v1; specification only, no live implementation or policy change. This preserves the original model-generated strategy→coordinate plan→native legalization/feedback→visual gates mechanism. One candidate/no repair and reduced output/turn budgets are declared deviations; they do not reproduce either outer3- or inner5-candidate performance.
 
 ## Trust and process boundary

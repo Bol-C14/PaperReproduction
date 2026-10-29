@@ -1,5 +1,7 @@
 # Active source path alignment for the proposed new pilot
 
+Historical unexecuted Qwen/interface proposal; current Terra outcome is in PLANNER_MILESTONE.md.
+
 Pinned OpenLayout65e440d, not a claim that README/prompt prose and every legacy helper agree.
 
 - Outer`configs/bp_fe.yaml`: candidates3, passed to`run_flow.py --macro-candidates3`. Inner`config_macro_gpt.yaml` default5 is overridden by the outer launcher. Single-candidate pilot1 is neither configured performance protocol.

@@ -1,6 +1,8 @@
 # Reproduction record
 
-Date: 2026-10-28 UTC. Branch `reproduction/benchmark-pdagent`, inherited baseline `809ca20`. No unrelated changes; sparse checkout of benchmarks. Status: metadata_audit, offline_replay and native reference_calibration at initialization scope. Live pilot and full-flow method reproduction: not_run. API spend USD0; no external communication or push.
+Current status (2026-10-29): native Planner live_pilot completed; Placer/Checker/backend remain not_run. See [Planner milestone](pilot/PLANNER_MILESTONE.md). Historical proposal details below describe earlier stages, not additional executed results.
+
+Initial calibration date: 2026-10-28 UTC; superseding Planner milestone: 2026-10-29 UTC. Branch `reproduction/benchmark-pdagent`, inherited baseline `809ca20`. No unrelated changes; sparse checkout of benchmarks. Status: metadata_audit, offline_replay and native reference_calibration at initialization scope. At that historical stage live pilot and full-flow reproduction were not_run and API spend was USD0. Current live-pilot totals are recorded above and in the milestone; full-flow remains not_run. The earlier clean calibration head was preserved remotely; this new delta awaits independent review before push.
 
 ## Frozen selection and caps
 

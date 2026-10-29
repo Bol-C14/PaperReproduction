@@ -1,5 +1,7 @@
 # Frozen bp_fe:1:1 full-workflow feasibility
 
+Current status (2026-10-29): native Planner live_pilot completed; Placer/Checker/backend remain not_run. See [Planner milestone](pilot/PLANNER_MILESTONE.md). Historical proposal details below describe earlier stages, not additional executed results.
+
 Follow-up audited 2026-10-28 after initialization closeout. **No end-to-end reference workflow has been executed or established.** Status: resource_blocked by missing replay collateral under the zero-model constraint, not by insufficient CPU/RAM. Initialization remains reference_calibration only. Selection, input DEF, 1.8 ns clock, 60% utilization, aspect1:1, downstream objectives/constraints and official checkers are unchanged.
 
 ## What is actually released

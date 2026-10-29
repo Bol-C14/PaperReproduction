@@ -1,5 +1,7 @@
 # Public payload whitelist for independent review
 
+Current status (2026-10-29): native Planner live_pilot completed; Placer/Checker/backend remain not_run. See [Planner milestone](pilot/PLANNER_MILESTONE.md). Historical proposal details below describe earlier stages, not additional executed results.
+
 `PUBLIC_WHITELIST.json` lists exact repository-relative files and SHA256 at the final proposed local head. It is a publication proposal, not permission to push. The whitelist itself is review metadata and is excluded from its own content-hash list to avoid recursion; obtain its hash and the final Git head from the handoff. Its `basis_head` records the pre-proposal audit head, not a claim that later files existed at that earlier revision.
 
 Only original audit prose/scripts, synthetic parser controls, available-task IDs, public source/model metadata, source/data hashes and redacted aggregate native evidence are proposed for publication. No upstream code/skills, benchmark QA/reference answers/rubrics, PDFs/PNGs, netlists/SDC/LEF/LIB, databases, archives, credentials, private directories or absolute user/home paths are in the whitelist. Hashes/file-name metadata do not grant rights to redistribute the referenced components. Exact model input imagery and collateral-derived facts remain pending parent review for external transmission, independent from this publication list.
@@ -7,3 +9,7 @@ Only original audit prose/scripts, synthetic parser controls, available-task IDs
 Excluded local evidence remains available to the independent auditor: raw native results/commands/probes, failed startup logs, runtime build/package records and scripts containing controller-specific paths. Reports may name these retained evidence files; they are not implicitly public because a report points to them. `PUBLIC_EVIDENCE.json` exposes count/hash/status facts without private filesystem paths or hierarchy names. A scoped public artifact may have fewer evidence files than the complete private audit package, and must retain that disclosure.
 
 Do not push this branch blindly: a final-tree whitelist does not erase excluded content in earlier commits or inherited history. Any publication/preservation commit must be constructed against an independently reviewed base/history and contain only the approved exact whitelist; review the actual pushed reachability/diff. No such public commit or push was prepared or executed here. No author contact, license grant or publication approval is inferred.
+
+## Current milestone payload boundary
+
+The new delta contains original review prose and sanitized aggregate metadata only. It excludes raw strategy/provider histories, prompts/tool-source copies, PNG/design/PDK/DEF/DB assets, credentials and private deployment paths. Existing packet licence records describe private API inputs, not files redistributed here. The initial audited root was preserved remotely; this milestone is an unpublished local candidate pending exact diff/history review. Historical no-call/no-transmission statements below/above describe the earlier proposal phase.
