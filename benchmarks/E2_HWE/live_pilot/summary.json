@@ -1,0 +1,157 @@
+{
+  "status": "live_pilot",
+  "task": "lowRISC/ibex:pr-48",
+  "episode_count": 1,
+  "batch_id": "hwe-ibex48-blind-v2-20261028",
+  "public_audit_head": "a2250d38849add8917ece59c7952cc22b79929b2",
+  "frozen_source": {
+    "source_baseline": "145269fdc88e1d545fca692fd3e3a43c99e1ac12",
+    "image_digest": "sha256:70947f247608ce3f6c900221a265a8f47257c723ac82a8d916a73ce02f92f5fa",
+    "freeze_file_sha256": "3c1a5bcaf098210f3dfda1127e8e07536af023873ec77083cc75e4bffa4daa7d",
+    "freeze_canonical_sha256": "bd26cd0e4dae15e1bc4548817ee0710e40e9b3d41f6bbedbc90875b2e57edc60",
+    "driver_sha256": "9a364f801bdb2c02c3bf1136e455bdd35582d5634768c4bb31c3b6f3e8830592",
+    "grader_sha256": "1b71f68bb6c4e8a00adde42a1de535579572291af77a87b29dfaa586a6a217b8",
+    "shared_Client_sha256": "36eb7c26ea308322f3fbdb883d9c144017f7dd4301f98342e8869c52db75ac71",
+    "prompt_sha256": "05f8bdcb80f11f2d676c65412c39afcbf15ea062ad6039c59b844689c42e9d7d"
+  },
+  "actual_api_calls": 2,
+  "actual_cost_usd": "0.00280638",
+  "global_accounted_usd_snapshot": "0.05087063",
+  "pending": 0,
+  "unknown": 0,
+  "whole_episode_wall_seconds": 9.04440619237721,
+  "official_report": {
+    "upstream_valid": true,
+    "f2p_count": 1,
+    "p2p_count": 0,
+    "n2p_count": 0,
+    "s2p_count": 0,
+    "hardware_correctness_claimed": false
+  },
+  "independent_contract": {
+    "failures": 0,
+    "total": 31,
+    "scope": "task-described HINT family"
+  },
+  "fixed_domain_reference_comparison": {
+    "domain": "65536 two-state lower16 input values; upper16 zero",
+    "differences": 1,
+    "differences_outside_HINT_family": 1,
+    "candidate_vector_sha256": "e2ad988fde8c8b63952bb2eafd72d64e59233c5f32b9c136340c848d9fe5f2ad",
+    "reference_vector_sha256": "8a28e20e335cb88c117dbf742354e14545b7bcdfa0dfcada21f4271b7fb78e1e",
+    "interpretation": "Reference disagreement outside the specified HINT family; not evidence of a failed HINT repair and not universal ISA correctness."
+  },
+  "limitations": [
+    "one preselected case and one episode; no model advantage or benchmark-wide rate inference",
+    "component-scoped file-RPC custom agent port, not the six-hour/500-iteration paper protocol",
+    "no pass-to-pass tests declared for the task",
+    "public historical task exposure in model training is unknown; no unseen-task or anti-memorization claim",
+    "no natural official-vs-HINT-contract false acceptance observed in this episode; prior offline adversarial coverage gaps remain",
+    "no universal ISA/four-state/formal/full-chip proof",
+    "per-process CPU masks were measured in the prior exact-grader resource test, not sampled during each live process"
+  ],
+  "deviations": [
+    "controller evidence-read transport disconnected after episode completion; read-only collection resumed, no model request or episode repeated"
+  ],
+  "push_performed": false,
+  "candidate_patch_sha256": "52ed4f70754e043ba97376ff33b42a50240a091a4bd49a977961f232dbd6108f",
+  "measured_input_tokens": 8185,
+  "output_tokens": 465,
+  "tools": 3,
+  "visible_message_bytes": 23693,
+  "scope": "One preselected Ibex PR48 episode only; component-scoped blind file-RPC port.",
+  "model": "google/gemini-2.5-flash",
+  "provider": "Google AI Studio",
+  "budget_limits": {
+    "requests": 4,
+    "output_tokens_total": 4000,
+    "tools_total": 8,
+    "whole_episode_seconds": 300,
+    "visible_json_bytes_per_request": 24000,
+    "visible_json_bytes_aggregate": 96000,
+    "actual_batch_ceiling_usd": "0.50",
+    "full_per_request_reservation_usd": "0.32",
+    "global_ceiling_usd": "10.00"
+  },
+  "pre_run_amendment": {
+    "former_planner_input_token_cap": 24000,
+    "guaranteed_billed_input_cap_withdrawn": true,
+    "visible_serialization": "len(json.dumps(messages,allow_nan=False).encode(UTF-8))",
+    "provider_input_tokens": "measured usage only; no exact provider-framing/token preflight claim",
+    "monetary_output_request_tool_and_time_gates_unchanged": true,
+    "occurred_before_live_requests": true
+  },
+  "stop_rules": [
+    "unknown cost or unsettled request: stop, retain full reservation, no retry",
+    "missing/malformed usage, model/provider/protocol error, infrastructure violation or any limit: stop; retain attempt",
+    "no automatic episode restart after transport disconnect",
+    "after completion, do not use spare calls or run additional episodes"
+  ],
+  "requests": [
+    {
+      "call": 1,
+      "provider": "Google AI Studio",
+      "model": "google/gemini-2.5-flash",
+      "reserve_usd": "0.32",
+      "actual_cost_usd": "0.0013481",
+      "cost_source": "provider_usage",
+      "prompt_tokens": 4002,
+      "completion_tokens": 59,
+      "reasoning_tokens": 0,
+      "cached_input_tokens": 0,
+      "visible_message_bytes": 11556,
+      "requested_max_output": 1024,
+      "response_sha256": "12316b50dbe27c322abc4d73a7f8656880aba20f9d1f8b64d28952b925fc6fc4",
+      "reconstructed_driver_input_sha256": "4ba792d36dd92fddf3fcaa34e63bd8bdcd09780ff48d6957a6aa38988793718a",
+      "input_hash_provenance": "deterministic replay from frozen prompt and actual tool actions/results; not a captured wire-body hash",
+      "reserve_utc": "2026-10-28T23:58:57.680492+00:00",
+      "finish_utc": "2026-10-28T23:58:58.548369+00:00"
+    },
+    {
+      "call": 2,
+      "provider": "Google AI Studio",
+      "model": "google/gemini-2.5-flash",
+      "reserve_usd": "0.32",
+      "actual_cost_usd": "0.00145828",
+      "cost_source": "provider_usage",
+      "prompt_tokens": 4183,
+      "completion_tokens": 406,
+      "reasoning_tokens": 0,
+      "cached_input_tokens": 3006,
+      "visible_message_bytes": 12137,
+      "requested_max_output": 1024,
+      "response_sha256": "7180993fd5977cff4410961730e205a417d277d179b98ad176c8d2e2a6da849b",
+      "reconstructed_driver_input_sha256": "5614a637fcb4b61b52d9baedcd9f2aea4de874d2537ecd6303eaee0f53123a12",
+      "input_hash_provenance": "deterministic replay from frozen prompt and actual tool actions/results; not a captured wire-body hash",
+      "reserve_utc": "2026-10-28T23:58:58.551339+00:00",
+      "finish_utc": "2026-10-28T23:59:00.691492+00:00"
+    }
+  ],
+  "generation_wall_seconds": 3.016893995925784,
+  "pristine_grading": {
+    "base_exit": 1,
+    "candidate_exit": 0,
+    "independent_exit": 0,
+    "timeouts": 0,
+    "patch_applicability_confirmed": true,
+    "native_target_behavior_reviewed": true,
+    "cpu_limit": "internal taskset after immutable image for all three phases; exact grader verified with real container/child mask probes before pilot",
+    "per_live_process_masks_sampled": false,
+    "task_containers_cleaned": true
+  },
+  "evidence_link": "live_pilot/EVIDENCE_INDEX.json",
+  "financial_ledger_provenance": {
+    "projected_file": "exact-request-ledger.json",
+    "is_complete_original_ledger": false,
+    "description": "Field projection of four batch rows; two reservation metadata fields were omitted. Retained fields and costs match the originals.",
+    "omitted_reservation_fields": [
+      "caller_reservation_usd",
+      "cost_envelope"
+    ],
+    "finish_rows_omitted_fields": [],
+    "original_financial_evidence_private": true,
+    "original_financial_archive_sha256": "dd7cefea54626b6eeb91e3cacec060fca88f79816a1b8e6bca398851db686a81",
+    "original_hwe_row_bytes_sha256": "be0c3d522e1789a6714d2ea87b138984742619a8d6b40d2f99844d269135519c",
+    "no_numeric_or_scientific_change": true
+  }
+}

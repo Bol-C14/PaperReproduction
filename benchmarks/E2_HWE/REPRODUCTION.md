@@ -1,6 +1,6 @@
 # HWE-Bench reproduction ledger
 
-Scope: four frozen tasks, two repositories; current-release audit and offline reference calibration. **No paid API, no live agent, no GPU, no push.** Shared historical API spend is USD 0.04806425 against USD 10; this task adds USD 0. The initial bound is two hours of setup, 2,000,000,000 downloaded bytes, four CPU threads per running paper task, sequential simulations here.
+Scope: four frozen tasks, two repositories; current-release audit and offline reference calibration. **The original offline phase used no API, agent or GPU.** A later separately released one-case live pilot is documented in LIVE_PILOT.md; it used two requests and USD 0.00280638. No push occurred. Shared prior API spend was USD 0.04806425 against USD 10; the saved post-pilot total is USD 0.05087063. The initial bound is two hours of setup, 2,000,000,000 downloaded bytes, four CPU threads per running paper task, sequential simulations here.
 
 Source pins, dataset SHA-256, task base commits and test/reference hashes are in `selection.json`. Immutable image digests, raw registry manifests and compressed layer sizes are in `raw/oci/`. Four images share 29 layers totaling **1,951,015,228 compressed bytes**. This is an exact registry layer-size sum, not an on-wire measurement or unpacked disk estimate. Extra source/data overhead must also fit the setup bound; no whole-repository image-pull script is used.
 
@@ -8,7 +8,7 @@ Source pins, dataset SHA-256, task base commits and test/reference hashes are in
 
 Controller: macOS, dedicated branch `reproduction/benchmark-hwe-bench` in existing `Bol-C14/PaperReproduction`. A local clone of the prior controller initially failed checkout because inherited DeepCell checkpoint objects were unavailable. Sparse checkout of `benchmarks` recovered the new checkout without changing the source checkout or its branch. Parent commit is `107d3015cb9a210f1e9a28a7910c0981eacc7600`; remote branch names were rechecked and the requested HWE branch was absent.
 
-Choose an execution workspace root `WORK_ROOT`; this task owns the relative directories `checkouts/hwe-bench`, `assets/hwe-bench`, `logs/hwe-bench`, and `results/hwe-bench`. Rootless Podman 5.6.0 is installed, Docker absent, initial image store empty. System Python is 3.9.25; the full upstream package requires Python ≥3.12. Native replay therefore extracts unchanged `runtime_files` methods and executes their files with Podman rather than installing the full Docker/Harbor Python stack. This is an **orchestration port**, not exact paper-protocol reproduction. It preserves each record's native simulation script and image. CPU affinity is explicitly four available CPUs; MAKEFLAGS/NUM_JOBS/OpenMP are four. Containers receive no host credentials, no host proxy, no external network and only the task-specific read-only verifier inputs.
+Choose an execution workspace root `WORK_ROOT`; this task owns the relative directories `checkouts/hwe-bench`, `assets/hwe-bench`, `logs/hwe-bench`, and `results/hwe-bench`. Rootless Podman 5.6.0 is installed, Docker absent, initial image store empty. System Python is 3.9.25; the full upstream package requires Python ≥3.12. Native replay therefore extracts unchanged `runtime_files` methods and executes their files with Podman rather than installing the full Docker/Harbor Python stack. This is an **orchestration port**, not exact paper-protocol reproduction. It preserves each record's native simulation script and image. The offline controller requested four host-affinity CPUs and MAKEFLAGS/NUM_JOBS/OpenMP were four. Container masks were not measured in that phase; a later host-only control allowed192 CPUs, so the offline wall times are not guaranteed four-core performance. Before the live pilot, the grader was corrected to taskset inside all three containers and real container/child probes verified CPU0–3. Containers receive no host credentials, no host proxy, no external network and only the task-specific read-only verifier inputs.
 
 Reproduce source controls without model dependencies:
 
@@ -31,7 +31,7 @@ The replay script records each image pull, command, return code, timeout, durati
 
 ## Actual results
 
-Status: **reference_calibration** for the four selected tasks; **offline_replay** for source and mutant controls; paper-protocol reproduction and live_pilot remain **not_run**.
+Status: **reference_calibration** for the four selected tasks; **offline_replay** for source and mutant controls; paper-protocol reproduction remains **not_run**. The subsequent single-case extension has status **live_pilot**, separately reported in LIVE_PILOT.md.
 
 | Selected task | Base / reference exit | Behavioral evidence reviewed | Base / reference seconds |
 |---|---:|---|---:|
@@ -79,7 +79,12 @@ python3 scripts/adjudicate_logs.py --upstream /path/to/pinned/hwe-bench \
 * The first native launch attempted extraction before archive transfer completion. Extraction failed with EOF and no simulation started. This controller sequencing error is recorded; recovery verified the archive hash and saved process/log before launch. A subsequent pre-pull AppleDouble parsing failure was corrected. The execution service then became unavailable; after the parent confirmed restoration at 22:32:50, the verified corrected driver completed successfully. See `raw/infrastructure_failures.json`.
 * Native Podman replay and AST controls are narrower than executing the full upstream Docker/Harbor stack. No alternative simulator, toy hardware task, or published reference outcome is silently counted as fresh reproduction.
 
-There is no 417-task model score, live pilot, paper-table reproduction, or independent proof of general hardware correctness in this phase.
+There is no 417-task model score, paper-table reproduction, or independent proof of general hardware correctness. The bounded single-case live pilot does not support those claims.
 
 
 Local preservation note: normal `git commit` failed while validating missing inherited DeepCell checkpoint objects. The new HWE payload itself passed integrity checks. To preserve the exact already-published parent without unrelated downloads, local commit creation uses `git write-tree --missing-ok`, `git commit-tree -p` that exact parent, and a compare-and-swap branch update. The inherited `P13_DeepCell` subtree hash must match the parent exactly; only `benchmarks/E2_HWE` may appear in the commit diff. This leaves the source clone's preexisting missing-blob limitation explicit rather than fabricating or deleting checkpoint files. Public raw fixture logs intentionally preserve trailing blank lines; whitespace validation permits that EOF convention while still checking other whitespace errors.
+
+
+## Single live extension and closure
+
+See LIVE_PILOT.md and live_pilot/summary.json for the separately authorized one-case result, pre-run byte-protocol amendment, exact driver/shared-Client hashes and no-retry rules. Two requests and three file tools completed; cost was USD0.00280638, pending/unknown zero. The official reproducer passed and the independent HINT contract had0/31 failures. One reference difference remains in the65536-input two-state, upper-half-zero domain, outside the HINT family. No further calls or spare attempts are authorized in this closeout. Raw prompts/responses, generated solution, hidden/reference tests and vector details remain private with portable hash linkage only.

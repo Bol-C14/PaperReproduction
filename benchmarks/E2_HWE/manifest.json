@@ -359,14 +359,14 @@
   ],
   "selection_rule": "first two numeric PRs in each of pinned Ibex and CVA6 datasets; do not replace failures",
   "selection_frozen_utc": "2026-10-28T21:19:48.491921+00:00",
-  "status": "reference_calibration",
+  "status": "live_pilot",
   "phases": {
     "paper_protocol_reproduction": "not_run",
     "current_release_audit": "metadata_audit",
     "native_reference_calibration": "reference_calibration",
     "source_controls": "offline_replay",
     "mutant_controls": "offline_replay",
-    "live_pilot": "not_run"
+    "live_pilot": "live_pilot"
   },
   "runtime": {
     "controller": "macOS-27.2-arm64-arm-64bit-Mach-O",
@@ -383,21 +383,39 @@
       "CVA6 PR 2017": "Verilator 5.008 (mod); Python 3.10.20; GCC 11.4.0",
       "CVA6 PR 1482": "native vendored Spike rebuilt in each phase; GCC 11.4.0"
     },
-    "final_container_check": "task-specific Podman ps -a returned empty after all controls"
+    "final_container_check": "task-specific Podman ps -a returned empty after all controls",
+    "offline_affinity_qualification": "Original offline controller requested four host-affinity CPUs; container CPU masks were not measured then. A later host-only control allowed192 CPUs. Do not interpret earlier wall times as guaranteed four-core performance.",
+    "live_grader_affinity": "Exact grader hash in live_pilot/summary.json uses internal taskset; real pre-run base/candidate/independent container and child probes verified CPU0-3. Individual live process masks were not separately sampled."
   },
   "budget": {
     "setup_hours": 2,
     "download_bytes_cap": 2000000000,
     "cpu_threads": 4,
-    "api_usd": 0,
-    "live_tasks": 0,
     "shared_api_ceiling_usd": 10,
     "shared_prior_spend_usd": 0.04806425,
-    "this_task_api_usd": 0,
+    "this_task_api_usd": "0.00280638",
     "native_driver_timeout_seconds": 3600,
     "phase_timeout_seconds": 1200,
     "unique_compressed_image_layer_bytes": 1951015228,
-    "image_wire_bytes_measured": false
+    "image_wire_bytes_measured": false,
+    "initial_offline_scope": {
+      "api_usd_cap": 0,
+      "live_tasks": 0
+    },
+    "live_pilot": {
+      "requests": 4,
+      "output_tokens_total": 4000,
+      "tools_total": 8,
+      "whole_episode_seconds": 300,
+      "visible_json_bytes_per_request": 24000,
+      "visible_json_bytes_aggregate": 96000,
+      "actual_batch_ceiling_usd": "0.50",
+      "full_per_request_reservation_usd": "0.32",
+      "global_ceiling_usd": "10.00"
+    },
+    "global_accounted_usd_snapshot": "0.05087063",
+    "global_pending_snapshot": 0,
+    "global_unknown_snapshot": 0
   },
   "delivery": {
     "repository": "Bol-C14/PaperReproduction",
@@ -413,7 +431,8 @@
       "logs/hwe-bench",
       "results/hwe-bench"
     ],
-    "private_evidence_resolution": "Custodian-controlled evidence bundle identified by SHA-256; host locations withheld from public export."
+    "private_evidence_resolution": "Custodian-controlled evidence bundle identified by SHA-256; host locations withheld from public export.",
+    "reviewed_parent_for_live_summary": "a2250d38849add8917ece59c7952cc22b79929b2"
   },
   "exclusions": [
     {
@@ -436,7 +455,7 @@
     "source-level fixtures are not native task outcomes",
     "reference replay is not a model score"
   ],
-  "updated_utc": "2026-10-28T22:55:56.972091+00:00",
+  "updated_utc": "2026-10-29T00:14:50.675630+00:00",
   "native_results": [
     {
       "id": "lowRISC/ibex:pr-45",
@@ -650,13 +669,13 @@
     "mutant_driver_id": "hwe-mutant-driver-6b13a4109282a712",
     "availability": "Private, not bundled; resolve by evidence identifier and SHA-256 through the custodian."
   },
-  "api_calls": 0,
+  "api_calls": 2,
   "native_timeouts": 0,
   "selected_native_exclusions": [],
   "remaining_blockers": [],
   "out_of_scope_not_run": [
-    "paper agent protocol and full-table reproduction",
-    "live pilot; proposed future budget only"
+    "full paper agent protocol and full-table reproduction",
+    "additional cases, episodes or comparative model experiments"
   ],
   "licenses": {
     "paper": "CC BY 4.0",
@@ -674,5 +693,31 @@
     "independent_contract": "partial 15/31 and overfit 30/31 failures in the task-described HINT family",
     "alternative_equivalence_domain": "65536 two-state inputs: lower 16 bits enumerated, upper 16 bits zero; not universal ISA, four-state, formal or full-chip proof",
     "cva6_pr1482": "Spike/CVXIF software verification path, not whole-core RTL verification"
+  },
+  "live_pilot_summary": "live_pilot/summary.json",
+  "live_pilot_private_evidence": {
+    "evidence_id": "hwe-live-v2-ee4532d7ba06cee4",
+    "sha256": "ee4532d7ba06cee4584826b5ec8c6de2eb07758b54a0bdd5624bd76e2151b5a3",
+    "bytes": 138297,
+    "index": "live_pilot/EVIDENCE_INDEX.json",
+    "raw_files_count": 33,
+    "contents_public": false,
+    "original_financial_metadata_addendum_sha256": "dd7cefea54626b6eeb91e3cacec060fca88f79816a1b8e6bca398851db686a81",
+    "ledger_projection_label": "exact-request-ledger.json is a field projection, not the complete original ledger; original financial bytes privately retained"
+  },
+  "live_pilot_result": {
+    "task": "lowRISC/ibex:pr-48",
+    "episodes": 1,
+    "requests": 2,
+    "tools": 3,
+    "actual_cost_usd": "0.00280638",
+    "official_valid": true,
+    "independent_HINT_failures": 0,
+    "independent_HINT_total": 31,
+    "reference_vector_differences": 1,
+    "reference_domain": "65536 two-state lower16 values, upper16 zero",
+    "difference_outside_HINT_family": true,
+    "no_model_advantage_claim": true,
+    "no_full_ISA_claim": true
   }
 }
