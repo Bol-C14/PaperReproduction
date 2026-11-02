@@ -1,0 +1,47 @@
+{
+  "type": "documented_process_wall_time_subtotal_not_complete_usage_or_money",
+  "entries": [
+    {
+      "scope": "RQ1 round2: contract audit + 3 processes",
+      "wall_seconds": 272.25810927152634,
+      "source": "ROUND2_SUMMARY.json"
+    },
+    {
+      "scope": "RQ1 round3 preserved instrument failure",
+      "wall_seconds": 62.54031666740775,
+      "source": "ROUND3_SUMMARY.json"
+    },
+    {
+      "scope": "RQ1 VexRiscv completed v2 pair",
+      "wall_seconds": 142.32351859100163,
+      "source": "ROUND3_V2_SUMMARY.json"
+    },
+    {
+      "scope": "RQ1 miniISP completed pair",
+      "wall_seconds": 145.33387162163854,
+      "source": "second-family/SUMMARY.json"
+    },
+    {
+      "scope": "RQ3 report probe",
+      "wall_seconds": 36.861567893996835,
+      "source": "RQ3 receipt.json, read-only other-thread evidence"
+    },
+    {
+      "scope": "RQ4 two route candidates",
+      "wall_seconds": 109,
+      "source": "RQ4_BATCH2_RESULT.json, read-only other-thread evidence"
+    }
+  ],
+  "subtotal_seconds": 768.3173840455711,
+  "excluded": [
+    "RQ1 initial smoke and its startup failures (internal timer not comparable process-wall receipt)",
+    "version/help probes",
+    "RQ4 failed comparator and approximate help durations",
+    "local Python controls/checkers",
+    "SSH/SCP/hash/archive inspection/packaging/coordination",
+    "CPU seconds, energy, license allocation and preexisting system jobs not measured"
+  ],
+  "overlap_policy": "do_not_add_RQ3_per_report_times_or_RQ4_368s_remote_window_to_process_subtotal; no_double_count",
+  "paid_calls_or_new_paid_resources_by_this_prepilot": false,
+  "money_total_estimated": false
+}

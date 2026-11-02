@@ -13,3 +13,5 @@ Latest: [verified Icarus and actual isolated RTL smoke readiness](papers/Paper03
 Executable activation command and final scope: [EXECUTION_GUIDE.md](papers/Paper03-Trace2Skill/EXECUTION_GUIDE.md). Ordinary Chat/skill/real-verifier wiring is complete; 69 offline tests and 14 actual RTL simulations, no model requests.
 
 Client audit fixes: [CLIENT_SECURITY_FIX.md](papers/Paper03-Trace2Skill/CLIENT_SECURITY_FIX.md), 88 offline tests; live still awaits parent security review.
+
+The [2026-11-02 scientific prepilot audit](prepilot/rq1-20261102/README.md) records two bounded RQ1 design-family comparisons, instrument failures/repairs, and attributed RQ3/RQ4 screening context. It contains sanitized public evidence; private delivery capsules and generated design binaries are excluded.

@@ -1,0 +1,45 @@
+{
+  "scope": "local_exported_HDL_checker_controls_only_no_EDA_runs",
+  "results": [
+    {
+      "case": "actual_pair",
+      "expected_accept": true,
+      "accepted": true,
+      "matches_expectation": true,
+      "exit_code": 0,
+      "last_error": null
+    },
+    {
+      "case": "changed_LUT_INIT_bit",
+      "expected_accept": false,
+      "accepted": false,
+      "matches_expectation": true,
+      "exit_code": 1,
+      "last_error": "AssertionError: [{'\\\\HazardSimplePlugin_writeBackBuffer_payload_data[18]_i_2_n_0': 0, '\\\\HazardSimplePlugin_writeBackBuffer_payload_data[31]_i_2_n_0': 0, '\\\\HazardSimplePlugin_writeBackBuffer_payload_data_reg[22]_i_2_0 [18]': 0, '_zz_8': 0, 'memory_to_writeBack_IS_MUL': 0, 'writeBack_MulPlugin_result[50]': 0, 'writeBack_arbitration_isValid': 0}]"
+    },
+    {
+      "case": "changed_new_LUT_input",
+      "expected_accept": false,
+      "accepted": false,
+      "matches_expectation": true,
+      "exit_code": 1,
+      "last_error": "AssertionError: [{'\\\\HazardSimplePlugin_writeBackBuffer_payload_data[18]_i_2_n_0': 0, '\\\\HazardSimplePlugin_writeBackBuffer_payload_data[31]_i_2_n_0': 0, '\\\\HazardSimplePlugin_writeBackBuffer_payload_data_reg[22]_i_2_0 [18]': 0, '_zz_8': 0, 'memory_to_writeBack_IS_MUL': 1, 'writeBack_MulPlugin_result[50]': 1, 'writeBack_arbitration_isValid': 1}]"
+    },
+    {
+      "case": "unaccounted_remaining_logic_change",
+      "expected_accept": false,
+      "accepted": false,
+      "matches_expectation": true,
+      "exit_code": 1,
+      "last_error": "AssertionError: other LUT modifications require review"
+    },
+    {
+      "case": "extra_unaccounted_wire",
+      "expected_accept": false,
+      "accepted": false,
+      "matches_expectation": true,
+      "exit_code": 1,
+      "last_error": "AssertionError: non-LUT, attribute, or wiring changes outside declared slice"
+    }
+  ]
+}
