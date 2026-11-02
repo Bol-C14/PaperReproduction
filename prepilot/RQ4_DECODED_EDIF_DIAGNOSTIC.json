@@ -1,0 +1,58 @@
+{
+  "scope": "Lossless decompression diagnostic; no whitespace/property normalization; not an acceptance override",
+  "zstandard_version": "0.23.0",
+  "decoded": {
+    "serialized": {
+      "bytes": 3761432,
+      "sha256": "568662e9e1afca01ccbe0b75f319ca8ff601faed25b6fde8433171a18d72b970",
+      "text_edif_prefix": true
+    },
+    "noop_1": {
+      "bytes": 3761432,
+      "sha256": "68fb39a8578bd218bcb62d96f29122c8fdcd3ff9d8d942e60507715ce37a73f3",
+      "text_edif_prefix": true
+    },
+    "default_1": {
+      "bytes": 3762670,
+      "sha256": "30db1ad8bd433e84210a8096c97f0f56c070528e31e8ea5909e4f5ed09d25588",
+      "text_edif_prefix": true
+    },
+    "noop_confirmation": {
+      "bytes": 3761432,
+      "sha256": "9cc1eb657b1c18824165e278314cced7e9ea91ec01429b22b435e07c5b52a89c",
+      "text_edif_prefix": true
+    }
+  },
+  "comparisons": [
+    {
+      "left": "serialized",
+      "right": "noop_1",
+      "exact_decoded_bytes_equal": false
+    },
+    {
+      "left": "serialized",
+      "right": "default_1",
+      "exact_decoded_bytes_equal": false
+    },
+    {
+      "left": "serialized",
+      "right": "noop_confirmation",
+      "exact_decoded_bytes_equal": false
+    },
+    {
+      "left": "noop_1",
+      "right": "default_1",
+      "exact_decoded_bytes_equal": false
+    },
+    {
+      "left": "noop_1",
+      "right": "noop_confirmation",
+      "exact_decoded_bytes_equal": false
+    },
+    {
+      "left": "default_1",
+      "right": "noop_confirmation",
+      "exact_decoded_bytes_equal": false
+    }
+  ]
+}
